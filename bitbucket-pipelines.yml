@@ -1,0 +1,10 @@
+# The Sonar Bitbucket plug-in will run on the default Pipeline.
+# -----
+image: maven:3.5.0
+
+pipelines:
+  default:
+    - step:
+        script:
+          - mvn clean test
+          - mvn sonar:sonar --batch-mode --errors -Dsonar.bitbucket.repoSlug=$BITBUCKET_REPO_SLUG -Dsonar.bitbucket.accountName=$BITBUCKET_REPO_OWNER -Dsonar.bitbucket.oauthClientKey=$OAUTH_CLIENT_KEY -Dsonar.bitbucket.oauthClientSecret=$OAUTH_CLIENT_SECRET -Dsonar.bitbucket.branchName=$BITBUCKET_BRANCH -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.password=$SONAR_PASSWORD -Dsonar.analysis.mode=issues
