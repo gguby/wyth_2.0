@@ -1,4 +1,4 @@
 {
   "sonarHost": "http://10.10.24.21",
-  "sonarProjectKey": "BoostMINI-iOS"
+  "sonarProjectKey": "BoostMINI-iOS-develop:develop"
 }
