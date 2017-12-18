@@ -12,4 +12,4 @@ pipelines:
           - echo "Sonar pipeline, run!"
           - curl -OL https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-2.6.1.zip
           - unzip sonar-scanner-2.6.1.zip
-          - ./sonar-scanner-2.6.1/bin/sonar-scanner -Dsonar.host.url=http://10.10.24.21 -Dsonar.branch=$BITBUCKET_BRANCH
+          - ./sonar-scanner-2.6.1/bin/sonar-scanner -Dsonar.host.url=http://10.10.24.21 -Dsonar.branch=$BITBUCKET_BRANCH -Dsonar.login=admin -Dsonar.password=admin -Dsonar.analysis.mode=issues
