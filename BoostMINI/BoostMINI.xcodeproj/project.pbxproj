@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0781FEA6293007441E1 /* BSTFacade.swift */; };
+		2B5AA07B1FEA6299007441E1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA07A1FEA6299007441E1 /* Common.swift */; };
+		2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA07C1FEA62A0007441E1 /* Constants.swift */; };
+		2B5AA07F1FEA62A7007441E1 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA07E1FEA62A7007441E1 /* Definitions.swift */; };
 		2B61F03D1FDFA49500581F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F03C1FDFA49500581F06 /* AppDelegate.swift */; };
 		2B61F03F1FDFA49500581F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F03E1FDFA49500581F06 /* ViewController.swift */; };
 		2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B61F0401FDFA49500581F06 /* Main.storyboard */; };
@@ -36,6 +40,11 @@
 
 /* Begin PBXFileReference section */
 		06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.release.xcconfig"; sourceTree = "<group>"; };
+		2B5AA0721FEA623F007441E1 /* BoostMINI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BoostMINI-Bridging-Header.h"; sourceTree = "<group>"; };
+		2B5AA0781FEA6293007441E1 /* BSTFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTFacade.swift; sourceTree = "<group>"; };
+		2B5AA07A1FEA6299007441E1 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		2B5AA07C1FEA62A0007441E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2B5AA07E1FEA62A7007441E1 /* Definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		2B61F0391FDFA49500581F06 /* BoostMINI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoostMINI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B61F03C1FDFA49500581F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B61F03E1FDFA49500581F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +89,141 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B5AA0621FEA6178007441E1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2B5AA06A1FEA6178007441E1 /* OpenSources */,
+				2B5AA06C1FEA6178007441E1 /* Categories */,
+				2B5AA0631FEA6178007441E1 /* Handler */,
+				2B5AA06B1FEA6178007441E1 /* Model */,
+				2B5AA0641FEA6178007441E1 /* CustomUI */,
+				2B5AA0651FEA6178007441E1 /* Util */,
+				2B5AA0661FEA6178007441E1 /* UX */,
+				2B5AA0671FEA6178007441E1 /* ViewControllers */,
+				2B5AA06D1FEA6178007441E1 /* Debug */,
+				2B61F03C1FDFA49500581F06 /* AppDelegate.swift */,
+				2B5AA0781FEA6293007441E1 /* BSTFacade.swift */,
+				2B5AA07A1FEA6299007441E1 /* Common.swift */,
+				2B5AA07C1FEA62A0007441E1 /* Constants.swift */,
+				2B5AA07E1FEA62A7007441E1 /* Definitions.swift */,
+				2B5AA0721FEA623F007441E1 /* BoostMINI-Bridging-Header.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2B5AA0631FEA6178007441E1 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		2B5AA0641FEA6178007441E1 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		2B5AA0651FEA6178007441E1 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		2B5AA0661FEA6178007441E1 /* UX */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UX;
+			sourceTree = "<group>";
+		};
+		2B5AA0671FEA6178007441E1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B5AA0681FEA6178007441E1 /* MainScreens */,
+				2B5AA0691FEA6178007441E1 /* SignUpScreens */,
+				2B61F03E1FDFA49500581F06 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2B5AA0681FEA6178007441E1 /* MainScreens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainScreens;
+			sourceTree = "<group>";
+		};
+		2B5AA0691FEA6178007441E1 /* SignUpScreens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUpScreens;
+			sourceTree = "<group>";
+		};
+		2B5AA06A1FEA6178007441E1 /* OpenSources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OpenSources;
+			sourceTree = "<group>";
+		};
+		2B5AA06B1FEA6178007441E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B5AA06C1FEA6178007441E1 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		2B5AA06D1FEA6178007441E1 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		2B5AA06E1FEA6180007441E1 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		2B5AA06F1FEA6187007441E1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2B5AA0711FEA61AC007441E1 /* Storyboards */,
+				2B5AA0701FEA6187007441E1 /* Strings */,
+				2B61F0431FDFA49500581F06 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2B5AA0701FEA6187007441E1 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		2B5AA0711FEA61AC007441E1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2B61F0401FDFA49500581F06 /* Main.storyboard */,
+				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		2B61F0301FDFA49500581F06 = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +249,10 @@
 		2B61F03B1FDFA49500581F06 /* BoostMINI */ = {
 			isa = PBXGroup;
 			children = (
+				2B5AA06E1FEA6180007441E1 /* Libraries */,
+				2B5AA0621FEA6178007441E1 /* Classes */,
+				2B5AA06F1FEA6187007441E1 /* Resources */,
 				2B61F06A1FDFA4C400581F06 /* BoostMINI.entitlements */,
-				2B61F03C1FDFA49500581F06 /* AppDelegate.swift */,
-				2B61F03E1FDFA49500581F06 /* ViewController.swift */,
-				2B61F0401FDFA49500581F06 /* Main.storyboard */,
-				2B61F0431FDFA49500581F06 /* Assets.xcassets */,
-				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
 				2B61F0481FDFA49500581F06 /* Info.plist */,
 			);
 			path = BoostMINI;
@@ -223,6 +365,7 @@
 				TargetAttributes = {
 					2B61F0381FDFA49500581F06 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -361,7 +504,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */,
+				2B5AA07B1FEA6299007441E1 /* Common.swift in Sources */,
 				2B61F03F1FDFA49500581F06 /* ViewController.swift in Sources */,
+				2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */,
+				2B5AA07F1FEA62A7007441E1 /* Definitions.swift in Sources */,
 				2B61F03D1FDFA49500581F06 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,6 +676,7 @@
 			baseConfigurationReference = C6A81DC28D0A865EDC8E4162 /* Pods-BoostMINI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BoostMINI/BoostMINI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
@@ -537,6 +685,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BoostMINI/Classes/BoostMINI-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -547,6 +697,7 @@
 			baseConfigurationReference = 06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BoostMINI/BoostMINI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
@@ -555,6 +706,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BoostMINI/Classes/BoostMINI-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
