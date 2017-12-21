@@ -7,12 +7,30 @@ def open_sources
 
   # Pods for BoostMINI
     pod 'SwiftLint'
-    # pod 'Alamofire', '~> 4.5'
     # pod 'RealReachability'
     # pod 'Realm'
-    # pod 'Toast-Swift', '~> 3.0.1'
-    # pod 'ImageViewer', '>= 5.0'	#dkpark add
-    # pod 'SwiftyBeaver', '~> 1.4.3'
+    pod 'Toast-Swift', '~> 3.0.1'
+    pod 'SwiftyBeaver', '~> 1.4.3'
+
+
+#	pod 'ImageViewer', '>= 5.0'
+#	pod 'Kingfisher', '~> 4.0'
+#
+#	pod 'ReSwift'
+#	pod 'ReSwiftRouter', '~> 0.5.0'
+#	#pod 'ReSwiftRecorder'
+#
+#	pod 'Alamofire', '~> 4.5'
+#	pod 'CodableAlamofire', '~> 1.1.0'
+#
+#	pod 'RxSwift',    '~> 4.0'
+#	pod 'RxCocoa',    '~> 4.0'
+
+
+#  FaceBook
+#   #pod 'FBSDKLoginKit', '~> 4.18.0' # too old
+#	pod 'FacebookCore'
+#	pod 'FacebookLogin'
 
 # for Analytics
 
@@ -29,21 +47,16 @@ target 'BoostMINI' do
 	open_sources
 end
 
-# target 'LysnVideoOnly' do
-# 	pod_list
-# end
+ target 'BoostMINITests' do
+ 	open_sources
+	#pod 'RxBlocking', '~> 4.0'
+	#pod 'RxTest',     '~> 4.0'
+ end
 
-#target 'LysnTests' do
-#	pod_list
-#	inherit! :search_paths
-#	# Pods for testing
-#	pod 'Realm/Headers'
-#end
-#
-#target 'LysnUITests' do
-#	pod_list
-#	inherit! :search_paths
-#	# Pods for testing
+#target 'BoostMINIUITests' do
+# 	open_sources
+#	pod 'RxBlocking', '~> 4.0'
+#	pod 'RxTest',     '~> 4.0'
 #end
 
 

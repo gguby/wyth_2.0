@@ -30,6 +30,7 @@
 		2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F0511FDFA49500581F06 /* BoostMINITests.swift */; };
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
 		A2D896F567E23F4060F7E849 /* Pods_BoostMINI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE278FD296F77407907664D /* Pods_BoostMINI.framework */; };
+		BBAF3A4D59706FBA1EFD8D35 /* Pods_BoostMINITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4155BB6AAAB709628F89E0 /* Pods_BoostMINITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,10 +82,15 @@
 		2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostMINIUITests.swift; sourceTree = "<group>"; };
 		2B61F05E1FDFA49500581F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B61F06A1FDFA4C400581F06 /* BoostMINI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoostMINI.entitlements; sourceTree = "<group>"; };
+		48A5E026AA7FED66F3366494 /* Pods-BoostMINITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.product.xcconfig"; sourceTree = "<group>"; };
 		5CE278FD296F77407907664D /* Pods_BoostMINI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoostMINI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6781EEC7AEE28C8E68110BB0 /* Pods-BoostMINITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.release.xcconfig"; sourceTree = "<group>"; };
+		6CC7B7F9DD813D4A8F0EC737 /* Pods-BoostMINITests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.stage.xcconfig"; sourceTree = "<group>"; };
+		8E3B451244A2D124A302E95E /* Pods-BoostMINITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6A81DC28D0A865EDC8E4162 /* Pods-BoostMINI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.debug.xcconfig"; sourceTree = "<group>"; };
 		D40819E4F294CFFA0F7529DC /* Pods-BoostMINI.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.stage.xcconfig"; sourceTree = "<group>"; };
 		D82B305D50ABA64EA1413891 /* Pods-BoostMINI.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.product.xcconfig"; sourceTree = "<group>"; };
+		DB4155BB6AAAB709628F89E0 /* Pods_BoostMINITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoostMINITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBAF3A4D59706FBA1EFD8D35 /* Pods_BoostMINITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				5CE278FD296F77407907664D /* Pods_BoostMINI.framework */,
+				DB4155BB6AAAB709628F89E0 /* Pods_BoostMINITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -326,6 +334,10 @@
 				06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */,
 				D40819E4F294CFFA0F7529DC /* Pods-BoostMINI.stage.xcconfig */,
 				D82B305D50ABA64EA1413891 /* Pods-BoostMINI.product.xcconfig */,
+				8E3B451244A2D124A302E95E /* Pods-BoostMINITests.debug.xcconfig */,
+				6781EEC7AEE28C8E68110BB0 /* Pods-BoostMINITests.release.xcconfig */,
+				6CC7B7F9DD813D4A8F0EC737 /* Pods-BoostMINITests.stage.xcconfig */,
+				48A5E026AA7FED66F3366494 /* Pods-BoostMINITests.product.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -358,9 +370,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B61F0641FDFA49500581F06 /* Build configuration list for PBXNativeTarget "BoostMINITests" */;
 			buildPhases = (
+				FAA20D6D81153277A197D0A3 /* [CP] Check Pods Manifest.lock */,
 				2B61F0491FDFA49500581F06 /* Sources */,
 				2B61F04A1FDFA49500581F06 /* Frameworks */,
 				2B61F04B1FDFA49500581F06 /* Resources */,
+				F6CD54F80AB2C0421AD869A9 /* [CP] Embed Pods Frameworks */,
+				C5D68BC2356B1A16C7EFCE36 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -511,13 +526,33 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5D68BC2356B1A16C7EFCE36 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CE77994C34B5FB01423212A7 /* [CP] Copy Pods Resources */ = {
@@ -533,6 +568,44 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6CD54F80AB2C0421AD869A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAA20D6D81153277A197D0A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BoostMINITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -684,6 +757,7 @@
 		};
 		2B5AA0821FEB46E3007441E1 /* Stage */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CC7B7F9DD813D4A8F0EC737 /* Pods-BoostMINITests.stage.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -787,6 +861,7 @@
 		};
 		2B5AA0861FEB46EB007441E1 /* Product */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48A5E026AA7FED66F3366494 /* Pods-BoostMINITests.product.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -968,6 +1043,7 @@
 		};
 		2B61F0651FDFA49500581F06 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E3B451244A2D124A302E95E /* Pods-BoostMINITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -985,6 +1061,7 @@
 		};
 		2B61F0661FDFA49500581F06 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6781EEC7AEE28C8E68110BB0 /* Pods-BoostMINITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
