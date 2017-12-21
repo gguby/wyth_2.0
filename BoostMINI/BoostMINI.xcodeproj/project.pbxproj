@@ -124,9 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA06A1FEA6178007441E1 /* OpenSources */,
-				2B5AA06C1FEA6178007441E1 /* Categories */,
-				2B5AA0631FEA6178007441E1 /* Handler */,
+				2B5AA06C1FEA6178007441E1 /* Extensions */,
+				2B5AA0A11FEB584C007441E1 /* Protocols */,
 				2B5AA06B1FEA6178007441E1 /* Model */,
+				2B5AA0631FEA6178007441E1 /* Manager */,
 				2B5AA0641FEA6178007441E1 /* CustomUI */,
 				2B5AA0651FEA6178007441E1 /* Util */,
 				2B5AA0661FEA6178007441E1 /* UX */,
@@ -142,12 +143,12 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		2B5AA0631FEA6178007441E1 /* Handler */ = {
+		2B5AA0631FEA6178007441E1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				2B5AA0941FEB55E4007441E1 /* ExceptionHandler.swift */,
 			);
-			path = Handler;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		2B5AA0641FEA6178007441E1 /* CustomUI */ = {
@@ -215,12 +216,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		2B5AA06C1FEA6178007441E1 /* Categories */ = {
+		2B5AA06C1FEA6178007441E1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				2B5AA0961FEB5621007441E1 /* DictionaryExtensions.swift */,
 			);
-			path = Categories;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2B5AA06D1FEA6178007441E1 /* Debug */ = {
@@ -264,6 +265,13 @@
 				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		2B5AA0A11FEB584C007441E1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		2B61F0301FDFA49500581F06 = {
