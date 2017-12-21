@@ -11,23 +11,18 @@ import UIKit
 
 class BSTButton {
 
-    //MARK: * properties --------------------
+    // MARK: * properties --------------------
 
+    // MARK: * IBOutlets --------------------
 
-    //MARK: * IBOutlets --------------------
-
-
-    //MARK: * Initialize --------------------
+    // MARK: * Initialize --------------------
 
     init() {
-
     }
 
-
-    //MARK: * Main Logic --------------------
+    // MARK: * Main Logic --------------------
 
 }
 
 extension BSTButton {
-
 }

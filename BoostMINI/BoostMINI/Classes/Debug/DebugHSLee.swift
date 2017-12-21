@@ -11,23 +11,18 @@ import UIKit
 
 class DebugHSLee {
 
-    //MARK: * properties --------------------
+    // MARK: * properties --------------------
 
+    // MARK: * IBOutlets --------------------
 
-    //MARK: * IBOutlets --------------------
-
-
-    //MARK: * Initialize --------------------
+    // MARK: * Initialize --------------------
 
     init() {
-
     }
 
-
-    //MARK: * Main Logic --------------------
+    // MARK: * Main Logic --------------------
 
 }
 
 extension DebugHSLee {
-
 }

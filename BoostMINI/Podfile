@@ -10,7 +10,7 @@ def open_sources
     # pod 'RealReachability'
     # pod 'Realm'
 	pod 'Toaster'
-    pod 'SwiftyBeaver', '~> 1.4.3'
+    pod 'SwiftyBeaver', '~> 1.5.0'
 
 #	pod 'ImageViewer', '>= 5.0'
 #	pod 'Kingfisher', '~> 4.0'

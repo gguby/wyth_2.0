@@ -16,12 +16,12 @@ enum PaginationDirection {
 }
 
 class Definitions {
-    
-    static let kdNavigationBarHeight: CGFloat = 44  //53 //add statusbar height
-    static let kdTabBarHeight: CGFloat = 48.0 //66.0
-    
+
+    static let kdNavigationBarHeight: CGFloat = 44 // 53 //add statusbar height
+    static let kdTabBarHeight: CGFloat = 48.0 // 66.0
+
     //    static let uiThemeMainColor = MLColor.aquamarineColor()
-    
+
     static var gKeyboardRect = CGRect.zero
     static let pageSize = 10
 }

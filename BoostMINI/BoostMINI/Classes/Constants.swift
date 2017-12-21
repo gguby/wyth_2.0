@@ -19,35 +19,26 @@ internal class BSTConstants {
 }
 
 internal struct BSTServer {
-    
+
     static var domain: String {
-        get {
-            return "" //JDUserDefaults.defaults.objectForKey(key: "host") as? String ?? "ftp://hellopp.net:21"
-        }
+        return "" // JDUserDefaults.defaults.objectForKey(key: "host") as? String ?? "ftp://hellopp.net:21"
     }
-    
+
     static var uid: String {
-        get {
-            return "" //JDUserDefaults.defaults.objectForKey(key: "username") as? String ?? "jino"
-        }
+        return "" // JDUserDefaults.defaults.objectForKey(key: "username") as? String ?? "jino"
     }
-    
+
     static var pwd: String {
-        get {
-            return "" //JDUserDefaults.defaults.objectForKey(key: "password") as? String ?? "choij7575"
-        }
+        return "" // JDUserDefaults.defaults.objectForKey(key: "password") as? String ?? "choij7575"
     }
-    
+
     static var path: String {
-        get {
-            return "" //JDUserDefaults.defaults.objectForKey(key: "path") as? String ?? "/test/jinjin"
-        }
+        return "" // JDUserDefaults.defaults.objectForKey(key: "path") as? String ?? "/test/jinjin"
     }
-    
+
     static var versionInf = "version.inf"
 }
 
 internal enum BSTSystem: String {
     case misc = ""
 }
-
