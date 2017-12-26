@@ -48,6 +48,10 @@
 		04122A841FECE9AE00896EE0 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA07E1FEA62A7007441E1 /* Definitions.swift */; };
 		04122A851FECE9BC00896EE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F03C1FDFA49500581F06 /* AppDelegate.swift */; };
 		049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A76881FEBA58D00B98935 /* NumberConvertible.swift */; };
+		04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
+		04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
+		04AD73F61FF20B82005F4BF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */; };
+		04AD73F71FF20B82005F4BF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */; };
 		04C22BA91FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
 		04C22BAA1FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
 		04C22BAB1FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
@@ -105,6 +109,8 @@
 		04122A6D1FECA4EE00896EE0 /* CrashlyticsDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsDestination.swift; sourceTree = "<group>"; };
 		04122A721FECBFA400896EE0 /* NilDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilDestination.swift; sourceTree = "<group>"; };
 		049A76881FEBA58D00B98935 /* NumberConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConvertible.swift; sourceTree = "<group>"; };
+		04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04C22BA81FEB9597007E2BED /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.release.xcconfig"; sourceTree = "<group>"; };
 		225B24F76464411F2957F5CF /* Pods-BoostMINIUITests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.stage.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +196,14 @@
 			path = SwiftyBeaverDestinations;
 			sourceTree = "<group>";
 		};
+		04AD73F41FF20B6C005F4BF0 /* SignUpScreens */ = {
+			isa = PBXGroup;
+			children = (
+				04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */,
+			);
+			path = SignUpScreens;
+			sourceTree = "<group>";
+		};
 		2B5AA0621FEA6178007441E1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA0681FEA6178007441E1 /* MainScreens */,
-				2B5AA0691FEA6178007441E1 /* SignUpScreens */,
+				04AD73F41FF20B6C005F4BF0 /* SignUpScreens */,
 				2B61F03E1FDFA49500581F06 /* ViewController.swift */,
 			);
 			path = ViewControllers;
@@ -265,13 +279,6 @@
 				2B5AA08A1FEB5568007441E1 /* MainViewController.swift */,
 			);
 			path = MainScreens;
-			sourceTree = "<group>";
-		};
-		2B5AA0691FEA6178007441E1 /* SignUpScreens */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SignUpScreens;
 			sourceTree = "<group>";
 		};
 		2B5AA06A1FEA6178007441E1 /* OpenSources */ = {
@@ -340,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				2B61F0401FDFA49500581F06 /* Main.storyboard */,
+				04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */,
 				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -564,6 +572,7 @@
 				2B5AA09D1FEB566C007441E1 /* Localizable.strings in Resources */,
 				2B61F0441FDFA49500581F06 /* Assets.xcassets in Resources */,
 				2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */,
+				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +587,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,6 +779,7 @@
 				2B5AA08D1FEB55BA007441E1 /* FSBUXHanlder.swift in Sources */,
 				04122A731FECBFA400896EE0 /* NilDestination.swift in Sources */,
 				2B5AA0971FEB5621007441E1 /* DictionaryExtensions.swift in Sources */,
+				04AD73F61FF20B82005F4BF0 /* SignUpViewController.swift in Sources */,
 				2B5AA0911FEB55D2007441E1 /* BSTButton.swift in Sources */,
 				2B5AA0991FEB5639007441E1 /* OpenSourceSample.swift in Sources */,
 				2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */,
@@ -828,6 +839,7 @@
 				04122A7C1FECE9A300896EE0 /* ExceptionHandler.swift in Sources */,
 				04122A7B1FECE9A300896EE0 /* DictionaryExtensions.swift in Sources */,
 				04122A6B1FEC962600896EE0 /* String+Format.swift in Sources */,
+				04AD73F71FF20B82005F4BF0 /* SignUpViewController.swift in Sources */,
 				04122A631FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				04122A7E1FECE9A300896EE0 /* CommonUtil.swift in Sources */,
 				04122A571FEBAEE400896EE0 /* ToastManager.swift in Sources */,

@@ -26,24 +26,31 @@ fileprivate struct SBPlatformConst {
 
 
 // 아래 함수들을 사용하여 로그를 출력.
-public func logVerbose(_ items: Any..., context:Any? = nil) {
-	LogManager.verbose(items, context: context)
+
+public func track(_ message: String, file: String = #file, function: String = #function, line: Int = #line ) {
+	print("\(message) called from \(function) \(file):\(line)")
 }
 
-public func logDebug(_ items: Any..., context:Any? = nil) {
-	LogManager.debug(items, context: context)
+public func logVerbose(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
+	LogManager.verbose(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
 }
 
-public func logInfo(_ items: Any..., context:Any? = nil) {
-	LogManager.log(items, context: context)
+public func logDebug(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
+	LogManager.debug(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
 }
 
-public func logWarning(_ items: Any..., context:Any? = nil) {
-	LogManager.warning(items, context: context)
+public func logInfo(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
+	LogManager.log(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
 }
 
-public func logError(_ items: Any..., context:Any? = nil) {
-	LogManager.error(items, context: context)
+public func logWarning(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
+	LogManager.warning(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
+}
+
+public func logError(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
+	LogManager.error(items, context: context, separator: separator, terminator: terminator)
+	
+	LogManager.error(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
 }
 
 
@@ -113,29 +120,47 @@ public class LogManager {
 			self.rawValue = rawValue
 		}
 	}
-	
-	
-	
-	
-	class func verbose(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-		beaver.verbose(items)	// , context:Any?
+
+	class private func _printLog(_ logLevel:SwiftyBeaver.Level, _ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
+		
+		let filename = URL(fileURLWithPath: file).lastPathComponent.replacingOccurrences(of: "swift", with: "")
+		var header = "\(filename):\(function)"
+		if let line = line {
+			header += "(\(line))"
+		}
+		header += " : "
+		var args: [String] = []
+		
+		items.forEach({
+			args.append("\($0)")
+		})
+		
+		let msg = args.joined(separator: "\n")
+		let message = "\(header)\(msg)"
+		beaver.custom(level: logLevel, message: message, context: context)
 	}
 	
-	class func debug(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-		beaver.debug(items)
+	
+	
+	class func verbose(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
+		_printLog(.verbose, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
 	}
 	
-	class func log(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-		beaver.info(items)
+	class func debug(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
+		_printLog(.debug, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
 	}
 	
-	class func warning(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-		beaver.warning(items)
+	class func log(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
+		_printLog(.info, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
 	}
 	
-	class func error(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-		beaver.error(items, context: context)
-		//toast.error(items)
+	class func warning(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
+		_printLog(.warning, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
+	}
+	
+	class func error(_ items: Any..., context:Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
+		_printLog(.error, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
+
 	}
 }
 

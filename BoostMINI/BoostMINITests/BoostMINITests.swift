@@ -28,21 +28,29 @@ class BoostMINITests: XCTestCase {
 		for x in [LogDestination.none, LogDestination.console, LogDestination.beaverCloud, LogDestination.crashlytics] {
 			print(".none = %d, %d (defaultHash:%d)".format(x.rawValue, x.hashValue, x.defaultHashValue))
 		}
-//
-//		LogManager.log("test console (default)")
-//
-//		LogManager.destination = .console
-//		LogManager.log("test console1 (c)")
-//
-//		LogManager.destination = [.console, .file]
-//		LogManager.log("test console2 (c+f)")
-//
-//		LogManager.destination = [.file]
-//		LogManager.log("test console3 (f)")
-//
-//		LogManager.destination = .console
-//		LogManager.log("test console4 (c)")
 
+		logVerbose("test console (default)")
+
+		LogManager.destination = .console
+		logDebug("test console1 (c)")
+
+		LogManager.destination = [.console, .file]
+		logWarning("test console2 (c+f)")
+
+		LogManager.destination = [.file]
+		logDebug("test console3 (f)")
+
+		LogManager.destination = .console
+		logDebug("test console4 (c)")
+
+		for level in [LogLevel.debug, .warning, .error, .verbose] {
+			LogManager.setMinLogLevel(level)
+			logVerbose("verbose")
+			logDebug("debug")
+			logInfo("info")
+			logWarning("warning")
+			logError("error")
+		}
     }
 
     func testPerformanceExample() {
