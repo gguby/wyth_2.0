@@ -52,6 +52,12 @@
 		04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
 		04AD73F61FF20B82005F4BF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */; };
 		04AD73F71FF20B82005F4BF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */; };
+		04AD73F91FF21E23005F4BF0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */; };
+		04AD73FA1FF21E23005F4BF0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */; };
+		04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */; };
+		04AD73FD1FF2283F005F4BF0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */; };
+		04AD73FF1FF232A4005F4BF0 /* SystemAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FE1FF232A4005F4BF0 /* SystemAlertManager.swift */; };
+		04AD74001FF232A4005F4BF0 /* SystemAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FE1FF232A4005F4BF0 /* SystemAlertManager.swift */; };
 		04C22BA91FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
 		04C22BAA1FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
 		04C22BAB1FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
@@ -111,6 +117,9 @@
 		049A76881FEBA58D00B98935 /* NumberConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConvertible.swift; sourceTree = "<group>"; };
 		04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		04AD73FE1FF232A4005F4BF0 /* SystemAlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlertManager.swift; sourceTree = "<group>"; };
 		04C22BA81FEB9597007E2BED /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.release.xcconfig"; sourceTree = "<group>"; };
 		225B24F76464411F2957F5CF /* Pods-BoostMINIUITests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.stage.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */,
+				04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */,
 			);
 			path = SignUpScreens;
 			sourceTree = "<group>";
@@ -233,6 +243,7 @@
 				2B5AA0941FEB55E4007441E1 /* ExceptionHandler.swift */,
 				04C22BA81FEB9597007E2BED /* LogManager.swift */,
 				04122A541FEBAEE400896EE0 /* ToastManager.swift */,
+				04AD73FE1FF232A4005F4BF0 /* SystemAlertManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -241,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA0901FEB55D2007441E1 /* BSTButton.swift */,
+				04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -793,10 +805,13 @@
 				2B5AA07B1FEA6299007441E1 /* Common.swift in Sources */,
 				2B61F03F1FDFA49500581F06 /* ViewController.swift in Sources */,
 				2B5AA0931FEB55D9007441E1 /* BaseModel.swift in Sources */,
+				04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
+				04AD73FF1FF232A4005F4BF0 /* SystemAlertManager.swift in Sources */,
 				2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */,
 				2B5AA0951FEB55E4007441E1 /* ExceptionHandler.swift in Sources */,
 				04122A651FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				2B5AA07F1FEA62A7007441E1 /* Definitions.swift in Sources */,
+				04AD73F91FF21E23005F4BF0 /* LogInViewController.swift in Sources */,
 				2B61F03D1FDFA49500581F06 /* AppDelegate.swift in Sources */,
 				2B5AA08F1FEB55C8007441E1 /* CommonUtil.swift in Sources */,
 				2B5AA08B1FEB5568007441E1 /* MainViewController.swift in Sources */,
@@ -834,8 +849,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AD73FD1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
+				04AD74001FF232A4005F4BF0 /* SystemAlertManager.swift in Sources */,
 				04122A751FECBFA400896EE0 /* NilDestination.swift in Sources */,
 				04122A5B1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
+				04AD73FA1FF21E23005F4BF0 /* LogInViewController.swift in Sources */,
 				04122A7C1FECE9A300896EE0 /* ExceptionHandler.swift in Sources */,
 				04122A7B1FECE9A300896EE0 /* DictionaryExtensions.swift in Sources */,
 				04122A6B1FEC962600896EE0 /* String+Format.swift in Sources */,
