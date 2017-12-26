@@ -23,6 +23,26 @@ class BoostMINITests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+		
+		for x in [LogDestination.none, LogDestination.console, LogDestination.beaverCloud, LogDestination.crashlytics] {
+			print(".none = %d, %d (defaultHash:%d)".format(x.rawValue, x.hashValue, x.defaultHashValue))
+		}
+//
+//		LogManager.log("test console (default)")
+//
+//		LogManager.destination = .console
+//		LogManager.log("test console1 (c)")
+//
+//		LogManager.destination = [.console, .file]
+//		LogManager.log("test console2 (c+f)")
+//
+//		LogManager.destination = [.file]
+//		LogManager.log("test console3 (f)")
+//
+//		LogManager.destination = .console
+//		LogManager.log("test console4 (c)")
+
     }
 
     func testPerformanceExample() {

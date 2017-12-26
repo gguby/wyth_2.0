@@ -52,11 +52,11 @@ end
 	#pod 'RxTest',     '~> 4.0'
  end
 
-#target 'BoostMINIUITests' do
-# 	open_sources
+ target 'BoostMINIUITests' do
+ 	open_sources
 #	pod 'RxBlocking', '~> 4.0'
 #	pod 'RxTest',     '~> 4.0'
-#end
+ end
 
 
 post_install do |installer|
