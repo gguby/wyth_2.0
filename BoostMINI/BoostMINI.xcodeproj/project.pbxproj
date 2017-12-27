@@ -1104,7 +1104,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CC7B7F9DD813D4A8F0EC737 /* Pods-BoostMINITests.stage.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
@@ -1122,7 +1121,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 225B24F76464411F2957F5CF /* Pods-BoostMINIUITests.stage.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
 				INFOPLIST_FILE = BoostMINIUITests/Info.plist;
@@ -1210,7 +1208,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 48A5E026AA7FED66F3366494 /* Pods-BoostMINITests.product.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
@@ -1228,7 +1225,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8471506B5EA6D4EF07695522 /* Pods-BoostMINIUITests.product.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
 				INFOPLIST_FILE = BoostMINIUITests/Info.plist;
@@ -1395,7 +1391,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E3B451244A2D124A302E95E /* Pods-BoostMINITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
@@ -1413,7 +1408,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6781EEC7AEE28C8E68110BB0 /* Pods-BoostMINITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
@@ -1431,7 +1425,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77DB130E6F6FB2F290875643 /* Pods-BoostMINIUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
 				INFOPLIST_FILE = BoostMINIUITests/Info.plist;
@@ -1448,7 +1441,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 304041C0256C37C0B073056D /* Pods-BoostMINIUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
 				INFOPLIST_FILE = BoostMINIUITests/Info.plist;
