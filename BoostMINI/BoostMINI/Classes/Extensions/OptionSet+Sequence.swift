@@ -10,6 +10,15 @@ import Foundation
 
 public extension OptionSet where RawValue: FixedWidthInteger {
 	
+	
+	/// OptionSet을 사용한 enum에서 각 항목들을 시퀀셜하게 변환해줌. (반복문 사용 가능)
+	///
+	/// - 예: (LogManager 참고)
+	/// 	let options: enumCustomOptions
+	/// 	for item in options { let raw = item.rawValue; ... }
+	///
+	///
+	/// - Returns: AnySequence<Self>
 	func elements() -> AnySequence<Self> {
 		var remainingBits = rawValue
 		var bitMask: RawValue = 1

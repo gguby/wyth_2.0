@@ -21,12 +21,14 @@ class CommonUtil {
     // MARK: * IBOutlets --------------------
 
     // MARK: * Initialize --------------------
-
-    init() {
-    }
+    init() {   }
 
     // MARK: * Main Logic --------------------
-	
+}
+
+
+extension CommonUtil {
+
 	
 	/// 타입명 스트링 반환
 	/// 뷰컨트롤러에 대해서만 테스트됨.
@@ -78,7 +80,4 @@ class CommonUtil {
 		return nil
 	}
 
-}
-
-extension CommonUtil {
 }

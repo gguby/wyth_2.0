@@ -154,12 +154,12 @@ public func ss_etn(_ v:String?) -> String? {
 	return (v == nil || v!.isEmpty) ? nil : v
 }
 
-enum RxError:Error {
-	case isEmpty
-	case argumentError
-	case nilError
-	case unknown
+
+@discardableResult
+func OPEN_SAFARI(_ urlString: String) -> Bool {
+	return UIApplication.shared.openURL(URL(string: urlString)!)
 }
+
 
 
 
