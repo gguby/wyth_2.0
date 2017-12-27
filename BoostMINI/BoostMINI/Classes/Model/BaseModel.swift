@@ -12,7 +12,7 @@ import UIKit
 class BaseModel {
 
     // MARK: * properties --------------------
-
+    
     // MARK: * IBOutlets --------------------
 
     // MARK: * Initialize --------------------
