@@ -1,4 +1,3 @@
-
 //mkdir -p ~/Library/Developer/Xcode/Templates/Custom 해당 폴더에 .xctemplate 폴더 복사
 
 import Foundation
