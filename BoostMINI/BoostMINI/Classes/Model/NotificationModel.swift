@@ -12,7 +12,13 @@ import UIKit
 class NotificationModel {
 
     // MARK: * properties --------------------
-
+    var code: Int?
+    var message: String?
+    
+    var pushId: Int?
+    var title: String?
+    var contents: String?
+    var readYn: Bool?
 
     // MARK: * IBOutlets --------------------
 
@@ -25,7 +31,9 @@ class NotificationModel {
 
 
     // MARK: * Main Logic --------------------
-
+    func getList() {
+        
+    }
 }
 
 extension NotificationModel {
