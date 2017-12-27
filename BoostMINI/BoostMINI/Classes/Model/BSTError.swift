@@ -9,33 +9,30 @@
 import UIKit
 
 enum BSTError: Error {
-	case isEmpty
-	case argumentError
-	case nilError
-	case unknown
-	case custom(msg)
-	
+    case isEmpty
+    case argumentError
+    case nilError
+    case unknown
+    case custom(msg)
 }
 
-
-
 protocol BSTErrorProtocol: LocalizedError {
-	var title: String? { get }
-	var code: Int { get }
+    var title: String? { get }
+    var code: Int { get }
 }
 
 struct BSTError: BSTErrorProtocol {
-	
-	var title: String?
-	var code: Int
-	var errorDescription: String? { return _description }
-	var failureReason: String? { return _description }
-	
-	private var _description: String
-	
-	init(title: String?, description: String, code: Int) {
-		self.title = title ?? "Error"
-		self._description = description
-		self.code = code
-	}
+
+    var title: String?
+    var code: Int
+    var errorDescription: String? { return _description }
+    var failureReason: String? { return _description }
+
+    private var _description: String
+
+    init(title: String?, description: String, code: Int) {
+        self.title = title ?? "Error"
+        _description = description
+        self.code = code
+    }
 }

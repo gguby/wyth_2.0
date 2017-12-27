@@ -15,19 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-		
-		
-//		LogManager.destination = [.console, .file]
-//		LogManager.setMinLogLevel(.debug)
-		
-//		logVerbose("verbose")
-//		logDebug("debug")
-//		logInfo("info")
-//		logWarning("warning")
-//		logError("error")
 
-		
-		
+        //		LogManager.destination = [.console, .file]
+        //		LogManager.setMinLogLevel(.debug)
+
+        //		logVerbose("verbose")
+        //		logDebug("debug")
+        //		logInfo("info")
+        //		logWarning("warning")
+        //		logError("error")
+
         return true
     }
 

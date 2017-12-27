@@ -5,8 +5,8 @@
 //  Created by HS Lee on 21/12/2017.
 //  Copyright © 2017 IRIVER LIMITED. All rights reserved.
 //
-import Foundation
 import CoreGraphics // For CGFloat
+import Foundation
 
 public typealias PreferredType = Double
 
@@ -97,7 +97,7 @@ extension NumberConvertible {
     public func sN(_ count: Int = 4, _: String = " ") -> String { // 11 ->  "  11",  0 -> "   0"
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = count
-        let m = formatter.string(from: self.ns) ?? "\(self)"
+        let m = formatter.string(from: ns) ?? "\(self)"
         return m
     }
 }

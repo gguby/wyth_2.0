@@ -10,12 +10,12 @@ import UIKit
 
 class ProfilePhotoViewController: UIViewController {
 
-    @IBOutlet weak var fileSizeLabel: UILabel!
-    
-    @IBOutlet weak var imageView: UIImageView!
-    
-    var image : UIImage!
-    
+    @IBOutlet var fileSizeLabel: UILabel!
+
+    @IBOutlet var imageView: UIImageView!
+
+    var image: UIImage!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,14 +24,14 @@ class ProfilePhotoViewController: UIViewController {
         fileSizeLabel.layer.borderWidth = 1
         fileSizeLabel.layer.cornerRadius = 9.5
         fileSizeLabel.layer.masksToBounds = true
-        
-        self.imageView.image = self.image
-        
-        let imgData: NSData = NSData(data: UIImageJPEGRepresentation(self.image,1.0)!)
-        
-        let imageSize : Int = imgData.length
-        
-        fileSizeLabel.text = "\(imageSize /  1024 )KB"
+
+        imageView.image = image
+
+        let imgData: NSData = NSData(data: UIImageJPEGRepresentation(image, 1.0)!)
+
+        let imageSize: Int = imgData.length
+
+        fileSizeLabel.text = "\(imageSize / 1024)KB"
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,17 +39,17 @@ class ProfilePhotoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func dismissView(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil);
+    @IBAction func dismissView(_: Any) {
+        dismiss(animated: true, completion: nil)
     }
+
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }

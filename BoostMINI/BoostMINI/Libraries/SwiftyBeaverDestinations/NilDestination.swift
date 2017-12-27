@@ -6,23 +6,20 @@
 //  Copyright © 2017년 IRIVER LIMITED. All rights reserved.
 //
 
-import UIKit
-import SwiftyBeaver
 import Crashlytics
+import SwiftyBeaver
+import UIKit
 
 public class NilDestination: BaseDestination {
-	override public var defaultHashValue: Int { return 0 }
-	
-	public override init() {
-		super.init()
-		format = ""
-		
-	}
-	
-	override public func send(_ level: SwiftyBeaver.Level, msg: String, thread: String,
-							  file: String, function: String, line: Int, context: Any? = nil) -> String? {
-		return nil
-	}
+    public override var defaultHashValue: Int { return 0 }
+
+    public override init() {
+        super.init()
+        format = ""
+    }
+
+    public override func send(_: SwiftyBeaver.Level, msg _: String, thread _: String,
+                              file _: String, function _: String, line _: Int, context _: Any? = nil) -> String? {
+        return nil
+    }
 }
-
-

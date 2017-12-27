@@ -18,34 +18,31 @@ class MainViewController: UIViewController {
     // MARK: * Initialize --------------------
 
     override func viewDidLoad() {
-		super.viewDidLoad()
+        super.viewDidLoad()
 
-		checkVersion()
+        checkVersion()
         initProperties()
         initUI()
         prepareViewDidLoad()
     }
-	
-	private func checkVersion() {
-		
-		// TODO: 버전을 체크한다.
-		
-		// DUMMY CODE
-		var forceUpdate = false	// 강제업데이트 여부.
-		RunInNextMainThread(withDelay: 1.0, {
-			// 구버전인가의 여부
-			var isOldVersion = false
-			
-			if isOldVersion {
-				showUpdateAlert(forceUpdate:false)
-				return
-			}
-			
-		})
-		
-		
-	
-	}
+
+    private func checkVersion() {
+
+        // TODO: 버전을 체크한다.
+
+        // DUMMY CODE
+        var forceUpdate = false // 강제업데이트 여부.
+        RunInNextMainThread(withDelay: 1.0, {
+            // 구버전인가의 여부
+            var isOldVersion = false
+
+            if isOldVersion {
+                showUpdateAlert(forceUpdate: false)
+                return
+            }
+
+        })
+    }
 
     private func initProperties() {
     }
@@ -54,37 +51,36 @@ class MainViewController: UIViewController {
     }
 
     func prepareViewDidLoad() {
-		
     }
 
     // MARK: * Main Logic --------------------
 
-	/// 업데이트 알럿 메시지 뿌리기.
-	///
-	/// - Parameter forceUpdate: 강제로 업데이트해야하는경우의 여부
-	func showUpdateAlert(forceUpdate: Bool = false) {
-		
-		
-		SystemAlert
-			.show(_T("최신버전으로 업데이트"),
-						 message: _T("지금 업데이트하여 새로운 버전의 Boost 서비스를 이용하세요."),
-						 buttons: [_T("Ok"), _T("Cancel")]
-			) {
-				[weak self] buttonIndex in
-				if buttonIndex == 0 {
-					RunInNextMainThread {
-						self?.openAppStore()
-					}
-				}
-				if forceUpdate {
-					self.blockMe()
-				}
-		}
-	}
-	
-	func openAppStore() {
-		//
-	}
+    /// 업데이트 알럿 메시지 뿌리기.
+    ///
+    /// - Parameter forceUpdate: 강제로 업데이트해야하는경우의 여부
+    func showUpdateAlert(forceUpdate: Bool = false) {
+
+        SystemAlert
+            .show(_T("최신버전으로 업데이트"),
+                  message: _T("지금 업데이트하여 새로운 버전의 Boost 서비스를 이용하세요."),
+                  buttons: [_T("Ok"), _T("Cancel")]
+            ) {
+                [weak self] buttonIndex in
+                if buttonIndex == 0 {
+                    RunInNextMainThread {
+                        self?.openAppStore()
+                    }
+                }
+                if forceUpdate {
+                    self.blockMe()
+                }
+            }
+    }
+
+    func openAppStore() {
+        //
+    }
+
     // MARK: * UI Events --------------------
 
     // MARK: * Memory Manage --------------------
