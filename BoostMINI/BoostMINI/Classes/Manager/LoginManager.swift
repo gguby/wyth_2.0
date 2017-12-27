@@ -13,7 +13,7 @@ class LoginManager {
 
     static let sharedInstance = LoginManager()
 
-    let baseURL = BSTConstants.api.base
+    let baseURL = Definitions.api.base
 
     var cookie: String?
 //
@@ -22,7 +22,7 @@ class LoginManager {
 //    var isFirstLogin = false
 //
 //    func getHeader() -> HTTPHeaders {
-//        return BSTConstants.api.baseHeader
+//        return Definitions.api.baseHeader
 //    }
 //
 //    var needSignUpToken: String?
@@ -180,7 +180,7 @@ class LoginManager {
 //            "accessTokenSecret": self.needSignUpSecret!,
 //            "selfIntro": selfIntro,
 //            "homePageUrl": homePageURL,
-//            "deviceType": BSTConstants.api.AppDevice.uppercased(),
+//            "deviceType": Definitions.api.AppDevice.uppercased(),
 //            "pushToken": token,
 //        ]
 //

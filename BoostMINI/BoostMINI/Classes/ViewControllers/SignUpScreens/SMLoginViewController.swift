@@ -14,7 +14,7 @@ protocol SMLoginDelegate {
 
 class SMLoginViewController: WebViewController {
 
-    // var clientId = BSTConstants.path.clientId
+    // var clientId = Definitions.path.clientId
     var loginDelegate: SMLoginDelegate?
 
     @IBOutlet var btnClose: UIButton!
@@ -23,7 +23,7 @@ class SMLoginViewController: WebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadWebUrl(BSTConstants.path.authUri)
+        loadWebUrl(Definitions.path.authUri)
     }
     //
 //    @IBAction func dismiss(sender :AnyObject ) {

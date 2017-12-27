@@ -82,7 +82,7 @@ class MainViewController: UIViewController {
     }
 
     func openAppStore() {
-        OPEN_SAFARI(BSTConstants.path.appstore)
+        OPEN_SAFARI(Definitions.path.appstore)
     }
 	
 	func blockMe() {
