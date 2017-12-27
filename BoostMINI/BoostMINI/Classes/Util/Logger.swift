@@ -17,11 +17,12 @@ import Foundation
 import SwiftyBeaver
 // import Crashlytics
 
-fileprivate struct SBPlatformConst {
-    static let appID = "Enter App ID Here - o8QXpN"
-    static let appSecret = "Enter App Secret Here - zofadrcs8pbmknanqjaAkzepf1sljkfc"
-    static let encryptionKey = "Enter Encryption Key Here - vLhboSulLqpulpq5gvufnmpfyvgKgwse"
-}
+// INFO: beaverCloud 사용할거면 .beaverCloud쪽과 요녀석의 주석을 해제할 것.
+//fileprivate struct SBPlatformConst {
+//    static let appID = "Enter App ID Here - o8QXpN"
+//    static let appSecret = "Enter App Secret Here - zofadrcs8pbmknanqjaAkzepf1sljkfc"
+//    static let encryptionKey = "Enter Encryption Key Here - vLhboSulLqpulpq5gvufnmpfyvgKgwse"
+//}
 
 // 아래 함수들을 사용하여 로그를 출력.
 
@@ -279,10 +280,10 @@ extension Logger {
         case .crashlytics:
             manager = CrashlyticsDestination()
 
-        case .beaverCloud:
-            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
-                                            appSecret: SBPlatformConst.appSecret,
-                                            encryptionKey: SBPlatformConst.encryptionKey)
+//        case .beaverCloud:
+//            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
+//                                            appSecret: SBPlatformConst.appSecret,
+//                                            encryptionKey: SBPlatformConst.encryptionKey)
         default:
             // ERROR
             print("makeDestination Error!")
@@ -325,10 +326,10 @@ extension Logger {
         case .crashlytics:
             manager = CrashlyticsDestination()
 
-        case .beaverCloud:
-            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
-                                            appSecret: SBPlatformConst.appSecret,
-                                            encryptionKey: SBPlatformConst.encryptionKey)
+//        case .beaverCloud:
+//            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
+//                                            appSecret: SBPlatformConst.appSecret,
+//                                            encryptionKey: SBPlatformConst.encryptionKey)
         default:
             // ERROR
             print("makeDestination Error!")

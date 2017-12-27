@@ -58,11 +58,11 @@ class LoginModel {
 
         do {
 
-        } catch let error = BSTError  {
-           error.action()
-        }
+			
+		} catch let error as BSTError {
+			error.action()
+		}
 
-        throw BSTError
         return nil
     }
 
@@ -85,14 +85,14 @@ class LoginModel {
 
 class LoginViewModel {//presentation
     
-    func getUserInfo {
-        let login = LoginBizLogic.getUser()
-        login.userName = "fldjafldsajfldsja"
-    }
-    
-    func usedNameForLocal() {
-        return "user" + "lllll"
-    }
+//    func getUserInfo {
+//        let login = LoginBizLogic.getUser()
+//        login.userName = "fldjafldsajfldsja"
+//    }
+//
+//    func usedNameForLocal() {
+//        return "user" + "lllll"
+//    }
 }
 
 
