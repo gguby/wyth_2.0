@@ -59,6 +59,7 @@ class LoginModel {
         do {
 
 			
+			
 		} catch let error as BSTError {
 			error.action()
 		}
