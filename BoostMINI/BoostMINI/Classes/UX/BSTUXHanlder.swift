@@ -1,5 +1,5 @@
 //
-//  FSBUXHanlder.swift
+//  BSTUXHanlder
 //  BoostMINI
 //
 //  Created by HS Lee on 21/12/2017.
@@ -9,8 +9,12 @@
 import Foundation
 import UIKit
 
-class FSBUXHanlder {
+class BSTUXHandlerInstance {
+    var view: UIView?
+}
 
+class BSTUXHanlder {
+    
     // MARK: * properties --------------------
 
     // MARK: * IBOutlets --------------------
@@ -21,7 +25,19 @@ class FSBUXHanlder {
     }
 
     // MARK: * Main Logic --------------------
-
+    class func showAlert(message: String) {
+        SystemAlert.show(nil, message: message)
+    }
+    
+    class func showConfirm(message: String) {
+        BSTUXHanlderinstnta
+        
+        fdlksajfdlksm
+    }
+    
+    class func toast(message: String) {
+        
+    }
 }
 
 extension FSBUXHanlder {

@@ -12,29 +12,16 @@ import Foundation
 import UIKit
 
 internal class BSTConstants {
-    typealias server = BSTServer
-	
+    typealias main  = BSTMainViewContants
 }
 
-internal struct BSTServer {
-
-    static var domain: String {
-        return "" // JDUserDefaults.defaults.objectForKey(key: "host") as? String ?? "ftp://hellopp.net:21"
-    }
-
-    static var uid: String {
-        return "" // JDUserDefaults.defaults.objectForKey(key: "username") as? String ?? "jino"
-    }
-
-    static var pwd: String {
-        return "" // JDUserDefaults.defaults.objectForKey(key: "password") as? String ?? "choij7575"
-    }
-
-    static var path: String {
-        return "" // JDUserDefaults.defaults.objectForKey(key: "path") as? String ?? "/test/jinjin"
-    }
-
-    static let versionInf = "version.inf"
+internal struct BSTMainViewContants {
+    
+    static let kdNavigationBarHeight: CGFloat = 44 // 53 //add statusbar height
+    static let kdTabBarHeight: CGFloat = 48.0 // 66.0
+//    static let uiThemeMainColor = MLColor.aquamarineColor()
+    static var gKeyboardRect = CGRect.zero
+    static let pageSize = 10
 }
 
 internal enum BSTSystem: String {

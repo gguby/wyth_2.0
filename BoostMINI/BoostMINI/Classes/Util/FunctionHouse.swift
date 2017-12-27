@@ -99,7 +99,7 @@ public func RunInNextMainThread(withDelay: TimeInterval, _ f: @escaping () -> Sw
 }
 
 /// 자동 지역화 스트링 (LocalizedString)
-public func _T(_ key: String) -> String {
+public func _T(_ key: String) -> String {//T
     // QL4(key)
     return NSLocalizedString(key, comment: "[\(key)]")
 }

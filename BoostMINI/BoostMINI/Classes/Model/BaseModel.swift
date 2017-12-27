@@ -21,7 +21,26 @@ class BaseModel {
     }
 
     // MARK: * Main Logic --------------------
-
+    //RESUTFUL
+    func get() {
+        
+    }
+    
+    func getList() {
+        
+    }
+    
+    func put() {
+        
+    }
+    
+    func delete() {
+        
+    }
+    
+    func post() {
+        
+    }
 }
 
 extension BaseModel {
