@@ -20,6 +20,7 @@ disabled_rules: # 실행에서 제외할 룰 식별자들
   - empty_count
   - missing_docs
   - vertical_whitespace
+  - vertical_parameter_alignment
   - line_length
   - private_outlet
   # 사용 가능한 모든 룰은 swiftlint rules 명령으로 확인 가능
