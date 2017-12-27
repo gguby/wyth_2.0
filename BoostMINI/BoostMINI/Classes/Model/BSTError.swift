@@ -13,7 +13,7 @@ enum BSTError: Error {
     case argumentError
     case nilError
     case unknown
-    case custom(msg)
+    //case custom(msg)
 }
 
 protocol BSTErrorProtocol: LocalizedError {
@@ -21,7 +21,7 @@ protocol BSTErrorProtocol: LocalizedError {
     var code: Int { get }
 }
 
-struct BSTError: BSTErrorProtocol {
+struct BSTCustomError: BSTErrorProtocol {
 
     var title: String?
     var code: Int

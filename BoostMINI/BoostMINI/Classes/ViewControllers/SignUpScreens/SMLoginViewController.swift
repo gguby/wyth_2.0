@@ -43,8 +43,8 @@ class SMLoginViewController: WebViewController {
         let url = URL(string: command)
 
         if (url?.query!.hasPrefix("access_token"))! {
-            let token = url?.queryParameters!["access_token"]
-            loginDelegate?.login(token: token!)
+//            let token = url?.queryParameters!["access_token"]
+//            loginDelegate?.login(token: token!)
         }
 
         return true

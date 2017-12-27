@@ -31,18 +31,19 @@ class MainViewController: UIViewController {
         // TODO: 버전을 체크한다.
 
         // DUMMY CODE
-        var forceUpdate = false // 강제업데이트 여부.
-        RunInNextMainThread(withDelay: 1.0, {
+        let forceUpdate = false // 강제업데이트 여부.
+		
+		RunInNextMainThread(withDelay: 1.0, {
             // 구버전인가의 여부
             var isOldVersion = false
 
             if isOldVersion {
-                showUpdateAlert(forceUpdate: false)
-                return
-            }
-
-        })
-    }
+				self.showUpdateAlert(forceUpdate: forceUpdate)
+				return
+			}
+			
+		})
+	}
 
     private func initProperties() {
     }
@@ -66,20 +67,27 @@ class MainViewController: UIViewController {
                   buttons: [_T("Ok"), _T("Cancel")]
             ) {
                 [weak self] buttonIndex in
+				guard let this = self else {
+					return
+				}
                 if buttonIndex == 0 {
                     RunInNextMainThread {
-                        self?.openAppStore()
+                        this.openAppStore()
                     }
                 }
                 if forceUpdate {
-                    self.blockMe()
+                    this.blockMe()
                 }
             }
     }
 
     func openAppStore() {
-        //
+        OPEN_SAFARI(BSTConstants.path.appstore)
     }
+	
+	func blockMe() {
+		self.view.isUserInteractionEnabled = false	//??
+	}
 
     // MARK: * UI Events --------------------
 

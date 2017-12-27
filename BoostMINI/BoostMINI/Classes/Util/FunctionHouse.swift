@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // func ISNULL(_ obj: AnyObject?) -> Bool {
 //	return (obj == nil || obj! is NSNull)
@@ -85,13 +86,13 @@ func SAFE_INT(_ obj: Any?) -> Int {
     return 0
 }
 
-public func RunInNextMainThread(_ f: @autoclosure @escaping () -> Swift.Void) {
+public func RunInNextMainThread(_ f: @escaping () -> Swift.Void) {
     DispatchQueue.main.async {
         f()
     }
 }
 
-public func RunInNextMainThread(withDelay: TimeInterval, _ f: @autoclosure @escaping () -> Swift.Void) {
+public func RunInNextMainThread(withDelay: TimeInterval, _ f: @escaping () -> Swift.Void) {
     DispatchQueue.main.asyncAfter(deadline: .now() + withDelay) {
         f()
     }

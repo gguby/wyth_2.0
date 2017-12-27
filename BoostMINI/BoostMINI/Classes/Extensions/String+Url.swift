@@ -6,10 +6,10 @@
 //  Copyright © 2017년 IRIVER LIMITED. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension String {
-    var asUrl: URL? { return URL(self) }
+	var asUrl: URL? { return URL(string: self) }
 }
 
 extension String {
@@ -30,7 +30,7 @@ extension String {
     }
 
     public var queryParameters: [String: String] {
-        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
+        guard let components = URLComponents(url: self.asUrl!, resolvingAgainstBaseURL: true),
             let queryItems = components.queryItems else {
             return [:]
         }
