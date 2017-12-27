@@ -101,6 +101,7 @@
 		2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */; };
 		2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F0511FDFA49500581F06 /* BoostMINITests.swift */; };
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
+		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		A2D896F567E23F4060F7E849 /* Pods_BoostMINI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE278FD296F77407907664D /* Pods_BoostMINI.framework */; };
 		A62352311FF35ED60007949C /* Moya File.xctemplate in Resources */ = {isa = PBXBuildFile; fileRef = A623522F1FF35ED60007949C /* Moya File.xctemplate */; };
 		A62352321FF35ED60007949C /* Reactor File.xctemplate in Resources */ = {isa = PBXBuildFile; fileRef = A62352301FF35ED60007949C /* Reactor File.xctemplate */; };
@@ -188,6 +189,7 @@
 		77DB130E6F6FB2F290875643 /* Pods-BoostMINIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8471506B5EA6D4EF07695522 /* Pods-BoostMINIUITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.product.xcconfig"; sourceTree = "<group>"; };
 		8E3B451244A2D124A302E95E /* Pods-BoostMINITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F82C1641FF36D810031D030 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A623522F1FF35ED60007949C /* Moya File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Moya File.xctemplate"; sourceTree = "<group>"; };
 		A62352301FF35ED60007949C /* Reactor File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Reactor File.xctemplate"; sourceTree = "<group>"; };
 		C6A81DC28D0A865EDC8E4162 /* Pods-BoostMINI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				2B61F0401FDFA49500581F06 /* Main.storyboard */,
 				04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */,
 				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
+				8F82C1641FF36D810031D030 /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -579,7 +582,7 @@
 					2B61F0381FDFA49500581F06 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -630,6 +633,7 @@
 				A62352321FF35ED60007949C /* Reactor File.xctemplate in Resources */,
 				2B5AA09D1FEB566C007441E1 /* Localizable.strings in Resources */,
 				2B61F0441FDFA49500581F06 /* Assets.xcassets in Resources */,
+				8F82C1651FF36D810031D030 /* Home.storyboard in Resources */,
 				A62352311FF35ED60007949C /* Moya File.xctemplate in Resources */,
 				2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
@@ -692,6 +696,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -700,6 +705,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -718,6 +724,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -726,6 +733,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -807,6 +815,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -815,6 +824,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -1048,13 +1058,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BoostMINI/BoostMINI.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3GBL344829;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BoostMINI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BoostMINI/Classes/BoostMINI-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1153,13 +1164,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BoostMINI/BoostMINI.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3GBL344829;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BoostMINI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BoostMINI/Classes/BoostMINI-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1315,13 +1327,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BoostMINI/BoostMINI.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3GBL344829;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BoostMINI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BoostMINI/Classes/BoostMINI-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1336,13 +1349,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BoostMINI/BoostMINI.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3GBL344829;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BoostMINI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BoostMINI/Classes/BoostMINI-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

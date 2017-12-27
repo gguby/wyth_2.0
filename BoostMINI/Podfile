@@ -9,6 +9,7 @@ def open_sources
     pod 'SwiftLint'
     # pod 'RealReachability'
     # pod 'Realm'
+    pod 'SideMenu'
 	pod 'Toaster'
     pod 'SwiftyBeaver', '~> 1.5.0'
 
