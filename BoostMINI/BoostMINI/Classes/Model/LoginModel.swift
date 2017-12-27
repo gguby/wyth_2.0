@@ -37,32 +37,32 @@ import UIKit
 
 class LoginModel {
     
-    //MARK: * properties --------------------
+    // MARK: * properties --------------------
     var userId: String?
     var userName: String?
 
-    //MARK: * IBOutlets --------------------
+    // MARK: * IBOutlets --------------------
 
 
-    //MARK: * Initialize --------------------
+    // MARK: * Initialize --------------------
 
     init() {
 
     }
 
 
-    //MARK: * Main Logic --------------------
+    // MARK: * Main Logic --------------------
     class func getUser() -> LoginModel? {
         //api call'
         //moya(alamofire) -> data
 
-        do {
-
-        } catch let error = BSTError  {
-           error.action()
-        }
-
-        throw BSTError
+//        do {
+//
+//        } catch let error = BSTError  {
+//           error.action()
+//        }
+//
+//        throw BSTError
         return nil
     }
 
@@ -85,13 +85,13 @@ class LoginModel {
 
 class LoginViewModel {//presentation
     
-    func getUserInfo {
+    func getUserInfo() {
         let login = LoginBizLogic.getUser()
         login.userName = "fldjafldsajfldsja"
     }
     
     func usedNameForLocal() {
-        return "user" + "lllll"
+        return "user"
     }
 }
 

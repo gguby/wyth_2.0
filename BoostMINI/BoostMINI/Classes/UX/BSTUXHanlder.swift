@@ -30,9 +30,9 @@ class BSTUXHanlder {
     }
     
     class func showConfirm(message: String) {
-        BSTUXHanlderinstnta
-        
-        fdlksajfdlksm
+//        BSTUXHanlderinstnta
+//
+//        fdlksajfdlksm
     }
     
     class func toast(message: String) {
@@ -40,5 +40,5 @@ class BSTUXHanlder {
     }
 }
 
-extension FSBUXHanlder {
+extension BSTUXHanlder {
 }
