@@ -14,13 +14,15 @@ def open_sources
     pod 'SwiftyBeaver', '~> 1.5.0'
 
 #	pod 'ImageViewer', '>= 5.0'
-#	pod 'Kingfisher', '~> 4.0'
+	pod 'Kingfisher', '~> 4.0'
+	
+	pod 'TOCropViewController'
 #
 #	pod 'ReSwift'
 #	pod 'ReSwiftRouter', '~> 0.5.0'
 #	#pod 'ReSwiftRecorder'
 #
-#	pod 'Alamofire', '~> 4.5'
+	pod 'Alamofire', '~> 4.5'
 #	pod 'CodableAlamofire', '~> 1.1.0'
 #
 #	pod 'RxSwift',    '~> 4.0'

@@ -13,9 +13,7 @@ import UIKit
 
 internal class BSTConstants {
     typealias server = BSTServer
-    //    class var server: RDServer {
-    //        return RDServer.Type
-    //    }
+	
 }
 
 internal struct BSTServer {
@@ -36,7 +34,7 @@ internal struct BSTServer {
         return "" // JDUserDefaults.defaults.objectForKey(key: "path") as? String ?? "/test/jinjin"
     }
 
-    static var versionInf = "version.inf"
+    static let versionInf = "version.inf"
 }
 
 internal enum BSTSystem: String {
