@@ -46,7 +46,9 @@ enum BSTDeviceType {
         //            }
     }
 
+
     static var isSimulator: Bool {
+		// return TARGET_OS_SIMULATOR != 0
         #if (arch(i386) || arch(x86_64)) && os(iOS)
             return true
         #else

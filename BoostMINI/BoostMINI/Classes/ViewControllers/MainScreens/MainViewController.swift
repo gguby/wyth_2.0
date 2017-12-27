@@ -34,8 +34,8 @@ class MainViewController: UIViewController {
         let forceUpdate = false // 강제업데이트 여부.
 		
 		RunInNextMainThread(withDelay: 1.0, {
-            // 구버전인가의 여부
-            var isOldVersion = false
+			// TODO: 구버전인가의 여부
+            let isOldVersion = (arc4random() % 100) == 1	// 100분의 1 확률로 뜸... -ㅁ-
 
             if isOldVersion {
 				self.showUpdateAlert(forceUpdate: forceUpdate)
@@ -90,8 +90,18 @@ class MainViewController: UIViewController {
 	}
 
     // MARK: * UI Events --------------------
+	@IBAction func test1ButtonTouched(_ sender: Any) {
+		// alert test
+		BSTFacade.ux.showAlert(message: "ALERT를 띄웁니다.")
+	}
 
-    // MARK: * Memory Manage --------------------
+	@IBAction func test2ButtonTouched(_ sender: Any) {
+		// toast test
+		BSTFacade.ux.showToast(message: "토스트는 맛있습니다.")
+	}
+	
+	
+	// MARK: * Memory Manage --------------------
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

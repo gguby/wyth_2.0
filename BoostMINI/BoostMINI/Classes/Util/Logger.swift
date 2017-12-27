@@ -15,52 +15,75 @@
 
 import Foundation
 import SwiftyBeaver
-// import Crashlytics
+import Crashlytics
 
-// INFO: beaverCloud 사용할거면 .beaverCloud쪽과 요녀석의 주석을 해제할 것.
+// INFO: beaverCloud 사용할거면 .beaverCloud쪽과 요녀석의 주석을 해제할 것. defines로 옮겨도 되고.
 //fileprivate struct SBPlatformConst {
 //    static let appID = "Enter App ID Here - o8QXpN"
 //    static let appSecret = "Enter App Secret Here - zofadrcs8pbmknanqjaAkzepf1sljkfc"
 //    static let encryptionKey = "Enter Encryption Key Here - vLhboSulLqpulpq5gvufnmpfyvgKgwse"
 //}
 
-// 아래 함수들을 사용하여 로그를 출력.
-
-public func track(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
-    print("\(message) called from \(function) \(file):\(line)")
-}
-
-public func log(_ aa: String, _ bb: String, _ cc: String) { }
-
-public func logVerbose(_ items: Any..., context: Any? = nil, separator _: String = " ", terminator _: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    Logger.verbose(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
-}
-
-public func logDebug(_ items: Any..., context: Any? = nil, separator _: String = " ", terminator _: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    Logger.debug(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
-}
-
-public func logInfo(_ items: Any..., context: Any? = nil, separator _: String = " ", terminator _: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    Logger.log(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
-}
-
-public func logWarning(_ items: Any..., context: Any? = nil, separator _: String = " ", terminator _: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    Logger.warning(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
-}
-
-public func logError(_ items: Any..., context: Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    Logger.error(items, context: context, separator: separator, terminator: terminator)
-
-    Logger.error(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
-}
-
 public typealias LogLevel = SwiftyBeaver.Level
 public typealias LogDestination = Logger.LogDestination
 
+// 아래 함수들을 사용하여 로그를 출력.
+
+public func log(_ items: Any...,
+	level: LogLevel = .info,
+	file: String = #file,
+	function: String = #function,
+	line: Int = #line) {
+	Logger.push(level: level, message: items, context: nil, file: file, function: function, line: line)
+}
+
+public func logVerbose(_ items: Any...,
+	context: Any? = nil,
+	file: String = #file,
+	function: String = #function,
+	line: Int = #line) {
+	Logger.push(level: .verbose, message: items, context: context, file: file, function: function, line: line)
+}
+
+public func logDebug(_ items: Any...,
+	context: Any? = nil,
+	file: String = #file,
+	function: String = #function,
+	line: Int = #line) {
+	Logger.push(level: .debug, message: items, context: context, file: file, function: function, line: line)
+}
+
+public func logInfo(_ items: Any...,
+	context: Any? = nil,
+	file: String = #file,
+	function: String = #function,
+	line: Int = #line) {
+	Logger.push(level: .info, message: items, context: context, file: file, function: function, line: line)
+}
+
+public func logWarning(_ items: Any...,
+	context: Any? = nil,
+	file: String = #file,
+	function: String = #function,
+	line: Int = #line) {
+	Logger.push(level: .warning, message: items, context: context, file: file, function: function, line: line)
+}
+
+public func logError(_ items: Any...,
+	context: Any? = nil,
+	file: String = #file,
+	function: String = #function,
+	line: Int = #line) {
+	Logger.push(level: .error, message: items, context: context, file: file, function: function, line: line)
+}
+
+
+// Logger 구현 부분입니다. 로거 사용과 관련된 부분들이 있습니다.
 public class Logger {
 
     /// 로그를 남길 대상 설정.
     /// ( OptionSet임. [ .a, .b ] 또는 destination.insert(##) 를 통해 여러곳을 동시에 지정 가능.
+	/// 로그 남길 시 대상을 특별히 지정하지 않으면 여기에 설정된 대상들에 로그가 쌓이게 됨.
     static var destination: LogDestination = .none {
         didSet { self.touch(true) }
     }
@@ -84,80 +107,73 @@ public class Logger {
     public static func setMinLogLevel(_ level: LogLevel, destination: LogDestination? = nil) {
         Logger._setMinLogLevel(level, destination: destination) // conceal
     }
-
-    static var beaver: SwiftyBeaver.Type {
-        Logger.touch()
-        return SwiftyBeaver.self
-    }
-
-    fileprivate static var isSimulator: Bool { return TARGET_OS_SIMULATOR != 0 }
-
-    public struct LogDestination: OptionSet, Hashable {
-        public let rawValue: Int
-        public var hashValue: Int { return rawValue }
-        public var defaultHashValue: Int {
-            if rawValue == 0 {
-                return 0
-            }
-            let dd = log2(Double(rawValue))
-            return dd.isNaN ? 0 : Int(dd)
-        }
-
-        public static let none = LogDestination(rawValue: 0)
-        public static let console = LogDestination(rawValue: 1 << 1)
-        public static let file = LogDestination(rawValue: 1 << 2)
-        public static let crashlytics = LogDestination(rawValue: 1 << 3)
-        //public static let beaverCloud = LogDestination(rawValue: 1 << 4)
-
-        public init(rawValue: Int) {
-            self.rawValue = rawValue
-        }
-    }
-
-    private class func _printLog(_ logLevel: SwiftyBeaver.Level, _ items: Any..., context: Any? = nil, separator _: String = " ", terminator _: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
-
-        let filename = URL(fileURLWithPath: file).lastPathComponent.replacingOccurrences(of: "swift", with: "")
-        var header = "\(filename):\(function)"
-        if let line = line {
-            header += "(\(line))"
-        }
-        header += " : "
-        var args: [String] = []
-
-        items.forEach({
-            args.append("\($0)")
-        })
-
-        let msg = args.joined(separator: "\n")
-        let message = "\(header)\(msg)"
-        beaver.custom(level: logLevel, message: message, context: context)
-    }
-
-    class func verbose(_ items: Any..., context: Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
-        _printLog(.verbose, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
-    }
-
-    class func debug(_ items: Any..., context: Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
-        _printLog(.debug, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
-    }
-
-    class func log(_ items: Any..., context: Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
-        _printLog(.info, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
-    }
-
-    class func warning(_ items: Any..., context: Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
-        _printLog(.warning, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
-    }
-
-    class func error(_ items: Any..., context: Any? = nil, separator: String = " ", terminator: String = "\n", file: String = "", function: String = "", line: Int? = nil) {
-        _printLog(.error, items, context: context, separator: separator, terminator: terminator, file: file, function: function, line: line)
-    }
+	
+	
+	/// 로그 데이터들을 스트링으로 빌드.
+	///
+	/// - Parameters:
+	///   - destination: 로그를 출력할 대상. 생략시(=nil) 설정된 모든 대상에 대해 출력.
+	///                  대상 지정시 해당 대상에만 출력 (로깅 대상 목록(destination)에 없어도 해당 대상으로 출력됨)
+	///   - message: 보통 스트링. format(args...) 형태 가능.
+	///   - message: 보통 스트링. format(args...) 형태 가능.
+	///   - context: 기타 구조체 등등.
+	///   - file: 파일명 (#file 로 받아와서 넣어줌)
+	///   - function:  함수명 (#function 으로 받아와서 넣어줌)
+	///   - line: 줄 번호 (#line 으로 받아와서 넣어줌)
+	internal class func push(
+		level: LogLevel = .info,
+		message: @autoclosure () -> Any,
+		context: Any? = nil,
+		file: String = #file,
+		function: String = #function,
+		line: Int = #line) {
+		
+		beaver.custom(level: level, message: message, file: file, function: function, line: line, context: context)
+	}
+	
+	
+	
+	/// 로그를 쏴줄 실 구현체. (초기화를 위해 터치를 넣음)
+	/// addFilter 등을 쓰고싶으면 여기에 직접!.
+	static var beaver: SwiftyBeaver.Type {
+		Logger.touch(false)
+		return SwiftyBeaver.self
+	}
 }
 
-// MARK: - file private
 
+
+
+
+// MARK: - file private
+// Logger 내부 실구현 부분입니다. Logger를 사용하는 다른 파일들에서는 보실 필요 없음.
 extension Logger {
 
+	
+	
+	/// 로그 대상 목록.
+	public struct LogDestination: OptionSet, Hashable {
+		public let rawValue: Int
+		public var hashValue: Int { return rawValue }
+		public var defaultHashValue: Int {
+			if rawValue == 0 {
+				return 0
+			}
+			let dd = log2(Double(rawValue))
+			return dd.isNaN ? 0 : Int(dd)
+		}
+		
+		public static let none = LogDestination(rawValue: 0)
+		public static let console = LogDestination(rawValue: 1 << 1)
+		public static let file = LogDestination(rawValue: 1 << 2)
+		public static let crashlytics = LogDestination(rawValue: 1 << 3)
+		//public static let beaverCloud = LogDestination(rawValue: 1 << 4)
+		
+		public init(rawValue: Int) {
+			self.rawValue = rawValue
+		}
+	}
+	
     /// 초기화.
     ///
     /// - Parameter force: true이면 강제 초기화.
@@ -225,7 +241,7 @@ extension Logger {
             return Logger.getDestination(dest)?.minLevel
         }
 
-        var result: LogLevel?
+        var result: LogLevel? = nil
         for dd in beaver.destinations {
             result = result ?? dd.minLevel
             if dd.minLevel != result! {
@@ -287,7 +303,7 @@ extension Logger {
         default:
             // ERROR
             print("makeDestination Error!")
-            break
+            //break
         }
         // 공통 초기화
         manager.format = format
@@ -298,12 +314,18 @@ extension Logger {
 
     typealias SequenceOptionSet = OptionSet & Sequence
 
-    static func getDestination(_ dest: LogDestination) -> BaseDestination? {
+	fileprivate static var destinationCache: [LogDestination: BaseDestination] = [:]
+		
+	static func getDestination(_ destination: LogDestination) -> BaseDestination? {
         var manager: BaseDestination!
         var format: String = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $T $L: $M"
         // log thread, date, time in milliseconds, level & message
-
-        switch dest {
+		
+		if let target = destinationCache[destination] {
+			return target
+		}
+		
+        switch destination {
         case .none:
             format = ""
 
@@ -333,11 +355,62 @@ extension Logger {
         default:
             // ERROR
             print("makeDestination Error!")
-            break
+            //break
         }
 
         manager.format = format
+		destinationCache[destination] = manager
 
         return manager
     }
+	
+
+	// MARK: - SwiftyBeaver's internal 
+	
+	
+	class func stringFind(_ string:String, _ char: Character) -> String.Index? {
+		#if swift(>=3.2)
+			return string.index(of: char)
+		#else
+			return string.characters.index(of: char)
+		#endif
+	}
+
+	class func stripParams(function: String) -> String {
+		var f = function
+		if let indexOfBrace = stringFind(f, "(") {
+			#if swift(>=4.0)
+				f = String(f[..<indexOfBrace])
+			#else
+				f = f.substring(to: indexOfBrace)
+			#endif
+		}
+		f += "()"
+		return f
+	}
+
+	
+	/// SwityBeaver의 코드.
+	/// returns the current thread name
+	class func threadName() -> String {
+		
+		#if os(Linux)
+			// on 9/30/2016 not yet implemented in server-side Swift:
+			// > import Foundation
+			// > Thread.isMainThread
+			return ""
+		#else
+			if Thread.isMainThread {
+				return ""
+			} else {
+				let threadName = Thread.current.name
+				if let threadName = threadName, !threadName.isEmpty {
+					return threadName
+				} else {
+					return String(format: "%p", Thread.current)
+				}
+			}
+		#endif
+	}
+
 }
