@@ -6,30 +6,64 @@
 //  Copyright © 2017년 IRIVER LIMITED. All rights reserved.
 //
 
-import UIKit 
+import Foundation
+import UIKit
+import SideMenu
 
 class HomeViewController: UIViewController {
 
+    // MARK: - * properties --------------------
+
+
+    // MARK: - * IBOutlets --------------------
+
+
+    // MARK: - * Initialize --------------------
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.initProperties()
+        self.initUI()
+        self.prepareViewDidLoad()
     }
+
+
+    private func initProperties() {
+        SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
+        
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        
+        SideMenuManager.default.menuPresentMode = .menuSlideIn
+    }
+
+
+    private func initUI() {
+        
+    }
+
+
+    func prepareViewDidLoad() {
+
+    }
+
+    // MARK: - * Main Logic --------------------
+
+
+    // MARK: - * UI Events --------------------
+
+
+    // MARK: - * Memory Manage --------------------
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
+extension HomeViewController {
 
 }
