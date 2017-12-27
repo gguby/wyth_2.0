@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class BSTFacade {
-
+    static let ux = BSTUXHanlder()
     // MARK: * properties --------------------
 
     // MARK: * IBOutlets --------------------
@@ -18,6 +18,7 @@ class BSTFacade {
     // MARK: * Initialize --------------------
 
     init() {
+
     }
 
     // MARK: * Main Logic --------------------

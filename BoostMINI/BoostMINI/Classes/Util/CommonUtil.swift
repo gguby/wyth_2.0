@@ -42,7 +42,7 @@ extension CommonUtil {
     /// 최상위 윈도우 반환
     /// (리슨에서 쓰던 코드를, swift4에서 동작되도록 수정)
     /// - Returns: 최상위 윈도우
-    class func getTopWindow() -> UIWindow? {
+    class func getTopWindow() -> UIWindow? {//BSTUXHandler, BSTUXManager
         var topWindow: UIWindow?
         for window: UIWindow in UIApplication.shared.windows.reversed() {
             let windowClassName: String = getTypeName(window) // NSStringFromClass(window)
