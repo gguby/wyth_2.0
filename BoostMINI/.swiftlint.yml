@@ -13,12 +13,15 @@ disabled_rules: # 실행에서 제외할 룰 식별자들
   - nesting
   - type_body_length
   - type_name
+  - trailing_newline
   - trailing_comma
+  - trailing_whitespace
   - weak_delegate
   - empty_count
   - missing_docs
   - vertical_whitespace
   - line_length
+  - private_outlet
   # 사용 가능한 모든 룰은 swiftlint rules 명령으로 확인 가능
 opt_in_rules: # 일부 룰은 옵트 인 형태로 제공
   - empty_count
