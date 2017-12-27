@@ -11,7 +11,7 @@ import UIKit
 
 class NotificationModel {
 
-    //MARK: * properties --------------------
+    // MARK: * properties --------------------
 
 
     //MARK: * IBOutlets --------------------
