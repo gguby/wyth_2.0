@@ -3,7 +3,7 @@
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
-//___COPYRIGHT___
+//  ___COPYRIGHT___
 //
 
 import Foundation
@@ -11,16 +11,17 @@ import UIKit
 
 class ___FILEBASENAMEASIDENTIFIER___: UIViewController {
 
-    //MARK: * properties --------------------
+    // MARK: - * properties --------------------
 
 
-    //MARK: * IBOutlets --------------------
+    // MARK: - * IBOutlets --------------------
 
 
-    //MARK: * Initialize --------------------
+    // MARK: - * Initialize --------------------
 
     override func viewDidLoad() {
-
+        super.viewDidLoad()
+        
         self.initProperties()
         self.initUI()
         self.prepareViewDidLoad()
@@ -41,13 +42,13 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController {
 
     }
 
-    //MARK: * Main Logic --------------------
+    // MARK: - * Main Logic --------------------
 
 
-    //MARK: * UI Events --------------------
+    // MARK: - * UI Events --------------------
 
 
-    //MARK: * Memory Manage --------------------
+    // MARK: - * Memory Manage --------------------
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
