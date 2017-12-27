@@ -81,6 +81,7 @@
 		04C22BAA1FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
 		04C22BAB1FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
 		2B55BC141FF375CF0017D2B2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC131FF375CF0017D2B2 /* LoginModel.swift */; };
+		2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0781FEA6293007441E1 /* BSTFacade.swift */; };
 		2B5AA07B1FEA6299007441E1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA07A1FEA6299007441E1 /* Common.swift */; };
 		2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA07C1FEA62A0007441E1 /* Constants.swift */; };
@@ -153,6 +154,7 @@
 		2B55BC131FF375CF0017D2B2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		2B55BC2B1FF37CCE0017D2B2 /* SwiftClass.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftClass.xctemplate; sourceTree = "<group>"; };
 		2B55BC2C1FF37CCE0017D2B2 /* UIViewController.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIViewController.xctemplate; sourceTree = "<group>"; };
+		2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		2B5AA0721FEA623F007441E1 /* BoostMINI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BoostMINI-Bridging-Header.h"; sourceTree = "<group>"; };
 		2B5AA0781FEA6293007441E1 /* BSTFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTFacade.swift; sourceTree = "<group>"; };
 		2B5AA07A1FEA6299007441E1 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -257,6 +259,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		2B55BC2D1FF37DA90017D2B2 /* NotificationsScreens */ = {
+			isa = PBXGroup;
+			children = (
+				2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */,
+			);
+			path = NotificationsScreens;
+			sourceTree = "<group>";
+		};
 		2B5AA0621FEA6178007441E1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +333,7 @@
 			children = (
 				2B5AA0681FEA6178007441E1 /* MainScreens */,
 				04AD73F41FF20B6C005F4BF0 /* SignUpScreens */,
+				2B55BC2D1FF37DA90017D2B2 /* NotificationsScreens */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -873,6 +884,7 @@
 				04AD73F61FF20B82005F4BF0 /* _SignUpViewController.swift in Sources */,
 				2B5AA0911FEB55D2007441E1 /* BSTButton.swift in Sources */,
 				04AD741F1FF36269005F4BF0 /* Protocols.swift in Sources */,
+				2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */,
 				04AD741A1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				2B5AA0991FEB5639007441E1 /* OpenSourceSample.swift in Sources */,
 				2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */,
