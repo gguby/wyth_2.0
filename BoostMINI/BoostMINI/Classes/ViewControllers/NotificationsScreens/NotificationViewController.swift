@@ -11,7 +11,7 @@ import UIKit
 
 class NotificationViewController: UIViewController {
 
-    //MARK: * properties --------------------
+    // MARK: * properties --------------------
 
 
     //MARK: * IBOutlets --------------------
