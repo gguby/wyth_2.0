@@ -104,6 +104,8 @@
 		2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F0511FDFA49500581F06 /* BoostMINITests.swift */; };
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
 		A2D896F567E23F4060F7E849 /* Pods_BoostMINI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE278FD296F77407907664D /* Pods_BoostMINI.framework */; };
+		A62352311FF35ED60007949C /* Moya File.xctemplate in Resources */ = {isa = PBXBuildFile; fileRef = A623522F1FF35ED60007949C /* Moya File.xctemplate */; };
+		A62352321FF35ED60007949C /* Reactor File.xctemplate in Resources */ = {isa = PBXBuildFile; fileRef = A62352301FF35ED60007949C /* Reactor File.xctemplate */; };
 		BBAF3A4D59706FBA1EFD8D35 /* Pods_BoostMINITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4155BB6AAAB709628F89E0 /* Pods_BoostMINITests.framework */; };
 		F09898D50B38AE54B80FA5B2 /* Pods_BoostMINIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16F373D47E958D80ABF787 /* Pods_BoostMINIUITests.framework */; };
 /* End PBXBuildFile section */
@@ -187,6 +189,8 @@
 		77DB130E6F6FB2F290875643 /* Pods-BoostMINIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8471506B5EA6D4EF07695522 /* Pods-BoostMINIUITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.product.xcconfig"; sourceTree = "<group>"; };
 		8E3B451244A2D124A302E95E /* Pods-BoostMINITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A623522F1FF35ED60007949C /* Moya File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Moya File.xctemplate"; sourceTree = "<group>"; };
+		A62352301FF35ED60007949C /* Reactor File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Reactor File.xctemplate"; sourceTree = "<group>"; };
 		C6A81DC28D0A865EDC8E4162 /* Pods-BoostMINI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.debug.xcconfig"; sourceTree = "<group>"; };
 		D40819E4F294CFFA0F7529DC /* Pods-BoostMINI.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.stage.xcconfig"; sourceTree = "<group>"; };
 		D82B305D50ABA64EA1413891 /* Pods-BoostMINI.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.product.xcconfig"; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 		2B5AA06F1FEA6187007441E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A623522E1FF35E9F0007949C /* Template */,
 				2B5AA0711FEA61AC007441E1 /* Storyboards */,
 				2B5AA0701FEA6187007441E1 /* Strings */,
 				2B61F0431FDFA49500581F06 /* Assets.xcassets */,
@@ -465,6 +470,15 @@
 				DC16F373D47E958D80ABF787 /* Pods_BoostMINIUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A623522E1FF35E9F0007949C /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				A623522F1FF35ED60007949C /* Moya File.xctemplate */,
+				A62352301FF35ED60007949C /* Reactor File.xctemplate */,
+			);
+			path = Template;
 			sourceTree = "<group>";
 		};
 		BAF2B04AA6D66C55AA732719 /* Pods */ = {
@@ -613,8 +627,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */,
+				A62352321FF35ED60007949C /* Reactor File.xctemplate in Resources */,
 				2B5AA09D1FEB566C007441E1 /* Localizable.strings in Resources */,
 				2B61F0441FDFA49500581F06 /* Assets.xcassets in Resources */,
+				A62352311FF35ED60007949C /* Moya File.xctemplate in Resources */,
 				2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
 			);

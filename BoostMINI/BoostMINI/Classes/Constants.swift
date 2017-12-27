@@ -12,12 +12,15 @@ import Foundation
 import UIKit
 
 internal class BSTConstants {
+    /// 웹 서버
     typealias server = BSTServer
+	
+	// API 서버
+	typealias api = BSTApiServer
+	
+	// 기타 경로
     typealias path = BSTPath
-
-    //    class var server: RDServer {
-    //        return RDServer.Type
-    //    }
+	
 }
 
 internal struct BSTServer {
@@ -38,7 +41,13 @@ internal struct BSTServer {
         return "" // JDUserDefaults.defaults.objectForKey(key: "path") as? String ?? "/test/jinjin"
     }
 
-    static var versionInf = "version.inf"
+    static let versionInf = "version.inf"
+}
+
+internal struct BSTApiServer {
+	
+	/// api server base url
+	static let base = "http://boost.api.dev.com/"
 }
 
 internal struct BSTPath {

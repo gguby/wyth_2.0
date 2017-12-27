@@ -6,9 +6,9 @@
 //  Copyright © 2017년 smt. All rights reserved.
 //
 
-import Alamofire
 import TOCropViewController
 import UIKit
+import Alamofire
 // import Sharaku
 
 class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate {

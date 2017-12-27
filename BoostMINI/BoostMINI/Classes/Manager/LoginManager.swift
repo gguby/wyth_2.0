@@ -6,17 +6,14 @@
 //  Copyright © 2017년 smt. All rights reserved.
 //
 
-import Alamofire
-import FBSDKLoginKit
 import Foundation
-import GoogleSignIn
-import TwitterKit
+import Alamofire
 
 class LoginManager {
 
     static let sharedInstance = LoginManager()
 
-    let baseURL = Constants.VyrlAPIConstants.baseURL
+    let baseURL = BSTConstants.api.base
 
     var cookie: String?
 
@@ -25,7 +22,7 @@ class LoginManager {
     var isFirstLogin = false
 
     func getHeader() -> HTTPHeaders {
-        return Constants.VyrlAPIConstants.getHeader()
+        return BSTConstants.api.baseHeader
     }
 
     var needSignUpToken: String?
@@ -183,7 +180,7 @@ class LoginManager {
             "accessTokenSecret": self.needSignUpSecret!,
             "selfIntro": selfIntro,
             "homePageUrl": homePageURL,
-            "deviceType": Constants.VyrlAPIConstants.AppDevice.uppercased(),
+            "deviceType": BSTConstants.api.AppDevice.uppercased(),
             "pushToken": token,
         ]
 
