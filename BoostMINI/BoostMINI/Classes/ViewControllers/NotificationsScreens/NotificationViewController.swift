@@ -14,10 +14,10 @@ class NotificationViewController: UIViewController {
     // MARK: * properties --------------------
 
 
-    //MARK: * IBOutlets --------------------
+    // MARK: * IBOutlets --------------------
 
 
-    //MARK: * Initialize --------------------
+    // MARK: * Initialize --------------------
 
     override func viewDidLoad() {
 
@@ -41,13 +41,13 @@ class NotificationViewController: UIViewController {
 
     }
 
-    //MARK: * Main Logic --------------------
+    // MARK: * Main Logic --------------------
 
 
-    //MARK: * UI Events --------------------
+    // MARK: * UI Events --------------------
 
 
-    //MARK: * Memory Manage --------------------
+    // MARK: * Memory Manage --------------------
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

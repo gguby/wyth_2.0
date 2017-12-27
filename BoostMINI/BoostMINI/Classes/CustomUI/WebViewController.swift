@@ -276,8 +276,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 		if navigationAction.navigationType == .linkActivated {
 			decisionHandler(.cancel)
-		}
-		else {
+		} else {
 			decisionHandler(.allow)
 		}
 	}
