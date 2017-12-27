@@ -103,8 +103,6 @@
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		A2D896F567E23F4060F7E849 /* Pods_BoostMINI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE278FD296F77407907664D /* Pods_BoostMINI.framework */; };
-		A62352311FF35ED60007949C /* Moya File.xctemplate in Resources */ = {isa = PBXBuildFile; fileRef = A623522F1FF35ED60007949C /* Moya File.xctemplate */; };
-		A62352321FF35ED60007949C /* Reactor File.xctemplate in Resources */ = {isa = PBXBuildFile; fileRef = A62352301FF35ED60007949C /* Reactor File.xctemplate */; };
 		BBAF3A4D59706FBA1EFD8D35 /* Pods_BoostMINITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4155BB6AAAB709628F89E0 /* Pods_BoostMINITests.framework */; };
 		F09898D50B38AE54B80FA5B2 /* Pods_BoostMINIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16F373D47E958D80ABF787 /* Pods_BoostMINIUITests.framework */; };
 /* End PBXBuildFile section */
@@ -153,6 +151,8 @@
 		06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.release.xcconfig"; sourceTree = "<group>"; };
 		225B24F76464411F2957F5CF /* Pods-BoostMINIUITests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.stage.xcconfig"; sourceTree = "<group>"; };
 		2B55BC131FF375CF0017D2B2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		2B55BC2B1FF37CCE0017D2B2 /* SwiftClass.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftClass.xctemplate; sourceTree = "<group>"; };
+		2B55BC2C1FF37CCE0017D2B2 /* UIViewController.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIViewController.xctemplate; sourceTree = "<group>"; };
 		2B5AA0721FEA623F007441E1 /* BoostMINI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BoostMINI-Bridging-Header.h"; sourceTree = "<group>"; };
 		2B5AA0781FEA6293007441E1 /* BSTFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTFacade.swift; sourceTree = "<group>"; };
 		2B5AA07A1FEA6299007441E1 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -480,6 +480,8 @@
 			children = (
 				A623522F1FF35ED60007949C /* Moya File.xctemplate */,
 				A62352301FF35ED60007949C /* Reactor File.xctemplate */,
+				2B55BC2B1FF37CCE0017D2B2 /* SwiftClass.xctemplate */,
+				2B55BC2C1FF37CCE0017D2B2 /* UIViewController.xctemplate */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -630,11 +632,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */,
-				A62352321FF35ED60007949C /* Reactor File.xctemplate in Resources */,
 				2B5AA09D1FEB566C007441E1 /* Localizable.strings in Resources */,
 				2B61F0441FDFA49500581F06 /* Assets.xcassets in Resources */,
 				8F82C1651FF36D810031D030 /* Home.storyboard in Resources */,
-				A62352311FF35ED60007949C /* Moya File.xctemplate in Resources */,
 				2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
 			);
