@@ -1,5 +1,5 @@
 //
-//  LogManager.swift
+//  Logger.swift
 //  BoostMINI
 //
 //  Created by jack on 2017. 12. 21..
@@ -8,7 +8,7 @@
 
 // 사용법 예시
 // 초기화. 딱히 필요없지만 아래처럼 로그 대상 설정 가능
-// LogManager.destination = [.console, .file]
+// Logger.destination = [.console, .file]
 //
 // 그냥 아래처럼 사용.
 // logDebug("123")
@@ -17,11 +17,12 @@ import Foundation
 import SwiftyBeaver
 // import Crashlytics
 
-fileprivate struct SBPlatformConst {
-    static let appID = "Enter App ID Here - o8QXpN"
-    static let appSecret = "Enter App Secret Here - zofadrcs8pbmknanqjaAkzepf1sljkfc"
-    static let encryptionKey = "Enter Encryption Key Here - vLhboSulLqpulpq5gvufnmpfyvgKgwse"
-}
+// INFO: beaverCloud 사용할거면 .beaverCloud쪽과 요녀석의 주석을 해제할 것.
+//fileprivate struct SBPlatformConst {
+//    static let appID = "Enter App ID Here - o8QXpN"
+//    static let appSecret = "Enter App Secret Here - zofadrcs8pbmknanqjaAkzepf1sljkfc"
+//    static let encryptionKey = "Enter Encryption Key Here - vLhboSulLqpulpq5gvufnmpfyvgKgwse"
+//}
 
 // 아래 함수들을 사용하여 로그를 출력.
 
@@ -29,32 +30,34 @@ public func track(_ message: String, file: String = #file, function: String = #f
     print("\(message) called from \(function) \(file):\(line)")
 }
 
+public func log(_ aa: String, _ bb: String, _ cc: String) { }
+
 public func logVerbose(_ items: Any..., context: Any? = nil, separator _: String = " ", terminator _: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    LogManager.verbose(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
+    Logger.verbose(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
 }
 
 public func logDebug(_ items: Any..., context: Any? = nil, separator _: String = " ", terminator _: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    LogManager.debug(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
+    Logger.debug(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
 }
 
 public func logInfo(_ items: Any..., context: Any? = nil, separator _: String = " ", terminator _: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    LogManager.log(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
+    Logger.log(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
 }
 
 public func logWarning(_ items: Any..., context: Any? = nil, separator _: String = " ", terminator _: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    LogManager.warning(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
+    Logger.warning(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
 }
 
 public func logError(_ items: Any..., context: Any? = nil, separator: String = " ", terminator: String = "\n", file: String = #file, function: String = #function, line: Int = #line) {
-    LogManager.error(items, context: context, separator: separator, terminator: terminator)
+    Logger.error(items, context: context, separator: separator, terminator: terminator)
 
-    LogManager.error(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
+    Logger.error(items, context: context, separator: " ", terminator: "\n", file: file, function: function, line: line)
 }
 
 public typealias LogLevel = SwiftyBeaver.Level
-public typealias LogDestination = LogManager.LogDestination
+public typealias LogDestination = Logger.LogDestination
 
-public class LogManager {
+public class Logger {
 
     /// 로그를 남길 대상 설정.
     /// ( OptionSet임. [ .a, .b ] 또는 destination.insert(##) 를 통해 여러곳을 동시에 지정 가능.
@@ -68,7 +71,7 @@ public class LogManager {
     /// - Returns: 해당 대상의 로깅 최소래벨을 반환.
     /// 		단, 대상이 지정되지 않았으나, 대상별로 로깅레벨이 다르다면 nil 반환.
     public static func minLogLevel(_ destination: LogDestination? = nil) -> LogLevel? {
-        return LogManager._minLogLevel(destination) // conceal
+        return Logger._minLogLevel(destination) // conceal
     }
 
     /// 로깅 최소 레벨 지정
@@ -79,11 +82,11 @@ public class LogManager {
     ///
     /// - 참고 : destination을 생략하고 지정할 경우, 로깅 최소 레벨 기본값도 함께 변함.
     public static func setMinLogLevel(_ level: LogLevel, destination: LogDestination? = nil) {
-        LogManager._setMinLogLevel(level, destination: destination) // conceal
+        Logger._setMinLogLevel(level, destination: destination) // conceal
     }
 
     static var beaver: SwiftyBeaver.Type {
-        LogManager.touch()
+        Logger.touch()
         return SwiftyBeaver.self
     }
 
@@ -104,7 +107,7 @@ public class LogManager {
         public static let console = LogDestination(rawValue: 1 << 1)
         public static let file = LogDestination(rawValue: 1 << 2)
         public static let crashlytics = LogDestination(rawValue: 1 << 3)
-        public static let beaverCloud = LogDestination(rawValue: 1 << 4)
+        //public static let beaverCloud = LogDestination(rawValue: 1 << 4)
 
         public init(rawValue: Int) {
             self.rawValue = rawValue
@@ -153,7 +156,7 @@ public class LogManager {
 
 // MARK: - file private
 
-extension LogManager {
+extension Logger {
 
     /// 초기화.
     ///
@@ -168,6 +171,8 @@ extension LogManager {
                 return
             }
         }
+		
+		// TODO : remove하지않는다. 일단 다 선언하여 대상별로 로그를 쓸 수 있게 수정해야함.
 
         var arrayNewDefaultHashValues: [Int] = []
         for tmp in destination.elements() {
@@ -217,7 +222,7 @@ extension LogManager {
 
     fileprivate static func _minLogLevel(_ destination: LogDestination? = nil) -> LogLevel? {
         if let dest = destination {
-            return LogManager.getDestination(dest)?.minLevel
+            return Logger.getDestination(dest)?.minLevel
         }
 
         var result: LogLevel?
@@ -232,7 +237,7 @@ extension LogManager {
 
     fileprivate static func _setMinLogLevel(_ level: LogLevel, destination: LogDestination? = nil) {
         if let dest = destination {
-            if let target = LogManager.getDestination(dest) {
+            if let target = Logger.getDestination(dest) {
                 target.minLevel = level
             }
             return
@@ -275,10 +280,10 @@ extension LogManager {
         case .crashlytics:
             manager = CrashlyticsDestination()
 
-        case .beaverCloud:
-            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
-                                            appSecret: SBPlatformConst.appSecret,
-                                            encryptionKey: SBPlatformConst.encryptionKey)
+//        case .beaverCloud:
+//            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
+//                                            appSecret: SBPlatformConst.appSecret,
+//                                            encryptionKey: SBPlatformConst.encryptionKey)
         default:
             // ERROR
             print("makeDestination Error!")
@@ -316,15 +321,15 @@ extension LogManager {
                 let fileURL = url.appendingPathComponent("app_log.log")
                 file.logFileURL = fileURL
             }
-            manager = file
+//            manager = file
 
         case .crashlytics:
             manager = CrashlyticsDestination()
 
-        case .beaverCloud:
-            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
-                                            appSecret: SBPlatformConst.appSecret,
-                                            encryptionKey: SBPlatformConst.encryptionKey)
+//        case .beaverCloud:
+//            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
+//                                            appSecret: SBPlatformConst.appSecret,
+//                                            encryptionKey: SBPlatformConst.encryptionKey)
         default:
             // ERROR
             print("makeDestination Error!")

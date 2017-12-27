@@ -77,9 +77,9 @@
 		04AD741F1FF36269005F4BF0 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD741E1FF36269005F4BF0 /* Protocols.swift */; };
 		04AD74201FF36269005F4BF0 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD741E1FF36269005F4BF0 /* Protocols.swift */; };
 		04AD74211FF36269005F4BF0 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD741E1FF36269005F4BF0 /* Protocols.swift */; };
-		04C22BA91FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
-		04C22BAA1FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
-		04C22BAB1FEB9597007E2BED /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* LogManager.swift */; };
+		04C22BA91FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
+		04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
+		04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		2B55BC141FF375CF0017D2B2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC131FF375CF0017D2B2 /* LoginModel.swift */; };
 		2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC301FF37E580017D2B2 /* NotificationModel.swift */; };
@@ -150,7 +150,7 @@
 		04AD74151FF35E6E005F4BF0 /* String+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Url.swift"; sourceTree = "<group>"; };
 		04AD74191FF360D4005F4BF0 /* BSTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTError.swift; sourceTree = "<group>"; };
 		04AD741E1FF36269005F4BF0 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		04C22BA81FEB9597007E2BED /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		04C22BA81FEB9597007E2BED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.release.xcconfig"; sourceTree = "<group>"; };
 		225B24F76464411F2957F5CF /* Pods-BoostMINIUITests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.stage.xcconfig"; sourceTree = "<group>"; };
 		2B55BC131FF375CF0017D2B2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 			children = (
 				2B5AA08E1FEB55C8007441E1 /* CommonUtil.swift */,
 				04122A581FEBBACE00896EE0 /* FunctionHouse.swift */,
-				04C22BA81FEB9597007E2BED /* LogManager.swift */,
+				04C22BA81FEB9597007E2BED /* Logger.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -891,7 +891,7 @@
 				04122A5D1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
 				8F82C1711FF3790C0031D030 /* HomeViewController.swift in Sources */,
 				04AD740F1FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
-				04C22BA91FEB9597007E2BED /* LogManager.swift in Sources */,
+				04C22BA91FEB9597007E2BED /* Logger.swift in Sources */,
 				2B5AA08D1FEB55BA007441E1 /* BSTUXHanlder.swift in Sources */,
 				04122A731FECBFA400896EE0 /* NilDestination.swift in Sources */,
 				04AD740C1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */,
@@ -951,7 +951,7 @@
 				04122A5E1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
 				04AD74101FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
 				04AD740D1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */,
-				04C22BAA1FEB9597007E2BED /* LogManager.swift in Sources */,
+				04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */,
 				04122A781FECE9A200896EE0 /* BSTButton.swift in Sources */,
 				04AD741B1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				04122A7A1FECE9A200896EE0 /* NumberConvertible.swift in Sources */,
@@ -984,7 +984,7 @@
 				04AD74111FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
 				04AD740E1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */,
 				04122A5F1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
-				04C22BAB1FEB9597007E2BED /* LogManager.swift in Sources */,
+				04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */,
 				04AD741C1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				04122A7D1FECE9A300896EE0 /* BSTButton.swift in Sources */,
 				04122A7F1FECE9A300896EE0 /* NumberConvertible.swift in Sources */,

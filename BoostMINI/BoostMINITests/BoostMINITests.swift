@@ -31,20 +31,20 @@ class BoostMINITests: XCTestCase {
 
 		logVerbose("test console (default)")
 
-		LogManager.destination = .console
+		Logger.destination = .console
 		logDebug("test console1 (c)")
 
-		LogManager.destination = [.console, .file]
+		Logger.destination = [.console, .file]
 		logWarning("test console2 (c+f)")
 
-		LogManager.destination = [.file]
+		Logger.destination = [.file]
 		logDebug("test console3 (f)")
 
-		LogManager.destination = .console
+		Logger.destination = .console
 		logDebug("test console4 (c)")
 
 		for level in [LogLevel.debug, .warning, .error, .verbose] {
-			LogManager.setMinLogLevel(level)
+			Logger.setMinLogLevel(level)
 			logVerbose("verbose")
 			logDebug("debug")
 			logInfo("info")

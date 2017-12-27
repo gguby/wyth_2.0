@@ -8,31 +8,39 @@
 
 import UIKit
 
-enum BSTError: Error {
-    case isEmpty
-    case argumentError
-    case nilError
-    case unknown
-    //case custom(msg)
-}
-
 protocol BSTErrorProtocol: LocalizedError {
-    var title: String? { get }
-    var code: Int { get }
+	var code: Int { get }
+	var title: String! { get }
 }
 
-struct BSTCustomError: BSTErrorProtocol {
+class BSTError: BSTErrorProtocol {
+	
+	// TODO: 임시생성.
+	
+    static let isEmpty       = BSTError(101)
+    static let argumentError = BSTError(102)
+    static let nilError      = BSTError(103)
+    static let unknown       = BSTError(999)
 
-    var title: String?
-    var code: Int
+	var code: Int
+    var title: String!
     var errorDescription: String? { return _description }
     var failureReason: String? { return _description }
 
-    private var _description: String
+    private var _description: String = ""
 
-    init(title: String?, description: String, code: Int) {
-        self.title = title ?? "Error"
-        _description = description
-        self.code = code
+	init(_ code: Int) {
+		self.code = code
+		self.title = "Error #\(code)"
+	}
+
+	convenience init(_ code: Int, _ title: String?, description: String = "") {
+		self.init(code)
+		self.title = title ?? "Error ##\(code)"
+        self._description = description
     }
+	
+	func action() {
+		logError("BSTERROR : \(self.title)")
+	}
 }

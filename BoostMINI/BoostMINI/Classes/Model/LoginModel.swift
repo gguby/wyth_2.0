@@ -56,13 +56,13 @@ class LoginModel {
         //api call'
         //moya(alamofire) -> data
 
-//        do {
-//
-//        } catch let error = BSTError  {
-//           error.action()
-//        }
-//
-//        throw BSTError
+        do {
+
+			
+		} catch let error as BSTError {
+			error.action()
+		}
+
         return nil
     }
 
@@ -85,14 +85,14 @@ class LoginModel {
 
 class LoginViewModel {//presentation
     
-    func getUserInfo() {
-        let login = LoginBizLogic.getUser()
-        login.userName = "fldjafldsajfldsja"
-    }
-    
-    func usedNameForLocal() {
-        return "user"
-    }
+//    func getUserInfo {
+//        let login = LoginBizLogic.getUser()
+//        login.userName = "fldjafldsajfldsja"
+//    }
+//
+//    func usedNameForLocal() {
+//        return "user" + "lllll"
+//    }
 }
 
 
