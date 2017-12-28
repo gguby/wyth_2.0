@@ -23,7 +23,7 @@ def open_sources
 #	#pod 'ReSwiftRecorder'
 #
 	pod 'Alamofire', '~> 4.5'
-#	pod 'CodableAlamofire', '~> 1.1.0'
+	pod 'CodableAlamofire', '~> 1.1.0'
 #
     pod 'RxSwift',    '~> 4.0'
     pod 'RxCocoa',    '~> 4.0'

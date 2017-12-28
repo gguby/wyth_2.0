@@ -254,9 +254,12 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 			\(#function)
 			\(frame.request.url?.absoluteString ?? "")
 			""")
-		SystemAlert.show(nil, message: message, cancel: SystemAlert.text.ok, completion: {(_ cancel: Bool) -> Void in
-			completionHandler()
-		})
+		
+		BSTFacade.ux.showAlert(message) { fin in
+			if fin {
+				completionHandler()
+			}
+		}
 	}
 	
 	// 이 코드를 넣으면 웹뷰가 제대로 동작하지 않는다...

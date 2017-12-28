@@ -9,6 +9,7 @@
 import Toaster
 import UIKit
 
+/// 외부에서 바로 호출못하도록 BSTUXHanlder 내부에 생성
 extension BSTUXHanlder {
 	internal class ToastManager: NSObject {
 		fileprivate static let delay: TimeInterval = 0

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04122A551FEBAEE400896EE0 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A541FEBAEE400896EE0 /* ToastManager.swift */; };
+		04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */; };
 		04122A591FEBBACE00896EE0 /* FunctionHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A581FEBBACE00896EE0 /* FunctionHouse.swift */; };
 		04122A5A1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A581FEBBACE00896EE0 /* FunctionHouse.swift */; };
 		04122A5B1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A581FEBBACE00896EE0 /* FunctionHouse.swift */; };
@@ -43,6 +43,10 @@
 		04122A831FECE9AE00896EE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA07C1FEA62A0007441E1 /* Constants.swift */; };
 		04122A841FECE9AE00896EE0 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA07E1FEA62A7007441E1 /* Definitions.swift */; };
 		04122A851FECE9BC00896EE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F03C1FDFA49500581F06 /* AppDelegate.swift */; };
+		045D14801FF4A7AB00A67AA0 /* String+Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D147F1FF4A7AB00A67AA0 /* String+Tag.swift */; };
+		045D14811FF4A7AD00A67AA0 /* String+Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D147F1FF4A7AB00A67AA0 /* String+Tag.swift */; };
+		045D14821FF4A7AE00A67AA0 /* String+Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D147F1FF4A7AB00A67AA0 /* String+Tag.swift */; };
+		045D14841FF4A9B400A67AA0 /* Optional+logError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14831FF4A9B400A67AA0 /* Optional+logError.swift */; };
 		049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A76881FEBA58D00B98935 /* NumberConvertible.swift */; };
 		04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
 		04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
@@ -52,7 +56,7 @@
 		04AD73FA1FF21E23005F4BF0 /* _LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* _LogInViewController.swift */; };
 		04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */; };
 		04AD73FD1FF2283F005F4BF0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */; };
-		04AD73FF1FF232A4005F4BF0 /* SystemAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FE1FF232A4005F4BF0 /* SystemAlertManager.swift */; };
+		04AD73FF1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FE1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift */; };
 		04AD74021FF33934005F4BF0 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74011FF33933005F4BF0 /* LoginManager.swift */; };
 		04AD74031FF33934005F4BF0 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74011FF33933005F4BF0 /* LoginManager.swift */; };
 		04AD74041FF33934005F4BF0 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74011FF33933005F4BF0 /* LoginManager.swift */; };
@@ -68,9 +72,9 @@
 		04AD74121FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */; };
 		04AD74131FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */; };
 		04AD74141FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */; };
-		04AD74161FF35E6E005F4BF0 /* String+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74151FF35E6E005F4BF0 /* String+Url.swift */; };
-		04AD74171FF35E6E005F4BF0 /* String+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74151FF35E6E005F4BF0 /* String+Url.swift */; };
-		04AD74181FF35E6E005F4BF0 /* String+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74151FF35E6E005F4BF0 /* String+Url.swift */; };
+		04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74151FF35E6E005F4BF0 /* String+URL.swift */; };
+		04AD74171FF35E6E005F4BF0 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74151FF35E6E005F4BF0 /* String+URL.swift */; };
+		04AD74181FF35E6E005F4BF0 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74151FF35E6E005F4BF0 /* String+URL.swift */; };
 		04AD741A1FF360D4005F4BF0 /* BSTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74191FF360D4005F4BF0 /* BSTError.swift */; };
 		04AD741B1FF360D4005F4BF0 /* BSTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74191FF360D4005F4BF0 /* BSTError.swift */; };
 		04AD741C1FF360D4005F4BF0 /* BSTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74191FF360D4005F4BF0 /* BSTError.swift */; };
@@ -132,7 +136,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04122A541FEBAEE400896EE0 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
+		04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-Toast.swift"; sourceTree = "<group>"; };
 		04122A581FEBBACE00896EE0 /* FunctionHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionHouse.swift; sourceTree = "<group>"; };
 		04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OptionSet+Sequence.swift"; path = "BoostMINI/Classes/Extensions/OptionSet+Sequence.swift"; sourceTree = SOURCE_ROOT; };
 		04122A601FEC92DE00896EE0 /* Dictionary+Easy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Easy.swift"; sourceTree = "<group>"; };
@@ -140,18 +144,20 @@
 		04122A681FEC962600896EE0 /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
 		04122A6D1FECA4EE00896EE0 /* CrashlyticsDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsDestination.swift; sourceTree = "<group>"; };
 		04122A721FECBFA400896EE0 /* NilDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilDestination.swift; sourceTree = "<group>"; };
+		045D147F1FF4A7AB00A67AA0 /* String+Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Tag.swift"; sourceTree = "<group>"; };
+		045D14831FF4A9B400A67AA0 /* Optional+logError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+logError.swift"; sourceTree = "<group>"; };
 		049A76881FEBA58D00B98935 /* NumberConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConvertible.swift; sourceTree = "<group>"; };
 		04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		04AD73F51FF20B82005F4BF0 /* _SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _SignUpViewController.swift; sourceTree = "<group>"; };
 		04AD73F81FF21E23005F4BF0 /* _LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _LogInViewController.swift; sourceTree = "<group>"; };
 		04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		04AD73FE1FF232A4005F4BF0 /* SystemAlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlertManager.swift; sourceTree = "<group>"; };
+		04AD73FE1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-Alert.swift"; sourceTree = "<group>"; };
 		04AD74011FF33933005F4BF0 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLoginViewController.swift; sourceTree = "<group>"; };
 		04AD74061FF339EC005F4BF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		04AD74071FF339EC005F4BF0 /* AgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
 		04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhotoViewController.swift; sourceTree = "<group>"; };
-		04AD74151FF35E6E005F4BF0 /* String+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Url.swift"; sourceTree = "<group>"; };
+		04AD74151FF35E6E005F4BF0 /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		04AD74191FF360D4005F4BF0 /* BSTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTError.swift; sourceTree = "<group>"; };
 		04AD741E1FF36269005F4BF0 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		04C22BA81FEB9597007E2BED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				04AD741E1FF36269005F4BF0 /* Protocols.swift */,
+				049A76881FEBA58D00B98935 /* NumberConvertible.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -334,8 +341,8 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA08C1FEB55BA007441E1 /* BSTUXHanlder.swift */,
-				04122A541FEBAEE400896EE0 /* ToastManager.swift */,
-				04AD73FE1FF232A4005F4BF0 /* SystemAlertManager.swift */,
+				04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */,
+				04AD73FE1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift */,
 			);
 			path = UX;
 			sourceTree = "<group>";
@@ -384,9 +391,10 @@
 				04122A601FEC92DE00896EE0 /* Dictionary+Easy.swift */,
 				04122A641FEC941F00896EE0 /* Collection+SafeRange.swift */,
 				04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */,
+				045D14831FF4A9B400A67AA0 /* Optional+logError.swift */,
 				04122A681FEC962600896EE0 /* String+Format.swift */,
-				04AD74151FF35E6E005F4BF0 /* String+Url.swift */,
-				049A76881FEBA58D00B98935 /* NumberConvertible.swift */,
+				045D147F1FF4A7AB00A67AA0 /* String+Tag.swift */,
+				04AD74151FF35E6E005F4BF0 /* String+URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -742,6 +750,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableAlamofire/CodableAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -759,6 +768,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -786,6 +796,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableAlamofire/CodableAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -803,6 +814,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -893,6 +905,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableAlamofire/CodableAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -910,6 +923,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -970,20 +984,21 @@
 				04AD741A1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				2B5AA0991FEB5639007441E1 /* OpenSourceSample.swift in Sources */,
 				2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */,
-				04AD74161FF35E6E005F4BF0 /* String+Url.swift in Sources */,
+				04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */,
 				049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */,
+				045D14801FF4A7AB00A67AA0 /* String+Tag.swift in Sources */,
 				04122A6E1FECA4EE00896EE0 /* CrashlyticsDestination.swift in Sources */,
 				04122A691FEC962600896EE0 /* String+Format.swift in Sources */,
 				04122A611FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				2B5AA09B1FEB5646007441E1 /* LibrarySample.swift in Sources */,
 				2B5AA0891FEB554B007441E1 /* DebugHSLee.swift in Sources */,
-				04122A551FEBAEE400896EE0 /* ToastManager.swift in Sources */,
+				04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */,
 				A623523B1FF390690007949C /* ViewController.swift in Sources */,
 				2B5AA07B1FEA6299007441E1 /* Common.swift in Sources */,
 				2B5AA0931FEB55D9007441E1 /* BaseModel.swift in Sources */,
 				04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
-				04AD73FF1FF232A4005F4BF0 /* SystemAlertManager.swift in Sources */,
+				04AD73FF1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift in Sources */,
 				2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */,
 				2B5AA0951FEB55E4007441E1 /* ExceptionHandler.swift in Sources */,
 				04122A651FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
@@ -996,6 +1011,7 @@
 				2B61F03D1FDFA49500581F06 /* AppDelegate.swift in Sources */,
 				2B5AA08F1FEB55C8007441E1 /* CommonUtil.swift in Sources */,
 				A62352381FF390690007949C /* GithupService.swift in Sources */,
+				045D14841FF4A9B400A67AA0 /* Optional+logError.swift in Sources */,
 				A623523A1FF390690007949C /* Gitup.swift in Sources */,
 				2B5AA08B1FEB5568007441E1 /* MainViewController.swift in Sources */,
 			);
@@ -1010,11 +1026,12 @@
 				04AD74201FF36269005F4BF0 /* Protocols.swift in Sources */,
 				04AD74031FF33934005F4BF0 /* LoginManager.swift in Sources */,
 				04122A5A1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
-				04AD74171FF35E6E005F4BF0 /* String+Url.swift in Sources */,
+				04AD74171FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04122A771FECE9A200896EE0 /* ExceptionHandler.swift in Sources */,
 				04122A821FECE9AE00896EE0 /* Common.swift in Sources */,
 				04122A6A1FEC962600896EE0 /* String+Format.swift in Sources */,
 				04122A621FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
+				045D14811FF4A7AD00A67AA0 /* String+Tag.swift in Sources */,
 				04122A841FECE9AE00896EE0 /* Definitions.swift in Sources */,
 				04AD74131FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */,
 				04122A791FECE9A200896EE0 /* CommonUtil.swift in Sources */,
@@ -1042,9 +1059,10 @@
 				04AD74211FF36269005F4BF0 /* Protocols.swift in Sources */,
 				04AD74041FF33934005F4BF0 /* LoginManager.swift in Sources */,
 				04122A751FECBFA400896EE0 /* NilDestination.swift in Sources */,
-				04AD74181FF35E6E005F4BF0 /* String+Url.swift in Sources */,
+				04AD74181FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04122A5B1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
 				04AD73FA1FF21E23005F4BF0 /* _LogInViewController.swift in Sources */,
+				045D14821FF4A7AE00A67AA0 /* String+Tag.swift in Sources */,
 				04122A7C1FECE9A300896EE0 /* ExceptionHandler.swift in Sources */,
 				04122A6B1FEC962600896EE0 /* String+Format.swift in Sources */,
 				04AD73F71FF20B82005F4BF0 /* _SignUpViewController.swift in Sources */,

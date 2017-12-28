@@ -13,12 +13,28 @@ class BSTUXHandlerInstance {
     var view: UIView?
 }
 
-class BSTUXHanlder {
+
+
+
+
+open class BSTUXHanlder {
     
     // MARK: * properties --------------------
 	fileprivate let toast = ToastManager()
-	
-	
+
+
+	open class Actions: NSObject {
+		public typealias emptyAction = () -> Void
+		
+		public typealias boolAction = (Bool) -> Void
+		public typealias intAction  = (Int) -> Void
+		public typealias anyAction  = (Any) -> Void
+		
+		public typealias boolOptionalAction = (Bool?) -> Void
+		public typealias intOptionalAction  = (Int?) -> Void
+		public typealias anyOptionalAction  = (Any?) -> Void
+
+	}
     // MARK: * IBOutlets --------------------
 
     // MARK: * Initialize --------------------
@@ -27,9 +43,6 @@ class BSTUXHanlder {
     }
 
     // MARK: * Main Logic --------------------
-	func showToast(message: String) {
-		
-	}
 	
 	
 	/// 토스트를 띄운다.
@@ -47,25 +60,57 @@ class BSTUXHanlder {
 	///   - delay: 메시지 뜨기 전 지연시간 (생략시 기본값)
 	///   - duration: 노출시간 (생략시 기본값)
 	///   - clearStack: 현재 화면에 떠있는 토스트 및 대기중인 토스트 목록을 싹 다 제거하고, 이 토스트를 바로 띄워준다. (기본값 false)
-	func showToast(_ message: String,
+	open func showToast(_ message: String,
 				   delay: TimeInterval? = nil,
 				   duration: TimeInterval? = nil,
 				   clearStack: Bool = false) {
-		ToastManager.clear()
 		ToastManager.pop(message, delay: delay, duration: duration, clearStack:clearStack)
 	}
+
+
+	open func showAlert(_ message: String, _ completion: @escaping Actions.boolAction = { _ in }) {
+		SystemAlert.show(nil, message: message, buttons: [AlertButtons.ok]) { fin in
+			completion(fin == 0)
+		}
+    }
 	
+	open func showConfirm(_ message: String, _ completion: @escaping Actions.boolOptionalAction = { _ in }) {
+		SystemAlert.show(nil, message: message, buttons: [.ok, .cancel]) { index in
+			switch(index) {
+			case 0:
+				completion(true)
+			case 1:
+				completion(false)
+			default:
+				completion(nil)
+			}
+		}
+	}
+
+	open func showAlert(_ message: String,
+						title: String? = nil,
+						buttons: AlertButtonSet = [.ok],
+						_ completion: @escaping Actions.intAction) {
+		SystemAlert
+			.show(title, message: message, buttons: buttons, completion: { index in
+				completion(index)
+			})
+	}
+
 	
-    func showAlert(message: String) {
-        SystemAlert.show(nil, message: message)
-    }
-    
-    class func showConfirm(message: String) {
-    }
-    
-    class func toast(message: String) {
-        
-    }
+	open func showAlert(_ message: String? = nil,
+						title: String? = nil,
+						buttons: AlertButtonSet,
+						completions: [Actions.emptyAction]) {
+		SystemAlert
+			.show(title, message: message, buttons: buttons, completion: { index in
+				
+				let block = completions[safe: index]
+				block?()
+			})
+	}
+
+	
 }
 
 extension BSTUXHanlder {
