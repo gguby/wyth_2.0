@@ -21,22 +21,23 @@ extension Optional {
 	
 	
 	
-	///
-	///
-	/// - Parameters:
-	///   - completion: self가 nil이 아니면 실행될 클로져 블록.
-	/// - Returns: self
-	public func unwrap(_ completion: @escaping (Wrapped) -> Void,
-					   _ file: String = #file, _ function: String = #function, _ line: Int = #line) -> Optional {
-		if let val =  self {
-			completion(val)
-		} else {
-			logError("\(self.debugDescription) is nil... (unwrap error)",
-				context: nil,
-				file: file,
-				function: function,
-				line : line)
-		}
-		return self
-	}
+//	///
+//	///
+//	/// - Parameters:
+//	///   - completion: self가 nil이면 실행될 클로져 블록.
+//	/// - Returns: self
+//		public func unwrap(error: @autoclosure () -> Void,
+//						   _ file: String = #file, _ function: String = #function, _ line: Int = #line) -> Wrapped {
+//			if let val = self {
+//				return val
+//			}
+//
+//			logError("\(self.debugDescription) is nil... (unwrap error)",
+//				context: nil,
+//				file: file,
+//				function: function,
+//				line : line)
+//			error()
+//		return self.unsafelyUnwrapped
+//	}
 }

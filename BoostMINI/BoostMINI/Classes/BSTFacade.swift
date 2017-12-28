@@ -17,7 +17,7 @@ class BSTFacade {
 
     // MARK: * Initialize --------------------
 
-    init() {
+    private init() {
 
     }
 

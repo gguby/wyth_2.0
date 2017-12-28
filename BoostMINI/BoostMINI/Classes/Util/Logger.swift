@@ -83,8 +83,8 @@ public class Logger {
 
     /// 로그를 남길 대상 설정.
     /// ( OptionSet임. [ .a, .b ] 또는 destination.insert(##) 를 통해 여러곳을 동시에 지정 가능.
-	/// 로그 남길 시 대상을 특별히 지정하지 않으면 여기에 설정된 대상들에 로그가 쌓이게 됨.
-    static var destination: LogDestination = .none {
+	/// 기본값은 콘솔.
+    static var destination: LogDestination = .console {
         didSet { self.touch(true) }
     }
 

@@ -25,6 +25,22 @@ class MainViewController: UIViewController {
         initUI()
         prepareViewDidLoad()
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		// TestData를 가져온다.
+		APIService<TestData>.get { block in
+			if not(block.isSucceed) {
+				let msg = "API test 1 : failed"
+				logWarning(msg)
+				BSTFacade.ux.showToast(msg)
+				return
+			}
+			// 테스트용 텍스트로 변환...
+			let userInfo = "API test 1 : " + (block.data!.flatMap { "\($0.description)" }).joined(separator: ",\r")
+			logInfo(userInfo)
+			BSTFacade.ux.showToast(userInfo)
+		}
+	}
 
     private func checkVersion() {
 
@@ -127,7 +143,8 @@ class MainViewController: UIViewController {
 		Holder.no = Holder.no % sample.count
 		
 		BSTFacade.ux.showToast(sample[safe: Holder.no]!.locale)
-		
+
+
 	}
 	
 	
