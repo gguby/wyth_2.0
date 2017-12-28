@@ -23,6 +23,7 @@ open class BSTUXHanlder {
 	fileprivate let toast = ToastManager()
 
 
+	/// 공용 액션(클로져)
 	open class Actions: NSObject {
 		public typealias emptyAction = () -> Void
 		
@@ -68,12 +69,23 @@ open class BSTUXHanlder {
 	}
 
 
-	open func showAlert(_ message: String, _ completion: @escaping Actions.boolAction = { _ in }) {
+	/// 알럿창을 띄운다.
+	///
+	/// - Parameters:
+	///   - message: 메시지
+	///   - completion: 알럿창을 닫으면 호출됨.
+	///
+	open func showAlert(_ message: String, _ completion: @escaping Actions.emptyAction = { }) {
 		SystemAlert.show(nil, message: message, buttons: [AlertButtons.ok]) { fin in
-			completion(fin == 0)
+			completion()
 		}
     }
 	
+	/// 알럿창을 ok, cancel로 띄운다.
+	///
+	/// - Parameters:
+	///   - message: 메시지
+	///   - completion: 알럿창을 닫으면 호출될 클로져 블록. (true = ok, cancel = false 가 반환되고, 기타 알 수 없는 상황에서는 nil이 반환될 수 있음.
 	open func showConfirm(_ message: String, _ completion: @escaping Actions.boolOptionalAction = { _ in }) {
 		SystemAlert.show(nil, message: message, buttons: [.ok, .cancel]) { index in
 			switch(index) {
@@ -87,6 +99,15 @@ open class BSTUXHanlder {
 		}
 	}
 
+	
+	/// 알럿창을 띄운다.
+	///
+	///
+	/// - Parameters:
+	///   - message: 메시지
+	///   - title: 타이틀이 필요하다면 타이틀
+	///   - buttons: 버튼 목록. 우측부터 순서대로 노출됨
+	///   - completion: 알럿창을 닫으면 호출될 클로져 블록.  누른 버튼의 인덱스가 반환된다. 우측부터 순서대로 0, 1, 2 ...
 	open func showAlert(_ message: String,
 						title: String? = nil,
 						buttons: AlertButtonSet = [.ok],
@@ -97,6 +118,7 @@ open class BSTUXHanlder {
 			})
 	}
 
+	
 	
 	open func showAlert(_ message: String? = nil,
 						title: String? = nil,

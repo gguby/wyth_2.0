@@ -255,10 +255,8 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 			\(frame.request.url?.absoluteString ?? "")
 			""")
 		
-		BSTFacade.ux.showAlert(message) { fin in
-			if fin {
-				completionHandler()
-			}
+		BSTFacade.ux.showAlert(message) {
+			completionHandler()
 		}
 	}
 	
