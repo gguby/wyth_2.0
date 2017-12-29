@@ -20,11 +20,11 @@ public class APIMethod: NSObject {
 	/// 기본 파라미터.
 	var option: RequestOption!
 
-	/// result에서 데이터를 가져올 json 헤더 위치
-	var resultKeyPath: String = ""
+	/// result에서 데이터를 가져올 json 헤더 위치. (Boost API는 {code, msg, data:[...]} 형식이다.)
+	var resultKeyPath: String = "data"
 
 	/// 서버에서 json 객체가 배열로 반환되는지 한 개만 반환되는지의 여부 반환. (한 개일지라도 편의를 위해 오브젝트 저장은 1개짜리 배열로 저장됨)
-	var isArrayResult: Bool = false
+	var isArrayResult: Bool = true
 	
 	/// url을 조합하여 반환해줌.
 	func url() -> URL? {
@@ -49,21 +49,22 @@ public class APIMethod: NSObject {
 				parameters: Parameters? = nil,
 
 				headers: HTTPHeaders? = nil,
-				resultKeyPath: String = "",
-				isArrayResult: Bool = false ) {
+				resultKeyPath: String? = nil,
+				isArrayResult: Bool? = nil) {
 		
 		let baseDomain = (domain ?? "")
 		self.baseDomain = baseDomain.isEmpty ? BSTApiServer.base : baseDomain
 		self.path = path
 		self.option = option ?? RequestOption(method ?? .get, parameters: parameters, headers: headers)
-		self.resultKeyPath = resultKeyPath
+		if let temp = resultKeyPath { self.resultKeyPath = temp }	// ""일 경우, 자동으로 nil로 변환하여 처리한다. 즉, 루트를 읽어온다.
+		if let temp = isArrayResult { self.isArrayResult = temp }
 	}
 	
 	public convenience init(_ path: String,
 							_ method: HTTPMethod = .get,
 							_ parameters: Parameters? = nil,
 							headers: HTTPHeaders? = nil,
-							isArrayResult: Bool = false) {
+							isArrayResult: Bool? = nil) {
 		let option = RequestOption(method, parameters: parameters, headers: headers)
 		self.init(path: path, option: option, method: method, parameters: parameters, headers: headers, isArrayResult: isArrayResult)
 	}
