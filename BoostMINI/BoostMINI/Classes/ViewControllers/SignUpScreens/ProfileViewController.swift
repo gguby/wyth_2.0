@@ -3,6 +3,7 @@
 //  Vyrl2.0
 //
 //  Created by wsjung on 2017. 5. 22..
+//  Modified by Jack on 2017. 12. 29..
 //  Copyright © 2017년 smt. All rights reserved.
 //
 

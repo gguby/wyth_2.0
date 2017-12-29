@@ -5,7 +5,7 @@
 //  Created by jack on 2017. 12. 18..
 //  Copyright © 2017년 jack. All rights reserved.
 //
-// 이 코드는 보실 필요가 없습니다. 그냥 보려면 복잡하거든요.
+// 이 코드는 보실 필요가 없습니다. 그냥 보려면 복잡하거든요
 
 import UIKit
 import Alamofire

@@ -58,6 +58,15 @@ public class APIMethod: NSObject {
 		self.option = option ?? RequestOption(method ?? .get, parameters: parameters, headers: headers)
 		self.resultKeyPath = resultKeyPath
 	}
+	
+	public convenience init(_ path: String,
+							_ method: HTTPMethod = .get,
+							_ parameters: Parameters? = nil,
+							headers: HTTPHeaders? = nil,
+							isArrayResult: Bool = false) {
+		let option = RequestOption(method, parameters: parameters, headers: headers)
+		self.init(path: path, option: option, method: method, parameters: parameters, headers: headers, isArrayResult: isArrayResult)
+	}
 }
 
 protocol BaseModel: Codable {
@@ -67,9 +76,16 @@ protocol BaseModel: Codable {
 	static var apiList: [String: APIMethod] { get }	// key : HTTPMethod.rawValue = String
 }
 
+extension Dictionary where Key: ExpressibleByStringLiteral, Value == APIMethod {
+}
 
 extension BaseModel {
 	
+	static func singleApi(_ api: APIMethod, _ key: String? = nil) -> [String: APIMethod] {
+		let k: String = key ?? api.getMethod().rawValue
+		return [k: api]
+	}
+
 	static func buildBase(method: HTTPMethod = .get,
 						  parameters: Parameters? = nil,
 						  headers: HTTPHeaders? = nil) -> DataRequest? {

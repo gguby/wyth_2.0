@@ -9,33 +9,15 @@
 import Foundation
 import Alamofire
 
-class TestData: BaseModel {
+class TestModel: BaseModel {
 	
 	static var apiList: [String: APIMethod] {
-		//let apiGet = APIMethod(nil)
-		
-		// 와... qaapi 서버 내렸네 ㅋㅋ
-//		let apiGet = APIMethod(domain: "https://qaapi.lysn.com/lysn-api/",
-//							   path: "api/common/app/config?v=1.0.0?",
-//							   method: .get,
-//							   parameters: nil,
-//							   headers: nil)
-
-		let apiGet = APIMethod(domain: "https://httpbin.org/",
+		return singleApi(APIMethod(domain: "https://httpbin.org/",
 							   path: "get",
 							   method: .get,
 							   parameters: ["test": 123],
 							   headers: nil,
-							   resultKeyPath: "headers")
-//		let apiGet = APIMethod(domain: "https://httpbin.org/",
-//							   path: "get",
-//							   option: RequestOption(.get, parameters: ["test": 123])
-//							   resultKeyPath: "headers")
-
-		
-		let block: [String: APIMethod] = [apiGet.getMethod().rawValue : apiGet]
-		// let block: [String: APIMethod] = ["GET" : apiGet, "LIST": apiGet2] // ex
-		return block
+							   resultKeyPath: "headers"))
 	}
 
 	

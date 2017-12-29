@@ -1,15 +1,17 @@
 //
-//  MainViewController.swift
+//  IntroViewController.swift
 //  BoostMINI
 //
-//  Created by HS Lee on 21/12/2017.
+//  Created by Jack on 21/12/2017.
 // Copyright © 2017 IRIVER LIMITED. All rights reserved.
 //
 
 import Foundation
 import UIKit
+import ReactorKit
 
-class MainViewController: UIViewController {
+
+class IntroViewController: UIViewController {
 
     // MARK: * properties --------------------
 
@@ -27,8 +29,8 @@ class MainViewController: UIViewController {
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
-		// TestData를 가져온다.
-		APIService<TestData>.get { block in
+		// TestModel 을 가져온다.
+		APIService<TestModel>.get { block in
 			if not(block.isSucceed) {
 				let msg = "API test 1 : failed"
 				logWarning(msg)
@@ -45,6 +47,19 @@ class MainViewController: UIViewController {
     private func checkVersion() {
 
         // TODO: 버전을 체크한다.
+		APIService<AppVersionModel>.get { block in
+			if not(block.isSucceed) {
+				let msg = "API test 1 : failed"
+				logWarning(msg)
+				BSTFacade.ux.showToast(msg)
+				return
+			}
+			// 테스트용 텍스트로 변환...
+			let userInfo = "API test 1 : " + (block.data!.flatMap { "\($0.description)" }).joined(separator: ",\r")
+			logInfo(userInfo)
+			BSTFacade.ux.showToast(userInfo)
+		}
+
 
         // DUMMY CODE
         let forceUpdate = false // 강제업데이트 여부.
@@ -156,5 +171,5 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController {
+extension IntroViewController {
 }
