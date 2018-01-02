@@ -14,26 +14,47 @@ import Foundation
 import ReactorKit
 import RxCocoa
 import RxSwift
+import CoreBluetooth
 
 final class DeviceManagerReactor : Reactor {
     
     enum Action {
+        case scanDevice
+        case pairingDevice
+        case blinkLight
+        case writeCode
+        case registerDevice
     }
     
     enum Mutation {
-	case event
+        case scanDevice(Bool)
+        case setDiscoverDevice(CBPeripheral)
+        case paringDevice(Bool)
+        case setActiveDevice(CBPeripheral)
+        case setWriteCode(String)
+        case blinkLight(Bool)
+        case registerDevice(Bool)
     }
     
     struct State {
+        var isScanDevice : Bool = false
+        var isParingDevice : Bool = false
+        var discoverPeripheral : CBPeripheral?
+        var activePeripheral : CBPeripheral?
+        var writeCode : String?
+        var isBlink : Bool = false
+        var isRegister : Bool = false
     }
     
     let initialState = State()
     
-//    fileprivate let service : service
+    fileprivate let service : BTDeviceService
+    fileprivate let network : BTDeviceNetwork
     
-//    init(service : service) {
-//        self.service = service
-//    }
+    init(service : BTDeviceService, network : BTDeviceNetwork) {
+        self.service = service
+        self.network = network
+    }
     
     func mutate(action: Action) -> Observable<Mutation> {
 //        switch action {
@@ -42,7 +63,8 @@ final class DeviceManagerReactor : Reactor {
 //        default:
 //            <#code#>
 //        }
-        return Observable.just(Mutation.event)
+        
+        return Observable.just(Mutation.scanDevice(false))
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
