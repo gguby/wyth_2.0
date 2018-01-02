@@ -6,34 +6,34 @@ def open_sources
   use_frameworks!
 
   # Pods for BoostMINI
-    pod 'SwiftLint'
-    # pod 'RealReachability'
-    # pod 'Realm'
-    pod 'SideMenu'
-	pod 'Toaster'
-    pod 'SwiftyBeaver', '~> 1.5.0'
+  pod 'SwiftLint'
+  # pod 'RealReachability'
+  # pod 'Realm'
+  pod 'SideMenu'
+  pod 'Toaster'
+  pod 'SwiftyBeaver', '~> 1.5.0'
 
-#	pod 'ImageViewer', '>= 5.0'
-	pod 'Kingfisher', '~> 4.0'
-	
-	pod 'TOCropViewController'
-#
-#	pod 'ReSwift'
-#	pod 'ReSwiftRouter', '~> 0.5.0'
-#	#pod 'ReSwiftRecorder'
-#
-	pod 'Alamofire', '~> 4.5'
-	pod 'CodableAlamofire', '~> 1.1.0'
-#
-    pod 'RxSwift',    '~> 4.0'
-    pod 'RxCocoa',    '~> 4.0'
+  #	pod 'ImageViewer', '>= 5.0'
+  pod 'Kingfisher', '~> 4.0'
 
-# ReactorKit
-    pod 'ReactorKit'
-    pod 'Moya'
-    pod 'Moya/RxSwift'
-    pod 'Moya-ModelMapper/RxSwift'
-    pod 'RxOptional'
+  pod 'TOCropViewController'
+  #
+  #	pod 'ReSwift'
+  #	pod 'ReSwiftRouter', '~> 0.5.0'
+  #	#pod 'ReSwiftRecorder'
+  #
+  pod 'Alamofire', '~> 4.5'
+  pod 'CodableAlamofire', '~> 1.1.0'
+  #
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
+
+  # ReactorKit
+  pod 'ReactorKit'
+  pod 'Moya'
+  pod 'Moya/RxSwift'
+  pod 'Moya-ModelMapper/RxSwift'
+  pod 'RxOptional'
 
 
 #  FaceBook

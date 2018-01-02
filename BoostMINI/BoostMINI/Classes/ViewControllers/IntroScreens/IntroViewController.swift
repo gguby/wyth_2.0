@@ -101,7 +101,7 @@ class IntroViewController: UIViewController {
 	}
 
     func openAppStore() {
-        OPEN_SAFARI(Definitions.path.appstore)
+        OPEN_SAFARI(Definitions.externURLs.appstore)
     }
 	
 	func blockMe() {

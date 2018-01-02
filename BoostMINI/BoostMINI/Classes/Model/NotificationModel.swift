@@ -7,11 +7,49 @@
 //
 
 import Foundation
-import UIKit
+import Moya
+import Mapper
+import RxSwift
+import RxOptional
+import Moya_ModelMapper
 
-class NotificationModel {
+enum APICall {
+    case getList(lastPushId: String, count: Int)
+}
 
-    // MARK: * properties --------------------
+extension APICall: TargetType {
+   
+    var baseURL: URL {
+        return URL(string: "https://api.boostdev.com")!
+    }
+    
+    var path: String {
+        switch self {
+        case .getList(let lastPushId, let count):
+            return "/push/list/\(lastPushId)/\(count)"
+        }
+    }
+    
+    var method: Moya.Method {
+        return .get
+    }
+    
+    var sampleData: Data {
+        return Data()
+    }
+    
+    var task: Task {
+        return .requestPlain
+    }
+    
+    var headers: [String : String]? {
+        return ["Content-Type": "application/json"]
+    }
+}
+
+struct NotificationModel: Mappable {
+
+    // MARK: - * properties --------------------
     var code: Int?
     var message: String?
     
@@ -20,22 +58,39 @@ class NotificationModel {
     var contents: String?
     var readYn: Bool?
 
-    // MARK: * IBOutlets --------------------
+    // MARK: - * IBOutlets --------------------
 
 
-    // MARK: * Initialize --------------------
+    // MARK: - * Initialize --------------------
 
     init() {
 
     }
+    
+    init(map: Mapper) throws {
+        code = map.optionalFrom("code")
+        message = map.optionalFrom("msg")
+        
+        pushId = map.optionalFrom("pushId")
+        pushId = map.optionalFrom("title")
+        pushId = map.optionalFrom("contents")
+        pushId = map.optionalFrom("readYn")
+    }
 
+    let provider = MoyaProvider<APICall>()
 
     // MARK: * Main Logic --------------------
-    func getList() {
-        
+    func getList()  {
+//        let path = Definitions.api.path.notifications.getList
+        let path = String.init(format: Definitions.api.path.notifications.getList, "xxx", 1)
+        let path2 = Definitions.api.path.notifications.getList2(lastPushId: "xxx", count: 1)
     }
 }
 
 extension NotificationModel {
 
+}
+
+class NotificationViewModel {
+    
 }
