@@ -13,6 +13,10 @@ import UIKit
 
 internal class BSTConstants {
     static let main  = BSTMainViewContants()
+	
+	private init() {
+	}
+
 }
 
 internal struct BSTMainViewContants {

@@ -13,40 +13,42 @@ import UIKit
 
 struct Definitions {
 	// API 서버
-    static let api = BSTAPIServer()
+
+	static let api = BSTAPIServer()
     static let device = BSTDevice()
     
     // 기타 경로
     static let externURLs = BSTExternalURL()
-    
+	
+	private init() { }
 }
 
-extension Definitions {
-    internal struct BSTAPIServer {
-        
-        /// api server base url
-        let base = "http://boost.api.dev.com/"
-        let path = BSTPath()
-    }
-    
-    internal struct BSTPath {
-        let notifications = BSTNotificationsPath()
-    }
-    
-    internal struct BSTExternalURL {
-        // TODO: Lysn 경로
-        /// 앱스토어 페이지 경로
-        var appstore: String = "itms-apps://itunes.apple.com/app/id1190512555"
-        
-        // TODO: Vyrl 경로
-        /// 로그인 관련 클라이언트 아이디
-        let clientId = "8ecafcf23f6d42cf94806ab807bd2023"
-        
-        // TODO: Vyrl 경로
-        /// 로그인 페이지 경로 (O-Auth)
-        let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=http://api.dev2nd.vyrl.com/&state=nonce&scope=profile&response_type=token"
-    }
+
+
+
+public struct BSTAPIServer {
+	
+	/// api server base url
+	let base = "http://boost.api.dev.com/"
+	let path = BSTPath()
 }
+
+internal struct BSTPath {
+	let notifications = BSTNotificationsPath()
+}
+
+internal struct BSTExternalURL {
+
+	/// 앱스토어 페이지 경로
+	var appstore: String = "itms-apps://itunes.apple.com/app/id1190512555"
+	
+	/// 로그인 관련 클라이언트 아이디
+	let clientId = "8ecafcf23f6d42cf94806ab807bd2023"
+	
+	/// 로그인 페이지 경로 (O-Auth)
+	let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=http://api.dev2nd.vyrl.com/&state=nonce&scope=profile&response_type=token"
+}
+
 
 enum BSTNotificationsPath2 {
     case getList(String, Int)

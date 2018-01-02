@@ -37,40 +37,50 @@
         <!--Log In View Controller-->
         <scene sceneID="Gya-DJ-Mgw">
             <objects>
-                <viewController id="VVU-KT-Asx" customClass="LogInViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VVU-KT-Asx" customClass="LogInViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pct-yq-kql">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zus-aw-lhV">
-                                <rect key="frame" x="25" y="571" width="325" height="48"/>
-                                <color key="backgroundColor" red="0.0" green="0.61949327259999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-Gr-f7c">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zus-aw-lhV">
+                                <rect key="frame" x="25" y="579" width="325" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="gqx-0l-QJi"/>
+                                    <constraint firstAttribute="height" constant="40" id="gqx-0l-QJi"/>
                                 </constraints>
-                                <color key="tintColor" red="0.0" green="0.61949327259999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="(SM로고) Login with SMTOWN ID  -&gt;">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="9z3-Qg-y4d" kind="show" id="yak-E6-rRo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boost for TVXQ!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcU-yG-enY">
-                                <rect key="frame" x="96.5" y="166" width="181.5" height="31.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4I-Zt-IRD">
+                                <rect key="frame" x="0.0" y="587" width="375" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.56862745098039214" green="0.0" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="w0C-fI-z0T"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="UcU-yG-enY" firstAttribute="centerX" secondItem="pct-yq-kql" secondAttribute="centerX" id="5bo-gx-Sl0"/>
-                            <constraint firstItem="UcU-yG-enY" firstAttribute="top" secondItem="ybj-2d-Kqi" secondAttribute="top" constant="146" id="M8E-Wx-OfG"/>
+                            <constraint firstItem="h2D-Gr-f7c" firstAttribute="trailing" secondItem="pct-yq-kql" secondAttribute="trailing" id="1OM-Mx-RDU"/>
+                            <constraint firstItem="h2D-Gr-f7c" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" id="FwM-zQ-coa"/>
+                            <constraint firstItem="h2D-Gr-f7c" firstAttribute="bottom" secondItem="pct-yq-kql" secondAttribute="bottom" id="MAu-VR-1cU"/>
                             <constraint firstItem="Zus-aw-lhV" firstAttribute="centerX" secondItem="pct-yq-kql" secondAttribute="centerX" id="Mgr-aZ-Rrf"/>
                             <constraint firstItem="ybj-2d-Kqi" firstAttribute="bottom" secondItem="Zus-aw-lhV" secondAttribute="bottom" constant="48" id="hGV-VJ-09i"/>
                             <constraint firstItem="ybj-2d-Kqi" firstAttribute="trailing" secondItem="Zus-aw-lhV" secondAttribute="trailing" constant="25" id="ltV-q1-E2f"/>
-                            <constraint firstItem="Zus-aw-lhV" firstAttribute="leading" secondItem="ybj-2d-Kqi" secondAttribute="leading" constant="25" id="mpw-ZW-cj5"/>
+                            <constraint firstItem="Zus-aw-lhV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ybj-2d-Kqi" secondAttribute="leading" constant="25" id="mpw-ZW-cj5"/>
+                            <constraint firstItem="M4I-Zt-IRD" firstAttribute="width" secondItem="pct-yq-kql" secondAttribute="width" id="ndp-tP-UUN"/>
+                            <constraint firstItem="h2D-Gr-f7c" firstAttribute="leading" secondItem="pct-yq-kql" secondAttribute="leading" id="qTm-uV-UO8"/>
+                            <constraint firstItem="M4I-Zt-IRD" firstAttribute="centerX" secondItem="ybj-2d-Kqi" secondAttribute="centerX" id="u4j-44-SAi"/>
+                            <constraint firstItem="M4I-Zt-IRD" firstAttribute="bottom" secondItem="ybj-2d-Kqi" secondAttribute="bottom" constant="-40" id="xg7-z0-BxF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ybj-2d-Kqi"/>
                     </view>
@@ -84,7 +94,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="ec3-8w-pXs">
             <objects>
-                <viewController id="9z3-Qg-y4d" customClass="SignUpViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9z3-Qg-y4d" customClass="SignUpViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bmN-u9-5Ub">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,7 +282,7 @@
                                     <constraint firstItem="hEX-bk-VT4" firstAttribute="top" secondItem="HMz-kd-zQY" secondAttribute="top" id="qXK-ew-kxs"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hz2-oY-MbT" userLabel="CheckBox" customClass="CheckBox" customModule="Vyrl2_0" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hz2-oY-MbT" userLabel="CheckBox" customClass="CheckBox" customModule="BoostMINI" customModuleProvider="target">
                                 <rect key="frame" x="288" y="176" width="9" height="7"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="7" id="rgz-8M-3Xa"/>
@@ -300,7 +310,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFG-GC-VMZ" customClass="CheckBox" customModule="Vyrl2_0" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFG-GC-VMZ" customClass="CheckBox" customModule="BoostMINI" customModuleProvider="target">
                                 <rect key="frame" x="288" y="398.5" width="9" height="7"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="7" id="RI7-H5-vEd"/>
@@ -770,6 +780,7 @@
         <image name="img_number2_01_on" width="16" height="16"/>
         <image name="img_number3_01_off" width="16" height="16"/>
         <image name="img_number3_01_on" width="16" height="16"/>
+        <image name="intro" width="295" height="525"/>
         <image name="txt_step2_01" width="16" height="16"/>
         <image name="txt_step3_01" width="16" height="16"/>
     </resources>
