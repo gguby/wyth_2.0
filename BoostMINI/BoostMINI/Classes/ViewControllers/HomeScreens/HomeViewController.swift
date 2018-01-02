@@ -52,7 +52,14 @@ class HomeViewController: UIViewController {
 
 
     // MARK: - * UI Events --------------------
-
+    
+    @IBAction func gotoInformationViewController(_ sender: UIButton) {
+        let vc = ConcertInformationViewController()
+        vc.modalPresentationStyle = .custom
+        present(vc, animated: true, completion: nil)
+        
+    }
+    
 
     // MARK: - * Memory Manage --------------------
 
