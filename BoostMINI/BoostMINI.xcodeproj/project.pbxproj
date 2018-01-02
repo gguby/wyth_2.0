@@ -117,6 +117,7 @@
 		2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */; };
 		2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F0511FDFA49500581F06 /* BoostMINITests.swift */; };
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
+		2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF341651FFB7A3F00FDA12E /* Notification.storyboard */; };
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
@@ -215,6 +216,7 @@
 		2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostMINIUITests.swift; sourceTree = "<group>"; };
 		2B61F05E1FDFA49500581F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B61F06A1FDFA4C400581F06 /* BoostMINI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoostMINI.entitlements; sourceTree = "<group>"; };
+		2BF341651FFB7A3F00FDA12E /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		304041C0256C37C0B073056D /* Pods-BoostMINIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		48A5E026AA7FED66F3366494 /* Pods-BoostMINITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.product.xcconfig"; sourceTree = "<group>"; };
 		5CE278FD296F77407907664D /* Pods_BoostMINI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoostMINI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -490,6 +492,7 @@
 				04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */,
 				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
 				8F82C1641FF36D810031D030 /* Home.storyboard */,
+				2BF341651FFB7A3F00FDA12E /* Notification.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 				8F82C1651FF36D810031D030 /* Home.storyboard in Resources */,
 				2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
+				2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

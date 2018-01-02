@@ -47,7 +47,7 @@ extension APICall: TargetType {
     }
 }
 
-struct NotificationModel: Mappable {
+class NotificationModel: Mappable {
 
     // MARK: - * properties --------------------
     var code: Int?
@@ -67,7 +67,7 @@ struct NotificationModel: Mappable {
 
     }
     
-    init(map: Mapper) throws {
+    required init(map: Mapper) throws {
         code = map.optionalFrom("code")
         message = map.optionalFrom("msg")
         
@@ -80,8 +80,14 @@ struct NotificationModel: Mappable {
     let provider = MoyaProvider<APICall>()
 
     // MARK: * Main Logic --------------------
-    func getList() {
+    class func getList() -> [NotificationModel]? {
         let path = Definitions.api.path.notifications.getList(lastPushId: "xxx", count: 1)
+        return nil
+    }
+    
+    class func insert(notification: NotificationModel) {
+        let path = ""
+        
     }
 }
 
