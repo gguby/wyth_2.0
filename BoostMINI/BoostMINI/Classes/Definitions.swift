@@ -21,6 +21,8 @@ class Definitions {
 	
 	// 기타 경로
 	typealias path = BSTPath
+    
+    typealias device = BSTDevice
 }
 
 
@@ -45,3 +47,7 @@ internal struct BSTPath {
 	static let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=http://api.dev2nd.vyrl.com/&state=nonce&scope=profile&response_type=token"
 }
 
+internal struct BSTDevice {
+    static let service_UUID = "713D0000-503E-4C75-BA94-3148F18D941E" // uuid spec
+    static let characteristic_UUID = "713D0000-503E-4C75-BA94-3148F18D941E" // uuid spec
+}

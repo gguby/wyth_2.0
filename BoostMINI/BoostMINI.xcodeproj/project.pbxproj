@@ -125,6 +125,7 @@
 		A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352351FF390680007949C /* ViewControllerReactor.swift */; };
 		A623523A1FF390690007949C /* Gitup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352361FF390680007949C /* Gitup.swift */; };
 		A623523B1FF390690007949C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352371FF390680007949C /* ViewController.swift */; };
+		A6662A8A1FFB2642007CB754 /* BTDeviceDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6662A891FFB2642007CB754 /* BTDeviceDelegateProxy.swift */; };
 		A696AE8B1FF5E8EB009B8FEF /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */; };
 		A696AE8D1FF5E91D009B8FEF /* DeviceManagerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */; };
 		A696AE8F1FF5E98F009B8FEF /* BTDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */; };
@@ -232,6 +233,7 @@
 		A62352351FF390680007949C /* ViewControllerReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerReactor.swift; sourceTree = "<group>"; };
 		A62352361FF390680007949C /* Gitup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gitup.swift; sourceTree = "<group>"; };
 		A62352371FF390680007949C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6662A891FFB2642007CB754 /* BTDeviceDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceDelegateProxy.swift; sourceTree = "<group>"; };
 		A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManagerReactor.swift; sourceTree = "<group>"; };
 		A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceService.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 		2B5AA06B1FEA6178007441E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A6662A881FFB25A7007CB754 /* Device */,
 				A696AE891FF5E8B4009B8FEF /* Reactor */,
 				045D14881FF4DD1400A67AA0 /* Base */,
 				2B5AA0921FEB55D9007441E1 /* BaseModel.swift */,
@@ -586,12 +589,20 @@
 			path = ReactorKitSample;
 			sourceTree = "<group>";
 		};
+		A6662A881FFB25A7007CB754 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */,
+				A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */,
+				A6662A891FFB2642007CB754 /* BTDeviceDelegateProxy.swift */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
 		A696AE891FF5E8B4009B8FEF /* Reactor */ = {
 			isa = PBXGroup;
 			children = (
 				A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */,
-				A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */,
-				A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -1051,6 +1062,7 @@
 				045D14801FF4A7AB00A67AA0 /* String+Tag.swift in Sources */,
 				04122A6E1FECA4EE00896EE0 /* CrashlyticsDestination.swift in Sources */,
 				04122A691FEC962600896EE0 /* String+Format.swift in Sources */,
+				A6662A8A1FFB2642007CB754 /* BTDeviceDelegateProxy.swift in Sources */,
 				04122A611FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				2B5AA09B1FEB5646007441E1 /* LibrarySample.swift in Sources */,
 				2B5AA0891FEB554B007441E1 /* DebugHSLee.swift in Sources */,
