@@ -35,6 +35,8 @@ def open_sources
   pod 'Moya-ModelMapper/RxSwift'
   pod 'RxOptional'
 
+# BluetoothKt
+    pod 'RxBluetoothKit'
 
 #  FaceBook
 #   #pod 'FBSDKLoginKit', '~> 4.18.0' # too old

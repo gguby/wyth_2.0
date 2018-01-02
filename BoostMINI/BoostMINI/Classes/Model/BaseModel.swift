@@ -117,19 +117,19 @@ extension BaseModel {
 						  parameters: Parameters? = nil,
 						  headers: HTTPHeaders? = nil) -> DataRequest? {
 
-		guard let api = apiList[method.rawValue] else {
-				return nil
-		}
-		return buildBase(api: api, parameters: parameters, headers: headers)
+        guard let api = apiList[method.rawValue] else {
+            return nil
+        }
+        return buildBase(api: api, parameters: parameters, headers: headers)
 	}
 	
 	static func buildBase(api: APIMethod,
 						  parameters: Parameters? = nil,
 						  headers: HTTPHeaders? = nil) -> DataRequest? {
-		guard let option = api.option,
-			let urlReq = api.url() else {
-				return nil
-		}
+        guard let option = api.option,
+            let urlReq = api.url() else {
+                return nil
+        }
 		
 		let method = option.method
 		let parameters = option.parameters

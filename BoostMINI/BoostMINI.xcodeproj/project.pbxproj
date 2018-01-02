@@ -121,6 +121,7 @@
 		2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */; };
 		2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F0511FDFA49500581F06 /* BoostMINITests.swift */; };
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
+		2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF341651FFB7A3F00FDA12E /* Notification.storyboard */; };
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
@@ -129,7 +130,6 @@
 		A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352351FF390680007949C /* ViewControllerReactor.swift */; };
 		A623523A1FF390690007949C /* Gitup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352361FF390680007949C /* Gitup.swift */; };
 		A623523B1FF390690007949C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352371FF390680007949C /* ViewController.swift */; };
-		A6662A8A1FFB2642007CB754 /* BTDeviceDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6662A891FFB2642007CB754 /* BTDeviceDelegateProxy.swift */; };
 		A696AE8B1FF5E8EB009B8FEF /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */; };
 		A696AE8D1FF5E91D009B8FEF /* DeviceManagerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */; };
 		A696AE8F1FF5E98F009B8FEF /* BTDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */; };
@@ -224,6 +224,7 @@
 		2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostMINIUITests.swift; sourceTree = "<group>"; };
 		2B61F05E1FDFA49500581F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B61F06A1FDFA4C400581F06 /* BoostMINI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoostMINI.entitlements; sourceTree = "<group>"; };
+		2BF341651FFB7A3F00FDA12E /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		304041C0256C37C0B073056D /* Pods-BoostMINIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		48A5E026AA7FED66F3366494 /* Pods-BoostMINITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.product.xcconfig"; sourceTree = "<group>"; };
 		5CE278FD296F77407907664D /* Pods_BoostMINI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoostMINI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,7 +242,6 @@
 		A62352351FF390680007949C /* ViewControllerReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerReactor.swift; sourceTree = "<group>"; };
 		A62352361FF390680007949C /* Gitup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gitup.swift; sourceTree = "<group>"; };
 		A62352371FF390680007949C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A6662A891FFB2642007CB754 /* BTDeviceDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceDelegateProxy.swift; sourceTree = "<group>"; };
 		A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManagerReactor.swift; sourceTree = "<group>"; };
 		A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceService.swift; sourceTree = "<group>"; };
@@ -496,6 +496,7 @@
 				04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */,
 				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
 				8F82C1641FF36D810031D030 /* Home.storyboard */,
+				2BF341651FFB7A3F00FDA12E /* Notification.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -598,7 +599,6 @@
 			children = (
 				A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */,
 				A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */,
-				A6662A891FFB2642007CB754 /* BTDeviceDelegateProxy.swift */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -763,6 +763,7 @@
 				2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */,
 				0462CD8D1FFB798D002B6E11 /* Theme.xcassets in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
+				2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,6 +831,7 @@
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBluetoothKit/RxBluetoothKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -848,6 +850,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBluetoothKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -876,6 +879,7 @@
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBluetoothKit/RxBluetoothKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -894,6 +898,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBluetoothKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -985,6 +990,7 @@
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBluetoothKit/RxBluetoothKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -1003,6 +1009,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBluetoothKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -1070,7 +1077,6 @@
 				045D14801FF4A7AB00A67AA0 /* String+Tag.swift in Sources */,
 				04122A6E1FECA4EE00896EE0 /* CrashlyticsDestination.swift in Sources */,
 				04122A691FEC962600896EE0 /* String+Format.swift in Sources */,
-				A6662A8A1FFB2642007CB754 /* BTDeviceDelegateProxy.swift in Sources */,
 				04122A611FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				2B5AA09B1FEB5646007441E1 /* LibrarySample.swift in Sources */,
 				2B5AA0891FEB554B007441E1 /* DebugHSLee.swift in Sources */,

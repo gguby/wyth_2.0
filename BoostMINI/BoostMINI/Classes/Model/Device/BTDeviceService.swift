@@ -7,5 +7,10 @@
 //
 
 import Foundation
+import RxSwift
+import RxBluetoothKit
 import CoreBluetooth
 
+class BTDeviceService {
+    
+}

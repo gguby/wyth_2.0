@@ -17,7 +17,7 @@ class BSTUXHandlerInstance {
 
 
 
-open class BSTUXHanlder {
+class BSTUXHanlder {
     
     // MARK: * properties --------------------
 	fileprivate let toast = ToastManager()
