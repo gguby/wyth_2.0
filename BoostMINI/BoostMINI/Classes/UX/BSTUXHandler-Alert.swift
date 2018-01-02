@@ -35,6 +35,7 @@ public enum AlertButtons: String {
 			.next     : "다음".locale,
 			.appStore : "앱스토어로 이동".locale
 		]
+		
 		return map[self] ?? "\(self)"
 	}
 }

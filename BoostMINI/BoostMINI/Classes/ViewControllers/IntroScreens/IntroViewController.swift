@@ -29,19 +29,6 @@ class IntroViewController: UIViewController {
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
-		// TestModel 을 가져온다.
-		APIService<TestModel>.get { block in
-			if not(block.isSucceed) {
-				let msg = "API test 1 : failed"
-				logWarning(msg)
-				BSTFacade.ux.showToast(msg)
-				return
-			}
-			// 테스트용 텍스트로 변환...
-			let userInfo = "API test 1 : " + (block.data!.flatMap { "\($0.description)" }).joined(separator: ",\r")
-			logInfo(userInfo)
-			BSTFacade.ux.showToast(userInfo)
-		}
 	}
 
     private func checkVersion() {
@@ -58,22 +45,24 @@ class IntroViewController: UIViewController {
 			let userInfo = "API test 1 : " + (block.data!.flatMap { "\($0.description)" }).joined(separator: ",\r")
 			logInfo(userInfo)
 			BSTFacade.ux.showToast(userInfo)
-		}
-
-
-        // DUMMY CODE
-        let forceUpdate = false // 강제업데이트 여부.
 		
-		RunInNextMainThread(withDelay: 1.0, {
-			// TODO: 구버전인가의 여부
-            let isOldVersion = (arc4random() % 100) == 1	// 100분의 1 확률로 뜸... -ㅁ-
 
-            if isOldVersion {
-				self.showUpdateAlert(forceUpdate: forceUpdate)
-				return
-			}
+
+			// DUMMY CODE
+			let forceUpdate = false // 강제업데이트 여부.
+		
 			
-		})
+			RunInNextMainThread(withDelay: 1.0, {
+				// TODO: 구버전인가의 여부
+				let isOldVersion = (arc4random() % 100) == 1	// 100분의 1 확률로 뜸... -ㅁ-
+
+				if isOldVersion {
+					self.showUpdateAlert(forceUpdate: forceUpdate)
+					return
+				}
+				
+			})
+		}
 	}
 
     private func initProperties() {

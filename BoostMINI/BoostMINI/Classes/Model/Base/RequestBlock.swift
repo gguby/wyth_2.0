@@ -59,6 +59,11 @@ class APIService<T: BaseModel> {
 		sendRequest(api:T.apiList[string], block)
 	}
 
+	/// custom text에 대한 API를 호출하여 값을 받아온다.
+//	static func get(string: String, _ block: @escaping (ResponseBlock<T>) -> Void ) {
+//		sendRequest(api:T.apiList[string], block)
+//	}
+
 	/// list형을 받아온다. 배열로 받는다.
 	static func list( _ block: @escaping (ResponseBlock<T>) -> Void ) {
 		// 서버쪽에서 보내오는 값이 array인지 dictionary인지 구분이 필요함.

@@ -12,12 +12,12 @@ import Alamofire
 class TestModel: BaseModel {
 	
 	static var apiList: [String: APIMethod] {
-		return singleApi(APIMethod(domain: "https://httpbin.org/",
-							   path: "get",
-							   method: .get,
-							   parameters: ["test": 123],
-							   headers: nil,
-							   resultKeyPath: "headers"))
+		return APIMethod(domain: "https://httpbin.org/",
+						 path: "get",
+						 method: .get,
+						 parameters: ["test": 123],
+						 headers: nil,
+						 resultKeyPath: "headers").asGroup()
 	}
 
 	
