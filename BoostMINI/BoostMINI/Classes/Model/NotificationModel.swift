@@ -80,10 +80,8 @@ struct NotificationModel: Mappable {
     let provider = MoyaProvider<APICall>()
 
     // MARK: * Main Logic --------------------
-    func getList()  {
-//        let path = Definitions.api.path.notifications.getList
-        let path = String.init(format: Definitions.api.path.notifications.getList, "xxx", 1)
-        let path2 = Definitions.api.path.notifications.getList2(lastPushId: "xxx", count: 1)
+    func getList() {
+        let path = Definitions.api.path.notifications.getList(lastPushId: "xxx", count: 1)
     }
 }
 
@@ -91,6 +89,3 @@ extension NotificationModel {
 
 }
 
-class NotificationViewModel {
-    
-}

@@ -15,7 +15,7 @@ import RxSwift
 class NotificationViewController: UIViewController {
 
     // MARK: * properties --------------------
-    let viewModel = NotificationViewModel()
+//    let viewModel = NotificationViewModel()
 
     // MARK: * IBOutlets --------------------
 

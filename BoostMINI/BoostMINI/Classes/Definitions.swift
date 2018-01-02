@@ -65,10 +65,9 @@ enum BSTNotificationsPath2 {
 }
 
 internal struct BSTNotificationsPath {
-    //let getList = "/push/list/\\(lastPushId)/\\(count)" //1안-a
-    //let getList = "/push/list/$lastPushId/$count" //2안
-    let getList = "/push/list/%@/%d" ///push/list/lastPushId)/count 3안
-    func getList2(lastPushId: String, count: Int) -> String {//4안
+    ///push/list/lastPushId/count 3안
+    let getList2 = "/push/list/%@/%d"
+    func getList(lastPushId: String, count: Int) -> String {//4안
         return "/push/list/\(lastPushId)/\(count)"
     }
 //    enum ... case aaa(c,d) ... // 5
