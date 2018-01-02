@@ -1,21 +1,51 @@
 //
-//  LoginData.swift
-//  Vyrl2.0
+//  SessionHandler.swift
+//  BoostMINI
 //
-//  Created by wsjung on 2017. 5. 18..
-//  Copyright © 2017년 smt. All rights reserved.
-//
+//  Created by Jack on 21/12/2017.
+//  Copyright © 2017 IRIVER LIMITED. All rights reserved.
 
 import Foundation
 import Alamofire
 
-class LoginManager {
+class SessionHandler {
 
-    static let sharedInstance = LoginManager()
+    static let sharedInstance = SessionHandler()
+    //let baseURL = Definitions.api.base
 
-    let baseURL = Definitions.api.base
+	var cookie: String?
+	var token: String?
 
-    var cookie: String?
+	// TODO : 로그인여부.
+	var isLoginned: Bool {
+		return not((token ?? "").isEmpty)
+	}
+
+	
+	private init() {
+		
+		
+		// for test
+		let testCode = 1
+		
+		if testCode == 1 {
+			UserDefaults.standard.set("0123456789abcdef", forKey: "userToken")
+			UserDefaults.standard.synchronize()
+		}
+		if testCode == 2 {
+			UserDefaults.standard.removeObject(forKey: "userToken")
+			UserDefaults.standard.synchronize()
+		}
+
+		
+		
+		// TODO: 암호화 필요?
+		self.token = UserDefaults.standard.string(forKey: "userToken")
+		
+		
+		
+	}
+	
 //
 //    var accountList: Array<Account> = []
 //
@@ -144,7 +174,7 @@ class LoginManager {
 //
 //                if account?.service == "FACEBOOK" {
 //                    // facebook error code 304
-//                    FBSDKLoginManager().logOut()
+//                    FBSDKSessionHandler().logOut()
 //                }
 //
 //                if account?.service == "TWITTER" {
@@ -304,7 +334,7 @@ class LoginManager {
 //    case USERNOTEXIST = 901
 //}
 //
-//extension LoginManager {
+//extension SessionHandler {
 //
 //    func checkPush(viewConroller: UIViewController) {
 //
@@ -340,7 +370,7 @@ class LoginManager {
 //    }
 //}
 //
-//extension LoginManager {
+//extension SessionHandler {
 //
 //    func changeCookie(account: Account) {
 //
@@ -523,7 +553,7 @@ class LoginManager {
 //    }
 //}
 //
-//extension LoginManager {
+//extension SessionHandler {
 //
 //    open func loadAccountList() {
 //        guard let accountArray = UserDefaults.standard.array(forKey: "accountList") as? [[String: Any]] else { return }
@@ -615,9 +645,9 @@ class LoginManager {
 //        accountList = filteredArray
 //        syncAccount()
 //    }
-//
+//a
 //    func includeNotCurrentUser() -> Array<Account> {
-//        let accountList = LoginManager.sharedInstance.accountList.filter({
+//        let accountList = SessionHandler.sharedInstance.accountList.filter({
 //            (account) -> Bool in
 //            self.getCurrentAccount()?.userId != account.userId
 //        })
@@ -636,4 +666,6 @@ class LoginManager {
 //
 //        return false
 //    }
+	
+	
 }

@@ -27,13 +27,13 @@ class AppVersionModel : BaseModel {
 	}
 }
 
-// usage :	APIService<AppVersionModel>.get { block in
+// usage :	AppVersionModel.get { block in
 // 				if block.isSucceed {
 //					print(block.data!.serverVersion)
 //				}
 //			}
 
-// usage :	APIService<AppVersionModel>.get(["type":"ios"]) { block in
+// usage :	AppVersionModel.get(["type":"ios"]) { block in
 // 				if block.isSucceed {
 //					print(block.data!.serverVersion)
 //				}

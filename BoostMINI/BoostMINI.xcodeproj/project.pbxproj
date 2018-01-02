@@ -58,6 +58,9 @@
 		045D14931FF4E7EB00A67AA0 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14911FF4E7EB00A67AA0 /* TestModel.swift */; };
 		045D14941FF4E7EB00A67AA0 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14911FF4E7EB00A67AA0 /* TestModel.swift */; };
 		0462CD8D1FFB798D002B6E11 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0462CD8C1FFB798D002B6E11 /* Theme.xcassets */; };
+		0462CD911FFB9A6C002B6E11 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */; };
+		0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */; };
+		0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */; };
 		049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A76881FEBA58D00B98935 /* NumberConvertible.swift */; };
 		04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
 		04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
@@ -168,6 +171,9 @@
 		045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+base.swift"; sourceTree = "<group>"; };
 		045D14911FF4E7EB00A67AA0 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		0462CD8C1FFB798D002B6E11 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
+		0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
+		0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameToString.swift"; sourceTree = "<group>"; };
+		0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SplitByUppercase.swift"; sourceTree = "<group>"; };
 		049A76881FEBA58D00B98935 /* NumberConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConvertible.swift; sourceTree = "<group>"; };
 		04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -436,8 +442,11 @@
 				04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */,
 				045D14831FF4A9B400A67AA0 /* Optional+logError.swift */,
 				04122A681FEC962600896EE0 /* String+Format.swift */,
+				0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */,
 				045D147F1FF4A7AB00A67AA0 /* String+Tag.swift */,
 				04AD74151FF35E6E005F4BF0 /* String+URL.swift */,
+				0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */,
+				0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1048,9 +1057,12 @@
 				2B5AA0911FEB55D2007441E1 /* BSTButton.swift in Sources */,
 				04AD741F1FF36269005F4BF0 /* Protocols.swift in Sources */,
 				2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */,
+				0462CD911FFB9A6C002B6E11 /* UIViewController+Storyboard.swift in Sources */,
 				04AD741A1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				2B5AA0991FEB5639007441E1 /* OpenSourceSample.swift in Sources */,
 				2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */,
+				0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
+				0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				045D14871FF4DBD900A67AA0 /* AppVersionModel.swift in Sources */,
 				2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */,
