@@ -53,7 +53,7 @@ public class APIMethod: NSObject {
 				isArrayResult: Bool? = nil) {
 		
 		let baseDomain = (domain ?? "")
-		self.baseDomain = baseDomain.isEmpty ? BSTApiServer.base : baseDomain
+		self.baseDomain = baseDomain.isEmpty ? Definitions.api.base : baseDomain
 		self.path = path
 		self.option = option ?? RequestOption(method ?? .get, parameters: parameters, headers: headers)
 		if let temp = resultKeyPath { self.resultKeyPath = temp }	// ""일 경우, 자동으로 nil로 변환하여 처리한다. 즉, 루트를 읽어온다.

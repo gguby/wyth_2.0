@@ -8,11 +8,14 @@
 
 import Foundation
 import UIKit
+import ReactorKit
+import RxCocoa
+import RxSwift
 
 class NotificationViewController: UIViewController {
 
     // MARK: * properties --------------------
-
+    let viewModel = NotificationViewModel()
 
     // MARK: * IBOutlets --------------------
 
@@ -28,7 +31,7 @@ class NotificationViewController: UIViewController {
 
 
     private func initProperties() {
-
+        
     }
 
 
@@ -56,7 +59,3 @@ class NotificationViewController: UIViewController {
 
 }
 
-
-extension NotificationViewController {
-
-}

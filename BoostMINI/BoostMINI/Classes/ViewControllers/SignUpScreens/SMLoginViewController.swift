@@ -23,7 +23,8 @@ class SMLoginViewController: WebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadWebUrl(Definitions.path.authUri)
+        
+        loadWebUrl(Definitions.externURLs.authUri)
     }
     //
 //    @IBAction func dismiss(sender :AnyObject ) {

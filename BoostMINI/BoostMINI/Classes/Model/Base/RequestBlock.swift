@@ -27,7 +27,7 @@ public class RequestOption {
 }
 
 class ResponseBlock<S: BaseModel> {
-	var error: Error? = nil
+	var error: Error?
 	var data: [S]? = nil
 	var first: S? { return data?.first }
 	var isSucceed: Bool { return data != nil }

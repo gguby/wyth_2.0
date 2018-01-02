@@ -31,7 +31,7 @@ extension GitHub: TargetType {
     var path: String {
         switch self {
         case .repos(let name):
-            return "/users/\(name.urlEscaped)/repos"
+            return Definitions.api.path.notifications.getList
         case .userProfile(let name):
             return "/users/\(name.urlEscaped)"
         case .repo(let name):
