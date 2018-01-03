@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// 로그인 하기 전의 화면임.
 class LogInViewController: UIViewController {
 
     // MARK: * properties --------------------

@@ -12,7 +12,11 @@ import Alamofire
 class AppVersionModel : BaseModel {
 	
 	static var apiList: [String: APIMethod] {
-		return singleApi(APIMethod("get_version", .get, ["current":appVersionStatic], isArrayResult: false))
+		return APIMethod("common/app/update",
+						 .get,
+						 ["deviceType":"ios",
+						  "current":appVersionStatic],
+						 isArrayResult: false).asGroup()
 	}
 	private static var appVersionStatic: String = BSTConstants.main.appVersion
 	let appVersion: String = BSTConstants.main.appVersion
@@ -23,13 +27,13 @@ class AppVersionModel : BaseModel {
 	}
 }
 
-// usage :	APIService<AppVersionModel>.get { block in
+// usage :	AppVersionModel.get { block in
 // 				if block.isSucceed {
 //					print(block.data!.serverVersion)
 //				}
 //			}
 
-// usage :	APIService<AppVersionModel>.get(["type":"ios"]) { block in
+// usage :	AppVersionModel.get(["type":"ios"]) { block in
 // 				if block.isSucceed {
 //					print(block.data!.serverVersion)
 //				}

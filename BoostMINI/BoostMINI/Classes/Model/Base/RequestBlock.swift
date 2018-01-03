@@ -27,10 +27,14 @@ public class RequestOption {
 }
 
 class ResponseBlock<S: BaseModel> {
-	var error: Error?
-	var data: [S]? = nil
-	var first: S? { return data?.first }
-	var isSucceed: Bool { return data != nil }
+	var error: Error?	// = nil
+	var data: [S]?		// = nil
+	var first: S? {
+		return data?.first
+	}
+	var isSucceed: Bool {
+		return error != nil || data != nil
+	}
 	
 	init() { }
 	convenience init(from: DataResponse<[S]>) {
@@ -40,39 +44,16 @@ class ResponseBlock<S: BaseModel> {
 		let arr: [S] = from.result.value == nil ? [] : [from.result.value!]
 		self.init(data:arr, error:from.error)
 	}
-	init(data _d: [S]?, error _r: Error?) {
-		if let ee = _r { error = ee }
-		if let vv = _d { data = vv }
+	init(data: [S]?, error: Error?) {
+		self.error = error ?? self.error
+		self.data = data ?? self.data
 	}
 }
 
 
 class APIService<T: BaseModel> {
 	
-	/// HTTPMethod.get 에 대한 API를 호출하여 값을 받아온다.
-	static func get(method: HTTPMethod = .get, _ block: @escaping (ResponseBlock<T>) -> Void ) {
-		sendRequest(api:T.apiList[method.rawValue], block)
-	}
-	
-	/// custom text에 대한 API를 호출하여 값을 받아온다.
-	static func get(string: String, _ block: @escaping (ResponseBlock<T>) -> Void ) {
-		sendRequest(api:T.apiList[string], block)
-	}
-
-	/// list형을 받아온다. 배열로 받는다.
-	static func list( _ block: @escaping (ResponseBlock<T>) -> Void ) {
-		// 서버쪽에서 보내오는 값이 array인지 dictionary인지 구분이 필요함.
-		sendArrayRequest(api:T.apiList["LIST"], block)
-	}
-
-	static func put(_ block: @escaping (ResponseBlock<T>) -> Void ) {
-		sendRequest(api:T.apiList[HTTPMethod.put.rawValue], block)
-	}
-	static func delete(_ block: @escaping (ResponseBlock<T>) -> Void ) {
-		sendRequest(api:T.apiList[HTTPMethod.delete.rawValue], block)
-	}
-
-	static private func sendRequest(api _api: APIMethod? = nil, isArray: Bool = false, _ block: @escaping (ResponseBlock<T>) -> Void ) {
+	static fileprivate func sendRequest(api _api: APIMethod? = nil, isArray: Bool = false, _ block: @escaping (ResponseBlock<T>) -> Void ) {
 		guard let api = _api,
 			let dataRequest = T.buildBase(api: api) else {
 				// INFO : critical error
@@ -92,7 +73,7 @@ class APIService<T: BaseModel> {
 		}
 	}
 
-	static private func sendArrayRequest(api _api: APIMethod? = nil, isArray: Bool = false, _ block: @escaping (ResponseBlock<T>) -> Void ) {
+	static fileprivate func sendArrayRequest(api _api: APIMethod? = nil, isArray: Bool = false, _ block: @escaping (ResponseBlock<T>) -> Void ) {
 		guard let api = _api,
 			let dataRequest = T.buildBase(api: api) else {
 				// INFO : critical error
@@ -114,3 +95,36 @@ class APIService<T: BaseModel> {
 	}
 }
 
+
+
+extension BaseModel {
+	
+	/// HTTPMethod.get 에 대한 API를 호출하여 값을 받아온다.
+	static func get(method: HTTPMethod = .get, _ block: @escaping (ResponseBlock<Self>) -> Void ) {
+		APIService<Self>.sendRequest(api:Self.apiList[method.rawValue], block)
+	}
+//
+//	/// custom text에 대한 API를 호출하여 값을 받아온다.
+//	class func get(string: String, _ block: @escaping (ResponseBlock<T>) -> Void ) {
+//		sendRequest(api:T.apiList[string], block)
+//	}
+//
+//	/// custom text에 대한 API를 호출하여 값을 받아온다.
+//	//	static func get(string: String, _ block: @escaping (ResponseBlock<T>) -> Void ) {
+//	//		sendRequest(api:T.apiList[string], block)
+//	//	}
+//
+//	/// list형을 받아온다. 배열로 받는다.
+//	class func list( _ block: @escaping (ResponseBlock<T>) -> Void ) {
+//		// 서버쪽에서 보내오는 값이 array인지 dictionary인지 구분이 필요함.
+//		sendArrayRequest(api:T.apiList["LIST"], block)
+//	}
+//
+//	class func put(_ block: @escaping (ResponseBlock<T>) -> Void ) {
+//		sendRequest(api:T.apiList[HTTPMethod.put.rawValue], block)
+//	}
+//	class func delete(_ block: @escaping (ResponseBlock<T>) -> Void ) {
+//		sendRequest(api:T.apiList[HTTPMethod.delete.rawValue], block)
+//	}
+
+}

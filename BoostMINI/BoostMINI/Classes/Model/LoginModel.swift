@@ -2,98 +2,51 @@
 //  LoginModel.swift
 //  BoostMINI
 //
-//  Created by HS Lee on 27/12/2017.
-//  Copyright © 2017 IRIVER LIMITED. All rights reserved.
+//  Created by jack on 2017. 12. 29..
+//  Copyright © 2017년 IRIVER LIMITED. All rights reserved.
 //
 
 import Foundation
-import UIKit
+import Alamofire
 
-//enum APIError: Error {
-//    case 404:
-//    case 400:
-//}
-//
-//enum BSTError: Error {
-//    case login(LoginCode)
-//    case api(code)
-//
-//    func action() {
-//        switch self {
-//        case .login(error):
-//            //action
-//        case .api(code):
-//            ExceptionHandler.alert
-//
-//        default:
-//            //
-//        }
-//    }
-//
-//    func alertActioln() {
-//        BSTUXHanlder.showAlert(message: self.message)
-//    }
-//}
-
-class LoginModel {
-    
-    // MARK: * properties --------------------
-    var userId: String?
-    var userName: String?
-
-    // MARK: * IBOutlets --------------------
-
-
-    // MARK: * Initialize --------------------
-
-    init() {
-
-    }
-
-
-    // MARK: * Main Logic --------------------
-    class func getUser() -> LoginModel? {
-        //api call'
-        //moya(alamofire) -> data
-
-        do {
-
-			
-			
-		} catch let error as BSTError {
-			error.action()
-		}
-
-        return nil
-    }
-
-    class func register() {
-        //moya(alamofire) -> data
-    }
-}
-
-//class LoginBizLogic {
-//    func getUser() -> LoginModel? {
-//        //api call
-//        return nil
-//    }
-//
-//    func getUser() -> LoginModel? {
-//        //api call
-//        return nil
-//    }
-//}
-
-class LoginViewModel {//presentation
-    
-//    func getUserInfo {
-//        let login = LoginBizLogic.getUser()
-//        login.userName = "fldjafldsajfldsja"
-//    }
-//
-//    func usedNameForLocal() {
-//        return "user" + "lllll"
-//    }
+class LoginModel : BaseModel {
+	
+	public struct loginType {
+		static let login    = "login"
+		static let join     = "join"
+		static let logout   = "logout"
+		static let info     = "info"
+		static let withdraw = "withdraw"
+	}
+	
+	static var apiList: [String: APIMethod] {
+		return [
+			loginType.login: APIMethod("customer/login/smtown", .post, nil, map: "deviceId,deviceType,pushRegId"),
+			loginType.join: APIMethod("customer/join/smtown", .post, nil, map: "deviceId,deviceType,pushRegId"),
+			loginType.logout: APIMethod("customer/logout", .get, nil),
+			loginType.info: APIMethod("customer/info", .get, nil, map: "deviceId,deviceType,pushRegId"),
+			loginType.withdraw: APIMethod("customer/info", .get, nil, map: "deviceId,deviceType,pushRegId")
+		]
+	}
+	
+	let userName: String
+	let userEmail: String
+	
+	private enum CodingKeys: String, CodingKey {
+		case userName
+		case userEmail
+	}
 }
 
 
+extension LoginModel {
+	
+	var description: String {	// DEBUGGING ONLY
+		return "\(userName) (\(userEmail))"
+	}
+	
+	
+	
+	
+	
+}

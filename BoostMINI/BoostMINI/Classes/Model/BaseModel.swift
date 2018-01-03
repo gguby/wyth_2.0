@@ -5,7 +5,8 @@
 //  Created by jack on 2017. 12. 18..
 //  Copyright © 2017년 jack. All rights reserved.
 //
-
+// 이 소스는 굳이 보지 않으셔도 됩니다.
+// 간단한 사용 뒤에 숨은 다양한 로직들이 모여있습니다.
 import Foundation
 import Alamofire
 
@@ -39,6 +40,11 @@ public class APIMethod: NSObject {
 		return option?.method ?? .get
 	}
 
+	// 구 singleAPI 기능.  APIMethod 하나를 딕셔너리 형태로변환하여 반환.
+	public func asGroup(_ key:String? = nil) -> [String: APIMethod] {
+		return [key ?? self.getMethod().rawValue : self]
+	}
+	
 	/// 생성자.
 	/// option이 있으면 method, parameters, headers가 무시됩니다.
 	/// method(HTTPMethod)가 생략되면 .get으로 지정됩니다.
@@ -63,11 +69,27 @@ public class APIMethod: NSObject {
 	public convenience init(_ path: String,
 							_ method: HTTPMethod = .get,
 							_ parameters: Parameters? = nil,
+							map: String? = nil,
 							headers: HTTPHeaders? = nil,
 							isArrayResult: Bool? = nil) {
-		let option = RequestOption(method, parameters: parameters, headers: headers)
-		self.init(path: path, option: option, method: method, parameters: parameters, headers: headers, isArrayResult: isArrayResult)
+		
+		var param: [String: Any] = parameters ?? [:]
+		if let tempMap = map {
+			for key in tempMap.split(separator: ",") {
+				let key = "\(key)", val = "$(\(key))"
+				param.setObjectOrIgnore(val, forKey: key)	// param에 이미 있는 key라면 무시됨. (추천하지않음. map을쓸거면 parameters는 없거나 map과 중복되지않게 사용을권장)
+			}
+		}
+		let option = RequestOption(method, parameters: param, headers: headers)
+		self.init(path: path, option: option, method: method, parameters: param, headers: headers, isArrayResult: isArrayResult)
 	}
+	
+	public convenience init(_ path: String,
+							_ parameters: Parameters? = nil) {
+		let option = RequestOption(.get, parameters: parameters, headers: nil)
+		self.init(path: path, option: option, method: .get, parameters: parameters, headers: nil, isArrayResult: nil)
+	}
+
 }
 
 protocol BaseModel: Codable {
@@ -80,30 +102,34 @@ protocol BaseModel: Codable {
 extension Dictionary where Key: ExpressibleByStringLiteral, Value == APIMethod {
 }
 
+
+
 extension BaseModel {
 	
-	static func singleApi(_ api: APIMethod, _ key: String? = nil) -> [String: APIMethod] {
-		let k: String = key ?? api.getMethod().rawValue
-		return [k: api]
-	}
+	// deprecated
+	// singleApi(##) -> ##.asGroup()
+//	static func singleApi(_ api: APIMethod, _ key: String? = nil) -> [String: APIMethod] {
+//		let k: String = key ?? api.getMethod().rawValue
+//		return [k: api]
+//	}
 
 	static func buildBase(method: HTTPMethod = .get,
 						  parameters: Parameters? = nil,
 						  headers: HTTPHeaders? = nil) -> DataRequest? {
 
-		guard let api = apiList[method.rawValue] else {
-				return nil
-		}
-		return buildBase(api: api, parameters: parameters, headers: headers)
+        guard let api = apiList[method.rawValue] else {
+            return nil
+        }
+        return buildBase(api: api, parameters: parameters, headers: headers)
 	}
 	
 	static func buildBase(api: APIMethod,
 						  parameters: Parameters? = nil,
 						  headers: HTTPHeaders? = nil) -> DataRequest? {
-		guard let option = api.option,
-			let urlReq = api.url() else {
-				return nil
-		}
+        guard let option = api.option,
+            let urlReq = api.url() else {
+                return nil
+        }
 		
 		let method = option.method
 		let parameters = option.parameters
@@ -117,4 +143,5 @@ extension BaseModel {
 	}
 
 }
+
 

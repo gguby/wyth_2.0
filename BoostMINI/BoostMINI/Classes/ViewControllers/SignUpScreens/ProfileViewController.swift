@@ -84,14 +84,14 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
 //    @IBAction func pushView(sender _: AnyObject) {
 //        let photo = photoView.imageView?.image
 //
-//        LoginManager.sharedInstance.signUp(homePageURL: webURLField.text!, nickName: nickNameField.text!, selfIntro: introField.text!, profile: photo!, completionHandler: {
+//        SessionHandler.sharedInstance.signUp(homePageURL: webURLField.text!, nickName: nickNameField.text!, selfIntro: introField.text!, profile: photo!, completionHandler: {
 //            self.pushView(storyboardName: "Login", controllerName: "logincomplete")
 //        })
 //    }
 //
 //    @IBAction func checkNicname(_: UIButton) {
 //        duplicationCheckButton.isEnabled = false
-//        LoginManager.sharedInstance.checkNickname(nickname: nickNameField.text!) { response
+//        SessionHandler.sharedInstance.checkNickname(nickname: nickNameField.text!) { response
 //            in switch response.result {
 //            case let .success(json):
 //                print((response.response?.statusCode)!)

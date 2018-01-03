@@ -11,6 +11,8 @@ import UIKit
 
 class BSTFacade {
     static let ux = BSTUXHanlder()
+	// static let text
+	
     // MARK: * properties --------------------
 
     // MARK: * IBOutlets --------------------
@@ -22,8 +24,8 @@ class BSTFacade {
     }
 
     // MARK: * Main Logic --------------------
-
 }
 
 extension BSTFacade {
 }
+

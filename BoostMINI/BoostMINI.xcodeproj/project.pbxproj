@@ -57,19 +57,23 @@
 		045D14921FF4E7EB00A67AA0 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14911FF4E7EB00A67AA0 /* TestModel.swift */; };
 		045D14931FF4E7EB00A67AA0 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14911FF4E7EB00A67AA0 /* TestModel.swift */; };
 		045D14941FF4E7EB00A67AA0 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14911FF4E7EB00A67AA0 /* TestModel.swift */; };
+		0462CD8D1FFB798D002B6E11 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0462CD8C1FFB798D002B6E11 /* Theme.xcassets */; };
+		0462CD911FFB9A6C002B6E11 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */; };
+		0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */; };
+		0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */; };
 		049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A76881FEBA58D00B98935 /* NumberConvertible.swift */; };
 		04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
 		04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
-		04AD73F61FF20B82005F4BF0 /* _SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* _SignUpViewController.swift */; };
-		04AD73F71FF20B82005F4BF0 /* _SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* _SignUpViewController.swift */; };
-		04AD73F91FF21E23005F4BF0 /* _LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* _LogInViewController.swift */; };
-		04AD73FA1FF21E23005F4BF0 /* _LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* _LogInViewController.swift */; };
+		04AD73F61FF20B82005F4BF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */; };
+		04AD73F71FF20B82005F4BF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */; };
+		04AD73F91FF21E23005F4BF0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */; };
+		04AD73FA1FF21E23005F4BF0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */; };
 		04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */; };
 		04AD73FD1FF2283F005F4BF0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */; };
 		04AD73FF1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FE1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift */; };
-		04AD74021FF33934005F4BF0 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74011FF33933005F4BF0 /* LoginManager.swift */; };
-		04AD74031FF33934005F4BF0 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74011FF33933005F4BF0 /* LoginManager.swift */; };
-		04AD74041FF33934005F4BF0 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74011FF33933005F4BF0 /* LoginManager.swift */; };
+		04AD74021FF33934005F4BF0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74011FF33933005F4BF0 /* SessionManager.swift */; };
+		04AD74031FF33934005F4BF0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74011FF33933005F4BF0 /* SessionManager.swift */; };
+		04AD74041FF33934005F4BF0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74011FF33933005F4BF0 /* SessionManager.swift */; };
 		04AD74091FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */; };
 		04AD740A1FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */; };
 		04AD740B1FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */; };
@@ -117,6 +121,7 @@
 		2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */; };
 		2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F0511FDFA49500581F06 /* BoostMINITests.swift */; };
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
+		2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF341651FFB7A3F00FDA12E /* Notification.storyboard */; };
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
@@ -165,13 +170,17 @@
 		045D14891FF4DD2200A67AA0 /* RequestBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBlock.swift; sourceTree = "<group>"; };
 		045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+base.swift"; sourceTree = "<group>"; };
 		045D14911FF4E7EB00A67AA0 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		0462CD8C1FFB798D002B6E11 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
+		0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
+		0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameToString.swift"; sourceTree = "<group>"; };
+		0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SplitByUppercase.swift"; sourceTree = "<group>"; };
 		049A76881FEBA58D00B98935 /* NumberConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConvertible.swift; sourceTree = "<group>"; };
 		04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
-		04AD73F51FF20B82005F4BF0 /* _SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _SignUpViewController.swift; sourceTree = "<group>"; };
-		04AD73F81FF21E23005F4BF0 /* _LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _LogInViewController.swift; sourceTree = "<group>"; };
+		04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		04AD73FE1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-Alert.swift"; sourceTree = "<group>"; };
-		04AD74011FF33933005F4BF0 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		04AD74011FF33933005F4BF0 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLoginViewController.swift; sourceTree = "<group>"; };
 		04AD74061FF339EC005F4BF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		04AD74071FF339EC005F4BF0 /* AgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +224,7 @@
 		2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostMINIUITests.swift; sourceTree = "<group>"; };
 		2B61F05E1FDFA49500581F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B61F06A1FDFA4C400581F06 /* BoostMINI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoostMINI.entitlements; sourceTree = "<group>"; };
+		2BF341651FFB7A3F00FDA12E /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		304041C0256C37C0B073056D /* Pods-BoostMINIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		48A5E026AA7FED66F3366494 /* Pods-BoostMINITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.product.xcconfig"; sourceTree = "<group>"; };
 		5CE278FD296F77407907664D /* Pods_BoostMINI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoostMINI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,13 +290,6 @@
 			path = SwiftyBeaverDestinations;
 			sourceTree = "<group>";
 		};
-		045D14851FF4DB7A00A67AA0 /* DKSample */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DKSample;
-			sourceTree = "<group>";
-		};
 		045D14881FF4DD1400A67AA0 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,8 +301,8 @@
 		04AD73F41FF20B6C005F4BF0 /* SignUpScreens */ = {
 			isa = PBXGroup;
 			children = (
-				04AD73F51FF20B82005F4BF0 /* _SignUpViewController.swift */,
-				04AD73F81FF21E23005F4BF0 /* _LogInViewController.swift */,
+				04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */,
+				04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */,
 				04AD74071FF339EC005F4BF0 /* AgreementViewController.swift */,
 				04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */,
 				04AD74061FF339EC005F4BF0 /* ProfileViewController.swift */,
@@ -352,7 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA0941FEB55E4007441E1 /* ExceptionHandler.swift */,
-				04AD74011FF33933005F4BF0 /* LoginManager.swift */,
+				04AD74011FF33933005F4BF0 /* SessionManager.swift */,
 				A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */,
 			);
 			path = Manager;
@@ -439,8 +442,11 @@
 				04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */,
 				045D14831FF4A9B400A67AA0 /* Optional+logError.swift */,
 				04122A681FEC962600896EE0 /* String+Format.swift */,
+				0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */,
 				045D147F1FF4A7AB00A67AA0 /* String+Tag.swift */,
 				04AD74151FF35E6E005F4BF0 /* String+URL.swift */,
+				0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */,
+				0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -457,7 +463,6 @@
 			isa = PBXGroup;
 			children = (
 				A62352331FF390270007949C /* ReactorKitSample */,
-				045D14851FF4DB7A00A67AA0 /* DKSample */,
 				2B5AA09A1FEB5646007441E1 /* LibrarySample.swift */,
 				04122A711FECBF7F00896EE0 /* SwiftyBeaverDestinations */,
 			);
@@ -471,6 +476,7 @@
 				2B5AA0711FEA61AC007441E1 /* Storyboards */,
 				2B5AA0701FEA6187007441E1 /* Strings */,
 				2B61F0431FDFA49500581F06 /* Assets.xcassets */,
+				0462CD8C1FFB798D002B6E11 /* Theme.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */,
 				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
 				8F82C1641FF36D810031D030 /* Home.storyboard */,
+				2BF341651FFB7A3F00FDA12E /* Notification.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -754,7 +761,9 @@
 				2B61F0441FDFA49500581F06 /* Assets.xcassets in Resources */,
 				8F82C1651FF36D810031D030 /* Home.storyboard in Resources */,
 				2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */,
+				0462CD8D1FFB798D002B6E11 /* Theme.xcassets in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
+				2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1049,15 +1058,18 @@
 				2B5AA08D1FEB55BA007441E1 /* BSTUXHanlder.swift in Sources */,
 				04122A731FECBFA400896EE0 /* NilDestination.swift in Sources */,
 				04AD740C1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */,
-				04AD74021FF33934005F4BF0 /* LoginManager.swift in Sources */,
-				04AD73F61FF20B82005F4BF0 /* _SignUpViewController.swift in Sources */,
+				04AD74021FF33934005F4BF0 /* SessionManager.swift in Sources */,
+				04AD73F61FF20B82005F4BF0 /* SignUpViewController.swift in Sources */,
 				A696AE911FF5E9B4009B8FEF /* BTDeviceNetwork.swift in Sources */,
 				2B5AA0911FEB55D2007441E1 /* BSTButton.swift in Sources */,
 				04AD741F1FF36269005F4BF0 /* Protocols.swift in Sources */,
 				2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */,
+				0462CD911FFB9A6C002B6E11 /* UIViewController+Storyboard.swift in Sources */,
 				04AD741A1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				2B5AA0991FEB5639007441E1 /* OpenSourceSample.swift in Sources */,
 				2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */,
+				0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
+				0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				045D14871FF4DBD900A67AA0 /* AppVersionModel.swift in Sources */,
 				2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */,
@@ -1085,7 +1097,7 @@
 				2B5AA07F1FEA62A7007441E1 /* Definitions.swift in Sources */,
 				2B55BC141FF375CF0017D2B2 /* LoginModel.swift in Sources */,
 				8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */,
-				04AD73F91FF21E23005F4BF0 /* _LogInViewController.swift in Sources */,
+				04AD73F91FF21E23005F4BF0 /* LogInViewController.swift in Sources */,
 				045D148C1FF4DF3D00A67AA0 /* JSONDecoder+base.swift in Sources */,
 				2B61F03D1FDFA49500581F06 /* AppDelegate.swift in Sources */,
 				2B5AA08F1FEB55C8007441E1 /* CommonUtil.swift in Sources */,
@@ -1104,7 +1116,7 @@
 				04122A741FECBFA400896EE0 /* NilDestination.swift in Sources */,
 				04122A831FECE9AE00896EE0 /* Constants.swift in Sources */,
 				04AD74201FF36269005F4BF0 /* Protocols.swift in Sources */,
-				04AD74031FF33934005F4BF0 /* LoginManager.swift in Sources */,
+				04AD74031FF33934005F4BF0 /* SessionManager.swift in Sources */,
 				04122A5A1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
 				04AD74171FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04122A771FECE9A200896EE0 /* ExceptionHandler.swift in Sources */,
@@ -1140,15 +1152,15 @@
 			files = (
 				04AD73FD1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
 				04AD74211FF36269005F4BF0 /* Protocols.swift in Sources */,
-				04AD74041FF33934005F4BF0 /* LoginManager.swift in Sources */,
+				04AD74041FF33934005F4BF0 /* SessionManager.swift in Sources */,
 				04122A751FECBFA400896EE0 /* NilDestination.swift in Sources */,
 				04AD74181FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04122A5B1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
-				04AD73FA1FF21E23005F4BF0 /* _LogInViewController.swift in Sources */,
+				04AD73FA1FF21E23005F4BF0 /* LogInViewController.swift in Sources */,
 				045D14821FF4A7AE00A67AA0 /* String+Tag.swift in Sources */,
 				04122A7C1FECE9A300896EE0 /* ExceptionHandler.swift in Sources */,
 				04122A6B1FEC962600896EE0 /* String+Format.swift in Sources */,
-				04AD73F71FF20B82005F4BF0 /* _SignUpViewController.swift in Sources */,
+				04AD73F71FF20B82005F4BF0 /* SignUpViewController.swift in Sources */,
 				04AD74141FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */,
 				04122A631FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				04122A7E1FECE9A300896EE0 /* CommonUtil.swift in Sources */,
