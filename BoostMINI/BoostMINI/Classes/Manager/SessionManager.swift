@@ -13,7 +13,7 @@ class SessionHandler {
     static let sharedInstance = SessionHandler()
     //let baseURL = Definitions.api.base
 
-	var cookie: String?
+	var cookie: String? 
 	var token: String?
 
 	// TODO : 로그인여부.
@@ -241,7 +241,7 @@ class SessionHandler {
 //
 //                        let jsonData = json as! NSDictionary
 //
-//                        let idNum = jsonData["id"] as! NSNumber
+//                        let idNum = jsonData["iZZZZZd"] as! NSNumber
 //                        let idStr = idNum.stringValue
 //
 //                        let account = Account(properties: [

@@ -55,15 +55,13 @@ enum BSTNotificationsPath2 {
     case get(Int)
     
     var path: String {
-        get {
-            switch self {
-            case let .getList(lastPushId, count):
-                return "/push/list/\(lastPushId)/\(count)"
-            case let .get(lastPushId):
-                return "/push/\(lastPushId)"
-            }
-        }
-    }
+		switch self {
+		case let .getList(lastPushId, count):
+			return "/push/list/\(lastPushId)/\(count)"
+		case let .get(lastPushId):
+			return "/push/\(lastPushId)"
+		}
+	}
 }
 
 internal struct BSTNotificationsPath {
@@ -79,5 +77,3 @@ internal struct BSTDevice {
     let service_UUID = "713D0000-503E-4C75-BA94-3148F18D941E" // uuid spec
     let characteristic_UUID = "713D0000-503E-4C75-BA94-3148F18D941E" // uuid spec
 }
-
-

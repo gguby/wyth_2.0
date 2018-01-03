@@ -9,26 +9,80 @@
 import Foundation
 import UIKit
 import ReactorKit
+import RxCocoa
+import RxSwift
 
 
 
-/// 동일뷰에서 모두 처리하는것도 방법이지만
-/// 일단은 여기에서 로그인이 필요한지 홈이 필요한지에 따라
-/// 해당 뷰로 애니메이션 없이 바로 이동해주도록 한다.
-/// 동일한 초기화면이어야 한다.
-/// 추후 변경 가능.
+
+/// 여기는 대부분 지울 코드들이다.. 흠.
 
 class IntroViewController: UIViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var tiltingView: TopTiltingView!
+	@IBOutlet var tilts: [TopTiltingView]!
+
+	@IBOutlet weak var slider: UISlider!
+	@IBOutlet weak var testView: UIView!
+
+	@IBOutlet weak var goHome:  UIButton!
+	@IBOutlet weak var goLogin: UIButton!
+	var disposeBag = DisposeBag()
+
+	
+	
+	var isDebugMode = false
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
         checkVersion()
+		slider.minimumValue = -100
+		slider.maximumValue = 100
+	
+		var toggle = false
+		for view in tilts {
+			toggle = !toggle
+			view.useCenter = toggle
+		}
+		tiltingView.useCenter = true
+		
+		
+		
+		goHome.rx.tap.subscribe() { event in
+			self.presentHome()
+			}.disposed(by: disposeBag)
+		goLogin.rx.tap.subscribe() { event in
+			self.presentLogin()
+			}.disposed(by: disposeBag)
+
     }
 
 	override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	@IBAction func sliderChanged(_ sender: Any) {
+		isDebugMode = true
+
+		let val = self.slider.value.c
+		for view in tilts {
+			view.updateDisplayTiltMask(val)
+		}
+
+	}
+	
+	@IBAction func testButtonTouched(_ sender: Any) {
+	
+		isDebugMode = true
+		
+		// -100 ~ 100
+		let newVal: CGFloat = (arc4random() % 200) - 100
+		for view in tilts {
+			view.updateDisplayTiltMask(newVal, animation: true)
+		}
+	}
+	
 }
 
 extension IntroViewController {
@@ -96,18 +150,33 @@ extension IntroViewController {
 		
 		if SessionHandler.sharedInstance.isLoginned {
 			// 로그인 유저
-			let storyboard = UIStoryboard(name: "Home", bundle: nil)
-			let vc = storyboard.instantiateInitialViewController()!	// HomeViewController의 상위 NavigationViewController 이다.
-			self.present(vc, animated: false, completion: {
-				
+			RunInNextMainThread(withDelay: 2.0, {
+				if self.isDebugMode {
+					self.testView.isHidden = false
+					return
+				}
+				self.presentHome()
 			})
 			
 		} else {
 			// 비로그인 유저
-			let vc = LogInViewController.create("SignUp")
-			self.present(vc, animated: false, completion: {
-				
-			})
+			self.presentLogin()
 		}
 	}
+
+	
+	func presentHome() {
+		let storyboard = UIStoryboard(name: "Home", bundle: nil)
+		let vc = storyboard.instantiateInitialViewController()!	// HomeViewController의 상위 NavigationViewController 이다.
+		self.present(vc, animated: false, completion: {
+		})
+	}
+	
+	func presentLogin() {
+		let vc = LogInViewController.create("SignUp")
+		self.present(vc, animated: false, completion: {
+		})
+	}
+	
+	
 }
