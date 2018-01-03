@@ -10,6 +10,22 @@ import Foundation
 import Alamofire
 
 class LoginModel : BaseModel {
+    
+//    enum loginType {
+//        case login
+//        case join
+//
+//        func getPath() -> APIMethod? {
+//            var method: APIMethod = nil
+//            switch self {
+//            case .login:
+//                return APIMethod("customer/login/smtown", .post, nil, map: "deviceId,deviceType,pushRegId"),
+//            default:
+//                return nil
+//            }
+//            return method
+//        }
+//    }
 	
 	public struct loginType {
 		static let login    = "login"
@@ -44,9 +60,9 @@ extension LoginModel {
 	var description: String {	// DEBUGGING ONLY
 		return "\(userName) (\(userEmail))"
 	}
-	
-	
-	
-	
-	
+    
+    
+    
+    
+    
 }

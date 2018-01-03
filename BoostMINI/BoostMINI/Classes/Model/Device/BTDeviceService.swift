@@ -19,6 +19,8 @@ class BTDeviceService {
     private let boostServiceUUID = CBUUID(string: Definitions.device.service_UUID)
     private let boostCharacteristicUUID = CBUUID(string: Definitions.device.characteristic_UUID)
     
+    private var connectedPeripheral: Observable<Peripheral>?
+    
     init() {
         let timerQueue = DispatchQueue(label: "com.iriver.boostmini.device.timer")
         scheduler = ConcurrentDispatchQueueScheduler(queue: timerQueue)
@@ -35,9 +37,12 @@ class BTDeviceService {
             .toArray()
     }
     
+    func connect(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
+        return self.manager.connect(scannedPeripheral.peripheral)
+    }
+    
     func setService(scannedPeripheral : ScannedPeripheral) -> Observable<Service> {
-        return scannedPeripheral.peripheral
-            .connect()
+        return self.connect(scannedPeripheral: scannedPeripheral)
             .flatMap { $0.discoverServices([self.boostServiceUUID]) }
             .flatMap {Observable.from($0)}
     }

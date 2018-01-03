@@ -10,16 +10,46 @@ import Foundation
 import UIKit
 import SideMenu
 
+private enum State {
+    case closed
+    case open
+}
+
+extension State {
+    var opposite: State {
+        switch self {
+        case .open:
+            return .closed
+        case .closed:
+            return .open
+        }
+    }
+}
+
+@available(iOS 10.0, *)
 class HomeViewController: UIViewController {
-
+    
     // MARK: - * properties --------------------
-
-
+    private lazy var popupView:UIView = {
+        let view = ConcertInformationView.instanceFromNib()
+        view.arrowButton.addTarget(self, action: #selector(self.popupViewTapped(recognizer:)), for: .touchUpInside)
+        return view
+    }()
+    
+    private var bottomConstraint = NSLayoutConstraint()
+    private var currentState: State = .closed
+    
+    private lazy var tapRecognizer: UITapGestureRecognizer = {
+        let recognizer = UITapGestureRecognizer()
+        recognizer.addTarget(self, action: #selector(popupViewTapped(recognizer:)))
+        return recognizer
+    }()
+    
     // MARK: - * IBOutlets --------------------
-
-
+    
+    
     // MARK: - * Initialize --------------------
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,8 +57,8 @@ class HomeViewController: UIViewController {
         self.initUI()
         self.prepareViewDidLoad()
     }
-
-
+    
+    
     private func initProperties() {
         SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
         
@@ -37,40 +67,78 @@ class HomeViewController: UIViewController {
         
         SideMenuManager.default.menuPresentMode = .menuSlideIn
     }
-
-
+    
+    
     private func initUI() {
+        layout()
+    }
+    
+    
+    func prepareViewDidLoad() {
         
     }
-
-
-    func prepareViewDidLoad() {
-
-    }
-
+    
     // MARK: - * Main Logic --------------------
-
-
+    private func layout() {
+        popupView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(popupView)
+        popupView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        popupView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 440)
+        bottomConstraint.isActive = true
+        popupView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+    }
+    
     // MARK: - * UI Events --------------------
     
-    @IBAction func gotoInformationViewController(_ sender: UIButton) {
-        let vc = ConcertInformationViewController()
-        vc.modalPresentationStyle = .custom
-        present(vc, animated: true, completion: nil)
-        
+    //    @IBAction func gotoInformationViewController(_ sender: UIButton) {
+    //        let vc = ConcertInformationViewController()
+    //        vc.modalPresentationStyle = .custom
+    //        present(vc, animated: true, completion: nil)
+    //    }
+    
+    @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
+        let state = currentState.opposite
+        let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
+            switch state {
+            case .open:
+                self.bottomConstraint.constant = 0
+            case .closed:
+                self.bottomConstraint.constant = 440
+            }
+            self.view.layoutIfNeeded()
+        })
+        transitionAnimator.addCompletion { position in
+            switch position {
+            case .start:
+                self.currentState = state.opposite
+            case .end:
+                self.currentState = state
+            case .current:
+                ()
+            }
+            switch self.currentState {
+            case .open:
+                self.bottomConstraint.constant = 0
+            case .closed:
+                self.bottomConstraint.constant = 440
+            }
+        }
+        transitionAnimator.startAnimation()
     }
     
-
+    
     // MARK: - * Memory Manage --------------------
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 
 
+@available(iOS 10.0, *)
 extension HomeViewController {
-
 }
+

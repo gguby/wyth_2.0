@@ -11,6 +11,8 @@ import UIKit
 
 class BSTFacade {
     static let ux = BSTUXHanlder()
+    
+    static let device = DeviceManager()
 	// static let text
 	
     // MARK: * properties --------------------
