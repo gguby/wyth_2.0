@@ -174,6 +174,7 @@
 		0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameToString.swift"; sourceTree = "<group>"; };
 		0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SplitByUppercase.swift"; sourceTree = "<group>"; };
+		0462CD961FFC7222002B6E11 /* ColorPalette */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ColorPalette; sourceTree = "<group>"; };
 		049A76881FEBA58D00B98935 /* NumberConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConvertible.swift; sourceTree = "<group>"; };
 		04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -472,6 +473,7 @@
 		2B5AA06F1FEA6187007441E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0462CD961FFC7222002B6E11 /* ColorPalette */,
 				A623522E1FF35E9F0007949C /* Template */,
 				2B5AA0711FEA61AC007441E1 /* Storyboards */,
 				2B5AA0701FEA6187007441E1 /* Strings */,

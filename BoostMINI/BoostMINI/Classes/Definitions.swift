@@ -76,8 +76,8 @@ internal struct BSTNotificationsPath {
 }
 
 internal struct BSTDevice {
-    static let service_UUID = "713D0000-503E-4C75-BA94-3148F18D941E" // uuid spec
-    static let characteristic_UUID = "713D0000-503E-4C75-BA94-3148F18D941E" // uuid spec
+    let service_UUID = "713D0000-503E-4C75-BA94-3148F18D941E" // uuid spec
+    let characteristic_UUID = "713D0000-503E-4C75-BA94-3148F18D941E" // uuid spec
 }
 
 
