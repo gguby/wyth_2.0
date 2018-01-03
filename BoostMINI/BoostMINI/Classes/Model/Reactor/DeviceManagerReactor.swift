@@ -15,12 +15,13 @@ import ReactorKit
 import RxCocoa
 import RxSwift
 import CoreBluetooth
+import RxBluetoothKit
 
 final class DeviceManagerReactor : Reactor {
     
     enum Action {
         case scanDevice
-        case pairingDevice
+        case pairingDevice(ScannedPeripheral)
         case blinkLight
         case writeCode
         case registerDevice
@@ -28,9 +29,9 @@ final class DeviceManagerReactor : Reactor {
     
     enum Mutation {
         case scanDevice(Bool)
-        case setDiscoverDevice(CBPeripheral)
+        case setDiscoverDevice([ScannedPeripheral])
         case paringDevice(Bool)
-        case setActiveDevice(CBPeripheral)
+        case setActiveDevice(ScannedPeripheral)
         case setWriteCode(String)
         case blinkLight(Bool)
         case registerDevice(Bool)
@@ -39,8 +40,8 @@ final class DeviceManagerReactor : Reactor {
     struct State {
         var isScanDevice : Bool = false
         var isParingDevice : Bool = false
-        var discoverPeripheral : CBPeripheral?
-        var activePeripheral : CBPeripheral?
+        var discoverPeripherals : [ScannedPeripheral]?
+        var activePeripheral : ScannedPeripheral?
         var writeCode : String?
         var isBlink : Bool = false
         var isRegister : Bool = false
@@ -57,23 +58,50 @@ final class DeviceManagerReactor : Reactor {
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
-//        switch action {
-//        case <#pattern#>:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
-        
-        return Observable.just(Mutation.scanDevice(false))
+        switch action {
+        case .scanDevice:
+            
+            let startScan = Observable<Mutation>.just(.scanDevice(true))
+            let stopScan = Observable<Mutation>.just(.scanDevice(false))
+            let setDevice = self.service.startScan().map {Mutation.setDiscoverDevice($0)}
+            return Observable.concat([startScan, setDevice, stopScan])
+            
+        case let .pairingDevice(peripheral):
+            
+            let paring = Observable<Mutation>.just(.paringDevice(true))
+            let setActiveDevice = Observable<Mutation>.just(.setActiveDevice(peripheral))
+            return Observable.concat([paring, setActiveDevice])
+            
+        case .blinkLight :
+            return Observable.just(Mutation.scanDevice(false))
+        case .writeCode :
+            return Observable.just(Mutation.scanDevice(false))
+        case .registerDevice :
+            return Observable.just(Mutation.scanDevice(false))
+        }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
-//        switch mutation {
-//        case <#pattern#>:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
-        return state
+        
+        var newState = state
+        
+        switch mutation {
+        case let .scanDevice(isScan):
+            newState.isScanDevice = isScan
+        case let .setDiscoverDevice(scanDeviceList):
+            newState.discoverPeripherals = scanDeviceList
+        case let .paringDevice(paring):
+            newState.isParingDevice = paring
+        case let .setActiveDevice(activePeripheral):
+            newState.activePeripheral = activePeripheral
+        case let .blinkLight(blink):
+            newState.isBlink = blink
+        case let .setWriteCode(code):
+            newState.writeCode = code
+        case let .registerDevice(isRegister):
+            newState.isRegister = isRegister
+        }
+
+        return newState
     }
 }
