@@ -31,7 +31,8 @@ final class DeviceManagerReactor : Reactor {
         case scanDevice(Bool)
         case setDiscoverDevice([ScannedPeripheral])
         case paringDevice(Bool)
-        case setActiveDevice(ScannedPeripheral)
+        case setActiveDevice(Peripheral)
+        case setCharacteristic(Characteristic)
         case setWriteCode(String)
         case blinkLight(Bool)
         case registerDevice(Bool)
@@ -41,7 +42,8 @@ final class DeviceManagerReactor : Reactor {
         var isScanDevice : Bool = false
         var isParingDevice : Bool = false
         var discoverPeripherals : [ScannedPeripheral]?
-        var activePeripheral : ScannedPeripheral?
+        var activePeripheral : Peripheral?
+        var characteristic : Characteristic?
         var writeCode : String?
         var isBlink : Bool = false
         var isRegister : Bool = false
@@ -69,8 +71,10 @@ final class DeviceManagerReactor : Reactor {
         case let .pairingDevice(peripheral):
             
             let paring = Observable<Mutation>.just(.paringDevice(true))
-            let setActiveDevice = Observable<Mutation>.just(.setActiveDevice(peripheral))
-            return Observable.concat([paring, setActiveDevice])
+            let setActiveDevice = self.service.connect(scannedPeripheral: peripheral).map { Mutation.setActiveDevice($0) }
+            let setCharacteristic = self.service.setChracteristic(scannedPeripheral: peripheral).map { Mutation.setCharacteristic($0) }
+            
+            return Observable.concat([paring, setActiveDevice, setCharacteristic])
             
         case .blinkLight :
             return Observable.just(Mutation.scanDevice(false))
@@ -94,6 +98,8 @@ final class DeviceManagerReactor : Reactor {
             newState.isParingDevice = paring
         case let .setActiveDevice(activePeripheral):
             newState.activePeripheral = activePeripheral
+        case let .setCharacteristic(characteristic):
+            newState.characteristic = characteristic
         case let .blinkLight(blink):
             newState.isBlink = blink
         case let .setWriteCode(code):

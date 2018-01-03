@@ -7,7 +7,25 @@
 //
 
 import Foundation
+import RxSwift
+import RxBluetoothKit
+import CoreBluetooth
 
 final class DeviceManager {
+    
+    enum DeviceEvent {
+        case isScanComplete(Bool)
+        case isConnected(Bool)
+        case connectingDevice(Peripheral?)
+    }
+    
+    static var event : PublishSubject<DeviceEvent> {
+        return PublishSubject<DeviceEvent>()
+    }
+    
+    let disposeBag = DisposeBag()
+    
+    init() {
+    }
     
 }
