@@ -36,7 +36,7 @@ class SignUpViewController: WebViewController {
     func prepareViewDidLoad() {
         
         
-//        LoginModel.get(method: .post) { () in
+//        LoginModel.post { () in
 //
 //        }
         

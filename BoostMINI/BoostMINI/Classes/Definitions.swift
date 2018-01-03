@@ -35,6 +35,7 @@ public struct BSTAPIServer {
 
 internal struct BSTPath {
 	let notifications = BSTNotificationsPath()
+	//let login = BSTLoginPath()
 }
 
 internal struct BSTExternalURL {

@@ -100,31 +100,42 @@ class APIService<T: BaseModel> {
 extension BaseModel {
 	
 	/// HTTPMethod.get 에 대한 API를 호출하여 값을 받아온다.
-	static func get(method: HTTPMethod = .get, _ block: @escaping (ResponseBlock<Self>) -> Void ) {
-		APIService<Self>.sendRequest(api:Self.apiList[method.rawValue], block)
+	static func get(_ block: @escaping (ResponseBlock<Self>) -> Void ) {
+		let key = HTTPMethod.get.rawValue
+		APIService<Self>.sendRequest(api:Self.apiList[key], block)
 	}
-//
-//	/// custom text에 대한 API를 호출하여 값을 받아온다.
-//	class func get(string: String, _ block: @escaping (ResponseBlock<T>) -> Void ) {
-//		sendRequest(api:T.apiList[string], block)
-//	}
-//
-//	/// custom text에 대한 API를 호출하여 값을 받아온다.
-//	//	static func get(string: String, _ block: @escaping (ResponseBlock<T>) -> Void ) {
-//	//		sendRequest(api:T.apiList[string], block)
-//	//	}
-//
-//	/// list형을 받아온다. 배열로 받는다.
-//	class func list( _ block: @escaping (ResponseBlock<T>) -> Void ) {
-//		// 서버쪽에서 보내오는 값이 array인지 dictionary인지 구분이 필요함.
-//		sendArrayRequest(api:T.apiList["LIST"], block)
-//	}
-//
-//	class func put(_ block: @escaping (ResponseBlock<T>) -> Void ) {
-//		sendRequest(api:T.apiList[HTTPMethod.put.rawValue], block)
-//	}
-//	class func delete(_ block: @escaping (ResponseBlock<T>) -> Void ) {
-//		sendRequest(api:T.apiList[HTTPMethod.delete.rawValue], block)
-//	}
+
+	static func post(_ block: @escaping (ResponseBlock<Self>) -> Void ) {
+		let key = HTTPMethod.post.rawValue
+		APIService<Self>.sendRequest(api:Self.apiList[key], block)
+	}
+
+	static func put(_ block: @escaping (ResponseBlock<Self>) -> Void ) {
+		let key = HTTPMethod.put.rawValue
+		APIService<Self>.sendRequest(api:Self.apiList[key], block)
+	}
+
+	static func delete(_ block: @escaping (ResponseBlock<Self>) -> Void ) {
+		let key = HTTPMethod.delete.rawValue
+		APIService<Self>.sendRequest(api:Self.apiList[key], block)
+	}
+
+	static func list(_ block: @escaping (ResponseBlock<Self>) -> Void ) {
+		let key = "LIST"
+		APIService<Self>.sendRequest(api:Self.apiList[key], block)
+	}
+	
+	static func custom(method: HTTPMethod, _ block: @escaping (ResponseBlock<Self>) -> Void ) {
+		let key = method.rawValue
+		APIService<Self>.sendRequest(api:Self.apiList[key], block)
+	}
+
+	static func custom(string key: String, params: [String: Any], _ block: @escaping (ResponseBlock<Self>) -> Void ) {
+		APIService<Self>.sendRequest(api:Self.apiList[key], block)
+	}
+
+	static func custom(api: APIMethod, _ block: @escaping (ResponseBlock<Self>) -> Void ) {
+		APIService<Self>.sendRequest(api:api, block)
+	}
 
 }
