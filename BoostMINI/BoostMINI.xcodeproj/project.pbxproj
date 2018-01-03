@@ -122,6 +122,8 @@
 		2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F0511FDFA49500581F06 /* BoostMINITests.swift */; };
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
 		2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF341651FFB7A3F00FDA12E /* Notification.storyboard */; };
+		8F6290C11FFCADB500689B91 /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6290C01FFCADB500689B91 /* InformationView.xib */; };
+		8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
@@ -234,6 +236,8 @@
 		77DB130E6F6FB2F290875643 /* Pods-BoostMINIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8471506B5EA6D4EF07695522 /* Pods-BoostMINIUITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.product.xcconfig"; sourceTree = "<group>"; };
 		8E3B451244A2D124A302E95E /* Pods-BoostMINITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F6290C01FFCADB500689B91 /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
+		8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationView.swift; sourceTree = "<group>"; };
 		8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationViewController.swift; sourceTree = "<group>"; };
 		8F82C1641FF36D810031D030 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8F82C1721FF38EC30031D030 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -570,6 +574,8 @@
 			children = (
 				8F82C1721FF38EC30031D030 /* HomeViewController.swift */,
 				8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */,
+				8F6290C01FFCADB500689B91 /* InformationView.xib */,
+				8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */,
 			);
 			path = HomeScreens;
 			sourceTree = "<group>";
@@ -758,6 +764,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F6290C11FFCADB500689B91 /* InformationView.xib in Resources */,
 				2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */,
 				2B5AA09D1FEB566C007441E1 /* Localizable.strings in Resources */,
 				2B61F0441FDFA49500581F06 /* Assets.xcassets in Resources */,
@@ -1085,6 +1092,7 @@
 				04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */,
 				045D14921FF4E7EB00A67AA0 /* TestModel.swift in Sources */,
 				A623523B1FF390690007949C /* ViewController.swift in Sources */,
+				8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */,
 				2B5AA07B1FEA6299007441E1 /* Common.swift in Sources */,
 				2B5AA0931FEB55D9007441E1 /* BaseModel.swift in Sources */,
 				04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
