@@ -36,6 +36,7 @@ final class DeviceManagerReactor : Reactor {
         case setWriteCode(String)
         case blinkLight(Bool)
         case registerDevice(Bool)
+        case loadRegisterDevice(BSTLocalDevice?)
     }
     
     struct State {
@@ -47,6 +48,7 @@ final class DeviceManagerReactor : Reactor {
         var writeCode : String?
         var isBlink : Bool = false
         var isRegister : Bool = false
+        var registeredDevice : BSTLocalDevice?
     }
     
     let initialState = State()
@@ -57,6 +59,10 @@ final class DeviceManagerReactor : Reactor {
     init(service : BTDeviceService, network : BTDeviceNetwork) {
         self.service = service
         self.network = network
+        
+        if let device = self.service.loadDevice() {
+            print(device.name + device.uuid.uuidString)
+        }
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -77,11 +83,15 @@ final class DeviceManagerReactor : Reactor {
             return Observable.concat([paring, setActiveDevice, setCharacteristic])
             
         case .blinkLight :
-            return Observable.just(Mutation.scanDevice(false))
+            return Observable.just(Mutation.blinkLight(true))
         case .writeCode :
-            return Observable.just(Mutation.scanDevice(false))
+            return Observable.just(Mutation.setWriteCode(""))
         case .registerDevice :
-            return Observable.just(Mutation.scanDevice(false))
+            let device = self.currentState.activePeripheral
+            let isRegister = self.service.saveDevice(device: device).map { Mutation.registerDevice($0) }
+            let registeredDevice = Observable.just(self.service.loadDevice()).map { Mutation.loadRegisterDevice($0) }
+            
+            return Observable.concat([isRegister, registeredDevice])
         }
     }
     
@@ -106,6 +116,8 @@ final class DeviceManagerReactor : Reactor {
             newState.writeCode = code
         case let .registerDevice(isRegister):
             newState.isRegister = isRegister
+        case let .loadRegisterDevice(device):
+            newState.registeredDevice = device
         }
 
         return newState

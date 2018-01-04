@@ -13,19 +13,32 @@ import CoreBluetooth
 
 final class DeviceManager {
     
-    enum DeviceEvent {
-        case isScanComplete(Bool)
-        case isConnected(Bool)
-        case connectingDevice(Peripheral?)
+    var reactor : DeviceManagerReactor
+
+    static var isConnectedObserver : PublishSubject<Bool> {
+        return PublishSubject<Bool>()
+    }
+    static var registeredDeviceObserver : PublishSubject<BSTLocalDevice> {
+        return PublishSubject<BSTLocalDevice>()
     }
     
-    static var event : PublishSubject<DeviceEvent> {
-        return PublishSubject<DeviceEvent>()
-    }
+    var isConnected = false
+    var registeredDevice : BSTLocalDevice?
     
     let disposeBag = DisposeBag()
     
     init() {
+        self.reactor = DeviceManagerReactor.init(service: BTDeviceService.init(), network: BTDeviceNetwork.init())
+        self.bind()
     }
     
+    func bind() {
+        DeviceManager.isConnectedObserver.subscribe(onNext: {
+            self.isConnected = $0
+        }).disposed(by: disposeBag)
+        
+        DeviceManager.registeredDeviceObserver.subscribe(onNext: {
+            self.registeredDevice = $0
+        }).disposed(by: disposeBag)
+    }
 }

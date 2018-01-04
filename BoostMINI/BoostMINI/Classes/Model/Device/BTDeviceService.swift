@@ -19,7 +19,7 @@ class BTDeviceService {
     private let boostServiceUUID = CBUUID(string: Definitions.device.service_UUID)
     private let boostCharacteristicUUID = CBUUID(string: Definitions.device.characteristic_UUID)
     
-    private var connectedPeripheral: Observable<Peripheral>?
+    let DeviceKey = "boostDevice"
     
     init() {
         let timerQueue = DispatchQueue(label: "com.iriver.boostmini.device.timer")
@@ -57,5 +57,36 @@ class BTDeviceService {
         return self.manager.monitorDisconnection(for: scannedPeripheral.peripheral)
     }
     
+    func saveDevice(device : Peripheral?) -> Observable<Bool> {
+        
+        guard let device = device else { return Observable.empty() }
+        
+        let name = device.name
+        let uuid = device.identifier.uuidString
+        let dict = [name, uuid]
+        
+        UserDefaults.standard.set(dict, forKey: DeviceKey)
+        let isOk = UserDefaults.standard.synchronize()
+        return Observable.just(isOk)
+    }
     
+    func loadDevice() -> BSTLocalDevice? {
+        let array = UserDefaults.standard.array(forKey: DeviceKey) as? [String]
+        if array == nil { return nil }
+        let device = BSTLocalDevice.init(array: array!)
+        
+        DeviceManager.registeredDeviceObserver.onNext(device)
+        
+        return device
+    }
+}
+
+struct BSTLocalDevice {
+    let name : String!
+    let uuid : UUID!
+    
+    init(array : [String]) {
+        self.name = array[0]
+        self.uuid = UUID.init(uuidString: array[1])
+    }
 }
