@@ -146,9 +146,9 @@ extension IntroViewController {
 	func versionConfirmed() {
 		// 버전이 옳다면 여기로 와준다.
 		// 그렇다면 로그인 여부를 확인한다.
-		logVerbose("Loginned? = \(SessionHandler.sharedInstance.isLoginned)")
+		logVerbose("Loginned? = \(SessionHandler.shared.isLoginned)")
 		
-		if SessionHandler.sharedInstance.isLoginned {
+		if SessionHandler.shared.isLoginned {
 			// 로그인 유저
 			RunInNextMainThread(withDelay: 2.0, {
 				if self.isDebugMode {

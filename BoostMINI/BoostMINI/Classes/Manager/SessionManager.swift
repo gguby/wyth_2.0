@@ -10,7 +10,7 @@ import Alamofire
 
 class SessionHandler {
 
-    static let sharedInstance = SessionHandler()
+    static let shared = SessionHandler()
     //let baseURL = Definitions.api.base
 
 	var cookie: String? 
@@ -647,7 +647,7 @@ class SessionHandler {
 //    }
 //a
 //    func includeNotCurrentUser() -> Array<Account> {
-//        let accountList = SessionHandler.sharedInstance.accountList.filter({
+//        let accountList = SessionHandler.shared.accountList.filter({
 //            (account) -> Bool in
 //            self.getCurrentAccount()?.userId != account.userId
 //        })
