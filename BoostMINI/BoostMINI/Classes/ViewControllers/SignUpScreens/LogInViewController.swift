@@ -12,6 +12,7 @@ import RxSwift
 import RxOptional
 import ReactorKit
 import TransitionButton
+import UIColor_Hex_Swift
 
 /// 로그인 하기 전의 화면임.
 class LogInViewController: UIViewController {
@@ -40,18 +41,15 @@ class LogInViewController: UIViewController {
 	
 	
 	let disposeBag = DisposeBag()
+	
 	func initEvents() {
 		loginButton.rx.controlEvent([.touchDown]).bind {
-			loginButton.backgroundColor =
-			}
-//			.flatMapLatest { _ in // () -> ObservableConvertibleType in
-//				Observable<Int64>.interval(0.1, scheduler: MainScheduler.instance)
-//					.takeUntil(self.loginButton.rx_controlEvent([.TouchUpInside, .touchUpOutside]))
-//			}
-//			.subscribeNext{ _ in
-//
-//			}
-			.addDisposableTo(disposeBag)
+			self.loginButton.backgroundColor = self.loginButton.tintColor
+			}.disposed(by: disposeBag)
+		
+		loginButton.rx.controlEvent([.touchUpInside, .touchUpOutside]).bind {
+			self.loginButton.backgroundColor = UIColor.clear
+			}.disposed(by: disposeBag)
 		
 		loginButton.rx.tap.bind {
 			self.openSmLogin()

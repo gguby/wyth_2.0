@@ -32,4 +32,7 @@ archives
 # Swift Package Manager
 .build/
 
+# R.swift
+*.generated.swift
+
 # documents

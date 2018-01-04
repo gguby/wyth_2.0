@@ -126,6 +126,9 @@
 		0462CDD71FFDBC32002B6E11 /* UIView+HideAndShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CDD61FFDBC32002B6E11 /* UIView+HideAndShow.swift */; };
 		0462CDD81FFDBC35002B6E11 /* UIView+HideAndShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CDD61FFDBC32002B6E11 /* UIView+HideAndShow.swift */; };
 		0462CDD91FFDBC35002B6E11 /* UIView+HideAndShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CDD61FFDBC32002B6E11 /* UIView+HideAndShow.swift */; };
+		0462CDE01FFDF961002B6E11 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CDDF1FFDF961002B6E11 /* R.generated.swift */; };
+		0462CDE11FFDF961002B6E11 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CDDF1FFDF961002B6E11 /* R.generated.swift */; };
+		0462CDE21FFDF964002B6E11 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CDDF1FFDF961002B6E11 /* R.generated.swift */; };
 		049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A76881FEBA58D00B98935 /* NumberConvertible.swift */; };
 		04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
 		04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
@@ -244,6 +247,7 @@
 		0462CD961FFC7222002B6E11 /* ColorPalette */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ColorPalette; sourceTree = "<group>"; };
 		0462CD971FFCA3FA002B6E11 /* TopTiltingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTiltingView.swift; sourceTree = "<group>"; };
 		0462CDD61FFDBC32002B6E11 /* UIView+HideAndShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HideAndShow.swift"; sourceTree = "<group>"; };
+		0462CDDF1FFDF961002B6E11 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		049A76881FEBA58D00B98935 /* NumberConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConvertible.swift; sourceTree = "<group>"; };
 		04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -605,6 +609,7 @@
 				2B5AA0621FEA6178007441E1 /* Classes */,
 				2B5AA06F1FEA6187007441E1 /* Resources */,
 				2B61F06A1FDFA4C400581F06 /* BoostMINI.entitlements */,
+				0462CDDF1FFDF961002B6E11 /* R.generated.swift */,
 				2B61F0481FDFA49500581F06 /* Info.plist */,
 			);
 			path = BoostMINI;
@@ -714,13 +719,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B61F0611FDFA49500581F06 /* Build configuration list for PBXNativeTarget "BoostMINI" */;
 			buildPhases = (
+				2B61F06B1FDFBF6400581F06 /* Run Script - lint */,
+				0462CDDB1FFDF8EC002B6E11 /* Run Script - R.swift */,
 				47FECF72C12373437098B4E1 /* [CP] Check Pods Manifest.lock */,
 				2B61F0351FDFA49500581F06 /* Sources */,
 				2B61F0361FDFA49500581F06 /* Frameworks */,
 				2B61F0371FDFA49500581F06 /* Resources */,
 				9BD5063C7585DACEFDDC50A6 /* [CP] Embed Pods Frameworks */,
 				CE77994C34B5FB01423212A7 /* [CP] Copy Pods Resources */,
-				2B61F06B1FDFBF6400581F06 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -863,13 +869,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2B61F06B1FDFBF6400581F06 /* ShellScript */ = {
+		0462CDDB1FFDF8EC002B6E11 /* Run Script - R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script - R.swift";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+		};
+		2B61F06B1FDFBF6400581F06 /* Run Script - lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script - lint";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1177,6 +1198,7 @@
 				04122A611FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				2B5AA09B1FEB5646007441E1 /* LibrarySample.swift in Sources */,
 				2B5AA0891FEB554B007441E1 /* DebugHSLee.swift in Sources */,
+				0462CDE01FFDF961002B6E11 /* R.generated.swift in Sources */,
 				04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */,
 				045D14921FF4E7EB00A67AA0 /* TestModel.swift in Sources */,
 				A623523B1FF390690007949C /* ViewController.swift in Sources */,
@@ -1245,6 +1267,7 @@
 				04122A791FECE9A200896EE0 /* CommonUtil.swift in Sources */,
 				0462CD9B1FFCA407002B6E11 /* GithupService.swift in Sources */,
 				0462CDAF1FFCA419002B6E11 /* DeviceManagerReactor.swift in Sources */,
+				0462CDE21FFDF964002B6E11 /* R.generated.swift in Sources */,
 				0462CDA71FFCA410002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				04122A801FECE9AE00896EE0 /* AppDelegate.swift in Sources */,
 				04122A661FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
@@ -1313,6 +1336,7 @@
 				0462CDC11FFCA426002B6E11 /* NotificationModel.swift in Sources */,
 				0462CDC51FFCA426002B6E11 /* BSTUXHandler-Alert.swift in Sources */,
 				0462CDC21FFCA426002B6E11 /* DeviceManager.swift in Sources */,
+				0462CDE11FFDF961002B6E11 /* R.generated.swift in Sources */,
 				0462CDCD1FFCA431002B6E11 /* IntroViewController.swift in Sources */,
 				0462CDB11FFCA41A002B6E11 /* BTDeviceNetwork.swift in Sources */,
 				0462CDC41FFCA426002B6E11 /* BSTUXHandler-Toast.swift in Sources */,
