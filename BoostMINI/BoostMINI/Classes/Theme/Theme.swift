@@ -1,0 +1,22 @@
+//
+//  Theme.swift
+//  BoostMINI
+//
+//  Created by jack on 2018. 1. 4..
+//  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
+//
+
+import UIKit
+import Rswift
+
+final class BST {
+}
+
+extension BST {
+	final class Theme {
+		typealias color = R.color
+		typealias image = R.image
+		private init() { }
+	}
+	
+}

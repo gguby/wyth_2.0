@@ -74,7 +74,7 @@ extension LogInViewController {
 		logVerbose("sm login")
 		
 		guard let button = self.loginButton else {
-			BSTFacade.ux.showToast(["login failed.".locale, "(error : -2)"].joined())
+			BSTFacade.ux.showToast(BSTFacade.localizable.error.loginFailedCode(-2))
 			return
 		}
 		
@@ -92,7 +92,7 @@ extension LogInViewController {
 				let path = Definitions.externURLs.authUri
 				html = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
 			} catch {
-				BSTFacade.ux.showToast(["login failed.".locale, "(error : -1)"].joined())
+				BSTFacade.ux.showToast(BSTFacade.localizable.error.loginFailedCode(-1))
 				RunInNextMainThread {
 					button.stopAnimation(animationStyle: .expand, completion: {
 						self.loginButtonView.show()
@@ -105,6 +105,7 @@ extension LogInViewController {
 			DispatchQueue.main.async(execute: { () -> Void in
 				
 				button.stopAnimation(animationStyle: .expand, completion: {
+					// R.storyboard.signUp.smLoginViewController()
 					let newVC = SMLoginViewController.create("SignUp")
 					if not(html.isEmpty) {
 						newVC.preload = html

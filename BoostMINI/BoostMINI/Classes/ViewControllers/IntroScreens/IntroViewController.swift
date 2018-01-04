@@ -120,9 +120,10 @@ extension IntroViewController {
 	
 	func showUpdateAlert(forceUpdate: Bool = false) {
 		
+		
 		BSTFacade.ux
-			.showAlert("지금 업데이트하여 새로운 버전의 Boost 서비스를 이용하세요.".locale,
-					   title: "최신버전으로 업데이트".locale,
+			.showAlert( BSTFacade.localizable.alert.updateMessage(),
+					   title: BSTFacade.localizable.alert.updateTitle(),
 					   buttons: forceUpdate ? [.appStore] : [.appStore, .cancel] ) { [weak self] buttonIndex in
 						guard let this = self else {
 							return

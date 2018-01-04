@@ -1,0 +1,13 @@
+/* 
+  Login.strings
+  BoostMINI
+
+  Created by jack on 2018. 1. 4..
+  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
+*/
+
+"SMLoginText" = "Login with SMTOWN ID";
+"welcome" = "%@ 님 환영합니다.";
+"welcome_detail" = "Boost for TVXQ!는 %@ 님의 이메일과성명을\nMUSIC NATION SMTOWN에서 제공받습니다.\n제공된 정보는 이용자식별, 계정연동 등을 위해\n서비스 이용 중 보관 됩니다.";
+"agreement" = "이용약관 보기";
+"privacy" = "개인정보 처리방침";

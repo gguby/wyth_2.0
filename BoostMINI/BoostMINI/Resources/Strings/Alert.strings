@@ -1,0 +1,19 @@
+/* 
+  Alert.strings
+  BoostMINI
+
+  Created by jack on 2018. 1. 4..
+  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
+*/
+"ok" = "확인";
+"cancel" = "취소";
+"ignore" = "무시";
+"yes" = "예";
+"no" = "아니오";
+"like" = "좋아요";
+"prev" = "이전";
+"next" = "다음";
+"appStore" = "앱스토어로 이동";
+
+"updateMessage" = "지금 업데이트하여 새로운 버전의 Boost 서비스를 이용하세요.";
+"updateTitle" = "최신버전으로 업데이트";
