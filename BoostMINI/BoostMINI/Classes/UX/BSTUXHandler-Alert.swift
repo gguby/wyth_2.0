@@ -112,7 +112,7 @@ extension BSTUXHanlder {
 			}
 
 			viewController?.present(alertView, animated: true)
-			// alertView.view.tintColor = UIColor(hexString: "#313131")
+			
 		}
 
 		public class func show(_ title: String?, message: String?, buttons buttonArray: AlertButtonSet, completion: ((_ buttonIndex: Int) -> Void)?) {

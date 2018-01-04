@@ -136,6 +136,7 @@
 		0462CDEF1FFE287E002B6E11 /* Alert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDED1FFE287D002B6E11 /* Alert.strings */; };
 		0462CDF11FFE289A002B6E11 /* Error.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDF01FFE289A002B6E11 /* Error.strings */; };
 		0462CDF21FFE289A002B6E11 /* Error.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDF01FFE289A002B6E11 /* Error.strings */; };
+		0462CE001FFE2C90002B6E11 /* BoostMini.clr in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDF51FFE2B7B002B6E11 /* BoostMini.clr */; };
 		049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A76881FEBA58D00B98935 /* NumberConvertible.swift */; };
 		04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
 		04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
@@ -250,7 +251,6 @@
 		0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameToString.swift"; sourceTree = "<group>"; };
 		0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SplitByUppercase.swift"; sourceTree = "<group>"; };
-		0462CD961FFC7222002B6E11 /* ColorPalette */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ColorPalette; sourceTree = "<group>"; };
 		0462CD971FFCA3FA002B6E11 /* TopTiltingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTiltingView.swift; sourceTree = "<group>"; };
 		0462CDD61FFDBC32002B6E11 /* UIView+HideAndShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HideAndShow.swift"; sourceTree = "<group>"; };
 		0462CDDF1FFDF961002B6E11 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -259,6 +259,7 @@
 		0462CDEA1FFE2799002B6E11 /* Login.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Login.strings; sourceTree = "<group>"; };
 		0462CDED1FFE287D002B6E11 /* Alert.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Alert.strings; sourceTree = "<group>"; };
 		0462CDF01FFE289A002B6E11 /* Error.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Error.strings; sourceTree = "<group>"; };
+		0462CDF51FFE2B7B002B6E11 /* BoostMini.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = BoostMini.clr; sourceTree = "<group>"; };
 		049A76881FEBA58D00B98935 /* NumberConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConvertible.swift; sourceTree = "<group>"; };
 		04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -392,6 +393,14 @@
 				0462CDE71FFDFBE5002B6E11 /* Localizable.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		0462CDF31FFE2B7B002B6E11 /* ColorPalette */ = {
+			isa = PBXGroup;
+			children = (
+				0462CDF51FFE2B7B002B6E11 /* BoostMini.clr */,
+			);
+			path = ColorPalette;
 			sourceTree = "<group>";
 		};
 		04AD73F41FF20B6C005F4BF0 /* SignUpScreens */ = {
@@ -570,7 +579,7 @@
 		2B5AA06F1FEA6187007441E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0462CD961FFC7222002B6E11 /* ColorPalette */,
+				0462CDF31FFE2B7B002B6E11 /* ColorPalette */,
 				A623522E1FF35E9F0007949C /* Template */,
 				2B5AA0711FEA61AC007441E1 /* Storyboards */,
 				2B5AA0701FEA6187007441E1 /* Strings */,
@@ -862,6 +871,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0462CE001FFE2C90002B6E11 /* BoostMini.clr in Resources */,
 				8F6290C11FFCADB500689B91 /* InformationView.xib in Resources */,
 				2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */,
 				2B5AA09D1FEB566C007441E1 /* Common.strings in Resources */,
