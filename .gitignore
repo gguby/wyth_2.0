@@ -36,3 +36,6 @@ archives
 *.generated.swift
 
 # documents
+
+# etc
+swagger/
