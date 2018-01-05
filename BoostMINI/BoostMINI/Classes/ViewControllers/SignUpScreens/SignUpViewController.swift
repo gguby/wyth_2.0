@@ -21,44 +21,8 @@ class SignUpViewController: WebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+	}
 
-        
-        loadWebUrl(urlString)
-
-        initProperties()
-        initUI()
-        prepareViewDidLoad()
-    }
-
-    private func initProperties() {
-    }
-
-	var disposeBag = DisposeBag()
-    private func initUI() {
-		if let lbl = view.viewWithTag(9001) as? UILabel {
-			lbl.text = BSTFacade.localizable.login.smLoginText()
-			lbl.text = "e"
-		}
-		
-		
-//		goHome.rx.tap.subscribe() { event in
-//			self.presentHome()
-//			}.disposed(by: disposeBag)
-//		goLogin.rx.tap.subscribe() { event in
-//			self.presentLogin()
-//			}.disposed(by: disposeBag)
-//
-
-    }
-
-    func prepareViewDidLoad() {
-        
-        
-//        LoginModel.post { () in
-//
-//        }
-        
-    }
 
     // MARK: * Main Logic --------------------
 

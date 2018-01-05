@@ -408,10 +408,10 @@
 			children = (
 				04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */,
 				04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */,
+				04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */,
 				04AD74071FF339EC005F4BF0 /* AgreementViewController.swift */,
 				04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */,
 				04AD74061FF339EC005F4BF0 /* ProfileViewController.swift */,
-				04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */,
 			);
 			path = SignUpScreens;
 			sourceTree = "<group>";
@@ -751,9 +751,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B61F0611FDFA49500581F06 /* Build configuration list for PBXNativeTarget "BoostMINI" */;
 			buildPhases = (
+				47FECF72C12373437098B4E1 /* [CP] Check Pods Manifest.lock */,
 				2B61F06B1FDFBF6400581F06 /* Run Script - lint */,
 				0462CDDB1FFDF8EC002B6E11 /* Run Script - R.swift */,
-				47FECF72C12373437098B4E1 /* [CP] Check Pods Manifest.lock */,
 				2B61F0351FDFA49500581F06 /* Sources */,
 				2B61F0361FDFA49500581F06 /* Frameworks */,
 				2B61F0371FDFA49500581F06 /* Resources */,

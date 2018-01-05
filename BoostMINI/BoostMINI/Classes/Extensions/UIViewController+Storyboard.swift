@@ -18,24 +18,29 @@ extension UIViewController {
 
 	
 	class func create(_ storyboardName: String? = nil) -> Self {
-		return _create(self, storyboardName)
+		return try! _create(self, storyboardName)
 	}
 	
-	fileprivate class func _create<T>(_ type: T.Type, _ storyboardName: String?) -> T {
-		var storyboardFilename = storyboardName ?? identifier.components(separatedBy: .upper).first!
+	fileprivate class func _create<T: UIViewController>(_ type: T.Type, _ storyboardName: String?) throws -> T {
+		guard var storyboardFilename = storyboardName ?? identifier.components(separatedBy: .upper).first else {
+			BSTFacade.ux.showToast(BSTFacade.localizable.error.viewControllerMissing("Home.initialViewController"))
+			throw BSTError.argumentError
+		}
+		
 		if storyboardFilename.isEmpty {
 			storyboardFilename = "Main"
 		}
-		
 		
 		let storyboard = UIStoryboard(name: storyboardFilename, bundle: nil)
 
 		// storyboard ID가 VC이름과 동일하게 존재해야만 제대로 읽어온다.
 		let vc = storyboard.instantiateViewController(withIdentifier: identifier)
-		return vc as! T
-		//return storyboard.instantiateInitialViewController() as! T
+		guard let vct = vc as? T else {
+			let tmp = CommonUtil.getTypeName(T().getTypeName())
+			BSTFacade.ux.showToast(BSTFacade.localizable.error.viewControllerMissing(tmp))
+			throw BSTError.argumentError
+		}
+		
+		return vct
 	}
-	
-	
-	
 }

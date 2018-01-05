@@ -20,27 +20,30 @@ class LogInViewController: UIViewController {
 	@IBOutlet weak var loginButton: TransitionButton!
 	@IBOutlet weak var loginButtonView: UIView!
 	@IBOutlet weak var tiltingView: TopTiltingView!
-
-	
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
+		initUI()
 		initEvents()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-
 		if tiltingView.isHidden {
 			showStartAnimation()
 		}
 	}
 	
 	
-	let disposeBag = DisposeBag()
+	var disposeBag = DisposeBag()
+	private func initUI() {
+		if let lbl = view.viewWithTag(9001) as? UILabel {
+			lbl.text = BSTFacade.localizable.login.smLoginText()
+		}
+	}
+
 	
 	func initEvents() {
 		loginButton.rx.controlEvent([.touchDown]).bind {
@@ -70,7 +73,6 @@ extension LogInViewController {
 	}
 
 	func openSmLogin() {
-		
 		logVerbose("sm login")
 		
 		guard let button = self.loginButton else {
@@ -83,7 +85,6 @@ extension LogInViewController {
 		let qualityOfServiceClass = DispatchQoS.QoSClass.background
 		let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
 		backgroundQueue.async(execute: {
-			
 
 			var html: String = ""
 			//var isFailed = false
@@ -98,21 +99,19 @@ extension LogInViewController {
 						self.loginButtonView.show()
 					})
 				}
-				
 				return
 			}
 			
-			DispatchQueue.main.async(execute: { () -> Void in
-				
+			RunInNextMainThread {
 				button.stopAnimation(animationStyle: .expand, completion: {
-					// R.storyboard.signUp.smLoginViewController()
 					let newVC = SMLoginViewController.create("SignUp")
+					//let newVC = R.storyboard.signUp.smLoginViewController()!
 					if not(html.isEmpty) {
 						newVC.preload = html
 					}
 					self.navigationController?.pushViewController(newVC, animated: true)
 				})
-			})
+			}
 		})
 	}
 	
