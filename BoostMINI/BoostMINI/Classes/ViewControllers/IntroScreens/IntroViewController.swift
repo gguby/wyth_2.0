@@ -10,10 +10,16 @@ import UIKit
 
 class IntroViewController: UIViewController {
 	
+	static var actual: IntroViewController? = nil
 	override func viewDidLoad() {
+		IntroViewController.actual = self
         super.viewDidLoad()
         checkVersion()
     }
+	
+	deinit {
+		IntroViewController.actual = nil
+	}
 
 	override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -108,8 +114,8 @@ extension IntroViewController {
 	}
 	
 	func presentLogin() {
-		guard let vc = R.storyboard.signUp.logInViewController() else {
-			BSTFacade.ux.showToast(BSTFacade.localizable.error.viewControllerMissing("LogInViewController"))
+		guard let vc = R.storyboard.signUp().instantiateInitialViewController() else {
+			BSTFacade.ux.showToast(BSTFacade.localizable.error.viewControllerMissing("SignUp.initialViewController"))
 			return
 		}
 		self.present(vc, animated: false, completion: {

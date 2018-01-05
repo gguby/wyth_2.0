@@ -54,8 +54,28 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	func setUrl(_ urlString: String) {
 		self.urlString = urlString
 	}
+
+	func loadWebHtml(_ html: String, _ url: URL?) {
+		self.webView.loadHTMLString(html, baseURL: url)
+		
+		// 인디게이터가 처음에 강제로 돌므로, 이를 꺼준다.
+		self.hideActivityIndicator()
+		self.showActivity(inStatusBar: false)
+	}
 	
-	func loadWebUrl(_ urlString: String) {
+	func loadWebUrl(_ urlString: String,
+					preload: String? = nil,
+					forceRefresh:Bool = false) {
+
+		if let html = preload {
+		self.webView.loadHTMLString(html, baseURL: urlString.asUrl)
+			if !forceRefresh {
+				// 인디게이터가 처음에 강제로 돌므로, 이를 꺼준다.
+				self.showActivity(inStatusBar: false)
+				self.hideActivityIndicator()
+				return
+			}
+		}
 		
 		self.urlString = urlString
 		if urlString.length() == 0 {

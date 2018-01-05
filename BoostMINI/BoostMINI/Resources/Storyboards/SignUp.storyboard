@@ -43,7 +43,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-Gr-f7c">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-Gr-f7c">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2f-b3-VOc" customClass="TransitionButton" customModule="TransitionButton">
@@ -103,16 +103,38 @@
                                     <constraint firstAttribute="height" constant="40" id="w0C-fI-z0T"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsV-Rq-red" customClass="TransitionButton" customModule="TransitionButton">
+                                <rect key="frame" x="107" y="493" width="252" height="44"/>
+                                <color key="backgroundColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="go Home"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
+                                        <color key="value" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="trailing" secondItem="pct-yq-kql" secondAttribute="trailing" id="1OM-Mx-RDU"/>
+                            <constraint firstItem="wsV-Rq-red" firstAttribute="width" secondItem="I2f-b3-VOc" secondAttribute="width" id="8Wb-5F-NCh"/>
                             <constraint firstItem="M4I-Zt-IRD" firstAttribute="leading" secondItem="pct-yq-kql" secondAttribute="leading" constant="40" id="9pZ-Xk-K92"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="width" secondItem="IyU-Jf-RZo" secondAttribute="width" id="A4d-PT-Mo7"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" id="FwM-zQ-coa"/>
                             <constraint firstAttribute="trailing" secondItem="IyU-Jf-RZo" secondAttribute="trailing" constant="16" id="JAC-Jg-Vxk"/>
+                            <constraint firstItem="wsV-Rq-red" firstAttribute="height" secondItem="I2f-b3-VOc" secondAttribute="height" id="JK3-5N-SCi"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="bottom" secondItem="pct-yq-kql" secondAttribute="bottom" id="MAu-VR-1cU"/>
+                            <constraint firstItem="wsV-Rq-red" firstAttribute="centerX" secondItem="I2f-b3-VOc" secondAttribute="centerX" id="PmX-NP-4Mf"/>
                             <constraint firstItem="M4I-Zt-IRD" firstAttribute="top" secondItem="IyU-Jf-RZo" secondAttribute="bottom" constant="40" id="aEe-eT-Csr"/>
+                            <constraint firstItem="I2f-b3-VOc" firstAttribute="top" secondItem="wsV-Rq-red" secondAttribute="bottom" constant="16" id="h1m-DU-QK5"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="centerX" secondItem="IyU-Jf-RZo" secondAttribute="centerX" id="k23-8u-f7h"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="height" secondItem="IyU-Jf-RZo" secondAttribute="height" id="pdV-YZ-BhJ"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="leading" secondItem="pct-yq-kql" secondAttribute="leading" id="qTm-uV-UO8"/>
@@ -126,6 +148,7 @@
                     <connections>
                         <outlet property="loginButton" destination="I2f-b3-VOc" id="U7B-jP-6WM"/>
                         <outlet property="loginButtonView" destination="IyU-Jf-RZo" id="clb-8i-pw2"/>
+                        <outlet property="testButton" destination="wsV-Rq-red" id="nx6-Zw-Cm5"/>
                         <outlet property="tiltingView" destination="M4I-Zt-IRD" id="0Vg-ra-mNo"/>
                     </connections>
                 </viewController>
@@ -148,7 +171,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5M-N3-biT">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </scrollView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Y0K-Uh-Gfr">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Y0K-Uh-Gfr">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="0.30004311381581511" green="0.19779378054067745" blue="0.5712444479695431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>

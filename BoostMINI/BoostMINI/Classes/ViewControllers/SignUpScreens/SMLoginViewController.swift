@@ -25,14 +25,17 @@ class SMLoginViewController: WebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		
-		if let html = preload {
-			self.webView.loadHTMLString(html, baseURL: Definitions.externURLs.authUri.asUrl)
-		} else {
-        	loadWebUrl(Definitions.externURLs.authUri)
-		}
+		loadWebUrl(Definitions.externURLs.authUri, preload: preload, forceRefresh: false)
+		preload = nil
     }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		self.navigationController?.isNavigationBarHidden = false
+		super.viewWillAppear(animated)
+	}
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+	}
 	
     func webView(_: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
 
