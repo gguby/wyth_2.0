@@ -5,6 +5,42 @@
   Created by jack on 2018. 1. 4..
   Copyright © 2018년 IRIVER LIMITED. All rights reserved.
 */
+
+//Common
+"isEmpty" = "isEmpty";
+"argumentError" = "argumentError";
+"nilError" = "nilError";
+"unknown" = "unknown";
+
+//Login
 "loginFailed" = "login failed.";
 "loginFailedCode" = "login failed. (code : %d)";
+
 "viewControllerMissing" = "ViewController missing! (name : %@)";
+
+//Device
+"deviceScanFailed" = "디바이스 스캔 실패";
+"deviceParingFailed" = "디바이스 페어링 실패";
+
+//HTTP
+"apiBadRequest" = "badRequest";
+"apiUnauthorized" = "unauthorized";
+"apiPaymentRequired" = "paymentRequired";
+"apiForbidden" = "forbidden";
+"apiNotFound" = "notFound";
+"apiUpgradeRequired" = "Upgrade Required";
+
+"apiInternalServerError" = "internalServerError";
+"apiNotImplemented" = "notImplemented";
+"apiBadGateway" = "badGateway";
+"apiServiceUnavailable" = "serviceUnavailable";
+"apiGatewayTimeout" = "gatewayTimeout";
+
+
+"apiUserExists" = "userExists";
+"apiUserNotExists" = "userNotExists";
+"apiAleadyHasBeenDisconnected" = "sessionAleadyHasBeenDisconnected";
+"apiInvalidException" = "invalidException";
+"apiAccessTokenCouldNotBeDecrypted" = "accessTokenCouldNotBeDecrypted";
+"apiSaveFailed" = "saveFailed";
+
