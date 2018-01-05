@@ -107,7 +107,6 @@
 		0462CDC61FFCA430002B6E11 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA08A1FEB5568007441E1 /* IntroViewController.swift */; };
 		0462CDC71FFCA430002B6E11 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
 		0462CDC81FFCA430002B6E11 /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
-		0462CDC91FFCA430002B6E11 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */; };
 		0462CDCA1FFCA430002B6E11 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */; };
 		0462CDCB1FFCA430002B6E11 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		0462CDCC1FFCA430002B6E11 /* DebugHSLee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0881FEB554B007441E1 /* DebugHSLee.swift */; };
@@ -140,8 +139,6 @@
 		049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A76881FEBA58D00B98935 /* NumberConvertible.swift */; };
 		04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
 		04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */; };
-		04AD73F61FF20B82005F4BF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */; };
-		04AD73F71FF20B82005F4BF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */; };
 		04AD73F91FF21E23005F4BF0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */; };
 		04AD73FA1FF21E23005F4BF0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */; };
 		04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */; };
@@ -153,15 +150,9 @@
 		04AD74091FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */; };
 		04AD740A1FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */; };
 		04AD740B1FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */; };
-		04AD740C1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74061FF339EC005F4BF0 /* ProfileViewController.swift */; };
-		04AD740D1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74061FF339EC005F4BF0 /* ProfileViewController.swift */; };
-		04AD740E1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74061FF339EC005F4BF0 /* ProfileViewController.swift */; };
 		04AD740F1FF339EC005F4BF0 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74071FF339EC005F4BF0 /* AgreementViewController.swift */; };
 		04AD74101FF339EC005F4BF0 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74071FF339EC005F4BF0 /* AgreementViewController.swift */; };
 		04AD74111FF339EC005F4BF0 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74071FF339EC005F4BF0 /* AgreementViewController.swift */; };
-		04AD74121FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */; };
-		04AD74131FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */; };
-		04AD74141FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */; };
 		04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74151FF35E6E005F4BF0 /* String+URL.swift */; };
 		04AD74171FF35E6E005F4BF0 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74151FF35E6E005F4BF0 /* String+URL.swift */; };
 		04AD74181FF35E6E005F4BF0 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD74151FF35E6E005F4BF0 /* String+URL.swift */; };
@@ -262,15 +253,12 @@
 		0462CDF51FFE2B7B002B6E11 /* BoostMini.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = BoostMini.clr; sourceTree = "<group>"; };
 		049A76881FEBA58D00B98935 /* NumberConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConvertible.swift; sourceTree = "<group>"; };
 		04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
-		04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		04AD73FE1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-Alert.swift"; sourceTree = "<group>"; };
 		04AD74011FF33933005F4BF0 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLoginViewController.swift; sourceTree = "<group>"; };
-		04AD74061FF339EC005F4BF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		04AD74071FF339EC005F4BF0 /* AgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
-		04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhotoViewController.swift; sourceTree = "<group>"; };
 		04AD74151FF35E6E005F4BF0 /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		04AD74191FF360D4005F4BF0 /* BSTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTError.swift; sourceTree = "<group>"; };
 		04AD741E1FF36269005F4BF0 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -406,12 +394,9 @@
 		04AD73F41FF20B6C005F4BF0 /* SignUpScreens */ = {
 			isa = PBXGroup;
 			children = (
-				04AD73F51FF20B82005F4BF0 /* SignUpViewController.swift */,
 				04AD73F81FF21E23005F4BF0 /* LogInViewController.swift */,
 				04AD74051FF339EC005F4BF0 /* SMLoginViewController.swift */,
 				04AD74071FF339EC005F4BF0 /* AgreementViewController.swift */,
-				04AD74081FF339EC005F4BF0 /* ProfilePhotoViewController.swift */,
-				04AD74061FF339EC005F4BF0 /* ProfileViewController.swift */,
 			);
 			path = SignUpScreens;
 			sourceTree = "<group>";
@@ -1213,9 +1198,7 @@
 				04C22BA91FEB9597007E2BED /* Logger.swift in Sources */,
 				2B5AA08D1FEB55BA007441E1 /* BSTUXHanlder.swift in Sources */,
 				04122A731FECBFA400896EE0 /* NilDestination.swift in Sources */,
-				04AD740C1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */,
 				04AD74021FF33934005F4BF0 /* SessionManager.swift in Sources */,
-				04AD73F61FF20B82005F4BF0 /* SignUpViewController.swift in Sources */,
 				A696AE911FF5E9B4009B8FEF /* BTDeviceNetwork.swift in Sources */,
 				2B5AA0911FEB55D2007441E1 /* BSTButton.swift in Sources */,
 				0462CDE81FFDFBE5002B6E11 /* Localizable.swift in Sources */,
@@ -1252,7 +1235,6 @@
 				2B5AA0951FEB55E4007441E1 /* ExceptionHandler.swift in Sources */,
 				04122A651FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */,
-				04AD74121FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */,
 				0462CD981FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
 				A696AE8D1FF5E91D009B8FEF /* DeviceManagerReactor.swift in Sources */,
 				2B5AA07F1FEA62A7007441E1 /* Definitions.swift in Sources */,
@@ -1302,7 +1284,6 @@
 				04122A841FECE9AE00896EE0 /* Definitions.swift in Sources */,
 				0462CDAD1FFCA419002B6E11 /* BTDeviceService.swift in Sources */,
 				0462CDBC1FFCA426002B6E11 /* BSTUXHandler-Alert.swift in Sources */,
-				04AD74131FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */,
 				04122A791FECE9A200896EE0 /* CommonUtil.swift in Sources */,
 				0462CD9B1FFCA407002B6E11 /* GithupService.swift in Sources */,
 				0462CDAF1FFCA419002B6E11 /* DeviceManagerReactor.swift in Sources */,
@@ -1316,14 +1297,12 @@
 				0462CD9F1FFCA407002B6E11 /* LibrarySample.swift in Sources */,
 				0462CDC81FFCA430002B6E11 /* ConcertInformationViewController.swift in Sources */,
 				04AD74101FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
-				04AD740D1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */,
 				04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */,
 				04122A781FECE9A200896EE0 /* BSTButton.swift in Sources */,
 				0462CDC71FFCA430002B6E11 /* HomeViewController.swift in Sources */,
 				04AD741B1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				0462CD9E1FFCA407002B6E11 /* ViewControllerReactor.swift in Sources */,
 				0462CDA81FFCA410002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
-				0462CDC91FFCA430002B6E11 /* SignUpViewController.swift in Sources */,
 				0462CD9D1FFCA407002B6E11 /* ViewController.swift in Sources */,
 				04122A7A1FECE9A200896EE0 /* NumberConvertible.swift in Sources */,
 				0462CDC61FFCA430002B6E11 /* IntroViewController.swift in Sources */,
@@ -1364,8 +1343,6 @@
 				0462CDD41FFCA431002B6E11 /* Constants.swift in Sources */,
 				0462CDA31FFCA408002B6E11 /* ViewControllerReactor.swift in Sources */,
 				0462CDCF1FFCA431002B6E11 /* ConcertInformationViewController.swift in Sources */,
-				04AD73F71FF20B82005F4BF0 /* SignUpViewController.swift in Sources */,
-				04AD74141FF339EC005F4BF0 /* ProfilePhotoViewController.swift in Sources */,
 				0462CDCE1FFCA431002B6E11 /* HomeViewController.swift in Sources */,
 				0462CDB21FFCA41A002B6E11 /* DeviceManagerReactor.swift in Sources */,
 				04122A631FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
@@ -1387,7 +1364,6 @@
 				0462CDC31FFCA426002B6E11 /* BSTUXHanlder.swift in Sources */,
 				0462CDD21FFCA431002B6E11 /* BSTFacade.swift in Sources */,
 				04AD74111FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
-				04AD740E1FF339EC005F4BF0 /* ProfileViewController.swift in Sources */,
 				04122A5F1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
 				045D14901FF4DF4500A67AA0 /* Optional+logError.swift in Sources */,
 				04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */,
