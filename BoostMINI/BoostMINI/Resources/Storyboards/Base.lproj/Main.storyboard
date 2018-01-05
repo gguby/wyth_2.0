@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,129 +23,18 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2Q-hh-aCn">
-                                <rect key="frame" x="0.0" y="527" width="375" height="140"/>
-                                <subviews>
-                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ts-ZW-7hw" customClass="TopTiltingView" customModule="BoostMINI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="74" width="375" height="66"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="66" id="oce-C8-ovL"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="8ts-ZW-7hw" firstAttribute="leading" secondItem="e2Q-hh-aCn" secondAttribute="leading" id="1TO-sA-gCc"/>
-                                    <constraint firstAttribute="trailing" secondItem="8ts-ZW-7hw" secondAttribute="trailing" id="RRE-7Y-Pfr"/>
-                                    <constraint firstAttribute="height" constant="140" id="gBS-9p-I6I"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1C7-BT-1RY">
-                                <rect key="frame" x="231" y="462" width="128" height="48"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="ikH-hP-P1E"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="j6U-8C-Z8y"/>
-                                </constraints>
-                                <state key="normal" title="Shuffle"/>
-                                <connections>
-                                    <action selector="testButtonTouched:" destination="JLb-4S-NhT" eventType="touchUpInside" id="YiB-A0-v6N"/>
-                                </connections>
-                            </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jyP-3N-NP5">
-                                <rect key="frame" x="14" y="426" width="347" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="scf-zG-V32"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="JLb-4S-NhT" eventType="valueChanged" id="vcu-P7-xbR"/>
-                                </connections>
-                            </slider>
-                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q55-VY-KDK" customClass="TopTiltingView" customModule="BoostMINI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="309" width="187.5" height="80"/>
-                                <color key="backgroundColor" red="1" green="0.83344184027777779" blue="0.35923936631944442" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="7W1-7J-Cw1"/>
-                                </constraints>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVa-4P-u3P">
-                                <rect key="frame" x="6" y="65" width="299" height="90"/>
-                                <subviews>
-                                    <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjL-9H-t7L">
-                                        <rect key="frame" x="14" y="22" width="128" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.56906467013888884" green="0.2314724392361111" blue="0.0" alpha="0.5079730308219178" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Home">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJB-Mc-aYS">
-                                        <rect key="frame" x="157" y="22" width="128" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.56906467009999995" green="0.23147243919999999" blue="0.0" alpha="0.5079730308" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Login">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.77667487157534243" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="X6r-cX-2Ew"/>
-                                </constraints>
-                            </view>
-                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PY1-l4-ZWw" customClass="TopTiltingView" customModule="BoostMINI" customModuleProvider="target">
-                                <rect key="frame" x="187.5" y="309" width="187.5" height="80"/>
-                                <color key="backgroundColor" red="0.84065755208333337" green="0.0" blue="0.95724698733660118" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="0S2-HV-AZI"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="b1K-4t-8JB" firstAttribute="trailing" secondItem="jyP-3N-NP5" secondAttribute="trailing" constant="16" id="5rw-tm-oEr"/>
-                            <constraint firstItem="e2Q-hh-aCn" firstAttribute="leading" secondItem="b1K-4t-8JB" secondAttribute="leading" id="6gy-A5-NmH"/>
                             <constraint firstItem="3wJ-4c-Efd" firstAttribute="top" secondItem="5z4-NT-tR6" secondAttribute="top" id="8M7-5D-CNZ"/>
-                            <constraint firstItem="rVa-4P-u3P" firstAttribute="leading" secondItem="b1K-4t-8JB" secondAttribute="leading" constant="6" id="ABh-U9-edS"/>
-                            <constraint firstItem="b1K-4t-8JB" firstAttribute="bottom" secondItem="8ts-ZW-7hw" secondAttribute="bottom" id="God-Fe-Who"/>
-                            <constraint firstItem="e2Q-hh-aCn" firstAttribute="top" secondItem="1C7-BT-1RY" secondAttribute="bottom" constant="17" id="P9u-6L-lWk"/>
-                            <constraint firstItem="PY1-l4-ZWw" firstAttribute="width" secondItem="5z4-NT-tR6" secondAttribute="width" multiplier="0.5" id="R1l-h2-NCF"/>
-                            <constraint firstItem="PY1-l4-ZWw" firstAttribute="trailing" secondItem="b1K-4t-8JB" secondAttribute="trailing" id="RAt-sv-ycO"/>
-                            <constraint firstItem="q55-VY-KDK" firstAttribute="leading" secondItem="b1K-4t-8JB" secondAttribute="leading" id="T4z-so-qB0"/>
-                            <constraint firstItem="q55-VY-KDK" firstAttribute="width" secondItem="5z4-NT-tR6" secondAttribute="width" multiplier="0.5" id="XHQ-DD-smp"/>
-                            <constraint firstItem="jyP-3N-NP5" firstAttribute="leading" secondItem="b1K-4t-8JB" secondAttribute="leading" constant="16" id="Zz2-ZT-Dj0"/>
                             <constraint firstItem="3wJ-4c-Efd" firstAttribute="leading" secondItem="5z4-NT-tR6" secondAttribute="leading" id="atu-nb-fKx"/>
-                            <constraint firstItem="e2Q-hh-aCn" firstAttribute="top" secondItem="jyP-3N-NP5" secondAttribute="bottom" constant="72" id="dRk-lr-hBf"/>
-                            <constraint firstItem="e2Q-hh-aCn" firstAttribute="bottom" secondItem="b1K-4t-8JB" secondAttribute="bottom" id="fgm-Wc-OIX"/>
-                            <constraint firstItem="b1K-4t-8JB" firstAttribute="trailing" secondItem="1C7-BT-1RY" secondAttribute="trailing" constant="16" id="gbB-sH-DAX"/>
-                            <constraint firstItem="e2Q-hh-aCn" firstAttribute="trailing" secondItem="b1K-4t-8JB" secondAttribute="trailing" id="hXN-4K-zkj"/>
-                            <constraint firstItem="b1K-4t-8JB" firstAttribute="trailing" secondItem="rVa-4P-u3P" secondAttribute="trailing" constant="70" id="hb6-n5-b2n"/>
                             <constraint firstItem="3wJ-4c-Efd" firstAttribute="bottom" secondItem="5z4-NT-tR6" secondAttribute="bottom" id="hzy-gU-hnk"/>
-                            <constraint firstItem="1C7-BT-1RY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5z4-NT-tR6" secondAttribute="leading" constant="20" symbolic="YES" id="ko1-nF-Wpg"/>
                             <constraint firstItem="3wJ-4c-Efd" firstAttribute="trailing" secondItem="5z4-NT-tR6" secondAttribute="trailing" id="qNj-5Z-tWn"/>
-                            <constraint firstItem="jyP-3N-NP5" firstAttribute="top" secondItem="q55-VY-KDK" secondAttribute="bottom" constant="37" id="uE0-qa-Rma"/>
-                            <constraint firstItem="PY1-l4-ZWw" firstAttribute="centerY" secondItem="q55-VY-KDK" secondAttribute="centerY" id="wjj-kU-Hbl"/>
-                            <constraint firstItem="rVa-4P-u3P" firstAttribute="top" secondItem="b1K-4t-8JB" secondAttribute="top" constant="45" id="zUS-7d-LoE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b1K-4t-8JB"/>
                     </view>
                     <navigationItem key="navigationItem" id="hsY-lm-ZhC"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="goHome" destination="vjL-9H-t7L" id="zbi-Dm-6ZD"/>
-                        <outlet property="goLogin" destination="JJB-Mc-aYS" id="ZFb-DC-irk"/>
-                        <outlet property="slider" destination="jyP-3N-NP5" id="gC0-NN-h1F"/>
-                        <outlet property="testView" destination="rVa-4P-u3P" id="VWQ-aO-6ER"/>
-                        <outlet property="tiltingView" destination="8ts-ZW-7hw" id="xVT-rw-p4E"/>
-                        <outletCollection property="tilts" destination="8ts-ZW-7hw" collectionClass="NSMutableArray" id="Rqv-5s-3nA"/>
-                        <outletCollection property="tilts" destination="q55-VY-KDK" collectionClass="NSMutableArray" id="si7-YC-xs0"/>
-                        <outletCollection property="tilts" destination="PY1-l4-ZWw" collectionClass="NSMutableArray" id="yz5-Hx-E9K"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SK9-RI-zXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
