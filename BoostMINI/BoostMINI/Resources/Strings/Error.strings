@@ -7,3 +7,4 @@
 */
 "loginFailed" = "login failed.";
 "loginFailedCode" = "login failed. (code : %d)";
+"viewControllerMissing" = "ViewController missing! (name : %@)";
