@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
     // MARK: - * properties --------------------
 
 	@available(iOS 10.0, *)
-	private lazy var popupView:ConcertInformationView = {
+	private lazy var popupView: ConcertInformationView = {
         let view = ConcertInformationView.instanceFromNib()
         view.arrowButton.addTarget(self, action: #selector(self.popupViewTapped(recognizer:)), for: .touchUpInside)
         return view
@@ -128,9 +128,11 @@ class HomeViewController: UIViewController {
             case .open:
                 self.bottomConstraint.constant = 0
                 self.backdropView.alpha = 1
+                self.popupView.topTiltingView.updateDisplayTiltMask(50, animation:true)
             case .closed:
                 self.bottomConstraint.constant = 168
                 self.backdropView.alpha = 0
+                self.popupView.topTiltingView.updateDisplayTiltMask(-50, animation:true)
             }
             self.view.layoutIfNeeded()
         })
@@ -148,14 +150,11 @@ class HomeViewController: UIViewController {
                 self.bottomConstraint.constant = 0
             case .closed:
                 self.bottomConstraint.constant = 168
+                
             }
         }
         transitionAnimator.startAnimation()
-        if(currentState == .open){
-            popupView.topTiltingView.updateDisplayTiltMask(50, animation:true)
-        } else {
-            popupView.topTiltingView.updateDisplayTiltMask(-50, animation:true)
-        }
+
     }
     
     
