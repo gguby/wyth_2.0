@@ -54,11 +54,9 @@ final class DeviceManagerReactor : Reactor {
     let initialState = State()
     
     fileprivate let service : BTDeviceService
-    fileprivate let network : BTDeviceNetwork
     
-    init(service : BTDeviceService, network : BTDeviceNetwork) {
+    init(service : BTDeviceService) {
         self.service = service
-        self.network = network
         
         if let device = self.service.loadDevice() {
             print(device.name + device.uuid.uuidString)

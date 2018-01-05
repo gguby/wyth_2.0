@@ -13,6 +13,8 @@ import CoreBluetooth
 
 class BTDeviceService {
     
+    fileprivate let device = BSTFacade.device
+    
     private let manager = BluetoothManager.init(queue: .main, options: nil)
     private var scheduler: ConcurrentDispatchQueueScheduler!
     
@@ -33,12 +35,20 @@ class BTDeviceService {
             .timeout(4.0, scheduler: self.scheduler)
             .take(1)
             .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
+            .catchError { _ in
+                self.device.error.onNext(DeviceError.scanFailed)
+                return .empty()
+            }
             .subscribeOn(MainScheduler.instance)
             .toArray()
     }
     
     func connect(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
         return self.manager.connect(scannedPeripheral.peripheral)
+            .catchError { _ in
+                self.device.error.onNext(DeviceError.paringFailed)
+                return .empty()
+            }
     }
     
     func setService(scannedPeripheral : ScannedPeripheral) -> Observable<Service> {
@@ -73,11 +83,11 @@ class BTDeviceService {
     func loadDevice() -> BSTLocalDevice? {
         let array = UserDefaults.standard.array(forKey: DeviceKey) as? [String]
         if array == nil { return nil }
-        let device = BSTLocalDevice.init(array: array!)
+        let localDevice = BSTLocalDevice.init(array: array!)
         
-        DeviceManager.registeredDeviceObserver.onNext(device)
+        self.device.registeredDeviceObserver.onNext(localDevice)
         
-        return device
+        return localDevice
     }
 }
 

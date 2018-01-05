@@ -15,12 +15,11 @@ final class DeviceManager {
     
     var reactor : DeviceManagerReactor
 
-    static var isConnectedObserver : PublishSubject<Bool> {
-        return PublishSubject<Bool>()
-    }
-    static var registeredDeviceObserver : PublishSubject<BSTLocalDevice> {
-        return PublishSubject<BSTLocalDevice>()
-    }
+    var isConnectedObserver = PublishSubject<Bool>()
+    
+    var registeredDeviceObserver = PublishSubject<BSTLocalDevice>()
+    
+    var error = PublishSubject<DeviceError>()
     
     var isConnected = false
     var registeredDevice : BSTLocalDevice?
@@ -28,17 +27,43 @@ final class DeviceManager {
     let disposeBag = DisposeBag()
     
     init() {
-        self.reactor = DeviceManagerReactor.init(service: BTDeviceService.init(), network: BTDeviceNetwork.init())
+        self.reactor = DeviceManagerReactor.init(service: BTDeviceService.init())
         self.bind()
     }
     
     func bind() {
-        DeviceManager.isConnectedObserver.subscribe(onNext: {
+        self.isConnectedObserver.subscribe(onNext: {
             self.isConnected = $0
         }).disposed(by: disposeBag)
         
-        DeviceManager.registeredDeviceObserver.subscribe(onNext: {
+        self.registeredDeviceObserver.subscribe(onNext: {
             self.registeredDevice = $0
         }).disposed(by: disposeBag)
+        
+        self.error.subscribe(onNext: {
+            print($0)
+        }).disposed(by: disposeBag)
     }
+}
+
+enum DeviceError : String {
+    case scanFailed = "deviceScanFailed"
+    case paringFailed = "deviceParingFailed"
+}
+
+extension DeviceError : BSTErrorProtocol {
+    var title: String! {
+        return self.rawValue
+    }
+    
+    var code : Int {
+        switch self {
+        case .scanFailed:
+            return 700
+        case .paringFailed:
+            return 701
+        }
+    }
+    
+    var localizedDescription: String { return NSLocalizedString(self.rawValue, comment: "") }
 }
