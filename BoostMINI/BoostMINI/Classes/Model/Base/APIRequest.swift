@@ -118,11 +118,18 @@ private class APIRequestHelper<T: BaseModel> {
 		let keyPath: String? = api.resultKeyPath.isEmpty ? nil : api.resultKeyPath
 		
 		dataRequest.responseDecodableObject(keyPath: keyPath, decoder: JSONDecoder.base) { (response: DataResponse<T>) in
-			let result = ResponseBlock<T>(from: response)
-			if let error = result.error {
-				logError(error.localizedDescription)
+			do {
+				let result = try ResponseBlock<T>(from: response)
+				if let error = result.error {
+					logError(error.localizedDescription)
+				}
+				block(result)
+				
+			} catch let error {
+				if case let error as APIError = error {
+					error.cook() //retry, toast, alert ,,
+				}
 			}
-			block(result)
 		}
 	}
 	
@@ -139,13 +146,22 @@ private class APIRequestHelper<T: BaseModel> {
 		
 		// 배열 처리부분은 여기만 다르다.
 		dataRequest.responseDecodableObject(keyPath: keyPath, decoder: JSONDecoder.base) { (response: DataResponse<[T]>) in
-			let result = ResponseBlock<T>(from: response)
-			if let error = result.error {
-				logError(error.localizedDescription)
+			do {
+				let result = try ResponseBlock<T>(from: response)
+				if let error = result.error {
+					logError(error.localizedDescription)
+				}
+				block(result)
+				
+			} catch let error {
+				if case let error as APIError = error {
+					error.cook() //retry, toast, alert ,,
+				}
 			}
-			block(result)
 		}
 	}
+	
+	
 	
 	
 	static func buildBase(api: APIRequest? = nil,
@@ -168,7 +184,61 @@ private class APIRequestHelper<T: BaseModel> {
 								 encoding: URLEncoding(destination: .methodDependent),
 								 headers: headers)
 	}
+
+
+
+
+
+
+
+
+
+
+
+	
+	//    fileprivate static func startScan() -> Observable<[ScannedPeripheral]> {
+	//        return self.manager
+	//            .rx_state
+	//            .filter { $0 == .poweredOn }
+	//            .timeout(4.0, scheduler: self.scheduler)
+	//            .take(1)
+	//            .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
+	//            .catchError { _ in
+	//                self.device.error.onNext(DeviceError.scanFailed)
+	//                return .empty()
+	//            }
+	//            .subscribeOn(MainScheduler.instance)
+	//            .toArray()
+	//    }
+	
+	static fileprivate func sendRequest2(api _api: APIRequest? = nil, isArray: Bool = false, _ block: @escaping (ResponseBlock<T>) -> Void ) {
+		guard let api = _api,
+			let dataRequest = buildBase(api: api) else {
+				// INFO : critical error
+				print("Developer's misunderstood error : buildBase failed!! (ResponseBlock or url is wrong. \(T.self))")
+				block(ResponseBlock(data: nil, error: BSTError.argumentError))
+				return
+		}
+		// nil로 해줘야 헤더를 읽음. empty는 오류남.
+		let keyPath: String? = api.resultKeyPath.isEmpty ? nil : api.resultKeyPath
+		
+		dataRequest.responseDecodableObject(keyPath: keyPath, decoder: JSONDecoder.base) { (response: DataResponse<T>) in
+			do {
+				let result = try ResponseBlock<T>(from: response)
+				if let error = result.error {
+					logError(error.localizedDescription)
+				}
+				block(result)
+				
+			} catch let error {
+				if case let error as APIError = error {
+					error.cook() //retry, toast, alert ,,
+				}
+			}
+		}
+	}
 }
+
 
 
 
@@ -212,5 +282,5 @@ extension BaseModel {
 	static func custom(api: APIRequest, _ block: @escaping (ResponseBlock<Self>) -> Void ) {
 		APIRequestHelper<Self>.sendRequest(api:api, block)
 	}
-	
+
 }

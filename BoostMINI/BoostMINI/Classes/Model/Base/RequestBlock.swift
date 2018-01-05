@@ -40,10 +40,18 @@ class ResponseBlock<S: BaseModel> {
 	}
 	
 	init() { }
-	convenience init(from: DataResponse<[S]>) {
+	convenience init(from: DataResponse<[S]>) throws {
+        if let response = from.response, response.isNotOk {
+            throw BSTError.api(APIError(rawValue: response.statusCode)!)
+        }
+        
 		self.init(data:from.result.value, error:from.error)
 	}
-	convenience init(from: DataResponse<S>) {
+	convenience init(from: DataResponse<S>) throws {
+        if let response = from.response, response.isNotOk {
+            throw BSTError.api(APIError(rawValue: response.statusCode)!)
+        }
+        
 		let arr: [S] = from.result.value == nil ? [] : [from.result.value!]
 		self.init(data:arr, error:from.error)
 	}
@@ -52,3 +60,4 @@ class ResponseBlock<S: BaseModel> {
 		self.data = data ?? self.data
 	}
 }
+
