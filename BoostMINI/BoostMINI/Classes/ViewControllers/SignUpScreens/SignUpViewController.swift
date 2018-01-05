@@ -6,7 +6,10 @@
 //  Copyright © 2017년 IRIVER LIMITED. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import ReactorKit
+import RxCocoa
+import RxSwift
 
 class SignUpViewController: WebViewController {
 
@@ -30,7 +33,22 @@ class SignUpViewController: WebViewController {
     private func initProperties() {
     }
 
+	var disposeBag = DisposeBag()
     private func initUI() {
+		if let lbl = view.viewWithTag(9001) as? UILabel {
+			lbl.text = BSTFacade.localizable.login.smLoginText()
+			lbl.text = "e"
+		}
+		
+		
+//		goHome.rx.tap.subscribe() { event in
+//			self.presentHome()
+//			}.disposed(by: disposeBag)
+//		goLogin.rx.tap.subscribe() { event in
+//			self.presentLogin()
+//			}.disposed(by: disposeBag)
+//
+
     }
 
     func prepareViewDidLoad() {

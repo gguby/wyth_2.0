@@ -26,13 +26,15 @@ class SessionHandler {
 		
 		
 		// for test
-		let testCode = 1
+		let testCode = 2
 		
 		if testCode == 1 {
+			// 가상 로그인 세팅
 			UserDefaults.standard.set("0123456789abcdef", forKey: "userToken")
 			UserDefaults.standard.synchronize()
 		}
 		if testCode == 2 {
+			// 강제 로그아웃 세팅
 			UserDefaults.standard.removeObject(forKey: "userToken")
 			UserDefaults.standard.synchronize()
 		}

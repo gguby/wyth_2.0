@@ -84,6 +84,8 @@ extension IntroViewController {
 		// 그렇다면 로그인 여부를 확인한다.
 		logVerbose("Loginned? = \(SessionHandler.shared.isLoginned)")
 		
+		// TODO : 로그인이 유효한지의 여부를 서버로부터 확인해야 하면 여기에 추가한다.
+		
 		if SessionHandler.shared.isLoginned {
 			// 로그인 유저
 			RunInNextMainThread(withDelay: 2.0, {
