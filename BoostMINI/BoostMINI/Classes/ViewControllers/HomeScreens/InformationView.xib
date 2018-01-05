@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -73,15 +72,14 @@ Concert</string>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="i5l-Bn-B1D" firstAttribute="leading" secondItem="TuY-NB-GML" secondAttribute="leading" id="HNw-E6-tef"/>
-                <constraint firstItem="i5l-Bn-B1D" firstAttribute="trailing" secondItem="TuY-NB-GML" secondAttribute="trailing" id="N7i-hh-DA9"/>
-                <constraint firstItem="bgf-xs-tBy" firstAttribute="leading" secondItem="TuY-NB-GML" secondAttribute="leading" id="Qba-QZ-EE2"/>
+                <constraint firstItem="i5l-Bn-B1D" firstAttribute="leading" secondItem="fzc-9S-21v" secondAttribute="leading" id="HNw-E6-tef"/>
+                <constraint firstItem="i5l-Bn-B1D" firstAttribute="trailing" secondItem="fzc-9S-21v" secondAttribute="trailing" id="N7i-hh-DA9"/>
+                <constraint firstItem="bgf-xs-tBy" firstAttribute="leading" secondItem="fzc-9S-21v" secondAttribute="leading" id="Qba-QZ-EE2"/>
                 <constraint firstItem="bgf-xs-tBy" firstAttribute="top" secondItem="i5l-Bn-B1D" secondAttribute="bottom" id="RQK-UQ-3uP"/>
-                <constraint firstItem="bgf-xs-tBy" firstAttribute="trailing" secondItem="TuY-NB-GML" secondAttribute="trailing" id="XMj-lJ-GgL"/>
-                <constraint firstItem="bgf-xs-tBy" firstAttribute="bottom" secondItem="TuY-NB-GML" secondAttribute="bottom" id="v64-9O-lwQ"/>
+                <constraint firstItem="bgf-xs-tBy" firstAttribute="trailing" secondItem="fzc-9S-21v" secondAttribute="trailing" id="XMj-lJ-GgL"/>
+                <constraint firstItem="bgf-xs-tBy" firstAttribute="bottom" secondItem="fzc-9S-21v" secondAttribute="bottom" id="v64-9O-lwQ"/>
                 <constraint firstItem="i5l-Bn-B1D" firstAttribute="top" secondItem="fzc-9S-21v" secondAttribute="top" id="yXe-lu-uBi"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="TuY-NB-GML"/>
             <connections>
                 <outlet property="arrowButton" destination="v4E-YU-gan" id="lY2-0q-0rI"/>
                 <outlet property="topTiltingView" destination="bgf-xs-tBy" id="8Ko-dO-Ujk"/>

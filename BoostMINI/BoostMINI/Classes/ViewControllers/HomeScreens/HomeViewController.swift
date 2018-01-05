@@ -31,13 +31,14 @@ class HomeViewController: UIViewController {
     
     // MARK: - * properties --------------------
 
-	@available(iOS 10.0, *)
-	private lazy var popupView: ConcertInformationView = {
+    @available(iOS 10.0, *)
+    private lazy var popupView: ConcertInformationView = {
         let view = ConcertInformationView.instanceFromNib()
-        view.arrowButton.addTarget(self, action: #selector(self.popupViewTapped(recognizer:)), for: .touchUpInside)
+         view.arrowButton.addTarget(self, action: #selector(self.popupViewTapped(recognizer:)), for: .touchUpInside)
+        
         return view
     }()
-    
+	
     private lazy var backdropView: UIView = {
         let bdView = UIView(frame: self.view.bounds)
         bdView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -85,9 +86,12 @@ class HomeViewController: UIViewController {
 		}
     }
     
-    
     func prepareViewDidLoad() {
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      
     }
     
     // MARK: - * Main Logic --------------------
@@ -102,9 +106,11 @@ class HomeViewController: UIViewController {
         popupView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 168)
         bottomConstraint.isActive = true
-        popupView.heightAnchor.constraint(equalToConstant: 528).isActive = true
+        popupView.heightAnchor.constraint(equalToConstant: 600).isActive = true
         
         popupView.topTiltingView.useCenter = false
+        popupView.topTiltingView.updateDisplayTiltMask(-50, animation:false)
+        
     }
     
     // MARK: - * UI Events --------------------

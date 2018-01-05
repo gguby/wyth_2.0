@@ -10,18 +10,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Home View Controller-->
         <scene sceneID="JA5-Cx-50O">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gNb-Mc-anA" customClass="HomeViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zDX-D1-lhA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.50196078430000002" green="0.32156862749999998" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="PSx-YI-xw8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="tvA-PJ-1qX">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Vni-0Y-sce">
+                    <navigationItem key="navigationItem" id="tvA-PJ-1qX">
+                        <barButtonItem key="leftBarButtonItem" title="menu" id="Vni-0Y-sce">
                             <connections>
                                 <segue destination="Q9p-jB-30q" kind="presentation" id="C84-7P-LAT"/>
                             </connections>
