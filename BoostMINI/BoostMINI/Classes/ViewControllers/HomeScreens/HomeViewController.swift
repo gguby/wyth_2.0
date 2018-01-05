@@ -120,6 +120,7 @@ class HomeViewController: UIViewController {
         toggleViewingInformation()
     }
     
+    @available(iOS 10.0, *)
     func toggleViewingInformation() {
         let state = currentState.opposite
         let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
@@ -171,7 +172,8 @@ extension HomeViewController : UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
         print(#function)
         if(currentState == .open){
-            toggleViewingInformation()
+            
+//            toggleViewingInformation()
         }
     }
 }
