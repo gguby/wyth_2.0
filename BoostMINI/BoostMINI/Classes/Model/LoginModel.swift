@@ -11,7 +11,7 @@ import Alamofire
 
 class LoginModel : BaseModel {
 	
-	static var apiList: [String: APIMethod] = [:]
+	static var apiList: [String: APIRequest] = [:]
 	
 	let userName: String
 	let userEmail: String
@@ -30,15 +30,15 @@ class LoginModel : BaseModel {
 
 extension LoginModel {
 	
-//	loginType.login: APIMethod("customer/login/smtown", .post, nil, map: "deviceId,deviceType,pushRegId"),
-//	loginType.join: APIMethod("customer/join/smtown", .post, nil, map: "deviceId,deviceType,pushRegId"),
-//	loginType.logout: APIMethod("customer/logout", .get, nil),
-//	loginType.info: APIMethod("customer/info", .get, nil, map: "deviceId,deviceType,pushRegId"),
-//	loginType.withdraw: APIMethod("customer/info", .get, nil, map: "deviceId,deviceType,pushRegId")
+//	loginType.login: APIRequest("customer/login/smtown", .post, nil, map: "deviceId,deviceType,pushRegId"),
+//	loginType.join: APIRequest("customer/join/smtown", .post, nil, map: "deviceId,deviceType,pushRegId"),
+//	loginType.logout: APIRequest("customer/logout", .get, nil),
+//	loginType.info: APIRequest("customer/info", .get, nil, map: "deviceId,deviceType,pushRegId"),
+//	loginType.withdraw: APIRequest("customer/info", .get, nil, map: "deviceId,deviceType,pushRegId")
 
 	
 	static func login(deviceId: String, deviceType: String, pushRegId: String, _ block: @escaping (ResponseBlock<LoginModel>) -> Void ) {
-		let api = APIMethod("customer/login/smtown", .post, [
+		let api = APIRequest("customer/login/smtown", .post, [
 			"deviceId": deviceId,
 			"deviceType": deviceType,
 			"pushRegId": pushRegId
@@ -47,7 +47,7 @@ extension LoginModel {
 	}
 
 	static func logout(_ block: @escaping (ResponseBlock<LoginModel>) -> Void ) {
-		let api = APIMethod("customer/logiyt", .get, nil)
+		let api = APIRequest("customer/logiyt", .get, nil)
 		self.custom(api: api, block)
 	}
 	
@@ -57,7 +57,7 @@ extension LoginModel {
 			"deviceType": deviceType,
 			"pushRegId": pushRegId
 		]
-		let api = APIMethod("customer/join/smtown", .post, params)
+		let api = APIRequest("customer/join/smtown", .post, params)
 		self.custom(api: api, block)
 	}
 	
@@ -67,7 +67,7 @@ extension LoginModel {
 			"deviceType": deviceType,
 			"pushRegId": pushRegId
 		]
-		let api = APIMethod("customer/join/smtown", .get, params)
+		let api = APIRequest("customer/join/smtown", .get, params)
 		self.custom(api: api, block)
 	}
 
@@ -78,7 +78,7 @@ extension LoginModel {
 			"deviceType": deviceType,
 			"pushRegId": pushRegId
 		]
-		let api = APIMethod("customer/join/smtown", .get, params)
+		let api = APIRequest("customer/join/smtown", .get, params)
 		self.custom(api: api, block)
 	}
 

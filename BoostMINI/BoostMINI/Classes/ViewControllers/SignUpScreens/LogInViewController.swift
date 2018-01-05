@@ -80,6 +80,11 @@ extension LogInViewController {
 			return
 		}
 		
+		
+		
+		
+		
+		
 		loginButtonView.hide()
 		button.startAnimation()
 		let qualityOfServiceClass = DispatchQoS.QoSClass.background
@@ -91,7 +96,7 @@ extension LogInViewController {
 			// web preload
 			do {
 				let path = Definitions.externURLs.authUri
-				html = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+				html = try String(contentsOf: path.asUrl!, encoding: String.Encoding.utf8)
 			} catch {
 				BSTFacade.ux.showToast(BSTFacade.localizable.error.loginFailedCode(-1))
 				RunInNextMainThread {

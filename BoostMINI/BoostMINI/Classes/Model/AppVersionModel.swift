@@ -11,8 +11,8 @@ import Alamofire
 
 class AppVersionModel : BaseModel {
 	
-	static var apiList: [String: APIMethod] {
-		return APIMethod("common/app/update",
+	static var apiList: [String: APIRequest] {
+		return APIRequest("common/app/update",
 						 .get,
 						 ["deviceType":"ios",
 						  "current":appVersionStatic],

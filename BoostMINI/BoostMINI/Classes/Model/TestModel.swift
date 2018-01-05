@@ -11,8 +11,8 @@ import Alamofire
 
 class TestModel: BaseModel {
 	
-	static var apiList: [String: APIMethod] {
-		return APIMethod(domain: "https://httpbin.org/",
+	static var apiList: [String: APIRequest] {
+		return APIRequest(domain: "https://httpbin.org/",
 						 path: "get",
 						 method: .get,
 						 parameters: ["test": 123],
