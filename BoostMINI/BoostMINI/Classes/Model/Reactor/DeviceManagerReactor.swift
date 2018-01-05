@@ -70,6 +70,19 @@ final class DeviceManagerReactor : Reactor {
             let startScan = Observable<Mutation>.just(.scanDevice(true))
             let stopScan = Observable<Mutation>.just(.scanDevice(false))
             let setDevice = self.service.startScan().map {Mutation.setDiscoverDevice($0)}
+            
+            //-> error handle sample
+            do {
+                let setDevice2 = try self.service.startScan2().map {Mutation.setDiscoverDevice($0)}
+//                return Observable.concat([startScan, setDevice, stopScan])
+            } catch let error {
+                if case let error as DeviceError = error {
+                    error.cook(startScan) //둘 중 하나 사용하면 됨.
+//                    error.cook()
+                }
+            }
+            //-> error handle sample
+            
             return Observable.concat([startScan, setDevice, stopScan])
             
         case let .pairingDevice(peripheral):

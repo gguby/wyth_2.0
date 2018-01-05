@@ -27,7 +27,7 @@ class BTDeviceService {
         let timerQueue = DispatchQueue(label: "com.iriver.boostmini.device.timer")
         scheduler = ConcurrentDispatchQueueScheduler(queue: timerQueue)
     }
- 
+    
     func startScan() -> Observable<[ScannedPeripheral]> {
         return self.manager
             .rx_state
@@ -38,6 +38,25 @@ class BTDeviceService {
             .catchError { _ in
                 self.device.error.onNext(DeviceError.scanFailed)
                 return .empty()
+            }
+            .subscribeOn(MainScheduler.instance)
+            .toArray()
+    }
+    
+    
+    /// Error Hander 예제
+    ///
+    /// - Returns: ScannedPeripheral
+    /// - Throws: DeviceError
+    func startScan2() throws -> Observable<[ScannedPeripheral]> {
+        return self.manager
+            .rx_state
+            .filter { $0 == .poweredOn }
+            .timeout(4.0, scheduler: self.scheduler)
+            .take(1)
+            .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
+            .catchError { _ in
+                throw BSTError.device(DeviceError.scanFailed)
             }
             .subscribeOn(MainScheduler.instance)
             .toArray()

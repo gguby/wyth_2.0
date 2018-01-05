@@ -50,9 +50,17 @@ class LogInViewController: UIViewController {
 		loginButton.rx.controlEvent([.touchUpInside, .touchUpOutside]).bind {
 			self.loginButton.backgroundColor = UIColor.clear
 			}.disposed(by: disposeBag)
-		
+		let userid = ""
+        do {
+            try self.openSmLogin()
+        } catch let error as LoginError {
+            error.cook(userid)
+        } catch let error {
+            
+        }
+        
 		loginButton.rx.tap.bind {
-			self.openSmLogin()
+			try? self.openSmLogin()
 			}.disposed(by: disposeBag)
 	}
 }
@@ -69,13 +77,13 @@ extension LogInViewController {
 		self.tiltingView.updateDisplayTiltMaskPercentage(1.0, 0.0, animation: true, duration: duration)
 	}
 
-	func openSmLogin() {
+	func openSmLogin() throws {
 		
 		logVerbose("sm login")
 		
 		guard let button = self.loginButton else {
-			BSTFacade.ux.showToast(BSTFacade.localizable.error.loginFailedCode(-2))
-			return
+            throw BSTError.login(LoginError.failedCode(-2))
+//            BSTFacade.ux.showToast(BSTFacade.localizable.error.loginFailedCode(-2))
 		}
 		
 		loginButtonView.hide()

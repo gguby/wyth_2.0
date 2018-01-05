@@ -46,12 +46,35 @@ final class DeviceManager {
     }
 }
 
-enum DeviceError : String {
+enum DeviceError : String, Error, BSTErrorProtocol {
     case scanFailed = "deviceScanFailed"
     case paringFailed = "deviceParingFailed"
+    
+    var description: String {
+        var description = ""
+        switch self {
+        case .scanFailed:
+            description = BSTFacade.localizable.error.deviceScanFailed()
+        case .paringFailed:
+            description = BSTFacade.localizable.error.deviceParingFailed()
+        default:
+            break
+        }
+        return description
+    }
+    
+    func cook(_ object: Any? = nil) {
+        if object == nil {
+//            BSTFacade.device.reactor.mutate(action: DeviceManagerReactor.Action.scanDevice)
+//            BSTFacade.ux.gotoErrorPage()
+        } else {
+            BSTFacade.ux.showAlert(self.description)
+//            BSTFacade.ux.gotoErrorPage()
+        }
+    }
 }
 
-extension DeviceError : BSTErrorProtocol {
+extension DeviceError {
     var title: String! {
         return self.rawValue
     }
