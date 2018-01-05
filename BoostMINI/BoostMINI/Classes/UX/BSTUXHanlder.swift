@@ -15,8 +15,6 @@ class BSTUXHandlerInstance {
 
 
 
-
-
 class BSTUXHanlder {
     
     // MARK: * properties --------------------

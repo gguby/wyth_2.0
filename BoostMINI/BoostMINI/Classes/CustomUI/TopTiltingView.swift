@@ -114,11 +114,13 @@ class TopTiltingView: UIView {
 	public func getTiltMask(_ heightCCW: CGFloat) -> CAShapeLayer {
 		let path = getTiltPath(heightCCW)
 
+		
+		
 		if self.backgroundColor == UIColor.clear {
-			self.backgroundColor = UIColor("#91001a")
+			self.backgroundColor = BSTFacade.theme.color.commonBgPoint()
 		}
 
-		//let fillColor: UIColor? = heightCCW <= 0 ? UIColor("#bcabef") : UIColor("#91001a")
+		
 		let fillColor: UIColor? = self.backgroundColor
 		let strokeColor: UIColor? = self.tintColor
 		
@@ -140,7 +142,7 @@ class TopTiltingView: UIView {
 		let path = getTiltPathPercentage(leftTopPercentage, rightTopPercentage, maxHeightLimit)
 		
 		if self.backgroundColor == UIColor.clear {
-			self.backgroundColor = UIColor("#91001a")
+			self.backgroundColor = BSTFacade.theme.color.commonBgPoint()
 		}
 		
 		let fillColor: UIColor? = self.backgroundColor

@@ -19,7 +19,7 @@ class SignUpViewController: WebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUrl("https://now.smtown.com/Register")
+        
         loadWebUrl(urlString)
 
         initProperties()

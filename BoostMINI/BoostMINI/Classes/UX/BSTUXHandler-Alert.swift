@@ -25,15 +25,15 @@ public enum AlertButtons: String {
 
 	public var text: String {
 		let map: [AlertButtons: String] = [
-			.ok       : "확인".locale,
-			.cancel   : "취소".locale,
-			//.ignore : "무시".locale,
-			.yes      : "예".locale,
-			.no       : "아니오".locale,
-			.like     : "좋아요".locale,
-			.prev     : "이전".locale,
-			.next     : "다음".locale,
-			.appStore : "앱스토어로 이동".locale
+			.ok       : BSTFacade.localizable.alert.ok(),		// "확인",
+			.cancel   : BSTFacade.localizable.alert.cancel(),	// "취소",
+			//.ignore : BSTFacade.localizable.alert.ignore(),	// "무시",
+			.yes      : BSTFacade.localizable.alert.yes(),		// "예",
+			.no       : BSTFacade.localizable.alert.no(),		// "아니오",
+			.like     : BSTFacade.localizable.alert.like(),		// "좋아요",
+			.prev     : BSTFacade.localizable.alert.prev(),		// "이전",
+			.next     : BSTFacade.localizable.alert.next(),		// "다음"
+			.appStore : BSTFacade.localizable.alert.appStore()	// "앱스토어로 이동"
 		]
 		
 		return map[self] ?? "\(self)"
@@ -112,7 +112,7 @@ extension BSTUXHanlder {
 			}
 
 			viewController?.present(alertView, animated: true)
-			// alertView.view.tintColor = UIColor(hexString: "#313131")
+			
 		}
 
 		public class func show(_ title: String?, message: String?, buttons buttonArray: AlertButtonSet, completion: ((_ buttonIndex: Int) -> Void)?) {

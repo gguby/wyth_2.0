@@ -26,11 +26,13 @@ extension State {
     }
 }
 
-@available(iOS 10.0, *)
+
 class HomeViewController: UIViewController {
     
     // MARK: - * properties --------------------
-    private lazy var popupView: ConcertInformationView = {
+
+	@available(iOS 10.0, *)
+	private lazy var popupView:ConcertInformationView = {
         let view = ConcertInformationView.instanceFromNib()
         view.arrowButton.addTarget(self, action: #selector(self.popupViewTapped(recognizer:)), for: .touchUpInside)
         return view
@@ -45,7 +47,8 @@ class HomeViewController: UIViewController {
     private var bottomConstraint = NSLayoutConstraint()
     private var currentState: State = .closed
     
-    private lazy var tapRecognizer: UITapGestureRecognizer = {
+	@available(iOS 10.0, *)
+	private lazy var tapRecognizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
         recognizer.addTarget(self, action: #selector(popupViewTapped(recognizer:)))
         return recognizer
@@ -77,7 +80,9 @@ class HomeViewController: UIViewController {
     
     
     private func initUI() {
-        layout()
+		if #available(iOS 10.0, *) {
+			layout()
+		}
     }
     
     
@@ -86,6 +91,7 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - * Main Logic --------------------
+	@available(iOS 10.0, *)
     private func layout() {
         view.addSubview(backdropView)
         backdropView.alpha = 0
@@ -108,7 +114,8 @@ class HomeViewController: UIViewController {
     //        vc.modalPresentationStyle = .custom
     //        present(vc, animated: true, completion: nil)
     //    }
-    
+	
+	@available(iOS 10.0, *)
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
         toggleViewingInformation()
     }
@@ -160,8 +167,6 @@ class HomeViewController: UIViewController {
     
 }
 
-
-@available(iOS 10.0, *)
 extension HomeViewController : UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
         print(#function)

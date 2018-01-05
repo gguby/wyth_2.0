@@ -120,9 +120,10 @@ extension IntroViewController {
 	
 	func showUpdateAlert(forceUpdate: Bool = false) {
 		
+		
 		BSTFacade.ux
-			.showAlert("지금 업데이트하여 새로운 버전의 Boost 서비스를 이용하세요.".locale,
-					   title: "최신버전으로 업데이트".locale,
+			.showAlert( BSTFacade.localizable.alert.updateMessage(),
+					   title: BSTFacade.localizable.alert.updateTitle(),
 					   buttons: forceUpdate ? [.appStore] : [.appStore, .cancel] ) { [weak self] buttonIndex in
 						guard let this = self else {
 							return
@@ -146,9 +147,9 @@ extension IntroViewController {
 	func versionConfirmed() {
 		// 버전이 옳다면 여기로 와준다.
 		// 그렇다면 로그인 여부를 확인한다.
-		logVerbose("Loginned? = \(SessionHandler.sharedInstance.isLoginned)")
+		logVerbose("Loginned? = \(SessionHandler.shared.isLoginned)")
 		
-		if SessionHandler.sharedInstance.isLoginned {
+		if SessionHandler.shared.isLoginned {
 			// 로그인 유저
 			RunInNextMainThread(withDelay: 2.0, {
 				if self.isDebugMode {

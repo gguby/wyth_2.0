@@ -6,7 +6,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,45 +45,78 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-Gr-f7c">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2f-b3-VOc" customClass="TransitionButton" customModule="TransitionButton">
+                                <rect key="frame" x="119" y="553" width="240" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
+                                        <color key="value" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyU-Jf-RZo">
+                                <rect key="frame" x="119" y="553" width="240" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="icon_home_connet_stick" translatesAutoresizingMaskIntoConstraints="NO" id="Fvp-nf-A6e">
+                                        <rect key="frame" x="4" y="0.0" width="32" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="1yb-GX-kRw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Login with SMTOWN ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLm-5n-GbQ">
+                                        <rect key="frame" x="36" y="13" width="160" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_common_more" translatesAutoresizingMaskIntoConstraints="NO" id="MWO-Rx-rOe">
+                                        <rect key="frame" x="196" y="2" width="40" height="40"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eLm-5n-GbQ" firstAttribute="centerY" secondItem="IyU-Jf-RZo" secondAttribute="centerY" id="5x3-qo-BDD"/>
+                                    <constraint firstAttribute="width" constant="240" id="82A-98-gpd"/>
+                                    <constraint firstItem="eLm-5n-GbQ" firstAttribute="leading" secondItem="Fvp-nf-A6e" secondAttribute="trailing" id="EM3-gU-g5P"/>
+                                    <constraint firstItem="MWO-Rx-rOe" firstAttribute="centerY" secondItem="IyU-Jf-RZo" secondAttribute="centerY" id="I6Z-zp-fPr"/>
+                                    <constraint firstItem="Fvp-nf-A6e" firstAttribute="centerY" secondItem="IyU-Jf-RZo" secondAttribute="centerY" id="afe-7R-zAb"/>
+                                    <constraint firstAttribute="height" constant="44" id="evS-ox-TGn"/>
+                                    <constraint firstAttribute="trailing" secondItem="MWO-Rx-rOe" secondAttribute="trailing" constant="4" id="gDs-7q-P3U"/>
+                                    <constraint firstItem="MWO-Rx-rOe" firstAttribute="leading" secondItem="eLm-5n-GbQ" secondAttribute="trailing" id="hsW-QM-5bR"/>
+                                    <constraint firstItem="Fvp-nf-A6e" firstAttribute="leading" secondItem="IyU-Jf-RZo" secondAttribute="leading" constant="4" id="khA-Rz-x3R"/>
+                                </constraints>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4I-Zt-IRD" customClass="TopTiltingView" customModule="BoostMINI" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="637" width="337.5" height="40"/>
+                                <rect key="frame" x="40" y="637" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.56862745098039214" green="0.0" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.56862745098039214" green="0.0" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="w0C-fI-z0T"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IyU-Jf-RZo">
-                                <rect key="frame" x="94" y="550" width="265" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_home_connet_stick" translatesAutoresizingMaskIntoConstraints="NO" id="Fvp-nf-A6e">
-                                        <rect key="frame" x="16" y="8" width="33" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_menu_more" translatesAutoresizingMaskIntoConstraints="NO" id="MWO-Rx-rOe">
-                                        <rect key="frame" x="224" y="8" width="33" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login with SMTOWN ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLm-5n-GbQ">
-                                        <rect key="frame" x="64" y="8" width="160" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="trailing" secondItem="pct-yq-kql" secondAttribute="trailing" id="1OM-Mx-RDU"/>
+                            <constraint firstItem="M4I-Zt-IRD" firstAttribute="leading" secondItem="ybj-2d-Kqi" secondAttribute="leading" constant="40" id="9pZ-Xk-K92"/>
+                            <constraint firstItem="I2f-b3-VOc" firstAttribute="width" secondItem="IyU-Jf-RZo" secondAttribute="width" id="A4d-PT-Mo7"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" id="FwM-zQ-coa"/>
+                            <constraint firstItem="ybj-2d-Kqi" firstAttribute="trailing" secondItem="IyU-Jf-RZo" secondAttribute="trailing" constant="16" id="JAC-Jg-Vxk"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="bottom" secondItem="pct-yq-kql" secondAttribute="bottom" id="MAu-VR-1cU"/>
-                            <constraint firstItem="M4I-Zt-IRD" firstAttribute="width" secondItem="pct-yq-kql" secondAttribute="width" multiplier="0.9" id="Zi6-Go-qRv"/>
+                            <constraint firstItem="M4I-Zt-IRD" firstAttribute="top" secondItem="IyU-Jf-RZo" secondAttribute="bottom" constant="40" id="aEe-eT-Csr"/>
+                            <constraint firstItem="I2f-b3-VOc" firstAttribute="centerX" secondItem="IyU-Jf-RZo" secondAttribute="centerX" id="k23-8u-f7h"/>
+                            <constraint firstItem="I2f-b3-VOc" firstAttribute="height" secondItem="IyU-Jf-RZo" secondAttribute="height" id="pdV-YZ-BhJ"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="leading" secondItem="pct-yq-kql" secondAttribute="leading" id="qTm-uV-UO8"/>
                             <constraint firstItem="M4I-Zt-IRD" firstAttribute="trailing" secondItem="ybj-2d-Kqi" secondAttribute="trailing" id="sM4-Rd-AAR"/>
+                            <constraint firstItem="I2f-b3-VOc" firstAttribute="centerY" secondItem="IyU-Jf-RZo" secondAttribute="centerY" id="uoN-d1-dta"/>
                             <constraint firstItem="M4I-Zt-IRD" firstAttribute="bottom" secondItem="ybj-2d-Kqi" secondAttribute="bottom" constant="10" id="xg7-z0-BxF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ybj-2d-Kqi"/>
@@ -92,19 +124,19 @@
                     <navigationItem key="navigationItem" id="4k5-Ak-aBT"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="loginButton" destination="I2f-b3-VOc" id="U7B-jP-6WM"/>
                         <outlet property="loginButtonView" destination="IyU-Jf-RZo" id="clb-8i-pw2"/>
                         <outlet property="tiltingView" destination="M4I-Zt-IRD" id="0Vg-ra-mNo"/>
-                        <outlet property="tiltingViewBottomConstraint" destination="xg7-z0-BxF" id="mgL-8P-mFW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lvh-bJ-x2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-138.40000000000001" y="300.89955022488761"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="ec3-8w-pXs">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9z3-Qg-y4d" customClass="SignUpViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SMLoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9z3-Qg-y4d" customClass="SMLoginViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bmN-u9-5Ub">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9X-vY-wci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="628" y="301"/>
+            <point key="canvasLocation" x="572" y="301"/>
         </scene>
         <!--Agreement Controller-->
         <scene sceneID="VCL-QI-55R">
@@ -785,9 +817,9 @@
         <image name="icon_cancel_03" width="16" height="16"/>
         <image name="icon_check_02_on" width="16" height="16"/>
         <image name="icon_check_04_on" width="16" height="16"/>
+        <image name="icon_common_more" width="40" height="40"/>
         <image name="icon_dot_01" width="16" height="16"/>
         <image name="icon_home_connet_stick" width="178" height="178"/>
-        <image name="icon_menu_more" width="40" height="40"/>
         <image name="icon_user_03" width="16" height="16"/>
         <image name="img_number2_01_on" width="16" height="16"/>
         <image name="img_number3_01_off" width="16" height="16"/>
