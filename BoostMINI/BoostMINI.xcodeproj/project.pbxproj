@@ -751,9 +751,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B61F0611FDFA49500581F06 /* Build configuration list for PBXNativeTarget "BoostMINI" */;
 			buildPhases = (
+				47FECF72C12373437098B4E1 /* [CP] Check Pods Manifest.lock */,
 				2B61F06B1FDFBF6400581F06 /* Run Script - lint */,
 				0462CDDB1FFDF8EC002B6E11 /* Run Script - R.swift */,
-				47FECF72C12373437098B4E1 /* [CP] Check Pods Manifest.lock */,
 				2B61F0351FDFA49500581F06 /* Sources */,
 				2B61F0361FDFA49500581F06 /* Frameworks */,
 				2B61F0371FDFA49500581F06 /* Resources */,
