@@ -17,7 +17,7 @@ import RxSwift
 import CoreBluetooth
 import RxBluetoothKit
 
-final class DeviceManagerReactor : Reactor {
+final class DeviceViewReactor : Reactor {
     
     enum Action {
         case scanDevice
@@ -38,6 +38,7 @@ final class DeviceManagerReactor : Reactor {
         case registerDevice(Bool)
         case loadRegisterDevice(BSTLocalDevice?)
         case deviceError(BSTError)
+        case contentMsg(ContentMessage)
     }
     
     struct State {
@@ -51,6 +52,7 @@ final class DeviceManagerReactor : Reactor {
         var isRegister : Bool = false
         var registeredDevice : BSTLocalDevice?
         var deviceError : BSTError?
+        var contentMsg : ContentMessage = ContentMessage.notScanning
     }
     
     let initialState = State()
@@ -91,10 +93,12 @@ final class DeviceManagerReactor : Reactor {
             let paring = Observable<Mutation>.just(.paringDevice(true))
             let paringError = Observable<Mutation>.just(.paringDevice(false))
             
+            let contentMsg = Observable<Mutation>.just(.contentMsg(ContentMessage.connectedDevice))
+            
             do {
                 let setActiveDevice = try self.service.connect(scannedPeripheral: peripheral).map { Mutation.setActiveDevice($0) }
                 let setCharacteristic = try self.service.setChracteristic(scannedPeripheral: peripheral).map { Mutation.setCharacteristic($0) }
-                return Observable.concat([paring, setActiveDevice, setCharacteristic])
+                return Observable.concat([paring, setActiveDevice, setCharacteristic, contentMsg])
             } catch let error {
                 if case let error as DeviceError = error {
                     let bstError = Observable<Mutation>.just(.deviceError(BSTError.device(error)))
@@ -121,11 +125,10 @@ final class DeviceManagerReactor : Reactor {
             return Observable.concat([isRegister])
         }
     }
-    
+
+// swiftlint:disable:next cyclomatic_complexity
     func reduce(state: State, mutation: Mutation) -> State {
-        
         var newState = state
-        
         switch mutation {
         case let .scanDevice(isScan):
             newState.isScanDevice = isScan
@@ -146,9 +149,31 @@ final class DeviceManagerReactor : Reactor {
         case let .loadRegisterDevice(device):
             newState.registeredDevice = device
         case .deviceError(let error):
-            newState.deviceError = error            
+            newState.deviceError = error
+        case .contentMsg(let msg):
+            newState.contentMsg = msg
         }
-        
         return newState
+    }
+}
+
+enum ContentMessage {
+    
+    typealias RDevice = R.string.device
+    typealias RCommon = R.string.common
+    
+    case notScanning
+    case connectedDevice
+    case showUser(String)
+    
+    var content: String {
+        switch self {
+        case .notScanning:
+            return RDevice.btContentScan()
+        case .connectedDevice:
+            return RDevice.btContentConnected()
+        case .showUser(let user):
+            return RDevice.btContentUserInfo(user)
+        }
     }
 }

@@ -6,27 +6,30 @@
 //  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import RxSwift
+import ReactorKit
 
 
-class BTDeviceViewController : UIViewController {
+class BTDeviceViewController : UIViewController, StoryboardView {
     
     typealias RDevice = R.string.device
     typealias RCommon = R.string.common
+    
+    typealias Reactor = DeviceViewReactor
     
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var contentLbl: UILabel!
     
     @IBOutlet weak var cancel: UIButton!
-    
     @IBOutlet weak var stickImage: UIImageView!
+    
+    var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.titleLbl.text = RDevice.btContentScan()
-        self.cancel.titleLabel?.text = RCommon.cancel()
+        self.titleLbl.text = RDevice.btContentScan()        
         self.contentLbl.text = RDevice.btContentScan()
     }
     
@@ -34,4 +37,11 @@ class BTDeviceViewController : UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func bind(reactor: DeviceViewReactor) {
+        reactor.state.map { $0.contentMsg.content }
+            .bind(to: self.contentLbl.rx.text)
+            .disposed(by: disposeBag)
+    }
+    
 }
