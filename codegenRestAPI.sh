@@ -6,6 +6,14 @@ cd $(dirname "$0")
 
 swagger-codegen generate -i http://boostdev.lysn.com/v2/api-docs?group=API -l swift4 -c codegen-config.json -o BoostMINI
 
-// Classes 디렉토리보다는 Libraries 디렉토리가 더 어울린다.
-mv -f BoostMINI/BoostMINI/Classes/Swaggers BoostMINI/BoostMINI/Libraries/ 2>>/dev/null
+# // Classes 디렉토리보다는 Libraries 디렉토리가 더 어울린다.
+echo "move files from 'BoostMINI/BoostMINI/Classes/Swaggers' to 'BoostMINI/BoostMINI/Libraries/Swaggers'..."
+mkdir BoostMINI/BoostMINI/Libraries/Swaggers 2>>/dev/null
+mv BoostMINI/BoostMINI/Classes/Swaggers/*.swift BoostMINI/BoostMINI/Libraries/Swaggers
+mv BoostMINI/BoostMINI/Classes/Swaggers BoostMINI/BoostMINI/Classes/Model/
+
+
+#2>>/dev/null
+echo ""
+echo "finished."
 
