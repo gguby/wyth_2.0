@@ -37,6 +37,7 @@ final class DeviceManagerReactor : Reactor {
         case blinkLight(Bool)
         case registerDevice(Bool)
         case loadRegisterDevice(BSTLocalDevice?)
+        case deviceError(BSTError)
     }
     
     struct State {
@@ -49,11 +50,14 @@ final class DeviceManagerReactor : Reactor {
         var isBlink : Bool = false
         var isRegister : Bool = false
         var registeredDevice : BSTLocalDevice?
+        var deviceError : BSTError?
     }
     
     let initialState = State()
     
     fileprivate let service : BTDeviceService
+    
+    fileprivate let device = BSTFacade.device
     
     init(service : BTDeviceService) {
         self.service = service
@@ -69,29 +73,37 @@ final class DeviceManagerReactor : Reactor {
             
             let startScan = Observable<Mutation>.just(.scanDevice(true))
             let stopScan = Observable<Mutation>.just(.scanDevice(false))
-            let setDevice = self.service.startScan().map {Mutation.setDiscoverDevice($0)}
             
-            //-> error handle sample
             do {
-                let setDevice2 = try self.service.startScan2().map {Mutation.setDiscoverDevice($0)}
-//                return Observable.concat([startScan, setDevice, stopScan])
+                let setDevice = try self.service.startScan().map {Mutation.setDiscoverDevice($0)}
+                return Observable.concat([startScan, setDevice, stopScan])
             } catch let error {
                 if case let error as DeviceError = error {
-                    error.cook(startScan) //둘 중 하나 사용하면 됨.
-//                    error.cook()
+                    let bstError = Observable<Mutation>.just(.deviceError(BSTError.device(error)))
+                    self.device.receiveError(error: error)
+                    return Observable.concat([stopScan, bstError])
+                } else {
+                    return Observable.concat([stopScan])
                 }
             }
-            //-> error handle sample
-            
-            return Observable.concat([startScan, setDevice, stopScan])
             
         case let .pairingDevice(peripheral):
-            
             let paring = Observable<Mutation>.just(.paringDevice(true))
-            let setActiveDevice = self.service.connect(scannedPeripheral: peripheral).map { Mutation.setActiveDevice($0) }
-            let setCharacteristic = self.service.setChracteristic(scannedPeripheral: peripheral).map { Mutation.setCharacteristic($0) }
+            let paringError = Observable<Mutation>.just(.paringDevice(false))
             
-            return Observable.concat([paring, setActiveDevice, setCharacteristic])
+            do {
+                let setActiveDevice = try self.service.connect(scannedPeripheral: peripheral).map { Mutation.setActiveDevice($0) }
+                let setCharacteristic = try self.service.setChracteristic(scannedPeripheral: peripheral).map { Mutation.setCharacteristic($0) }
+                return Observable.concat([paring, setActiveDevice, setCharacteristic])
+            } catch let error {
+                if case let error as DeviceError = error {
+                    let bstError = Observable<Mutation>.just(.deviceError(BSTError.device(error)))
+                    self.device.receiveError(error: error)
+                    return Observable.concat([paringError, bstError])
+                } else {
+                    return Observable.concat([paringError])
+                }
+            }
             
         case .blinkLight :
             return Observable.just(Mutation.blinkLight(true))
@@ -100,9 +112,13 @@ final class DeviceManagerReactor : Reactor {
         case .registerDevice :
             let device = self.currentState.activePeripheral
             let isRegister = self.service.saveDevice(device: device).map { Mutation.registerDevice($0) }
-            let registeredDevice = Observable.just(self.service.loadDevice()).map { Mutation.loadRegisterDevice($0) }
             
-            return Observable.concat([isRegister, registeredDevice])
+            if let loadDevice = self.service.loadDevice() {
+                let registeredDevice = Observable.just(loadDevice).map { Mutation.loadRegisterDevice($0) }
+                self.device.registeredDeviceObserver.onNext(loadDevice)
+                return Observable.concat([isRegister, registeredDevice])
+            }
+            return Observable.concat([isRegister])
         }
     }
     
@@ -129,8 +145,10 @@ final class DeviceManagerReactor : Reactor {
             newState.isRegister = isRegister
         case let .loadRegisterDevice(device):
             newState.registeredDevice = device
+        case .deviceError(let error):
+            newState.deviceError = error            
         }
-
+        
         return newState
     }
 }
