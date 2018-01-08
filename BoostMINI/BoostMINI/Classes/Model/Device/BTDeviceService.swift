@@ -13,8 +13,6 @@ import CoreBluetooth
 
 class BTDeviceService {
     
-    fileprivate let device = BSTFacade.device
-    
     private let manager = BluetoothManager.init(queue: .main, options: nil)
     private var scheduler: ConcurrentDispatchQueueScheduler!
     
@@ -28,7 +26,7 @@ class BTDeviceService {
         scheduler = ConcurrentDispatchQueueScheduler(queue: timerQueue)
     }
     
-    func startScan() -> Observable<[ScannedPeripheral]> {
+    func startScan() throws -> Observable<[ScannedPeripheral]> {
         return self.manager
             .rx_state
             .filter { $0 == .poweredOn }
@@ -36,50 +34,40 @@ class BTDeviceService {
             .take(1)
             .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
             .catchError { _ in
-                self.device.error.onNext(DeviceError.scanFailed)
-                return .empty()
+                throw DeviceError.scanFailed
             }
             .subscribeOn(MainScheduler.instance)
             .toArray()
     }
     
-    
-    /// Error Hander 예제
-    ///
-    /// - Returns: ScannedPeripheral
-    /// - Throws: DeviceError
-    func startScan2() throws -> Observable<[ScannedPeripheral]> {
-        return self.manager
-            .rx_state
-            .filter { $0 == .poweredOn }
-            .timeout(4.0, scheduler: self.scheduler)
-            .take(1)
-            .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
-            .catchError { _ in
-                throw BSTError.device(DeviceError.scanFailed)
-            }
-            .subscribeOn(MainScheduler.instance)
-            .toArray()
-    }
-    
-    func connect(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
+    func connect(scannedPeripheral : ScannedPeripheral) throws -> Observable<Peripheral> {
         return self.manager.connect(scannedPeripheral.peripheral)
-            .catchError { _ in
-                self.device.error.onNext(DeviceError.paringFailed)
-                return .empty()
+            .catchError { error in
+                print(error.localizedDescription)
+                throw DeviceError.paringFailed
             }
     }
     
-    func setService(scannedPeripheral : ScannedPeripheral) -> Observable<Service> {
-        return self.connect(scannedPeripheral: scannedPeripheral)
-            .flatMap { $0.discoverServices([self.boostServiceUUID]) }
-            .flatMap {Observable.from($0)}
+    func setService(scannedPeripheral : ScannedPeripheral) throws -> Observable<Service> {
+        do {
+            let connection = try self.connect(scannedPeripheral: scannedPeripheral)
+            return connection
+                .flatMap { $0.discoverServices([self.boostServiceUUID]) }
+                .flatMap { Observable.from($0) }
+        } catch let error {
+            return Observable.error(error)
+        }
     }
     
-    func setChracteristic(scannedPeripheral : ScannedPeripheral) -> Observable<Characteristic> {
-        return self.setService(scannedPeripheral: scannedPeripheral)
-            .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
-            .flatMap { Observable.from($0)}
+    func setChracteristic(scannedPeripheral : ScannedPeripheral) throws -> Observable<Characteristic> {
+        do {
+            let connection = try self.setService(scannedPeripheral: scannedPeripheral)
+            return connection
+                .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
+                .flatMap { Observable.from($0) }
+        } catch let error {
+            return Observable.error(error)
+        }
     }
     
     func disconnectDevice(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
@@ -101,11 +89,8 @@ class BTDeviceService {
     
     func loadDevice() -> BSTLocalDevice? {
         let array = UserDefaults.standard.array(forKey: DeviceKey) as? [String]
-        if array == nil { return nil }
-        let localDevice = BSTLocalDevice.init(array: array!)
-        
-        self.device.registeredDeviceObserver.onNext(localDevice)
-        
+        guard let arr = array else { return nil }
+        let localDevice = BSTLocalDevice.init(array: arr)
         return localDevice
     }
 }

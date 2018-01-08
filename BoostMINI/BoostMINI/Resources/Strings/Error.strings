@@ -19,8 +19,8 @@
 "viewControllerMissing" = "ViewController missing! (name : %@)";
 
 //Device
-"deviceScanFailed" = "디바이스 스캔 실패";
-"deviceParingFailed" = "디바이스 페어링 실패";
+"deviceScanFailed" = "응원도구를 인식하지 못했습니다.다시 응원도구를 스마트폰 화면에 가까이 해주세요.";
+"deviceParingFailed" = "TVXQ!의 응원도구 맞는지 확인하시고 다시 한번 스마트폰 화면에 가까이 해주세요.";
 
 //HTTP
 "apiBadRequest" = "badRequest";
