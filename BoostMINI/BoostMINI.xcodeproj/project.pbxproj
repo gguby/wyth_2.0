@@ -204,6 +204,7 @@
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
 		8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */; };
+		8F9A7CC12003465D003BABB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC02003465D003BABB1 /* MenuViewController.swift */; };
 		A2D896F567E23F4060F7E849 /* Pods_BoostMINI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE278FD296F77407907664D /* Pods_BoostMINI.framework */; };
 		A62352381FF390690007949C /* GithupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352341FF390680007949C /* GithupService.swift */; };
 		A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352351FF390680007949C /* ViewControllerReactor.swift */; };
@@ -326,6 +327,7 @@
 		8F82C1641FF36D810031D030 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8F82C1721FF38EC30031D030 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		8F9A7CC02003465D003BABB1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A623522F1FF35ED60007949C /* Moya File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Moya File.xctemplate"; sourceTree = "<group>"; };
 		A62352301FF35ED60007949C /* Reactor File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Reactor File.xctemplate"; sourceTree = "<group>"; };
 		A62352341FF390680007949C /* GithupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithupService.swift; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */,
 				8F6290C01FFCADB500689B91 /* InformationView.xib */,
 				8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */,
+				8F9A7CC02003465D003BABB1 /* MenuViewController.swift */,
 			);
 			path = HomeScreens;
 			sourceTree = "<group>";
@@ -1267,6 +1270,7 @@
 				04AD73FF1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift in Sources */,
 				2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */,
 				045D148A1FF4DD2200A67AA0 /* RequestBlock.swift in Sources */,
+				8F9A7CC12003465D003BABB1 /* MenuViewController.swift in Sources */,
 				2B5AA0951FEB55E4007441E1 /* ExceptionHandler.swift in Sources */,
 				04122A651FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */,
