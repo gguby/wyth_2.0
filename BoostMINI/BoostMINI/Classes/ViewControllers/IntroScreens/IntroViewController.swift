@@ -31,34 +31,34 @@ extension IntroViewController {
 	
 	
 	private func checkVersion() {
-		// 버전을 체크한다.
-		AppVersionModel.get { block in
-
-			// TODO: api 실패해도 우선 진행
-			let block_isSucceed = true	//block.isSucceed
-			if not(block_isSucceed) {
-				let msg = "API test 1 : failed"
-				logWarning(msg)
-				BSTFacade.ux.showToast(msg)
-				return
-			}
-			let data = block.data?.first
-			
-			logVerbose("AppVersionModel = \(String(describing: data))")
-			
-			let forceUpdate = data?.isForceUpdate ?? false
-			let isNeedUpdate = data?.isNeedUpdate ?? false
-			
-			// TODO : 서버 응답없는 경우도 필요하다. 하지만 이는 네트워크 에러 핸들링에서 해주게 될 것이다.
-			
+//		// 버전을 체크한다.
+//		AppVersionModel.get { block in
+//
+//			// TODO: api 실패해도 우선 진행
+//			let block_isSucceed = true	//block.isSucceed
+//			if not(block_isSucceed) {
+//				let msg = "API test 1 : failed"
+//				logWarning(msg)
+//				BSTFacade.ux.showToast(msg)
+//				return
+//			}
+//			let data = block.data?.first
+//
+//			logVerbose("AppVersionModel = \(String(describing: data))")
+//
+//			let forceUpdate = data?.isForceUpdate ?? false
+//			let isNeedUpdate = data?.isNeedUpdate ?? false
+//
+//			// TODO : 서버 응답없는 경우도 필요하다. 하지만 이는 네트워크 에러 핸들링에서 해주게 될 것이다.
+//
 			RunInNextMainThread {
-				if isNeedUpdate {
-					self.showUpdateAlert(forceUpdate: forceUpdate)
-				} else {
+//				if isNeedUpdate {
+//					self.showUpdateAlert(forceUpdate: forceUpdate)
+//				} else {
 					self.versionConfirmed()
-				}
+//				}
 			}
-		}
+//		}
 	}
 	
 	func showUpdateAlert(forceUpdate: Bool = false) {

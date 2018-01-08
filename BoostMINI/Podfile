@@ -28,7 +28,7 @@ def open_sources
   #	#pod 'ReSwiftRecorder'
   #
   
-  #pod 'Alamofire', '~> 4.5	'			#// 내장 사용... // 하지만제거해도 Moya의 의존성 때문에 설치됨.
+  pod 'Alamofire', '~> 4.6'
   #pod 'CodableAlamofire', '~> 1.1.0'	#// 내장 사용
   
   #
