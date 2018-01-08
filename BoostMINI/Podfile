@@ -53,7 +53,7 @@ def open_sources
 # for Debugging
 	pod 'Fabric'
 	pod 'Crashlytics'
-    # pod 'FLEX', 	:configurations => ['Debug', 'DebugOnLive', 'Release', 'Stage']  #hslee add, https://github.com/Flipboard/FLEX
+    pod 'FLEX', 	:configurations => ['Debug' ]  #hslee add, https://github.com/Flipboard/FLEX
     # pod 'Buglife',  :configurations => ['Debug', 'DebugOnLive', 'Release', 'Stage']  #hslee add, https://www.buglife.com
 
 end
