@@ -213,6 +213,12 @@
 		A696AE8D1FF5E91D009B8FEF /* DeviceManagerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */; };
 		A696AE8F1FF5E98F009B8FEF /* BTDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */; };
 		A696AE911FF5E9B4009B8FEF /* BTDeviceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */; };
+		A6F3506D20033EB900949BB2 /* BTDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */; };
+		A6F3506E20033EB900949BB2 /* BTDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */; };
+		A6F3506F20033EB900949BB2 /* BTDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */; };
+		A6F35071200349AB00949BB2 /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6F35070200349AB00949BB2 /* Device.strings */; };
+		A6F35072200349AB00949BB2 /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6F35070200349AB00949BB2 /* Device.strings */; };
+		A6F35073200349AB00949BB2 /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6F35070200349AB00949BB2 /* Device.strings */; };
 		BBAF3A4D59706FBA1EFD8D35 /* Pods_BoostMINITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4155BB6AAAB709628F89E0 /* Pods_BoostMINITests.framework */; };
 		F09898D50B38AE54B80FA5B2 /* Pods_BoostMINIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16F373D47E958D80ABF787 /* Pods_BoostMINIUITests.framework */; };
 /* End PBXBuildFile section */
@@ -336,6 +342,8 @@
 		A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManagerReactor.swift; sourceTree = "<group>"; };
 		A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceService.swift; sourceTree = "<group>"; };
 		A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceNetwork.swift; sourceTree = "<group>"; };
+		A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceViewController.swift; sourceTree = "<group>"; };
+		A6F35070200349AB00949BB2 /* Device.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Device.strings; sourceTree = "<group>"; };
 		C6A81DC28D0A865EDC8E4162 /* Pods-BoostMINI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.debug.xcconfig"; sourceTree = "<group>"; };
 		D40819E4F294CFFA0F7529DC /* Pods-BoostMINI.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.stage.xcconfig"; sourceTree = "<group>"; };
 		D82B305D50ABA64EA1413891 /* Pods-BoostMINI.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.product.xcconfig"; sourceTree = "<group>"; };
@@ -513,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA08A1FEB5568007441E1 /* IntroViewController.swift */,
+				A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */,
 			);
 			path = IntroScreens;
 			sourceTree = "<group>";
@@ -598,6 +607,7 @@
 				0462CDF01FFE289A002B6E11 /* Error.strings */,
 				0462CDEA1FFE2799002B6E11 /* Login.strings */,
 				0462CDED1FFE287D002B6E11 /* Alert.strings */,
+				A6F35070200349AB00949BB2 /* Device.strings */,
 			);
 			path = Strings;
 			sourceTree = "<group>";
@@ -894,6 +904,7 @@
 				0462CDEB1FFE2799002B6E11 /* Login.strings in Resources */,
 				0462CD8D1FFB798D002B6E11 /* Theme.xcassets in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
+				A6F35071200349AB00949BB2 /* Device.strings in Resources */,
 				2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -902,6 +913,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F35072200349AB00949BB2 /* Device.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,6 +921,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F35073200349AB00949BB2 /* Device.strings in Resources */,
 				0462CDEC1FFE2799002B6E11 /* Login.strings in Resources */,
 				0462CDEF1FFE287E002B6E11 /* Alert.strings in Resources */,
 				04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
@@ -1248,6 +1261,7 @@
 				2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */,
 				049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */,
 				8F391FFD1FFF415300A46996 /* HelpWebViewController.swift in Sources */,
+				A6F3506D20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				0412CB7B1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */,
 				0462CDE51FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A6E1FECA4EE00896EE0 /* CrashlyticsDestination.swift in Sources */,
@@ -1334,6 +1348,7 @@
 				0462CDA91FFCA410002B6E11 /* UIViewController+Storyboard.swift in Sources */,
 				0462CD9F1FFCA407002B6E11 /* LibrarySample.swift in Sources */,
 				0462CDC81FFCA430002B6E11 /* ConcertInformationViewController.swift in Sources */,
+				A6F3506E20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				04AD74101FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
 				04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */,
 				04122A781FECE9A200896EE0 /* BSTButton.swift in Sources */,
@@ -1388,6 +1403,7 @@
 				0462CDE61FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A7E1FECE9A300896EE0 /* CommonUtil.swift in Sources */,
 				0412CB7D1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */,
+				A6F3506F20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				0462CDA21FFCA408002B6E11 /* ViewController.swift in Sources */,
 				0462CDD51FFCA431002B6E11 /* Definitions.swift in Sources */,
 				0462CDC11FFCA426002B6E11 /* NotificationModel.swift in Sources */,
