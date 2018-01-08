@@ -17,6 +17,18 @@
                     <view key="view" contentMode="scaleToFill" id="zDX-D1-lhA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yga-6p-3zX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.50196078430000002" green="0.32156862749999998" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Yga-6p-3zX" firstAttribute="trailing" secondItem="PSx-YI-xw8" secondAttribute="trailing" id="Qhb-M0-rrO"/>
+                            <constraint firstItem="Yga-6p-3zX" firstAttribute="bottom" secondItem="PSx-YI-xw8" secondAttribute="bottom" id="Tjc-EL-fhH"/>
+                            <constraint firstItem="Yga-6p-3zX" firstAttribute="leading" secondItem="PSx-YI-xw8" secondAttribute="leading" id="hG5-ce-32f"/>
+                            <constraint firstItem="Yga-6p-3zX" firstAttribute="top" secondItem="zDX-D1-lhA" secondAttribute="top" id="lsn-aX-eRE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PSx-YI-xw8"/>
                     </view>
                     <navigationItem key="navigationItem" id="tvA-PJ-1qX">
@@ -25,7 +37,13 @@
                                 <segue destination="Q9p-jB-30q" kind="presentation" id="C84-7P-LAT"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="alram" style="plain" id="fI8-q1-3GA">
+                            <color key="tintColor" red="0.50196078430000002" green="0.32156862749999998" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="backgroundView" destination="Yga-6p-3zX" id="hBz-Jf-HMz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqI-88-UCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,19 +272,19 @@
             </objects>
             <point key="canvasLocation" x="1448.8" y="361.16941529235385"/>
         </scene>
-        <!--View Controller-->
+        <!--Terms View Controller-->
         <scene sceneID="Noy-Ip-IQj">
             <objects>
-                <viewController id="gjc-Th-eDM" sceneMemberID="viewController">
+                <viewController id="gjc-Th-eDM" customClass="TermsViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6YI-zB-O7Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="koD-7o-6AH">
-                                <rect key="frame" x="0.0" y="64" width="375" height="49"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="HOU-Wb-UQq"/>
+                                    <constraint firstAttribute="height" constant="40" id="HOU-Wb-UQq"/>
                                 </constraints>
                                 <items>
                                     <tabBarItem title="회원 이용 약관" id="DfV-Fz-eeB">
@@ -277,20 +295,34 @@
                                     </tabBarItem>
                                 </items>
                             </tabBar>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gP-PA-D3x" customClass="TopTiltingView" customModule="BoostMINI" customModuleProvider="target">
+                                <rect key="frame" x="175" y="79" width="200" height="25"/>
+                                <color key="backgroundColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="WeW-7g-RrT"/>
+                                    <constraint firstAttribute="height" constant="25" id="lTv-mx-4K0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="koD-7o-6AH" firstAttribute="trailing" secondItem="r55-5F-h6X" secondAttribute="trailing" id="8Bk-fU-ane"/>
+                            <constraint firstItem="5gP-PA-D3x" firstAttribute="top" secondItem="koD-7o-6AH" secondAttribute="bottom" constant="-25" id="Jer-we-oUB"/>
                             <constraint firstItem="koD-7o-6AH" firstAttribute="top" secondItem="r55-5F-h6X" secondAttribute="top" id="LJh-uk-DoI"/>
                             <constraint firstItem="koD-7o-6AH" firstAttribute="leading" secondItem="r55-5F-h6X" secondAttribute="leading" id="SJF-zf-rOs"/>
+                            <constraint firstItem="5gP-PA-D3x" firstAttribute="trailing" secondItem="r55-5F-h6X" secondAttribute="trailing" id="jUd-bD-zuZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r55-5F-h6X"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tiltingView" destination="5gP-PA-D3x" id="hdT-97-bxT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rp8-uF-jGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="368"/>
+            <point key="canvasLocation" x="2144.8000000000002" y="367.46626686656674"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O7G-gi-qkH">

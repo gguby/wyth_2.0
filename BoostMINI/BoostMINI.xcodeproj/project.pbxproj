@@ -203,6 +203,7 @@
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
+		8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */; };
 		A2D896F567E23F4060F7E849 /* Pods_BoostMINI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE278FD296F77407907664D /* Pods_BoostMINI.framework */; };
 		A62352381FF390690007949C /* GithupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352341FF390680007949C /* GithupService.swift */; };
 		A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352351FF390680007949C /* ViewControllerReactor.swift */; };
@@ -324,6 +325,7 @@
 		8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationViewController.swift; sourceTree = "<group>"; };
 		8F82C1641FF36D810031D030 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8F82C1721FF38EC30031D030 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		A623522F1FF35ED60007949C /* Moya File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Moya File.xctemplate"; sourceTree = "<group>"; };
 		A62352301FF35ED60007949C /* Reactor File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Reactor File.xctemplate"; sourceTree = "<group>"; };
 		A62352341FF390680007949C /* GithupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithupService.swift; sourceTree = "<group>"; };
@@ -679,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */,
+				8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */,
 			);
 			path = SettingScreens;
 			sourceTree = "<group>";
@@ -1280,6 +1283,7 @@
 				045D14841FF4A9B400A67AA0 /* Optional+logError.swift in Sources */,
 				A623523A1FF390690007949C /* Gitup.swift in Sources */,
 				8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */,
+				8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */,
 				2B5AA08B1FEB5568007441E1 /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
