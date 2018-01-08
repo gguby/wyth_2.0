@@ -104,12 +104,12 @@ class HomeViewController: UIViewController {
             popupView.topTiltingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             popupView.topTiltingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             
-            bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 168)
+            bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 197)
             bottomConstraint.isActive = true
-            popupView.heightAnchor.constraint(equalToConstant: 600).isActive = true
+            popupView.heightAnchor.constraint(equalToConstant: 580).isActive = true
             
             popupView.topTiltingView.useCenter = false
-            popupView.topTiltingView.updateDisplayTiltMask(-50, animation:false)
+            popupView.topTiltingView.updateDisplayTiltMask(-28, animation:false)
         } else {
             // Fallback on earlier versions
         }
@@ -145,11 +145,11 @@ class HomeViewController: UIViewController {
             case .open:
                 self.bottomConstraint.constant = 0
                 self.backgroundView.alpha = 0.5
-                self.popupView.topTiltingView.updateDisplayTiltMask(50, animation:true)
+                self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
             case .closed:
                 self.bottomConstraint.constant = 168
                 self.backgroundView.alpha = 1
-                self.popupView.topTiltingView.updateDisplayTiltMask(-50, animation:true)
+                self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
             }
             self.view.layoutIfNeeded()
         })
