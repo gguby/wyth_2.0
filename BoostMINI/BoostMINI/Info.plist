@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SMTOWN(OTF)-Bold.otf</string>
+		<string>SMTOWN(OTF)-Light.otf</string>
+		<string>SMTOWN(OTF)-Medium.otf</string>
+		<string>SMTOWN(OTF)-Regular.otf</string>
+		<string>SMTOWN(OTF)-Rounded.otf</string>
+		<string>SMTOWN(OTF)-Stencil.otf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
