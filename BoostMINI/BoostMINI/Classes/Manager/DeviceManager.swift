@@ -13,7 +13,7 @@ import CoreBluetooth
 
 final class DeviceManager {
     
-    var reactor : DeviceManagerReactor
+    var reactor : DeviceViewReactor
 
     var isConnectedObserver = PublishSubject<Bool>()
     
@@ -27,7 +27,7 @@ final class DeviceManager {
     let disposeBag = DisposeBag()
     
     init() {
-        self.reactor = DeviceManagerReactor.init(service: BTDeviceService.init())
+        self.reactor = DeviceViewReactor.init(service: BTDeviceService.init())
         self.bind()
     }
     
@@ -41,27 +41,20 @@ final class DeviceManager {
         }).disposed(by: disposeBag)
         
         self.error.subscribe(onNext: {
-            print($0)
+            print($0)           
+            
         }).disposed(by: disposeBag)
+    }
+    
+    func receiveError(error: DeviceError) {
+        self.error.onNext(error)
     }
 }
 
-enum DeviceError : String, Error, BSTErrorProtocol {
-    case scanFailed = "deviceScanFailed"
-    case paringFailed = "deviceParingFailed"
+enum DeviceError : Error, BSTErrorProtocol {
     
-    var description: String {
-        var description = ""
-        switch self {
-        case .scanFailed:
-            description = BSTFacade.localizable.error.deviceScanFailed()
-        case .paringFailed:
-            description = BSTFacade.localizable.error.deviceParingFailed()
-        default:
-            break
-        }
-        return description
-    }
+    case scanFailed
+    case paringFailed
     
     func cook(_ object: Any? = nil) {
         if object == nil {
@@ -75,8 +68,18 @@ enum DeviceError : String, Error, BSTErrorProtocol {
 }
 
 extension DeviceError {
+    
+    var key : String {
+        switch self {
+        case .scanFailed:
+            return "deviceScanFailed"
+        case .paringFailed:
+            return "deviceParingFailed"
+        }
+    }
+    
     var title: String! {
-        return self.rawValue
+        return self.key
     }
     
     var code : Int {
@@ -88,5 +91,6 @@ extension DeviceError {
         }
     }
     
-    var localizedDescription: String { return NSLocalizedString(self.rawValue, comment: "") }
+    var description: String { return self.localizedDescription }
+    var localizedDescription: String { return NSLocalizedString(self.key, comment: "") }
 }

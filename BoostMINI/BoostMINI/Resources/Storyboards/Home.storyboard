@@ -6,11 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-Medium</string>
             <string>AppleSDGothicNeo-Regular</string>
         </array>
     </customFonts>
@@ -152,6 +154,9 @@
                                 <state key="normal" title="응원도구 관리" image="TemplateIcon.png">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="pQ8-Cx-P7f" kind="show" id="6uO-aR-2Xj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tla-l2-1UC">
                                 <rect key="frame" x="0.0" y="478" width="240" height="52"/>
@@ -436,8 +441,109 @@
             </objects>
             <point key="canvasLocation" x="-675" y="-250"/>
         </scene>
+        <!--Device View Controller-->
+        <scene sceneID="s53-QY-YH6">
+            <objects>
+                <viewController id="pQ8-Cx-P7f" customClass="BTDeviceViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tbb-N8-egD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvj-FE-HuN" userLabel="TopView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvU-5i-Zoy">
+                                        <rect key="frame" x="59" y="32" width="256" height="23"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fp-08-p7k">
+                                        <rect key="frame" x="295" y="34" width="65" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="ilF-oe-zfZ"/>
+                                            <constraint firstAttribute="width" constant="65" id="lhB-IW-tNT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.43921568630000002" green="0.45098039220000002" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ilk-3e-Ljw">
+                                        <rect key="frame" x="0.0" y="66" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="UJz-KA-fOX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bvU-5i-Zoy" secondAttribute="trailing" constant="60" id="Dra-Ko-s12"/>
+                                    <constraint firstItem="9Fp-08-p7k" firstAttribute="top" secondItem="jvj-FE-HuN" secondAttribute="top" constant="34" id="EVx-C8-HoT"/>
+                                    <constraint firstAttribute="bottom" secondItem="bvU-5i-Zoy" secondAttribute="bottom" constant="12" id="F97-Qh-RTq"/>
+                                    <constraint firstItem="Ilk-3e-Ljw" firstAttribute="leading" secondItem="jvj-FE-HuN" secondAttribute="leading" id="XQF-qT-G8W"/>
+                                    <constraint firstItem="bvU-5i-Zoy" firstAttribute="top" secondItem="jvj-FE-HuN" secondAttribute="top" constant="32" id="XXs-X6-lSh"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ilk-3e-Ljw" secondAttribute="bottom" id="ibr-Gw-wXS"/>
+                                    <constraint firstItem="bvU-5i-Zoy" firstAttribute="leading" secondItem="jvj-FE-HuN" secondAttribute="leading" constant="59" id="jqJ-Ct-lyL"/>
+                                    <constraint firstAttribute="height" constant="67" id="kBy-JC-Iyr"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Fp-08-p7k" secondAttribute="trailing" constant="15" id="yFW-BU-8bQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ilk-3e-Ljw" secondAttribute="trailing" id="zvL-uS-4pQ"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1f-Bn-r6E">
+                                <rect key="frame" x="187.5" y="109" width="0.0" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="3Vx-7x-Q4T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgStickImg" translatesAutoresizingMaskIntoConstraints="NO" id="oYL-H9-ROX">
+                                <rect key="frame" x="110" y="163" width="155" height="416"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="416" id="SDD-vh-3mN"/>
+                                    <constraint firstAttribute="width" constant="155" id="WSK-46-Bqp"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySm-lY-W5m">
+                                <rect key="frame" x="41.5" y="373" width="291" height="260"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="291" id="J4n-vq-L2c"/>
+                                    <constraint firstAttribute="height" constant="260" id="Mtl-gH-xYa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oYL-H9-ROX" firstAttribute="top" secondItem="jvj-FE-HuN" secondAttribute="bottom" constant="96" id="BBD-eO-Lkt"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ySm-lY-W5m" secondAttribute="bottom" constant="34" id="FrI-15-LYS"/>
+                            <constraint firstItem="jvj-FE-HuN" firstAttribute="top" secondItem="Tbb-N8-egD" secondAttribute="top" id="OZF-zf-byU"/>
+                            <constraint firstItem="j1f-Bn-r6E" firstAttribute="top" secondItem="jvj-FE-HuN" secondAttribute="bottom" constant="42" id="Uv0-d3-12Z"/>
+                            <constraint firstItem="oYL-H9-ROX" firstAttribute="centerX" secondItem="QT8-Ab-o3h" secondAttribute="centerX" id="eQQ-u0-98w"/>
+                            <constraint firstAttribute="trailing" secondItem="jvj-FE-HuN" secondAttribute="trailing" id="gjm-9K-gg3"/>
+                            <constraint firstItem="jvj-FE-HuN" firstAttribute="leading" secondItem="Tbb-N8-egD" secondAttribute="leading" id="iX8-lg-KtF"/>
+                            <constraint firstItem="j1f-Bn-r6E" firstAttribute="centerX" secondItem="QT8-Ab-o3h" secondAttribute="centerX" id="rw5-Wl-82O"/>
+                            <constraint firstItem="ySm-lY-W5m" firstAttribute="centerX" secondItem="QT8-Ab-o3h" secondAttribute="centerX" id="tZv-t4-VMD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QT8-Ab-o3h"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancel" destination="9Fp-08-p7k" id="Yvd-de-glX"/>
+                        <outlet property="contentLbl" destination="j1f-Bn-r6E" id="Bqk-Lk-eMm"/>
+                        <outlet property="stickImage" destination="oYL-H9-ROX" id="o0r-xY-ooI"/>
+                        <outlet property="titleLbl" destination="bvU-5i-Zoy" id="zMZ-iP-25r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eza-RB-Vr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2841" y="-375"/>
+        </scene>
     </scenes>
     <resources>
         <image name="TemplateIcon.png" width="48" height="48"/>
+        <image name="imgStickImg" width="155" height="416"/>
     </resources>
 </document>
