@@ -171,6 +171,7 @@
 		04C22BA91FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
+		04E22444200490FC00A2B388 /* ThemeOld.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E22443200490FC00A2B388 /* ThemeOld.xcassets */; };
 		2B55BC141FF375CF0017D2B2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC131FF375CF0017D2B2 /* LoginModel.swift */; };
 		2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC301FF37E580017D2B2 /* NotificationModel.swift */; };
@@ -290,6 +291,7 @@
 		04AD74191FF360D4005F4BF0 /* BSTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTError.swift; sourceTree = "<group>"; };
 		04AD741E1FF36269005F4BF0 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		04C22BA81FEB9597007E2BED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		04E22443200490FC00A2B388 /* ThemeOld.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThemeOld.xcassets; sourceTree = "<group>"; };
 		06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.release.xcconfig"; sourceTree = "<group>"; };
 		225B24F76464411F2957F5CF /* Pods-BoostMINIUITests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.stage.xcconfig"; sourceTree = "<group>"; };
 		2B55BC131FF375CF0017D2B2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 				2B5AA0701FEA6187007441E1 /* Strings */,
 				2B61F0431FDFA49500581F06 /* Assets.xcassets */,
 				0462CD8C1FFB798D002B6E11 /* Theme.xcassets */,
+				04E22443200490FC00A2B388 /* ThemeOld.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -951,6 +954,7 @@
 				0462CDEB1FFE2799002B6E11 /* Login.strings in Resources */,
 				0462CD8D1FFB798D002B6E11 /* Theme.xcassets in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
+				04E22444200490FC00A2B388 /* ThemeOld.xcassets in Resources */,
 				A6F35071200349AB00949BB2 /* Device.strings in Resources */,
 				2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */,
 				8F9A7CCB20035B42003BABB1 /* SMTOWN(OTF)-Regular.otf in Resources */,
