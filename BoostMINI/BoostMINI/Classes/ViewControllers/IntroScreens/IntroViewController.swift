@@ -52,15 +52,9 @@ extension IntroViewController {
 				return
 			}
 			
-			
-			if let force = data.forceUpdate, force == true {
-				// NEED UPDATE
-				self?.showUpdateAlert(forceUpdate: true)
-				return
-			}
-			
+		
 			if let vv = data.version, vv > BSTApplication.shortVersion ?? "" {
-				self?.showUpdateAlert(forceUpdate: false)
+				self?.showUpdateAlert(forceUpdate: data.forceUpdate ?? false)
 			}
 			
 			self?.versionConfirmed()
