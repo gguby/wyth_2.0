@@ -1,24 +1,22 @@
 //
-//  MenuViewController.swift
+//  SettingViewController.swift
 //  BoostMINI
 //
-//  Created by  KoMyeongbu on 2018. 1. 8..
+//  Created by  KoMyeongbu on 2018. 1. 9..
 //  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class MenuViewController: UIViewController {
+class SettingViewController: UIViewController {
 
     // MARK: - * properties --------------------
 
 
     // MARK: - * IBOutlets --------------------
 
-    @IBOutlet weak var diagonalImageView: UIImageView!
-    
-    
+
     // MARK: - * Initialize --------------------
 
     override func viewDidLoad() {
@@ -36,25 +34,25 @@ class MenuViewController: UIViewController {
 
 
     private func initUI() {
-        diagonalImageView.transform = diagonalImageView.transform.rotated(by: CGFloat.init(M_PI))
+
     }
 
 
     func prepareViewDidLoad() {
 
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
 
     // MARK: - * Main Logic --------------------
-    
-    // MARK: - * UI Events --------------------
-    
+    func pop()
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
 
+    // MARK: - * UI Events --------------------
+    @IBAction func back(_ sender: UIButton) {
+        pop()
+    }
+    
     // MARK: - * Memory Manage --------------------
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +63,6 @@ class MenuViewController: UIViewController {
 }
 
 
-extension MenuViewController {
+extension SettingViewController {
 
 }

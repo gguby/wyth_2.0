@@ -201,6 +201,7 @@
 		8F6290C11FFCADB500689B91 /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6290C01FFCADB500689B91 /* InformationView.xib */; };
 		8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
+		8F7BDC4220048EAF00DD2150 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BDC4120048EAF00DD2150 /* SettingViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
 		8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */; };
@@ -337,6 +338,7 @@
 		8F6290C01FFCADB500689B91 /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
 		8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationView.swift; sourceTree = "<group>"; };
 		8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationViewController.swift; sourceTree = "<group>"; };
+		8F7BDC4120048EAF00DD2150 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		8F82C1641FF36D810031D030 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8F82C1721FF38EC30031D030 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -710,6 +712,7 @@
 			children = (
 				8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */,
 				8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */,
+				8F7BDC4120048EAF00DD2150 /* SettingViewController.swift */,
 			);
 			path = SettingScreens;
 			sourceTree = "<group>";
@@ -1311,6 +1314,7 @@
 				0412CB771FFF7FD00059C5A4 /* APIRequest.swift in Sources */,
 				0462CDE01FFDF961002B6E11 /* R.generated.swift in Sources */,
 				04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */,
+				8F7BDC4220048EAF00DD2150 /* SettingViewController.swift in Sources */,
 				045D14921FF4E7EB00A67AA0 /* TestModel.swift in Sources */,
 				A623523B1FF390690007949C /* ViewController.swift in Sources */,
 				8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */,

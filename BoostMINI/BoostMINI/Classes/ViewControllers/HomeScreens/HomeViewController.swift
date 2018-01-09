@@ -62,25 +62,16 @@ class HomeViewController: UIViewController {
         self.initProperties()
         self.initUI()
         self.prepareViewDidLoad()
-       
-        for family: String in UIFont.familyNames
-        {
-            print("\(family)")
-            for names: String in UIFont.fontNames(forFamilyName: family)
-            {
-                print("== \(names)")
-            }
-        }
     }
     
     
     private func initProperties() {
         SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
         
-        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
         SideMenuManager.default.menuPresentMode = .menuSlideIn
+        SideMenuManager.default.menuFadeStatusBar = false
     }
     
     
@@ -131,6 +122,12 @@ class HomeViewController: UIViewController {
     //        vc.modalPresentationStyle = .custom
     //        present(vc, animated: true, completion: nil)
     //    }
+    
+    @IBAction func menuButtonTapped(_ sender: UIButton) {
+       
+    }
+    
+    
 	
 	@available(iOS 10.0, *)
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
