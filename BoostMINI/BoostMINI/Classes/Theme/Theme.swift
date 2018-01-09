@@ -21,7 +21,9 @@ extension BST {
 		// 참고로 이게 프로젝트에 속해있어야 generate된다. 그런 이유로 BoostMini.clr이 프로젝트에 포함되었다.
 		//typealias color = R.color
 		typealias color = R.clr.boostMini
-		
+
+		typealias font = R.font
+
 		private init() { }
 	}
 	
