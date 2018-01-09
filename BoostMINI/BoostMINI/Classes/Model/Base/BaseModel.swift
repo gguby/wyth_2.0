@@ -25,11 +25,18 @@ extension Dictionary where Key: ExpressibleByStringLiteral, Value == APIRequest 
 
 extension BaseModel {
 	static func buildApiRequests() -> [String: APIRequest] {
+		// TODO: 여기에 정의가 없다면 APIRequest 사용 안함. 커스텀 function을 호출하시오.
+
 		var apis: [String: APIRequest] = [:]
 
 		switch(self) {
-		case is AppsGetResponse:
-			return [:]
+		case is ConcertsGetResponse:
+			// 일단 귀찮으니 그냥 진행.
+			// type 1. # 시작하며 예외처리를 추가 (미구현)
+			return  APIRequest("#getConcertsUsingGET", .get, nil, map: "").asGroup()
+			// type 2. codegen의 내용을 그대로 가져오기. (그럴거면 codegen 왜함)
+			return  APIRequest("/concerts", .get, nil, map: "").asGroup()
+			
 		case is SettingsGetResponse:
 			return [:]
 
