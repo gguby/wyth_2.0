@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class ApplicationContext: Codable {
+open class ApplicationContext: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = ApplicationContext.buildApiRequests()
+
 
     public var applicationName: String?
     // public var autowireCapableBeanFactory: AutowireCapableBeanFactory?

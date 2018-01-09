@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class ClassLoader: Codable {
+open class ClassLoader: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = ClassLoader.buildApiRequests()
+
 
     public var parent: ClassLoader?
 

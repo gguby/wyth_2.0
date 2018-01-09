@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class Environment: Codable {
+open class Environment: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = Environment.buildApiRequests()
+
 
     public var activeProfiles: [String]?
     public var defaultProfiles: [String]?

@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class PageNotice: Codable {
+open class PageNotice: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = PageNotice.buildApiRequests()
+
 
     public var content: [Notice]?
     public var first: Bool?

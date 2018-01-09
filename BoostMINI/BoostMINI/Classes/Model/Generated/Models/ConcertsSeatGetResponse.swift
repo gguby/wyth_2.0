@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class ConcertsSeatGetResponse: Codable {
+open class ConcertsSeatGetResponse: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = ConcertsSeatGetResponse.buildApiRequests()
+
 
     public var area: String?
     public var concertDate: String?

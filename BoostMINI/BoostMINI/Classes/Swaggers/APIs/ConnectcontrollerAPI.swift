@@ -13,6 +13,9 @@ import RxSwift
 
 
 open class ConnectcontrollerAPI {
+  private static var xAPPVersion: String = BSTApplication.shortVersion ?? "unknown"
+  private static var xDevice: String     = "ios"
+  private static var acceptLanguage: String = "ko-KR"
     /**
      connect
      
@@ -22,8 +25,8 @@ open class ConnectcontrollerAPI {
      - parameter providerId: (path) providerId 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func connectUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
-        connectUsingPOSTWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, providerId: providerId).execute { (response, error) -> Void in
+    open class func connectUsingPOST(providerId: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
+        connectUsingPOSTWithRequestBuilder(providerId: providerId).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -37,9 +40,9 @@ open class ConnectcontrollerAPI {
      - parameter providerId: (path) providerId 
      - returns: Observable<RedirectView>
      */
-    open class func connectUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String) -> Observable<RedirectView> {
+    open class func connectUsingPOST(providerId: String) -> Observable<RedirectView> {
         return Observable.create { observer -> Disposable in
-            connectUsingPOST(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, providerId: providerId) { data, error in
+            connectUsingPOST(providerId: providerId) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -63,7 +66,7 @@ open class ConnectcontrollerAPI {
 
      - returns: RequestBuilder<RedirectView> 
      */
-    open class func connectUsingPOSTWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String) -> RequestBuilder<RedirectView> {
+    open class func connectUsingPOSTWithRequestBuilder(providerId: String) -> RequestBuilder<RedirectView> {
         var path = "/connect/{providerId}"
         path = path.replacingOccurrences(of: "{providerId}", with: "\(providerId)", options: .literal, range: nil)
         let URLString = BoostMINIAPI.basePath + path
@@ -91,8 +94,8 @@ open class ConnectcontrollerAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func connectionStatusUsingGET1(xAPPVersion: String, xDevice: String, acceptLanguage: String, completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
-        connectionStatusUsingGET1WithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage).execute { (response, error) -> Void in
+    open class func connectionStatusUsingGET1(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+        connectionStatusUsingGET1WithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -105,9 +108,9 @@ open class ConnectcontrollerAPI {
      - parameter acceptLanguage: (header) language-locale 
      - returns: Observable<String>
      */
-    open class func connectionStatusUsingGET1(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> Observable<String> {
+    open class func connectionStatusUsingGET1() -> Observable<String> {
         return Observable.create { observer -> Disposable in
-            connectionStatusUsingGET1(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage) { data, error in
+            connectionStatusUsingGET1() { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -130,7 +133,7 @@ open class ConnectcontrollerAPI {
 
      - returns: RequestBuilder<String> 
      */
-    open class func connectionStatusUsingGET1WithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> RequestBuilder<String> {
+    open class func connectionStatusUsingGET1WithRequestBuilder() -> RequestBuilder<String> {
         let path = "/connect"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -159,8 +162,8 @@ open class ConnectcontrollerAPI {
      - parameter code: (query)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func oauth2CallbackUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String, code: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
-        oauth2CallbackUsingGETWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, providerId: providerId, code: code).execute { (response, error) -> Void in
+    open class func oauth2CallbackUsingGET(providerId: String, code: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
+        oauth2CallbackUsingGETWithRequestBuilder(providerId: providerId, code: code).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -175,9 +178,9 @@ open class ConnectcontrollerAPI {
      - parameter code: (query)  
      - returns: Observable<RedirectView>
      */
-    open class func oauth2CallbackUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String, code: String) -> Observable<RedirectView> {
+    open class func oauth2CallbackUsingGET(providerId: String, code: String) -> Observable<RedirectView> {
         return Observable.create { observer -> Disposable in
-            oauth2CallbackUsingGET(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, providerId: providerId, code: code) { data, error in
+            oauth2CallbackUsingGET(providerId: providerId, code: code) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -202,7 +205,7 @@ open class ConnectcontrollerAPI {
 
      - returns: RequestBuilder<RedirectView> 
      */
-    open class func oauth2CallbackUsingGETWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String, code: String) -> RequestBuilder<RedirectView> {
+    open class func oauth2CallbackUsingGETWithRequestBuilder(providerId: String, code: String) -> RequestBuilder<RedirectView> {
         var path = "/connect/{providerId}"
         path = path.replacingOccurrences(of: "{providerId}", with: "\(providerId)", options: .literal, range: nil)
         let URLString = BoostMINIAPI.basePath + path
@@ -235,8 +238,8 @@ open class ConnectcontrollerAPI {
      - parameter providerUserId: (path) providerUserId 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func removeConnectionUsingDELETE(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String, providerUserId: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
-        removeConnectionUsingDELETEWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, providerId: providerId, providerUserId: providerUserId).execute { (response, error) -> Void in
+    open class func removeConnectionUsingDELETE(providerId: String, providerUserId: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
+        removeConnectionUsingDELETEWithRequestBuilder(providerId: providerId, providerUserId: providerUserId).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -251,9 +254,9 @@ open class ConnectcontrollerAPI {
      - parameter providerUserId: (path) providerUserId 
      - returns: Observable<RedirectView>
      */
-    open class func removeConnectionUsingDELETE(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String, providerUserId: String) -> Observable<RedirectView> {
+    open class func removeConnectionUsingDELETE(providerId: String, providerUserId: String) -> Observable<RedirectView> {
         return Observable.create { observer -> Disposable in
-            removeConnectionUsingDELETE(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, providerId: providerId, providerUserId: providerUserId) { data, error in
+            removeConnectionUsingDELETE(providerId: providerId, providerUserId: providerUserId) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -278,7 +281,7 @@ open class ConnectcontrollerAPI {
 
      - returns: RequestBuilder<RedirectView> 
      */
-    open class func removeConnectionUsingDELETEWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String, providerUserId: String) -> RequestBuilder<RedirectView> {
+    open class func removeConnectionUsingDELETEWithRequestBuilder(providerId: String, providerUserId: String) -> RequestBuilder<RedirectView> {
         var path = "/connect/{providerId}/{providerUserId}"
         path = path.replacingOccurrences(of: "{providerId}", with: "\(providerId)", options: .literal, range: nil)
         path = path.replacingOccurrences(of: "{providerUserId}", with: "\(providerUserId)", options: .literal, range: nil)
@@ -308,8 +311,8 @@ open class ConnectcontrollerAPI {
      - parameter providerId: (path) providerId 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func removeConnectionsUsingDELETE(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
-        removeConnectionsUsingDELETEWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, providerId: providerId).execute { (response, error) -> Void in
+    open class func removeConnectionsUsingDELETE(providerId: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
+        removeConnectionsUsingDELETEWithRequestBuilder(providerId: providerId).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -323,9 +326,9 @@ open class ConnectcontrollerAPI {
      - parameter providerId: (path) providerId 
      - returns: Observable<RedirectView>
      */
-    open class func removeConnectionsUsingDELETE(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String) -> Observable<RedirectView> {
+    open class func removeConnectionsUsingDELETE(providerId: String) -> Observable<RedirectView> {
         return Observable.create { observer -> Disposable in
-            removeConnectionsUsingDELETE(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, providerId: providerId) { data, error in
+            removeConnectionsUsingDELETE(providerId: providerId) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -349,7 +352,7 @@ open class ConnectcontrollerAPI {
 
      - returns: RequestBuilder<RedirectView> 
      */
-    open class func removeConnectionsUsingDELETEWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, providerId: String) -> RequestBuilder<RedirectView> {
+    open class func removeConnectionsUsingDELETEWithRequestBuilder(providerId: String) -> RequestBuilder<RedirectView> {
         var path = "/connect/{providerId}"
         path = path.replacingOccurrences(of: "{providerId}", with: "\(providerId)", options: .literal, range: nil)
         let URLString = BoostMINIAPI.basePath + path

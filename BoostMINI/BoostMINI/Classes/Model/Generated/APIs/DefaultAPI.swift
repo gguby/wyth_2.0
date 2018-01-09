@@ -13,6 +13,9 @@ import RxSwift
 
 
 open class DefaultAPI {
+  private static var xAPPVersion: String = BSTApplication.shortVersion ?? "unknown"
+  private static var xDevice: String     = "ios"
+  private static var acceptLanguage: String = "ko-KR"
     /**
      콘서트 정보 가져오기
      
@@ -21,8 +24,8 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getConcertsUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, completion: @escaping ((_ data: ConcertsGetResponse?,_ error: Error?) -> Void)) {
-        getConcertsUsingGETWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage).execute { (response, error) -> Void in
+    open class func getConcertsUsingGET(completion: @escaping ((_ data: ConcertsGetResponse?,_ error: Error?) -> Void)) {
+        getConcertsUsingGETWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -35,9 +38,9 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - returns: Observable<ConcertsGetResponse>
      */
-    open class func getConcertsUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> Observable<ConcertsGetResponse> {
+    open class func getConcertsUsingGET() -> Observable<ConcertsGetResponse> {
         return Observable.create { observer -> Disposable in
-            getConcertsUsingGET(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage) { data, error in
+            getConcertsUsingGET() { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -60,7 +63,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<ConcertsGetResponse> 
      */
-    open class func getConcertsUsingGETWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> RequestBuilder<ConcertsGetResponse> {
+    open class func getConcertsUsingGETWithRequestBuilder() -> RequestBuilder<ConcertsGetResponse> {
         let path = "/concerts"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -89,8 +92,8 @@ open class DefaultAPI {
      - parameter size: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getHelplistUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, lastId: Int64? = nil, size: Int32? = nil, completion: @escaping ((_ data: HelpGetResponse?,_ error: Error?) -> Void)) {
-        getHelplistUsingGETWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, lastId: lastId, size: size).execute { (response, error) -> Void in
+    open class func getHelplistUsingGET(lastId: Int64? = nil, size: Int32? = nil, completion: @escaping ((_ data: HelpGetResponse?,_ error: Error?) -> Void)) {
+        getHelplistUsingGETWithRequestBuilder(lastId: lastId, size: size).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -105,9 +108,9 @@ open class DefaultAPI {
      - parameter size: (query)  (optional)
      - returns: Observable<HelpGetResponse>
      */
-    open class func getHelplistUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, lastId: Int64? = nil, size: Int32? = nil) -> Observable<HelpGetResponse> {
+    open class func getHelplistUsingGET(lastId: Int64? = nil, size: Int32? = nil) -> Observable<HelpGetResponse> {
         return Observable.create { observer -> Disposable in
-            getHelplistUsingGET(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, lastId: lastId, size: size) { data, error in
+            getHelplistUsingGET(lastId: lastId, size: size) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -132,7 +135,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<HelpGetResponse> 
      */
-    open class func getHelplistUsingGETWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, lastId: Int64? = nil, size: Int32? = nil) -> RequestBuilder<HelpGetResponse> {
+    open class func getHelplistUsingGETWithRequestBuilder(lastId: Int64? = nil, size: Int32? = nil) -> RequestBuilder<HelpGetResponse> {
         let path = "/menus/help"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -165,8 +168,8 @@ open class DefaultAPI {
      - parameter size: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getNoticesUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, lastId: Int64? = nil, size: Int32? = nil, completion: @escaping ((_ data: NoticesGetResponse?,_ error: Error?) -> Void)) {
-        getNoticesUsingGETWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, lastId: lastId, size: size).execute { (response, error) -> Void in
+    open class func getNoticesUsingGET(lastId: Int64? = nil, size: Int32? = nil, completion: @escaping ((_ data: NoticesGetResponse?,_ error: Error?) -> Void)) {
+        getNoticesUsingGETWithRequestBuilder(lastId: lastId, size: size).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -181,9 +184,9 @@ open class DefaultAPI {
      - parameter size: (query)  (optional)
      - returns: Observable<NoticesGetResponse>
      */
-    open class func getNoticesUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, lastId: Int64? = nil, size: Int32? = nil) -> Observable<NoticesGetResponse> {
+    open class func getNoticesUsingGET(lastId: Int64? = nil, size: Int32? = nil) -> Observable<NoticesGetResponse> {
         return Observable.create { observer -> Disposable in
-            getNoticesUsingGET(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, lastId: lastId, size: size) { data, error in
+            getNoticesUsingGET(lastId: lastId, size: size) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -208,7 +211,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<NoticesGetResponse> 
      */
-    open class func getNoticesUsingGETWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, lastId: Int64? = nil, size: Int32? = nil) -> RequestBuilder<NoticesGetResponse> {
+    open class func getNoticesUsingGETWithRequestBuilder(lastId: Int64? = nil, size: Int32? = nil) -> RequestBuilder<NoticesGetResponse> {
         let path = "/notices"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -239,8 +242,8 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getProfileUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, completion: @escaping ((_ data: ProfileGetResponse?,_ error: Error?) -> Void)) {
-        getProfileUsingGETWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage).execute { (response, error) -> Void in
+    open class func getProfileUsingGET(completion: @escaping ((_ data: ProfileGetResponse?,_ error: Error?) -> Void)) {
+        getProfileUsingGETWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -253,9 +256,9 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - returns: Observable<ProfileGetResponse>
      */
-    open class func getProfileUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> Observable<ProfileGetResponse> {
+    open class func getProfileUsingGET() -> Observable<ProfileGetResponse> {
         return Observable.create { observer -> Disposable in
-            getProfileUsingGET(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage) { data, error in
+            getProfileUsingGET() { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -278,7 +281,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<ProfileGetResponse> 
      */
-    open class func getProfileUsingGETWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> RequestBuilder<ProfileGetResponse> {
+    open class func getProfileUsingGETWithRequestBuilder() -> RequestBuilder<ProfileGetResponse> {
         let path = "/accounts/profile"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -314,8 +317,8 @@ open class DefaultAPI {
      - parameter type: (path) type 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getSeatsUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, type: ModelType_getSeatsUsingGET, completion: @escaping ((_ data: ConcertsSeatGetResponse?,_ error: Error?) -> Void)) {
-        getSeatsUsingGETWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, type: type).execute { (response, error) -> Void in
+    open class func getSeatsUsingGET(type: ModelType_getSeatsUsingGET, completion: @escaping ((_ data: ConcertsSeatGetResponse?,_ error: Error?) -> Void)) {
+        getSeatsUsingGETWithRequestBuilder(type: type).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -329,9 +332,9 @@ open class DefaultAPI {
      - parameter type: (path) type 
      - returns: Observable<ConcertsSeatGetResponse>
      */
-    open class func getSeatsUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, type: ModelType_getSeatsUsingGET) -> Observable<ConcertsSeatGetResponse> {
+    open class func getSeatsUsingGET(type: ModelType_getSeatsUsingGET) -> Observable<ConcertsSeatGetResponse> {
         return Observable.create { observer -> Disposable in
-            getSeatsUsingGET(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, type: type) { data, error in
+            getSeatsUsingGET(type: type) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -355,7 +358,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<ConcertsSeatGetResponse> 
      */
-    open class func getSeatsUsingGETWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, type: ModelType_getSeatsUsingGET) -> RequestBuilder<ConcertsSeatGetResponse> {
+    open class func getSeatsUsingGETWithRequestBuilder(type: ModelType_getSeatsUsingGET) -> RequestBuilder<ConcertsSeatGetResponse> {
         var path = "/concerts/seat/{type}"
         path = path.replacingOccurrences(of: "{type}", with: "\(type.rawValue)", options: .literal, range: nil)
         let URLString = BoostMINIAPI.basePath + path
@@ -383,8 +386,8 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getSettingsUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, completion: @escaping ((_ data: SettingsGetResponse?,_ error: Error?) -> Void)) {
-        getSettingsUsingGETWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage).execute { (response, error) -> Void in
+    open class func getSettingsUsingGET(completion: @escaping ((_ data: SettingsGetResponse?,_ error: Error?) -> Void)) {
+        getSettingsUsingGETWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -397,9 +400,9 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - returns: Observable<SettingsGetResponse>
      */
-    open class func getSettingsUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> Observable<SettingsGetResponse> {
+    open class func getSettingsUsingGET() -> Observable<SettingsGetResponse> {
         return Observable.create { observer -> Disposable in
-            getSettingsUsingGET(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage) { data, error in
+            getSettingsUsingGET() { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -422,7 +425,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<SettingsGetResponse> 
      */
-    open class func getSettingsUsingGETWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> RequestBuilder<SettingsGetResponse> {
+    open class func getSettingsUsingGETWithRequestBuilder() -> RequestBuilder<SettingsGetResponse> {
         let path = "/settings"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -449,8 +452,8 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getVersionUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String, completion: @escaping ((_ data: AppsGetResponse?,_ error: Error?) -> Void)) {
-        getVersionUsingGETWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage).execute { (response, error) -> Void in
+    open class func getVersionUsingGET(completion: @escaping ((_ data: AppsGetResponse?,_ error: Error?) -> Void)) {
+        getVersionUsingGETWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -463,9 +466,9 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - returns: Observable<AppsGetResponse>
      */
-    open class func getVersionUsingGET(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> Observable<AppsGetResponse> {
+    open class func getVersionUsingGET() -> Observable<AppsGetResponse> {
         return Observable.create { observer -> Disposable in
-            getVersionUsingGET(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage) { data, error in
+            getVersionUsingGET() { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -488,7 +491,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<AppsGetResponse> 
      */
-    open class func getVersionUsingGETWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> RequestBuilder<AppsGetResponse> {
+    open class func getVersionUsingGETWithRequestBuilder() -> RequestBuilder<AppsGetResponse> {
         let path = "/apps/version"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -516,8 +519,8 @@ open class DefaultAPI {
      - parameter alarm: (body) alarm 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postAlarmsUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, alarm: Bool, completion: @escaping ((_ data: CommonBooleanGetResponse?,_ error: Error?) -> Void)) {
-        postAlarmsUsingPOSTWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, alarm: alarm).execute { (response, error) -> Void in
+    open class func postAlarmsUsingPOST(alarm: Bool, completion: @escaping ((_ data: CommonBooleanGetResponse?,_ error: Error?) -> Void)) {
+        postAlarmsUsingPOSTWithRequestBuilder(alarm: alarm).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -531,9 +534,9 @@ open class DefaultAPI {
      - parameter alarm: (body) alarm 
      - returns: Observable<CommonBooleanGetResponse>
      */
-    open class func postAlarmsUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, alarm: Bool) -> Observable<CommonBooleanGetResponse> {
+    open class func postAlarmsUsingPOST(alarm: Bool) -> Observable<CommonBooleanGetResponse> {
         return Observable.create { observer -> Disposable in
-            postAlarmsUsingPOST(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, alarm: alarm) { data, error in
+            postAlarmsUsingPOST(alarm: alarm) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -557,7 +560,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<CommonBooleanGetResponse> 
      */
-    open class func postAlarmsUsingPOSTWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, alarm: Bool) -> RequestBuilder<CommonBooleanGetResponse> {
+    open class func postAlarmsUsingPOSTWithRequestBuilder(alarm: Bool) -> RequestBuilder<CommonBooleanGetResponse> {
         let path = "/settings/alarm"
         let URLString = BoostMINIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: alarm)
@@ -585,8 +588,8 @@ open class DefaultAPI {
      - parameter select: (body) select 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postSkinsUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, select: Int32, completion: @escaping ((_ data: CommonNumberGetResponse?,_ error: Error?) -> Void)) {
-        postSkinsUsingPOSTWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, select: select).execute { (response, error) -> Void in
+    open class func postSkinsUsingPOST(select: Int32, completion: @escaping ((_ data: CommonNumberGetResponse?,_ error: Error?) -> Void)) {
+        postSkinsUsingPOSTWithRequestBuilder(select: select).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -600,9 +603,9 @@ open class DefaultAPI {
      - parameter select: (body) select 
      - returns: Observable<CommonNumberGetResponse>
      */
-    open class func postSkinsUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, select: Int32) -> Observable<CommonNumberGetResponse> {
+    open class func postSkinsUsingPOST(select: Int32) -> Observable<CommonNumberGetResponse> {
         return Observable.create { observer -> Disposable in
-            postSkinsUsingPOST(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, select: select) { data, error in
+            postSkinsUsingPOST(select: select) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -626,7 +629,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<CommonNumberGetResponse> 
      */
-    open class func postSkinsUsingPOSTWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, select: Int32) -> RequestBuilder<CommonNumberGetResponse> {
+    open class func postSkinsUsingPOSTWithRequestBuilder(select: Int32) -> RequestBuilder<CommonNumberGetResponse> {
         let path = "/settings/skin"
         let URLString = BoostMINIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: select)
@@ -653,8 +656,8 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func showResponseCodeUsingHEAD(xAPPVersion: String, xDevice: String, acceptLanguage: String, completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
-        showResponseCodeUsingHEADWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage).execute { (response, error) -> Void in
+    open class func showResponseCodeUsingHEAD(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+        showResponseCodeUsingHEADWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -667,9 +670,9 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - returns: Observable<String>
      */
-    open class func showResponseCodeUsingHEAD(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> Observable<String> {
+    open class func showResponseCodeUsingHEAD() -> Observable<String> {
         return Observable.create { observer -> Disposable in
-            showResponseCodeUsingHEAD(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage) { data, error in
+            showResponseCodeUsingHEAD() { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -692,7 +695,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<String> 
      */
-    open class func showResponseCodeUsingHEADWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> RequestBuilder<String> {
+    open class func showResponseCodeUsingHEADWithRequestBuilder() -> RequestBuilder<String> {
         let path = "/swagger/response/code"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -731,8 +734,8 @@ open class DefaultAPI {
      - parameter socialType: (query)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func signinUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, accessToken: String, socialType: SocialType_signinUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
-        signinUsingPOSTWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, accessToken: accessToken, socialType: socialType).execute { (response, error) -> Void in
+    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+        signinUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -747,9 +750,9 @@ open class DefaultAPI {
      - parameter socialType: (query)  
      - returns: Observable<AccountsPostResponse>
      */
-    open class func signinUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, accessToken: String, socialType: SocialType_signinUsingPOST) -> Observable<AccountsPostResponse> {
+    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST) -> Observable<AccountsPostResponse> {
         return Observable.create { observer -> Disposable in
-            signinUsingPOST(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, accessToken: accessToken, socialType: socialType) { data, error in
+            signinUsingPOST(accessToken: accessToken, socialType: socialType) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -774,7 +777,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<AccountsPostResponse> 
      */
-    open class func signinUsingPOSTWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, accessToken: String, socialType: SocialType_signinUsingPOST) -> RequestBuilder<AccountsPostResponse> {
+    open class func signinUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signinUsingPOST) -> RequestBuilder<AccountsPostResponse> {
         let path = "/accounts/signin"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -805,8 +808,8 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func signoutUsingDELETE(xAPPVersion: String, xDevice: String, acceptLanguage: String, completion: @escaping ((_ error: Error?) -> Void)) {
-        signoutUsingDELETEWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage).execute { (response, error) -> Void in
+    open class func signoutUsingDELETE(completion: @escaping ((_ error: Error?) -> Void)) {
+        signoutUsingDELETEWithRequestBuilder().execute { (response, error) -> Void in
             completion(error);
         }
     }
@@ -819,9 +822,9 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - returns: Observable<Void>
      */
-    open class func signoutUsingDELETE(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> Observable<Void> {
+    open class func signoutUsingDELETE() -> Observable<Void> {
         return Observable.create { observer -> Disposable in
-            signoutUsingDELETE(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage) { error in
+            signoutUsingDELETE() { error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -843,7 +846,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<Void> 
      */
-    open class func signoutUsingDELETEWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> RequestBuilder<Void> {
+    open class func signoutUsingDELETEWithRequestBuilder() -> RequestBuilder<Void> {
         let path = "/accounts/signout"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -882,8 +885,8 @@ open class DefaultAPI {
      - parameter socialType: (query)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func signupUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, accessToken: String, socialType: SocialType_signupUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
-        signupUsingPOSTWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, accessToken: accessToken, socialType: socialType).execute { (response, error) -> Void in
+    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+        signupUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -898,9 +901,9 @@ open class DefaultAPI {
      - parameter socialType: (query)  
      - returns: Observable<AccountsPostResponse>
      */
-    open class func signupUsingPOST(xAPPVersion: String, xDevice: String, acceptLanguage: String, accessToken: String, socialType: SocialType_signupUsingPOST) -> Observable<AccountsPostResponse> {
+    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST) -> Observable<AccountsPostResponse> {
         return Observable.create { observer -> Disposable in
-            signupUsingPOST(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage, accessToken: accessToken, socialType: socialType) { data, error in
+            signupUsingPOST(accessToken: accessToken, socialType: socialType) { data, error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -925,7 +928,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<AccountsPostResponse> 
      */
-    open class func signupUsingPOSTWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String, accessToken: String, socialType: SocialType_signupUsingPOST) -> RequestBuilder<AccountsPostResponse> {
+    open class func signupUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signupUsingPOST) -> RequestBuilder<AccountsPostResponse> {
         let path = "/accounts/signup"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -956,8 +959,8 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func withdrawUsingDELETE(xAPPVersion: String, xDevice: String, acceptLanguage: String, completion: @escaping ((_ error: Error?) -> Void)) {
-        withdrawUsingDELETEWithRequestBuilder(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage).execute { (response, error) -> Void in
+    open class func withdrawUsingDELETE(completion: @escaping ((_ error: Error?) -> Void)) {
+        withdrawUsingDELETEWithRequestBuilder().execute { (response, error) -> Void in
             completion(error);
         }
     }
@@ -970,9 +973,9 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - returns: Observable<Void>
      */
-    open class func withdrawUsingDELETE(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> Observable<Void> {
+    open class func withdrawUsingDELETE() -> Observable<Void> {
         return Observable.create { observer -> Disposable in
-            withdrawUsingDELETE(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage) { error in
+            withdrawUsingDELETE() { error in
                 if let error = error {
                     observer.on(.error(error as Error))
                 } else {
@@ -994,7 +997,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<Void> 
      */
-    open class func withdrawUsingDELETEWithRequestBuilder(xAPPVersion: String, xDevice: String, acceptLanguage: String) -> RequestBuilder<Void> {
+    open class func withdrawUsingDELETEWithRequestBuilder() -> RequestBuilder<Void> {
         let path = "/accounts/withdraw"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil

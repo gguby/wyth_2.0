@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class Notice: Codable {
+open class Notice: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = Notice.buildApiRequests()
+
 
     public var content: String?
     public var id: Int64?

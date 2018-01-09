@@ -28,7 +28,9 @@ class LogInViewController: UIViewController {
 		
 		// TEST
 		
-		let ob = DefaultAPI.getVersionUsingGET(xAPPVersion: "1.0.0", xDevice: "ios", acceptLanguage: "ko-KR")
+		
+		
+		let ob = DefaultAPI.getVersionUsingGET()
 		ob.map { resp in
 			BSTFacade.ux.showAlert("\(resp)")
 			

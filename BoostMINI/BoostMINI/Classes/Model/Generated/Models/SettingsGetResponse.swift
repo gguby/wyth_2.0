@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class SettingsGetResponse: Codable {
+open class SettingsGetResponse: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = SettingsGetResponse.buildApiRequests()
+
 
     public var alarm: Bool?
     public var skins: [Skin]?

@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class AppsGetResponse: Codable {
+open class AppsGetResponse: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = AppsGetResponse.buildApiRequests()
+
 
     public var forceUpdate: Bool?
     public var id: Int64?

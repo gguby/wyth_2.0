@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class Skin: Codable {
+open class Skin: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = Skin.buildApiRequests()
+
 
     public var id: Int64?
     public var select: Bool?

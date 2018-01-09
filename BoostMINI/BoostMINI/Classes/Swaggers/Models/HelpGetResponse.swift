@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class HelpGetResponse: Codable {
+open class HelpGetResponse: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = HelpGetResponse.buildApiRequests()
+
 
     public var list: PageHelp?
 

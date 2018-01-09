@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class ProfileGetResponse: Codable {
+open class ProfileGetResponse: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = ProfileGetResponse.buildApiRequests()
+
 
     public enum SocialType: String, Codable { 
         case smtown = "SMTOWN"

@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class AccountsPostResponse: Codable {
+open class AccountsPostResponse: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = AccountsPostResponse.buildApiRequests()
+
 
     public enum SocialType: String, Codable { 
         case smtown = "SMTOWN"

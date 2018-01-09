@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class RedirectView: Codable {
+open class RedirectView: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = RedirectView.buildApiRequests()
+
 
     public var applicationContext: ApplicationContext?
     public var attributesMap: String?

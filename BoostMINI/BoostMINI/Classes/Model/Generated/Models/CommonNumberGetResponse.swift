@@ -9,7 +9,10 @@
 import Foundation
 
 
-open class CommonNumberGetResponse: Codable {
+open class CommonNumberGetResponse: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = CommonNumberGetResponse.buildApiRequests()
+
 
     public var selected: Int32?
 
