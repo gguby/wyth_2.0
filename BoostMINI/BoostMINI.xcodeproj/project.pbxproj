@@ -268,6 +268,7 @@
 		04E224402004867700A2B388 /* String+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2243E2004867700A2B388 /* String+Alert.swift */; };
 		04E224412004867700A2B388 /* String+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2243E2004867700A2B388 /* String+Alert.swift */; };
 		04E22444200490FC00A2B388 /* ThemeOld.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E22443200490FC00A2B388 /* ThemeOld.xcassets */; };
+		04E224452004937200A2B388 /* DeviceViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */; };
 		2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC301FF37E580017D2B2 /* NotificationModel.swift */; };
 		2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0781FEA6293007441E1 /* BSTFacade.swift */; };
@@ -1486,6 +1487,7 @@
 				0483854520035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				0483853C20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
 				04E2242A2003766E00A2B388 /* CommonNumberGetResponse.swift in Sources */,
+				04E224452004937200A2B388 /* DeviceViewReactor.swift in Sources */,
 				04E223FA2003766E00A2B388 /* AppsGetResponse.swift in Sources */,
 				04E224152003766E00A2B388 /* BeanFactory.swift in Sources */,
 				04AD74021FF33934005F4BF0 /* SessionManager.swift in Sources */,
