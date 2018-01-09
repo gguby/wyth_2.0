@@ -30,12 +30,6 @@ class LogInViewController: UIViewController {
 		
 		
 		
-		let ob = DefaultAPI.getVersionUsingGET()
-		ob.map { resp in
-			BSTFacade.ux.showAlert("\(resp)")
-			
-		}
-
 		
 		initUI()
 		initEvents()
