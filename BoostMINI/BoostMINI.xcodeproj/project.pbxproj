@@ -80,7 +80,6 @@
 		0462CDAF1FFCA419002B6E11 /* DeviceViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */; };
 		0462CDB01FFCA41A002B6E11 /* BTDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */; };
 		0462CDB11FFCA41A002B6E11 /* BTDeviceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */; };
-		0462CDB21FFCA41A002B6E11 /* DeviceViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */; };
 		0462CDB31FFCA426002B6E11 /* RequestBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14891FF4DD2200A67AA0 /* RequestBlock.swift */; };
 		0462CDB41FFCA426002B6E11 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0921FEB55D9007441E1 /* BaseModel.swift */; };
 		0462CDB71FFCA426002B6E11 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC301FF37E580017D2B2 /* NotificationModel.swift */; };
@@ -190,8 +189,6 @@
 		04C22BA91FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
-		04E22444200490FC00A2B388 /* ThemeOld.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E22443200490FC00A2B388 /* ThemeOld.xcassets */; };
-		2B55BC141FF375CF0017D2B2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC131FF375CF0017D2B2 /* LoginModel.swift */; };
 		04E223F12003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
 		04E223F22003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
 		04E223F32003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
@@ -270,6 +267,7 @@
 		04E2243F2004867700A2B388 /* String+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2243E2004867700A2B388 /* String+Alert.swift */; };
 		04E224402004867700A2B388 /* String+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2243E2004867700A2B388 /* String+Alert.swift */; };
 		04E224412004867700A2B388 /* String+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2243E2004867700A2B388 /* String+Alert.swift */; };
+		04E22444200490FC00A2B388 /* ThemeOld.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E22443200490FC00A2B388 /* ThemeOld.xcassets */; };
 		2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC301FF37E580017D2B2 /* NotificationModel.swift */; };
 		2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0781FEA6293007441E1 /* BSTFacade.swift */; };
@@ -316,7 +314,6 @@
 		A623523A1FF390690007949C /* Gitup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352361FF390680007949C /* Gitup.swift */; };
 		A623523B1FF390690007949C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352371FF390680007949C /* ViewController.swift */; };
 		A696AE8B1FF5E8EB009B8FEF /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */; };
-		A696AE8D1FF5E91D009B8FEF /* DeviceViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */; };
 		A696AE8F1FF5E98F009B8FEF /* BTDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */; };
 		A696AE911FF5E9B4009B8FEF /* BTDeviceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */; };
 		A6F3506D20033EB900949BB2 /* BTDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */; };
@@ -394,7 +391,6 @@
 		04AD74191FF360D4005F4BF0 /* BSTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTError.swift; sourceTree = "<group>"; };
 		04AD741E1FF36269005F4BF0 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		04C22BA81FEB9597007E2BED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		04E22443200490FC00A2B388 /* ThemeOld.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThemeOld.xcassets; sourceTree = "<group>"; };
 		04E223D82003766E00A2B388 /* DefaultAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI.swift; sourceTree = "<group>"; };
 		04E223D92003766E00A2B388 /* ConnectcontrollerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectcontrollerAPI.swift; sourceTree = "<group>"; };
 		04E223DB2003766E00A2B388 /* ConcertsGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertsGetResponse.swift; sourceTree = "<group>"; };
@@ -422,6 +418,7 @@
 		04E2243A200481B500A2B388 /* GeneratedModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedModelExtension.swift; sourceTree = "<group>"; };
 		04E2243E2004867700A2B388 /* String+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Alert.swift"; sourceTree = "<group>"; };
 		04E224422004884100A2B388 /* Network.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Network.strings; sourceTree = "<group>"; };
+		04E22443200490FC00A2B388 /* ThemeOld.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThemeOld.xcassets; sourceTree = "<group>"; };
 		06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.release.xcconfig"; sourceTree = "<group>"; };
 		225B24F76464411F2957F5CF /* Pods-BoostMINIUITests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.stage.xcconfig"; sourceTree = "<group>"; };
 		2B55BC2B1FF37CCE0017D2B2 /* SwiftClass.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftClass.xctemplate; sourceTree = "<group>"; };
@@ -826,7 +823,6 @@
 		2B5AA0701FEA6187007441E1 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
-				0462CDED1FFE287D002B6E11 /* Alert.strings */,
 				2B5AA09C1FEB566C007441E1 /* Common.strings */,
 				0462CDF01FFE289A002B6E11 /* Error.strings */,
 				0462CDEA1FFE2799002B6E11 /* Login.strings */,
@@ -1550,8 +1546,6 @@
 				04E224002003766E00A2B388 /* ApplicationContext.swift in Sources */,
 				A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */,
 				0462CD981FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
-				A696AE8D1FF5E91D009B8FEF /* DeviceViewReactor.swift in Sources */,
-				A696AE8D1FF5E91D009B8FEF /* DeviceManagerReactor.swift in Sources */,
 				04E224362003766E00A2B388 /* AccountsPostResponse.swift in Sources */,
 				2B5AA07F1FEA62A7007441E1 /* Definitions.swift in Sources */,
 				04E224332003766E00A2B388 /* PageNotice.swift in Sources */,
@@ -1718,9 +1712,7 @@
 				04E2241D2003766E00A2B388 /* Sort.swift in Sources */,
 				04E224292003766E00A2B388 /* AutowireCapableBeanFactory.swift in Sources */,
 				0462CDCE1FFCA431002B6E11 /* HomeViewController.swift in Sources */,
-				0462CDB21FFCA41A002B6E11 /* DeviceViewReactor.swift in Sources */,
 				04E224232003766E00A2B388 /* Skin.swift in Sources */,
-				0462CDB21FFCA41A002B6E11 /* DeviceManagerReactor.swift in Sources */,
 				04122A631FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				0462CDE61FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A7E1FECE9A300896EE0 /* CommonUtil.swift in Sources */,

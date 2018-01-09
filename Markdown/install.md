@@ -6,5 +6,7 @@
 	- 고유 스타일가이드의 팔레트 및 기타 개발을 줄 수 있는 파일템플릿을 사용합니다.
 	- BoostMINI/BoostMINI/Resources 디렉토리의 `installEnv.sh` 을 실행해주시면 자동으로 설정됩니다.
 - restAPI의 Model은 swagger-codegen을 사용합니다.
-    - ~~ `codegenRestAPI.sh` 는 현재 보류되었습니다. 실행하실 필요 없습니다. (swift4 규격으로 Codable로 생성되는 소스를 프로젝트용 BaseModel로 변환하여 복사해주는 기능)~~
-
+    - `codegenRestAPI.sh` 를 실행하시면 최신의 API를 기반으로 모델이 다시 생성됩니다.
+     이는 Classes/Model/Generated에 자동으로 복사되며,
+     관련 처리 파일들은 Libraries/Swaggers 로 복사됩니다.
+     
