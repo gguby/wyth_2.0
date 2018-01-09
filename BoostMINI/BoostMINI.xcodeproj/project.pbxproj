@@ -81,10 +81,10 @@
 		0462CDAC1FFCA410002B6E11 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */; };
 		0462CDAD1FFCA419002B6E11 /* BTDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */; };
 		0462CDAE1FFCA419002B6E11 /* BTDeviceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */; };
-		0462CDAF1FFCA419002B6E11 /* DeviceManagerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */; };
+		0462CDAF1FFCA419002B6E11 /* DeviceViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */; };
 		0462CDB01FFCA41A002B6E11 /* BTDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */; };
 		0462CDB11FFCA41A002B6E11 /* BTDeviceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */; };
-		0462CDB21FFCA41A002B6E11 /* DeviceManagerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */; };
+		0462CDB21FFCA41A002B6E11 /* DeviceViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */; };
 		0462CDB31FFCA426002B6E11 /* RequestBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14891FF4DD2200A67AA0 /* RequestBlock.swift */; };
 		0462CDB41FFCA426002B6E11 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0921FEB55D9007441E1 /* BaseModel.swift */; };
 		0462CDB51FFCA426002B6E11 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC131FF375CF0017D2B2 /* LoginModel.swift */; };
@@ -203,15 +203,30 @@
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
+		8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */; };
+		8F9A7CC12003465D003BABB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC02003465D003BABB1 /* MenuViewController.swift */; };
+		8F9A7CC920035B42003BABB1 /* SMTOWN(OTF)-Rounded.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC320035B42003BABB1 /* SMTOWN(OTF)-Rounded.otf */; };
+		8F9A7CCA20035B42003BABB1 /* SMTOWN(OTF)-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC420035B42003BABB1 /* SMTOWN(OTF)-Light.otf */; };
+		8F9A7CCB20035B42003BABB1 /* SMTOWN(OTF)-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC520035B42003BABB1 /* SMTOWN(OTF)-Regular.otf */; };
+		8F9A7CCC20035B42003BABB1 /* SMTOWN(OTF)-Stencil.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC620035B42003BABB1 /* SMTOWN(OTF)-Stencil.otf */; };
+		8F9A7CCD20035B42003BABB1 /* SMTOWN(OTF)-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC720035B42003BABB1 /* SMTOWN(OTF)-Bold.otf */; };
+		8F9A7CCE20035B42003BABB1 /* SMTOWN(OTF)-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC820035B42003BABB1 /* SMTOWN(OTF)-Medium.otf */; };
+		8F9A7CD020035F0E003BABB1 /* TextViewWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CCF20035F0E003BABB1 /* TextViewWithInsets.swift */; };
 		A2D896F567E23F4060F7E849 /* Pods_BoostMINI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE278FD296F77407907664D /* Pods_BoostMINI.framework */; };
 		A62352381FF390690007949C /* GithupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352341FF390680007949C /* GithupService.swift */; };
 		A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352351FF390680007949C /* ViewControllerReactor.swift */; };
 		A623523A1FF390690007949C /* Gitup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352361FF390680007949C /* Gitup.swift */; };
 		A623523B1FF390690007949C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352371FF390680007949C /* ViewController.swift */; };
 		A696AE8B1FF5E8EB009B8FEF /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */; };
-		A696AE8D1FF5E91D009B8FEF /* DeviceManagerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */; };
+		A696AE8D1FF5E91D009B8FEF /* DeviceViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */; };
 		A696AE8F1FF5E98F009B8FEF /* BTDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */; };
 		A696AE911FF5E9B4009B8FEF /* BTDeviceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */; };
+		A6F3506D20033EB900949BB2 /* BTDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */; };
+		A6F3506E20033EB900949BB2 /* BTDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */; };
+		A6F3506F20033EB900949BB2 /* BTDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */; };
+		A6F35071200349AB00949BB2 /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6F35070200349AB00949BB2 /* Device.strings */; };
+		A6F35072200349AB00949BB2 /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6F35070200349AB00949BB2 /* Device.strings */; };
+		A6F35073200349AB00949BB2 /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6F35070200349AB00949BB2 /* Device.strings */; };
 		BBAF3A4D59706FBA1EFD8D35 /* Pods_BoostMINITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4155BB6AAAB709628F89E0 /* Pods_BoostMINITests.framework */; };
 		F09898D50B38AE54B80FA5B2 /* Pods_BoostMINIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16F373D47E958D80ABF787 /* Pods_BoostMINIUITests.framework */; };
 /* End PBXBuildFile section */
@@ -325,6 +340,15 @@
 		8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationViewController.swift; sourceTree = "<group>"; };
 		8F82C1641FF36D810031D030 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8F82C1721FF38EC30031D030 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		8F9A7CC02003465D003BABB1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		8F9A7CC320035B42003BABB1 /* SMTOWN(OTF)-Rounded.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SMTOWN(OTF)-Rounded.otf"; sourceTree = "<group>"; };
+		8F9A7CC420035B42003BABB1 /* SMTOWN(OTF)-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SMTOWN(OTF)-Light.otf"; sourceTree = "<group>"; };
+		8F9A7CC520035B42003BABB1 /* SMTOWN(OTF)-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SMTOWN(OTF)-Regular.otf"; sourceTree = "<group>"; };
+		8F9A7CC620035B42003BABB1 /* SMTOWN(OTF)-Stencil.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SMTOWN(OTF)-Stencil.otf"; sourceTree = "<group>"; };
+		8F9A7CC720035B42003BABB1 /* SMTOWN(OTF)-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SMTOWN(OTF)-Bold.otf"; sourceTree = "<group>"; };
+		8F9A7CC820035B42003BABB1 /* SMTOWN(OTF)-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SMTOWN(OTF)-Medium.otf"; sourceTree = "<group>"; };
+		8F9A7CCF20035F0E003BABB1 /* TextViewWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithInsets.swift; sourceTree = "<group>"; };
 		A623522F1FF35ED60007949C /* Moya File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Moya File.xctemplate"; sourceTree = "<group>"; };
 		A62352301FF35ED60007949C /* Reactor File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Reactor File.xctemplate"; sourceTree = "<group>"; };
 		A62352341FF390680007949C /* GithupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithupService.swift; sourceTree = "<group>"; };
@@ -332,9 +356,11 @@
 		A62352361FF390680007949C /* Gitup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gitup.swift; sourceTree = "<group>"; };
 		A62352371FF390680007949C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
-		A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManagerReactor.swift; sourceTree = "<group>"; };
+		A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewReactor.swift; sourceTree = "<group>"; };
 		A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceService.swift; sourceTree = "<group>"; };
 		A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceNetwork.swift; sourceTree = "<group>"; };
+		A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceViewController.swift; sourceTree = "<group>"; };
+		A6F35070200349AB00949BB2 /* Device.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Device.strings; sourceTree = "<group>"; };
 		C6A81DC28D0A865EDC8E4162 /* Pods-BoostMINI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.debug.xcconfig"; sourceTree = "<group>"; };
 		D40819E4F294CFFA0F7529DC /* Pods-BoostMINI.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.stage.xcconfig"; sourceTree = "<group>"; };
 		D82B305D50ABA64EA1413891 /* Pods-BoostMINI.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.product.xcconfig"; sourceTree = "<group>"; };
@@ -480,6 +506,7 @@
 				2B5AA0901FEB55D2007441E1 /* BSTButton.swift */,
 				04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */,
 				0462CD971FFCA3FA002B6E11 /* TopTiltingView.swift */,
+				8F9A7CCF20035F0E003BABB1 /* TextViewWithInsets.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -520,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA08A1FEB5568007441E1 /* IntroViewController.swift */,
+				A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */,
 			);
 			path = IntroScreens;
 			sourceTree = "<group>";
@@ -589,6 +617,7 @@
 		2B5AA06F1FEA6187007441E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8F9A7CC220035B1D003BABB1 /* Font */,
 				0462CDF31FFE2B7B002B6E11 /* ColorPalette */,
 				A623522E1FF35E9F0007949C /* Template */,
 				2B5AA0711FEA61AC007441E1 /* Storyboards */,
@@ -606,6 +635,7 @@
 				0462CDF01FFE289A002B6E11 /* Error.strings */,
 				0462CDEA1FFE2799002B6E11 /* Login.strings */,
 				0462CDED1FFE287D002B6E11 /* Alert.strings */,
+				A6F35070200349AB00949BB2 /* Device.strings */,
 			);
 			path = Strings;
 			sourceTree = "<group>";
@@ -689,6 +719,7 @@
 			isa = PBXGroup;
 			children = (
 				8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */,
+				8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */,
 			);
 			path = SettingScreens;
 			sourceTree = "<group>";
@@ -700,8 +731,22 @@
 				8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */,
 				8F6290C01FFCADB500689B91 /* InformationView.xib */,
 				8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */,
+				8F9A7CC02003465D003BABB1 /* MenuViewController.swift */,
 			);
 			path = HomeScreens;
+			sourceTree = "<group>";
+		};
+		8F9A7CC220035B1D003BABB1 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8F9A7CC720035B42003BABB1 /* SMTOWN(OTF)-Bold.otf */,
+				8F9A7CC420035B42003BABB1 /* SMTOWN(OTF)-Light.otf */,
+				8F9A7CC820035B42003BABB1 /* SMTOWN(OTF)-Medium.otf */,
+				8F9A7CC520035B42003BABB1 /* SMTOWN(OTF)-Regular.otf */,
+				8F9A7CC320035B42003BABB1 /* SMTOWN(OTF)-Rounded.otf */,
+				8F9A7CC620035B42003BABB1 /* SMTOWN(OTF)-Stencil.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		A623522E1FF35E9F0007949C /* Template */ = {
@@ -738,7 +783,7 @@
 		A696AE891FF5E8B4009B8FEF /* Reactor */ = {
 			isa = PBXGroup;
 			children = (
-				A696AE8C1FF5E91D009B8FEF /* DeviceManagerReactor.swift */,
+				A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */,
 			);
 			path = Reactor;
 			sourceTree = "<group>";
@@ -892,16 +937,23 @@
 				0462CE001FFE2C90002B6E11 /* BoostMini.clr in Resources */,
 				8F6290C11FFCADB500689B91 /* InformationView.xib in Resources */,
 				2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */,
+				8F9A7CCA20035B42003BABB1 /* SMTOWN(OTF)-Light.otf in Resources */,
 				2B5AA09D1FEB566C007441E1 /* Common.strings in Resources */,
+				8F9A7CCC20035B42003BABB1 /* SMTOWN(OTF)-Stencil.otf in Resources */,
 				0462CDF11FFE289A002B6E11 /* Error.strings in Resources */,
+				8F9A7CC920035B42003BABB1 /* SMTOWN(OTF)-Rounded.otf in Resources */,
 				2B61F0441FDFA49500581F06 /* Assets.xcassets in Resources */,
+				8F9A7CCD20035B42003BABB1 /* SMTOWN(OTF)-Bold.otf in Resources */,
 				8F82C1651FF36D810031D030 /* Home.storyboard in Resources */,
 				0462CDEE1FFE287E002B6E11 /* Alert.strings in Resources */,
 				2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */,
+				8F9A7CCE20035B42003BABB1 /* SMTOWN(OTF)-Medium.otf in Resources */,
 				0462CDEB1FFE2799002B6E11 /* Login.strings in Resources */,
 				0462CD8D1FFB798D002B6E11 /* Theme.xcassets in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
+				A6F35071200349AB00949BB2 /* Device.strings in Resources */,
 				2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */,
+				8F9A7CCB20035B42003BABB1 /* SMTOWN(OTF)-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,6 +961,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F35072200349AB00949BB2 /* Device.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,6 +969,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F35073200349AB00949BB2 /* Device.strings in Resources */,
 				0462CDEC1FFE2799002B6E11 /* Login.strings in Resources */,
 				0462CDEF1FFE287E002B6E11 /* Alert.strings in Resources */,
 				04AD73F01FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
@@ -1247,6 +1301,7 @@
 				04AD741A1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				2B5AA0991FEB5639007441E1 /* OpenSourceSample.swift in Sources */,
 				2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */,
+				8F9A7CD020035F0E003BABB1 /* TextViewWithInsets.swift in Sources */,
 				0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
 				0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */,
@@ -1254,6 +1309,7 @@
 				2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */,
 				049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */,
 				8F391FFD1FFF415300A46996 /* HelpWebViewController.swift in Sources */,
+				A6F3506D20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				0412CB7B1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */,
 				0462CDE51FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A691FEC962600896EE0 /* String+Format.swift in Sources */,
@@ -1273,11 +1329,12 @@
 				04AD73FF1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift in Sources */,
 				2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */,
 				045D148A1FF4DD2200A67AA0 /* RequestBlock.swift in Sources */,
+				8F9A7CC12003465D003BABB1 /* MenuViewController.swift in Sources */,
 				2B5AA0951FEB55E4007441E1 /* ExceptionHandler.swift in Sources */,
 				04122A651FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */,
 				0462CD981FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
-				A696AE8D1FF5E91D009B8FEF /* DeviceManagerReactor.swift in Sources */,
+				A696AE8D1FF5E91D009B8FEF /* DeviceViewReactor.swift in Sources */,
 				2B5AA07F1FEA62A7007441E1 /* Definitions.swift in Sources */,
 				2B55BC141FF375CF0017D2B2 /* LoginModel.swift in Sources */,
 				8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */,
@@ -1289,6 +1346,7 @@
 				045D14841FF4A9B400A67AA0 /* Optional+logError.swift in Sources */,
 				A623523A1FF390690007949C /* Gitup.swift in Sources */,
 				8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */,
+				8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */,
 				2B5AA08B1FEB5568007441E1 /* IntroViewController.swift in Sources */,
 				04838474200331BC007DE69B /* CrashlyticsDestination.swift in Sources */,
 			);
@@ -1331,7 +1389,7 @@
 				0462CDBC1FFCA426002B6E11 /* BSTUXHandler-Alert.swift in Sources */,
 				04122A791FECE9A200896EE0 /* CommonUtil.swift in Sources */,
 				0462CD9B1FFCA407002B6E11 /* GithupService.swift in Sources */,
-				0462CDAF1FFCA419002B6E11 /* DeviceManagerReactor.swift in Sources */,
+				0462CDAF1FFCA419002B6E11 /* DeviceViewReactor.swift in Sources */,
 				0462CDE21FFDF964002B6E11 /* R.generated.swift in Sources */,
 				0462CDA71FFCA410002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				04122A801FECE9AE00896EE0 /* AppDelegate.swift in Sources */,
@@ -1341,6 +1399,7 @@
 				0462CDA91FFCA410002B6E11 /* UIViewController+Storyboard.swift in Sources */,
 				0462CD9F1FFCA407002B6E11 /* LibrarySample.swift in Sources */,
 				0462CDC81FFCA430002B6E11 /* ConcertInformationViewController.swift in Sources */,
+				A6F3506E20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				04AD74101FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
 				04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */,
 				04122A781FECE9A200896EE0 /* BSTButton.swift in Sources */,
@@ -1388,11 +1447,12 @@
 				0462CDA31FFCA408002B6E11 /* ViewControllerReactor.swift in Sources */,
 				0462CDCF1FFCA431002B6E11 /* ConcertInformationViewController.swift in Sources */,
 				0462CDCE1FFCA431002B6E11 /* HomeViewController.swift in Sources */,
-				0462CDB21FFCA41A002B6E11 /* DeviceManagerReactor.swift in Sources */,
+				0462CDB21FFCA41A002B6E11 /* DeviceViewReactor.swift in Sources */,
 				04122A631FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				0462CDE61FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A7E1FECE9A300896EE0 /* CommonUtil.swift in Sources */,
 				0412CB7D1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */,
+				A6F3506F20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				0462CDA21FFCA408002B6E11 /* ViewController.swift in Sources */,
 				0462CDD51FFCA431002B6E11 /* Definitions.swift in Sources */,
 				0462CDC11FFCA426002B6E11 /* NotificationModel.swift in Sources */,

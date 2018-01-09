@@ -10,6 +10,7 @@ import UIKit
 
 class ConcertInformationView: UIView {
     
+
     @IBOutlet weak var arrowButton: UIButton!
     @IBOutlet weak var topTiltingView: TopTiltingView!
     
@@ -19,6 +20,35 @@ class ConcertInformationView: UIView {
     class func instanceFromNib() -> ConcertInformationView {
         return UINib(nibName: "InformationView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ConcertInformationView
     }
+    
+  /*
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        contentView = loadViewFromNib()
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(contentView)
+        
+        layoutIfNeeded()
+    }
+    
+    func loadViewFromNib() -> UIView! {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "InformationView", bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        return view
+    }
+ 
+ */
     
 //    var points = [
 //        CGPoint(x: 0, y:0.1),

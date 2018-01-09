@@ -40,17 +40,17 @@ struct Repository: Mappable {
     }
 }
 
-struct Issue: Mappable {
-    let identifier: Int
-    let number: Int
-    let title: String
-    let body: String
-    
-    init(map: Mapper) throws {
-        try identifier = map.from("id")
-        try number = map.from("number")
-        try title = map.from("title")
-        try body = map.from("body")
+struct Issue: Codable {
+    var identifier: Int
+    var number: Int
+    var title: String
+    var body: String
+
+    enum CodingKeys: String, CodingKey {
+        case identifier = "id"
+        case number = "number"
+        case title = "title"
+        case body = "body"
     }
 }
 
@@ -66,21 +66,21 @@ struct GithubService {
             .asObservable()
     }
     
-    func trackIssues(query:String) -> Observable<[Issue]> {
-        return  self.findRepository(name: query)
-            .flatMapLatest({
-                repository -> Observable<[Issue]?> in
-                guard let repository = repository else { return Observable.just(nil)}
-                return self.findIssues(repository: repository)
-            })
-        .replaceNilWith([])
-    }
+//    func trackIssues(query:String) -> Observable<[Issue]> {
+//        return  self.findRepository(name: query)
+//            .flatMapLatest({
+//                repository -> Observable<[Issue]?> in
+//                guard let repository = repository else { return Observable.just(nil)}
+//                return self.findIssues(repository: repository)
+//            })
+//        .replaceNilWith([])
+//    }
     
-    internal func findIssues(repository: Repository) -> Observable<[Issue]?> {
+    internal func findIssues(repository: Repository) -> Observable<[Issue]> {
         return self.provider.rx
             .request(GitHub.issues(repositoryFullName: repository.fullName))
             .debug()
-            .mapOptional(to: [Issue].self)
+            .map([Issue].self)
             .asObservable()
     }
     

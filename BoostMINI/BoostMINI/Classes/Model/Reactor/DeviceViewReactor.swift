@@ -17,7 +17,7 @@ import RxSwift
 import CoreBluetooth
 import RxBluetoothKit
 
-final class DeviceManagerReactor : Reactor {
+final class DeviceViewReactor : Reactor {
     
     enum Action {
         case scanDevice
@@ -37,6 +37,8 @@ final class DeviceManagerReactor : Reactor {
         case blinkLight(Bool)
         case registerDevice(Bool)
         case loadRegisterDevice(BSTLocalDevice?)
+        case deviceError(BSTError)
+        case contentMsg(ContentMessage)
     }
     
     struct State {
@@ -49,11 +51,15 @@ final class DeviceManagerReactor : Reactor {
         var isBlink : Bool = false
         var isRegister : Bool = false
         var registeredDevice : BSTLocalDevice?
+        var deviceError : BSTError?
+        var contentMsg : ContentMessage = ContentMessage.notScanning
     }
     
     let initialState = State()
     
     fileprivate let service : BTDeviceService
+    
+    fileprivate let device = BSTFacade.device
     
     init(service : BTDeviceService) {
         self.service = service
@@ -69,29 +75,39 @@ final class DeviceManagerReactor : Reactor {
             
             let startScan = Observable<Mutation>.just(.scanDevice(true))
             let stopScan = Observable<Mutation>.just(.scanDevice(false))
-            let setDevice = self.service.startScan().map {Mutation.setDiscoverDevice($0)}
             
-            //-> error handle sample
             do {
-                let setDevice2 = try self.service.startScan2().map {Mutation.setDiscoverDevice($0)}
-//                return Observable.concat([startScan, setDevice, stopScan])
+                let setDevice = try self.service.startScan().map {Mutation.setDiscoverDevice($0)}
+                return Observable.concat([startScan, setDevice, stopScan])
             } catch let error {
                 if case let error as DeviceError = error {
-                    error.cook(startScan) //둘 중 하나 사용하면 됨.
-//                    error.cook()
+                    let bstError = Observable<Mutation>.just(.deviceError(BSTError.device(error)))
+                    self.device.receiveError(error: error)
+                    return Observable.concat([stopScan, bstError])
+                } else {
+                    return Observable.concat([stopScan])
                 }
             }
-            //-> error handle sample
-            
-            return Observable.concat([startScan, setDevice, stopScan])
             
         case let .pairingDevice(peripheral):
-            
             let paring = Observable<Mutation>.just(.paringDevice(true))
-            let setActiveDevice = self.service.connect(scannedPeripheral: peripheral).map { Mutation.setActiveDevice($0) }
-            let setCharacteristic = self.service.setChracteristic(scannedPeripheral: peripheral).map { Mutation.setCharacteristic($0) }
+            let paringError = Observable<Mutation>.just(.paringDevice(false))
             
-            return Observable.concat([paring, setActiveDevice, setCharacteristic])
+            let contentMsg = Observable<Mutation>.just(.contentMsg(ContentMessage.connectedDevice))
+            
+            do {
+                let setActiveDevice = try self.service.connect(scannedPeripheral: peripheral).map { Mutation.setActiveDevice($0) }
+                let setCharacteristic = try self.service.setChracteristic(scannedPeripheral: peripheral).map { Mutation.setCharacteristic($0) }
+                return Observable.concat([paring, setActiveDevice, setCharacteristic, contentMsg])
+            } catch let error {
+                if case let error as DeviceError = error {
+                    let bstError = Observable<Mutation>.just(.deviceError(BSTError.device(error)))
+                    self.device.receiveError(error: error)
+                    return Observable.concat([paringError, bstError])
+                } else {
+                    return Observable.concat([paringError])
+                }
+            }
             
         case .blinkLight :
             return Observable.just(Mutation.blinkLight(true))
@@ -100,16 +116,19 @@ final class DeviceManagerReactor : Reactor {
         case .registerDevice :
             let device = self.currentState.activePeripheral
             let isRegister = self.service.saveDevice(device: device).map { Mutation.registerDevice($0) }
-            let registeredDevice = Observable.just(self.service.loadDevice()).map { Mutation.loadRegisterDevice($0) }
             
-            return Observable.concat([isRegister, registeredDevice])
+            if let loadDevice = self.service.loadDevice() {
+                let registeredDevice = Observable.just(loadDevice).map { Mutation.loadRegisterDevice($0) }
+                self.device.registeredDeviceObserver.onNext(loadDevice)
+                return Observable.concat([isRegister, registeredDevice])
+            }
+            return Observable.concat([isRegister])
         }
     }
-    
+
+// swiftlint:disable:next cyclomatic_complexity
     func reduce(state: State, mutation: Mutation) -> State {
-        
         var newState = state
-        
         switch mutation {
         case let .scanDevice(isScan):
             newState.isScanDevice = isScan
@@ -129,8 +148,32 @@ final class DeviceManagerReactor : Reactor {
             newState.isRegister = isRegister
         case let .loadRegisterDevice(device):
             newState.registeredDevice = device
+        case .deviceError(let error):
+            newState.deviceError = error
+        case .contentMsg(let msg):
+            newState.contentMsg = msg
         }
-
         return newState
+    }
+}
+
+enum ContentMessage {
+    
+    typealias RDevice = R.string.device
+    typealias RCommon = R.string.common
+    
+    case notScanning
+    case connectedDevice
+    case showUser(String)
+    
+    var content: String {
+        switch self {
+        case .notScanning:
+            return RDevice.btContentScan()
+        case .connectedDevice:
+            return RDevice.btContentConnected()
+        case .showUser(let user):
+            return RDevice.btContentUserInfo(user)
+        }
     }
 }
