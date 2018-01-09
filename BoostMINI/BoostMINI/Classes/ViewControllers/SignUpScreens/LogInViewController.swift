@@ -26,6 +26,17 @@ class LogInViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		// TEST
+		
+		
+		
+		let ob = DefaultAPI.getVersionUsingGET()
+		ob.map { resp in
+			BSTFacade.ux.showAlert("\(resp)")
+			
+		}
+
+		
 		initUI()
 		initEvents()
 	}

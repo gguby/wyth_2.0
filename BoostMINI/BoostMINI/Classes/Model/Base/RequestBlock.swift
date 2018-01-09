@@ -9,7 +9,7 @@
 
 import UIKit
 import Alamofire
-import CodableAlamofire
+//import CodableAlamofire
 
 public class RequestOption {
 	public let method: HTTPMethod
@@ -30,34 +30,27 @@ public class RequestOption {
 
 
 class ResponseBlock<S: BaseModel> {
-	var error: Error?	// = nil
-	var data: [S]?		// = nil
-	var first: S? {
-		return data?.first
-	}
-	var isSucceed: Bool {
-		return error != nil || data != nil
-	}
+	var data: S?		// = nil
 	
 	init() { }
-	convenience init(from: DataResponse<[S]>) throws {
-        if let response = from.response, response.isNotOk {
-            throw BSTError.api(APIError(rawValue: response.statusCode)!)
-        }
-        
-		self.init(data:from.result.value, error:from.error)
+
+	convenience init(from: Response<S>?) throws {
+		// swagger's
+		guard let response = from else {
+			throw BSTError.nilError
+		}
+		if response.isNotOk {
+			throw BSTError.api(APIError(rawValue: response.statusCode)!)
+		}
+		
+		let data = response.body as? S
+		self.init(data:data)
 	}
-	convenience init(from: DataResponse<S>) throws {
-        if let response = from.response, response.isNotOk {
-            throw BSTError.api(APIError(rawValue: response.statusCode)!)
-        }
-        
-		let arr: [S] = from.result.value == nil ? [] : [from.result.value!]
-		self.init(data:arr, error:from.error)
-	}
-	init(data: [S]?, error: Error?) {
-		self.error = error ?? self.error
+
+	
+	init(data: S?) {
 		self.data = data ?? self.data
 	}
 }
+
 

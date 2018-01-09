@@ -1,0 +1,6 @@
+{
+ "projectName":"BoostMINI",
+ "responseAs" : "RxSwift",
+ "swiftUseApiNamespace": false,
+ "lenientTypeCast" : true
+}   

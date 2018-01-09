@@ -98,6 +98,7 @@ class BSTUXHanlder {
 	}
 
 	
+	
 	/// 알럿창을 띄운다.
 	///
 	///

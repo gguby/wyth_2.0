@@ -30,6 +30,7 @@ public struct BSTAPIServer {
 	
 	/// api server base url
 	let base = "http://boost.api.dev.com/"
+	let baseJson = "http://boostdev.lysn.com/v2/api-docs?group=API"
 	let path = BSTPath()
 }
 

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //		Logger.destination = [.console, .file]
         		Logger.setMinLogLevel(.verbose)
 
+		
         //		logVerbose("verbose")
         //		logDebug("debug")
         //		logInfo("info")
