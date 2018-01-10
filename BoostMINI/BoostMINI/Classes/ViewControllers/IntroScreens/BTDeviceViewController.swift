@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import ReactorKit
-
+import RxViewController
 
 class BTDeviceViewController : UIViewController, StoryboardView {
     
@@ -37,7 +37,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         self.cancel.setTitle(RCommon.cancel(), for: .normal)
         self.stickImage.alpha = 0.3
         
-        self.blinkImage()
     }
     
     func blinkImage() {
@@ -60,6 +59,11 @@ class BTDeviceViewController : UIViewController, StoryboardView {
     
     func bind(reactor: DeviceViewReactor) {
         
+        self.rx.viewDidAppear
+            .map { _ in Reactor.Action.allInOne }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         self.cancel.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
@@ -68,6 +72,19 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         
         reactor.state.map { $0.contentMsg.content }
             .bind(to: self.contentLbl.rx.text)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.contentMsg.content }
+            .subscribe(onNext: {
+                print($0)
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isParingDevice }
+            .subscribe(onNext: { true
+                print($0)
+                self.blinkImage()
+            })
             .disposed(by: disposeBag)
     }
     

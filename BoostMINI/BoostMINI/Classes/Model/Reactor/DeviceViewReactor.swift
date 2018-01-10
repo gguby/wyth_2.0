@@ -25,11 +25,13 @@ final class DeviceViewReactor : Reactor {
         case blinkLight
         case writeCode
         case registerDevice
+        
+        case allInOne
     }
     
     enum Mutation {
         case scanDevice(Bool)
-        case setDiscoverDevice([ScannedPeripheral])
+        case setDiscoverDevice(ScannedPeripheral)
         case paringDevice(Bool)
         case setActiveDevice(Peripheral)
         case setCharacteristic(Characteristic)
@@ -44,7 +46,7 @@ final class DeviceViewReactor : Reactor {
     struct State {
         var isScanDevice : Bool = false
         var isParingDevice : Bool = false
-        var discoverPeripherals : [ScannedPeripheral]?
+        var discoverPeripherals : [ScannedPeripheral] = []
         var activePeripheral : Peripheral?
         var characteristic : Characteristic?
         var writeCode : String?
@@ -71,6 +73,14 @@ final class DeviceViewReactor : Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case .allInOne :
+            
+            let paring = Observable<Mutation>.just(.paringDevice(true))
+            let contentMsg = Observable<Mutation>.just(.contentMsg(ContentMessage.connectedDevice))
+            let setCharacteristic = self.service.connectAll().map { Mutation.setCharacteristic($0) }
+            
+            return Observable.concat([paring, setCharacteristic, contentMsg])
+            
         case .scanDevice:
             
             let startScan = Observable<Mutation>.just(.scanDevice(true))
@@ -125,6 +135,18 @@ final class DeviceViewReactor : Reactor {
             return Observable.concat([isRegister])
         }
     }
+    
+    private func addNewScannedPeripheral(_ peripheral: ScannedPeripheral) -> [ScannedPeripheral] {
+        var discoverPeripherals = self.currentState.discoverPeripherals
+        let mapped = discoverPeripherals.map { $0.peripheral }
+        if let indx = mapped.index(of: peripheral.peripheral) {
+            discoverPeripherals[indx] = peripheral
+        } else {
+            discoverPeripherals.append(peripheral)
+        }
+        
+        return discoverPeripherals
+    }
 
 // swiftlint:disable:next cyclomatic_complexity
     func reduce(state: State, mutation: Mutation) -> State {
@@ -132,14 +154,16 @@ final class DeviceViewReactor : Reactor {
         switch mutation {
         case let .scanDevice(isScan):
             newState.isScanDevice = isScan
-        case let .setDiscoverDevice(scanDeviceList):
-            newState.discoverPeripherals = scanDeviceList
+        case let .setDiscoverDevice(scanDevice):
+            print(scanDevice.advertisementData)
+            newState.discoverPeripherals = self.addNewScannedPeripheral(scanDevice)
         case let .paringDevice(paring):
             newState.isParingDevice = paring
         case let .setActiveDevice(activePeripheral):
             newState.activePeripheral = activePeripheral
         case let .setCharacteristic(characteristic):
             newState.characteristic = characteristic
+            newState.isParingDevice = true
         case let .blinkLight(blink):
             newState.isBlink = blink
         case let .setWriteCode(code):

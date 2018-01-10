@@ -41,6 +41,7 @@ def open_sources
   pod 'Moya/RxSwift'
   pod 'Moya-ModelMapper/RxSwift'
   pod 'RxOptional'
+  pod 'RxViewController'
 
 # BluetoothKt
     pod 'RxBluetoothKit'
