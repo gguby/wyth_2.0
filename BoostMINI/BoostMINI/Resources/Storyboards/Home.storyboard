@@ -869,9 +869,9 @@
                                     <constraint firstAttribute="width" constant="155" id="WSK-46-Bqp"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySm-lY-W5m">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySm-lY-W5m" userLabel="ImageTicketView" customClass="ConcertInfoView" customModule="BoostMINI" customModuleProvider="target">
                                 <rect key="frame" x="41.5" y="373" width="291" height="260"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="291" id="J4n-vq-L2c"/>
                                     <constraint firstAttribute="height" constant="260" id="Mtl-gH-xYa"/>
@@ -895,6 +895,7 @@
                     <connections>
                         <outlet property="cancel" destination="9Fp-08-p7k" id="Yvd-de-glX"/>
                         <outlet property="contentLbl" destination="j1f-Bn-r6E" id="Bqk-Lk-eMm"/>
+                        <outlet property="imageTicketView" destination="ySm-lY-W5m" id="z5I-78-jpl"/>
                         <outlet property="stickImage" destination="oYL-H9-ROX" id="o0r-xY-ooI"/>
                         <outlet property="titleLbl" destination="bvU-5i-Zoy" id="zMZ-iP-25r"/>
                     </connections>
