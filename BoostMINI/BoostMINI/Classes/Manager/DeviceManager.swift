@@ -13,8 +13,6 @@ import CoreBluetooth
 
 final class DeviceManager {
     
-    var reactor : DeviceViewReactor
-
     var isConnectedObserver = PublishSubject<Bool>()
     
     var registeredDeviceObserver = PublishSubject<BSTLocalDevice>()
@@ -27,7 +25,6 @@ final class DeviceManager {
     let disposeBag = DisposeBag()
     
     init() {
-        self.reactor = DeviceViewReactor.init(service: BTDeviceService.init())
         self.bind()
     }
     
