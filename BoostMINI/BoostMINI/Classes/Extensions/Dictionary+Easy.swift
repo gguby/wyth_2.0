@@ -23,7 +23,7 @@ extension Dictionary where Key: Any, Value: Any {
         }
     }
 
-    /// key가 없을 때에만 업데이트.
+    /// key가 있을 때에만 업데이트.
     /// key가 있는데 object가 nil이면 제거되고, 있으면 업데이트됨.
     ///
     /// - Parameters:

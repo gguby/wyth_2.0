@@ -25,7 +25,6 @@ class TopTiltingView: UIView {
 	public var useCenter: Bool = true
 	
 	override func willMove(toSuperview newSuperview: UIView?) {
-		
 	}
 	
 	override func layoutSubviews() {
@@ -60,6 +59,8 @@ class TopTiltingView: UIView {
 			if self.layer.mask == nil {
 				// 초기값도 세팅되지 않은 녀석이다. 일단 없는쪽에서 출발하도록 설정.
 				self.layer.mask = getTiltMaskPercentage(1.0, 1.0)
+				self.layer.allowsEdgeAntialiasing = true
+
 			}
 			let newPath = self.getTiltPath(heightCCW)
 			updateAnimateMask(newPath, duration)
@@ -68,6 +69,8 @@ class TopTiltingView: UIView {
 		
 		let maskLayer = getTiltMask(heightCCW)
 		self.layer.mask = maskLayer
+		self.layer.allowsEdgeAntialiasing = true
+
 	}
 	
 	
@@ -98,6 +101,8 @@ class TopTiltingView: UIView {
 			if self.layer.mask == nil {
 				// 초기값도 세팅되지 않은 녀석이다. 일단 없는쪽에서 출발하도록 설정.
 				self.layer.mask = getTiltMaskPercentage(1.0.c, 1.0.c)
+				self.layer.allowsEdgeAntialiasing = true
+
 			}
 			let newPath = self.getTiltPathPercentage(leftTopMaskPercentage, rightTopMaskPercentage, maxHeightLimit)
 			updateAnimateMask(newPath, duration)
@@ -106,6 +111,8 @@ class TopTiltingView: UIView {
 		
 		let maskLayer = getTiltMaskPercentage(1.0, 1.0)
 		self.layer.mask = maskLayer
+		self.layer.allowsEdgeAntialiasing = true
+
 
 	}
 	

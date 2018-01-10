@@ -16,7 +16,8 @@ class MenuViewController: UIViewController {
 
     // MARK: - * IBOutlets --------------------
 
-    @IBOutlet weak var tiltingView: TopTiltingView!
+    @IBOutlet weak var diagonalImageView: UIImageView!
+    
     
     // MARK: - * Initialize --------------------
 
@@ -35,7 +36,7 @@ class MenuViewController: UIViewController {
 
 
     private func initUI() {
-
+        diagonalImageView.transform = diagonalImageView.transform.rotated(by: CGFloat.init(M_PI))
     }
 
 
@@ -46,16 +47,11 @@ class MenuViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if(tiltingView.isHidden){
-            showStartAnimation()
-        }
+        
     }
 
     // MARK: - * Main Logic --------------------
-    func showStartAnimation() {
-        tiltingView.isHidden = false
-    }
-
+    
     // MARK: - * UI Events --------------------
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

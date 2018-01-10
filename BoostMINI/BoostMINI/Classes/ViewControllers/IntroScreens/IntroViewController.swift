@@ -31,35 +31,36 @@ extension IntroViewController {
 	
 	
 	private func checkVersion() {
-		// 버전을 체크한다.
-		AppVersionModel.get { block in
-
-			// TODO: api 실패해도 우선 진행
-			let block_isSucceed = true	//block.isSucceed
-			if not(block_isSucceed) {
-				let msg = "API test 1 : failed"
-				logWarning(msg)
-				BSTFacade.ux.showToast(msg)
+		
+		DefaultAPI.getVersionUsingGET { [weak self] body, err in
+			
+			if let bstError = err as? BSTError {
+				bstError.cook()
 				return
 			}
-			let data = block.data?.first
 			
-			logVerbose("AppVersionModel = \(String(describing: data))")
-			
-			let forceUpdate = data?.isForceUpdate ?? false
-			let isNeedUpdate = data?.isNeedUpdate ?? false
-			
-			// TODO : 서버 응답없는 경우도 필요하다. 하지만 이는 네트워크 에러 핸들링에서 해주게 될 것이다.
-			
-			RunInNextMainThread {
-				if isNeedUpdate {
-					self.showUpdateAlert(forceUpdate: forceUpdate)
-				} else {
-					self.versionConfirmed()
-				}
+			guard let data = body else {
+				///BSTFacade.localizable
+				BSTFacade.ux.showConfirm(BSTFacade.localizable.login.agreement(), { [weak self] isOk in
+					if isOk == true {
+						// retry...
+						RunInNextMainThread {
+							self?.checkVersion()
+						}
+					}
+				})
+				return
 			}
+			
+		
+			if let vv = data.version, vv > BSTApplication.shortVersion ?? "" {
+				self?.showUpdateAlert(forceUpdate: data.forceUpdate ?? false)
+			}
+			
+			self?.versionConfirmed()
 		}
 	}
+		
 	
 	func showUpdateAlert(forceUpdate: Bool = false) {
 		BSTFacade.ux
@@ -91,7 +92,7 @@ extension IntroViewController {
 		logVerbose("Loginned? = \(SessionHandler.shared.isLoginned)")
 		
 		// TODO : 로그인이 유효한지의 여부를 서버로부터 확인해야 하면 여기에 추가한다.
-		
+
 		if SessionHandler.shared.isLoginned {
 			// 로그인 유저
 			RunInNextMainThread(withDelay: 2.0, {
@@ -102,6 +103,7 @@ extension IntroViewController {
 			self.presentLogin()
 		}
 	}
+	
 
 	
 	func presentHome() {

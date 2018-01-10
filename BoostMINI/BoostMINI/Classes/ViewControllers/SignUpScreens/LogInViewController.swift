@@ -26,6 +26,11 @@ class LogInViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		// TEST
+		
+		
+		
+		
 		initUI()
 		initEvents()
 	}

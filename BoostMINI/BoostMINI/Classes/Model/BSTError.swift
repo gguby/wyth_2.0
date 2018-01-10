@@ -9,16 +9,21 @@
 import UIKit
 
 protocol BSTErrorProtocol: LocalizedError {
+    /// 해당 오류에 대한 사용자 메시지(alert, toast) 또는 Console 출력용 - //TODO: debug와 분리될 필요가 있을수 있음
 	var description: String { get }
+    
+    /// 에러 캐치 이후, 액션 처리를 위한 함수
+    ///
+    /// - Parameter object: 에러 처리 시 넘겨받기 위한 object
     func cook(_ object: Any?)
 }
 
 extension BSTErrorProtocol {
     func cook(_ object: Any? = nil) {
-        if object == nil {
-            logError("BSTERROR : \(self.description)")
+        if let obj = object {
+			logError("BSTERROR : \(self.description)", obj)
         } else {
-            logError("BSTERROR : \(self.description)", object!)
+			logError("BSTERROR : \(self.description)")
         }
     }
 }
@@ -31,7 +36,7 @@ enum LoginError: Error, BSTErrorProtocol {
         var desc = ""
         switch self {
         case .failed:
-            desc = BSTFacade.localizable.error.loginFailed()
+            desc = BSTFacade.localizable.error.loginFailed()    //Resources/Strings/Error.strings에 정의함
         case .failedCode(let code):
             desc = BSTFacade.localizable.error.loginFailedCode(code)
         default:
@@ -43,7 +48,7 @@ enum LoginError: Error, BSTErrorProtocol {
     func cook(_ object: Any? = nil) {
         switch self {
         case .failed:
-            BSTFacade.ux.showAlert(self.description)
+            BSTFacade.ux.showAlert(self.description) //alert 출력
         case .failedCode(let code):
             if code == -1 {
                 BSTFacade.ux.showAlert(self.description, {
@@ -131,7 +136,8 @@ enum BSTError: Error, BSTErrorProtocol {
     case isEmpty
     case argumentError
     case nilError
-    case unknown
+	case unknown
+	case typeDismatching
     case api(APIError)
     //    case api(code)
     //    case permission(PermissionErrorType)
@@ -149,6 +155,9 @@ enum BSTError: Error, BSTErrorProtocol {
             description = BSTFacade.localizable.error.nilError()
         case .unknown:
             description = BSTFacade.localizable.error.unknown()
+		case .typeDismatching:
+			description = "type mismatching error"
+
         case .api(let error):
             description = error.description
         case .device(let error):
