@@ -220,6 +220,9 @@
 		A6F35071200349AB00949BB2 /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6F35070200349AB00949BB2 /* Device.strings */; };
 		A6F35072200349AB00949BB2 /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6F35070200349AB00949BB2 /* Device.strings */; };
 		A6F35073200349AB00949BB2 /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6F35070200349AB00949BB2 /* Device.strings */; };
+		A6F3507520035FAC00949BB2 /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3507420035FAC00949BB2 /* UIImage+Alpha.swift */; };
+		A6F3507620035FAC00949BB2 /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3507420035FAC00949BB2 /* UIImage+Alpha.swift */; };
+		A6F3507720035FAC00949BB2 /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F3507420035FAC00949BB2 /* UIImage+Alpha.swift */; };
 		BBAF3A4D59706FBA1EFD8D35 /* Pods_BoostMINITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4155BB6AAAB709628F89E0 /* Pods_BoostMINITests.framework */; };
 		F09898D50B38AE54B80FA5B2 /* Pods_BoostMINIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16F373D47E958D80ABF787 /* Pods_BoostMINIUITests.framework */; };
 /* End PBXBuildFile section */
@@ -346,6 +349,7 @@
 		A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceNetwork.swift; sourceTree = "<group>"; };
 		A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceViewController.swift; sourceTree = "<group>"; };
 		A6F35070200349AB00949BB2 /* Device.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Device.strings; sourceTree = "<group>"; };
+		A6F3507420035FAC00949BB2 /* UIImage+Alpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Alpha.swift"; sourceTree = "<group>"; };
 		C6A81DC28D0A865EDC8E4162 /* Pods-BoostMINI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.debug.xcconfig"; sourceTree = "<group>"; };
 		D40819E4F294CFFA0F7529DC /* Pods-BoostMINI.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.stage.xcconfig"; sourceTree = "<group>"; };
 		D82B305D50ABA64EA1413891 /* Pods-BoostMINI.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.product.xcconfig"; sourceTree = "<group>"; };
@@ -567,6 +571,7 @@
 				0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */,
 				0462CD901FFB9A6C002B6E11 /* UIViewController+Storyboard.swift */,
 				0462CDD61FFDBC32002B6E11 /* UIView+HideAndShow.swift */,
+				A6F3507420035FAC00949BB2 /* UIImage+Alpha.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1259,6 +1264,7 @@
 				2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */,
 				0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
 				0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */,
+				A6F3507520035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
 				04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				045D14871FF4DBD900A67AA0 /* AppVersionModel.swift in Sources */,
 				2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */,
@@ -1320,6 +1326,7 @@
 				04AD74031FF33934005F4BF0 /* SessionManager.swift in Sources */,
 				0412CB781FFF7FD00059C5A4 /* APIRequest.swift in Sources */,
 				04122A5A1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
+				A6F3507620035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
 				04AD74171FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04122A771FECE9A200896EE0 /* ExceptionHandler.swift in Sources */,
 				0462CDB41FFCA426002B6E11 /* BaseModel.swift in Sources */,
@@ -1396,6 +1403,7 @@
 				0462CDAC1FFCA410002B6E11 /* UIViewController+Storyboard.swift in Sources */,
 				04122A7C1FECE9A300896EE0 /* ExceptionHandler.swift in Sources */,
 				0462CDD91FFDBC35002B6E11 /* UIView+HideAndShow.swift in Sources */,
+				A6F3507720035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
 				0462CDAB1FFCA410002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
 				04122A6B1FEC962600896EE0 /* String+Format.swift in Sources */,
 				0462CDD41FFCA431002B6E11 /* Constants.swift in Sources */,

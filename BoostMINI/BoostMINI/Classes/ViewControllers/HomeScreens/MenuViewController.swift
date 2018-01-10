@@ -58,6 +58,10 @@ class MenuViewController: UIViewController {
 
     // MARK: - * UI Events --------------------
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
 
     // MARK: - * Memory Manage --------------------
 

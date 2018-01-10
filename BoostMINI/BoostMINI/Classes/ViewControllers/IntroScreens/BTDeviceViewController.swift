@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import ReactorKit
 
 
@@ -29,8 +30,26 @@ class BTDeviceViewController : UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.titleLbl.text = RDevice.btContentScan()        
+        self.navigationController?.isNavigationBarHidden = true
+        self.titleLbl.text = RDevice.btTitleLbl()
         self.contentLbl.text = RDevice.btContentScan()
+        self.cancel.setTitle(RCommon.cancel(), for: .normal)
+        self.stickImage.alpha = 0.3
+        
+        self.blinkImage()
+    }
+    
+    func blinkImage() {
+        
+        guard let normalImage = R.image.imgStickImg()?.image(alpha: 0.3) else { return }
+        guard let blinkImage = R.image.imgStickImg() else { return }
+        
+        let images : [UIImage] = [normalImage, blinkImage, normalImage, blinkImage]
+        
+        self.stickImage.animationImages = images
+        self.stickImage.animationDuration = 0.5
+        self.stickImage.animationRepeatCount = 2
+        self.stickImage.startAnimating()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,6 +58,14 @@ class BTDeviceViewController : UIViewController, StoryboardView {
     }
     
     func bind(reactor: DeviceViewReactor) {
+        
+        self.cancel.rx.tap
+            .subscribe(onNext: { [weak self] event in
+                print(event)
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         reactor.state.map { $0.contentMsg.content }
             .bind(to: self.contentLbl.rx.text)
             .disposed(by: disposeBag)
