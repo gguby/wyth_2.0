@@ -37,6 +37,7 @@ class SMLoginViewController: WebViewController {
 		super.viewDidAppear(animated)
 	}
 	
+	
     func webView(_: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
 
         if navigationType != UIWebViewNavigationType.formSubmitted {

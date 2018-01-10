@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i0A-53-zQG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i0A-53-zQG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -19,7 +20,7 @@
         <!--SignUpNav-->
         <scene sceneID="QH1-q2-fzc">
             <objects>
-                <navigationController storyboardIdentifier="SignUpNav" title="SignUpNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i0A-53-zQG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SignUpNav" title="SignUpNav" useStoryboardIdentifierAsRestorationIdentifier="YES" hidesBarsWhenVerticallyCompact="YES" id="i0A-53-zQG" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bOL-v9-2ee">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -36,10 +37,6 @@
         <scene sceneID="Gya-DJ-Mgw">
             <objects>
                 <viewController storyboardIdentifier="LogInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VVU-KT-Asx" customClass="LogInViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HJ9-Lq-K6P"/>
-                        <viewControllerLayoutGuide type="bottom" id="1oD-Db-IXL"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pct-yq-kql">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,23 +131,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="h2D-Gr-f7c" firstAttribute="trailing" secondItem="pct-yq-kql" secondAttribute="trailing" id="1OM-Mx-RDU"/>
+                            <constraint firstItem="h2D-Gr-f7c" firstAttribute="trailing" secondItem="zy3-7H-KCJ" secondAttribute="trailing" id="1OM-Mx-RDU"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="width" secondItem="IyU-Jf-RZo" secondAttribute="width" id="A4d-PT-Mo7"/>
                             <constraint firstItem="kxo-tm-e7t" firstAttribute="width" secondItem="I2f-b3-VOc" secondAttribute="width" id="AYQ-3w-rJB"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" id="FwM-zQ-coa"/>
                             <constraint firstAttribute="bottom" secondItem="Ypa-mP-mgc" secondAttribute="bottom" id="Heg-6e-U9H"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="top" secondItem="kxo-tm-e7t" secondAttribute="bottom" constant="40" id="Ktn-Yq-yDD"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="bottom" secondItem="pct-yq-kql" secondAttribute="bottom" id="MAu-VR-1cU"/>
-                            <constraint firstItem="IyU-Jf-RZo" firstAttribute="centerX" secondItem="pct-yq-kql" secondAttribute="centerX" id="NsO-jF-QdZ"/>
+                            <constraint firstItem="IyU-Jf-RZo" firstAttribute="centerX" secondItem="zy3-7H-KCJ" secondAttribute="centerX" id="NsO-jF-QdZ"/>
                             <constraint firstItem="kxo-tm-e7t" firstAttribute="centerX" secondItem="I2f-b3-VOc" secondAttribute="centerX" id="eFH-HV-8UI"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="centerX" secondItem="IyU-Jf-RZo" secondAttribute="centerX" id="k23-8u-f7h"/>
-                            <constraint firstItem="1oD-Db-IXL" firstAttribute="top" secondItem="I2f-b3-VOc" secondAttribute="bottom" constant="91" id="kzi-hy-3k2"/>
-                            <constraint firstAttribute="trailing" secondItem="Ypa-mP-mgc" secondAttribute="trailing" id="pae-Sp-FSi"/>
+                            <constraint firstItem="zy3-7H-KCJ" firstAttribute="bottom" secondItem="I2f-b3-VOc" secondAttribute="bottom" constant="91" id="kzi-hy-3k2"/>
+                            <constraint firstItem="zy3-7H-KCJ" firstAttribute="trailing" secondItem="Ypa-mP-mgc" secondAttribute="trailing" id="pae-Sp-FSi"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="height" secondItem="IyU-Jf-RZo" secondAttribute="height" id="pdV-YZ-BhJ"/>
-                            <constraint firstItem="h2D-Gr-f7c" firstAttribute="leading" secondItem="pct-yq-kql" secondAttribute="leading" id="qTm-uV-UO8"/>
+                            <constraint firstItem="h2D-Gr-f7c" firstAttribute="leading" secondItem="zy3-7H-KCJ" secondAttribute="leading" id="qTm-uV-UO8"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="centerY" secondItem="IyU-Jf-RZo" secondAttribute="centerY" id="uoN-d1-dta"/>
                             <constraint firstItem="kxo-tm-e7t" firstAttribute="height" secondItem="I2f-b3-VOc" secondAttribute="height" id="xXK-FB-OmE"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="zy3-7H-KCJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="4k5-Ak-aBT"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -170,10 +168,6 @@
         <scene sceneID="ec3-8w-pXs">
             <objects>
                 <viewController storyboardIdentifier="SMLoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9z3-Qg-y4d" userLabel="SMLoginViewController" customClass="SMLoginViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="64e-cX-3eZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Dyb-H0-Ddz"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bmN-u9-5Ub">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,13 +185,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="f5M-N3-biT" firstAttribute="bottom" secondItem="Dyb-H0-Ddz" secondAttribute="top" id="9HW-X3-d2L"/>
-                            <constraint firstAttribute="trailing" secondItem="f5M-N3-biT" secondAttribute="trailing" id="Qq9-1U-XHj"/>
+                            <constraint firstItem="f5M-N3-biT" firstAttribute="bottom" secondItem="ydL-Gz-nvc" secondAttribute="bottom" id="9HW-X3-d2L"/>
+                            <constraint firstItem="ydL-Gz-nvc" firstAttribute="trailing" secondItem="f5M-N3-biT" secondAttribute="trailing" id="Qq9-1U-XHj"/>
                             <constraint firstItem="Y0K-Uh-Gfr" firstAttribute="centerY" secondItem="bmN-u9-5Ub" secondAttribute="centerY" id="Rz4-Yk-QtN"/>
-                            <constraint firstItem="Y0K-Uh-Gfr" firstAttribute="centerX" secondItem="bmN-u9-5Ub" secondAttribute="centerX" id="TcQ-4P-Pq0"/>
-                            <constraint firstItem="f5M-N3-biT" firstAttribute="leading" secondItem="bmN-u9-5Ub" secondAttribute="leading" id="oI5-QD-Pk3"/>
-                            <constraint firstItem="f5M-N3-biT" firstAttribute="top" secondItem="64e-cX-3eZ" secondAttribute="bottom" id="vdv-eu-9UX"/>
+                            <constraint firstItem="Y0K-Uh-Gfr" firstAttribute="centerX" secondItem="ydL-Gz-nvc" secondAttribute="centerX" id="TcQ-4P-Pq0"/>
+                            <constraint firstItem="f5M-N3-biT" firstAttribute="leading" secondItem="ydL-Gz-nvc" secondAttribute="leading" id="oI5-QD-Pk3"/>
+                            <constraint firstItem="f5M-N3-biT" firstAttribute="top" secondItem="ydL-Gz-nvc" secondAttribute="top" id="vdv-eu-9UX"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ydL-Gz-nvc"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -213,10 +208,6 @@
         <scene sceneID="VCL-QI-55R">
             <objects>
                 <viewController storyboardIdentifier="agreement" id="yLj-5Q-3sI" customClass="AgreementController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6uX-QN-39K"/>
-                        <viewControllerLayoutGuide type="bottom" id="bdc-NE-lPK"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0SZ-WZ-yrR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,10 +233,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bdc-NE-lPK" firstAttribute="top" secondItem="WdM-Z1-rCa" secondAttribute="bottom" id="QD8-0N-X23"/>
-                            <constraint firstItem="WdM-Z1-rCa" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" id="UWd-lz-sxJ"/>
+                            <constraint firstItem="D9b-fA-00y" firstAttribute="bottom" secondItem="WdM-Z1-rCa" secondAttribute="bottom" id="QD8-0N-X23"/>
+                            <constraint firstItem="WdM-Z1-rCa" firstAttribute="leading" secondItem="D9b-fA-00y" secondAttribute="leading" id="UWd-lz-sxJ"/>
                             <constraint firstItem="WdM-Z1-rCa" firstAttribute="width" secondItem="0SZ-WZ-yrR" secondAttribute="width" id="YSv-0j-Emb"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="D9b-fA-00y"/>
                     </view>
                     <connections>
                         <outlet property="btnClose" destination="WdM-Z1-rCa" id="Eq4-xw-vF9"/>

@@ -36,6 +36,9 @@ class LogInViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+	
+		loginButton.isHidden = true
+		loginButtonView.isHidden = true
 		
 		initUI()
 		initEvents()
@@ -77,14 +80,7 @@ class LogInViewController: UIViewController {
 		
 		
 		loginButton.rx.tap.bind {
-			// 모양이 이상해 'ㅅ'
-			do {
-				try self.openSmLogin()
-			} catch let error as LoginError {
-				error.cook()
-			} catch let error {
-				logError(error.localizedDescription)
-			}
+			self.openSmLogin()
 			}.disposed(by: disposeBag)
 		
 		
@@ -110,6 +106,9 @@ extension LogInViewController {
 		
 		RunInNextMainThread(withDelay: 0.1, {
 			self.loginButtonBottomConstraint.constant = self.cacheLoginButtonBottomConstraint
+			
+			self.loginButton.isHidden = false
+			self.loginButtonView.isHidden = false
 			
 			UIView.animate(withDuration: 0.8,
 						   animations: {
@@ -162,7 +161,7 @@ extension LogInViewController {
 		
 		
 		loginButtonView.hide()
-		button.startAnimation()
+//		button.startAnimation()
 		let qualityOfServiceClass = DispatchQoS.QoSClass.background
 		let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
 		backgroundQueue.async(execute: {
@@ -180,7 +179,7 @@ extension LogInViewController {
 			}
 			
 			RunInNextMainThread {
-				button.stopAnimation(animationStyle: .expand, completion: {
+//				button.stopAnimation(animationStyle: .expand, completion: {
 					self.loginButtonView.show()
 					if isFailed {
 						return
@@ -189,10 +188,10 @@ extension LogInViewController {
 					let newVC = SMLoginViewController.create("SignUp")
 					//let newVC = R.storyboard.signUp.smLoginViewController()!
 					if not(html.isEmpty) {
-						newVC.preload = html
+						//newVC.preload = html
 					}
 					self.navigationController?.pushViewController(newVC, animated: true)
-				})
+//				})
 			}
 		})
 	}

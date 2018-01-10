@@ -49,6 +49,8 @@ internal struct BSTExternalURL {
 	
 	/// 로그인 페이지 경로 (O-Auth)
 	let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=http://api.dev2nd.vyrl.com/&state=nonce&scope=profile&response_type=token"
+	
+//	let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=https://api.smtown.com/&state=nonce&scope=profile&response_type=token"
 }
 
 

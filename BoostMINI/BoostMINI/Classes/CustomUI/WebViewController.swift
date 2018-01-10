@@ -67,6 +67,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 					preload: String? = nil,
 					forceRefresh:Bool = false) {
 
+		
 		if let html = preload {
 		self.webView.loadHTMLString(html, baseURL: urlString.asUrl)
 			if !forceRefresh {
@@ -160,10 +161,12 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	
 	// MARK: - Post Notification
 	func postNotification(_ notificationType: String, object: Any?) {
+		logVerbose("webView - %@(%@, \(object))".format(#function, notificationType))
 		NotificationCenter.default.post(name: NSNotification.Name(notificationType), object: object, userInfo: nil)
 	}
 	
 	func postNotification(_ notificationType: String, params: [AnyHashable: Any]?) {
+		logVerbose("webView - %@(%@,\(params))".format(#function, notificationType))
 		NotificationCenter.default.post(name: NSNotification.Name(notificationType), object: nil, userInfo: params)
 	}
 	
@@ -266,6 +269,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	
 	// MARK: - WKScriptMessageHandler
 	func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+		logVerbose("webView - %@(%@)".format(#function, message))
 	}
 	
 	// MARK: - WKWebView UIDelegate
@@ -295,6 +299,10 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	//    decisionHandler(WKNavigationResponsePolicyAllow);
 	//}
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+		logVerbose("webView - %@(%d)".format(#function, navigationAction.navigationType.rawValue))
+		
+		
+		logVerbose("MORE : \(webView.url?.absoluteString)")
 		if navigationAction.navigationType == .linkActivated {
 			decisionHandler(.cancel)
 		} else {
@@ -313,6 +321,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	}
 	
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+		logVerbose("webView - %@".format(#function))
 //		initNavigationBar()
 		//navigation 타이틀이 사라짐,
 		
@@ -321,12 +330,14 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	}
 	
 	func presentNetworkError(_ error: Error) {
+		logVerbose("webView - %@".format(#function))
 //		SMAPIClient.api.presentNetworkError(error, retryBlock: {[weak self] (_ dismissed: Bool, _ isConnected: Bool) -> Void in
 //			self?.loadWebUrl(self?.urlString ?? "")
 //			}, needCheckServerMaintenance: true)
 	}
 	
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+		logVerbose("webView - %@".format(#function))
 		print("""
 			\(#function)
 			\(error.localizedDescription)
@@ -335,6 +346,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	}
 	
 	func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+		logVerbose("webView - %@".format(#function))
 		print("""
 			\(#function)
 			\(error.localizedDescription)
@@ -343,6 +355,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	}
 	
 	func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+		logVerbose("webView - %@".format(#function))
 		completionHandler(.useCredential, nil)
 	}
 	

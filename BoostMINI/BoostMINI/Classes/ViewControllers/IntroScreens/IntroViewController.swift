@@ -45,7 +45,7 @@ class IntroViewController: UIViewController {
 		if progressAnimationWaiting{
 			progressAnimationWaiting = false
 			
-			self.startLoadingMarkAnimation(progressStep1, duration:2.0)
+			self.startLoadingMarkAnimation(progressStep1, duration:1.0)
 		}
 		
 		
@@ -153,7 +153,7 @@ extension IntroViewController {
 					return
 				}
 				
-				this.startLoadingMarkAnimation(this.progressStep2, duration: 1.0, animated: true, completed: { fin in
+				this.startLoadingMarkAnimation(this.progressStep2, duration: 0.75, animated: true, completed: { fin in
 					logVerbose("step2 fin. call versionConfirmed")
 					this.versionConfirmed()
 				})
@@ -196,13 +196,13 @@ extension IntroViewController {
 
 		if SessionHandler.shared.isLoginned {
 			// 로그인 유저
-			self.startLoadingMarkAnimation(self.progressStep4, duration: 1.0, animated: true, completed: { fin in
+			self.startLoadingMarkAnimation(self.progressStep4, duration: 0.2, animated: true, completed: { fin in
 				self.presentHome()
 			})
 		} else {
 			// 비로그인 유저
 			
-			self.startLoadingMarkAnimation(self.progressStep4, duration: 2.0, animated: true, completed: { fin in
+			self.startLoadingMarkAnimation(self.progressStep4, duration: 0.8, animated: true, completed: { fin in
 				self.presentLogin()
 			})
 		}
