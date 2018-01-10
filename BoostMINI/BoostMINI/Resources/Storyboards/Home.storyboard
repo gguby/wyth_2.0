@@ -935,10 +935,10 @@
             </objects>
             <point key="canvasLocation" x="2841" y="-375"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Concert Information View Controller-->
         <scene sceneID="cWn-It-rIa">
             <objects>
-                <viewController id="pOb-gL-bmW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailConcertInformationViewController" id="pOb-gL-bmW" customClass="DetailConcertInformationViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5jZ-Wt-LzA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -955,6 +955,7 @@
                                         <state key="normal" image="btn_common_back"/>
                                         <connections>
                                             <action selector="back:" destination="UuI-wl-XUt" eventType="touchUpInside" id="ZKR-7C-rgq"/>
+                                            <action selector="back:" destination="pOb-gL-bmW" eventType="touchUpInside" id="Zev-38-TUW"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TVXQ! Comeback Live Concert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oum-kx-XOZ">
