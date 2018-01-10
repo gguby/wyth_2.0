@@ -13,6 +13,7 @@ class ConcertInformationView: UIView {
 
     @IBOutlet weak var arrowButton: UIButton!
     @IBOutlet weak var topTiltingView: TopTiltingView!
+    @IBOutlet weak var detailConcertInformationButton: UIButton!
     
 //    @IBInspectable var fillColor: UIColor = UIColor.gray { didSet { setNeedsLayout() } }
     

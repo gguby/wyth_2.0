@@ -299,6 +299,7 @@
 		8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		8F7BDC4220048EAF00DD2150 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BDC4120048EAF00DD2150 /* SettingViewController.swift */; };
+		8F7CBF2C2005EE5600DBDE67 /* DetailConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7CBF2B2005EE5600DBDE67 /* DetailConcertInformationViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
 		8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */; };
@@ -478,6 +479,7 @@
 		8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationView.swift; sourceTree = "<group>"; };
 		8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationViewController.swift; sourceTree = "<group>"; };
 		8F7BDC4120048EAF00DD2150 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		8F7CBF2B2005EE5600DBDE67 /* DetailConcertInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConcertInformationViewController.swift; sourceTree = "<group>"; };
 		8F82C1641FF36D810031D030 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8F82C1721FF38EC30031D030 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -944,6 +946,7 @@
 				8F9A7CC02003465D003BABB1 /* MenuViewController.swift */,
 				A63F1A2D20059D180079046D /* ConcertInfoView.xib */,
 				A63F1A3120059D3A0079046D /* ConcertInfoView.swift */,
+				8F7CBF2B2005EE5600DBDE67 /* DetailConcertInformationViewController.swift */,
 			);
 			path = HomeScreens;
 			sourceTree = "<group>";
@@ -1513,6 +1516,7 @@
 				04E2242D2003766E00A2B388 /* RedirectView.swift in Sources */,
 				0483854520035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				0483853C20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
+				8F7CBF2C2005EE5600DBDE67 /* DetailConcertInformationViewController.swift in Sources */,
 				04E2242A2003766E00A2B388 /* CommonNumberGetResponse.swift in Sources */,
 				04E224452004937200A2B388 /* DeviceViewReactor.swift in Sources */,
 				04E223FA2003766E00A2B388 /* AppsGetResponse.swift in Sources */,
