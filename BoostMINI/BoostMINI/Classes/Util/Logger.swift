@@ -34,7 +34,7 @@ public func log(_ items: Any...,
 	file: String = #file,
 	function: String = #function,
 	line: Int = #line) {
-	Logger.push(level: level, message: items, context: nil, file: file, function: function, line: line)
+	Logger.push(level: level, message: Logger.join(items), context: nil, file: file, function: function, line: line)
 }
 
 public func logVerbose(_ items: Any...,
@@ -42,7 +42,7 @@ public func logVerbose(_ items: Any...,
 	file: String = #file,
 	function: String = #function,
 	line: Int = #line) {
-	Logger.push(level: .verbose, message: items, context: context, file: file, function: function, line: line)
+	Logger.push(level: .verbose, message: Logger.join(items), context: context, file: file, function: function, line: line)
 }
 
 public func logDebug(_ items: Any...,
@@ -50,7 +50,7 @@ public func logDebug(_ items: Any...,
 	file: String = #file,
 	function: String = #function,
 	line: Int = #line) {
-	Logger.push(level: .debug, message: items, context: context, file: file, function: function, line: line)
+	Logger.push(level: .debug, message: Logger.join(items), context: context, file: file, function: function, line: line)
 }
 
 public func logInfo(_ items: Any...,
@@ -58,7 +58,7 @@ public func logInfo(_ items: Any...,
 	file: String = #file,
 	function: String = #function,
 	line: Int = #line) {
-	Logger.push(level: .info, message: items, context: context, file: file, function: function, line: line)
+	Logger.push(level: .info, message: Logger.join(items), context: context, file: file, function: function, line: line)
 }
 
 public func logWarning(_ items: Any...,
@@ -66,7 +66,7 @@ public func logWarning(_ items: Any...,
 	file: String = #file,
 	function: String = #function,
 	line: Int = #line) {
-	Logger.push(level: .warning, message: items, context: context, file: file, function: function, line: line)
+	Logger.push(level: .warning, message: Logger.join(items), context: context, file: file, function: function, line: line)
 }
 
 public func logError(_ items: Any...,
@@ -74,7 +74,7 @@ public func logError(_ items: Any...,
 	file: String = #file,
 	function: String = #function,
 	line: Int = #line) {
-	Logger.push(level: .error, message: items, context: context, file: file, function: function, line: line)
+	Logger.push(level: .error, message: Logger.join(items), context: context, file: file, function: function, line: line)
 }
 
 
@@ -130,7 +130,15 @@ public class Logger {
 		
 		beaver.custom(level: level, message: message, file: file, function: function, line: line, context: context)
 	}
-	
+
+	fileprivate static func join(_ something:Any) -> String {
+		if let arr = something as? [String] {
+			return arr.joined()
+		}
+		if let arr = something as? [Any] {
+		}
+		return "\(something)"
+	}
 	
 	
 	/// 로그를 쏴줄 실 구현체. (초기화를 위해 터치를 넣음)

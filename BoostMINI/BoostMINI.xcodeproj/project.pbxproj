@@ -43,6 +43,12 @@
 		0412CB7B1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */; };
 		0412CB7C1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */; };
 		0412CB7D1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */; };
+		044236AF2005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
+		044236B02005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
+		044236B12005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
+		044236B32005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236B22005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift */; };
+		044236B42005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236B22005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift */; };
+		044236B52005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236B22005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift */; };
 		045D14841FF4A9B400A67AA0 /* Optional+logError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14831FF4A9B400A67AA0 /* Optional+logError.swift */; };
 		045D148A1FF4DD2200A67AA0 /* RequestBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D14891FF4DD2200A67AA0 /* RequestBlock.swift */; };
 		045D148C1FF4DF3D00A67AA0 /* JSONDecoder+base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */; };
@@ -357,6 +363,8 @@
 		04122A681FEC962600896EE0 /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
 		0412CB761FFF7FD00059C5A4 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusCode.swift"; sourceTree = "<group>"; };
+		044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderUIExtension.swift"; sourceTree = "<group>"; };
+		044236B22005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+multiplierSetter.swift"; sourceTree = "<group>"; };
 		045D14831FF4A9B400A67AA0 /* Optional+logError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+logError.swift"; sourceTree = "<group>"; };
 		045D14891FF4DD2200A67AA0 /* RequestBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBlock.swift; sourceTree = "<group>"; };
 		045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+base.swift"; sourceTree = "<group>"; };
@@ -706,6 +714,8 @@
 				04AD73FB1FF2283F005F4BF0 /* WebViewController.swift */,
 				0462CD971FFCA3FA002B6E11 /* TopTiltingView.swift */,
 				8F9A7CCF20035F0E003BABB1 /* TextViewWithInsets.swift */,
+				044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */,
+				044236B22005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -1538,7 +1548,6 @@
 				0462CDE01FFDF961002B6E11 /* R.generated.swift in Sources */,
 				04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */,
 				8F7BDC4220048EAF00DD2150 /* SettingViewController.swift in Sources */,
-				045D14921FF4E7EB00A67AA0 /* TestModel.swift in Sources */,
 				04E224122003766E00A2B388 /* Notice.swift in Sources */,
 				04E224182003766E00A2B388 /* ConcertsSeatGetResponse.swift in Sources */,
 				0483853320035641007DE69B /* APIHelper.swift in Sources */,
@@ -1554,6 +1563,7 @@
 				045D148A1FF4DD2200A67AA0 /* RequestBlock.swift in Sources */,
 				8F9A7CC12003465D003BABB1 /* MenuViewController.swift in Sources */,
 				2B5AA0951FEB55E4007441E1 /* ExceptionHandler.swift in Sources */,
+				044236B32005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift in Sources */,
 				04E223F42003766E00A2B388 /* ConnectcontrollerAPI.swift in Sources */,
 				04122A651FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				04E224002003766E00A2B388 /* ApplicationContext.swift in Sources */,
@@ -1570,6 +1580,7 @@
 				04E224242003766E00A2B388 /* PageHelp.swift in Sources */,
 				0483854820035641007DE69B /* Models.swift in Sources */,
 				2B5AA08F1FEB55C8007441E1 /* CommonUtil.swift in Sources */,
+				044236AF2005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */,
 				A62352381FF390690007949C /* GithupService.swift in Sources */,
 				045D14841FF4A9B400A67AA0 /* Optional+logError.swift in Sources */,
 				A623523A1FF390690007949C /* Gitup.swift in Sources */,
@@ -1609,6 +1620,7 @@
 				04E223FB2003766E00A2B388 /* AppsGetResponse.swift in Sources */,
 				0483853720035641007DE69B /* AlamofireImplementations.swift in Sources */,
 				0483854C20035641007DE69B /* Configuration.swift in Sources */,
+				044236B42005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift in Sources */,
 				0483854020035641007DE69B /* APIs.swift in Sources */,
 				0462CDB91FFCA426002B6E11 /* WebViewController.swift in Sources */,
 				04E224072003766E00A2B388 /* HelpGetResponse.swift in Sources */,
@@ -1642,6 +1654,7 @@
 				04E224282003766E00A2B388 /* AutowireCapableBeanFactory.swift in Sources */,
 				0483854320035641007DE69B /* Extensions.swift in Sources */,
 				0462CDA71FFCA410002B6E11 /* String+SplitByUppercase.swift in Sources */,
+				044236B02005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */,
 				04122A801FECE9AE00896EE0 /* AppDelegate.swift in Sources */,
 				04122A661FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				04E224042003766E00A2B388 /* NoticesGetResponse.swift in Sources */,
@@ -1737,6 +1750,7 @@
 				0462CDA21FFCA408002B6E11 /* ViewController.swift in Sources */,
 				0462CDD51FFCA431002B6E11 /* Definitions.swift in Sources */,
 				0462CDC11FFCA426002B6E11 /* NotificationModel.swift in Sources */,
+				044236B12005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */,
 				0462CDC51FFCA426002B6E11 /* BSTUXHandler-Alert.swift in Sources */,
 				0462CDC21FFCA426002B6E11 /* DeviceManager.swift in Sources */,
 				04E2243D200481B500A2B388 /* GeneratedModelExtension.swift in Sources */,
@@ -1786,6 +1800,7 @@
 				0483853B20035641007DE69B /* CodableHelper.swift in Sources */,
 				0483854120035641007DE69B /* APIs.swift in Sources */,
 				04838476200331BC007DE69B /* CrashlyticsDestination.swift in Sources */,
+				044236B52005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
