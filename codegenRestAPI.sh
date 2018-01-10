@@ -87,6 +87,9 @@ for X in BoostMINI/BoostMINI/Classes/Swaggers/*.swift; do _sedReplace $X; done;
 #echo "Part 2"
 for X in BoostMINI/BoostMINI/Classes/Swaggers/APIs/*.swift; do _sedReplace $X;
 sed -i '' -E $'s|open class ([a-zA-Z0-9]*API) {|open class \\1 {\\\n  private static var xAPPVersion: String = BSTApplication.shortVersion ?? "unknown"\\\n  private static var xDevice: String     = "ios"\\\n  private static var acceptLanguage: String = "ko-KR"|g' $X;
+sed -i '' -e $'s|completion(response?.body, error);|completion(response?.body, BSTErrorBaker.errorFilter(error, response))|g' $X;
+sed -i '' -e $'s|observer.on(.error(error as Error))|observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))|g' $X;
+
 done;
 #echo "Part 3"
 for X in BoostMINI/BoostMINI/Classes/Swaggers/Models/*.swift; do _sedReplace $X; done;

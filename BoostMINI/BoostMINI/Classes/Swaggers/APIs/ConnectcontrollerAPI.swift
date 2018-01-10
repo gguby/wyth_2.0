@@ -27,7 +27,7 @@ open class ConnectcontrollerAPI {
      */
     open class func connectUsingPOST(providerId: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
         connectUsingPOSTWithRequestBuilder(providerId: providerId).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -44,7 +44,7 @@ open class ConnectcontrollerAPI {
         return Observable.create { observer -> Disposable in
             connectUsingPOST(providerId: providerId) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -96,7 +96,7 @@ open class ConnectcontrollerAPI {
      */
     open class func connectionStatusUsingGET1(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
         connectionStatusUsingGET1WithRequestBuilder().execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -112,7 +112,7 @@ open class ConnectcontrollerAPI {
         return Observable.create { observer -> Disposable in
             connectionStatusUsingGET1() { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -164,7 +164,7 @@ open class ConnectcontrollerAPI {
      */
     open class func oauth2CallbackUsingGET(providerId: String, code: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
         oauth2CallbackUsingGETWithRequestBuilder(providerId: providerId, code: code).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -182,7 +182,7 @@ open class ConnectcontrollerAPI {
         return Observable.create { observer -> Disposable in
             oauth2CallbackUsingGET(providerId: providerId, code: code) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -240,7 +240,7 @@ open class ConnectcontrollerAPI {
      */
     open class func removeConnectionUsingDELETE(providerId: String, providerUserId: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
         removeConnectionUsingDELETEWithRequestBuilder(providerId: providerId, providerUserId: providerUserId).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -258,7 +258,7 @@ open class ConnectcontrollerAPI {
         return Observable.create { observer -> Disposable in
             removeConnectionUsingDELETE(providerId: providerId, providerUserId: providerUserId) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -313,7 +313,7 @@ open class ConnectcontrollerAPI {
      */
     open class func removeConnectionsUsingDELETE(providerId: String, completion: @escaping ((_ data: RedirectView?,_ error: Error?) -> Void)) {
         removeConnectionsUsingDELETEWithRequestBuilder(providerId: providerId).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -330,7 +330,7 @@ open class ConnectcontrollerAPI {
         return Observable.create { observer -> Disposable in
             removeConnectionsUsingDELETE(providerId: providerId) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }

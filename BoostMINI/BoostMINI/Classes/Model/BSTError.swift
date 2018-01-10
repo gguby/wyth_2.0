@@ -6,7 +6,8 @@
 //  Copyright © 2017년 IRIVER LIMITED. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import Alamofire
 
 protocol BSTErrorProtocol: LocalizedError {
     /// 해당 오류에 대한 사용자 메시지(alert, toast) 또는 Console 출력용 - //TODO: debug와 분리될 필요가 있을수 있음
@@ -185,4 +186,36 @@ enum BSTError: Error, BSTErrorProtocol {
             self.cook(object)
         }
     }
+}
+
+class BSTErrorBaker<T> {
+	@discardableResult
+	class func errorFilter(_ err: Error?, _ response: Response<T>? = nil) -> Error? {
+		do {
+			try BSTErrorBaker<T>.errorPitcher(err, response)
+		} catch {
+			// and more...
+			
+			return err
+		}
+		
+		return err
+	}
+	
+	class func errorPitcher(_ err: Error?, _ response: Response<T>?) throws {
+		guard let resp = response else {
+			throw BSTError.nilError
+		}
+		
+		if resp.isNotOk {
+			throw BSTError.api(APIError(rawValue: resp.statusCode)!)
+		}
+		
+		if let error = err {
+		
+			
+			
+		}
+	}
+
 }

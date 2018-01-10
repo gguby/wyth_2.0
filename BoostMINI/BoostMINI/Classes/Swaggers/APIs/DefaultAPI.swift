@@ -26,7 +26,7 @@ open class DefaultAPI {
      */
     open class func getConcertsUsingGET(completion: @escaping ((_ data: ConcertsGetResponse?,_ error: Error?) -> Void)) {
         getConcertsUsingGETWithRequestBuilder().execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -42,7 +42,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             getConcertsUsingGET() { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -94,7 +94,7 @@ open class DefaultAPI {
      */
     open class func getHelplistUsingGET(lastId: Int64? = nil, size: Int32? = nil, completion: @escaping ((_ data: HelpGetResponse?,_ error: Error?) -> Void)) {
         getHelplistUsingGETWithRequestBuilder(lastId: lastId, size: size).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -112,7 +112,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             getHelplistUsingGET(lastId: lastId, size: size) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -170,7 +170,7 @@ open class DefaultAPI {
      */
     open class func getNoticesUsingGET(lastId: Int64? = nil, size: Int32? = nil, completion: @escaping ((_ data: NoticesGetResponse?,_ error: Error?) -> Void)) {
         getNoticesUsingGETWithRequestBuilder(lastId: lastId, size: size).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -188,7 +188,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             getNoticesUsingGET(lastId: lastId, size: size) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -244,7 +244,7 @@ open class DefaultAPI {
      */
     open class func getProfileUsingGET(completion: @escaping ((_ data: ProfileGetResponse?,_ error: Error?) -> Void)) {
         getProfileUsingGETWithRequestBuilder().execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -260,7 +260,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             getProfileUsingGET() { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -319,7 +319,7 @@ open class DefaultAPI {
      */
     open class func getSeatsUsingGET(type: ModelType_getSeatsUsingGET, completion: @escaping ((_ data: ConcertsSeatGetResponse?,_ error: Error?) -> Void)) {
         getSeatsUsingGETWithRequestBuilder(type: type).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -336,7 +336,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             getSeatsUsingGET(type: type) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -388,7 +388,7 @@ open class DefaultAPI {
      */
     open class func getSettingsUsingGET(completion: @escaping ((_ data: SettingsGetResponse?,_ error: Error?) -> Void)) {
         getSettingsUsingGETWithRequestBuilder().execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -404,7 +404,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             getSettingsUsingGET() { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -454,7 +454,7 @@ open class DefaultAPI {
      */
     open class func getVersionUsingGET(completion: @escaping ((_ data: AppsGetResponse?,_ error: Error?) -> Void)) {
         getVersionUsingGETWithRequestBuilder().execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -470,7 +470,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             getVersionUsingGET() { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -521,7 +521,7 @@ open class DefaultAPI {
      */
     open class func postAlarmsUsingPOST(alarm: Bool, completion: @escaping ((_ data: CommonBooleanGetResponse?,_ error: Error?) -> Void)) {
         postAlarmsUsingPOSTWithRequestBuilder(alarm: alarm).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -538,7 +538,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             postAlarmsUsingPOST(alarm: alarm) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -590,7 +590,7 @@ open class DefaultAPI {
      */
     open class func postSkinsUsingPOST(select: Int32, completion: @escaping ((_ data: CommonNumberGetResponse?,_ error: Error?) -> Void)) {
         postSkinsUsingPOSTWithRequestBuilder(select: select).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -607,7 +607,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             postSkinsUsingPOST(select: select) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -658,7 +658,7 @@ open class DefaultAPI {
      */
     open class func showResponseCodeUsingHEAD(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
         showResponseCodeUsingHEADWithRequestBuilder().execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -674,7 +674,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             showResponseCodeUsingHEAD() { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -736,7 +736,7 @@ open class DefaultAPI {
      */
     open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
         signinUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -754,7 +754,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             signinUsingPOST(accessToken: accessToken, socialType: socialType) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -826,7 +826,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             signoutUsingDELETE() { error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     // observer.on(.next())
                 }
@@ -887,7 +887,7 @@ open class DefaultAPI {
      */
     open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
         signupUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
@@ -905,7 +905,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             signupUsingPOST(accessToken: accessToken, socialType: socialType) { data, error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     observer.on(.next(data!))
                 }
@@ -977,7 +977,7 @@ open class DefaultAPI {
         return Observable.create { observer -> Disposable in
             withdrawUsingDELETE() { error in
                 if let error = error {
-                    observer.on(.error(error as Error))
+                    observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
                     // observer.on(.next())
                 }
