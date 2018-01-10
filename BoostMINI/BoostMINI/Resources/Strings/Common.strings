@@ -12,3 +12,7 @@
 "yes" = "예";
 "no" = "아니오";
 
+// ConcertInfo
+
+"ConcertInfoTitle" = "공연 일정";
+"ConcertInfoSeat" = "나의 좌석정보";

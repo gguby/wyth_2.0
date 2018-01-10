@@ -11,11 +11,15 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    // MARK: - * properties --------------------
-
-
     // MARK: - * IBOutlets --------------------
-
+    @IBOutlet weak var skinCollectionView: UICollectionView!
+    
+    // MARK: - * properties --------------------
+    var selectedIndexPath: IndexPath = []{
+        didSet{
+            skinCollectionView.reloadData()
+        }
+    }
 
     // MARK: - * Initialize --------------------
 
@@ -29,12 +33,12 @@ class SettingViewController: UIViewController {
 
 
     private func initProperties() {
-
+        skinCollectionView.allowsMultipleSelection = false
     }
 
 
     private func initUI() {
-
+        
     }
 
 
@@ -63,6 +67,39 @@ class SettingViewController: UIViewController {
 }
 
 
-extension SettingViewController {
+extension SettingViewController : UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "skinCell", for: indexPath) as! skinCollectionViewCell
+        
+        var borderColor: CGColor! = UIColor.clear.cgColor
+        var borderWidth: CGFloat = 0
+        
+        if indexPath == selectedIndexPath{
+            borderColor = R.clr.boostMini.commonBgPoint().cgColor
+            borderWidth = 2 //or whatever you please
+        } else {
+            borderColor = UIColor.clear.cgColor
+            borderWidth = 0
+        }
+        
+        cell.imageView.layer.borderWidth = borderWidth
+        cell.imageView.layer.borderColor = borderColor
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+    }
 
+}
+
+class skinCollectionViewCell : UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var selectImageView: UIImageView!
+    
 }

@@ -139,7 +139,7 @@ Concert</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2018.02.01.FRI 19:00" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yiN-OV-9en">
-                            <rect key="frame" x="80" y="108.66666666666669" width="164" height="22"/>
+                            <rect key="frame" x="80.000000000000014" y="108.66666666666669" width="153.33333333333337" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="04n-Ki-NRY"/>
                             </constraints>
@@ -237,6 +237,7 @@ Concert</string>
             </constraints>
             <connections>
                 <outlet property="arrowButton" destination="v4E-YU-gan" id="lY2-0q-0rI"/>
+                <outlet property="detailConcertInformationButton" destination="jk0-dT-VWK" id="aeN-eq-8QJ"/>
                 <outlet property="topTiltingView" destination="bgf-xs-tBy" id="8Ko-dO-Ujk"/>
             </connections>
             <point key="canvasLocation" x="59" y="54"/>
