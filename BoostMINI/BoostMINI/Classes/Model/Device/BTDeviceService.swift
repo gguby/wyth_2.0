@@ -26,7 +26,28 @@ class BTDeviceService {
         scheduler = ConcurrentDispatchQueueScheduler(queue: timerQueue)
     }
     
-    func startScan() throws -> Observable<[ScannedPeripheral]> {
+    func connectAll() -> Observable<Characteristic> {
+        return self.manager
+            .rx_state
+            .filter { $0 == .poweredOn }
+            .timeout(4.0, scheduler: self.scheduler)
+            .take(1)
+            .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
+            .catchError { _ in
+                throw DeviceError.scanFailed
+            }
+            .flatMap { $0.peripheral.connect() }
+            .catchError { _ in
+                throw DeviceError.paringFailed
+            }
+            .flatMap { $0.discoverServices([self.boostServiceUUID])}
+            .flatMap { Observable.from($0) }
+            .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
+            .flatMap { Observable.from($0) }           
+            .subscribeOn(MainScheduler.instance)
+    }
+    
+    func startScan() throws -> Observable<ScannedPeripheral> {
         return self.manager
             .rx_state
             .filter { $0 == .poweredOn }
@@ -37,7 +58,6 @@ class BTDeviceService {
                 throw DeviceError.scanFailed
             }
             .subscribeOn(MainScheduler.instance)
-            .toArray()
     }
     
     func connect(scannedPeripheral : ScannedPeripheral) throws -> Observable<Peripheral> {

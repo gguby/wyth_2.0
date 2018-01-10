@@ -198,3 +198,7 @@ func dicOnly(_ obj: Any?) -> [AnyHashable: Any] {
     }
     return ["data": obj]
 }
+
+func autocast<T>(some: Any) -> T? {
+    return some as? T
+}

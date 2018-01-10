@@ -36,8 +36,8 @@ class HomeViewController: UIViewController {
     @available(iOS 10.0, *)
     private lazy var popupView: ConcertInformationView = {
         let view = ConcertInformationView.instanceFromNib()
-         view.arrowButton.addTarget(self, action: #selector(self.popupViewTapped(recognizer:)), for: .touchUpInside)
-        
+        view.arrowButton.addTarget(self, action: #selector(self.popupViewTapped(recognizer:)), for: .touchUpInside)
+        view.detailConcertInformationButton.addTarget(self, action: #selector(self.showDetailConcertInformation(recognizer:)), for: .touchUpInside)
         return view
     }()
 	
@@ -67,8 +67,6 @@ class HomeViewController: UIViewController {
     
     private func initProperties() {
         SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
-        
-        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
         SideMenuManager.default.menuPresentMode = .menuSlideIn
         SideMenuManager.default.menuFadeStatusBar = false
@@ -127,11 +125,27 @@ class HomeViewController: UIViewController {
        
     }
     
+    @objc func showDetailConcertInformation(recognizer: UITapGestureRecognizer){
+        let storyboard = UIStoryboard(name:"Home", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DetailConcertInformationViewController")
+        controller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     
 	
 	@available(iOS 10.0, *)
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
-        toggleViewingInformation()
+        //티켓 정보가 없을 경우,
+        let hasTicketInfo = false
+        if hasTicketInfo {
+            toggleViewingInformation()
+        } else {
+            guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else {
+                return
+            }
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @available(iOS 10.0, *)

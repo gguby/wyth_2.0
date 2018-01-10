@@ -38,8 +38,8 @@ final class DeviceManager {
         }).disposed(by: disposeBag)
         
         self.error.subscribe(onNext: {
-            print($0)           
-            
+            print($0)
+            $0.cook()
         }).disposed(by: disposeBag)
     }
     
@@ -55,11 +55,8 @@ enum DeviceError : Error, BSTErrorProtocol {
     
     func cook(_ object: Any? = nil) {
         if object == nil {
-//            BSTFacade.device.reactor.mutate(action: DeviceManagerReactor.Action.scanDevice)
-//            BSTFacade.ux.gotoErrorPage()
         } else {
             BSTFacade.ux.showAlert(self.description)
-//            BSTFacade.ux.gotoErrorPage()
         }
     }
 }
