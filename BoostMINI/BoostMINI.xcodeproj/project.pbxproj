@@ -291,6 +291,9 @@
 		2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */; };
 		2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F0511FDFA49500581F06 /* BoostMINITests.swift */; };
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
+		2B77AFB52005E84B004434D1 /* Device.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B77AFB32005E84B004434D1 /* Device.storyboard */; };
+		2B77AFB72005E8CC004434D1 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB62005E8CC004434D1 /* Storyboard.swift */; };
+		2B77AFBA2005EA6B004434D1 /* TicketScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */; };
 		2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF341651FFB7A3F00FDA12E /* Notification.storyboard */; };
 		8F391FFD1FFF415300A46996 /* HelpWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */; };
 		8F3920021FFF70AD00A46996 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
@@ -458,6 +461,9 @@
 		2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostMINIUITests.swift; sourceTree = "<group>"; };
 		2B61F05E1FDFA49500581F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B61F06A1FDFA4C400581F06 /* BoostMINI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoostMINI.entitlements; sourceTree = "<group>"; };
+		2B77AFB42005E84B004434D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Device.storyboard; sourceTree = "<group>"; };
+		2B77AFB62005E8CC004434D1 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScanViewController.swift; sourceTree = "<group>"; };
 		2BF341651FFB7A3F00FDA12E /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		304041C0256C37C0B073056D /* Pods-BoostMINIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		48A5E026AA7FED66F3366494 /* Pods-BoostMINITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.product.xcconfig"; sourceTree = "<group>"; };
@@ -723,6 +729,7 @@
 		2B5AA0661FEA6178007441E1 /* UX */ = {
 			isa = PBXGroup;
 			children = (
+				2B77AFB62005E8CC004434D1 /* Storyboard.swift */,
 				2B5AA08C1FEB55BA007441E1 /* BSTUXHanlder.swift */,
 				04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */,
 				04AD73FE1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift */,
@@ -733,6 +740,7 @@
 		2B5AA0671FEA6178007441E1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2B77AFB82005EA52004434D1 /* DeviceScreens */,
 				8F391FF91FFF3F6D00A46996 /* SettingScreens */,
 				2B5AA0681FEA6178007441E1 /* IntroScreens */,
 				8F82C16F1FF378F10031D030 /* HomeScreens */,
@@ -845,10 +853,11 @@
 			isa = PBXGroup;
 			children = (
 				2B61F0401FDFA49500581F06 /* Main.storyboard */,
-				04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */,
-				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
 				8F82C1641FF36D810031D030 /* Home.storyboard */,
+				04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */,
+				2B77AFB32005E84B004434D1 /* Device.storyboard */,
 				2BF341651FFB7A3F00FDA12E /* Notification.storyboard */,
+				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -904,6 +913,14 @@
 				2B61F05E1FDFA49500581F06 /* Info.plist */,
 			);
 			path = BoostMINIUITests;
+			sourceTree = "<group>";
+		};
+		2B77AFB82005EA52004434D1 /* DeviceScreens */ = {
+			isa = PBXGroup;
+			children = (
+				2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */,
+			);
+			path = DeviceScreens;
 			sourceTree = "<group>";
 		};
 		2EE09B09515DCC1DC99E3DE7 /* Frameworks */ = {
@@ -1156,6 +1173,7 @@
 				04E22444200490FC00A2B388 /* ThemeOld.xcassets in Resources */,
 				A6F35071200349AB00949BB2 /* Device.strings in Resources */,
 				2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */,
+				2B77AFB52005E84B004434D1 /* Device.storyboard in Resources */,
 				8F9A7CCB20035B42003BABB1 /* SMTOWN(OTF)-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1515,6 +1533,7 @@
 				0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
 				0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				A6F3507520035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
+				2B77AFBA2005EA6B004434D1 /* TicketScanViewController.swift in Sources */,
 				04E2241B2003766E00A2B388 /* Sort.swift in Sources */,
 				04E224272003766E00A2B388 /* AutowireCapableBeanFactory.swift in Sources */,
 				04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */,
@@ -1538,7 +1557,6 @@
 				0462CDE01FFDF961002B6E11 /* R.generated.swift in Sources */,
 				04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */,
 				8F7BDC4220048EAF00DD2150 /* SettingViewController.swift in Sources */,
-				045D14921FF4E7EB00A67AA0 /* TestModel.swift in Sources */,
 				04E224122003766E00A2B388 /* Notice.swift in Sources */,
 				04E224182003766E00A2B388 /* ConcertsSeatGetResponse.swift in Sources */,
 				0483853320035641007DE69B /* APIHelper.swift in Sources */,
@@ -1568,6 +1586,7 @@
 				045D148C1FF4DF3D00A67AA0 /* JSONDecoder+base.swift in Sources */,
 				2B61F03D1FDFA49500581F06 /* AppDelegate.swift in Sources */,
 				04E224242003766E00A2B388 /* PageHelp.swift in Sources */,
+				2B77AFB72005E8CC004434D1 /* Storyboard.swift in Sources */,
 				0483854820035641007DE69B /* Models.swift in Sources */,
 				2B5AA08F1FEB55C8007441E1 /* CommonUtil.swift in Sources */,
 				A62352381FF390690007949C /* GithupService.swift in Sources */,
@@ -1819,6 +1838,14 @@
 				2B61F0461FDFA49500581F06 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2B77AFB32005E84B004434D1 /* Device.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B77AFB42005E84B004434D1 /* Base */,
+			);
+			name = Device.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

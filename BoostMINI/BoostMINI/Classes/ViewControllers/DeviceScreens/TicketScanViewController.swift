@@ -11,13 +11,20 @@ import UIKit
 
 class TicketScanViewController: UIViewController {
 
-    //MARK: * properties --------------------
+    // MARK: - * properties --------------------
+    var disposeBag = DisposeBag()
 
+    // MARK: - * IBOutlets --------------------
 
-    //MARK: * IBOutlets --------------------
-
-
-    //MARK: * Initialize --------------------
+    @IBOutlet weak var btnBack: UIButton! {
+        willSet(v) {
+            v.rx.tap.bind { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }.disposed(by: disposeBag)
+        }
+    }
+    
+    // MARK: - * Initialize --------------------
 
     override func viewDidLoad() {
 
@@ -41,13 +48,13 @@ class TicketScanViewController: UIViewController {
 
     }
 
-    //MARK: * Main Logic --------------------
+    // MARK: - * Main Logic --------------------
 
 
-    //MARK: * UI Events --------------------
+    // MARK: - * UI Events --------------------
 
 
-    //MARK: * Memory Manage --------------------
+    // MARK: - * Memory Manage --------------------
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

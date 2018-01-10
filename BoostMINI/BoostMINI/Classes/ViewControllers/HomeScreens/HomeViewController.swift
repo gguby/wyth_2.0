@@ -131,7 +131,17 @@ class HomeViewController: UIViewController {
 	
 	@available(iOS 10.0, *)
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
-        toggleViewingInformation()
+        //티켓 정보가 없을 경우,
+        let hasTicketInfo = false
+        if hasTicketInfo {
+            toggleViewingInformation()
+        } else {
+            guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else {
+                return
+            }
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @available(iOS 10.0, *)
