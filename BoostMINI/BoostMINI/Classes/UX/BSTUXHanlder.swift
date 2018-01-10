@@ -14,10 +14,9 @@ class BSTUXHandlerInstance {
 }
 
 
-
 class BSTUXHanlder {
     
-    // MARK: * properties --------------------
+    // MARK: - * properties --------------------
 	fileprivate let toast = ToastManager()
 
 
@@ -34,15 +33,27 @@ class BSTUXHanlder {
 		public typealias anyOptionalAction  = (Any?) -> Void
 
 	}
-    // MARK: * IBOutlets --------------------
+    // MARK: - * IBOutlets --------------------
 
-    // MARK: * Initialize --------------------
+    // MARK: - * Initialize --------------------
 
     init() {
     }
 
-    // MARK: * Main Logic --------------------
-	
+    // MARK: - * Main Logic --------------------
+    
+    /// ViewController 타입으로 사전(Storyboard)에 정의된 ViewController를 반환
+    ///
+    /// - Parameter typeof: T - destination ViewController
+    /// - Returns: T - UIViewController
+    func instantiateViewController<T: UIViewController>(typeof: T.Type) -> T? {
+        let className = String(describing: typeof)
+        guard let viewController = BSTScreens.instantiate(withClassName: className) else {
+            fatalError("no viewcontroller")
+        }
+        return autocast(some: viewController)
+    }
+    
 	
 	/// 토스트를 띄운다.
 	///
