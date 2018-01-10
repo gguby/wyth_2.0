@@ -18,6 +18,8 @@ import UIColor_Hex_Swift
 class LogInViewController: UIViewController {
 
 	@IBOutlet weak var loginButton: TransitionButton!
+	@IBOutlet weak var testButton: TransitionButton!
+	
 	@IBOutlet weak var loginButtonView: UIView!
 	@IBOutlet weak var loginButtonBottomConstraint: NSLayoutConstraint!
 	//@IBOutlet weak var tiltingView: TopTiltingView!
@@ -64,7 +66,7 @@ class LogInViewController: UIViewController {
 
 	
 	func initEvents() {
-		[loginButton].forEach { (bt: TransitionButton) in
+		[loginButton, testButton].forEach { (bt: TransitionButton) in
 			bt.rx.controlEvent([.touchDown, .touchUpInside, .touchUpOutside]).bind {
 				// swap
 				let dummy = bt.backgroundColor
@@ -85,6 +87,15 @@ class LogInViewController: UIViewController {
 			}
 			}.disposed(by: disposeBag)
 		
+		
+		testButton.rx.tap.bind {
+			self.testButton.startAnimation()
+			RunInNextMainThread(withDelay: 0.666, { [weak self] in
+				self?.testButton.stopAnimation(animationStyle: .expand, completion: {
+					self?.goHome()
+				})
+			})
+			}.disposed(by: disposeBag)
 	}
 	
 	
@@ -108,6 +119,7 @@ extension LogInViewController {
 				if not(fin) {
 					return
 				}
+				self.testButton.show()
 			}
 		})
 	}

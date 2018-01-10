@@ -114,21 +114,42 @@
                                     <constraint firstAttribute="width" constant="297" id="q7O-7B-XfB"/>
                                 </constraints>
                             </imageView>
+                            <button hidden="YES" opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxo-tm-e7t" customClass="TransitionButton" customModule="TransitionButton">
+                                <rect key="frame" x="42" y="442" width="291" height="47"/>
+                                <color key="backgroundColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Go Home..."/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
+                                        <color key="value" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="trailing" secondItem="pct-yq-kql" secondAttribute="trailing" id="1OM-Mx-RDU"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="width" secondItem="IyU-Jf-RZo" secondAttribute="width" id="A4d-PT-Mo7"/>
+                            <constraint firstItem="kxo-tm-e7t" firstAttribute="width" secondItem="I2f-b3-VOc" secondAttribute="width" id="AYQ-3w-rJB"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" id="FwM-zQ-coa"/>
                             <constraint firstAttribute="bottom" secondItem="Ypa-mP-mgc" secondAttribute="bottom" id="Heg-6e-U9H"/>
+                            <constraint firstItem="I2f-b3-VOc" firstAttribute="top" secondItem="kxo-tm-e7t" secondAttribute="bottom" constant="40" id="Ktn-Yq-yDD"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="bottom" secondItem="pct-yq-kql" secondAttribute="bottom" id="MAu-VR-1cU"/>
                             <constraint firstItem="IyU-Jf-RZo" firstAttribute="centerX" secondItem="pct-yq-kql" secondAttribute="centerX" id="NsO-jF-QdZ"/>
+                            <constraint firstItem="kxo-tm-e7t" firstAttribute="centerX" secondItem="I2f-b3-VOc" secondAttribute="centerX" id="eFH-HV-8UI"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="centerX" secondItem="IyU-Jf-RZo" secondAttribute="centerX" id="k23-8u-f7h"/>
                             <constraint firstItem="1oD-Db-IXL" firstAttribute="top" secondItem="I2f-b3-VOc" secondAttribute="bottom" constant="91" id="kzi-hy-3k2"/>
                             <constraint firstAttribute="trailing" secondItem="Ypa-mP-mgc" secondAttribute="trailing" id="pae-Sp-FSi"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="height" secondItem="IyU-Jf-RZo" secondAttribute="height" id="pdV-YZ-BhJ"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="leading" secondItem="pct-yq-kql" secondAttribute="leading" id="qTm-uV-UO8"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="centerY" secondItem="IyU-Jf-RZo" secondAttribute="centerY" id="uoN-d1-dta"/>
+                            <constraint firstItem="kxo-tm-e7t" firstAttribute="height" secondItem="I2f-b3-VOc" secondAttribute="height" id="xXK-FB-OmE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4k5-Ak-aBT"/>
@@ -138,6 +159,7 @@
                         <outlet property="loginButtonBottomConstraint" destination="kzi-hy-3k2" id="6MC-nz-1dN"/>
                         <outlet property="loginButtonView" destination="IyU-Jf-RZo" id="clb-8i-pw2"/>
                         <outlet property="loginLabel" destination="eLm-5n-GbQ" id="aV9-Yz-FXk"/>
+                        <outlet property="testButton" destination="kxo-tm-e7t" id="giZ-cN-vwQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lvh-bJ-x2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
