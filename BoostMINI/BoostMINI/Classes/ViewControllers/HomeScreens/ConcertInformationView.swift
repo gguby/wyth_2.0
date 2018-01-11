@@ -8,84 +8,46 @@
 
 import UIKit
 
+
 class ConcertInformationView: UIView {
     
-
+    @IBOutlet weak var ddayLabel: UILabel!
+    @IBOutlet weak var concertNameLabel: UILabel!
+    @IBOutlet weak var concertDateLabel: UILabel!
+    @IBOutlet weak var concertPlaceLabel: UILabel!
+    
     @IBOutlet weak var arrowButton: UIButton!
     @IBOutlet weak var topTiltingView: TopTiltingView!
     @IBOutlet weak var detailConcertInformationButton: UIButton!
     
-//    @IBInspectable var fillColor: UIColor = UIColor.gray { didSet { setNeedsLayout() } }
-    
-    
+   
     class func instanceFromNib() -> ConcertInformationView {
-        return UINib(nibName: "InformationView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ConcertInformationView
+        return UINib(nibName: "ConcertInformationView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ConcertInformationView
     }
     
-  /*
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
+    func updateConcertInfo() {
+        DefaultAPI.getConcertsUsingGET { [weak self] body, err in
+            guard let data = body else {
+                return
+            }
+            
+            self?.ddayLabel.text = "D-\(data.dday!)"
+            self?.concertNameLabel.text = data.concertPlace
+            self?.concertDateLabel.text = data.concertDate
+            self?.concertPlaceLabel.text = "@\(data.concertPlace!)"
+        }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
+    func updateConcerSeatInfo() {
+        DefaultAPI.getSeatsUsingGET(type: .yes24) { [weak self] body, err in
+            guard let data = body else {
+                return
+            }
+            
+        }
     }
-    
-    private func commonInit() {
-        contentView = loadViewFromNib()
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        addSubview(contentView)
-        
-        layoutIfNeeded()
-    }
-    
-    func loadViewFromNib() -> UIView! {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "InformationView", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-        return view
-    }
- 
- */
-    
-//    var points = [
-//        CGPoint(x: 0, y:0.1),
-//        CGPoint(x: 1, y: 0),
-//        CGPoint(x: 1, y: 1),
-//        CGPoint(x: 0, y: 1)
-//        ] { didSet { setNeedsLayout() } }
-//    
-//    private lazy var shapeLayer: CAShapeLayer = {
-//        let _shapeLayer = CAShapeLayer()
-//        self.layer.insertSublayer(_shapeLayer, at: 0)
-//        return _shapeLayer
-//    }()
-//    
-//    override func layoutSubviews() {
-//        shapeLayer.fillColor = fillColor.cgColor
-//        
-//        guard points.count > 2 else {
-//            shapeLayer.path = nil
-//            return
-//        }
-//        
-//        let path = UIBezierPath()
-//        
-//        path.move(to: convert(relativePoint: points[0]))
-//        for point in points.dropFirst() {
-//            path.addLine(to: convert(relativePoint: point))
-//        }
-//        path.close()
-//        
-//        shapeLayer.path = path.cgPath
-//    }
-//    
-//    private func convert(relativePoint point: CGPoint) -> CGPoint {
-//        return CGPoint(x: point.x * bounds.width + bounds.origin.x, y: point.y * bounds.height + bounds.origin.y)
-//    }
     
 }
+
+
 

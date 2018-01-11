@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
         let view = ConcertInformationView.instanceFromNib()
         view.arrowButton.addTarget(self, action: #selector(self.popupViewTapped(recognizer:)), for: .touchUpInside)
         view.detailConcertInformationButton.addTarget(self, action: #selector(self.showDetailConcertInformation(recognizer:)), for: .touchUpInside)
+        view.updateConcertInfo()
         return view
     }()
 	
@@ -109,9 +110,9 @@ class HomeViewController: UIViewController {
 	@available(iOS 10.0, *)
     private func layout() {
         popupView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
     }
+    
+  
     
     // MARK: - * UI Events --------------------
     

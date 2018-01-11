@@ -304,7 +304,7 @@
 		8F391FFD1FFF415300A46996 /* HelpWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */; };
 		8F3920021FFF70AD00A46996 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
 		8F3920031FFF70AE00A46996 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
-		8F6290C11FFCADB500689B91 /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6290C01FFCADB500689B91 /* InformationView.xib */; };
+		8F6290C11FFCADB500689B91 /* ConcertInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6290C01FFCADB500689B91 /* ConcertInformationView.xib */; };
 		8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		8F7BDC4220048EAF00DD2150 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BDC4120048EAF00DD2150 /* SettingViewController.swift */; };
@@ -489,7 +489,7 @@
 		8471506B5EA6D4EF07695522 /* Pods-BoostMINIUITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.product.xcconfig"; sourceTree = "<group>"; };
 		8E3B451244A2D124A302E95E /* Pods-BoostMINITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpWebViewController.swift; sourceTree = "<group>"; };
-		8F6290C01FFCADB500689B91 /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
+		8F6290C01FFCADB500689B91 /* ConcertInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConcertInformationView.xib; sourceTree = "<group>"; };
 		8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationView.swift; sourceTree = "<group>"; };
 		8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationViewController.swift; sourceTree = "<group>"; };
 		8F7BDC4120048EAF00DD2150 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -968,7 +968,7 @@
 			children = (
 				8F82C1721FF38EC30031D030 /* HomeViewController.swift */,
 				8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */,
-				8F6290C01FFCADB500689B91 /* InformationView.xib */,
+				8F6290C01FFCADB500689B91 /* ConcertInformationView.xib */,
 				8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */,
 				8F9A7CC02003465D003BABB1 /* MenuViewController.swift */,
 				A63F1A2D20059D180079046D /* ConcertInfoView.xib */,
@@ -1177,7 +1177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0462CE001FFE2C90002B6E11 /* BoostMini.clr in Resources */,
-				8F6290C11FFCADB500689B91 /* InformationView.xib in Resources */,
+				8F6290C11FFCADB500689B91 /* ConcertInformationView.xib in Resources */,
 				2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */,
 				8F9A7CCA20035B42003BABB1 /* SMTOWN(OTF)-Light.otf in Resources */,
 				2B5AA09D1FEB566C007441E1 /* Common.strings in Resources */,
