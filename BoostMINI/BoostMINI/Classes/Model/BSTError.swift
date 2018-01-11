@@ -132,6 +132,35 @@ enum APIError: Int, Error, BSTErrorProtocol {
     }
 }
 
+enum TicketError: Error, BSTErrorProtocol {
+    case scanFailed
+    case noPermissionForCamera
+    
+    var description: String {
+        var desc = ""
+        switch self {
+        case .scanFailed:
+            desc = BSTFacade.localizable.error.ticketScanFailed()    //Resources/Strings/Error.strings에 정의함
+        case .noPermissionForCamera:
+            desc = BSTFacade.localizable.error.ticketNoPermissionForCamera()
+        }
+        return desc
+    }
+    
+    func cook(_ object: Any? = nil) {
+        switch self {
+        case .scanFailed:
+            let title = BSTFacade.localizable.error.ticketScanFailedTitle()
+            BSTFacade.ux.showAlert(self.description, title: title) //alert 출력
+        case .noPermissionForCamera:
+            BSTFacade.ux.showConfirm(self.description, { (_ ok: Bool?) in
+                //카메라 설정으로 이동함.
+            })
+        }
+    }
+}
+
+
 enum BSTError: Error, BSTErrorProtocol {
     case none
     case isEmpty
@@ -143,6 +172,7 @@ enum BSTError: Error, BSTErrorProtocol {
     //    case api(code)
     //    case permission(PermissionErrorType)
     case device(DeviceError)
+    case ticket(TicketError)
     case login(LoginError)
     
     var description: String {
@@ -175,6 +205,8 @@ enum BSTError: Error, BSTErrorProtocol {
 
         switch self {
         case .device(let error):
+            error.cook(object)
+        case .ticket(let error):
             error.cook(object)
         case .login(let error):
             error.cook(error)

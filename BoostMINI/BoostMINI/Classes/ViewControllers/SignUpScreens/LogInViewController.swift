@@ -86,7 +86,7 @@ class LogInViewController: UIViewController {
 		
 		testButton.rx.tap.bind {
 			self.testButton.startAnimation()
-			RunInNextMainThread(withDelay: 0.666, { [weak self] in
+			FunctionHouse.runInNextMainThread(withDelay: 0.666, { [weak self] in
 				self?.testButton.stopAnimation(animationStyle: .expand, completion: {
 					self?.goHome()
 				})
@@ -104,7 +104,7 @@ extension LogInViewController {
 		self.loginButtonBottomConstraint.constant = -self.loginButton.frame.height
 		self.view.layoutIfNeeded()
 		
-		RunInNextMainThread(withDelay: 0.1, {
+		FunctionHouse.runInNextMainThread(withDelay: 0.1, {
 			self.loginButtonBottomConstraint.constant = self.cacheLoginButtonBottomConstraint
 			
 			self.loginButton.isHidden = false
@@ -115,7 +115,7 @@ extension LogInViewController {
 							self.view.layoutIfNeeded()
 			}) { fin in
 				logVerbose("startPopLoginButton")
-				if not(fin) {
+				if FunctionHouse.not(fin) {
 					return
 				}
 				self.testButton.show()
@@ -178,7 +178,7 @@ extension LogInViewController {
 				isFailed = true
 			}
 			
-			RunInNextMainThread {
+			FunctionHouse.runInNextMainThread {
 //				button.stopAnimation(animationStyle: .expand, completion: {
 					self.loginButtonView.show()
 					if isFailed {
@@ -187,7 +187,7 @@ extension LogInViewController {
 					
 					let newVC = SMLoginViewController.create("SignUp")
 					//let newVC = R.storyboard.signUp.smLoginViewController()!
-					if not(html.isEmpty) {
+					if FunctionHouse.not(html.isEmpty) {
 						//newVC.preload = html
 					}
 					self.navigationController?.pushViewController(newVC, animated: true)

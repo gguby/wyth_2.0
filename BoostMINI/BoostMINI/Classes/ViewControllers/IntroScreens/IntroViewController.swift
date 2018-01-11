@@ -42,7 +42,7 @@ class IntroViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		
-		if progressAnimationWaiting{
+		if progressAnimationWaiting {
 			progressAnimationWaiting = false
 			
 			self.startLoadingMarkAnimation(progressStep1, duration:1.0)
@@ -50,7 +50,7 @@ class IntroViewController: UIViewController {
 		
 		
 		//무조건?!
-		if not(progressCompleted) {
+		if FunctionHouse.not(progressCompleted) {
 			self.checkVersion()
 		}
 		
@@ -71,7 +71,7 @@ extension IntroViewController {
 		logVerbose("startLoadingMarkAnimation - to:\(to)[val:\(val)], duration:\(duration), anim:\(animated) / curr:\(self.loadingMarkRightGapWidthConstraint.constant)")
 
 		
-		if not(animated) {
+		if FunctionHouse.not(animated) {
 			self.loadingMarkRightGapWidthConstraint.constant = val
 			self.view.layoutIfNeeded()
 			completed?(true)
@@ -102,7 +102,7 @@ extension IntroViewController {
 			logVerbose("startLoadingMarkAnimation[\(to),\(val),\(duration)] - FIN = \(fin)")
 		}
 		// constraint를 사용하면 animate completion 타이밍이 안맞는다.
-		RunInNextMainThread(withDelay: duration) {
+        FunctionHouse.runInNextMainThread(withDelay: duration) {
 			logVerbose("startLoadingMarkAnimation[\(to),\(val),\(duration)] - FIN REAL %@".format(completed == nil ? "" : "closure"))
 			completed?(true)
 
@@ -128,7 +128,7 @@ extension IntroViewController {
 				BSTFacade.ux.showConfirm(BSTFacade.localizable.login.agreement(), { [weak self] isOk in
 					if isOk == true {
 						// retry...
-						RunInNextMainThread {
+						FunctionHouse.runInNextMainThread {
 							if let this = self {
 								this.startLoadingMarkAnimation(0.0, duration: 0.0, animated: false)
 								this.startLoadingMarkAnimation(this.progressStep1)
@@ -148,7 +148,7 @@ extension IntroViewController {
 				return
 			}
 
-			RunInNextMainThread {
+			FunctionHouse.runInNextMainThread {
 				guard let this = self else {
 					return
 				}
@@ -172,7 +172,7 @@ extension IntroViewController {
 						}
 						
 						if buttonIndex == 0 {
-							OPEN_SAFARI(Definitions.externURLs.appstore)
+							FunctionHouse.OPEN_SAFARI(Definitions.externURLs.appstore)
 						}
 						if forceUpdate {
 							this.blockMe()

@@ -53,7 +53,7 @@ class SMLoginViewController: WebViewController {
 		if params.keys.contains("access_token") {
 			// check more
 			let token = params["access_token"] ?? ""
-			if not(token.isEmpty) {
+			if FunctionHouse.not(token.isEmpty) {
 				self.login(params["access_token"])
 			}
 		}

@@ -51,7 +51,7 @@ class BSTUXHanlder {
         guard let viewController = BSTScreens.instantiate(withClassName: className) else {
             fatalError("no viewcontroller")
         }
-        return autocast(some: viewController)
+        return FunctionHouse.autocast(some: viewController)
     }
     
 	
@@ -121,7 +121,7 @@ class BSTUXHanlder {
 	open func showAlert(_ message: String,
 						title: String? = nil,
 						buttons: AlertButtonSet = [.ok],
-						_ completion: @escaping Actions.intAction) {
+						_ completion: @escaping Actions.intAction = { _ in }) {
 		SystemAlert
 			.show(title, message: message, buttons: buttons, completion: { index in
 				completion(index)

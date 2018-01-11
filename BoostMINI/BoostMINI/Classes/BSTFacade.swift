@@ -16,7 +16,7 @@ class BSTFacade {
 	
 	typealias theme = BST.Theme
 	typealias localizable = BST.Localizable
-
+    typealias function = FunctionHouse
 
     // MARK: * properties --------------------
 

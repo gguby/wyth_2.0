@@ -115,7 +115,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	
 	func showActivityIndicator() {
 		if let indicator = activityIndicator,
-			not(isIndicatorInProgress) {
+			FunctionHouse.not(isIndicatorInProgress) {
 			isIndicatorInProgress = true
 			indicator.isHidden = false
 			indicator.startAnimating()
@@ -238,7 +238,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 //		var screenName: String? = nil
 		//로그인,
 		//    UserData *userData = [UserData sharedInstance];
-		if not(titleString.isEmpty) {
+		if FunctionHouse.not(titleString.isEmpty) {
 //			if (titleString == localizedText.login.service_term_title) {
 //				screenName = "LoginJoin_ServiceTerms"
 //			}

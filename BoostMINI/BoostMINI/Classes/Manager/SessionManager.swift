@@ -18,7 +18,7 @@ class SessionHandler {
 
 	// TODO : 로그인여부.
 	var isLoginned: Bool {
-		return not((token ?? "").isEmpty)
+		return FunctionHouse.not((token ?? "").isEmpty)
 	}
 
 	
