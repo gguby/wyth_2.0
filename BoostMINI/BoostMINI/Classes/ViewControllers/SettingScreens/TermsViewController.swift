@@ -15,7 +15,7 @@ class TermsViewController: UIViewController {
 
 
     // MARK: - * IBOutlets --------------------
-    @IBOutlet weak var tiltingView: TopTiltingView!
+   
     
     // MARK: - * Initialize --------------------
 
@@ -45,21 +45,11 @@ class TermsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if(tiltingView.isHidden){
-            showStartAnimation()
-        }
+       
     }
 
     // MARK: - * Main Logic --------------------
     
-    func showStartAnimation() {
-        tiltingView.isHidden = false
-        
-        let duration: TimeInterval = 1.3
-        tiltingView.updateDisplayTiltMaskPercentage(1.0, 1.0)
-        self.tiltingView.updateDisplayTiltMaskPercentage(1.0, 0.0, animation: true, duration: duration)
-    }
-
     // MARK: - * UI Events --------------------
 
 

@@ -108,7 +108,6 @@
 		0462CDCB1FFCA430002B6E11 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		0462CDCC1FFCA430002B6E11 /* DebugHSLee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0881FEB554B007441E1 /* DebugHSLee.swift */; };
 		0462CDCD1FFCA431002B6E11 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA08A1FEB5568007441E1 /* IntroViewController.swift */; };
-		0462CDCE1FFCA431002B6E11 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
 		0462CDCF1FFCA431002B6E11 /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		0462CDD01FFCA431002B6E11 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		0462CDD11FFCA431002B6E11 /* DebugHSLee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0881FEB554B007441E1 /* DebugHSLee.swift */; };
@@ -335,13 +334,15 @@
 		8F391FFD1FFF415300A46996 /* HelpWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */; };
 		8F3920021FFF70AD00A46996 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
 		8F3920031FFF70AE00A46996 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
-		8F6290C11FFCADB500689B91 /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6290C01FFCADB500689B91 /* InformationView.xib */; };
+		8F6290C11FFCADB500689B91 /* ConcertInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6290C01FFCADB500689B91 /* ConcertInformationView.xib */; };
 		8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		8F7BDC4220048EAF00DD2150 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BDC4120048EAF00DD2150 /* SettingViewController.swift */; };
 		8F7CBF2C2005EE5600DBDE67 /* DetailConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7CBF2B2005EE5600DBDE67 /* DetailConcertInformationViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
+		8F8FD80C200741F900A4D2F1 /* TicketScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */; };
+		8F8FD80D200741F900A4D2F1 /* TicketScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */; };
 		8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */; };
 		8F9A7CC12003465D003BABB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC02003465D003BABB1 /* MenuViewController.swift */; };
 		8F9A7CC920035B42003BABB1 /* SMTOWN(OTF)-Rounded.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC320035B42003BABB1 /* SMTOWN(OTF)-Rounded.otf */; };
@@ -524,7 +525,7 @@
 		8471506B5EA6D4EF07695522 /* Pods-BoostMINIUITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.product.xcconfig"; sourceTree = "<group>"; };
 		8E3B451244A2D124A302E95E /* Pods-BoostMINITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpWebViewController.swift; sourceTree = "<group>"; };
-		8F6290C01FFCADB500689B91 /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
+		8F6290C01FFCADB500689B91 /* ConcertInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConcertInformationView.xib; sourceTree = "<group>"; };
 		8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationView.swift; sourceTree = "<group>"; };
 		8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInformationViewController.swift; sourceTree = "<group>"; };
 		8F7BDC4120048EAF00DD2150 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -1015,7 +1016,7 @@
 			children = (
 				8F82C1721FF38EC30031D030 /* HomeViewController.swift */,
 				8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */,
-				8F6290C01FFCADB500689B91 /* InformationView.xib */,
+				8F6290C01FFCADB500689B91 /* ConcertInformationView.xib */,
 				8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */,
 				8F9A7CC02003465D003BABB1 /* MenuViewController.swift */,
 				A63F1A2D20059D180079046D /* ConcertInfoView.xib */,
@@ -1224,7 +1225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0462CE001FFE2C90002B6E11 /* BoostMini.clr in Resources */,
-				8F6290C11FFCADB500689B91 /* InformationView.xib in Resources */,
+				8F6290C11FFCADB500689B91 /* ConcertInformationView.xib in Resources */,
 				2B61F0471FDFA49500581F06 /* LaunchScreen.storyboard in Resources */,
 				8F9A7CCA20035B42003BABB1 /* SMTOWN(OTF)-Light.otf in Resources */,
 				2B5AA09D1FEB566C007441E1 /* Common.strings in Resources */,
@@ -1791,6 +1792,7 @@
 				04B2191A20076054002A1742 /* HelpWebViewController.swift in Sources */,
 				04E224402004867700A2B388 /* String+Alert.swift in Sources */,
 				04E224372003766E00A2B388 /* AccountsPostResponse.swift in Sources */,
+				8F8FD80C200741F900A4D2F1 /* TicketScanViewController.swift in Sources */,
 				0483854920035641007DE69B /* Models.swift in Sources */,
 				04E2240D2003766E00A2B388 /* ProfileGetResponse.swift in Sources */,
 				0462CDC61FFCA430002B6E11 /* IntroViewController.swift in Sources */,
@@ -1860,6 +1862,7 @@
 				04122A631FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				0462CDE61FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A7E1FECE9A300896EE0 /* CommonUtil.swift in Sources */,
+				8F8FD80D200741F900A4D2F1 /* TicketScanViewController.swift in Sources */,
 				0412CB7D1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */,
 				A6F3506F20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				0483854D20035641007DE69B /* Configuration.swift in Sources */,
@@ -2032,7 +2035,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
 				INFOPLIST_FILE = BoostMINI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2137,7 +2140,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
 				INFOPLIST_FILE = BoostMINI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2299,7 +2302,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
 				INFOPLIST_FILE = BoostMINI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2322,7 +2325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GBL344829;
 				INFOPLIST_FILE = BoostMINI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iriver.boostmini;
 				PRODUCT_NAME = "$(TARGET_NAME)";

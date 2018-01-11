@@ -8,84 +8,79 @@
 
 import UIKit
 
+
 class ConcertInformationView: UIView {
     
-
+    @IBOutlet weak var ddayLabel: UILabel!
+    @IBOutlet weak var concertNameLabel: UILabel!
+    @IBOutlet weak var concertDateLabel: UILabel!
+    @IBOutlet weak var concertPlaceLabel: UILabel!
+    
     @IBOutlet weak var arrowButton: UIButton!
     @IBOutlet weak var topTiltingView: TopTiltingView!
     @IBOutlet weak var detailConcertInformationButton: UIButton!
     
-//    @IBInspectable var fillColor: UIColor = UIColor.gray { didSet { setNeedsLayout() } }
+    @IBOutlet weak var viewingDateLabel: UILabel!
+    @IBOutlet weak var floorLabel: UILabel!
+    @IBOutlet weak var areaLabel: UILabel!
+    @IBOutlet weak var rowLabel: UILabel!
+    @IBOutlet weak var seatNumberLabel: UILabel!
+    
+    let smtownFontAttribute = [ NSAttributedStringKey.font: UIFont(name: "SMTOWNOTF-Medium", size: 16.0)! ]
     
     
+    
+   
     class func instanceFromNib() -> ConcertInformationView {
-        return UINib(nibName: "InformationView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ConcertInformationView
+        return UINib(nibName: "ConcertInformationView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ConcertInformationView
     }
     
-  /*
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
+    func updateConcertInfo() {
+        DefaultAPI.getConcertsUsingGET { [weak self] body, err in
+            guard let data = body else {
+                return
+            }
+            
+            self?.ddayLabel.text = "D-\(data.dday!)"
+            self?.concertNameLabel.text = data.concertNm
+            self?.concertDateLabel.text = data.concertDate
+            self?.concertPlaceLabel.text = "@\(data.concertPlace!)"
+        }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
+    func updateConcerSeatInfo() {
+        DefaultAPI.getSeatsUsingGET(type: .yes24) { [weak self] body, err in
+            guard let data = body else {
+                return
+            }
+            var range = NSRange()
+            
+            self?.viewingDateLabel.text = data.concertDate
+            
+            range = NSRange.init(location: 0, length: (data.floor?.length())!)
+            let floorString = NSMutableAttributedString(string:"\(data.floor!)층")
+            floorString.addAttributes((self?.smtownFontAttribute)!, range: range)
+            self?.floorLabel.attributedText = floorString
+            
+            range = NSRange.init(location: 0, length: (data.area?.length())!)
+            let areaString = NSMutableAttributedString(string:"\(data.area!)구역")
+            areaString.addAttributes((self?.smtownFontAttribute)!, range: range)
+            self?.areaLabel.attributedText = areaString
+            
+            range = NSRange.init(location: 0, length: (data.row?.length())!)
+            let rowString = NSMutableAttributedString(string:"\(data.row!)열")
+            rowString.addAttributes((self?.smtownFontAttribute)!, range: range)
+            self?.rowLabel.attributedText = rowString
+            
+            range = NSRange.init(location: 0, length: (data.seat?.length())!)
+            let seatNumberString = NSMutableAttributedString(string:"\(data.seat!)번")
+            seatNumberString.addAttributes((self?.smtownFontAttribute)!, range: range)
+            self?.seatNumberLabel.attributedText = seatNumberString
+            
+        }
     }
-    
-    private func commonInit() {
-        contentView = loadViewFromNib()
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        addSubview(contentView)
-        
-        layoutIfNeeded()
-    }
-    
-    func loadViewFromNib() -> UIView! {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "InformationView", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-        return view
-    }
- 
- */
-    
-//    var points = [
-//        CGPoint(x: 0, y:0.1),
-//        CGPoint(x: 1, y: 0),
-//        CGPoint(x: 1, y: 1),
-//        CGPoint(x: 0, y: 1)
-//        ] { didSet { setNeedsLayout() } }
-//    
-//    private lazy var shapeLayer: CAShapeLayer = {
-//        let _shapeLayer = CAShapeLayer()
-//        self.layer.insertSublayer(_shapeLayer, at: 0)
-//        return _shapeLayer
-//    }()
-//    
-//    override func layoutSubviews() {
-//        shapeLayer.fillColor = fillColor.cgColor
-//        
-//        guard points.count > 2 else {
-//            shapeLayer.path = nil
-//            return
-//        }
-//        
-//        let path = UIBezierPath()
-//        
-//        path.move(to: convert(relativePoint: points[0]))
-//        for point in points.dropFirst() {
-//            path.addLine(to: convert(relativePoint: point))
-//        }
-//        path.close()
-//        
-//        shapeLayer.path = path.cgPath
-//    }
-//    
-//    private func convert(relativePoint point: CGPoint) -> CGPoint {
-//        return CGPoint(x: point.x * bounds.width + bounds.origin.x, y: point.y * bounds.height + bounds.origin.y)
-//    }
     
 }
+
+
 

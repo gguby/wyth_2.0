@@ -21,7 +21,7 @@ class SessionHandler {
 
 	// TODO : 로그인여부.
 	var isLoginned: Bool {
-		return not((token ?? "").isEmpty)
+		return FunctionHouse.not((token ?? "").isEmpty)
 	}
 
 	// TODO: 일단 UserDefaults. Realm 등등으로 바꾸려면 여기서.
