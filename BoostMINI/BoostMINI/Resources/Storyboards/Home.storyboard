@@ -278,10 +278,21 @@
                                         <color key="textColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최강창민" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vO-hK-Q2s">
+                                        <rect key="frame" x="95" y="16" width="48.5" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="VO1-9o-4iq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="4vO-hK-Q2s" firstAttribute="leading" secondItem="tet-Hx-igl" secondAttribute="trailing" id="9pt-JI-dCc"/>
                                     <constraint firstAttribute="height" constant="50" id="CBm-zm-rfU"/>
                                     <constraint firstItem="tet-Hx-igl" firstAttribute="centerY" secondItem="hah-s8-DTJ" secondAttribute="centerY" id="FhV-hu-b4P"/>
+                                    <constraint firstItem="4vO-hK-Q2s" firstAttribute="centerY" secondItem="tet-Hx-igl" secondAttribute="centerY" id="uiM-cK-Wv6"/>
                                     <constraint firstItem="tet-Hx-igl" firstAttribute="leading" secondItem="hah-s8-DTJ" secondAttribute="leading" constant="15" id="z4f-Mj-g07"/>
                                 </constraints>
                             </view>
@@ -616,7 +627,9 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="notificationSwitch" destination="Cu4-W2-Jkd" id="FpU-0n-eLD"/>
                         <outlet property="skinCollectionView" destination="I1D-O5-4vw" id="5vr-kB-d9S"/>
+                        <outlet property="userNameLabel" destination="4vO-hK-Q2s" id="XDg-he-bfe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUB-5G-269" userLabel="First Responder" sceneMemberID="firstResponder"/>
