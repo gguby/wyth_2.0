@@ -108,7 +108,6 @@
 		0462CDCB1FFCA430002B6E11 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		0462CDCC1FFCA430002B6E11 /* DebugHSLee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0881FEB554B007441E1 /* DebugHSLee.swift */; };
 		0462CDCD1FFCA431002B6E11 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA08A1FEB5568007441E1 /* IntroViewController.swift */; };
-		0462CDCE1FFCA431002B6E11 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
 		0462CDCF1FFCA431002B6E11 /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
 		0462CDD01FFCA431002B6E11 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		0462CDD11FFCA431002B6E11 /* DebugHSLee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0881FEB554B007441E1 /* DebugHSLee.swift */; };
@@ -311,6 +310,8 @@
 		8F7CBF2C2005EE5600DBDE67 /* DetailConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7CBF2B2005EE5600DBDE67 /* DetailConcertInformationViewController.swift */; };
 		8F82C1651FF36D810031D030 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F82C1641FF36D810031D030 /* Home.storyboard */; };
 		8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
+		8F8FD80C200741F900A4D2F1 /* TicketScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */; };
+		8F8FD80D200741F900A4D2F1 /* TicketScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */; };
 		8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CBE200331F0003BABB1 /* TermsViewController.swift */; };
 		8F9A7CC12003465D003BABB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC02003465D003BABB1 /* MenuViewController.swift */; };
 		8F9A7CC920035B42003BABB1 /* SMTOWN(OTF)-Rounded.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC320035B42003BABB1 /* SMTOWN(OTF)-Rounded.otf */; };
@@ -1726,6 +1727,7 @@
 				0483854620035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				04E224402004867700A2B388 /* String+Alert.swift in Sources */,
 				04E224372003766E00A2B388 /* AccountsPostResponse.swift in Sources */,
+				8F8FD80C200741F900A4D2F1 /* TicketScanViewController.swift in Sources */,
 				0483854920035641007DE69B /* Models.swift in Sources */,
 				04E2240D2003766E00A2B388 /* ProfileGetResponse.swift in Sources */,
 				0462CDC61FFCA430002B6E11 /* IntroViewController.swift in Sources */,
@@ -1784,11 +1786,11 @@
 				0462CDCF1FFCA431002B6E11 /* ConcertInformationViewController.swift in Sources */,
 				04E2241D2003766E00A2B388 /* Sort.swift in Sources */,
 				04E224292003766E00A2B388 /* AutowireCapableBeanFactory.swift in Sources */,
-				0462CDCE1FFCA431002B6E11 /* HomeViewController.swift in Sources */,
 				04E224232003766E00A2B388 /* Skin.swift in Sources */,
 				04122A631FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				0462CDE61FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A7E1FECE9A300896EE0 /* CommonUtil.swift in Sources */,
+				8F8FD80D200741F900A4D2F1 /* TicketScanViewController.swift in Sources */,
 				0412CB7D1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */,
 				A6F3506F20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				0483854D20035641007DE69B /* Configuration.swift in Sources */,

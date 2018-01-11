@@ -34,24 +34,27 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     
     @available(iOS 10.0, *)
+    private lazy var tapRecognizer: UITapGestureRecognizer = {
+        let recognizer = UITapGestureRecognizer()
+        recognizer.addTarget(self, action: #selector(popupViewTapped(recognizer:)))
+        return recognizer
+    }()
+    
+    @available(iOS 10.0, *)
     private lazy var popupView: ConcertInformationView = {
         let view = ConcertInformationView.instanceFromNib()
-        view.arrowButton.addTarget(self, action: #selector(self.popupViewTapped(recognizer:)), for: .touchUpInside)
+        view.topTiltingView.addGestureRecognizer(tapRecognizer)
+        view.arrowButton.addTarget(self, action: #selector(self.arrowButtonTapped(recognizer:)), for: .touchUpInside)
         view.detailConcertInformationButton.addTarget(self, action: #selector(self.showDetailConcertInformation(recognizer:)), for: .touchUpInside)
         view.updateConcertInfo()
+        view.updateConcerSeatInfo()
         return view
     }()
 	
     private var bottomConstraint = NSLayoutConstraint()
     private var currentState: State = .closed
     
-	@available(iOS 10.0, *)
-	private lazy var tapRecognizer: UITapGestureRecognizer = {
-        let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(popupViewTapped(recognizer:)))
-        return recognizer
-    }()
-    
+	
     // MARK: - * IBOutlets --------------------
     
     
@@ -94,9 +97,9 @@ class HomeViewController: UIViewController {
             popupView.topTiltingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             popupView.topTiltingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             
-            bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 197)
+            bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 270)
             bottomConstraint.isActive = true
-            popupView.heightAnchor.constraint(equalToConstant: 580).isActive = true
+            popupView.heightAnchor.constraint(equalToConstant: 661).isActive = true
             
             popupView.topTiltingView.useCenter = false
             popupView.topTiltingView.updateDisplayTiltMask(-28, animation:false)
@@ -133,11 +136,10 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-	
-	@available(iOS 10.0, *)
-    @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
+    @available(iOS 10.0, *)
+    @objc private func arrowButtonTapped(recognizer: UITapGestureRecognizer) {
         //티켓 정보가 없을 경우,
-        let hasTicketInfo = false
+        let hasTicketInfo = true
         if hasTicketInfo {
             toggleViewingInformation()
         } else {
@@ -149,6 +151,23 @@ class HomeViewController: UIViewController {
         }
     }
     
+	
+	@available(iOS 10.0, *)
+    @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
+        //티켓 정보가 없을 경우,
+        let hasTicketInfo = true
+        if hasTicketInfo && currentState == .closed {
+            toggleViewingInformation()
+        }
+//        else {
+//            guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else {
+//                return
+//            }
+//            
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+    }
+    
     @available(iOS 10.0, *)
     func toggleViewingInformation() {
         let state = currentState.opposite
@@ -156,11 +175,11 @@ class HomeViewController: UIViewController {
             switch state {
             case .open:
                 self.bottomConstraint.constant = 0
-                self.backgroundView.alpha = 0.5
+                self.backgroundView.alpha = 1
                 self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
             case .closed:
-                self.bottomConstraint.constant = 168
-                self.backgroundView.alpha = 1
+                self.bottomConstraint.constant = 270
+                self.backgroundView.alpha = 0.5
                 self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
             }
             self.view.layoutIfNeeded()
@@ -178,7 +197,7 @@ class HomeViewController: UIViewController {
             case .open:
                 self.bottomConstraint.constant = 0
             case .closed:
-                self.bottomConstraint.constant = 168
+                self.bottomConstraint.constant = 270
                 
             }
         }
