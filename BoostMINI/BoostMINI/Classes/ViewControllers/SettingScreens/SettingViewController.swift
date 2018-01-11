@@ -13,10 +13,12 @@ class SettingViewController: UIViewController {
 
     // MARK: - * IBOutlets --------------------
     @IBOutlet weak var skinCollectionView: UICollectionView!
+    @IBOutlet weak var notificationSwitch: UISwitch!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     // MARK: - * properties --------------------
-    var selectedIndexPath: IndexPath = []{
-        didSet{
+    var selectedIndexPath: IndexPath = [] {
+        didSet {
             skinCollectionView.reloadData()
         }
     }
@@ -38,7 +40,7 @@ class SettingViewController: UIViewController {
 
 
     private func initUI() {
-        
+        updateSettingInformation()
     }
 
 
@@ -47,8 +49,18 @@ class SettingViewController: UIViewController {
     }
 
     // MARK: - * Main Logic --------------------
-    func pop()
-    {
+    func updateSettingInformation() {
+        DefaultAPI.getSettingsUsingGET { (response, error) in
+            guard let data = response else {
+                return
+            }
+            
+            self.userNameLabel.text = data.userName
+            self.notificationSwitch.setOn(data.alarm!, animated: false)
+        }
+    }
+    
+    func pop() {
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -67,7 +79,7 @@ class SettingViewController: UIViewController {
 }
 
 
-extension SettingViewController : UICollectionViewDelegate, UICollectionViewDataSource{
+extension SettingViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -78,12 +90,14 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
         var borderColor: CGColor! = UIColor.clear.cgColor
         var borderWidth: CGFloat = 0
         
-        if indexPath == selectedIndexPath{
+        if indexPath == selectedIndexPath {
             borderColor = R.clr.boostMini.commonBgPoint().cgColor
             borderWidth = 2 //or whatever you please
+            cell.selectImageView.isHidden = false
         } else {
             borderColor = UIColor.clear.cgColor
             borderWidth = 0
+            cell.selectImageView.isHidden = true
         }
         
         cell.imageView.layer.borderWidth = borderWidth

@@ -163,7 +163,7 @@ class HomeViewController: UIViewController {
 //            guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else {
 //                return
 //            }
-//            
+//
 //            self.navigationController?.pushViewController(vc, animated: true)
 //        }
     }
@@ -218,9 +218,12 @@ class HomeViewController: UIViewController {
 extension HomeViewController : UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
         print(#function)
-        if(currentState == .open){
-            
-//            toggleViewingInformation()
+        if currentState == .open {
+            if #available(iOS 10.0, *) {
+                toggleViewingInformation()
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }
