@@ -65,6 +65,7 @@ class BoostMINITests: XCTestCase {
 		}
     }
 	
+	// 코더블 모델 변환이 두려우시다면 요 테스트를 보고, 믿으세요!~
 	func testProfileGetResponse() throws {
 		self.measure {
 			
@@ -87,13 +88,24 @@ class BoostMINITests: XCTestCase {
 			print(v1)
 			print(v2)
 
+			// v2: BoostProfile(any encodable model) -> enc.data (json or whatever)
 			let enc = CodableHelper.encode(v2)
+			// enc.data -> dec.decodableObj (ProfileGetResponse or any decodable model)
 			let dec = CodableHelper.decode(ProfileGetResponse.self, from: enc.data!)
-			var r1 = dec.decodableObj as! ProfileGetResponse
+			var v3 = dec.decodableObj as! ProfileGetResponse	// 변환 실패시 nil
 
-			
 			XCTAssertEqual(v1.name, v2.name)
-			XCTAssertEqual(v1.name, r1.name)
+			XCTAssertEqual(v2.name, v3.name)
+			
+			XCTAssertEqual(v1.id, v3.id)
+			
+			XCTAssertEqual(v1.email, v3.email)
+			
+			XCTAssertEqual(v1.profilepicture, v2.profilepicture)
+			XCTAssertEqual(v2.profilepicture, v3.profilepicture)
+
+			XCTAssertEqual(v1.createdAt, v3.createdAt)
+			XCTAssertEqual(v2.createdAt, v3.createdAt)
 
 		}
 	}

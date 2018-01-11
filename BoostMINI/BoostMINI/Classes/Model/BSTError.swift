@@ -37,6 +37,7 @@ extension BSTErrorProtocol {
 enum WhiteError: Error, BSTErrorProtocol {
 	case statusCode(Int)
 
+	// 암세포가 자라나고 있어요~
 	var description: String {
 		switch self {
 		case .statusCode(let code):

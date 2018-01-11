@@ -734,7 +734,7 @@ open class DefaultAPI {
      - parameter socialType: (query)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error? ) -> Void)) {
         signinUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType).execute { (response, error) -> Void in
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }

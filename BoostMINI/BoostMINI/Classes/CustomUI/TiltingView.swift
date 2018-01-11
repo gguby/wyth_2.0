@@ -10,22 +10,31 @@ import UIKit
 
 
 /// 음..사실 TopTiltingView와 유사하지만, 스토리보드에서 바로볼 수 있도록 구현.
+@IBDesignable
 class TiltingView: UIView {
 
-	@IBInspectable var leftTopGap: CGFloat = 0
-	@IBInspectable var rightTopGap: CGFloat = 20
-	
-	
+	@IBInspectable var leftTopGap: CGFloat = 0 {
+		didSet {
+			self.layoutIfNeeded()
+		}
+	}
+	@IBInspectable var rightTopGap: CGFloat = 20 {
+		didSet {
+			self.layoutIfNeeded()
+		}
+	}
 
 	override func draw(_ rect: CGRect) {
 		logVerbose("TiltingView DRAW")
-		
+		super.draw(rect)
+
 		self.layer.mask = toTiltLayer(getTiltPath(leftTopGap, rightTopGap))
 		self.clipsToBounds = true
 		self.layer.allowsEdgeAntialiasing = true
 		
-		super.draw(rect)
 	}
+	
+	
 	internal func updateAnimateMask(leftGap: CGFloat, rightGap: CGFloat, _ duration: TimeInterval = 0.75) {
 		updateAnimateMask(getTiltPath(leftGap, rightGap), duration)
 	}

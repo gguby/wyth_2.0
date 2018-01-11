@@ -9,9 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="AppleSDGothicNeo.ttc">
-            <string>AppleSDGothicNeo-Regular</string>
-        </array>
         <array key="SMTOWN(OTF)-Regular.otf">
             <string>SMTOWNOTF-Regular</string>
         </array>
@@ -212,35 +209,217 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-wx-dzS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-wx-dzS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdM-Z1-rCa">
-                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Um8-Tf-HZ6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xVJ-mZ-eyX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhq-Zi-uOP" customClass="TiltingView" customModule="BoostMINI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="226" width="375" height="441"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHh-b0-fxM">
+                                        <rect key="frame" x="0.0" y="30" width="375" height="251"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카시오페아님 환영합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-lA-Pxg">
+                                                <rect key="frame" x="42" y="37" width="278" height="24"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pop-Wt-tbe">
+                                                <rect key="frame" x="42" y="85" width="278" height="62.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <string key="text">Boost for TVXQ!는 카시오페아님의 이메일과 성명을MUSIC NATION SMTOWN에서 제공받습니다.제공된 정보는 이용자 식별, 계정연동 등을 위해 서비스 이용 중 보관 됩니다.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T9k-s9-bTG">
+                                                <rect key="frame" x="42" y="160.5" width="66" height="28"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="T26-WQ-0Pt"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="이용약관 보기">
+                                                            <attributes>
+                                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <integer key="NSUnderline" value="1"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pushViewWithSender:" destination="yLj-5Q-3sI" eventType="touchUpInside" id="e8s-9l-Dty"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfY-Cx-IMT">
+                                                <rect key="frame" x="42" y="193" width="87" height="28"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="Hpg-Fl-8mi"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="개인정보 처리방침">
+                                                            <attributes>
+                                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <integer key="NSUnderline" value="1"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pushViewWithSender:" destination="yLj-5Q-3sI" eventType="touchUpInside" id="Vzv-1r-EfH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Pop-Wt-tbe" firstAttribute="top" secondItem="WuI-lA-Pxg" secondAttribute="bottom" constant="24" id="6I0-Pg-LT3"/>
+                                            <constraint firstItem="WuI-lA-Pxg" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="9QJ-EV-wOc"/>
+                                            <constraint firstItem="Pop-Wt-tbe" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="Bg0-Tm-MpU"/>
+                                            <constraint firstItem="WuI-lA-Pxg" firstAttribute="top" secondItem="RHh-b0-fxM" secondAttribute="top" constant="37" id="DzN-nI-Zk8"/>
+                                            <constraint firstAttribute="bottom" secondItem="dfY-Cx-IMT" secondAttribute="bottom" constant="12" id="HDM-G6-Kka"/>
+                                            <constraint firstItem="T9k-s9-bTG" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="JLj-CG-ePc"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pop-Wt-tbe" secondAttribute="trailing" constant="42" id="UHM-Vq-z5D"/>
+                                            <constraint firstItem="dfY-Cx-IMT" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="bwd-W4-ddc"/>
+                                            <constraint firstItem="T9k-s9-bTG" firstAttribute="top" secondItem="Pop-Wt-tbe" secondAttribute="bottom" constant="13" id="guK-aM-S1p"/>
+                                            <constraint firstAttribute="trailing" secondItem="WuI-lA-Pxg" secondAttribute="trailing" constant="42" id="ho7-hW-Jy5"/>
+                                            <constraint firstItem="dfY-Cx-IMT" firstAttribute="top" secondItem="T9k-s9-bTG" secondAttribute="bottom" constant="4" id="tB4-Dg-IQw"/>
+                                        </constraints>
+                                    </scrollView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYQ-ke-HGE" customClass="TransitionButton" customModule="TransitionButton">
+                                        <rect key="frame" x="42" y="362" width="291" height="47"/>
+                                        <color key="backgroundColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="Irr-qD-h5w"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Boost for TVXQ! 시작하기">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
+                                                <color key="value" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="22"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                                <color key="value" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QL9-oe-W6M">
+                                        <rect key="frame" x="42" y="301" width="150" height="17"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="wK0-dL-fJw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="정보제공 동의하기" image="btnSplashCheckOff">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected" image="btnSplashCheckOn"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="IJB-5V-nxU"/>
+                                    <constraint firstItem="QL9-oe-W6M" firstAttribute="top" secondItem="RHh-b0-fxM" secondAttribute="bottom" constant="20" id="1jx-mL-1BA"/>
+                                    <constraint firstItem="QL9-oe-W6M" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" constant="42" id="2Mb-Oy-jdH"/>
+                                    <constraint firstItem="HYQ-ke-HGE" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" constant="42" id="82v-Pw-dkh"/>
+                                    <constraint firstAttribute="bottom" secondItem="HYQ-ke-HGE" secondAttribute="bottom" constant="32" id="TzQ-YZ-0q7"/>
+                                    <constraint firstItem="RHh-b0-fxM" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" id="YtP-Yr-bsA"/>
+                                    <constraint firstAttribute="trailing" secondItem="HYQ-ke-HGE" secondAttribute="trailing" constant="42" id="hS8-VE-sdT"/>
+                                    <constraint firstAttribute="trailing" secondItem="RHh-b0-fxM" secondAttribute="trailing" id="rUd-fE-I2H"/>
+                                    <constraint firstItem="RHh-b0-fxM" firstAttribute="top" secondItem="Nhq-Zi-uOP" secondAttribute="top" constant="30" id="yuG-cy-JRv"/>
+                                    <constraint firstItem="HYQ-ke-HGE" firstAttribute="top" secondItem="QL9-oe-W6M" secondAttribute="bottom" constant="44" id="zbA-ne-cv5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                <state key="normal" title="모든 약관에 동의합니다.">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftTopGap">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightTopGap">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogoTvxq" translatesAutoresizingMaskIntoConstraints="NO" id="a8K-1U-efo">
+                                <rect key="frame" x="20" y="46" width="193" height="139"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="OAK-3f-cNr"/>
+                                    <constraint firstAttribute="width" constant="193" id="YbV-Mg-E2i"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdM-Z1-rCa">
+                                <rect key="frame" x="300" y="21" width="62" height="28"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="IJB-5V-nxU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="62" id="MbR-Ak-56Y"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="가입취소">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                <font key="NSOriginalFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <action selector="pushViewWithSender:" destination="yLj-5Q-3sI" eventType="touchUpInside" id="GdG-4j-C1R"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nhq-Zi-uOP" customClass="TopTiltingView" customModule="BoostMINI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="226" width="375" height="441"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="D9b-fA-00y" firstAttribute="bottom" secondItem="WdM-Z1-rCa" secondAttribute="bottom" id="QD8-0N-X23"/>
-                            <constraint firstItem="WdM-Z1-rCa" firstAttribute="leading" secondItem="D9b-fA-00y" secondAttribute="leading" id="UWd-lz-sxJ"/>
-                            <constraint firstItem="WdM-Z1-rCa" firstAttribute="width" secondItem="0SZ-WZ-yrR" secondAttribute="width" id="YSv-0j-Emb"/>
+                            <constraint firstItem="Nhq-Zi-uOP" firstAttribute="trailing" secondItem="D9b-fA-00y" secondAttribute="trailing" id="5Dd-S2-GsH"/>
+                            <constraint firstItem="Um8-Tf-HZ6" firstAttribute="height" secondItem="SOI-wx-dzS" secondAttribute="height" id="7p4-L9-BRH"/>
+                            <constraint firstItem="WdM-Z1-rCa" firstAttribute="top" secondItem="D9b-fA-00y" secondAttribute="top" constant="1" id="8dt-NN-FUT"/>
+                            <constraint firstItem="D9b-fA-00y" firstAttribute="trailing" secondItem="WdM-Z1-rCa" secondAttribute="trailing" constant="13" id="D8M-KB-NOF"/>
+                            <constraint firstItem="a8K-1U-efo" firstAttribute="leading" secondItem="SOI-wx-dzS" secondAttribute="leading" constant="20" id="ESZ-IM-rkS"/>
+                            <constraint firstItem="Um8-Tf-HZ6" firstAttribute="centerX" secondItem="SOI-wx-dzS" secondAttribute="centerX" id="HuV-ob-aTv"/>
+                            <constraint firstItem="Nhq-Zi-uOP" firstAttribute="bottom" secondItem="D9b-fA-00y" secondAttribute="bottom" id="RFj-ez-b7D"/>
+                            <constraint firstItem="SOI-wx-dzS" firstAttribute="bottom" secondItem="0SZ-WZ-yrR" secondAttribute="bottom" id="Tc6-Ui-850"/>
+                            <constraint firstItem="SOI-wx-dzS" firstAttribute="trailing" secondItem="0SZ-WZ-yrR" secondAttribute="trailing" id="ccd-bM-HL4"/>
+                            <constraint firstItem="Um8-Tf-HZ6" firstAttribute="width" secondItem="SOI-wx-dzS" secondAttribute="width" id="lII-rw-VYv"/>
+                            <constraint firstItem="a8K-1U-efo" firstAttribute="top" secondItem="SOI-wx-dzS" secondAttribute="top" constant="46" id="mQu-Xc-ShS"/>
+                            <constraint firstItem="Um8-Tf-HZ6" firstAttribute="centerY" secondItem="SOI-wx-dzS" secondAttribute="centerY" id="mys-1j-doy"/>
+                            <constraint firstItem="SOI-wx-dzS" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" id="u9d-Rh-QpS"/>
+                            <constraint firstItem="SOI-wx-dzS" firstAttribute="top" secondItem="0SZ-WZ-yrR" secondAttribute="top" id="ubU-93-asX"/>
+                            <constraint firstItem="Nhq-Zi-uOP" firstAttribute="top" secondItem="D9b-fA-00y" secondAttribute="top" constant="206" id="xhz-hr-K9u"/>
+                            <constraint firstItem="Nhq-Zi-uOP" firstAttribute="leading" secondItem="D9b-fA-00y" secondAttribute="leading" id="y1N-Gx-iYE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D9b-fA-00y"/>
                     </view>
@@ -254,8 +433,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btnSplashCheckOff" width="16" height="16"/>
+        <image name="btnSplashCheckOn" width="17" height="17"/>
         <image name="imgMotiveSplash" width="286" height="21"/>
         <image name="imgSmLogo" width="31" height="31"/>
+        <image name="imgSplashLogoTvxq" width="193" height="139"/>
         <image name="intro" width="295" height="525"/>
     </resources>
 </document>
