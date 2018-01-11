@@ -1,0 +1,15 @@
+/* 
+  ErrorDebug.strings
+  BoostMINI
+
+  Release build에서 제거해도 됨
+  Created by jack on 2018. 1. 4..
+  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
+*/
+
+// Storyboard
+"storyboard" = "can't load storyboard %@";
+"viewController" = "can't load viewController %@";
+"nib" = "can't load nib %@";
+"cell" = "can't load cell %@";
+

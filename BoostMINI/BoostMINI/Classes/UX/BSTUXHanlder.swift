@@ -77,6 +77,14 @@ class BSTUXHanlder {
 		ToastManager.pop(message, delay: delay, duration: duration, clearStack:clearStack)
 	}
 
+	/// 에러스타일 토스트를 띄운다.
+	///
+	/// - Parameter message: 메시지
+	open func showToastError(_ message: String) {
+		logError("ERROR!: \(message)")
+		ToastManager.popError(message)
+	}
+
 
 	/// 알럿창을 띄운다.
 	///

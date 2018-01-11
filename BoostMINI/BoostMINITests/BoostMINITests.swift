@@ -20,16 +20,28 @@ class BoostMINITests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
+	
+	func testPerformanceExample() {
+		// This is an example of a performance test case.
+		self.measure {
+			// Put the code you want to measure the time of here.
+		}
+	}
+
+	
+	
+	func testLog() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
 
-		
-		for x in [LogDestination.none, LogDestination.console, LogDestination.beaverCloud, LogDestination.crashlytics] {
+		// , LogDestination.beaverCloud
+		for x in [LogDestination.none, LogDestination.console, LogDestination.crashlytics] {
 			print(".none = %d, %d (defaultHash:%d)".format(x.rawValue, x.hashValue, x.defaultHashValue))
 		}
 
-		logVerbose("test console (default)")
+		self.measure {
+			logVerbose("test console (default)")
+		}
 
 		Logger.destination = .console
 		logDebug("test console1 (c)")
@@ -52,11 +64,88 @@ class BoostMINITests: XCTestCase {
 			logError("error")
 		}
     }
+	
+	func testProfileGetResponse() throws {
+		self.measure {
+			
+			let v1 = ProfileGetResponse()
+			v1.id = 1
+			v1.name = "홍길dong"
+			v1.email = "a@b.c"
+			
+			v1.createdAt = Date(timeIntervalSinceNow: -999)
+			v1.nationality = "ko"
+			v1.profilepicture = "http://blahblah"
+			v1.regdate = nil
+			v1.sex = "철9"
+			v1.socialType = .smtown
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+			let v2 = BoostProfile.from(v1)!
+			
+			print("ProfileGetResponse -> BoostProfile")
+			
+			print(v1)
+			print(v2)
+
+			let enc = CodableHelper.encode(v2)
+			let dec = CodableHelper.decode(ProfileGetResponse.self, from: enc.data!)
+			var r1 = dec.decodableObj as! ProfileGetResponse
+
+			
+			XCTAssertEqual(v1.name, v2.name)
+			XCTAssertEqual(v1.name, r1.name)
+
+		}
+	}
+	
+	func testAccountsPostResponse() throws {
+		self.measure {
+			let v1 = AccountsPostResponse()
+			v1.id = 1
+			v1.name = "홍길dong"
+			v1.email = "a@b.c"
+			
+			v1.createdAt = Date(timeIntervalSinceNow: -999)
+			v1.nationality = "ko"
+			v1.profilepicture = "http://blahblah"
+			v1.regdate = nil
+			v1.sex = "철9"
+			v1.socialType = .smtown
+
+			let v2 = BoostProfile.from(v1)!
+			
+			print("AccountsPostResponse -> BoostProfile")
+			
+			print(v1)
+			print(v2)
+			
+			let enc = CodableHelper.encode(v2)
+			let dec = CodableHelper.decode(AccountsPostResponse.self, from: enc.data!)
+			var r1 = dec.decodableObj as! AccountsPostResponse
+		}
+	}
+	
+	func testFailAccountsPostResponse() throws {
+		self.measure {
+			let v1 = AccountsPostResponse()
+			v1.id = 1
+			v1.name = nil		// BoostProfile 에는 Optional 이 없으므로 오류가 나야 함.
+			v1.email = "a@b.c"
+			
+			v1.createdAt = Date(timeIntervalSinceNow: -999)
+			v1.nationality = "ko"
+			v1.profilepicture = "http://blahblah"
+			v1.regdate = nil
+			v1.sex = "철9"
+			v1.socialType = .smtown
+			
+			var v2: BoostProfile!
+			v2 = BoostProfile.from(v1)	// try로는 안잡히고 nil이 떨어짐.
+		
+			
+			// 변환을 굳이 하려면
+			XCTAssertNil(v2)
+		}
+	}
+
 }

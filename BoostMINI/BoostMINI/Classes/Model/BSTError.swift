@@ -29,6 +29,68 @@ extension BSTErrorProtocol {
     }
 }
 
+
+/// 에러는 아닌데 뭔가 처리해야겠고 하는 그런 케이스에 사용한다.
+/// 지금의 restAPI는 statuscode를 봐야하는 케이스가 있다. 하지만 generated된 코드에서는 body만을 반환한다... 그런 시나리오에서 사용할 수 있다.
+/// BSTErrorTester.checkWhiteCode(error) 가 nil이 아니면, whiteError에 해당한다. (isFailure에서는 잡히지 않는다)
+/// 이 경우, 오류는 아니지만 특수 케이스에 대한 처리를 해줘야 한다. ( WhiteError.code 로 Response의 statusCode를 직접 받을 수 있다. )
+enum WhiteError: Error, BSTErrorProtocol {
+	case statusCode(Int)
+
+	var description: String {
+		switch self {
+		case .statusCode(let code):
+			return BSTFacade.localizable.error.statusCode(code)
+		default:
+			return ""
+		}
+	}
+	
+	func cook(_ object: Any? = nil) {
+		// do nothing
+	}
+	
+	var code: Int? {
+		switch self {
+		case .statusCode(let code):
+			return code
+		default:
+			return nil
+		}
+	}
+
+}
+
+enum UIError: Error, BSTErrorProtocol {
+	case storyboard(String)
+	case viewController(String)
+	case nib(String)
+	case cell(String)
+
+	var description: String {
+		var desc = ""
+		switch self {
+		case .storyboard(let name):
+			desc = BSTFacade.localizable.errorDebug.storyboard(name)
+		case .viewController(let name):
+			desc = BSTFacade.localizable.errorDebug.viewController(name)
+		case .nib(let name):
+			desc = BSTFacade.localizable.errorDebug.nib(name)
+		case .cell(let name):
+			desc = BSTFacade.localizable.errorDebug.cell(name)
+		default:
+			break
+		}
+		return desc
+	}
+	
+	func cook(_ object: Any? = nil) {
+		BSTFacade.ux.showToastError(self.description)
+
+	}
+}
+
+
 enum LoginError: Error, BSTErrorProtocol {
     case failed
     case failedCode(Int)
@@ -140,11 +202,14 @@ enum BSTError: Error, BSTErrorProtocol {
 	case unknown
 	case typeDismatching
     case api(APIError)
+	case white(WhiteError)
+	
     //    case api(code)
     //    case permission(PermissionErrorType)
     case device(DeviceError)
-    case login(LoginError)
-    
+	case login(LoginError)
+	case debugUI(UIError)
+
     var description: String {
         var description = ""
         switch self {
@@ -165,6 +230,10 @@ enum BSTError: Error, BSTErrorProtocol {
             description = error.description
         case .login(let error):
             description = error.description
+			
+		case .debugUI(let error):
+			description = error.description
+			
         default:
             break
         }
@@ -182,11 +251,63 @@ enum BSTError: Error, BSTErrorProtocol {
 //                error.cook(error)
 //            }
 //            fallthrough
+			
+		case .debugUI(let error):
+			error.cook(error)
         default:
             self.cook(object)
         }
     }
 }
+
+
+
+class BSTErrorTester {
+	
+	/// 에러가 아니지만 에러 객체를 사용해야 하는 [하아...] 스러운 상황에 사용할 수 있도록 만든 녀석.
+	/// checkWhiteCode(error)가 nil이 아니라면, 얘는 오류는 아니지만 결과값이 특별한 그런 녀석인 케이스이다.
+	/// response의 값으로는 담겨지지 않는 케이스들을 위해 사용된다.
+	@discardableResult
+	class func checkWhiteCode(_ err: Error?) -> Int? {
+		if let white = err as? WhiteError,
+			let code = white.code {
+			return code
+		}
+		if let bstError = err as? BSTError {
+			switch bstError {
+			case .white(let white):
+				// 오류가 아님 (예외)
+				return white.code
+				
+			default:
+				return nil
+			}
+		}
+		return nil
+	}
+
+	/// 간편하게 현재 에러를 체크하여 cook하고 에러여부를 반환
+	@discardableResult
+	class func isFailure(_ err: Error?) -> Bool {
+		guard let error = err else {
+			// err is nil
+			return false
+		}
+		
+		if let code = checkWhiteCode(err) {
+			logDebug("WhiteCode #\(code) doesn't processed. please check BSTErrorTester.checkWhiteCode(err)'s code and exit block. do not call .isFailure with WhiteError.")
+			return false
+		}
+		if let bstError = error as? BSTError {
+			logWarning("BSTError : \(error.localizedDescription)")
+			bstError.cook()
+		}
+		logError("error : \(error.localizedDescription)")
+		return true
+	}
+}
+
+
 
 class BSTErrorBaker<T> {
 	@discardableResult
@@ -207,15 +328,22 @@ class BSTErrorBaker<T> {
 			throw BSTError.nilError
 		}
 		
+		if response?.statusCode == 201 {
+			// BAD SAMPLE: 오류는 아니지만 뭔가 처리가 필요하다면... 여기를호출하기 전에 하세요! 여기에서는 오류에 해당하는 것들만 처리해줄것입니다.
+		}
+		
+		if let account = response as? AccountsPostResponse {
+			// TODO: 특정 응답에 대한 오류 처리를 해야 하는 경우
+		}
+		
 		if resp.isNotOk {
 			throw BSTError.api(APIError(rawValue: resp.statusCode)!)
 		}
 		
 		if let error = err {
-		
-			
-			
 		}
 	}
 
 }
+
+

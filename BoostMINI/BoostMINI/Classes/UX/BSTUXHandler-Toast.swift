@@ -43,9 +43,41 @@ extension BSTUXHanlder {
 			bread.show()
 		}
 		
+		
+		
+		/// 에러 스타일 토스트를 띄운다.
+		///
+		/// - Parameters:
+		///   - message: 보여줄 메시지
+		///   - delay: 뜨기 전 지연시간
+		///   - duration: 노출시간
+		static func popError(_ message: String,
+						delay _delay: TimeInterval? = nil,
+						duration _duration: TimeInterval? = nil) {
+			
+			let delay = _delay ?? 0
+			var duration = _duration ?? Toaster.Delay.long
+			duration += TimeInterval((message.length() / 48) * 2)
+			
+			let bread = Toaster.Toast(text: message,
+									  delay: delay,
+									  duration: duration)
+			let view = bread.view
+			view.backgroundColor = UIColor.init("#ac0000")
+			view.textColor = UIColor.init("#ffffbc")
+			view.borderColor = UIColor.init("#ec9fac")
+			view.font = BSTFacade.theme.font.smtownotfBold(size: 17.0)
+
+			bread.show()
+		}
+		
+		
+		
 		/// 화면에 떠있는 토스트를 모두 제거.
 		static func clear() {
 			Toaster.ToastCenter.default.cancelAll()
 		}
 	}
 }
+
+

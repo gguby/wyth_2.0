@@ -8,12 +8,25 @@
 
 import UIKit
 
+
+extension JSONEncoder {
+	static var base: JSONEncoder {
+		let encoder = JSONEncoder()
+		
+		encoder.outputFormatting = .prettyPrinted
+		//encoder.dataEncodingStrategy = .base64
+		encoder.dateEncodingStrategy = .secondsSince1970 // .iso8601
+		
+		return encoder
+	}
+}
+
+
 extension JSONDecoder {
 	
 	static var base: JSONDecoder {
 		let decoder = JSONDecoder()
 		decoder.dateDecodingStrategy = .secondsSince1970 // It is necessary for correct decoding. Timestamp -> Date.
-		
 		
 		return decoder
 	}
@@ -21,4 +34,5 @@ extension JSONDecoder {
 	// swift 4.1 -> decoder.keyDecodingStrategy = .convertFromSnakeCase
 	
 }
+
 

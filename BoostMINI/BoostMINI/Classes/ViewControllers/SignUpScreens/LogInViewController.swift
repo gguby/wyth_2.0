@@ -128,21 +128,7 @@ extension LogInViewController {
 	
 	func goHome() {
 		logVerbose("go home")
-
-		// TODO : 최상위에서 랜딩 및 뷰를 관장하는 녀석이 있어야한다. (ReSwift에서 자동으로 되던 바로 그런 부분이다)
-		let parent = self.parent
-		
-		self.dismiss(animated: false) {
-			
-			guard let vc = R.storyboard.home().instantiateInitialViewController() else {
-				BSTFacade.ux.showToast(BSTFacade.localizable.error.viewControllerMissing("Home.initialViewController"))
-				return
-			}
-			IntroViewController.actual!.present(vc, animated: false, completion: {
-			})
-
-		}
-
+		BSTFacade.go.home(self, animated: false)
 	}
 
 	
@@ -153,7 +139,7 @@ extension LogInViewController {
 		guard let button = self.loginButton else {
             let error = BSTError.login(LoginError.failedCode(-2))
 			error.cook(nil)
-//            BSTFacade.ux.showToast(BSTFacade.localizable.error.loginFailedCode(-2))
+//            BSTFacade.ux.showToastError(BSTFacade.localizable.error.loginFailedCode(-2))
 			return
 		}
 
@@ -174,7 +160,7 @@ extension LogInViewController {
 				let path = Definitions.externURLs.authUri
 				html = try String(contentsOf: path.asUrl!, encoding: String.Encoding.utf8)
 			} catch {
-				BSTFacade.ux.showToast(BSTFacade.localizable.error.loginFailedCode(-1))
+				BSTFacade.ux.showToastError(BSTFacade.localizable.error.loginFailedCode(-1))
 				isFailed = true
 			}
 			

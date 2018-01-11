@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+
 class SessionHandler {
 
     static let shared = SessionHandler()
@@ -15,38 +16,88 @@ class SessionHandler {
 
 	var cookie: String? 
 	var token: String?
+	
+	var profile: BoostProfile?
 
 	// TODO : 로그인여부.
 	var isLoginned: Bool {
 		return not((token ?? "").isEmpty)
 	}
 
+	// TODO: 일단 UserDefaults. Realm 등등으로 바꾸려면 여기서.
+	
+	// TODO: Define쪽으로 빼려면 이것을
+	fileprivate enum userPlistKey: String {
+		case cookie		= "BSTuserCookie"
+		case token		= "BSTuserToken"
+		case profile	= "BSTuserProfile"
+	}
 	
 	private init() {
 		
 		
-		// for test
-		let testCode = 2
-		
-		if testCode == 1 {
-			// 가상 로그인 세팅
-			UserDefaults.standard.set("0123456789abcdef", forKey: "userToken")
-			UserDefaults.standard.synchronize()
-		}
-		if testCode == 2 {
-			// 강제 로그아웃 세팅
-			UserDefaults.standard.removeObject(forKey: "userToken")
-			UserDefaults.standard.synchronize()
-		}
-
+		#if DEBUG
+			// for test
+			let testCode = 2
+			
+			
+			if testCode == 1 {
+				// 가상 로그인 세팅
+				UserDefaults.standard.set("0123456789abcdef", forKey: userPlistKey.token.rawValue)
+				UserDefaults.standard.synchronize()
+			}
+			if testCode == 2 {
+				// 강제 로그아웃 세팅
+				UserDefaults.standard.removeObject(forKey: userPlistKey.token.rawValue)
+				UserDefaults.standard.synchronize()
+			}
+			
+		#endif
 		
 		
 		// TODO: 암호화 필요?
-		self.token = UserDefaults.standard.string(forKey: "userToken")
-		
-		
-		
+		// TODO: 스트링 define으로 뺴려면 고고
+		self.cookie = UserDefaults.standard.string(forKey: userPlistKey.cookie.rawValue)
+		self.token = UserDefaults.standard.string(forKey: userPlistKey.token.rawValue)
+		self.profile = UserDefaults.standard.object(forKey: userPlistKey.profile.rawValue) as? BoostProfile
 	}
+
+	
+	func setSession(_ token: String, _ data: AccountsPostResponse?) {
+		setSession(token, data == nil ? nil : BoostProfile.from(data!))
+	}
+	
+	func setSession(_ token: String, _ data: BoostProfile?) {
+		guard let info = data else {
+			// logout ?
+			self.logout()
+			return
+		}
+		self.login(token: token, profile: info)
+	}
+	
+	func logout() {
+		self.cookie = nil
+		self.token = nil
+		self.profile = nil
+
+		UserDefaults.standard.removeObject(forKey: userPlistKey.cookie.rawValue)
+		UserDefaults.standard.removeObject(forKey: userPlistKey.token.rawValue)
+		UserDefaults.standard.removeObject(forKey: userPlistKey.profile.rawValue)
+		UserDefaults.standard.synchronize()
+	}
+
+	func login(token: String, profile: BoostProfile) {
+		self.cookie = ""
+		self.token = token
+		self.profile = profile
+		
+		UserDefaults.standard.set(self.cookie, forKey: userPlistKey.cookie.rawValue)
+		UserDefaults.standard.set(self.token, forKey: userPlistKey.token.rawValue)
+		UserDefaults.standard.set(self.profile, forKey: userPlistKey.profile.rawValue)
+		UserDefaults.standard.synchronize()
+	}
+	
 	
 //
 //    var accountList: Array<Account> = []

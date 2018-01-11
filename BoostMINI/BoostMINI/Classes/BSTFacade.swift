@@ -18,6 +18,9 @@ class BSTFacade {
 	typealias localizable = BST.Localizable
 
 
+	typealias common = CommonUtil
+	static let go = BST.PageManager.shared
+
     // MARK: * properties --------------------
 
     // MARK: * IBOutlets --------------------

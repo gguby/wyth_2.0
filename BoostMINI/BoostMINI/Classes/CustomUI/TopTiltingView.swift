@@ -12,20 +12,16 @@ import UIColor_Hex_Swift
 
 class TopTiltingView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-	
+//	public func updateDisplayTiltMask(_ heightCCW: CGFloat,
+//									  animation: Bool = false,
+//									  duration: TimeInterval = 0.75) {
+//
+//	}
+//
 	
 	/// 0일때 상단에 꽉차는지(y=0) 중간에 오는지(y=height/2)의 여부.
 	public var useCenter: Bool = true
 	
-	override func willMove(toSuperview newSuperview: UIView?) {
-	}
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
@@ -100,7 +96,7 @@ class TopTiltingView: UIView {
 		if animation {
 			if self.layer.mask == nil {
 				// 초기값도 세팅되지 않은 녀석이다. 일단 없는쪽에서 출발하도록 설정.
-				self.layer.mask = getTiltMaskPercentage(1.0.c, 1.0.c)
+				self.layer.mask = getTiltMaskPercentage(1.0, 1.0)
 				self.layer.allowsEdgeAntialiasing = true
 
 			}

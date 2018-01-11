@@ -20,13 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         		Logger.setMinLogLevel(.verbose)
 
 		
-        //		logVerbose("verbose")
-        //		logDebug("debug")
-        //		logInfo("info")
-        //		logWarning("warning")
-        //		logError("error")
-		
-		// BSTFacade.ux
 
 
         return true

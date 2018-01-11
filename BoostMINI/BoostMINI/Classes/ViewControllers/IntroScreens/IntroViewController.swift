@@ -59,6 +59,20 @@ class IntroViewController: UIViewController {
 	
 	
 	
+	private var blurEffectView: UIVisualEffectView?
+	func blur() {
+		
+		if self.blurEffectView != nil {
+			return
+		}
+		let blurEffect = UIBlurEffect(style: .extraLight)
+		let blurEffectView = UIVisualEffectView(effect: blurEffect)
+		blurEffectView.frame = self.view.frame
+		self.blurEffectView = blurEffectView
+		self.view.insertSubview(blurEffectView, at: 0)
+	}
+
+	
 }
 
 extension IntroViewController {
@@ -116,9 +130,7 @@ extension IntroViewController {
 	private func checkVersion() {
 		DefaultAPI.getVersionUsingGET { [weak self] body, err in
 			
-			if let bstError = err as? BSTError {
-				bstError.cook()
-				
+			if BSTErrorTester.isFailure(err) == true {
 				self?.startLoadingMarkAnimation(0.0)
 				return
 			}
@@ -196,13 +208,13 @@ extension IntroViewController {
 
 		if SessionHandler.shared.isLoginned {
 			// 로그인 유저
-			self.startLoadingMarkAnimation(self.progressStep4, duration: 0.2, animated: true, completed: { fin in
+			self.startLoadingMarkAnimation(self.progressStep4, duration: 0.2, animated: true, completed: { _ in
 				self.presentHome()
 			})
 		} else {
 			// 비로그인 유저
 			
-			self.startLoadingMarkAnimation(self.progressStep4, duration: 0.8, animated: true, completed: { fin in
+			self.startLoadingMarkAnimation(self.progressStep4, duration: 0.8, animated: true, completed: { _ in
 				self.presentLogin()
 			})
 		}
@@ -211,22 +223,13 @@ extension IntroViewController {
 
 	
 	func presentHome() {
-		guard let vc = R.storyboard.home().instantiateInitialViewController() else {
-			BSTFacade.ux.showToast(BSTFacade.localizable.error.viewControllerMissing("Home.initialViewController"))
-			return
-		}
-		self.present(vc, animated: false, completion: {
-		})
+		BSTFacade.go.home(self, animated: false)
 	}
 	
 	func presentLogin() {
-		guard let vc = R.storyboard.signUp().instantiateInitialViewController() else {
-			BSTFacade.ux.showToast(BSTFacade.localizable.error.viewControllerMissing("SignUp.initialViewController"))
-			return
-		}
-		self.present(vc, animated: false, completion: {
-		})
+		BSTFacade.go.login(self, animated: false)
 	}
+	
 	
 	
 }

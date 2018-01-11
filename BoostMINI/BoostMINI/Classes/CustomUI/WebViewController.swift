@@ -284,25 +284,13 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 		}
 	}
 	
-	// 이 코드를 넣으면 웹뷰가 제대로 동작하지 않는다...
-	//- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
-	//
-	//    if ([navigationResponse.response isKindOfClass:[NSHTTPURLResponse class]]) {
-	//        NSHTTPURLResponse * response = (NSHTTPURLResponse *)navigationResponse.response;
-	//        if (!IS_NULL_OBJECT(response) && (((NSHTTPURLResponse *) response).statusCode < 200 || ((NSHTTPURLResponse *) response).statusCode > 299)) {
-	//            NSError *error = [[NSError alloc] initWithDomain:NSURLErrorDomain code:((NSHTTPURLResponse *) response).statusCode userInfo:nil];
-	//            [self presentNetworkErrorForWebView:error];
-	//        }
-	//        decisionHandler(WKNavigationResponsePolicyCancel);
-	//    }
-	//
-	//    decisionHandler(WKNavigationResponsePolicyAllow);
-	//}
+	
+	
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 		logVerbose("webView - %@(%d)".format(#function, navigationAction.navigationType.rawValue))
 		
 		
-		logVerbose("MORE : \(webView.url?.absoluteString)")
+		logVerbose("MORE : \(webView.url?.absoluteString ?? "")")
 		if navigationAction.navigationType == .linkActivated {
 			decisionHandler(.cancel)
 		} else {
