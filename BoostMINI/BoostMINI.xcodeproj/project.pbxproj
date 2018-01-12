@@ -334,6 +334,7 @@
 		8F391FFD1FFF415300A46996 /* HelpWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */; };
 		8F3920021FFF70AD00A46996 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
 		8F3920031FFF70AE00A46996 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
+		8F61AF8120083BD000862443 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F82C1721FF38EC30031D030 /* HomeViewController.swift */; };
 		8F6290C11FFCADB500689B91 /* ConcertInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6290C01FFCADB500689B91 /* ConcertInformationView.xib */; };
 		8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
 		8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D3B301FFB498500F29B8D /* ConcertInformationViewController.swift */; };
@@ -1856,7 +1857,6 @@
 				04E2241D2003766E00A2B388 /* Sort.swift in Sources */,
 				04E224292003766E00A2B388 /* AutowireCapableBeanFactory.swift in Sources */,
 				04B2190020070879002A1742 /* PageManager.swift in Sources */,
-				0462CDCE1FFCA431002B6E11 /* HomeViewController.swift in Sources */,
 				04E224232003766E00A2B388 /* Skin.swift in Sources */,
 				04B219142007602A002A1742 /* DeviceViewReactor.swift in Sources */,
 				04122A631FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
@@ -1892,6 +1892,7 @@
 				8F3920031FFF70AE00A46996 /* ConcertInformationView.swift in Sources */,
 				0462CDA11FFCA408002B6E11 /* Gitup.swift in Sources */,
 				04122A851FECE9BC00896EE0 /* AppDelegate.swift in Sources */,
+				8F61AF8120083BD000862443 /* HomeViewController.swift in Sources */,
 				0462CDB01FFCA41A002B6E11 /* BTDeviceService.swift in Sources */,
 				04122A671FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				0483854420035641007DE69B /* Extensions.swift in Sources */,

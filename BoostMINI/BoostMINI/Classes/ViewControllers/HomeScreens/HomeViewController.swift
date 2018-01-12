@@ -147,7 +147,10 @@ class HomeViewController: UIViewController {
                 return
             }
             
-            self.navigationController?.pushViewController(vc, animated: true)
+            UIView.animate(withDuration: 0.70, animations: { () -> Void in
+                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
+                self.navigationController?.pushViewController(vc, animated: false)
+            })
         }
     }
     
