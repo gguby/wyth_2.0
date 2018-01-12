@@ -125,6 +125,27 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button hidden="YES" opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-T9-qUr" customClass="TransitionButton" customModule="TransitionButton">
+                                <rect key="frame" x="42" y="379" width="291" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Test Welcome..."/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
+                                        <color key="value" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="yLj-5Q-3sI" kind="show" id="Otx-NB-X5m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -199,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9X-vY-wci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="301"/>
+            <point key="canvasLocation" x="572" y="-142"/>
         </scene>
         <!--Agreement Controller-->
         <scene sceneID="VCL-QI-55R">
@@ -424,12 +445,23 @@
                         <viewLayoutGuide key="safeArea" id="D9b-fA-00y"/>
                     </view>
                     <connections>
+                        <outlet property="blurEffectView" destination="Um8-Tf-HZ6" id="bgP-4k-Atg"/>
                         <outlet property="btnClose" destination="WdM-Z1-rCa" id="Eq4-xw-vF9"/>
+                        <outlet property="buttonCancel" destination="WdM-Z1-rCa" id="nqL-Fj-MYc"/>
+                        <outlet property="buttonCheck" destination="QL9-oe-W6M" id="zhv-jH-PvP"/>
+                        <outlet property="buttonDOc1" destination="T9k-s9-bTG" id="7AX-91-4Fy"/>
+                        <outlet property="buttonDoc1" destination="T9k-s9-bTG" id="I5r-TC-r74"/>
+                        <outlet property="buttonDoc2" destination="dfY-Cx-IMT" id="qFh-7p-zWb"/>
+                        <outlet property="buttonNext" destination="HYQ-ke-HGE" id="A69-SQ-5Jf"/>
+                        <outlet property="labelComment" destination="Pop-Wt-tbe" id="EcL-Iv-ae8"/>
+                        <outlet property="labelHead" destination="WuI-lA-Pxg" id="fef-Yy-w9t"/>
+                        <outlet property="scrollTextArea" destination="RHh-b0-fxM" id="gKW-YN-z8C"/>
+                        <outlet property="tiltingView" destination="Nhq-Zi-uOP" id="vKi-cA-c5N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyE-kZ-Cm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253.5999999999999" y="300.89955022488761"/>
+            <point key="canvasLocation" x="572" y="541"/>
         </scene>
     </scenes>
     <resources>
