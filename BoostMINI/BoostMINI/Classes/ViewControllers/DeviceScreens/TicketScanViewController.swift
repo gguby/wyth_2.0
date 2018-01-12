@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import RxSwift
 import AVFoundation
-
+import Permission
+import JuseongJee_RxPermission
 
 class TicketScanViewController: UIViewController {
 
@@ -38,6 +39,7 @@ class TicketScanViewController: UIViewController {
 
     // MARK: - * IBOutlets --------------------
 
+    @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var btnBack: UIButton! {
         willSet(v) {
             v.rx.tap.bind { [weak self] in
@@ -52,7 +54,22 @@ class TicketScanViewController: UIViewController {
 
         self.initProperties()
         self.initUI()
-        self.prepareViewDidLoad()
+//        self.prepareViewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Permission.camera.rx.permission.subscribe(onNext: { (status: PermissionStatus) in
+            switch status {
+            case .authorized:
+                self.prepareScan()
+            case .denied, .disabled:
+                PermissionError.disableCamera.cook()
+            default:
+                break
+            }
+        }).disposed(by: self.disposeBag)
     }
 
 
@@ -113,8 +130,8 @@ class TicketScanViewController: UIViewController {
         // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer?.frame = view.layer.bounds
-        view.layer.addSublayer(videoPreviewLayer!)
+        videoPreviewLayer?.frame = cameraView.layer.bounds
+        cameraView.layer.addSublayer(videoPreviewLayer!)
         
         self.startScan()
     }
