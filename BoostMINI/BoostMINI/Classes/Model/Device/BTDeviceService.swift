@@ -46,11 +46,11 @@ class BTDeviceService {
             }
             .take(1)
             .do(onNext: { ScannedPeripheral in
-                print("Discovered ScannedPeripheral: \(ScannedPeripheral)")
+                logVerbose("Discovered ScannedPeripheral: \(ScannedPeripheral)")
             })
             .flatMap { $0.peripheral.connect() }
 //            .do(onNext: { Peripheral in
-//                print("Discovered Peripheral: \(Peripheral)")
+//                logVerbose("Discovered Peripheral: \(Peripheral)")
 //            })
 //            .debug()
 //            .flatMap { $0.discoverServices([self.boostServiceUUID])}
@@ -58,7 +58,7 @@ class BTDeviceService {
 //            .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
 //            .flatMap { Observable.from($0) }
 //            .do(onNext: { characteristic in
-//                print("Discovered characteristic: \(characteristic)")
+//                logVerbose("Discovered characteristic: \(characteristic)")
 //            })
 //            .subscribeOn(MainScheduler.instance)
     }
@@ -81,7 +81,7 @@ class BTDeviceService {
 //    func connect(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
 //        return self.manager.connect(scannedPeripheral.peripheral)
 //            .catchError { error in
-//                print(error.localizedDescription)
+//                logVerbose(error.localizedDescription)
 //                throw DeviceError.paringFailed
 //            }
 //    }

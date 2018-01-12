@@ -78,8 +78,7 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         reactor.state.map { $0.isParingDevice }
             .distinctUntilChanged()
             .filter { $0 }
-            .subscribe(onNext: {
-                print($0)
+            .subscribe(onNext: { _ in                 
                 self.blinkImage()
             })
             .disposed(by: disposeBag)
@@ -88,12 +87,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .filterNilKeepOptional()
             .subscribe(onNext: { error in
                 error?.cookError()
-            })
-            .disposed(by: disposeBag)
-        
-        reactor.state.map { $0.contentMsg.content }
-            .subscribe(onNext: {
-                print($0)
             })
             .disposed(by: disposeBag)
     }

@@ -61,7 +61,7 @@ final class DeviceViewReactor : Reactor {
         self.service = service
         
         if let device = self.service.loadDevice() {
-            print(device.name + device.uuid.uuidString)
+            logVerbose(device.name + device.uuid.uuidString)
         }
     }
     
@@ -86,7 +86,7 @@ final class DeviceViewReactor : Reactor {
             newState.contentMsg = isScan ? ContentMessage.findDevice : ContentMessage.notScanning
             newState.deviceError = isScan ? nil : BSTError.device(DeviceError.scanFailed)
         case let .setDiscoverDevice(scanDevice):
-            print(scanDevice.advertisementData)
+            logVerbose(scanDevice.advertisementData)
         case let .paringDevice(paring):
             newState.isParingDevice = paring
             newState.deviceError = paring ? nil : BSTError.device(DeviceError.paringFailed)

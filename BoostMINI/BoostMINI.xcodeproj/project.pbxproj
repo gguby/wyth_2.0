@@ -345,6 +345,9 @@
 		A63F1A3220059D3A0079046D /* ConcertInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F1A3120059D3A0079046D /* ConcertInfoView.swift */; };
 		A63F1A3320059D3A0079046D /* ConcertInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F1A3120059D3A0079046D /* ConcertInfoView.swift */; };
 		A63F1A3420059D3A0079046D /* ConcertInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F1A3120059D3A0079046D /* ConcertInfoView.swift */; };
+		A64CC9F92008874100935402 /* BTDevice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64CC9F82008874100935402 /* BTDevice.storyboard */; };
+		A64CC9FA2008874100935402 /* BTDevice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64CC9F82008874100935402 /* BTDevice.storyboard */; };
+		A64CC9FB200887BC00935402 /* BTDevice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64CC9F82008874100935402 /* BTDevice.storyboard */; };
 		A696AE8B1FF5E8EB009B8FEF /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */; };
 		A696AE8F1FF5E98F009B8FEF /* BTDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */; };
 		A696AE911FF5E9B4009B8FEF /* BTDeviceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE901FF5E9B4009B8FEF /* BTDeviceNetwork.swift */; };
@@ -525,6 +528,7 @@
 		A62352371FF390680007949C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A63F1A2D20059D180079046D /* ConcertInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConcertInfoView.xib; sourceTree = "<group>"; };
 		A63F1A3120059D3A0079046D /* ConcertInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInfoView.swift; sourceTree = "<group>"; };
+		A64CC9F82008874100935402 /* BTDevice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BTDevice.storyboard; sourceTree = "<group>"; };
 		A696AE8A1FF5E8EB009B8FEF /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewReactor.swift; sourceTree = "<group>"; };
 		A696AE8E1FF5E98F009B8FEF /* BTDeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDeviceService.swift; sourceTree = "<group>"; };
@@ -789,7 +793,6 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA08A1FEB5568007441E1 /* IntroViewController.swift */,
-				A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */,
 			);
 			path = IntroScreens;
 			sourceTree = "<group>";
@@ -896,6 +899,7 @@
 				2B77AFB32005E84B004434D1 /* Device.storyboard */,
 				2BF341651FFB7A3F00FDA12E /* Notification.storyboard */,
 				2B61F0451FDFA49500581F06 /* LaunchScreen.storyboard */,
+				A64CC9F82008874100935402 /* BTDevice.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -957,6 +961,9 @@
 			isa = PBXGroup;
 			children = (
 				2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */,
+				A6F3506C20033EB900949BB2 /* BTDeviceViewController.swift */,
+				A63F1A2D20059D180079046D /* ConcertInfoView.xib */,
+				A63F1A3120059D3A0079046D /* ConcertInfoView.swift */,
 			);
 			path = DeviceScreens;
 			sourceTree = "<group>";
@@ -989,8 +996,6 @@
 				8F6290C01FFCADB500689B91 /* ConcertInformationView.xib */,
 				8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */,
 				8F9A7CC02003465D003BABB1 /* MenuViewController.swift */,
-				A63F1A2D20059D180079046D /* ConcertInfoView.xib */,
-				A63F1A3120059D3A0079046D /* ConcertInfoView.swift */,
 				8F7CBF2B2005EE5600DBDE67 /* DetailConcertInformationViewController.swift */,
 			);
 			path = HomeScreens;
@@ -1205,6 +1210,7 @@
 				2B61F0441FDFA49500581F06 /* Assets.xcassets in Resources */,
 				8F9A7CCD20035B42003BABB1 /* SMTOWN(OTF)-Bold.otf in Resources */,
 				8F82C1651FF36D810031D030 /* Home.storyboard in Resources */,
+				A64CC9F92008874100935402 /* BTDevice.storyboard in Resources */,
 				0462CDEE1FFE287E002B6E11 /* Alert.strings in Resources */,
 				2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */,
 				A63F1A2E20059D180079046D /* ConcertInfoView.xib in Resources */,
@@ -1225,6 +1231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A64CC9FB200887BC00935402 /* BTDevice.storyboard in Resources */,
 				A6F35072200349AB00949BB2 /* Device.strings in Resources */,
 				04B21903200719A2002A1742 /* ErrorDebug.strings in Resources */,
 				A63F1A2F20059D180079046D /* ConcertInfoView.xib in Resources */,
@@ -1235,6 +1242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A64CC9FA2008874100935402 /* BTDevice.storyboard in Resources */,
 				A6F35073200349AB00949BB2 /* Device.strings in Resources */,
 				0462CDEC1FFE2799002B6E11 /* Login.strings in Resources */,
 				0462CDEF1FFE287E002B6E11 /* Alert.strings in Resources */,

@@ -38,7 +38,7 @@ final class DeviceManager {
         }).disposed(by: disposeBag)
         
         self.error.subscribe(onNext: {
-            print($0.description)
+            logVerbose($0.description)
             $0.cook()
         }).disposed(by: disposeBag)
     }
