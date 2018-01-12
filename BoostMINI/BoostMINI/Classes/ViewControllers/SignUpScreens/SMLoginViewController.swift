@@ -139,10 +139,14 @@ class SMLoginViewController: WebViewController {
 	
 	private func doLogin() {
 		guard let token = SessionHandler.shared.token else {
-			BSTFacade.ux.showToast("TODO : token required")
+				BSTFacade.ux.showToast("TODO : token required")
 			return
 		}
-		DefaultAPI.signinUsingPOST(accessToken: token, socialType: .smtown) { [weak self] data, err in
+		let pushToken = SessionHandler.shared.pushToken
+		let osVersion = SessionHandler.shared.osVersion
+		
+		
+		DefaultAPI.signupUsingPOST(accessToken: token, socialType: .smtown, pushToken: pushToken, osVersion: osVersion) { [weak self] data, err in
 			self?.responseSignIn(data, err)
 		}
 	}
@@ -152,7 +156,10 @@ class SMLoginViewController: WebViewController {
 			BSTFacade.ux.showToast("TODO : token required")
 			return
 		}
-		DefaultAPI.signupUsingPOST(accessToken: token, socialType: .smtown) { [weak self] data, err in
+		let pushToken = SessionHandler.shared.pushToken
+		let osVersion = SessionHandler.shared.osVersion
+
+		DefaultAPI.signupUsingPOST(accessToken: token, socialType: .smtown, pushToken: pushToken, osVersion: osVersion) { [weak self] data, err in
 			self?.responseSignUp(data, err)
 		}
 	}
@@ -186,6 +193,8 @@ class SMLoginViewController: WebViewController {
 	}
 	
 	private func responseSignIn(_ data: AccountsPostResponse?, _ error: Error?) {
+		// smtown 가족이지만, boost 회원이 아니면 906이 뜨더라. Invalid Token
+		
 		if let code = BSTErrorTester.checkWhiteCode(error) {
 			//	201 : Created			-> 방금 회원가입한 것??
 			//	401 : Unauthorized		-> smtown 회원이지만, boost에 가입되지 않은 것?
