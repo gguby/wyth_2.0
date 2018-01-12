@@ -1,5 +1,7 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
 
 def open_sources
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
@@ -50,6 +52,12 @@ def open_sources
 #   #pod 'FBSDKLoginKit', '~> 4.18.0' # too old
 #	pod 'FacebookCore'
 #	pod 'FacebookLogin'
+
+# for Permission
+    pod 'JuseongJee_RxPermission/Bluetooth',   :git => 'https://github.com/JuseongJee/RxPermission.git'
+    pod 'JuseongJee_RxPermission/Camera',      :git => 'https://github.com/JuseongJee/RxPermission.git'
+    pod 'JuseongJee_RxPermission/Photos',      :git => 'https://github.com/JuseongJee/RxPermission.git'
+    pod 'JuseongJee_RxPermission/Notifications',:git => 'https://github.com/JuseongJee/RxPermission.git'
 
 # for Analytics
 

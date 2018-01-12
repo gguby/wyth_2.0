@@ -51,3 +51,10 @@
 "apiAccessTokenCouldNotBeDecrypted" = "accessTokenCouldNotBeDecrypted";
 "apiSaveFailed" = "saveFailed";
 
+
+//Permission
+
+"permissionDisableCamera" = "permissionDisableCamera";
+"permissionDisableBluetooth" = "permissionDisableBluetooth";
+"permissionDisablePhotos" = "permissionDisablePhotos";
+
