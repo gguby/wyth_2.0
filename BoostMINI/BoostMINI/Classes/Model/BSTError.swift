@@ -348,16 +348,20 @@ class BSTErrorBaker<T> {
 	class func errorFilter(_ err: Error?, _ response: Response<T>? = nil) -> Error? {
 		do {
 			try BSTErrorBaker<T>.errorPitcher(err, response)
-		} catch {
-			// and more...
-			
-			return err
+		} catch let error {
+			return error
 		}
-		
 		return err
 	}
 	
 	class func errorPitcher(_ err: Error?, _ response: Response<T>?) throws {
+	
+		// Alamofire 4 부터는 비정상 호출일 경우, statusCode가 안넘어온다. AFError로 핸들링됨.
+		if let error = err as? AFError,
+			let code = error.responseCode {
+				throw BSTError.api(APIError(rawValue: code)!)
+		}
+		
 		guard let resp = response else {
 			throw BSTError.nilError
 		}
@@ -371,6 +375,7 @@ class BSTErrorBaker<T> {
 		}
 		
 		if resp.isNotOk {
+			// 이거 안탐..
 			throw BSTError.api(APIError(rawValue: resp.statusCode)!)
 		}
 		

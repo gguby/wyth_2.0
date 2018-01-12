@@ -8,8 +8,82 @@
 //
 
 import UIKit
+import RxSwift
 
 class AgreementController: UIViewController {
+	
+	
+	
+	@IBOutlet weak var blurEffectView: UIVisualEffectView!
+	
+	@IBOutlet weak var labelHead: UILabel!
+	
+	@IBOutlet weak var labelComment: UILabel!
+	@IBOutlet weak var scrollTextArea: UIScrollView!
+	
+	
+	
+	@IBOutlet weak var tiltingView: TiltingView!
+	
+	
+	@IBOutlet weak var buttonDoc1: UIButton!
+	@IBOutlet weak var buttonDoc2: UIButton!
+
+	@IBOutlet weak var buttonCheck: UIButton!
+	@IBOutlet weak var buttonNext: UIButton!
+	@IBOutlet weak var buttonCancel: UIButton!
+
+	
+	override func viewDidLoad() {
+		initUI()
+	}
+	
+	func initUI() {
+		guard let userName = SessionHandler.shared.name else {
+		
+			labelHead.text = ""
+			labelComment.text = ""
+			
+			buttonCheck.isHidden = !false
+			buttonCheck.isEnabled = !true
+			
+			buttonCancel.isHidden = !false
+			buttonCancel.isEnabled = !true
+			
+			buttonNext.isEnabled = !true
+
+			return
+		}
+		
+		buttonCheck.isHidden = false
+		buttonCheck.isEnabled = true
+		
+		buttonCancel.isHidden = false
+		buttonCancel.isEnabled = true
+		
+		buttonNext.isEnabled = true
+		
+
+		
+		labelHead.text = BSTFacade.localizable.login.welcome(userName)
+		labelComment.text = BSTFacade.localizable.login.welcomeDetail(userName)
+
+		
+		
+		//BSTFacade.localizable.login.privacy()
+
+		buttonDoc1.text = BSTFacade.localizable.login.agreement()
+		buttonDoc2.text = BSTFacade.localizable.login.privacy()
+		buttonCancel.text = BSTFacade.localizable.login.cancelButton()
+		buttonNext.text = BSTFacade.localizable.login.startButton()
+
+
+	}
+	
+	
+	
+	
+	
 //
 //}, checkBoxDelegate {
 //

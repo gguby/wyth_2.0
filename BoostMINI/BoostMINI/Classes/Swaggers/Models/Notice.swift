@@ -17,6 +17,7 @@ open class Notice: BaseModel {
     public var content: String?
     public var id: Int64?
     public var title: String?
+    public var url: String?
 
     public init() {}
 
