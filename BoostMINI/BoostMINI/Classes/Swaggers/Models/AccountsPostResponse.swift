@@ -14,12 +14,17 @@ open class AccountsPostResponse: BaseModel {
 	static var apiList: [String: APIRequest] = AccountsPostResponse.buildApiRequests()
 
 
+    public enum AccountType: String, Codable { 
+        case general = "GENERAL"
+        case admin = "ADMIN"
+    }
     public enum SocialType: String, Codable { 
         case smtown = "SMTOWN"
         case facebook = "FACEBOOK"
         case twitter = "TWITTER"
         case google = "GOOGLE"
     }
+    public var accountType: AccountType?
     public var createdAt: Date?
     public var email: String?
     public var id: Int64?
@@ -28,6 +33,7 @@ open class AccountsPostResponse: BaseModel {
     public var profilepicture: String?
     public var regdate: String?
     public var sex: String?
+    public var socialId: String?
     public var socialType: SocialType?
 
     public init() {}

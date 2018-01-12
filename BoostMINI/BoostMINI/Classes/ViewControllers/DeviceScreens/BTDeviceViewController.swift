@@ -36,7 +36,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         self.titleLbl.text = RDevice.btTitleLbl()
         self.cancel.setTitle(RCommon.cancel(), for: .normal)
         self.stickImage.alpha = 0.3
-        
     }
     
     func blinkImage() {
@@ -50,6 +49,8 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         self.stickImage.animationDuration = 0.5
         self.stickImage.animationRepeatCount = 2
         self.stickImage.startAnimating()
+        
+        self.stickImage.alpha = 1.0
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,7 +61,7 @@ class BTDeviceViewController : UIViewController, StoryboardView {
     func bind(reactor: DeviceViewReactor) {
         
         self.rx.viewDidAppear
-            .map { _ in Reactor.Action.allInOne }
+            .map { _ in Reactor.Action.connectAll }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
@@ -74,16 +75,18 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .bind(to: self.contentLbl.rx.text)
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.contentMsg.content }
-            .subscribe(onNext: {
-                print($0)
+        reactor.state.map { $0.isParingDevice }
+            .distinctUntilChanged()
+            .filter { $0 }
+            .subscribe(onNext: { _ in                 
+                self.blinkImage()
             })
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.isParingDevice }
-            .subscribe(onNext: { true
-                print($0)
-                self.blinkImage()
+        reactor.state.map { $0.deviceError }
+            .filterNilKeepOptional()
+            .subscribe(onNext: { error in
+                error?.cookError()
             })
             .disposed(by: disposeBag)
     }

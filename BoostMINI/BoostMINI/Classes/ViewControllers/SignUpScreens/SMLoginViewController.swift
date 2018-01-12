@@ -114,7 +114,7 @@ class SMLoginViewController: WebViewController {
 //        return true
 //   }
 	
-	func login(_ tokenString: String?) {
+	private func login(_ tokenString: String?) {
 		guard let token = tokenString else {
 			logInfo("login. token : nil")
 			
@@ -131,20 +131,70 @@ class SMLoginViewController: WebViewController {
 		goNext()
 	}
 
-	func goNext() {
+	private func goNext() {
 		// 로그인, 회원가입.. 등의 상태에 따라서 홈으로 바로 보내줄 지, 아니면 약관동의 페이지로 보내줄 지의 여부를 판단해야함.
 		
-		
+		doLogin()
+	}
+	
+	private func doLogin() {
 		guard let token = SessionHandler.shared.token else {
+				BSTFacade.ux.showToast("TODO : token required")
 			return
 		}
+		let pushToken = SessionHandler.shared.pushToken
+		let osVersion = SessionHandler.shared.osVersion
 		
-		DefaultAPI.signinUsingPOST(accessToken: token, socialType: .smtown) { [weak self] data, err in
+		
+		DefaultAPI.signupUsingPOST(accessToken: token, socialType: .smtown, pushToken: pushToken, osVersion: osVersion) { [weak self] data, err in
 			self?.responseSignIn(data, err)
 		}
 	}
 	
-	func responseSignIn(_ data: AccountsPostResponse?, _ error: Error?) {
+	private func doSignUp() {
+		guard let token = SessionHandler.shared.token else {
+			BSTFacade.ux.showToast("TODO : token required")
+			return
+		}
+		let pushToken = SessionHandler.shared.pushToken
+		let osVersion = SessionHandler.shared.osVersion
+
+		DefaultAPI.signupUsingPOST(accessToken: token, socialType: .smtown, pushToken: pushToken, osVersion: osVersion) { [weak self] data, err in
+			self?.responseSignUp(data, err)
+		}
+	}
+
+	private func responseSignUp(_ data: AccountsPostResponse?, _ error: Error?) {
+		if let code = BSTErrorTester.checkWhiteCode(error) {
+			//	201 : Created			-> 방금 회원가입한 것??
+			//	401 : Unauthorized		-> smtown 회원이지만, boost에 가입되지 않은 것?
+			//	403 : Forbidden			-> 탈퇴한것???
+			//	404 : Not Found			-> 뭔가 잘못되어 회원가입이 되지 않은 것??
+			switch(code) {
+			case 201:
+				openWelcome()
+			default:
+				openWelcome()
+			}
+			return
+		}
+		
+		if let err = error as? BSTError {
+			switch err {
+			case .api(let ae):
+				if ae.rawValue == 404 {
+					// ???
+				}
+			default:
+				break
+			}
+		}
+
+	}
+	
+	private func responseSignIn(_ data: AccountsPostResponse?, _ error: Error?) {
+		// smtown 가족이지만, boost 회원이 아니면 906이 뜨더라. Invalid Token
+		
 		if let code = BSTErrorTester.checkWhiteCode(error) {
 			//	201 : Created			-> 방금 회원가입한 것??
 			//	401 : Unauthorized		-> smtown 회원이지만, boost에 가입되지 않은 것?
@@ -160,10 +210,20 @@ class SMLoginViewController: WebViewController {
 			return
 		}
 		
-		if BSTErrorTester.isFailure(error) {
-			//logVerbose("error")
-			return
+		if let err = error as? BSTError {
+			switch err {
+			case .api(let ae):
+				if ae.rawValue == 404 {
+					// ???
+					
+					doSignUp()
+					return
+				}
+			default:
+				break
+			}
 		}
+		
 		
 		guard let token = SessionHandler.shared.token,
 			let info = data else {

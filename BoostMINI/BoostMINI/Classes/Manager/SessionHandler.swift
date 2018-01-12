@@ -19,6 +19,15 @@ class SessionHandler {
 	
 	var profile: BoostProfile?
 
+	var pushToken: String = "test- TODO:"	// TODO:
+	var osVersion: Float = Float(UIDevice.current.systemVersion) ?? 0
+
+	
+	var name: String? { return profile?.name }
+	var email: String? { return profile?.email }
+	
+	
+	
 	// TODO : 로그인여부.
 	var isLoginned: Bool {
 		return FunctionHouse.not((token ?? "").isEmpty)
