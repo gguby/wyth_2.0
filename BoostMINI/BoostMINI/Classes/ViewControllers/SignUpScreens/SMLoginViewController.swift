@@ -247,6 +247,8 @@ class SMLoginViewController: WebViewController {
 	}
 
 	private func responseSignUp(_ data: AccountsPostResponse?, _ error: Error?) {
+		logVerbose("\(#function) - \(error)")
+
 		if let code = BSTErrorTester.checkWhiteCode(error) {
 			//	201 : Created			-> 방금 회원가입한 것??
 			//	401 : Unauthorized		-> smtown 회원이지만, boost에 가입되지 않은 것?
@@ -270,13 +272,18 @@ class SMLoginViewController: WebViewController {
 			default:
 				break
 			}
+			return
 		}
+		
+		openWelcome()
+
 
 	}
 	
 	private func responseSignIn(_ data: AccountsPostResponse?, _ error: Error?) {
 		// smtown 가족이지만, boost 회원이 아니면 906이 뜨더라. Invalid Token
 		
+		logVerbose("\(#function) - \(error)")
 		if let code = BSTErrorTester.checkWhiteCode(error) {
 			//	201 : Created			-> 방금 회원가입한 것??
 			//	401 : Unauthorized		-> smtown 회원이지만, boost에 가입되지 않은 것?
@@ -319,6 +326,7 @@ class SMLoginViewController: WebViewController {
 			logVerbose("nil data")
 			return
 		}
+		
 		
 		let profile = BoostProfile.from(info)
 		SessionHandler.shared.setSession(token, profile)
