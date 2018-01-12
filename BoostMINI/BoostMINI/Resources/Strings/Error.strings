@@ -12,6 +12,8 @@
 "nilError" = "nilError";
 "unknown" = "unknown";
 
+"networkFailed" = "네트워크 오류";
+
 //Login
 "loginFailed" = "login failed.";
 "loginFailedCode" = "login failed. (code : %d)";

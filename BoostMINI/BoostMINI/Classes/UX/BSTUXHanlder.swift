@@ -51,7 +51,7 @@ class BSTUXHanlder {
         guard let viewController = BSTScreens.instantiate(withClassName: className) else {
             fatalError("no viewcontroller")
         }
-        return FunctionHouse.autocast(some: viewController)
+        return viewController as? T
     }
     
 	

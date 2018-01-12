@@ -191,7 +191,7 @@ extension Logger {
         if dests.count > 0 {
             // destination이 있으면 초기화된 것으로 간주.
             // destination을 없게 하고싶으면 NilDestination 추가. (.none)
-            if FunctionHouse.not(force) {
+            if !(force) {
                 return
             }
         }
@@ -217,7 +217,7 @@ extension Logger {
 
         for tmp in destination.elements() {
             let hv = tmp.defaultHashValue
-            if FunctionHouse.not(exists.contains(where: { obj in obj.defaultHashValue == hv })) {
+            if !(exists.contains(where: { obj in obj.defaultHashValue == hv })) {
                 adds.append(makeDestination(tmp))
             }
         }

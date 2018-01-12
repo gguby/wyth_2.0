@@ -12,6 +12,10 @@ import WebKit
 class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler, UIGestureRecognizerDelegate {
 	@IBOutlet weak var webViewContainer: UIScrollView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView?
+	@IBOutlet weak var titleLabel: UILabel?
+	@IBOutlet weak var cancelButton: UIButton?
+	@IBOutlet weak var topBar: UIView?
+	
 
 	var configuration: WKWebViewConfiguration!
 	var webView: WKWebView!
@@ -115,7 +119,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	
 	func showActivityIndicator() {
 		if let indicator = activityIndicator,
-			FunctionHouse.not(isIndicatorInProgress) {
+			!(isIndicatorInProgress) {
 			isIndicatorInProgress = true
 			indicator.isHidden = false
 			indicator.startAnimating()
@@ -238,7 +242,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 //		var screenName: String? = nil
 		//로그인,
 		//    UserData *userData = [UserData sharedInstance];
-		if FunctionHouse.not(titleString.isEmpty) {
+		if !(titleString.isEmpty) {
 //			if (titleString == localizedText.login.service_term_title) {
 //				screenName = "LoginJoin_ServiceTerms"
 //			}
@@ -285,6 +289,13 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	}
 	
 	
+	@IBAction func cancelButtonTouched(_ sender: Any) {
+		if let nav = self.navigationController {
+			nav.popViewController(animated: true)
+			return
+		}
+		self.dismiss(animated: true)
+	}
 	
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 		logVerbose("webView - %@(%d)".format(#function, navigationAction.navigationType.rawValue))
@@ -292,7 +303,8 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 		
 		logVerbose("MORE : \(webView.url?.absoluteString ?? "")")
 		if navigationAction.navigationType == .linkActivated {
-			decisionHandler(.cancel)
+			//decisionHandler(.cancel)
+			decisionHandler(.allow)
 		} else {
 			decisionHandler(.allow)
 		}
@@ -308,10 +320,15 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
 	}
 	
+	
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		logVerbose("webView - %@".format(#function))
 //		initNavigationBar()
 		//navigation 타이틀이 사라짐,
+		
+		titleLabel?.text = webView.title
+		
+		
 		
 		showActivity(inStatusBar: false)
 		hideActivityIndicator()
@@ -326,6 +343,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 		logVerbose("webView - %@".format(#function))
+		titleLabel?.text = ""
 		print("""
 			\(#function)
 			\(error.localizedDescription)
@@ -335,6 +353,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	
 	func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
 		logVerbose("webView - %@".format(#function))
+		titleLabel?.text = ""
 		print("""
 			\(#function)
 			\(error.localizedDescription)
@@ -362,4 +381,22 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 //			viewNavigationLine?.setHidden((scrollView.contentOffset.y < 2.0), animation: true)
 //		}
 //	}
+	
+	
+	
+	class func show(_ url: String) {
+
+		guard let vc = R.storyboard.common.webViewController() else {
+			BSTError.debugUI(.storyboard("common.webViewController"))
+				.cookError()
+			return
+		}
+		vc.loadWebUrl(url)
+		guard let current = BSTFacade.common.getTopViewController() else{
+			BSTError.debugUI(.storyboard("current TopVC"))
+				.cookError()
+			return
+		}
+		current.present(vc, animated: true)
+	}
 }

@@ -26,7 +26,9 @@ class SMLoginViewController: WebViewController {
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
-		self.navigationController?.isNavigationBarHidden = false
+		navigationController?.isNavigationBarHidden = false
+		navigationController?.hidesBarsOnTap = true
+
 		super.viewWillAppear(animated)
 	}
 	override func viewDidAppear(_ animated: Bool) {
@@ -34,12 +36,36 @@ class SMLoginViewController: WebViewController {
 	}
 	
 	
+	
 	// WKWebView
 	override func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 	
+		if webView != self.webView {
+			decisionHandler(.allow)
+			return
+		}
 		
+		if let url = navigationAction.request.url {
+			if navigationAction.targetFrame == nil {
+				let url = navigationAction.request.url
+				if url?.description.range(of: "http://") != nil || url?.description.range(of: "https://") != nil || url?.description.range(of: "mailto:") != nil || url?.description.range(of: "tel:") != nil  {
+					UIApplication.shared.openURL(url!)
+				}
+			}
+			if navigationAction.targetFrame == nil {
+				let app = UIApplication.shared
+				if app.canOpenURL(url) {
+					//app.openURL(url)
+					app.open(url, options: [:], completionHandler: { b in
+					})
+					decisionHandler(.cancel)
+					return
+				}
+			}
+		}
 		if navigationAction.navigationType != .formSubmitted &&
 			navigationAction.navigationType != .other {
+			
 			
 			logVerbose("webView - [SM]%@(%d)".format(#function, navigationAction.navigationType.rawValue))
 			super.webView(webView, decidePolicyFor: navigationAction, decisionHandler: decisionHandler)
@@ -80,8 +106,24 @@ class SMLoginViewController: WebViewController {
 				self.login(nil)
 				logVerbose("access_token lost.")
 			} else {
-				self.login(token)
+				
+				// TODO : 기존코드의 문제. 일단 로그인되어있으면, 토큰이 붙는데... 로그인 화면을 보여주고싶을 뿐인거다 난. 구분을 하든가 로그아웃을 하든가.
 				logVerbose("access_token got.")
+				self.login(token)
+				
+				// TODO : 로그인시 이메일 저장 체크박스는 어떻게?...
+				
+//				let script = "return $('#isPersistent')[0].checked ? $('#UserID').val() : null "
+//				webView.evaluateJavaScript(script, completionHandler: { data, _ in
+//					if let email = data as? String {
+//						SessionHandler.shared.savedEmail = email
+//					} else {
+//						SessionHandler.shared.savedEmail = nil
+//					}
+//					self.login(token)
+//				})
+
+				
 			}
 			
 			decisionHandler(.cancel)
@@ -91,8 +133,48 @@ class SMLoginViewController: WebViewController {
 		decisionHandler(.allow)
 		return
 	}
+	
+	override func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+		super.webView(webView, didFinish: navigation)
+
+		// DEBUG
+		#if DEBUG
+			let debugScript = "$('#UserID').val('dk@devrock.co.kr'); $('#Password').val('qweR123');"
+			webView.evaluateJavaScript(debugScript)
+		#endif
+
 		
 		
+		if let savedEmail = SessionHandler.shared.savedEmail {
+			let val = savedEmail
+			let script = """
+			$('#UserID').val('\(val)');
+			$('#isPersistent')[0].checked = true;
+			$('#isPersistent')[0].click( function(){
+				try {
+					var email = $('#isPersistent')[0].checked ? $('#UserID').val() : ''
+					webkit.messageHandlers.smboost.postMessage('save_email:'+ email) );
+				} catch(err) {
+					console.log('The native context does not exist yet');
+				}
+			});
+			"""
+			webView.evaluateJavaScript(script)
+		}
+	}
+	
+	override func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+		if message.name.starts(with: "save_email:") {
+			let splitted: String = message.name.components(separatedBy: ":").last ?? ""
+			if splitted.length() > 0 {
+				SessionHandler.shared.savedEmail = splitted
+			} else {
+				SessionHandler.shared.savedEmail = nil
+			}
+		}
+		super.userContentController(userContentController, didReceive: message)
+	}
+	
 	
 //	// UIWebView
 //    func webView(_: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -146,7 +228,7 @@ class SMLoginViewController: WebViewController {
 		let osVersion = SessionHandler.shared.osVersion
 		
 		
-		DefaultAPI.signupUsingPOST(accessToken: token, socialType: .smtown, pushToken: pushToken, osVersion: osVersion) { [weak self] data, err in
+		DefaultAPI.signinUsingPOST(accessToken: token, socialType: .smtown, pushToken: pushToken, osVersion: osVersion) { [weak self] data, err in
 			self?.responseSignIn(data, err)
 		}
 	}
@@ -204,6 +286,13 @@ class SMLoginViewController: WebViewController {
 			switch(code) {
 			case 201:
 				openWelcome()
+				
+			case 960:
+				// smtown 가족이지만 가입 안된 케이스
+				
+				DispatchQueue.main.async {
+					self.doSignUp()
+				}
 			default:
 				openWelcome()
 			}

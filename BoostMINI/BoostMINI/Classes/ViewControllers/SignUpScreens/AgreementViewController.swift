@@ -8,7 +8,6 @@
 //
 
 import UIKit
-import RxSwift
 
 class AgreementController: UIViewController {
 	
@@ -36,7 +35,24 @@ class AgreementController: UIViewController {
 	
 	override func viewDidLoad() {
 		initUI()
+		initEvents()
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		
+		guard let userName = SessionHandler.shared.name else {
+		
+			navigationController?.isNavigationBarHidden = false
+			navigationController?.hidesBarsOnTap = true
+			return
+		}
+		navigationController?.isNavigationBarHidden = true
+		navigationController?.hidesBarsOnTap = false
+		
+	}
+	
 	
 	func initUI() {
 		guard let userName = SessionHandler.shared.name else {
@@ -72,7 +88,7 @@ class AgreementController: UIViewController {
 		
 		//BSTFacade.localizable.login.privacy()
 
-		buttonDoc1.text = BSTFacade.localizable.login.agreement()
+		buttonDoc1.text = BSTFacade.localizable.login.terms()
 		buttonDoc2.text = BSTFacade.localizable.login.privacy()
 		buttonCancel.text = BSTFacade.localizable.login.cancelButton()
 		buttonNext.text = BSTFacade.localizable.login.startButton()
@@ -80,11 +96,26 @@ class AgreementController: UIViewController {
 
 	}
 	
-	
-	
-	
-	
-//
+	var disposeBag = DisposeBag()
+	func initEvents() {
+		
+		buttonDoc1.rx.tap.bind {
+			
+			// 이용약관 보기
+			WebViewController.show(Definitions.externURLs.terms)
+
+			}.disposed(by: disposeBag)
+		
+		buttonDoc1.rx.tap.bind {
+			
+			// 개인정보 처리방침
+			WebViewController.show(Definitions.externURLs.privacy)
+
+			
+			}.disposed(by: disposeBag)
+
+	}
+
 //}, checkBoxDelegate {
 //
 //    @IBOutlet var btnClose: UIButton!

@@ -27,10 +27,9 @@ class SessionHandler {
 	var email: String? { return profile?.email }
 	
 	
-	
 	// TODO : 로그인여부.
 	var isLoginned: Bool {
-		return FunctionHouse.not((token ?? "").isEmpty)
+		return !((token ?? "").isEmpty)
 	}
 
 	// TODO: 일단 UserDefaults. Realm 등등으로 바꾸려면 여기서.
@@ -40,6 +39,7 @@ class SessionHandler {
 		case cookie		= "BSTuserCookie"
 		case token		= "BSTuserToken"
 		case profile	= "BSTuserProfile"
+		case savedEmail	= "BSTuserSavedEmail"
 	}
 	
 	private init() {
@@ -69,6 +69,7 @@ class SessionHandler {
 		self.cookie = UserDefaults.standard.string(forKey: userPlistKey.cookie.rawValue)
 		self.token = UserDefaults.standard.string(forKey: userPlistKey.token.rawValue)
 		self.profile = UserDefaults.standard.object(forKey: userPlistKey.profile.rawValue) as? BoostProfile
+
 	}
 
 	
@@ -93,6 +94,7 @@ class SessionHandler {
 		UserDefaults.standard.removeObject(forKey: userPlistKey.cookie.rawValue)
 		UserDefaults.standard.removeObject(forKey: userPlistKey.token.rawValue)
 		UserDefaults.standard.removeObject(forKey: userPlistKey.profile.rawValue)
+
 		UserDefaults.standard.synchronize()
 	}
 
@@ -104,8 +106,27 @@ class SessionHandler {
 		UserDefaults.standard.set(self.cookie, forKey: userPlistKey.cookie.rawValue)
 		UserDefaults.standard.set(self.token, forKey: userPlistKey.token.rawValue)
 		UserDefaults.standard.set(self.profile, forKey: userPlistKey.profile.rawValue)
+
 		UserDefaults.standard.synchronize()
 	}
+
+	
+	var savedEmail: String? {
+		get {
+			let savedEmail = UserDefaults.standard.string(forKey: userPlistKey.savedEmail.rawValue)
+			if let em = savedEmail, !em.isEmpty {
+				return em
+			}
+			return nil
+		}
+		set {
+			UserDefaults.standard.set(newValue, forKey: userPlistKey.savedEmail.rawValue)
+			UserDefaults.standard.synchronize()
+		}
+	}
+
+	
+	
 	
 	
 //
