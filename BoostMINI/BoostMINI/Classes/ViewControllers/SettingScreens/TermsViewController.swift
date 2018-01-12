@@ -15,7 +15,12 @@ class TermsViewController: UIViewController {
 
 
     // MARK: - * IBOutlets --------------------
-   
+    @IBOutlet weak var tabBar: UITabBar!
+    @IBOutlet weak var leftMotiveImageView: UIImageView!
+    @IBOutlet weak var rightMotiveImageView: UIImageView!
+    
+    @IBOutlet weak var termsTabBarItem: UITabBarItem!
+    @IBOutlet weak var privacyTabBarItem: UITabBarItem!
     
     // MARK: - * Initialize --------------------
 
@@ -34,7 +39,7 @@ class TermsViewController: UIViewController {
 
 
     private func initUI() {
-        
+        self.tabBar.selectedItem = termsTabBarItem
     }
 
 
@@ -49,9 +54,15 @@ class TermsViewController: UIViewController {
     }
 
     // MARK: - * Main Logic --------------------
+    func pop() {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     // MARK: - * UI Events --------------------
-
+    @IBAction func back(_ sender: UIButton) {
+        pop()
+    }
+    
 
     // MARK: - * Memory Manage --------------------
 
@@ -63,6 +74,15 @@ class TermsViewController: UIViewController {
 }
 
 
-extension TermsViewController {
-
+extension TermsViewController : UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let items = tabBar.items else { return }
+        if items.index(of: item) == 0 {
+            self.leftMotiveImageView.isHidden = false
+            self.rightMotiveImageView.isHidden = true
+        } else {
+            self.leftMotiveImageView.isHidden = true
+            self.rightMotiveImageView.isHidden = false
+        }
+    }
 }

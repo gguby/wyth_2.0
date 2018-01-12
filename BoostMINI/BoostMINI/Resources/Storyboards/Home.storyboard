@@ -677,7 +677,7 @@
                                         </constraints>
                                         <state key="normal" image="btn_common_back"/>
                                         <connections>
-                                            <action selector="back:" destination="UuI-wl-XUt" eventType="touchUpInside" id="bXJ-eS-90n"/>
+                                            <action selector="back:" destination="0IN-aH-j1k" eventType="touchUpInside" id="YpR-Xl-77K"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도움말" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwS-7j-otd">
@@ -764,6 +764,7 @@
                                         </constraints>
                                         <state key="normal" image="btn_common_back"/>
                                         <connections>
+                                            <action selector="back:" destination="gjc-Th-eDM" eventType="touchUpInside" id="24B-o7-E60"/>
                                             <action selector="back:" destination="UuI-wl-XUt" eventType="touchUpInside" id="Jlp-Xr-dnv"/>
                                         </connections>
                                     </button>
@@ -774,6 +775,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="7xe-YE-fE9" firstAttribute="centerY" secondItem="EJx-TL-e1p" secondAttribute="centerY" id="C1x-oT-Xq8"/>
                                     <constraint firstItem="7xe-YE-fE9" firstAttribute="centerX" secondItem="EJx-TL-e1p" secondAttribute="centerX" id="HA9-AJ-VDt"/>
@@ -799,6 +801,14 @@
                                     </tabBarItem>
                                 </items>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="gjc-Th-eDM" id="Mtb-IA-fQC"/>
+                                </connections>
                             </tabBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_common_motive_tab_l" translatesAutoresizingMaskIntoConstraints="NO" id="J4k-RP-sWl">
                                 <rect key="frame" x="0.0" y="108" width="187.5" height="9"/>
@@ -806,7 +816,7 @@
                                     <constraint firstAttribute="height" constant="9" id="ihB-gX-ebW"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_common_motive_tab_r" translatesAutoresizingMaskIntoConstraints="NO" id="mCd-9T-ZWG">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_common_motive_tab_r" translatesAutoresizingMaskIntoConstraints="NO" id="mCd-9T-ZWG">
                                 <rect key="frame" x="187.5" y="108" width="187.5" height="9"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="9" id="wFY-Q1-WWl"/>
@@ -814,6 +824,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mCd-9T-ZWG" firstAttribute="top" secondItem="koD-7o-6AH" secondAttribute="bottom" constant="-9" id="2dk-T5-BW0"/>
                             <constraint firstItem="koD-7o-6AH" firstAttribute="top" secondItem="EJx-TL-e1p" secondAttribute="bottom" id="2kB-x8-uFV"/>
@@ -830,6 +841,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ds-XX-IXv"/>
                     </view>
+                    <connections>
+                        <outlet property="leftMotiveImageView" destination="J4k-RP-sWl" id="dXC-AJ-ddj"/>
+                        <outlet property="privacyTabBarItem" destination="6se-1C-BWf" id="7gW-zR-cZR"/>
+                        <outlet property="rightMotiveImageView" destination="mCd-9T-ZWG" id="6s4-iD-1Iz"/>
+                        <outlet property="tabBar" destination="koD-7o-6AH" id="2Jn-12-jPG"/>
+                        <outlet property="termsTabBarItem" destination="DfV-Fz-eeB" id="Np1-5C-YQp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rp8-uF-jGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
