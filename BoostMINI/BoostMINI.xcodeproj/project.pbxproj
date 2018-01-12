@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */; };
-		04122A591FEBBACE00896EE0 /* FunctionHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A581FEBBACE00896EE0 /* FunctionHouse.swift */; };
-		04122A5A1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A581FEBBACE00896EE0 /* FunctionHouse.swift */; };
-		04122A5B1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A581FEBBACE00896EE0 /* FunctionHouse.swift */; };
 		04122A5D1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */; };
 		04122A5E1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */; };
 		04122A5F1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */; };
@@ -388,7 +385,6 @@
 
 /* Begin PBXFileReference section */
 		04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-Toast.swift"; sourceTree = "<group>"; };
-		04122A581FEBBACE00896EE0 /* FunctionHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionHouse.swift; sourceTree = "<group>"; };
 		04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OptionSet+Sequence.swift"; path = "BoostMINI/Classes/Extensions/OptionSet+Sequence.swift"; sourceTree = SOURCE_ROOT; };
 		04122A601FEC92DE00896EE0 /* Dictionary+Easy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Easy.swift"; sourceTree = "<group>"; };
 		04122A641FEC941F00896EE0 /* Collection+SafeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeRange.swift"; sourceTree = "<group>"; };
@@ -767,7 +763,6 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA08E1FEB55C8007441E1 /* CommonUtil.swift */,
-				04122A581FEBBACE00896EE0 /* FunctionHouse.swift */,
 				04C22BA81FEB9597007E2BED /* Logger.swift */,
 			);
 			path = Util;
@@ -1583,7 +1578,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E2243F2004867700A2B388 /* String+Alert.swift in Sources */,
-				04122A591FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
 				04AD74091FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */,
 				04122A5D1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
 				04E223FD2003766E00A2B388 /* SettingsGetResponse.swift in Sources */,
@@ -1706,7 +1700,6 @@
 				04AD74031FF33934005F4BF0 /* SessionHandler.swift in Sources */,
 				0412CB781FFF7FD00059C5A4 /* APIRequest.swift in Sources */,
 				04B2191C20076054002A1742 /* SettingViewController.swift in Sources */,
-				04122A5A1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
 				A6F3507620035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
 				04AD74171FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04122A771FECE9A200896EE0 /* ExceptionHandler.swift in Sources */,
@@ -1819,7 +1812,6 @@
 				04E223F92003766E00A2B388 /* ConcertsGetResponse.swift in Sources */,
 				04B2192220076054002A1742 /* SettingViewController.swift in Sources */,
 				0462CDA61FFCA40C002B6E11 /* OpenSourceSample.swift in Sources */,
-				04122A5B1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
 				0483854720035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				0483853E20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
 				04E2242C2003766E00A2B388 /* CommonNumberGetResponse.swift in Sources */,
