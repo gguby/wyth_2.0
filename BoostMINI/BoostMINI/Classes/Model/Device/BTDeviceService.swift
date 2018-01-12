@@ -14,7 +14,6 @@ import CoreBluetooth
 class BTDeviceService {
     
     private let manager = BluetoothManager.init(queue: .main, options: nil)
-    private var scheduler: ConcurrentDispatchQueueScheduler!
     
     private let boostServiceUUID = CBUUID(string: Definitions.device.service_UUID)
     private let boostCharacteristicUUID = CBUUID(string: Definitions.device.characteristic_UUID)
@@ -22,73 +21,92 @@ class BTDeviceService {
     let DeviceKey = "boostDevice"
     
     init() {
-        let timerQueue = DispatchQueue(label: "com.iriver.boostmini.device.timer")
-        scheduler = ConcurrentDispatchQueueScheduler(queue: timerQueue)
     }
     
-    func connectAll() -> Observable<Characteristic> {
-        return self.manager
+    func connect() -> Observable<Peripheral> {
+         return self.manager
             .rx_state
+            .debug()
             .filter { $0 == .poweredOn }
-            .timeout(4.0, scheduler: self.scheduler)
+            .timeout(4.0, scheduler: MainScheduler.instance)
             .take(1)
             .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
-            .catchError { _ in
-                throw DeviceError.scanFailed
+            .take(1.0, scheduler: MainScheduler.instance)
+            .toArray()
+            .flatMap({ (scannedPeripherals) -> Observable<[ScannedPeripheral]> in
+                return scannedPeripherals.isEmpty ? .error(DeviceError.scanFailed) : .just(scannedPeripherals)
+            })
+            .map {
+                return $0.sorted(by: { (lhs, rhs) -> Bool in
+                    return lhs.rssi.doubleValue > rhs.rssi.doubleValue
+                })
             }
+            .flatMap {
+                Observable.from($0)
+            }
+            .take(1)
+            .do(onNext: { ScannedPeripheral in
+                print("Discovered ScannedPeripheral: \(ScannedPeripheral)")
+            })
             .flatMap { $0.peripheral.connect() }
-            .catchError { _ in
-                throw DeviceError.paringFailed
-            }
-            .flatMap { $0.discoverServices([self.boostServiceUUID])}
-            .flatMap { Observable.from($0) }
-            .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
-            .flatMap { Observable.from($0) }           
-            .subscribeOn(MainScheduler.instance)
+//            .do(onNext: { Peripheral in
+//                print("Discovered Peripheral: \(Peripheral)")
+//            })
+//            .debug()
+//            .flatMap { $0.discoverServices([self.boostServiceUUID])}
+//            .flatMap { Observable.from($0) }
+//            .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
+//            .flatMap { Observable.from($0) }
+//            .do(onNext: { characteristic in
+//                print("Discovered characteristic: \(characteristic)")
+//            })
+//            .subscribeOn(MainScheduler.instance)
     }
     
-    func startScan() throws -> Observable<ScannedPeripheral> {
+    func scan() -> Observable<Bool> {
         return self.manager
             .rx_state
+            .debug()
             .filter { $0 == .poweredOn }
-            .timeout(4.0, scheduler: self.scheduler)
+            .timeout(4.0, scheduler: MainScheduler.instance)
             .take(1)
             .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
-            .catchError { _ in
-                throw DeviceError.scanFailed
-            }
-            .subscribeOn(MainScheduler.instance)
+            .take(3.0, scheduler: MainScheduler.instance)
+            .toArray()
+            .flatMap({ (scannedPeripherals) -> Observable<Bool> in
+                return scannedPeripherals.isEmpty ? .just(false) : .just(true)
+            })
     }
     
-    func connect(scannedPeripheral : ScannedPeripheral) throws -> Observable<Peripheral> {
-        return self.manager.connect(scannedPeripheral.peripheral)
-            .catchError { error in
-                print(error.localizedDescription)
-                throw DeviceError.paringFailed
-            }
-    }
-    
-    func setService(scannedPeripheral : ScannedPeripheral) throws -> Observable<Service> {
-        do {
-            let connection = try self.connect(scannedPeripheral: scannedPeripheral)
-            return connection
-                .flatMap { $0.discoverServices([self.boostServiceUUID]) }
-                .flatMap { Observable.from($0) }
-        } catch let error {
-            return Observable.error(error)
-        }
-    }
-    
-    func setChracteristic(scannedPeripheral : ScannedPeripheral) throws -> Observable<Characteristic> {
-        do {
-            let connection = try self.setService(scannedPeripheral: scannedPeripheral)
-            return connection
-                .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
-                .flatMap { Observable.from($0) }
-        } catch let error {
-            return Observable.error(error)
-        }
-    }
+//    func connect(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
+//        return self.manager.connect(scannedPeripheral.peripheral)
+//            .catchError { error in
+//                print(error.localizedDescription)
+//                throw DeviceError.paringFailed
+//            }
+//    }
+//
+//    func setService(scannedPeripheral : ScannedPeripheral) -> Observable<Service> {
+//        do {
+//            let connection = try self.connect(scannedPeripheral: scannedPeripheral)
+//            return connection
+//                .flatMap { $0.discoverServices([self.boostServiceUUID]) }
+//                .flatMap { Observable.from($0) }
+//        } catch let error {
+//            return Observable.error(error)
+//        }
+//    }
+//
+//    func setChracteristic(scannedPeripheral : ScannedPeripheral) -> Observable<Characteristic> {
+//        do {
+//            let connection = try self.setService(scannedPeripheral: scannedPeripheral)
+//            return connection
+//                .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
+//                .flatMap { Observable.from($0) }
+//        } catch let error {
+//            return Observable.error(error)
+//        }
+//    }
     
     func disconnectDevice(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
         return self.manager.monitorDisconnection(for: scannedPeripheral.peripheral)
