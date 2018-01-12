@@ -38,7 +38,7 @@ final class DeviceManager {
         }).disposed(by: disposeBag)
         
         self.error.subscribe(onNext: {
-            print($0)
+            logVerbose($0.description)
             $0.cook()
         }).disposed(by: disposeBag)
     }
@@ -55,8 +55,9 @@ enum DeviceError : Error, BSTErrorProtocol {
     
     func cook(_ object: Any? = nil) {
         if object == nil {
-        } else {
             BSTFacade.ux.showAlert(self.description)
+        } else {
+            
         }
     }
 }
@@ -85,6 +86,12 @@ extension DeviceError {
         }
     }
     
-    var description: String { return self.localizedDescription }
-    var localizedDescription: String { return NSLocalizedString(self.key, comment: "") }
+    var description: String {
+        switch  self {
+        case .scanFailed:
+            return R.string.error.deviceScanFailed()
+        case .paringFailed:
+            return R.string.error.deviceParingFailed()
+        }
+    }
 }

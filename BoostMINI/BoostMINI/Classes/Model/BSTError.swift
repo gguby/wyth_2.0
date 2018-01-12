@@ -225,6 +225,32 @@ enum TicketError: Error, BSTErrorProtocol {
     }
 }
 
+enum PermissionError: Error, BSTErrorProtocol {
+    case disableCamera
+    case disableBluetooth
+    case disablePhotos
+    
+    var description: String {
+        var desc = ""
+        switch self {
+        case .disableCamera:
+            desc = BSTFacade.localizable.error.permissionDisableCamera()    //Resources/Strings/Error.strings에 정의함
+        case .disableBluetooth:
+            desc = BSTFacade.localizable.error.permissionDisableBluetooth()
+        case .disablePhotos:
+            desc = BSTFacade.localizable.error.permissionDisablePhotos()
+        }
+        return desc
+    }
+    
+    func cook(_ object: Any? = nil) {
+        switch self {
+        default:
+            BSTFacade.ux.showAlert(self.description) //alert 출력
+        }
+    }
+}
+
 
 enum BSTError: Error, BSTErrorProtocol {
     case none

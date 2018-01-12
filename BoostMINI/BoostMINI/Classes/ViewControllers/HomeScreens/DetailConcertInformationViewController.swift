@@ -9,55 +9,19 @@
 import Foundation
 import UIKit
 
-class DetailConcertInformationViewController: UIViewController {
-
-    // MARK: - * properties --------------------
-
-
-    // MARK: - * IBOutlets --------------------
-
-
-    // MARK: - * Initialize --------------------
-
+class DetailConcertInformationViewController: WebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initProperties()
-        self.initUI()
-        self.prepareViewDidLoad()
-    }
-
-
-    private func initProperties() {
-
-    }
-
-
-    private func initUI() {
-
-    }
-
-
-    func prepareViewDidLoad() {
-
-    }
-
-    // MARK: - * Main Logic --------------------
-
-
-    // MARK: - * UI Events --------------------
-    @IBAction func back(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        loadWebUrl("http://boostdev.lysn.com:8181/viewConcert?userId=1&concertId=1")
+        
     }
     
-
-    // MARK: - * Memory Manage --------------------
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+   
 }
 
 
