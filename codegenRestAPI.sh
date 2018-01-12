@@ -65,16 +65,20 @@ sed -i '' -E $'s|([a-zA-Z0-9]*): Codable {|\\1: BaseModel {\\\n	// autogen apiLi
 }
 
 
-
-
+rm -rf BoostMINI/BoostMINI/Classes/Swaggers
+rm -rf BoostMINI/BoostMINI/Libraries/Swaggers
+rm -rf BoostMINI/BoostMINI/Classes/Model/Generated
 
 swagger-codegen generate -i http://boostdev.lysn.com/v2/api-docs?group=API -l swift4 -c codegen-config.json -o BoostMINI
 
 # # // Classes 디렉토리보다는 Libraries 디렉토리가 더 어울린다.
 echo "move files from 'BoostMINI/BoostMINI/Classes/Swaggers' to 'BoostMINI/BoostMINI/Libraries/Swaggers'..."
 
+
 mkdir BoostMINI/BoostMINI/Libraries/Swaggers 2>>/dev/null
-mkdir BoostMINI/BoostMINI/Classes/Models/Generated 2>>/dev/null
+mkdir BoostMINI/BoostMINI/Classes/Model/Generated 2>>/dev/null
+
+
 
 #cp -R BoostMINI/BoostMINI/Classes/Swaggers BoostMINI/BoostMINI/Classes/Model/SwaggersOriginal
 
@@ -86,6 +90,8 @@ mkdir BoostMINI/BoostMINI/Classes/Models/Generated 2>>/dev/null
 for X in BoostMINI/BoostMINI/Classes/Swaggers/*.swift; do _sedReplace $X; done;
 #echo "Part 2"
 for X in BoostMINI/BoostMINI/Classes/Swaggers/APIs/*.swift; do _sedReplace $X;
+echo "[$X] GO"
+#head -n 20 $X
 sed -i '' -E $'s|open class ([a-zA-Z0-9]*API) {|open class \\1 {\\\n  private static var xAPPVersion: String = BSTApplication.shortVersion ?? "unknown"\\\n  private static var xDevice: String     = "ios"\\\n  private static var acceptLanguage: String = "ko-KR"|g' $X;
 sed -i '' -e $'s|completion(response?.body, error);|completion(response?.body, BSTErrorBaker.errorFilter(error, response))|g' $X;
 sed -i '' -e $'s|observer.on(.error(error as Error))|observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))|g' $X;

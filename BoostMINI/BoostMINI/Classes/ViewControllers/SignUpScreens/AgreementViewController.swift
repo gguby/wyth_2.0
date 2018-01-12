@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class AgreementController: UIViewController {
 	
@@ -51,6 +52,7 @@ class AgreementController: UIViewController {
 			
 			buttonNext.isEnabled = !true
 
+			return
 		}
 		
 		buttonCheck.isHidden = false
@@ -72,17 +74,8 @@ class AgreementController: UIViewController {
 
 		buttonDoc1.text = BSTFacade.localizable.login.agreement()
 		buttonDoc2.text = BSTFacade.localizable.login.privacy()
-		buttonCancel.text = 
-		
-
-		buttonDoc1.setAttributedTitle(NSAttributedString(string: BSTFacade.localizable.login.agreement(), attributes: buttonDoc1.attributedTitle(for: .normal)!.attributesAtIndex(0, effectiveRange: nil)), for: .normal)
-		
-		buttonDoc2.setAttributedTitle(NSAttributedString(string: BSTFacade.localizable.login.privacy(), attributes: label.attributedText!.attributesAtIndex(0, effectiveRange: nil)), for: .normal)
-
-		
-		buttonCancel.setAttributedTitle(NSAttributedString(string: BSTFacade.localizable.login.cancelButton(), attributes: label.attributedText!.attributesAtIndex(0, effectiveRange: nil)), for: .normal)
-		
-		buttonNext.setTitle(BSTFacade.localizable.login.startButton(), for: .normal)
+		buttonCancel.text = BSTFacade.localizable.login.cancelButton()
+		buttonNext.text = BSTFacade.localizable.login.startButton()
 
 
 	}

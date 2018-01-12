@@ -732,10 +732,12 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter accessToken: (query)  
      - parameter socialType: (query)  
+     - parameter pushToken: (query)  
+     - parameter osVersion: (query)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error? ) -> Void)) {
-        signinUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType).execute { (response, error) -> Void in
+    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: Float, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+        signinUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion).execute { (response, error) -> Void in
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -748,11 +750,13 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter accessToken: (query)  
      - parameter socialType: (query)  
+     - parameter pushToken: (query)  
+     - parameter osVersion: (query)  
      - returns: Observable<AccountsPostResponse>
      */
-    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST) -> Observable<AccountsPostResponse> {
+    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: Float) -> Observable<AccountsPostResponse> {
         return Observable.create { observer -> Disposable in
-            signinUsingPOST(accessToken: accessToken, socialType: socialType) { data, error in
+            signinUsingPOST(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion) { data, error in
                 if let error = error {
                     observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
@@ -774,10 +778,12 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter accessToken: (query)  
      - parameter socialType: (query)  
+     - parameter pushToken: (query)  
+     - parameter osVersion: (query)  
 
      - returns: RequestBuilder<AccountsPostResponse> 
      */
-    open class func signinUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signinUsingPOST) -> RequestBuilder<AccountsPostResponse> {
+    open class func signinUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: Float) -> RequestBuilder<AccountsPostResponse> {
         let path = "/accounts/signin"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -785,7 +791,9 @@ open class DefaultAPI {
         let url = NSURLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "accessToken": accessToken, 
-            "socialType": socialType.rawValue
+            "socialType": socialType.rawValue, 
+            "pushToken": pushToken, 
+            "osVersion": osVersion
         ])
         
         let nillableHeaders: [String: Any?] = [
@@ -876,34 +884,38 @@ open class DefaultAPI {
     }
 
     /**
-     회원 가입
+     알림 리스트 가져오기
      
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
      - parameter accessToken: (query)  
      - parameter socialType: (query)  
+     - parameter pushToken: (query)  
+     - parameter osVersion: (query)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
-        signupUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType).execute { (response, error) -> Void in
+    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: Float, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+        signupUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion).execute { (response, error) -> Void in
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
 
     /**
-     회원 가입
+     알림 리스트 가져오기
      
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
      - parameter accessToken: (query)  
      - parameter socialType: (query)  
+     - parameter pushToken: (query)  
+     - parameter osVersion: (query)  
      - returns: Observable<AccountsPostResponse>
      */
-    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST) -> Observable<AccountsPostResponse> {
+    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: Float) -> Observable<AccountsPostResponse> {
         return Observable.create { observer -> Disposable in
-            signupUsingPOST(accessToken: accessToken, socialType: socialType) { data, error in
+            signupUsingPOST(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion) { data, error in
                 if let error = error {
                     observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))
                 } else {
@@ -916,7 +928,7 @@ open class DefaultAPI {
     }
 
     /**
-     회원 가입
+     알림 리스트 가져오기
      - POST /accounts/signup
      - examples: [{output=none}]
      
@@ -925,10 +937,12 @@ open class DefaultAPI {
      - parameter acceptLanguage: (header) language-locale 
      - parameter accessToken: (query)  
      - parameter socialType: (query)  
+     - parameter pushToken: (query)  
+     - parameter osVersion: (query)  
 
      - returns: RequestBuilder<AccountsPostResponse> 
      */
-    open class func signupUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signupUsingPOST) -> RequestBuilder<AccountsPostResponse> {
+    open class func signupUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: Float) -> RequestBuilder<AccountsPostResponse> {
         let path = "/accounts/signup"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -936,7 +950,9 @@ open class DefaultAPI {
         let url = NSURLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "accessToken": accessToken, 
-            "socialType": socialType.rawValue
+            "socialType": socialType.rawValue, 
+            "pushToken": pushToken, 
+            "osVersion": osVersion
         ])
         
         let nillableHeaders: [String: Any?] = [
