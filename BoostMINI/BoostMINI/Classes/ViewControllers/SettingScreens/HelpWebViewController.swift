@@ -15,11 +15,8 @@ class HelpWebViewController: WebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let html = preload {
-            self.webView.loadHTMLString(html, baseURL: Definitions.externURLs.appstore.asUrl)
-        } else {
-            loadWebUrl(Definitions.externURLs.appstore)
-        }
+        loadWebUrl("http://boostdev.lysn.com:8181/viewHelpList?userId=1")
+        
     }
 
     override func didReceiveMemoryWarning() {
