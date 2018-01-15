@@ -20,7 +20,7 @@ class SessionHandler {
 	var profile: BoostProfile?
 
 	var pushToken: String = "test- TODO:"	// TODO:
-	var osVersion: String = Float(UIDevice.current.systemVersion)
+	var osVersion: String = UIDevice.current.systemVersion
 
 	
 	var name: String? { return profile?.name }
