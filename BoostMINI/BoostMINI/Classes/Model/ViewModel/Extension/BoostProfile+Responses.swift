@@ -51,7 +51,7 @@ extension BoostProfile {
 				failed(error)	// APIError에 906 없음...
 			case 960:
 				// smtown 가족이지만 가입 안된 케이스
-				loginned(BoostProfile.from(data))
+				welcome()
 				
 			default:
 				// 에라 모르겠다

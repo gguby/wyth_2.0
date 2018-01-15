@@ -102,23 +102,72 @@ class AgreementController: UIViewController {
 	
 	var disposeBag = DisposeBag()
 	func initEvents() {
-		
+
+		buttonCancel.rx.tap.bind {
+			self.back()
+		}.disposed(by: disposeBag)
+
 		buttonDoc1.rx.tap.bind {
 			
+			logVerbose("cc1")
 			// 이용약관 보기
 			WebViewController.show(Definitions.externURLs.terms)
 
 			}.disposed(by: disposeBag)
 		
-		buttonDoc1.rx.tap.bind {
+		buttonDoc2.rx.tap.bind {
 			
 			// 개인정보 처리방침
 			WebViewController.show(Definitions.externURLs.privacy)
 
 			}.disposed(by: disposeBag)
+		
+		buttonCheck.rx.tap.bind {
+			
+			let enable = !self.buttonCheck.isSelected
+			self.buttonCheck.isSelected = enable
+			self.buttonNext.isEnabled = enable
+			
+			}.disposed(by: disposeBag)
+		
+		buttonNext.rx.tap.bind {
+			self.register()
+			
+			}.disposed(by: disposeBag)
+		
 
 	}
 
+	
+	func back() {
+		// TODO : back 한 후에 되돌아가는 페이지가 로그인페이지라면, 1. smtown 로그아웃을 해줘야 하고, 2. 웹뷰를 로그인페이지로 갱신시켜주어야 한다. 그렇지않으면 빈 웹뷰에서 인디게이터만 멍하니 도는 비정상화면을 보게 될 것이고,현재 그렇다.
+		
+		// 웹뷰 이전의 인트로인것같은 페이지로 이동
+		if let nav = self.navigationController {
+			nav.popViewController(animated: true)
+		} else {
+			self.dismiss(animated: true)
+		}
+	}
+	
+	
+	func register() {
+		guard let token = SessionHandler.shared.token else {
+			BSTFacade.ux.showToastError("token error")
+			back()
+			return
+		}
+		
+		BoostProfile
+			.register(token,
+					  registered: { profile in
+						BSTFacade.go.home()
+		}) { error in
+			// TODO : error
+			BSTFacade.ux.showToastError(error?.localizedDescription ?? "ERROR")
+		}
+	}
+	
 //}, checkBoxDelegate {
 //
 //    @IBOutlet var btnClose: UIButton!

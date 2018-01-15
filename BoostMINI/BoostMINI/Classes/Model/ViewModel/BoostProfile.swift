@@ -35,7 +35,10 @@ public enum BoostSocialType: String, Codable {
 
 
 extension BoostProfile {
-	class func from<T: Encodable>(_ model: T) -> BoostProfile? {
+	class func from<T: Encodable>(_ model: T?) -> BoostProfile? {
+		if model == nil {
+			return nil
+		}
 		// 조금만 손보면 자동으로도 될텐데
 
 		let enc = CodableHelper.encode(model)

@@ -357,6 +357,8 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 						
 					} else {
 						// TODO : 기존코드의 문제. 일단 로그인되어있으면, 토큰이 붙는데... 로그인 화면을 보여주고싶을 뿐인거다 난. 구분을 하든가 로그아웃을 하든가.
+						// TODO : 만약 로그인을 한 후, 약관동의화면에서 앱을 종료하면... 다음번 앱 실행 후 로그인을 눌렀을 때 이리로 온다. 이미 smtown은 로그인이 되어있어서 그렇다. 이 경우, 약관동의화면으로 가지 않게 하려면 smtown 로그인을 해제할 수 있어야 한다.
+						
 						logVerbose("access_token got.")
 						BoostProfile.login(token)
 					}
@@ -373,6 +375,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 		} else {
 			decisionHandler(.allow)
 		}
+
 	}
 	
 	func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
@@ -451,6 +454,7 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 
 	
 	class func show(_ url: String) {
+		logVerbose("cc2")
 
 		guard let vc = R.storyboard.common.webViewController() else {
 			BSTError.debugUI(.storyboard("common.webViewController"))

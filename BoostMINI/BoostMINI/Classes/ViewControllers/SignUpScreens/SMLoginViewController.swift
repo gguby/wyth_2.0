@@ -50,10 +50,6 @@ class SMLoginViewController: WebViewController {
 		super.webView(webView, didFinish: navigation)
 
 		// DEBUG
-		#if DEBUG
-			let debugScript = "$('#UserID').val('dk@devrock.co.kr'); $('#Password').val('qweR123');"
-			webView.evaluateJavaScript(debugScript)
-		#endif
 		
 		if let savedEmail = SessionHandler.shared.savedEmail {
 			let val = savedEmail
