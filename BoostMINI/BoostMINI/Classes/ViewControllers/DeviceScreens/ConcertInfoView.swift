@@ -35,6 +35,20 @@ class ConcertInfoView : UIView {
         self.titleLbl.text = R.string.common.concertInfoTitle()
         self.seatLbl.text = R.string.common.concertInfoSeat()
         self.dateLbl.text = "2018.02.01.FRI 19:00"
+        
+        self.getConcertData()
+    }
+    
+    func getConcertData() {
+        DefaultAPI.getSeatsUsingGET(type: .yes24) { [weak self] response, _ in
+            guard let response = response else { return }
+            
+            self?.dateLbl.text = response.concertDate
+            self?.floor.text = response.floor
+            self?.region.text = response.area
+            self?.column.text = response.row
+            self?.number.text = response.seat
+        }
     }
 
 }

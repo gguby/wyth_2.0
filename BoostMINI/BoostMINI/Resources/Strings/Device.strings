@@ -9,8 +9,12 @@
 
 // Device view
 "BTTitleLbl" = "응원도구 연동";
+"BTTitleConnectLbl" = "응원도구 연동완료";
+"BTTitleManage" = "응원도구 관리";
+"BTReSettingBtn" = "재설정";
 "BTContentScan" = "응원도구를 화면에 가까이 해주세요";
 "BTContentConnected" = "응원도구가 정상적으로 연동되었습니다";
 "BTContentFindDevice" = "응원도구를 찾았습니다";
+"BTContentNotRegistered" = "연동된 응원도구가 없습니다";
 "BTContentUserInfo" = "%@ 님의 응원도구 및 좌석정보";
 "BTErrorAlertTitle" = "응원도구 인식오류";

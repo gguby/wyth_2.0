@@ -198,6 +198,9 @@
                                 <state key="normal" title="TVXQ! Youtube" image="icon_menu_youtube">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToYoutubeSite:" destination="KFb-Aw-ybA" eventType="touchUpInside" id="a0H-X3-f1i"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfj-35-mID">
                                 <rect key="frame" x="0.0" y="530" width="240" height="137"/>
@@ -207,6 +210,9 @@
                                 <viewLayoutGuide key="safeArea" id="2ON-c6-XJR"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <state key="normal" title="Image Button"/>
+                                <connections>
+                                    <action selector="goToYoutubeSite:" destination="KFb-Aw-ybA" eventType="touchUpInside" id="qtq-OO-gAT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>

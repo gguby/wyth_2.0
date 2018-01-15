@@ -58,10 +58,25 @@ class MenuViewController: UIViewController {
         if segue.identifier == "deviceSegue" {
             if let vc  = segue.destination as? BTDeviceViewController {
                 let reactor = DeviceViewReactor.init(service: BTDeviceService.init())
+                reactor.viewType = .Management
                 vc.reactor = reactor
             }
         }
     }
+    
+    @IBAction func goToYoutubeSite(_ sender: UIButton) {
+        let appURL = NSURL(string: "youtube://www.youtube.com/user/SMTOWN")!
+        let webURL = NSURL(string: "https://www.youtube.com/user/SMTOWN")!
+        let application = UIApplication.shared
+        
+        if application.canOpenURL(appURL as URL) {
+            application.open(appURL as URL)
+        } else {
+            // if Youtube app is not installed, open URL inside Safari
+            application.open(webURL as URL)
+        }
+    }
+    
     
 
     // MARK: - * Memory Manage --------------------

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Permission
+import JuseongJee_RxPermission
 
 class IntroViewController: UIViewController {
 	static var actual: IntroViewController? = nil
@@ -28,7 +30,18 @@ class IntroViewController: UIViewController {
         super.viewDidLoad()
 
 
-		
+        initProperties()
+    }
+    
+    /// initProperties() - Description:
+    private func initProperties() {
+        let permissionSet = PermissionSet([.camera, .bluetooth, .notifications, .photos])
+        permissionSet.delegate = self
+        permissionSet.permissions.forEach { (permission) in
+            permission.request({ (status) in
+                print(status)
+            })
+        }
     }
 	
 	deinit {
@@ -125,6 +138,22 @@ extension IntroViewController {
 
 	}
 	
+}
+
+extension IntroViewController: PermissionSetDelegate {
+    
+    func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
+        print("Will request \(permission)")
+    }
+    
+    func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
+        switch permissionSet.status {
+        case .authorized:    print("all the permissions are granted")
+        case .denied:        print("at least one permission is denied")
+        case .disabled:      print("at least one permission is disabled")
+        case .notDetermined: print("at least one permission is not determined")
+        }
+    }
 }
 
 extension IntroViewController {
@@ -230,7 +259,4 @@ extension IntroViewController {
 	func presentLogin() {
 		BSTFacade.go.login(self, animated: false)
 	}
-	
-	
-	
 }

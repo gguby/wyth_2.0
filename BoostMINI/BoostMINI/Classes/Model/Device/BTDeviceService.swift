@@ -20,22 +20,43 @@ class BTDeviceService {
     
     let DeviceKey = "boostDevice"
     
-    init() {
-    }
+    init() {}
     
-    func connect() -> Observable<Peripheral> {
-         return self.manager
+//    func retrieve() {
+//        self.manager.retrieveConnectedPeripherals(withServices: [boostServiceUUID])
+//            .subscribe { (event) in
+//                print(event)
+//            }.disposed(by: disposeBag)
+//    }
+    
+    func scanner() -> Observable<[ScannedPeripheral]> {
+        return self.manager
             .rx_state
             .debug()
             .filter { $0 == .poweredOn }
             .timeout(4.0, scheduler: MainScheduler.instance)
             .take(1)
             .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
-            .take(1.0, scheduler: MainScheduler.instance)
+            .take(3.0, scheduler: MainScheduler.instance)
             .toArray()
-            .flatMap({ (scannedPeripherals) -> Observable<[ScannedPeripheral]> in
-                return scannedPeripherals.isEmpty ? .error(DeviceError.scanFailed) : .just(scannedPeripherals)
+    }
+    
+    func scan(observable : Observable<[ScannedPeripheral]>) -> Observable<Bool> {
+        return observable
+            .flatMap({ (scannedPeripherals) -> Observable<Bool> in
+                return scannedPeripherals.isEmpty ? .just(false) : .just(true)
             })
+    }
+    
+    func paring(observable : Observable<[ScannedPeripheral]>) -> Observable<Bool> {
+        return self.connect(observable: observable)
+            .flatMap ({ (peripheral) -> Observable<Bool> in
+                peripheral.isConnected ? .just(true) :  .just(false)
+            })
+    }
+    
+    func connect(observable : Observable<[ScannedPeripheral]>) -> Observable<Peripheral> {
+         return observable
             .map {
                 return $0.sorted(by: { (lhs, rhs) -> Bool in
                     return lhs.rssi.doubleValue > rhs.rssi.doubleValue
@@ -51,7 +72,7 @@ class BTDeviceService {
             .flatMap { $0.peripheral.connect() }
 //            .do(onNext: { Peripheral in
 //                logVerbose("Discovered Peripheral: \(Peripheral)")
-//            })
+//            }
 //            .debug()
 //            .flatMap { $0.discoverServices([self.boostServiceUUID])}
 //            .flatMap { Observable.from($0) }
@@ -63,20 +84,7 @@ class BTDeviceService {
 //            .subscribeOn(MainScheduler.instance)
     }
     
-    func scan() -> Observable<Bool> {
-        return self.manager
-            .rx_state
-            .debug()
-            .filter { $0 == .poweredOn }
-            .timeout(4.0, scheduler: MainScheduler.instance)
-            .take(1)
-            .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
-            .take(3.0, scheduler: MainScheduler.instance)
-            .toArray()
-            .flatMap({ (scannedPeripherals) -> Observable<Bool> in
-                return scannedPeripherals.isEmpty ? .just(false) : .just(true)
-            })
-    }
+
     
 //    func connect(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
 //        return self.manager.connect(scannedPeripheral.peripheral)
