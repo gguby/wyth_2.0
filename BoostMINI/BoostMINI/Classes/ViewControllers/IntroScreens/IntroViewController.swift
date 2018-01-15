@@ -51,6 +51,7 @@ class IntroViewController: UIViewController {
 		
 		//무조건?!
 		if !(progressCompleted) {
+			progressCompleted = true
 			self.checkVersion()
 		}
 		

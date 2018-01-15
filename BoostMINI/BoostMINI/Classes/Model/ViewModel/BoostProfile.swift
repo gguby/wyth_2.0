@@ -17,8 +17,8 @@ open class BoostProfile: Codable {
 	public var id: Int64 = 0
 	public var name: String = ""
 	public var nationality: String?
-	public var profilepicture: String?
-	public var regdate: String?
+	public var profilePicture: String?
+	public var regDate: String?
 	public var sex: String?
 	public var socialType: BoostSocialType?
 	

@@ -23,7 +23,10 @@ class SessionHandler {
 	var osVersion: String = UIDevice.current.systemVersion
 
 	
-	var name: String? { return profile?.name }
+	// profile은 없지만 유저이름이 있을 수 있다. token만 있는,
+	var userName: String? { return profile?.name ?? "카시오페아" }
+	// TODO : profile
+	var name: String? { return profile?.name ?? "카시오페아" }
 	var email: String? { return profile?.email }
 	
 	
@@ -47,30 +50,11 @@ class SessionHandler {
 	private init() {
 		
 		
-		#if DEBUG
-			// for test
-			let testCode = 2
-			
-			
-			if testCode == 1 {
-				// 가상 로그인 세팅
-				UserDefaults.standard.set("0123456789abcdef", forKey: userPlistKey.token.rawValue)
-				UserDefaults.standard.synchronize()
-			}
-			if testCode == 2 {
-				// 강제 로그아웃 세팅
-				UserDefaults.standard.removeObject(forKey: userPlistKey.token.rawValue)
-				UserDefaults.standard.synchronize()
-			}
-			
-		#endif
-		
-		
 		// TODO: 암호화 필요?
 		// TODO: 스트링 define으로 뺴려면 고고
 		self.cookie = UserDefaults.standard.string(forKey: userPlistKey.cookie.rawValue)
 		self.token = UserDefaults.standard.string(forKey: userPlistKey.token.rawValue)
-		self.profile = UserDefaults.standard.object(forKey: userPlistKey.profile.rawValue) as? BoostProfile
+		self.profile = UserDefaults.standard.objectCodable(forKey: userPlistKey.profile.rawValue)
 
 	}
 
@@ -107,7 +91,7 @@ class SessionHandler {
 		
 		UserDefaults.standard.set(self.cookie, forKey: userPlistKey.cookie.rawValue)
 		UserDefaults.standard.set(self.token, forKey: userPlistKey.token.rawValue)
-		UserDefaults.standard.set(self.profile, forKey: userPlistKey.profile.rawValue)
+		UserDefaults.standard.setCodable(self.profile, forKey: userPlistKey.profile.rawValue)
 
 		UserDefaults.standard.synchronize()
 	}

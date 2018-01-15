@@ -38,6 +38,8 @@ class SMLoginViewController: WebViewController {
 		navigationController?.isNavigationBarHidden = false
 		navigationController?.hidesBarsOnTap = true
 
+		navigationController?.title = BSTFacade.localizable.login.title()
+
 		super.viewWillAppear(animated)
 	}
 	override func viewDidAppear(_ animated: Bool) {

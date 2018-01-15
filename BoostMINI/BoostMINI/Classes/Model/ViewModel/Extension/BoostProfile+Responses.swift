@@ -60,19 +60,26 @@ extension BoostProfile {
 			return
 		}
 		
-		if let err = error as? BSTError {
-			switch err {
-			case .api(let ae):
-				if ae.rawValue == 404 {
-					//					// ???
-					//
-					//					doSignUp()
-					//					return
+		if let err = error {
+			if let err = err as? BSTError {
+				switch err {
+				case .api(let ae):
+					if ae.rawValue == 404 {
+						//					// ???
+						//
+						//					doSignUp()
+						//					return
+					}
+				default:
+					break
 				}
-			default:
-				break
+			} else {
+				BSTFacade.ux.showToastError(err.localizedDescription)
 			}
+			failed(err)
+			
 		}
+		
 		
 		
 		guard let token = SessionHandler.shared.token,

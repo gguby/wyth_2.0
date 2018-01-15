@@ -6,9 +6,13 @@
   Copyright © 2018년 IRIVER LIMITED. All rights reserved.
 */
 
+"title" = "로그인";
+"titleWelcome" = "약관동의";
+
 "SMLoginText" = "Login with SMTOWN ID";
 "welcome" = "%@ 님 환영합니다.";
 "welcomeDetail" = "Boost for TVXQ!는 %@ 님의 이메일과성명을\nMUSIC NATION SMTOWN에서 제공받습니다.\n제공된 정보는 이용자식별, 계정연동 등을 위해\n서비스 이용 중 보관 됩니다.";
+
 
 "terms" = "이용약관 보기";
 "privacy" = "개인정보 처리방침";

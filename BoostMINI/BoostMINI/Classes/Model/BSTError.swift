@@ -271,6 +271,7 @@ enum BSTError: Error, BSTErrorProtocol {
     case login(LoginError)
 	case debugUI(UIError)
 
+	
 
     var description: String {
         var description = ""
@@ -411,7 +412,9 @@ class BSTErrorBaker<T> {
 		}
 		
 		guard let resp = response else {
-			throw BSTError.nilError
+			
+			
+			throw err ?? BSTError.nilError
 		}
 		
 		if response?.statusCode == 201 {

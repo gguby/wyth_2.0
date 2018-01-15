@@ -76,8 +76,8 @@ class BoostMINITests: XCTestCase {
 			
 			v1.createdAt = Date(timeIntervalSinceNow: -999)
 			v1.nationality = "ko"
-			v1.profilepicture = "http://blahblah"
-			v1.regdate = nil
+			v1.profilePicture = "http://blahblah"
+			v1.regDate = nil
 			v1.sex = "철9"
 			v1.socialType = .smtown
 
@@ -101,8 +101,8 @@ class BoostMINITests: XCTestCase {
 			
 			XCTAssertEqual(v1.email, v3.email)
 			
-			XCTAssertEqual(v1.profilepicture, v2.profilepicture)
-			XCTAssertEqual(v2.profilepicture, v3.profilepicture)
+			XCTAssertEqual(v1.profilePicture, v2.profilePicture)
+			XCTAssertEqual(v2.profilePicture, v3.profilePicture)
 
 			XCTAssertEqual(v1.createdAt, v3.createdAt)
 			XCTAssertEqual(v2.createdAt, v3.createdAt)
@@ -119,6 +119,8 @@ class BoostMINITests: XCTestCase {
 			
 			v1.createdAt = Date(timeIntervalSinceNow: -999)
 			v1.nationality = "ko"
+			
+			// 얘는 또 소문자네..아이고...
 			v1.profilepicture = "http://blahblah"
 			v1.regdate = nil
 			v1.sex = "철9"
@@ -147,7 +149,7 @@ class BoostMINITests: XCTestCase {
 			v1.createdAt = Date(timeIntervalSinceNow: -999)
 			v1.nationality = "ko"
 			v1.profilepicture = "http://blahblah"
-			v1.regdate = nil
+			v1.regeate = nil
 			v1.sex = "철9"
 			v1.socialType = .smtown
 			

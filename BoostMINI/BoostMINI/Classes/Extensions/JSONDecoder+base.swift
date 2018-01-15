@@ -6,7 +6,7 @@
 //  Copyright © 2017년 jack. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 
 extension JSONEncoder {
@@ -15,7 +15,7 @@ extension JSONEncoder {
 		
 		encoder.outputFormatting = .prettyPrinted
 		//encoder.dataEncodingStrategy = .base64
-		encoder.dateEncodingStrategy = .secondsSince1970 // .iso8601
+		encoder.dateEncodingStrategy = .formatted(DateFormatter.jsonDate) // .iso8601
 		
 		return encoder
 	}
@@ -26,7 +26,7 @@ extension JSONDecoder {
 	
 	static var base: JSONDecoder {
 		let decoder = JSONDecoder()
-		decoder.dateDecodingStrategy = .secondsSince1970 // It is necessary for correct decoding. Timestamp -> Date.
+		decoder.dateDecodingStrategy = .formatted(DateFormatter.jsonDate)	 // It is necessary for correct decoding. Timestamp -> Date.
 		
 		return decoder
 	}

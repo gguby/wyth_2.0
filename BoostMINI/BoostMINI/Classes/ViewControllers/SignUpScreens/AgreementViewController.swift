@@ -41,6 +41,12 @@ class AgreementController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
+		// TODO : 약관동의를 하고 나야 api에 회원가입을 호출하는것인데, 약관동의 페이지에 회원 이름이 있어야 한다.. 하지만 회원가입을 하기 전 까지는 이름을 받아올 수가 없다...
+		// TODO : API 수정해주시겠다고 얘기했다고는 했으나, 아직 되는건 없고 담당자는 휴가를 떠나셨다.
+		// TODO : 인수인계 받는 분이 알아서 하시겠지...
+		
+		navigationController?.title = BSTFacade.localizable.login.titleWelcome()
+
 		
 		guard let userName = SessionHandler.shared.name else {
 		
@@ -50,7 +56,7 @@ class AgreementController: UIViewController {
 		}
 		navigationController?.isNavigationBarHidden = true
 		navigationController?.hidesBarsOnTap = false
-		
+
 	}
 	
 	
@@ -84,17 +90,15 @@ class AgreementController: UIViewController {
 		labelHead.text = BSTFacade.localizable.login.welcome(userName)
 		labelComment.text = BSTFacade.localizable.login.welcomeDetail(userName)
 
-		
-		
+
 		//BSTFacade.localizable.login.privacy()
 
 		buttonDoc1.text = BSTFacade.localizable.login.terms()
 		buttonDoc2.text = BSTFacade.localizable.login.privacy()
 		buttonCancel.text = BSTFacade.localizable.login.cancelButton()
 		buttonNext.text = BSTFacade.localizable.login.startButton()
-
-
 	}
+
 	
 	var disposeBag = DisposeBag()
 	func initEvents() {
@@ -111,7 +115,6 @@ class AgreementController: UIViewController {
 			// 개인정보 처리방침
 			WebViewController.show(Definitions.externURLs.privacy)
 
-			
 			}.disposed(by: disposeBag)
 
 	}
