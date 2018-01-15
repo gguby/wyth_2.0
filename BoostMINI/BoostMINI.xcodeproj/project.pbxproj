@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */; };
-		04122A591FEBBACE00896EE0 /* FunctionHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A581FEBBACE00896EE0 /* FunctionHouse.swift */; };
-		04122A5A1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A581FEBBACE00896EE0 /* FunctionHouse.swift */; };
-		04122A5B1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A581FEBBACE00896EE0 /* FunctionHouse.swift */; };
 		04122A5D1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */; };
 		04122A5E1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */; };
 		04122A5F1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */; };
@@ -225,6 +222,9 @@
 		04B21926200874FB002A1742 /* UIButton+UpdateAttributeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B21925200874FB002A1742 /* UIButton+UpdateAttributeString.swift */; };
 		04B21927200874FB002A1742 /* UIButton+UpdateAttributeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B21925200874FB002A1742 /* UIButton+UpdateAttributeString.swift */; };
 		04B21928200874FB002A1742 /* UIButton+UpdateAttributeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B21925200874FB002A1742 /* UIButton+UpdateAttributeString.swift */; };
+		04B2192A2008A448002A1742 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B219292008A448002A1742 /* Common.storyboard */; };
+		04B2192B2008A448002A1742 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B219292008A448002A1742 /* Common.storyboard */; };
+		04B2192C2008A448002A1742 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B219292008A448002A1742 /* Common.storyboard */; };
 		04C22BA91FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
@@ -385,7 +385,6 @@
 
 /* Begin PBXFileReference section */
 		04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-Toast.swift"; sourceTree = "<group>"; };
-		04122A581FEBBACE00896EE0 /* FunctionHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionHouse.swift; sourceTree = "<group>"; };
 		04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OptionSet+Sequence.swift"; path = "BoostMINI/Classes/Extensions/OptionSet+Sequence.swift"; sourceTree = SOURCE_ROOT; };
 		04122A601FEC92DE00896EE0 /* Dictionary+Easy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Easy.swift"; sourceTree = "<group>"; };
 		04122A641FEC941F00896EE0 /* Collection+SafeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeRange.swift"; sourceTree = "<group>"; };
@@ -437,6 +436,7 @@
 		04B2190520073617002A1742 /* TiltingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltingView.swift; sourceTree = "<group>"; };
 		04B2190E20074C13002A1742 /* BoostProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostProfile.swift; sourceTree = "<group>"; };
 		04B21925200874FB002A1742 /* UIButton+UpdateAttributeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UpdateAttributeString.swift"; sourceTree = "<group>"; };
+		04B219292008A448002A1742 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		04C22BA81FEB9597007E2BED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		04E223D82003766E00A2B388 /* DefaultAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI.swift; sourceTree = "<group>"; };
 		04E223DB2003766E00A2B388 /* ConcertsGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertsGetResponse.swift; sourceTree = "<group>"; };
@@ -763,7 +763,6 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA08E1FEB55C8007441E1 /* CommonUtil.swift */,
-				04122A581FEBBACE00896EE0 /* FunctionHouse.swift */,
 				04C22BA81FEB9597007E2BED /* Logger.swift */,
 			);
 			path = Util;
@@ -897,6 +896,7 @@
 		2B5AA0711FEA61AC007441E1 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				04B219292008A448002A1742 /* Common.storyboard */,
 				2B61F0401FDFA49500581F06 /* Main.storyboard */,
 				8F82C1641FF36D810031D030 /* Home.storyboard */,
 				04AD73EE1FF20B39005F4BF0 /* SignUp.storyboard */,
@@ -1222,6 +1222,7 @@
 				0462CDEB1FFE2799002B6E11 /* Login.strings in Resources */,
 				0462CD8D1FFB798D002B6E11 /* Theme.xcassets in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
+				04B2192A2008A448002A1742 /* Common.storyboard in Resources */,
 				04E22444200490FC00A2B388 /* ThemeOld.xcassets in Resources */,
 				04B21902200719A2002A1742 /* ErrorDebug.strings in Resources */,
 				A6F35071200349AB00949BB2 /* Device.strings in Resources */,
@@ -1237,6 +1238,7 @@
 			files = (
 				A64CC9FB200887BC00935402 /* BTDevice.storyboard in Resources */,
 				A6F35072200349AB00949BB2 /* Device.strings in Resources */,
+				04B2192B2008A448002A1742 /* Common.storyboard in Resources */,
 				04B21903200719A2002A1742 /* ErrorDebug.strings in Resources */,
 				A63F1A2F20059D180079046D /* ConcertInfoView.xib in Resources */,
 			);
@@ -1248,6 +1250,7 @@
 			files = (
 				A64CC9FA2008874100935402 /* BTDevice.storyboard in Resources */,
 				A6F35073200349AB00949BB2 /* Device.strings in Resources */,
+				04B2192C2008A448002A1742 /* Common.storyboard in Resources */,
 				0462CDEC1FFE2799002B6E11 /* Login.strings in Resources */,
 				0462CDEF1FFE287E002B6E11 /* Alert.strings in Resources */,
 				A63F1A3020059D180079046D /* ConcertInfoView.xib in Resources */,
@@ -1575,7 +1578,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E2243F2004867700A2B388 /* String+Alert.swift in Sources */,
-				04122A591FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
 				04AD74091FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */,
 				04122A5D1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
 				04E223FD2003766E00A2B388 /* SettingsGetResponse.swift in Sources */,
@@ -1698,7 +1700,6 @@
 				04AD74031FF33934005F4BF0 /* SessionHandler.swift in Sources */,
 				0412CB781FFF7FD00059C5A4 /* APIRequest.swift in Sources */,
 				04B2191C20076054002A1742 /* SettingViewController.swift in Sources */,
-				04122A5A1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
 				A6F3507620035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
 				04AD74171FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04122A771FECE9A200896EE0 /* ExceptionHandler.swift in Sources */,
@@ -1811,7 +1812,6 @@
 				04E223F92003766E00A2B388 /* ConcertsGetResponse.swift in Sources */,
 				04B2192220076054002A1742 /* SettingViewController.swift in Sources */,
 				0462CDA61FFCA40C002B6E11 /* OpenSourceSample.swift in Sources */,
-				04122A5B1FEBBACE00896EE0 /* FunctionHouse.swift in Sources */,
 				0483854720035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				0483853E20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
 				04E2242C2003766E00A2B388 /* CommonNumberGetResponse.swift in Sources */,

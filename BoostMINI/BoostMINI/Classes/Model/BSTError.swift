@@ -152,7 +152,8 @@ enum APIError: Int, Error, BSTErrorProtocol {
     case invalidException
     case accessTokenCouldNotBeDecrypted
     case saveFailed
-    
+	
+	
     var description: String {
         var desc = ""
         switch self {
@@ -188,6 +189,7 @@ enum APIError: Int, Error, BSTErrorProtocol {
             desc = BSTFacade.localizable.error.apiAccessTokenCouldNotBeDecrypted()
         case .saveFailed:
             desc = BSTFacade.localizable.error.apiSaveFailed()
+			
         default:
             break
         }
@@ -257,7 +259,7 @@ enum BSTError: Error, BSTErrorProtocol {
     case nilError
 	case unknown
 	case typeDismatching
-    case api(APIError)
+	case api(APIError)
 	case white(WhiteError)
 	
     //    case api(code)
@@ -281,7 +283,6 @@ enum BSTError: Error, BSTErrorProtocol {
             description = BSTFacade.localizable.error.unknown()
 		case .typeDismatching:
 			description = "type mismatching error"
-
         case .api(let error):
             description = error.description
         case .device(let error):
@@ -383,6 +384,23 @@ class BSTErrorBaker<T> {
 	class func errorPitcher(_ err: Error?, _ response: Response<T>?) throws {
 	
 		// Alamofire 4 부터는 비정상 호출일 경우, statusCode가 안넘어온다. AFError로 핸들링됨.
+		if let error = err as? ErrorResponse {
+			switch(error) {
+			case .Error(let code, let data, let error):
+				logVerbose("\(code), \(data), \(error)")
+				if let api = APIError(rawValue: code) {
+					throw BSTError.api(api)
+					// 906이었나? APIError에 없는게 나오니 무한에러
+				} else {
+					throw BSTError.white(WhiteError.statusCode(code))
+				}
+				
+				
+			default:
+				break	// unknown
+			}
+		}
+		
 		if let error = err as? AFError,
 			let code = error.responseCode {
 				throw BSTError.api(APIError(rawValue: code)!)

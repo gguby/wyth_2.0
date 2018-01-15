@@ -63,7 +63,7 @@ class IntroViewController: UIViewController {
 		
 		
 		//무조건?!
-		if FunctionHouse.not(progressCompleted) {
+		if !(progressCompleted) {
 			self.checkVersion()
 		}
 		
@@ -98,7 +98,7 @@ extension IntroViewController {
 		logVerbose("startLoadingMarkAnimation - to:\(to)[val:\(val)], duration:\(duration), anim:\(animated) / curr:\(self.loadingMarkRightGapWidthConstraint.constant)")
 
 		
-		if FunctionHouse.not(animated) {
+		if !(animated) {
 			self.loadingMarkRightGapWidthConstraint.constant = val
 			self.view.layoutIfNeeded()
 			completed?(true)
@@ -129,7 +129,7 @@ extension IntroViewController {
 			logVerbose("startLoadingMarkAnimation[\(to),\(val),\(duration)] - FIN = \(fin)")
 		}
 		// constraint를 사용하면 animate completion 타이밍이 안맞는다.
-        FunctionHouse.runInNextMainThread(withDelay: duration) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
 			logVerbose("startLoadingMarkAnimation[\(to),\(val),\(duration)] - FIN REAL %@".format(completed == nil ? "" : "closure"))
 			completed?(true)
 
@@ -166,10 +166,10 @@ extension IntroViewController {
 			
 			guard let data = body else {
 				///BSTFacade.localizable
-				BSTFacade.ux.showConfirm(BSTFacade.localizable.login.agreement(), { [weak self] isOk in
+				BSTFacade.ux.showConfirm(BSTFacade.localizable.error.networkFailed(), { [weak self] isOk in
 					if isOk == true {
 						// retry...
-						FunctionHouse.runInNextMainThread {
+						DispatchQueue.main.async {
 							if let this = self {
 								this.startLoadingMarkAnimation(0.0, duration: 0.0, animated: false)
 								this.startLoadingMarkAnimation(this.progressStep1)
@@ -189,7 +189,7 @@ extension IntroViewController {
 				return
 			}
 
-			FunctionHouse.runInNextMainThread {
+			DispatchQueue.main.async {
 				guard let this = self else {
 					return
 				}
@@ -213,7 +213,7 @@ extension IntroViewController {
 						}
 						
 						if buttonIndex == 0 {
-							FunctionHouse.OPEN_SAFARI(Definitions.externURLs.appstore)
+							UIApplication.shared.openURL(URL(string: Definitions.externURLs.appstore)!)
 						}
 						if forceUpdate {
 							this.blockMe()

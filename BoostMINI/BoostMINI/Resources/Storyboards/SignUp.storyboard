@@ -17,8 +17,8 @@
         <!--SignUpNav-->
         <scene sceneID="QH1-q2-fzc">
             <objects>
-                <navigationController storyboardIdentifier="SignUpNav" title="SignUpNav" useStoryboardIdentifierAsRestorationIdentifier="YES" hidesBarsWhenVerticallyCompact="YES" id="i0A-53-zQG" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bOL-v9-2ee">
+                <navigationController storyboardIdentifier="SignUpNav" title="SignUpNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i0A-53-zQG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="bOL-v9-2ee">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -125,7 +125,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button hidden="YES" opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-T9-qUr" customClass="TransitionButton" customModule="TransitionButton">
+                            <button opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-T9-qUr" customClass="TransitionButton" customModule="TransitionButton">
                                 <rect key="frame" x="42" y="379" width="291" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -225,7 +225,7 @@
         <!--Agreement Controller-->
         <scene sceneID="VCL-QI-55R">
             <objects>
-                <viewController storyboardIdentifier="AgreementController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yLj-5Q-3sI" customClass="AgreementController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AgreementController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yLj-5Q-3sI" customClass="AgreementController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0SZ-WZ-yrR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -285,9 +285,6 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </state>
-                                                <connections>
-                                                    <action selector="pushViewWithSender:" destination="yLj-5Q-3sI" eventType="touchUpInside" id="e8s-9l-Dty"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfY-Cx-IMT">
                                                 <rect key="frame" x="42" y="193" width="87" height="28"/>
@@ -308,9 +305,6 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </state>
-                                                <connections>
-                                                    <action selector="pushViewWithSender:" destination="yLj-5Q-3sI" eventType="touchUpInside" id="Vzv-1r-EfH"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -418,9 +412,6 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
-                                <connections>
-                                    <action selector="pushViewWithSender:" destination="yLj-5Q-3sI" eventType="touchUpInside" id="GdG-4j-C1R"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -431,7 +422,7 @@
                             <constraint firstItem="D9b-fA-00y" firstAttribute="trailing" secondItem="WdM-Z1-rCa" secondAttribute="trailing" constant="13" id="D8M-KB-NOF"/>
                             <constraint firstItem="a8K-1U-efo" firstAttribute="leading" secondItem="SOI-wx-dzS" secondAttribute="leading" constant="20" id="ESZ-IM-rkS"/>
                             <constraint firstItem="Um8-Tf-HZ6" firstAttribute="centerX" secondItem="SOI-wx-dzS" secondAttribute="centerX" id="HuV-ob-aTv"/>
-                            <constraint firstItem="Nhq-Zi-uOP" firstAttribute="bottom" secondItem="D9b-fA-00y" secondAttribute="bottom" id="RFj-ez-b7D"/>
+                            <constraint firstItem="Nhq-Zi-uOP" firstAttribute="bottom" secondItem="0SZ-WZ-yrR" secondAttribute="bottom" id="RFj-ez-b7D"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="bottom" secondItem="0SZ-WZ-yrR" secondAttribute="bottom" id="Tc6-Ui-850"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="trailing" secondItem="0SZ-WZ-yrR" secondAttribute="trailing" id="ccd-bM-HL4"/>
                             <constraint firstItem="Um8-Tf-HZ6" firstAttribute="width" secondItem="SOI-wx-dzS" secondAttribute="width" id="lII-rw-VYv"/>
@@ -444,12 +435,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D9b-fA-00y"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="blurEffectView" destination="Um8-Tf-HZ6" id="bgP-4k-Atg"/>
-                        <outlet property="btnClose" destination="WdM-Z1-rCa" id="Eq4-xw-vF9"/>
                         <outlet property="buttonCancel" destination="WdM-Z1-rCa" id="nqL-Fj-MYc"/>
                         <outlet property="buttonCheck" destination="QL9-oe-W6M" id="zhv-jH-PvP"/>
-                        <outlet property="buttonDOc1" destination="T9k-s9-bTG" id="7AX-91-4Fy"/>
                         <outlet property="buttonDoc1" destination="T9k-s9-bTG" id="I5r-TC-r74"/>
                         <outlet property="buttonDoc2" destination="dfY-Cx-IMT" id="qFh-7p-zWb"/>
                         <outlet property="buttonNext" destination="HYQ-ke-HGE" id="A69-SQ-5Jf"/>

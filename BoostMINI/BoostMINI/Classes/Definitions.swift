@@ -29,7 +29,7 @@ struct Definitions {
 public struct BSTAPIServer {
 	
 	/// api server base url
-	let base = "http://boost.api.dev.com/"
+	let base = "http://boostdev.lysn.com/"
 	let baseJson = "http://boostdev.lysn.com/v2/api-docs?group=API"
 	let path = BSTPath()
 }
@@ -51,6 +51,12 @@ internal struct BSTExternalURL {
 	let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=http://api.dev2nd.vyrl.com/&state=nonce&scope=profile&response_type=token"
 	
 //	let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=https://api.smtown.com/&state=nonce&scope=profile&response_type=token"
+	
+	// TODO: 이용약관 보기
+	let terms = "https://membership.smtown.com/Policy/Terms"
+	// TODO: 개인정보 처리 방침
+	let privacy = "https://membership.smtown.com/Policy/Privacy"
+	
 }
 
 

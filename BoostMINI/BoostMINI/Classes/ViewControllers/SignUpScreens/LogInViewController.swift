@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
+//import RxCocoa
+//import RxSwift
 import RxOptional
 import ReactorKit
 import TransitionButton
@@ -48,7 +48,10 @@ class LogInViewController: UIViewController {
 		super.viewWillAppear(animated)
 	}
 	override func viewDidAppear(_ animated: Bool) {
-		self.navigationController?.isNavigationBarHidden = true
+		navigationController?.isNavigationBarHidden = true
+		navigationController?.hidesBarsOnTap = false
+
+		navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 		super.viewDidAppear(animated)
 		
 		
@@ -86,12 +89,13 @@ class LogInViewController: UIViewController {
 		
 		testButton.rx.tap.bind {
 			self.testButton.startAnimation()
-			FunctionHouse.runInNextMainThread(withDelay: 0.666, { [weak self] in
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.666) { [weak self] in
 				self?.testButton.stopAnimation(animationStyle: .expand, completion: {
 					self?.goHome()
 				})
-			})
+			}
 			}.disposed(by: disposeBag)
+		
 	}
 	
 	
@@ -104,7 +108,8 @@ extension LogInViewController {
 		self.loginButtonBottomConstraint.constant = -self.loginButton.frame.height
 		self.view.layoutIfNeeded()
 		
-		FunctionHouse.runInNextMainThread(withDelay: 0.1, {
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
 			self.loginButtonBottomConstraint.constant = self.cacheLoginButtonBottomConstraint
 			
 			self.loginButton.isHidden = false
@@ -115,12 +120,12 @@ extension LogInViewController {
 							self.view.layoutIfNeeded()
 			}) { fin in
 				logVerbose("startPopLoginButton")
-				if FunctionHouse.not(fin) {
+				if !(fin) {
 					return
 				}
 				self.testButton.show()
 			}
-		})
+		}
 	}
 }
 
@@ -164,7 +169,7 @@ extension LogInViewController {
 				isFailed = true
 			}
 			
-			FunctionHouse.runInNextMainThread {
+			DispatchQueue.main.async {
 //				button.stopAnimation(animationStyle: .expand, completion: {
 					self.loginButtonView.show()
 					if isFailed {
@@ -173,7 +178,7 @@ extension LogInViewController {
 					
 					let newVC = SMLoginViewController.create("SignUp")
 					//let newVC = R.storyboard.signUp.smLoginViewController()!
-					if FunctionHouse.not(html.isEmpty) {
+					if !(html.isEmpty) {
 						//newVC.preload = html
 					}
 					self.navigationController?.pushViewController(newVC, animated: true)

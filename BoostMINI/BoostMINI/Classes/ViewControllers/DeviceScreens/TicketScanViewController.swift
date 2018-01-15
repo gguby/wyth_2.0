@@ -91,10 +91,10 @@ class TicketScanViewController: UIViewController {
     func prepareScan() {
         guard BSTDeviceType.isSimulator == false else {
             BSTFacade.ux.showToast("this is only for device.")
-            FunctionHouse.runInNextMainThread(withDelay: 3, {
+			DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 //goto next view.
                 
-            })
+            }
             return
         }
        

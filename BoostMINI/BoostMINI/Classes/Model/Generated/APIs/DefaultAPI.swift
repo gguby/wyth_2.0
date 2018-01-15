@@ -736,7 +736,7 @@ open class DefaultAPI {
      - parameter osVersion: (query)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: Float, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: String, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
         signinUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion).execute { (response, error) -> Void in
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
@@ -754,7 +754,7 @@ open class DefaultAPI {
      - parameter osVersion: (query)  
      - returns: Observable<AccountsPostResponse>
      */
-    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: Float) -> Observable<AccountsPostResponse> {
+    open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: String) -> Observable<AccountsPostResponse> {
         return Observable.create { observer -> Disposable in
             signinUsingPOST(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion) { data, error in
                 if let error = error {
@@ -783,7 +783,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<AccountsPostResponse> 
      */
-    open class func signinUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: Float) -> RequestBuilder<AccountsPostResponse> {
+    open class func signinUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: String) -> RequestBuilder<AccountsPostResponse> {
         let path = "/accounts/signin"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -895,7 +895,7 @@ open class DefaultAPI {
      - parameter osVersion: (query)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: Float, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: String, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
         signupUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion).execute { (response, error) -> Void in
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
@@ -913,7 +913,7 @@ open class DefaultAPI {
      - parameter osVersion: (query)  
      - returns: Observable<AccountsPostResponse>
      */
-    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: Float) -> Observable<AccountsPostResponse> {
+    open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: String) -> Observable<AccountsPostResponse> {
         return Observable.create { observer -> Disposable in
             signupUsingPOST(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion) { data, error in
                 if let error = error {
@@ -942,7 +942,7 @@ open class DefaultAPI {
 
      - returns: RequestBuilder<AccountsPostResponse> 
      */
-    open class func signupUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: Float) -> RequestBuilder<AccountsPostResponse> {
+    open class func signupUsingPOSTWithRequestBuilder(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: String) -> RequestBuilder<AccountsPostResponse> {
         let path = "/accounts/signup"
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
