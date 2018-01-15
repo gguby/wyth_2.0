@@ -23,10 +23,13 @@ class SessionHandler {
 	var osVersion: String = UIDevice.current.systemVersion
 
 	
-	// profile은 없지만 유저이름이 있을 수 있다. token만 있는,
+	/// profile은 없지만 유저이름이 있을 수 있다. token만 있는...( 약관동의 웰컴화면에서 쓸...)
 	var userName: String? { return profile?.name ?? "카시오페아" }
 	// TODO : profile
+
+	/// 사용자 이름
 	var name: String? { return profile?.name ?? "카시오페아" }
+	/// 사용자 이메일
 	var email: String? { return profile?.email }
 	
 	

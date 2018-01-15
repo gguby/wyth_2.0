@@ -31,6 +31,8 @@ class SettingViewController: UIViewController {
         self.initProperties()
         self.initUI()
         self.prepareViewDidLoad()
+		
+		userNameLabel.text = SessionHandler.shared.name
     }
 
 
