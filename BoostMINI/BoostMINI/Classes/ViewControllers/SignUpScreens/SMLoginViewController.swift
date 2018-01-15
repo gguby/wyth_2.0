@@ -14,7 +14,6 @@ class SMLoginViewController: WebViewController {
 
 	// var clientId = Definitions.path.clientId
 
-    var isLogin: Bool { return token != nil }
 	var token: String? { return SessionHandler.shared.token }
 	var preload: String?
 

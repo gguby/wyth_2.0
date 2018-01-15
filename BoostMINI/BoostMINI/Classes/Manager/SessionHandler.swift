@@ -30,7 +30,8 @@ class SessionHandler {
 	
 	// TODO : 로그인여부.
 	var isLoginned: Bool {
-		return !((token ?? "").isEmpty)
+		// 토큰이 있다고 로그인된게 아님...
+		return !((token ?? "").isEmpty) && profile != nil
 	}
 
 	// TODO: 일단 UserDefaults. Realm 등등으로 바꾸려면 여기서.
