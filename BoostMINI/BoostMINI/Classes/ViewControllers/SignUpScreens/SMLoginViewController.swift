@@ -228,6 +228,7 @@ class SMLoginViewController: WebViewController {
 		let osVersion = SessionHandler.shared.osVersion
 		
 		
+		
 		DefaultAPI.signinUsingPOST(accessToken: token, socialType: .smtown, pushToken: pushToken, osVersion: osVersion) { [weak self] data, err in
 			self?.responseSignIn(data, err)
 		}
