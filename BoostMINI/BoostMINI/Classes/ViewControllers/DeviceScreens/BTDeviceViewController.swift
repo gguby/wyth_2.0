@@ -22,10 +22,16 @@ class BTDeviceViewController : UIViewController, StoryboardView {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var contentLbl: UILabel!
     
-    @IBOutlet weak var cancel: UIButton!
-    @IBOutlet weak var stickImage: UIImageView!    
+    @IBOutlet weak var stickImage: UIImageView!
     
     @IBOutlet weak var imageTicketView: ConcertInfoView!
+    
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
+    
+    @IBOutlet weak var confirmBtn: UIButton!
+    @IBOutlet weak var resetBtn: UIButton!
+    @IBOutlet weak var registerBtn: UIButton!
     
     var disposeBag = DisposeBag()
     
@@ -34,7 +40,10 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         
         self.navigationController?.isNavigationBarHidden = true
         self.titleLbl.text = RDevice.btTitleLbl()
-        self.cancel.setTitle(RCommon.cancel(), for: .normal)
+        self.cancelBtn.setTitle(RCommon.cancel(), for: .normal)
+        self.confirmBtn.setTitle(RCommon.ok(), for: .normal)
+        self.resetBtn.setTitle(RDevice.btReSettingBtn(), for: .normal)
+        self.registerBtn.setTitle(RDevice.btTitleLbl(), for: .normal)
         self.stickImage.alpha = 0.3
     }
     
@@ -58,16 +67,95 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         // Dispose of any resources that can be recreated.
     }
     
-    func bind(reactor: DeviceViewReactor) {
+    func initViewManagement(reactor: DeviceViewReactor) -> Bool {
+        if reactor.viewType == .Login { return false }
         
         self.rx.viewDidAppear
-            .map { _ in Reactor.Action.connectAll }
+            .map { _ in Reactor.Action.manageMentInit }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        self.cancel.rx.tap
+        self.backBtn.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        self.resetBtn.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else { return }
+                self?.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        self.registerBtn.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else { return }
+                self?.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isRegister }
+            .bind(to: self.registerBtn.rx.isHidden)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { !$0.isRegister }
+            .bind(to: self.imageTicketView.rx.isHidden)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { !$0.isRegister }
+            .bind(to: self.resetBtn.rx.isHidden)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.isRegister }
+            .bind(to: self.backBtn.rx.isHidden)
+            .disposed(by: self.disposeBag)
+        
+        self.cancelBtn.isHidden = true
+        self.confirmBtn.isHidden = true
+        self.registerBtn.backgroundColor = R.clr.boostMini.commonBgPoint()
+        
+        return true
+    }
+    
+    func bind(reactor: DeviceViewReactor) {
+        
+        if self.initViewManagement(reactor: reactor) == false {
+            self.resetBtn.isHidden = true
+            self.registerBtn.isHidden = true
+            self.backBtn.isHidden = true
+            
+            self.rx.viewDidAppear
+                .map { _ in Reactor.Action.connectAll }
+                .bind(to: reactor.action)
+                .disposed(by: self.disposeBag)
+            
+            reactor.state.map { $0.isParingDevice }
+                .distinctUntilChanged()
+                .bind(to: self.cancelBtn.rx.isHidden)
+                .disposed(by: self.disposeBag)
+            
+            reactor.state.map { !$0.isParingDevice }
+                .distinctUntilChanged()
+                .bind(to: self.confirmBtn.rx.isHidden)
+                .disposed(by: self.disposeBag)
+        }
+        
+        self.cancelBtn.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        self.confirmBtn.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.contentMsg.content }
+            .subscribe(onNext: { text in
+                print(text)
             })
             .disposed(by: disposeBag)
         
@@ -75,10 +163,15 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .bind(to: self.contentLbl.rx.text)
             .disposed(by: disposeBag)
         
+        reactor.state.map { $0.titleMsg }
+            .distinctUntilChanged()
+            .bind(to: self.titleLbl.rx.text)
+            .disposed(by: self.disposeBag)
+        
         reactor.state.map { $0.isParingDevice }
             .distinctUntilChanged()
             .filter { $0 }
-            .subscribe(onNext: { _ in                 
+            .subscribe(onNext: { _ in
                 self.blinkImage()
             })
             .disposed(by: disposeBag)
@@ -90,5 +183,4 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             })
             .disposed(by: disposeBag)
     }
-    
 }

@@ -19,8 +19,17 @@ import RxBluetoothKit
 
 final class DeviceViewReactor : Reactor {
     
+    enum ReactorViewType {
+        case Login
+        case Management
+    }
+    
+    typealias RDevice = R.string.device
+    typealias RCommon = R.string.common
+    
     enum Action {
         case connectAll
+        case manageMentInit
     }
     
     enum Mutation {
@@ -35,6 +44,7 @@ final class DeviceViewReactor : Reactor {
         case loadRegisterDevice(BSTLocalDevice?)
         case deviceError(BSTError)
         case contentMsg(ContentMessage)
+        case managementViewInit
     }
     
     struct State {
@@ -49,6 +59,8 @@ final class DeviceViewReactor : Reactor {
         var registeredDevice : BSTLocalDevice?
         var deviceError : BSTError?
         var contentMsg : ContentMessage = ContentMessage.notScanning
+        var titleMsg : String = RDevice.btTitleLbl()
+        var isManageMentView : Bool = false
     }
     
     let initialState = State()
@@ -57,23 +69,26 @@ final class DeviceViewReactor : Reactor {
     
     fileprivate let device = BSTFacade.device
     
+    var viewType = ReactorViewType.Login
+    
     init(service : BTDeviceService) {
         self.service = service
-        
-        if let device = self.service.loadDevice() {
-            logVerbose(device.name + device.uuid.uuidString)
-        }
     }
     
     func mutate(action: DeviceViewReactor.Action) -> Observable<DeviceViewReactor.Mutation> {
         switch action {
         case .connectAll:
-                let scanDevice = self.service.scan().map(Mutation.scanDevice)
-                let connect = self.service.connect()
-                    .map { Mutation.setActiveDevice($0) }
-                    .catchErrorJustReturn(Mutation.paringDevice(false))
+            let scanner = self.service.scanner()
+            let scanDevice = self.service.scan(observable: scanner).map(Mutation.scanDevice)
+            let paring = self.service.paring(observable: scanner).map(Mutation.paringDevice)
+            let connectedDevice = self.service.connect(observable: scanner).map { Mutation.setActiveDevice($0) }
             
-            return .concat([scanDevice, connect])
+            return .concat([scanDevice, paring, connectedDevice])
+        case .manageMentInit:
+            let localDevice = self.service.loadDevice()
+            let deviceLoad = Observable.just(Mutation.loadRegisterDevice(localDevice))
+            let initView = Observable.just(Mutation.managementViewInit)
+            return Observable.concat([initView, deviceLoad])
         }
     }
     
@@ -90,11 +105,10 @@ final class DeviceViewReactor : Reactor {
         case let .paringDevice(paring):
             newState.isParingDevice = paring
             newState.deviceError = paring ? nil : BSTError.device(DeviceError.paringFailed)
+            newState.titleMsg = paring ? RDevice.btTitleConnectLbl() : RDevice.btTitleLbl() 
         case let .setActiveDevice(activePeripheral):
             newState.activePeripheral = activePeripheral
-            newState.isParingDevice = true
             newState.contentMsg = ContentMessage.connectedDevice
-            newState.deviceError = nil
         case let .setCharacteristic(characteristic):
             newState.characteristic = characteristic
         case let .blinkLight(blink):
@@ -109,7 +123,17 @@ final class DeviceViewReactor : Reactor {
             newState.deviceError = error
         case .contentMsg(let msg):
             newState.contentMsg = msg
+        case .managementViewInit:
+            newState.titleMsg = RDevice.btTitleManage()
+            if let device = self.currentState.registeredDevice {
+                newState.contentMsg = ContentMessage.showUser(device.name)
+                newState.isRegister = true
+            } else {
+                newState.contentMsg = ContentMessage.notRegistered
+                newState.isRegister = false
+            }
         }
+
         return newState
     }
 }
@@ -123,6 +147,7 @@ enum ContentMessage {
     case findDevice
     case connectedDevice
     case showUser(String)
+    case notRegistered
     
     var content: String {
         switch self {
@@ -134,6 +159,8 @@ enum ContentMessage {
             return RDevice.btContentConnected()
         case .showUser(let user):
             return RDevice.btContentUserInfo(user)
+        case .notRegistered:
+            return RDevice.btContentNotRegistered()
         }
     }
 }

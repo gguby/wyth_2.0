@@ -58,6 +58,7 @@ class MenuViewController: UIViewController {
         if segue.identifier == "deviceSegue" {
             if let vc  = segue.destination as? BTDeviceViewController {
                 let reactor = DeviceViewReactor.init(service: BTDeviceService.init())
+                reactor.viewType = .Management
                 vc.reactor = reactor
             }
         }
