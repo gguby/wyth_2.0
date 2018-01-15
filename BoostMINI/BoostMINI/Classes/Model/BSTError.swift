@@ -145,7 +145,8 @@ enum APIError: Int, Error, BSTErrorProtocol {
     case badGateway
     case serviceUnavailable
     case gatewayTimeout
-    
+	
+	// TODO: 에러코드가 바뀌었음. 이거 안맞음.
     case userExists = 901
     case userNotExists
     case sessionAleadyHasBeenDisconnected
@@ -255,6 +256,7 @@ enum PermissionError: Error, BSTErrorProtocol {
 enum BSTError: Error, BSTErrorProtocol {
     case none
     case isEmpty
+	case convertError
     case argumentError
     case nilError
 	case unknown
@@ -275,6 +277,8 @@ enum BSTError: Error, BSTErrorProtocol {
         switch self {
         case .isEmpty:
             description = BSTFacade.localizable.error.isEmpty()
+		case .convertError:
+			description = "convert error"			
         case .argumentError:
             description = BSTFacade.localizable.error.argumentError()
         case .nilError:

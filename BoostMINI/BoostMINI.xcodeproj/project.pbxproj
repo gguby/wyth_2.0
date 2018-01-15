@@ -129,6 +129,18 @@
 		0462CDF11FFE289A002B6E11 /* Error.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDF01FFE289A002B6E11 /* Error.strings */; };
 		0462CDF21FFE289A002B6E11 /* Error.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDF01FFE289A002B6E11 /* Error.strings */; };
 		0462CE001FFE2C90002B6E11 /* BoostMini.clr in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDF51FFE2B7B002B6E11 /* BoostMini.clr */; };
+		0480BCE0200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCDF200C3A8600B79DB8 /* BoostProfile+Requests.swift */; };
+		0480BCE1200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCDF200C3A8600B79DB8 /* BoostProfile+Requests.swift */; };
+		0480BCE2200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCDF200C3A8600B79DB8 /* BoostProfile+Requests.swift */; };
+		0480BCE4200C3B1B00B79DB8 /* Extension+StoredProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCE3200C3B1B00B79DB8 /* Extension+StoredProperties.swift */; };
+		0480BCE5200C3B1B00B79DB8 /* Extension+StoredProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCE3200C3B1B00B79DB8 /* Extension+StoredProperties.swift */; };
+		0480BCE6200C3B1B00B79DB8 /* Extension+StoredProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCE3200C3B1B00B79DB8 /* Extension+StoredProperties.swift */; };
+		0480BCE8200C437000B79DB8 /* BoostNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCE7200C437000B79DB8 /* BoostNotifications.swift */; };
+		0480BCE9200C437000B79DB8 /* BoostNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCE7200C437000B79DB8 /* BoostNotifications.swift */; };
+		0480BCEA200C437000B79DB8 /* BoostNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCE7200C437000B79DB8 /* BoostNotifications.swift */; };
+		0480BCEC200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCEB200C628700B79DB8 /* BoostProfile+Responses.swift */; };
+		0480BCED200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCEB200C628700B79DB8 /* BoostProfile+Responses.swift */; };
+		0480BCEE200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCEB200C628700B79DB8 /* BoostProfile+Responses.swift */; };
 		04838474200331BC007DE69B /* CrashlyticsDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04838472200331BC007DE69B /* CrashlyticsDestination.swift */; };
 		04838475200331BC007DE69B /* CrashlyticsDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04838472200331BC007DE69B /* CrashlyticsDestination.swift */; };
 		04838476200331BC007DE69B /* CrashlyticsDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04838472200331BC007DE69B /* CrashlyticsDestination.swift */; };
@@ -409,6 +421,10 @@
 		0462CDED1FFE287D002B6E11 /* Alert.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Alert.strings; sourceTree = "<group>"; };
 		0462CDF01FFE289A002B6E11 /* Error.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Error.strings; sourceTree = "<group>"; };
 		0462CDF51FFE2B7B002B6E11 /* BoostMini.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = BoostMini.clr; sourceTree = "<group>"; };
+		0480BCDF200C3A8600B79DB8 /* BoostProfile+Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoostProfile+Requests.swift"; sourceTree = "<group>"; };
+		0480BCE3200C3B1B00B79DB8 /* Extension+StoredProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+StoredProperties.swift"; sourceTree = "<group>"; };
+		0480BCE7200C437000B79DB8 /* BoostNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostNotifications.swift; sourceTree = "<group>"; };
+		0480BCEB200C628700B79DB8 /* BoostProfile+Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoostProfile+Responses.swift"; sourceTree = "<group>"; };
 		04838472200331BC007DE69B /* CrashlyticsDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashlyticsDestination.swift; sourceTree = "<group>"; };
 		04838473200331BC007DE69B /* NilDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilDestination.swift; sourceTree = "<group>"; };
 		0483852A20035641007DE69B /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
@@ -580,6 +596,7 @@
 				2B5AA0921FEB55D9007441E1 /* BaseModel.swift */,
 				045D14891FF4DD2200A67AA0 /* RequestBlock.swift */,
 				0412CB761FFF7FD00059C5A4 /* APIRequest.swift */,
+				0480BCE7200C437000B79DB8 /* BoostNotifications.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -599,6 +616,15 @@
 				0462CDF51FFE2B7B002B6E11 /* BoostMini.clr */,
 			);
 			path = ColorPalette;
+			sourceTree = "<group>";
+		};
+		0480BCDE200C3A7000B79DB8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0480BCDF200C3A8600B79DB8 /* BoostProfile+Requests.swift */,
+				0480BCEB200C628700B79DB8 /* BoostProfile+Responses.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		04838471200331BC007DE69B /* SwiftyBeaverDestinations */ = {
@@ -648,6 +674,7 @@
 		04B2190D20074B17002A1742 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0480BCDE200C3A7000B79DB8 /* Extension */,
 				04B2190E20074C13002A1742 /* BoostProfile.swift */,
 			);
 			path = ViewModel;
@@ -828,6 +855,7 @@
 			children = (
 				04122A601FEC92DE00896EE0 /* Dictionary+Easy.swift */,
 				04122A641FEC941F00896EE0 /* Collection+SafeRange.swift */,
+				0480BCE3200C3B1B00B79DB8 /* Extension+StoredProperties.swift */,
 				0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */,
 				045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */,
 				04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */,
@@ -1586,6 +1614,7 @@
 				A696AE8B1FF5E8EB009B8FEF /* DeviceManager.swift in Sources */,
 				04E223F72003766E00A2B388 /* ConcertsGetResponse.swift in Sources */,
 				04C22BA91FEB9597007E2BED /* Logger.swift in Sources */,
+				0480BCE0200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */,
 				2B5AA08D1FEB55BA007441E1 /* BSTUXHanlder.swift in Sources */,
 				0483854520035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				0483853C20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
@@ -1598,6 +1627,7 @@
 				A696AE911FF5E9B4009B8FEF /* BTDeviceNetwork.swift in Sources */,
 				04E2240C2003766E00A2B388 /* ProfileGetResponse.swift in Sources */,
 				2B5AA0911FEB55D2007441E1 /* BSTButton.swift in Sources */,
+				0480BCE4200C3B1B00B79DB8 /* Extension+StoredProperties.swift in Sources */,
 				0462CDE81FFDFBE5002B6E11 /* Localizable.swift in Sources */,
 				04AD741F1FF36269005F4BF0 /* Protocols.swift in Sources */,
 				2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */,
@@ -1647,6 +1677,7 @@
 				2B5AA0931FEB55D9007441E1 /* BaseModel.swift in Sources */,
 				04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
 				04AD73FF1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift in Sources */,
+				0480BCEC200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */,
 				0483854220035641007DE69B /* Extensions.swift in Sources */,
 				2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */,
 				045D148A1FF4DD2200A67AA0 /* RequestBlock.swift in Sources */,
@@ -1656,6 +1687,7 @@
 				04122A651FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */,
 				0462CD981FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
+				0480BCE8200C437000B79DB8 /* BoostNotifications.swift in Sources */,
 				04E224362003766E00A2B388 /* AccountsPostResponse.swift in Sources */,
 				04B2190F20074C13002A1742 /* BoostProfile.swift in Sources */,
 				2B5AA07F1FEA62A7007441E1 /* Definitions.swift in Sources */,
@@ -1695,6 +1727,7 @@
 				04122A831FECE9AE00896EE0 /* Constants.swift in Sources */,
 				A63F1A3320059D3A0079046D /* ConcertInfoView.swift in Sources */,
 				04B2191E20076054002A1742 /* DetailConcertInformationViewController.swift in Sources */,
+				0480BCE9200C437000B79DB8 /* BoostNotifications.swift in Sources */,
 				04AD74201FF36269005F4BF0 /* Protocols.swift in Sources */,
 				0462CD9C1FFCA407002B6E11 /* Gitup.swift in Sources */,
 				04AD74031FF33934005F4BF0 /* SessionHandler.swift in Sources */,
@@ -1716,6 +1749,7 @@
 				0483854020035641007DE69B /* APIs.swift in Sources */,
 				0462CDB91FFCA426002B6E11 /* WebViewController.swift in Sources */,
 				04E224072003766E00A2B388 /* HelpGetResponse.swift in Sources */,
+				0480BCED200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */,
 				0462CDD81FFDBC35002B6E11 /* UIView+HideAndShow.swift in Sources */,
 				0462CDBA1FFCA426002B6E11 /* BSTUXHanlder.swift in Sources */,
 				04E2241C2003766E00A2B388 /* Sort.swift in Sources */,
@@ -1750,6 +1784,7 @@
 				0483854320035641007DE69B /* Extensions.swift in Sources */,
 				0462CDA71FFCA410002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				044236B02005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */,
+				0480BCE5200C3B1B00B79DB8 /* Extension+StoredProperties.swift in Sources */,
 				04122A801FECE9AE00896EE0 /* AppDelegate.swift in Sources */,
 				04122A661FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				04E224042003766E00A2B388 /* NoticesGetResponse.swift in Sources */,
@@ -1768,6 +1803,7 @@
 				0462CDC71FFCA430002B6E11 /* HomeViewController.swift in Sources */,
 				04B2191D20076054002A1742 /* MenuViewController.swift in Sources */,
 				04AD741B1FF360D4005F4BF0 /* BSTError.swift in Sources */,
+				0480BCE1200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */,
 				0462CD9E1FFCA407002B6E11 /* ViewControllerReactor.swift in Sources */,
 				04E224312003766E00A2B388 /* CommonBooleanGetResponse.swift in Sources */,
 				04E223F82003766E00A2B388 /* ConcertsGetResponse.swift in Sources */,
@@ -1807,6 +1843,7 @@
 				04E223FF2003766E00A2B388 /* SettingsGetResponse.swift in Sources */,
 				04B2192420076054002A1742 /* DetailConcertInformationViewController.swift in Sources */,
 				04AD74041FF33934005F4BF0 /* SessionHandler.swift in Sources */,
+				0480BCEA200C437000B79DB8 /* BoostNotifications.swift in Sources */,
 				0462CD9A1FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
 				04AD74181FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04E223F92003766E00A2B388 /* ConcertsGetResponse.swift in Sources */,
@@ -1828,6 +1865,7 @@
 				0462CDD91FFDBC35002B6E11 /* UIView+HideAndShow.swift in Sources */,
 				A6F3507720035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
 				0462CDAB1FFCA410002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
+				0480BCEE200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */,
 				04122A6B1FEC962600896EE0 /* String+Format.swift in Sources */,
 				0462CDD41FFCA431002B6E11 /* Constants.swift in Sources */,
 				04B2191720076046002A1742 /* Storyboard.swift in Sources */,
@@ -1862,6 +1900,7 @@
 				0462CDE11FFDF961002B6E11 /* R.generated.swift in Sources */,
 				0462CDCD1FFCA431002B6E11 /* IntroViewController.swift in Sources */,
 				04E224142003766E00A2B388 /* Notice.swift in Sources */,
+				0480BCE6200C3B1B00B79DB8 /* Extension+StoredProperties.swift in Sources */,
 				04E2241A2003766E00A2B388 /* ConcertsSeatGetResponse.swift in Sources */,
 				0483853520035641007DE69B /* APIHelper.swift in Sources */,
 				0462CDB11FFCA41A002B6E11 /* BTDeviceNetwork.swift in Sources */,
@@ -1880,6 +1919,7 @@
 				04AD74111FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
 				04B2192320076054002A1742 /* MenuViewController.swift in Sources */,
 				04122A5F1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
+				0480BCE2200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */,
 				045D14901FF4DF4500A67AA0 /* Optional+logError.swift in Sources */,
 				04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */,
 				04AD741C1FF360D4005F4BF0 /* BSTError.swift in Sources */,

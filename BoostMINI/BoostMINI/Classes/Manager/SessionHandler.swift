@@ -27,6 +27,7 @@ class SessionHandler {
 	var email: String? { return profile?.email }
 	
 	
+	
 	// TODO : 로그인여부.
 	var isLoginned: Bool {
 		return !((token ?? "").isEmpty)

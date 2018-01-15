@@ -300,7 +300,72 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 		logVerbose("webView - %@(%d)".format(#function, navigationAction.navigationType.rawValue))
 		
+		if webView != self.webView {
+			decisionHandler(.allow)
+			return
+		}
 		
+		if let url = navigationAction.request.url {
+			if navigationAction.targetFrame == nil {
+				let url = navigationAction.request.url
+				if url?.description.range(of: "http://") != nil || url?.description.range(of: "https://") != nil || url?.description.range(of: "mailto:") != nil || url?.description.range(of: "tel:") != nil  {
+					UIApplication.shared.openURL(url!)
+				}
+			}
+			if navigationAction.targetFrame == nil {
+				let app = UIApplication.shared
+				if app.canOpenURL(url) {
+					//app.openURL(url)
+					app.open(url, options: [:], completionHandler: { b in
+					})
+					decisionHandler(.cancel)
+					return
+				}
+			}
+		}
+		
+		if navigationAction.navigationType == .formSubmitted
+			|| navigationAction.navigationType == .other {
+			
+			//  other "http://api.dev2nd.vyrl.com/#/authSignIn"
+			// formSubmitted 일 경우에 가져옴
+			
+			
+			// queryParameters 부분구현부가 조금 달라보인다.
+			// 처리해야할 주소 : http://api.dev2nd.vyrl.com/#/access_token=GukNHQQufLmTWSmtdhes2x1...
+			// 기존 코드가 변환하는 주소 : /access_token=GukNHQQufLmTWSmtdhes2x1...
+			// 실제로 변환해야 하는 주소 : access_token=GukNHQQufLmTWSmtdhes2x1...
+			// queryParameters에서 추출하는 구조 : { "access_token":"GukNHQQufLm...", "token_type":"bearer", "expires_in":3600, "state":"nonce" ... }
+			
+			// .query가 아닌 URLComponents.queryItems 을 사용중이나, 원하는대로 변환되지 않는듯.
+			// [URL]/#/[PARAM] 형식을 인지하게 기능 확장.
+			
+			
+			
+			if let command = navigationAction.request.url?.absoluteString.decodeURL()
+				.replacingOccurrences(of: "#", with: "?")
+				.replacingOccurrences(of: "/?/", with: "/?") {
+
+				let params = command.queryParameters
+				
+				if let token = params["access_token"] { //, not(token.isEmpty) {
+					
+					// 로그인이라면 그 이후의 페이지들을 보여줄이유는없다. 뷰 자체를 종료하도록한다.
+					if token.isEmpty {
+						// BoostProfile.logout()
+						logVerbose("access_token lost.")
+						
+					} else {
+						// TODO : 기존코드의 문제. 일단 로그인되어있으면, 토큰이 붙는데... 로그인 화면을 보여주고싶을 뿐인거다 난. 구분을 하든가 로그아웃을 하든가.
+						logVerbose("access_token got.")
+						BoostProfile.login(token)
+					}
+					decisionHandler(.cancel)
+					return
+				}
+			}
+		}
+			
 		logVerbose("MORE : \(webView.url?.absoluteString ?? "")")
 		if navigationAction.navigationType == .linkActivated {
 			//decisionHandler(.cancel)
@@ -334,12 +399,6 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 		hideActivityIndicator()
 	}
 	
-	func presentNetworkError(_ error: Error) {
-		logVerbose("webView - %@".format(#function))
-//		SMAPIClient.api.presentNetworkError(error, retryBlock: {[weak self] (_ dismissed: Bool, _ isConnected: Bool) -> Void in
-//			self?.loadWebUrl(self?.urlString ?? "")
-//			}, needCheckServerMaintenance: true)
-	}
 	
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 		logVerbose("webView - %@".format(#function))
@@ -383,6 +442,13 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 //	}
 	
 	
+	func presentNetworkError(_ error: Error) {
+		logVerbose("webView - %@".format(#function))
+		//		SMAPIClient.api.presentNetworkError(error, retryBlock: {[weak self] (_ dismissed: Bool, _ isConnected: Bool) -> Void in
+		//			self?.loadWebUrl(self?.urlString ?? "")
+		//			}, needCheckServerMaintenance: true)
+	}
+
 	
 	class func show(_ url: String) {
 
@@ -399,4 +465,6 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 		}
 		current.present(vc, animated: true)
 	}
+		
+		
 }
