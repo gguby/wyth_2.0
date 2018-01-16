@@ -237,24 +237,5 @@ extension IntroViewController {
 	}
 }
 
-/// 권한처리 수신자
-extension IntroViewController: PermissionSetDelegate {
-    
-    func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
-        //        logDebug("Will request \(permission)")
-    }
-    
-    func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
-        switch permissionSet.status {
-        case .authorized:
-            logDebug("all the permissions are granted")
-        case .denied:
-            logDebug("at least one permission is denied")
-        case .disabled:
-            logDebug("at least one permission is disabled")
-        case .notDetermined:
-            logDebug("at least one permission is not determined")
-        }
-    }
-}
+
 
