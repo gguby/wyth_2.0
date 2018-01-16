@@ -201,10 +201,12 @@ class HomeViewController: UIViewController {
                 self.bottomConstraint.constant = 0
                 self.backgroundView.alpha = 0.7
                 self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
+                self.popupView.updateSmallConcertInfoview()
             case .closed:
                 self.bottomConstraint.constant = 270
                 self.backgroundView.alpha = 0
                 self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
+                self.popupView.updateDefaultConcertInforView()
             }
             self.view.layoutIfNeeded()
         })
