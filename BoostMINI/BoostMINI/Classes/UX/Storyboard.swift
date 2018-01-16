@@ -81,6 +81,7 @@ enum BSTScreens {
     
     enum Device: String, BSTUXProtocol {
         case ticketScan = "TicketScanViewController"
+        case ticketConfirm = "TicketConfirmViewController"
         
         func find(className: String) -> Bool {
             return self.rawValue == className

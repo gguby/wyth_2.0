@@ -19,7 +19,7 @@
         <!--Device View Controller-->
         <scene sceneID="7GV-xX-Rdg">
             <objects>
-                <viewController id="PNh-ai-fAU" customClass="BTDeviceViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BTDeviceViewController" id="PNh-ai-fAU" customClass="BTDeviceViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K4O-GF-blA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
