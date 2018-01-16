@@ -19,20 +19,18 @@ class SMLoginViewController: WebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		for (kk, vv) in [
-			BoostNotificationLogin.needRegister.name : #selector(self.receivedWelcome(notification:)),
-			BoostNotificationLogin.login.name : #selector(self.receivedLogin(notification:)),
-			BoostNotificationLogin.failed.name : #selector(self.receivedLoginFailed(notification:))
-			] {
-				NotificationCenter.default.addObserver(self,
-													   selector: vv,
-													   name:kk,
-													   object: nil)
-		}
+		initNoti()
+
+		initData()
+
 		loadWebUrl(Definitions.externURLs.authUri, preload: preload, forceRefresh: false)
 		preload = nil
-    }
+
+	}
+	
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		navigationController?.isNavigationBarHidden = false
@@ -40,18 +38,18 @@ class SMLoginViewController: WebViewController {
 
 		navigationController?.title = BSTFacade.localizable.login.title()
 		
-		if let cookies = HTTPCookieStorage.shared.cookies {
-			cookies.forEach({cc in
-				HTTPCookieStorage.shared.deleteCookie(cc)
-			})
-		}
-		
-		
 		super.viewWillAppear(animated)
 	}
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 	}
+	
+	
+	func back() {
+		// 웹뷰 이전의 인트로인것같은 페이지로 이동
+		self.navigationController?.popViewController(animated: true)
+	}
+	
 	
 	override func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		super.webView(webView, didFinish: navigation)
@@ -123,12 +121,43 @@ class SMLoginViewController: WebViewController {
 
 	
 	
-	
-	func back() {
-		// 웹뷰 이전의 인트로인것같은 페이지로 이동
-		self.navigationController?.popViewController(animated: true)
+}
+
+extension SMLoginViewController {
+
+	func initNoti() {
+		for (kk, vv) in [
+			BoostNotificationLogin.needRegister.name : #selector(self.receivedWelcome(notification:)),
+			BoostNotificationLogin.login.name : #selector(self.receivedLogin(notification:)),
+			BoostNotificationLogin.failed.name : #selector(self.receivedLoginFailed(notification:))
+			] {
+				NotificationCenter.default.addObserver(self,
+													   selector: vv,
+													   name:kk,
+													   object: nil)
+		}
 	}
 	
+	
+	func initData() {
+		
+		// remove cookie
+		if let cookies = HTTPCookieStorage.shared.cookies {
+			cookies.forEach({cc in
+				HTTPCookieStorage.shared.deleteCookie(cc)
+			})
+		}
+		
+		
+		WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+			records.forEach { record in
+				WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+				print("[WebCacheCleaner] Record \(record) deleted")
+			}
+		}
+		
+	}
+
 	
 //	func goIntro() {	// back()과 동일하다 현재는
 //		// 인트로인것같은 페이지로 이동 (인트로 끝나고 로그인 버튼 있는 페이지 = 네비게이션 최초 페이지)
