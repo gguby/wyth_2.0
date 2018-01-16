@@ -454,8 +454,6 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 
 	
 	class func show(_ url: String) {
-		logVerbose("cc2")
-
 		guard let vc = R.storyboard.common.webViewController() else {
 			BSTError.debugUI(.storyboard("common.webViewController"))
 				.cookError()

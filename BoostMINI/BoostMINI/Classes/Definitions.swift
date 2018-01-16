@@ -47,6 +47,7 @@ internal struct BSTExternalURL {
 	/// 로그인 관련 클라이언트 아이디
 	let clientId = "8ecafcf23f6d42cf94806ab807bd2023"
 	
+	let authLogout = "https://membership.smtown.com/Account/SignOut"
 	/// 로그인 페이지 경로 (O-Auth)
 	let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=http://api.dev2nd.vyrl.com/&state=nonce&scope=profile&response_type=token"
 	
