@@ -81,14 +81,15 @@ final class DeviceViewReactor : Reactor {
             let scanner = self.service.scanner()
             let scanDevice = self.service.scan(observable: scanner).map(Mutation.scanDevice)
             let paring = self.service.paring(observable: scanner).map(Mutation.paringDevice)
-            let connectedDevice = self.service.connect(observable: scanner).map { Mutation.setActiveDevice($0) }
-            
-            return .concat([scanDevice, paring, connectedDevice])
+            let connect = self.service.connect(observable: scanner)
+            let connectedDevice = connect.map { Mutation.setActiveDevice($0) }
+            let register = self.service.register(observable: connect).map(Mutation.registerDevice)
+            return .concat([scanDevice, paring, connectedDevice, register])
         case .manageMentInit:
             let localDevice = self.service.loadDevice()
             let deviceLoad = Observable.just(Mutation.loadRegisterDevice(localDevice))
             let initView = Observable.just(Mutation.managementViewInit)
-            return Observable.concat([initView, deviceLoad])
+            return .concat([deviceLoad, initView])
         }
     }
     
@@ -119,6 +120,11 @@ final class DeviceViewReactor : Reactor {
             newState.isRegister = isRegister
         case let .loadRegisterDevice(device):
             newState.registeredDevice = device
+            
+            if let device = device {
+                self.device.registeredDeviceObserver.onNext(device)
+            }
+            
         case .deviceError(let error):
             newState.deviceError = error
         case .contentMsg(let msg):
@@ -133,7 +139,6 @@ final class DeviceViewReactor : Reactor {
                 newState.isRegister = false
             }
         }
-
         return newState
     }
 }
