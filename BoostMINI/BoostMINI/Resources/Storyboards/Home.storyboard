@@ -24,7 +24,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yga-6p-3zX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-xi-nih">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.45098039220000002" green="0.24313725489999999" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yga-6p-3zX">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -62,13 +66,17 @@
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="tMJ-xi-nih" firstAttribute="leading" secondItem="bzi-qn-Q4b" secondAttribute="leading" id="5C6-aR-pDd"/>
                             <constraint firstItem="drg-M4-Pkp" firstAttribute="trailing" secondItem="bzi-qn-Q4b" secondAttribute="trailing" id="7ZW-Ae-MgB"/>
+                            <constraint firstItem="tMJ-xi-nih" firstAttribute="bottom" secondItem="bzi-qn-Q4b" secondAttribute="bottom" id="O54-NF-tjQ"/>
                             <constraint firstItem="Yga-6p-3zX" firstAttribute="trailing" secondItem="bzi-qn-Q4b" secondAttribute="trailing" id="Qhb-M0-rrO"/>
                             <constraint firstItem="drg-M4-Pkp" firstAttribute="top" secondItem="bzi-qn-Q4b" secondAttribute="top" id="SMi-Bf-3yz"/>
                             <constraint firstItem="Yga-6p-3zX" firstAttribute="bottom" secondItem="bzi-qn-Q4b" secondAttribute="bottom" id="Tjc-EL-fhH"/>
                             <constraint firstItem="Yga-6p-3zX" firstAttribute="leading" secondItem="bzi-qn-Q4b" secondAttribute="leading" id="hG5-ce-32f"/>
+                            <constraint firstItem="tMJ-xi-nih" firstAttribute="top" secondItem="bzi-qn-Q4b" secondAttribute="top" id="jNr-K8-bVf"/>
                             <constraint firstItem="Yga-6p-3zX" firstAttribute="top" secondItem="bzi-qn-Q4b" secondAttribute="top" id="lsn-aX-eRE"/>
                             <constraint firstItem="drg-M4-Pkp" firstAttribute="leading" secondItem="bzi-qn-Q4b" secondAttribute="leading" id="nbw-Mw-8id"/>
+                            <constraint firstItem="tMJ-xi-nih" firstAttribute="trailing" secondItem="bzi-qn-Q4b" secondAttribute="trailing" id="ziq-Qt-ndx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bzi-qn-Q4b"/>
                     </view>
@@ -580,7 +588,7 @@
                                             <constraint firstAttribute="height" constant="47" id="mwL-9z-4lq"/>
                                             <constraint firstAttribute="width" constant="47" id="sdM-kB-sab"/>
                                         </constraints>
-                                        <state key="normal" image="btn_common_back"/>
+                                        <state key="normal" image="btnCommonBack"/>
                                         <connections>
                                             <action selector="back:" destination="UuI-wl-XUt" eventType="touchUpInside" id="q16-od-MR9"/>
                                         </connections>
@@ -709,7 +717,7 @@
                                             <constraint firstAttribute="height" constant="47" id="jip-bS-cBe"/>
                                             <constraint firstAttribute="width" constant="47" id="ysS-dg-ZK3"/>
                                         </constraints>
-                                        <state key="normal" image="btn_common_back"/>
+                                        <state key="normal" image="btnCommonBack"/>
                                         <connections>
                                             <action selector="back:" destination="0IN-aH-j1k" eventType="touchUpInside" id="YpR-Xl-77K"/>
                                         </connections>
@@ -790,7 +798,7 @@
                                             <constraint firstAttribute="width" constant="47" id="awJ-cD-tc1"/>
                                             <constraint firstAttribute="height" constant="47" id="i06-Op-l6p"/>
                                         </constraints>
-                                        <state key="normal" image="btn_common_back"/>
+                                        <state key="normal" image="btnCommonBack"/>
                                         <connections>
                                             <action selector="back:" destination="gjc-Th-eDM" eventType="touchUpInside" id="24B-o7-E60"/>
                                             <action selector="back:" destination="UuI-wl-XUt" eventType="touchUpInside" id="Jlp-Xr-dnv"/>
@@ -916,7 +924,7 @@
                                             <constraint firstAttribute="width" constant="47" id="Qzf-TA-6qC"/>
                                             <constraint firstAttribute="height" constant="47" id="xXn-4H-acc"/>
                                         </constraints>
-                                        <state key="normal" image="btn_common_back"/>
+                                        <state key="normal" image="btnCommonBack"/>
                                         <connections>
                                             <action selector="back:" destination="pOb-gL-bmW" eventType="touchUpInside" id="yrM-kb-8Vu"/>
                                         </connections>
@@ -973,9 +981,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btnCommonBack" width="47" height="47"/>
         <image name="btnSplashCheckOn" width="17" height="17"/>
         <image name="btn_common_alarm" width="90" height="90"/>
-        <image name="btn_common_back" width="47" height="47"/>
         <image name="btn_common_menu" width="90" height="90"/>
         <image name="icon_common_more" width="40" height="40"/>
         <image name="icon_menu_edit" width="18" height="18"/>
