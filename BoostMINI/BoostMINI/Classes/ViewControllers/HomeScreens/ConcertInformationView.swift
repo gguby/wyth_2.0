@@ -10,6 +10,8 @@ import UIKit
 
 
 class ConcertInformationView: UIView {
+    @IBOutlet weak var concertInfoView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     
     @IBOutlet weak var ddayLabel: UILabel!
     @IBOutlet weak var concertNameLabel: UILabel!
@@ -26,11 +28,15 @@ class ConcertInformationView: UIView {
     @IBOutlet weak var rowLabel: UILabel!
     @IBOutlet weak var seatNumberLabel: UILabel!
     
+    @IBOutlet weak var ddayLabelWidthConstant: NSLayoutConstraint!
+    @IBOutlet weak var ddayLabelHeightConstant: NSLayoutConstraint!
+    @IBOutlet weak var concertNameLabelHeightConstant: NSLayoutConstraint!
+    @IBOutlet weak var concertDateLabelHeightConstant: NSLayoutConstraint!
+    @IBOutlet weak var concertPlaceLabelHeightConstant: NSLayoutConstraint!
+    
+    
     let smtownFontAttribute = [ NSAttributedStringKey.font: UIFont(name: "SMTOWNOTF-Medium", size: 16.0)! ]
     
-    
-    
-   
     class func instanceFromNib() -> ConcertInformationView {
         return UINib(nibName: "ConcertInformationView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ConcertInformationView
     }
@@ -76,9 +82,43 @@ class ConcertInformationView: UIView {
             let seatNumberString = NSMutableAttributedString(string:"\(data.seat!)번")
             seatNumberString.addAttributes((self?.smtownFontAttribute)!, range: range)
             self?.seatNumberLabel.attributedText = seatNumberString
-            
         }
     }
+    
+    func updateSmallConcertInfoview() {
+        self.backgroundView.isHidden = false
+        
+        self.ddayLabel.font =  self.ddayLabel.font.withSize(12)
+        self.ddayLabelWidthConstant.constant = 50
+        self.ddayLabelHeightConstant.constant = 25
+        
+        self.concertNameLabel.font =  self.concertNameLabel.font.withSize(21)
+        self.concertNameLabelHeightConstant.constant = 46
+        
+        self.concertDateLabel.font =  self.concertDateLabel.font.withSize(12)
+        self.concertDateLabelHeightConstant.constant = 18
+        
+        self.concertPlaceLabel.font =  self.concertPlaceLabel.font.withSize(12)
+        self.concertPlaceLabelHeightConstant.constant = 18
+     }
+    
+    func updateDefaultConcertInforView() {
+         self.backgroundView.isHidden = true
+        
+        self.ddayLabel.font =  self.ddayLabel.font.withSize(15)
+        self.ddayLabelWidthConstant.constant = 60
+        self.ddayLabelHeightConstant.constant = 30
+        
+        self.concertNameLabel.font =  self.concertNameLabel.font.withSize(26)
+        self.concertNameLabelHeightConstant.constant = 58
+        
+        self.concertDateLabel.font =  self.concertDateLabel.font.withSize(15)
+        self.concertDateLabelHeightConstant.constant = 21
+        
+        self.concertPlaceLabel.font =  self.concertPlaceLabel.font.withSize(15)
+        self.concertPlaceLabelHeightConstant.constant = 21
+    }
+    
     
 }
 
