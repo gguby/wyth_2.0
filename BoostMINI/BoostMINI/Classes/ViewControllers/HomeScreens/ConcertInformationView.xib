@@ -87,19 +87,12 @@ Concert</string>
                             </constraints>
                             <state key="normal" image="icon_common_more"/>
                         </button>
-                        <view hidden="YES" clearsContextBeforeDrawing="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xp4-gT-sRE">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="314"/>
-                            <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Xp4-gT-sRE" secondAttribute="trailing" id="0Mr-R9-F99"/>
-                        <constraint firstAttribute="bottom" secondItem="Xp4-gT-sRE" secondAttribute="bottom" id="2bM-sG-Ped"/>
                         <constraint firstItem="jk0-dT-VWK" firstAttribute="top" secondItem="u62-Uc-WSE" secondAttribute="bottom" constant="22" id="4H5-ti-pQe"/>
                         <constraint firstAttribute="trailing" secondItem="u62-Uc-WSE" secondAttribute="trailing" constant="30" id="9fu-wh-JpA"/>
                         <constraint firstItem="GD3-uB-r0v" firstAttribute="leading" secondItem="Q7y-CH-Vqp" secondAttribute="leading" id="FrK-DK-qhr"/>
-                        <constraint firstItem="Xp4-gT-sRE" firstAttribute="top" secondItem="i5l-Bn-B1D" secondAttribute="top" id="G0y-rv-W0E"/>
                         <constraint firstItem="GD3-uB-r0v" firstAttribute="top" secondItem="Q7y-CH-Vqp" secondAttribute="bottom" constant="14" id="MEn-bZ-uDf"/>
                         <constraint firstAttribute="height" constant="313" id="NDX-YS-chW"/>
                         <constraint firstItem="4ec-6k-h8P" firstAttribute="top" secondItem="i5l-Bn-B1D" secondAttribute="top" constant="89" id="OtJ-Vc-Wyh"/>
@@ -113,7 +106,6 @@ Concert</string>
                         <constraint firstItem="u62-Uc-WSE" firstAttribute="leading" secondItem="GD3-uB-r0v" secondAttribute="leading" id="jXV-wg-yk5"/>
                         <constraint firstItem="jk0-dT-VWK" firstAttribute="leading" secondItem="u62-Uc-WSE" secondAttribute="leading" id="pJW-Fw-CqE"/>
                         <constraint firstItem="Q7y-CH-Vqp" firstAttribute="leading" secondItem="i5l-Bn-B1D" secondAttribute="leading" constant="30" id="rXr-ea-8Hc"/>
-                        <constraint firstItem="Xp4-gT-sRE" firstAttribute="leading" secondItem="i5l-Bn-B1D" secondAttribute="leading" id="tcG-wG-g0Q"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgf-xs-tBy" customClass="TopTiltingView" customModule="BoostMINI" customModuleProvider="target">
@@ -309,7 +301,6 @@ Concert</string>
             <connections>
                 <outlet property="areaLabel" destination="JEO-Pl-jqH" id="81Z-oU-x2L"/>
                 <outlet property="arrowButton" destination="v4E-YU-gan" id="lY2-0q-0rI"/>
-                <outlet property="backgroundView" destination="Xp4-gT-sRE" id="U7Q-07-0TI"/>
                 <outlet property="concertDateLabel" destination="GD3-uB-r0v" id="MlH-hC-OCr"/>
                 <outlet property="concertDateLabelHeightConstant" destination="ZD1-PO-we5" id="d2O-N9-a0X"/>
                 <outlet property="concertInfoView" destination="i5l-Bn-B1D" id="dTv-SL-MXS"/>
