@@ -15,6 +15,10 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var skinCollectionView: UICollectionView!
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var withdrawButton: UIButton!
     
     // MARK: - * properties --------------------
     var selectedIndexPath: IndexPath = [] {
@@ -56,11 +60,48 @@ class SettingViewController: UIViewController {
             guard let data = response else {
                 return
             }
-            
+            for skin in data.skins! {
+                if skin.select == true {
+                    self.skinCollectionView.selectItem(at: IndexPath(item: skin.id as! Int, section: 0), animated: true, scrollPosition: .bottom)
+                }
+            }
             self.userNameLabel.text = data.userName
             self.notificationSwitch.setOn(data.alarm!, animated: false)
         }
     }
+    
+    func updateVersionInfo(){
+        DefaultAPI.getVersionUsingGET { (response, error) in
+            guard let data = response else {
+                return
+            }
+            
+            self.versionLabel.text = data.version
+        
+        }
+    }
+    
+    
+    @IBAction func setAlram(_ sender: UISwitch) {
+        DefaultAPI.postAlarmsUsingPOST(alarm: sender.isOn)
+    }
+    
+    @IBAction func logout(_ sender: UIButton) {
+        DefaultAPI.signoutUsingDELETE { (error) in
+            
+        }
+    }
+    
+    @IBAction func withdrawAccount(_ sender: UIButton) {
+        DefaultAPI.withdrawUsingDELETE { (error) in
+            
+        }
+    }
+    
+    @IBAction func updateApp(_ sender: UIButton) {
+       
+    }
+    
     
     func pop() {
         self.navigationController?.popViewController(animated: true)
@@ -109,7 +150,10 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         selectedIndexPath = indexPath
+        
+        DefaultAPI.postSkinsUsingPOST(select: Int32(selectedIndexPath.row))
     }
 
 }

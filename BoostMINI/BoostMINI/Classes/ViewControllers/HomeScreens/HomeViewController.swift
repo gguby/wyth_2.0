@@ -90,9 +90,7 @@ class HomeViewController: UIViewController {
     
     func prepareViewDidLoad() {
 		
-
-
-		// intro에 있던 것.
+        // intro에 있던 것.
 		let permissionSet = PermissionSet([.camera, .bluetooth, .notifications, .photos])
 		permissionSet.delegate = self
 		permissionSet.permissions.forEach { (permission) in
@@ -104,6 +102,13 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let hasTicketInfo = true
+        if hasTicketInfo && BSTFacade.device.isConnected {
+            //응원도구가 연동되었습니다
+        } else {
+            //응원도구가 연동되어 있지 않습니다.
+        }
+        
         
         if #available(iOS 10.0, *) {
             view.addSubview(popupView)
@@ -122,7 +127,6 @@ class HomeViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        
     }
     
     // MARK: - * Main Logic --------------------
@@ -156,7 +160,7 @@ class HomeViewController: UIViewController {
     @objc private func arrowButtonTapped(recognizer: UITapGestureRecognizer) {
         //티켓 정보가 없을 경우,
         let hasTicketInfo = true
-        if hasTicketInfo {
+        if  hasTicketInfo && BSTFacade.device.isConnected {
             toggleViewingInformation()
         } else {
             guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else {
@@ -175,7 +179,7 @@ class HomeViewController: UIViewController {
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
         //티켓 정보가 없을 경우,
         let hasTicketInfo = true
-        if hasTicketInfo && currentState == .closed {
+        if  currentState == .closed && hasTicketInfo && BSTFacade.device.isConnected{
             toggleViewingInformation()
         }
 //        else {
@@ -194,11 +198,11 @@ class HomeViewController: UIViewController {
             switch state {
             case .open:
                 self.bottomConstraint.constant = 0
-                self.backgroundView.alpha = 1
+                self.backgroundView.alpha = 0.7
                 self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
             case .closed:
                 self.bottomConstraint.constant = 270
-                self.backgroundView.alpha = 0.5
+                self.backgroundView.alpha = 0
                 self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
             }
             self.view.layoutIfNeeded()

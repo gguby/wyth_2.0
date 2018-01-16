@@ -40,7 +40,7 @@
                                             <constraint firstAttribute="height" constant="47" id="dte-8c-37i"/>
                                             <constraint firstAttribute="width" constant="47" id="tTR-LA-pcE"/>
                                         </constraints>
-                                        <state key="normal" image="btn_common_back"/>
+                                        <state key="normal" image="btnCommonBack"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바코드 스캔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na0-PF-Xai">
                                         <rect key="frame" x="137.5" y="10.5" width="101" height="26.5"/>
@@ -96,6 +96,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn_common_back" width="47" height="47"/>
+        <image name="btnCommonBack" width="47" height="47"/>
     </resources>
 </document>
