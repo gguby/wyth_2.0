@@ -91,7 +91,8 @@ class HomeViewController: UIViewController {
     func prepareViewDidLoad() {
 		
         // intro에 있던 것.
-		let permissionSet = PermissionSet([.camera, .bluetooth, .notifications, .photos])
+
+		let permissionSet = PermissionSet(Permission.base)
 		permissionSet.delegate = self
 		permissionSet.permissions.forEach { (permission) in
 			permission.request({ (status) in

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04036111200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04036110200DDCD200A19AF2 /* PermissionSet+Default.swift */; };
+		04036112200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04036110200DDCD200A19AF2 /* PermissionSet+Default.swift */; };
+		04036113200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04036110200DDCD200A19AF2 /* PermissionSet+Default.swift */; };
 		04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */; };
 		04122A5D1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */; };
 		04122A5E1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */; };
@@ -400,6 +403,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04036110200DDCD200A19AF2 /* PermissionSet+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionSet+Default.swift"; sourceTree = "<group>"; };
 		04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-Toast.swift"; sourceTree = "<group>"; };
 		04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OptionSet+Sequence.swift"; path = "BoostMINI/Classes/Extensions/OptionSet+Sequence.swift"; sourceTree = SOURCE_ROOT; };
 		04122A601FEC92DE00896EE0 /* Dictionary+Easy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Easy.swift"; sourceTree = "<group>"; };
@@ -867,6 +871,7 @@
 				045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */,
 				04122A5C1FEBBD0200896EE0 /* OptionSet+Sequence.swift */,
 				045D14831FF4A9B400A67AA0 /* Optional+logError.swift */,
+				04036110200DDCD200A19AF2 /* PermissionSet+Default.swift */,
 				04122A681FEC962600896EE0 /* String+Format.swift */,
 				0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */,
 				04AD74151FF35E6E005F4BF0 /* String+URL.swift */,
@@ -1666,6 +1671,7 @@
 				04122A611FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				2B5AA09B1FEB5646007441E1 /* LibrarySample.swift in Sources */,
 				04B2190620073617002A1742 /* TiltingView.swift in Sources */,
+				04036111200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */,
 				2B5AA0891FEB554B007441E1 /* DebugHSLee.swift in Sources */,
 				04838477200331BC007DE69B /* NilDestination.swift in Sources */,
 				04E2243B200481B500A2B388 /* GeneratedModelExtension.swift in Sources */,
@@ -1783,6 +1789,7 @@
 				04E223F22003766E00A2B388 /* DefaultAPI.swift in Sources */,
 				04B21927200874FB002A1742 /* UIButton+UpdateAttributeString.swift in Sources */,
 				04122A841FECE9AE00896EE0 /* Definitions.swift in Sources */,
+				04036112200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */,
 				0462CDAD1FFCA419002B6E11 /* BTDeviceService.swift in Sources */,
 				0462CDBC1FFCA426002B6E11 /* BSTUXHandler-Alert.swift in Sources */,
 				04122A791FECE9A200896EE0 /* CommonUtil.swift in Sources */,
@@ -1900,6 +1907,7 @@
 				044236B12005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */,
 				04B2191120074C13002A1742 /* BoostProfile.swift in Sources */,
 				0462CDC51FFCA426002B6E11 /* BSTUXHandler-Alert.swift in Sources */,
+				04036113200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */,
 				0462CDC21FFCA426002B6E11 /* DeviceManager.swift in Sources */,
 				04E2243D200481B500A2B388 /* GeneratedModelExtension.swift in Sources */,
 				04838479200331BC007DE69B /* NilDestination.swift in Sources */,
