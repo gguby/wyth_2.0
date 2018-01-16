@@ -27,12 +27,12 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController {
         self.prepareViewDidLoad()
     }
 
-
+    /// ViewController 로딩 시, 프로퍼티 초기화 처리
     private func initProperties() {
 
     }
 
-
+    /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
 
     }

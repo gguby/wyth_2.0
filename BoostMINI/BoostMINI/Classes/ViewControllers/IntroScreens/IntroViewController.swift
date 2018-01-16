@@ -31,7 +31,7 @@ class IntroViewController: UIViewController {
         initProperties()
     }
     
-    /// initProperties() - Description:
+    /// ViewController 로딩 시, 프로퍼티 초기화
     private func initProperties() {
 		// 여기서 alert를 띄워버리면, 이 이후의 페이지 이동이 되지 않는다. checkVersion 흐름 내에 넣으세요.
     }
@@ -236,3 +236,25 @@ extension IntroViewController {
 		BSTFacade.go.login(self, animated: false)
 	}
 }
+
+/// 권한처리 수신자
+extension IntroViewController: PermissionSetDelegate {
+    
+    func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
+        //        logDebug("Will request \(permission)")
+    }
+    
+    func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
+        switch permissionSet.status {
+        case .authorized:
+            logDebug("all the permissions are granted")
+        case .denied:
+            logDebug("at least one permission is denied")
+        case .disabled:
+            logDebug("at least one permission is disabled")
+        case .notDetermined:
+            logDebug("at least one permission is not determined")
+        }
+    }
+}
+

@@ -64,7 +64,7 @@ class AgreementController: UIViewController {
 
 	}
 	
-	
+	/// ViewController 로딩 시, UIControl 초기화
 	func initUI() {
 		guard let userName = SessionHandler.shared.name else {
 		
