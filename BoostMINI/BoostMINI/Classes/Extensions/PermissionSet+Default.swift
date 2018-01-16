@@ -12,10 +12,10 @@ import Permission
 extension Permission {
 	static var base: [Permission] {
 
-		#if TARGET_OS_SIMULATOR
+		if BSTDeviceType.isSimulator {
 			// 시뮬은 블루투스, 푸쉬를 지원안함
 			return [.camera, .photos]
-		#endif
+		}
 
 		return [.camera, .bluetooth, .notifications, .photos]
 	}
