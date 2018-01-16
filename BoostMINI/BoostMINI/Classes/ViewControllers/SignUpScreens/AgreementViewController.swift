@@ -145,14 +145,7 @@ class AgreementController: UIViewController {
 
 	
 	func back() {
-		// TODO : back 한 후에 되돌아가는 페이지가 로그인페이지라면, 1. smtown 로그아웃을 해줘야 하고, 2. 웹뷰를 로그인페이지로 갱신시켜주어야 한다. 그렇지않으면 빈 웹뷰에서 인디게이터만 멍하니 도는 비정상화면을 보게 될 것이고,현재 그렇다.
-		
-		// 웹뷰 이전의 인트로인것같은 페이지로 이동
-		if let nav = self.navigationController {
-			nav.popViewController(animated: true)
-		} else {
-			self.dismiss(animated: true)
-		}
+		BSTFacade.go.login(self, animated: false)
 	}
 	
 	
