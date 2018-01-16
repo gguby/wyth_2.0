@@ -149,7 +149,7 @@ class BoostMINITests: XCTestCase {
 			v1.createdAt = Date(timeIntervalSinceNow: -999)
 			v1.nationality = "ko"
 			v1.profilepicture = "http://blahblah"
-			v1.regeate = nil
+			v1.regdate = nil
 			v1.sex = "철9"
 			v1.socialType = .smtown
 			

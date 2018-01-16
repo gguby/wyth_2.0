@@ -9,6 +9,11 @@
 
 import UIKit
 
+import Permission
+import JuseongJee_RxPermission
+
+
+
 class AgreementController: UIViewController {
 	
 	
@@ -152,6 +157,19 @@ class AgreementController: UIViewController {
 	
 	
 	func register() {
+		
+		// intro에 있던 것.
+		let permissionSet = PermissionSet([.notifications, .camera, .photos, .bluetooth])
+		permissionSet.delegate = self
+		permissionSet.permissions.forEach { (permission) in
+			permission.request({ (status) in
+				print(status)
+			})
+		}
+	}
+	
+	func registerPart2() {
+		
 		guard let token = SessionHandler.shared.token else {
 			BSTFacade.ux.showToastError("token error")
 			back()
@@ -167,57 +185,27 @@ class AgreementController: UIViewController {
 			BSTFacade.ux.showToastError(error?.localizedDescription ?? "ERROR")
 		}
 	}
+}
+
+
+
+extension AgreementController: PermissionSetDelegate {
 	
-//}, checkBoxDelegate {
-//
-//    @IBOutlet var btnClose: UIButton!
-//
-//    @IBOutlet var persnalCheckBox: CheckBox!
-//    @IBOutlet var serviceCheckBox: CheckBox!
-//
-//    @IBOutlet var agreeLabel01: UILabel!
-//    @IBOutlet var agreeLabel02: UILabel!
-//
-//    @IBOutlet var serviceTextView: UITextView!
-//    @IBOutlet var persnalTextView: UITextView!
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        serviceCheckBox.label = agreeLabel01
-//        persnalCheckBox.label = agreeLabel02
-//
-//        persnalCheckBox.delegate = self
-//        serviceCheckBox.delegate = self
-//
-//        btnClose.backgroundColor = UIColor.ivGreyish
-//        btnClose.isEnabled = false
-//
-//        let bottomOffset = CGPoint(x: 0, y: persnalTextView.contentSize.height - persnalTextView.bounds.size.height)
-//        persnalTextView.setContentOffset(bottomOffset, animated: true)
-//    }
-//
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
-//
-//    @IBAction func pushView(sender _: AnyObject) {
-//        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "profile")
-//        navigationController?.pushViewController(controller, animated: true)
-//    }
-//
-//    @IBAction func dismiss(sender _: AnyObject) {
-//        navigationController?.popViewController(animated: true)
-//    }
-//
-//    func respondCheckBox(checkBox _: CheckBox) {
-//        if persnalCheckBox.isChecked && serviceCheckBox.isChecked {
-//            btnClose.backgroundColor = UIColor.hexStringToUIColor(hex: "#8052F5")
-//            btnClose.isEnabled = true
-//        } else {
-//            btnClose.backgroundColor = UIColor.ivGreyish
-//            btnClose.isEnabled = false
-//        }
-//    }
+	func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
+		print("Will request \(permission)")
+	}
+	
+	func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
+		switch permissionSet.status {
+		case .authorized:
+			registerPart2()
+			
+		case .denied:
+			break
+		case .disabled:
+			break
+		case .notDetermined:
+			break
+		}
+	}
 }

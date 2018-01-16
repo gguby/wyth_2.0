@@ -52,6 +52,7 @@ class SessionHandler {
 	
 	private init() {
 		
+		logout()
 		
 		// TODO: 암호화 필요?
 		// TODO: 스트링 define으로 뺴려면 고고

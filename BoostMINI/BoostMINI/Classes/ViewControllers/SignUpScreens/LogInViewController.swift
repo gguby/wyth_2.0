@@ -18,7 +18,7 @@ import UIColor_Hex_Swift
 class LogInViewController: UIViewController {
 
 	@IBOutlet weak var loginButton: TransitionButton!
-	@IBOutlet weak var testButton: TransitionButton!
+	@IBOutlet weak var testButton: TransitionButton?
 	
 	@IBOutlet weak var loginButtonView: UIView!
 	@IBOutlet weak var loginButtonBottomConstraint: NSLayoutConstraint!
@@ -72,7 +72,8 @@ class LogInViewController: UIViewController {
 
 	
 	func initEvents() {
-		[loginButton, testButton].forEach { (bt: TransitionButton) in
+		[loginButton, testButton].forEach { (bto: TransitionButton?) in
+			guard let bt = bto else { return }
 			bt.rx.controlEvent([.touchDown, .touchUpInside, .touchUpOutside]).bind {
 				// swap
 				let dummy = bt.backgroundColor
@@ -87,15 +88,16 @@ class LogInViewController: UIViewController {
 			}.disposed(by: disposeBag)
 		
 		
-		testButton.rx.tap.bind {
-			self.testButton.startAnimation()
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.666) { [weak self] in
-				self?.testButton.stopAnimation(animationStyle: .expand, completion: {
-					self?.goHome()
-				})
-			}
-			}.disposed(by: disposeBag)
-		
+		if let testButton = testButton {
+			testButton.rx.tap.bind {
+				testButton.startAnimation()
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.666) { [weak self] in
+					self?.testButton?.stopAnimation(animationStyle: .expand, completion: {
+						self?.goHome()
+					})
+				}
+				}.disposed(by: disposeBag)
+		}
 	}
 	
 	
@@ -123,7 +125,7 @@ extension LogInViewController {
 				if !(fin) {
 					return
 				}
-				self.testButton.show()
+				//self.testButton?.show()
 			}
 		}
 	}

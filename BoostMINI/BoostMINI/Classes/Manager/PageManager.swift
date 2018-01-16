@@ -46,7 +46,28 @@ extension BST {
 		}
 		
 		
+		// alertview 따위를 모두 제거하..려는 목적으로 만듦.
+		func removeAllUx() {
+			// 동작안함.
+//			//UIApplication.shared.keyWindow?.subviews.forEach({view in
+//			if let subviews = UIApplication.shared.keyWindow?.subviews {
+//				for view in subviews {
+//
+//
+//
+//					if let av = view as? UIAlertController {
+//						logVerbose("remove uialertcontroller : \(av.message)")
+//						av.dismiss(animated: false)
+//					} else {
+//						logVerbose("subview : \(view)")
+//
+//					}
+//				}
+//			}
+		}
+		
 		private func processTopPresent(_ current: UIViewController?, to target: UIViewController, animated: Bool) {
+			
 			
 			guard let currentVC = current ?? BSTFacade.common.getTopViewController() else {
 				BSTError.debugUI(.viewController("getCurrentTopVC"))
@@ -67,11 +88,14 @@ extension BST {
 
 			top.blur()
 			let block = {
+				self.removeAllUx()
 				top.present(target, animated: false, completion: {
 					// TODO: target viewcontroller
 				})
 			}
 			
+			removeAllUx()
+
 			if currentVC == top {
 				block()
 				return

@@ -40,6 +40,18 @@ class SMLoginViewController: WebViewController {
 
 		navigationController?.title = BSTFacade.localizable.login.title()
 
+		
+		if //let cookie = HTTPCookie.self,
+			let cookies = HTTPCookieStorage.shared.cookies {
+			cookies.forEach({cc in
+				HTTPCookieStorage.shared.deleteCookie(cc)
+			})
+//			for cookie in cookies {
+//				HTTPCookieStorage.shared.deleteCookie(cookie)
+//			}
+		}
+		
+		
 		super.viewWillAppear(animated)
 	}
 	override func viewDidAppear(_ animated: Bool) {
