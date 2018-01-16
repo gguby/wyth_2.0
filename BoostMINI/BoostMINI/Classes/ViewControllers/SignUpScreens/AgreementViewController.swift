@@ -152,7 +152,7 @@ class AgreementController: UIViewController {
 	func register() {
 		
 		// intro에 있던 것.
-		let permissionSet = PermissionSet([.notifications, .camera, .photos, .bluetooth])
+		let permissionSet = PermissionSet(Permission.base)
 		permissionSet.delegate = self
 		permissionSet.permissions.forEach { (permission) in
 			permission.request({ (status) in
