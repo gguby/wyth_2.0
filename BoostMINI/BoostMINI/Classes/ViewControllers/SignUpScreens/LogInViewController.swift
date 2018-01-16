@@ -18,7 +18,7 @@ import UIColor_Hex_Swift
 class LogInViewController: UIViewController {
 
 	@IBOutlet weak var loginButton: TransitionButton!
-	@IBOutlet weak var testButton: TransitionButton!
+	@IBOutlet weak var testButton: TransitionButton?
 	
 	@IBOutlet weak var loginButtonView: UIView!
 	@IBOutlet weak var loginButtonBottomConstraint: NSLayoutConstraint!
@@ -32,7 +32,8 @@ class LogInViewController: UIViewController {
 	var cacheLoginButtonBottomConstraint: CGFloat!
 
 
-	var isFirst = true
+	// 최초 1회 이후의 로그인 접근은 애니메이션 없음.
+	private static var isFirst = true
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -55,10 +56,13 @@ class LogInViewController: UIViewController {
 		super.viewDidAppear(animated)
 		
 		
-		if isFirst {
-			isFirst = false
+		if LogInViewController.isFirst {
+			LogInViewController.isFirst = false
 			cacheLoginButtonBottomConstraint = self.loginButtonBottomConstraint.constant
 			startPopLoginButton()
+		} else {
+			self.loginButton.isHidden = false
+			self.loginButtonView.isHidden = false
 		}
 	}
 	
@@ -73,7 +77,8 @@ class LogInViewController: UIViewController {
 
 	
 	func initEvents() {
-		[loginButton, testButton].forEach { (bt: TransitionButton) in
+		[loginButton, testButton].forEach { (bto: TransitionButton?) in
+			guard let bt = bto else { return }
 			bt.rx.controlEvent([.touchDown, .touchUpInside, .touchUpOutside]).bind {
 				// swap
 				let dummy = bt.backgroundColor
@@ -88,15 +93,16 @@ class LogInViewController: UIViewController {
 			}.disposed(by: disposeBag)
 		
 		
-		testButton.rx.tap.bind {
-			self.testButton.startAnimation()
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.666) { [weak self] in
-				self?.testButton.stopAnimation(animationStyle: .expand, completion: {
-					self?.goHome()
-				})
-			}
-			}.disposed(by: disposeBag)
-		
+		if let testButton = testButton {
+			testButton.rx.tap.bind {
+				testButton.startAnimation()
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.666) { [weak self] in
+					self?.testButton?.stopAnimation(animationStyle: .expand, completion: {
+						self?.goHome()
+					})
+				}
+				}.disposed(by: disposeBag)
+		}
 	}
 	
 	
@@ -124,7 +130,7 @@ extension LogInViewController {
 				if !(fin) {
 					return
 				}
-				self.testButton.show()
+				//self.testButton?.show()
 			}
 		}
 	}
@@ -163,8 +169,10 @@ extension LogInViewController {
 			//var isFailed = false
 			// web preload
 			do {
-				let path = Definitions.externURLs.authUri
-				html = try String(contentsOf: path.asUrl!, encoding: String.Encoding.utf8)
+//				let pathLogout = Definitions.externURLs.authLogout
+//				let aa = try String(contentsOf: pathLogout.asUrl!, encoding: String.Encoding.utf8)
+//
+//				logVerbose(aa)
 			} catch {
 				BSTFacade.ux.showToastError(BSTFacade.localizable.error.loginFailedCode(-1))
 				isFailed = true
@@ -177,11 +185,8 @@ extension LogInViewController {
 						return
 					}
 					
-					let newVC = SMLoginViewController.create("SignUp")
-					//let newVC = R.storyboard.signUp.smLoginViewController()!
-					if !(html.isEmpty) {
-						//newVC.preload = html
-					}
+					//let newVC = SMLoginViewController.create("SignUp")
+					let newVC = R.storyboard.signUp.smLoginViewController()!
 					self.navigationController?.pushViewController(newVC, animated: true)
 //				})
 			}

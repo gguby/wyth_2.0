@@ -107,10 +107,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .bind(to: self.resetBtn.rx.isHidden)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.isRegister }
-            .bind(to: self.backBtn.rx.isHidden)
-            .disposed(by: self.disposeBag)
-        
         self.cancelBtn.isHidden = true
         self.confirmBtn.isHidden = true
         self.registerBtn.backgroundColor = R.clr.boostMini.commonBgPoint()

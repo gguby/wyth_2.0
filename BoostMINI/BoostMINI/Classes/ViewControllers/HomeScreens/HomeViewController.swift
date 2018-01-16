@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import SideMenu
 
+import Permission
+import JuseongJee_RxPermission
+
+
+
 private enum State {
     case closed
     case open
@@ -84,10 +89,27 @@ class HomeViewController: UIViewController {
     }
     
     func prepareViewDidLoad() {
-        
+		
+        // intro에 있던 것.
+
+		let permissionSet = PermissionSet(Permission.base)
+		permissionSet.delegate = self
+		permissionSet.permissions.forEach { (permission) in
+			permission.request({ (status) in
+				print(status)
+			})
+		}
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let hasTicketInfo = true
+        if hasTicketInfo && BSTFacade.device.isConnected {
+            //응원도구가 연동되었습니다
+        } else {
+            //응원도구가 연동되어 있지 않습니다.
+        }
+        
         
         if #available(iOS 10.0, *) {
             view.addSubview(popupView)
@@ -106,7 +128,6 @@ class HomeViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        
     }
     
     // MARK: - * Main Logic --------------------
@@ -139,8 +160,8 @@ class HomeViewController: UIViewController {
     @available(iOS 10.0, *)
     @objc private func arrowButtonTapped(recognizer: UITapGestureRecognizer) {
         //티켓 정보가 없을 경우,
-        let hasTicketInfo = false
-        if hasTicketInfo {
+        let hasTicketInfo = true
+        if  hasTicketInfo && BSTFacade.device.isConnected {
             toggleViewingInformation()
         } else {
             guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else {
@@ -159,7 +180,7 @@ class HomeViewController: UIViewController {
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
         //티켓 정보가 없을 경우,
         let hasTicketInfo = true
-        if hasTicketInfo && currentState == .closed {
+        if  currentState == .closed && hasTicketInfo && BSTFacade.device.isConnected{
             toggleViewingInformation()
         }
 //        else {
@@ -178,12 +199,14 @@ class HomeViewController: UIViewController {
             switch state {
             case .open:
                 self.bottomConstraint.constant = 0
-                self.backgroundView.alpha = 1
+                self.backgroundView.alpha = 0.7
                 self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
+                self.popupView.updateSmallConcertInfoview()
             case .closed:
                 self.bottomConstraint.constant = 270
-                self.backgroundView.alpha = 0.5
+                self.backgroundView.alpha = 0
                 self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
+                self.popupView.updateDefaultConcertInforView()
             }
             self.view.layoutIfNeeded()
         })
@@ -223,6 +246,24 @@ class HomeViewController: UIViewController {
     }
     
 }
+
+
+extension HomeViewController: PermissionSetDelegate {
+	
+	func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
+		print("Will request \(permission)")
+	}
+	
+	func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
+		switch permissionSet.status {
+		case .authorized:    print("all the permissions are granted")
+		case .denied:        print("at least one permission is denied")
+		case .disabled:      print("at least one permission is disabled")
+		case .notDetermined: print("at least one permission is not determined")
+		}
+	}
+}
+
 
 extension HomeViewController : UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {

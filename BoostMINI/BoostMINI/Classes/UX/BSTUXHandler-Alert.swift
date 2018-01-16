@@ -75,6 +75,8 @@ extension BSTUXHanlder {
 	
 	internal class SystemAlert: NSObject {
 
+		private static var stackVC: [UIAlertController] = []
+		
 		class func show(_ sender: UIViewController?,
 						title: String?,
 						message: String?,
@@ -106,11 +108,14 @@ extension BSTUXHanlder {
 				let index = idx
 				alertView.addAction(UIAlertAction(title: text, style: .default, handler: { (_: UIAlertAction) -> Void in
 					logVerbose("button \(text) -> \(index)")
+					if stackVC.last == alertView {
+					}
 					completion?(index)
 				}))
 				idx -= 1
 			}
 
+			stackVC.append(alertView)
 			viewController?.present(alertView, animated: true)
 			
 		}

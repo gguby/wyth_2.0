@@ -47,6 +47,7 @@ internal struct BSTExternalURL {
 	/// 로그인 관련 클라이언트 아이디
 	let clientId = "8ecafcf23f6d42cf94806ab807bd2023"
 	
+	let authLogout = "https://membership.smtown.com/Account/SignOut"
 	/// 로그인 페이지 경로 (O-Auth)
 	let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=http://api.dev2nd.vyrl.com/&state=nonce&scope=profile&response_type=token"
 	
@@ -83,7 +84,7 @@ internal struct BSTNotificationsPath {
 //    enum ... case aaa(c,d) ... // 5
 }
 
-internal struct BSTDevice {
-    let service_UUID = "E20A39F4-73F5-4BC4-A12F-17D1AD666661" // uuid spec
+internal struct BSTDevice { //E20A39F4-73F5-4BC4-A12F-17D1AD666661
+    let service_UUID = "2F0A0000-69AA-F316-3E78-4194989A6C1A" // uuid spec
     let characteristic_UUID = "08590F7E-DB05-467E-8757-72F6F66666D4" // uuid spec
 }

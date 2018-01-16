@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Permission
-import JuseongJee_RxPermission
 
 class IntroViewController: UIViewController {
 	static var actual: IntroViewController? = nil
@@ -35,15 +33,7 @@ class IntroViewController: UIViewController {
     
     /// ViewController 로딩 시, 프로퍼티 초기화
     private func initProperties() {
-        let permissionSet = PermissionSet([.camera, .bluetooth, .notifications, .photos])
-        permissionSet.delegate = self
-        permissionSet.permissions.forEach { (permission) in
-            if permission.status == .notDetermined {//권한 체크 이력 확인,
-                permission.request({ (status) in  //각 권한별 요청
-                    print(status)
-                })
-            }
-        }
+		// 여기서 alert를 띄워버리면, 이 이후의 페이지 이동이 되지 않는다. checkVersion 흐름 내에 넣으세요.
     }
 	
 	deinit {
@@ -247,24 +237,5 @@ extension IntroViewController {
 	}
 }
 
-/// 권한처리 수신자
-extension IntroViewController: PermissionSetDelegate {
-    
-    func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
-        //        logDebug("Will request \(permission)")
-    }
-    
-    func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
-        switch permissionSet.status {
-        case .authorized:
-            logDebug("all the permissions are granted")
-        case .denied:
-            logDebug("at least one permission is denied")
-        case .disabled:
-            logDebug("at least one permission is disabled")
-        case .notDetermined:
-            logDebug("at least one permission is not determined")
-        }
-    }
-}
+
 

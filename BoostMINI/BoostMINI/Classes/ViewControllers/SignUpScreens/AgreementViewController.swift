@@ -9,6 +9,11 @@
 
 import UIKit
 
+import Permission
+import JuseongJee_RxPermission
+
+
+
 class AgreementController: UIViewController {
 	
 	
@@ -140,18 +145,24 @@ class AgreementController: UIViewController {
 
 	
 	func back() {
-		// TODO : back 한 후에 되돌아가는 페이지가 로그인페이지라면, 1. smtown 로그아웃을 해줘야 하고, 2. 웹뷰를 로그인페이지로 갱신시켜주어야 한다. 그렇지않으면 빈 웹뷰에서 인디게이터만 멍하니 도는 비정상화면을 보게 될 것이고,현재 그렇다.
-		
-		// 웹뷰 이전의 인트로인것같은 페이지로 이동
-		if let nav = self.navigationController {
-			nav.popViewController(animated: true)
-		} else {
-			self.dismiss(animated: true)
-		}
+		BSTFacade.go.login(self, animated: false)
 	}
 	
 	
 	func register() {
+		
+		// intro에 있던 것.
+		let permissionSet = PermissionSet(Permission.base)
+		permissionSet.delegate = self
+		permissionSet.permissions.forEach { (permission) in
+			permission.request({ (status) in
+				print(status)
+			})
+		}
+	}
+	
+	func registerPart2() {
+		
 		guard let token = SessionHandler.shared.token else {
 			BSTFacade.ux.showToastError("token error")
 			back()
@@ -167,57 +178,27 @@ class AgreementController: UIViewController {
 			BSTFacade.ux.showToastError(error?.localizedDescription ?? "ERROR")
 		}
 	}
+}
+
+
+
+extension AgreementController: PermissionSetDelegate {
 	
-//}, checkBoxDelegate {
-//
-//    @IBOutlet var btnClose: UIButton!
-//
-//    @IBOutlet var persnalCheckBox: CheckBox!
-//    @IBOutlet var serviceCheckBox: CheckBox!
-//
-//    @IBOutlet var agreeLabel01: UILabel!
-//    @IBOutlet var agreeLabel02: UILabel!
-//
-//    @IBOutlet var serviceTextView: UITextView!
-//    @IBOutlet var persnalTextView: UITextView!
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        serviceCheckBox.label = agreeLabel01
-//        persnalCheckBox.label = agreeLabel02
-//
-//        persnalCheckBox.delegate = self
-//        serviceCheckBox.delegate = self
-//
-//        btnClose.backgroundColor = UIColor.ivGreyish
-//        btnClose.isEnabled = false
-//
-//        let bottomOffset = CGPoint(x: 0, y: persnalTextView.contentSize.height - persnalTextView.bounds.size.height)
-//        persnalTextView.setContentOffset(bottomOffset, animated: true)
-//    }
-//
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
-//
-//    @IBAction func pushView(sender _: AnyObject) {
-//        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "profile")
-//        navigationController?.pushViewController(controller, animated: true)
-//    }
-//
-//    @IBAction func dismiss(sender _: AnyObject) {
-//        navigationController?.popViewController(animated: true)
-//    }
-//
-//    func respondCheckBox(checkBox _: CheckBox) {
-//        if persnalCheckBox.isChecked && serviceCheckBox.isChecked {
-//            btnClose.backgroundColor = UIColor.hexStringToUIColor(hex: "#8052F5")
-//            btnClose.isEnabled = true
-//        } else {
-//            btnClose.backgroundColor = UIColor.ivGreyish
-//            btnClose.isEnabled = false
-//        }
-//    }
+	func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
+		print("Will request \(permission)")
+	}
+	
+	func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
+		switch permissionSet.status {
+		case .authorized:
+			registerPart2()
+			
+		case .denied:
+			break
+		case .disabled:
+			break
+		case .notDetermined:
+			break
+		}
+	}
 }

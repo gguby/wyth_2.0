@@ -13,8 +13,6 @@ import CoreBluetooth
 
 final class DeviceManager {
     
-    var isConnectedObserver = PublishSubject<Bool>()
-    
     var registeredDeviceObserver = PublishSubject<BSTLocalDevice>()
     
     var error = PublishSubject<DeviceError>()
@@ -26,15 +24,22 @@ final class DeviceManager {
     
     init() {
         self.bind()
+        if let device = self.loadDevice() {
+            logVerbose(device)
+            self.isConnected = true
+        }
     }
     
     func bind() {
-        self.isConnectedObserver.subscribe(onNext: {
-            self.isConnected = $0
-        }).disposed(by: disposeBag)
         
         self.registeredDeviceObserver.subscribe(onNext: {
             self.registeredDevice = $0
+            
+            if let device = self.registeredDevice {
+                logVerbose(device)
+                self.isConnected = true
+            }
+            
         }).disposed(by: disposeBag)
         
         self.error.subscribe(onNext: {
@@ -45,6 +50,13 @@ final class DeviceManager {
     
     func receiveError(error: DeviceError) {
         self.error.onNext(error)
+    }
+    
+    func loadDevice() -> BSTLocalDevice? {
+        let array = UserDefaults.standard.array(forKey: "boostDevice") as? [String]
+        guard let arr = array else { return nil }
+        let localDevice = BSTLocalDevice.init(array: arr)
+        return localDevice
     }
 }
 

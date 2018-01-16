@@ -84,53 +84,30 @@ class BTDeviceService {
 //            .subscribeOn(MainScheduler.instance)
     }
     
+    func register(observable : Observable<Peripheral>) -> Observable<Bool> {
+        return observable.flatMap { peripheral in
+            return self.saveDevice(device: peripheral)
+        }
+    }
 
-    
-//    func connect(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
-//        return self.manager.connect(scannedPeripheral.peripheral)
-//            .catchError { error in
-//                logVerbose(error.localizedDescription)
-//                throw DeviceError.paringFailed
-//            }
-//    }
-//
-//    func setService(scannedPeripheral : ScannedPeripheral) -> Observable<Service> {
-//        do {
-//            let connection = try self.connect(scannedPeripheral: scannedPeripheral)
-//            return connection
-//                .flatMap { $0.discoverServices([self.boostServiceUUID]) }
-//                .flatMap { Observable.from($0) }
-//        } catch let error {
-//            return Observable.error(error)
-//        }
-//    }
-//
-//    func setChracteristic(scannedPeripheral : ScannedPeripheral) -> Observable<Characteristic> {
-//        do {
-//            let connection = try self.setService(scannedPeripheral: scannedPeripheral)
-//            return connection
-//                .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
-//                .flatMap { Observable.from($0) }
-//        } catch let error {
-//            return Observable.error(error)
-//        }
-//    }
-    
     func disconnectDevice(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
         return self.manager.monitorDisconnection(for: scannedPeripheral.peripheral)
     }
     
-    func saveDevice(device : Peripheral?) -> Observable<Bool> {
+    private func saveDevice(device : Peripheral?) -> Observable<Bool> {
         
-        guard let device = device else { return Observable.empty() }
+        guard let device = device else { return .just(false) }
         
         let name = device.name
         let uuid = device.identifier.uuidString
         let dict = [name, uuid]
         
+        print("Save Device")
+        print(dict)
+        
         UserDefaults.standard.set(dict, forKey: DeviceKey)
         let isOk = UserDefaults.standard.synchronize()
-        return Observable.just(isOk)
+        return .just(isOk)
     }
     
     func loadDevice() -> BSTLocalDevice? {

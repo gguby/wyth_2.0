@@ -76,4 +76,26 @@ extension CommonUtil {
         }
         return nil
     }
+	
+	/// 최상위 뷰컨트롤러 반환.
+	///
+	/// - Parameter viewController:
+	/// - Returns:
+	func topVisibleViewController(_ viewController: UIViewController) -> UIViewController? {
+		let viewController = viewController ?? UIApplication.shared.keyWindow?.rootViewController
+		
+		if let navigationController = viewController as? UINavigationController,
+			let last = navigationController.viewControllers.last  {
+			return topVisibleViewController(last)
+		}
+		else if let tabBarController = viewController as? UITabBarController,
+			let selectedController = tabBarController.selectedViewController {
+			return topVisibleViewController(selectedController)
+		}
+		else if let presentedController = viewController?.presentedViewController {
+			return topVisibleViewController(presentedController)
+		}
+		
+		return viewController
+	}
 }
