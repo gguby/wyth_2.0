@@ -169,9 +169,10 @@ extension LogInViewController {
 			//var isFailed = false
 			// web preload
 			do {
-				let pathLogout = Definitions.externURLs.authLogout
-				_ = try String(contentsOf: pathLogout.asUrl!, encoding: String.Encoding.utf8)
-				
+//				let pathLogout = Definitions.externURLs.authLogout
+//				let aa = try String(contentsOf: pathLogout.asUrl!, encoding: String.Encoding.utf8)
+//
+//				logVerbose(aa)
 			} catch {
 				BSTFacade.ux.showToastError(BSTFacade.localizable.error.loginFailedCode(-1))
 				isFailed = true
