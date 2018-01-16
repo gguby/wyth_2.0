@@ -33,14 +33,16 @@ class IntroViewController: UIViewController {
         initProperties()
     }
     
-    /// initProperties() - Description:
+    /// ViewController 로딩 시, 프로퍼티 초기화
     private func initProperties() {
         let permissionSet = PermissionSet([.camera, .bluetooth, .notifications, .photos])
         permissionSet.delegate = self
         permissionSet.permissions.forEach { (permission) in
-            permission.request({ (status) in
-                print(status)
-            })
+            if permission.status == .notDetermined {//권한 체크 이력 확인,
+                permission.request({ (status) in  //각 권한별 요청
+                    print(status)
+                })
+            }
         }
     }
 	
@@ -138,22 +140,6 @@ extension IntroViewController {
 
 	}
 	
-}
-
-extension IntroViewController: PermissionSetDelegate {
-    
-    func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
-        print("Will request \(permission)")
-    }
-    
-    func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
-        switch permissionSet.status {
-        case .authorized:    print("all the permissions are granted")
-        case .denied:        print("at least one permission is denied")
-        case .disabled:      print("at least one permission is disabled")
-        case .notDetermined: print("at least one permission is not determined")
-        }
-    }
 }
 
 extension IntroViewController {
@@ -260,3 +246,25 @@ extension IntroViewController {
 		BSTFacade.go.login(self, animated: false)
 	}
 }
+
+/// 권한처리 수신자
+extension IntroViewController: PermissionSetDelegate {
+    
+    func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
+        //        logDebug("Will request \(permission)")
+    }
+    
+    func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
+        switch permissionSet.status {
+        case .authorized:
+            logDebug("all the permissions are granted")
+        case .denied:
+            logDebug("at least one permission is denied")
+        case .disabled:
+            logDebug("at least one permission is disabled")
+        case .notDetermined:
+            logDebug("at least one permission is not determined")
+        }
+    }
+}
+

@@ -29,12 +29,12 @@ class MenuViewController: UIViewController {
         self.prepareViewDidLoad()
     }
 
-
+    /// ViewController 로딩 시, 프로퍼티 초기화
     private func initProperties() {
 
     }
 
-
+    /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
         diagonalImageView.transform = diagonalImageView.transform.rotated(by: CGFloat.init(M_PI))
     }

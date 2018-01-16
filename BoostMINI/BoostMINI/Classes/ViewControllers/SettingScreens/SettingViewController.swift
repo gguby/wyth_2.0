@@ -35,12 +35,12 @@ class SettingViewController: UIViewController {
 		userNameLabel.text = SessionHandler.shared.name
     }
 
-
+    /// ViewController 로딩 시, 프로퍼티 초기화
     private func initProperties() {
         skinCollectionView.allowsMultipleSelection = false
     }
 
-
+    /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
         updateSettingInformation()
     }

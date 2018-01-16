@@ -65,6 +65,7 @@ class LogInViewController: UIViewController {
 	
 	
 	var disposeBag = DisposeBag()
+    /// ViewController 로딩 시, UIControl 초기화
 	private func initUI() {
 		loginLabel.text = BSTFacade.localizable.login.smLoginText()
 		cacheLoginButtonBottomConstraint = loginButtonBottomConstraint.constant

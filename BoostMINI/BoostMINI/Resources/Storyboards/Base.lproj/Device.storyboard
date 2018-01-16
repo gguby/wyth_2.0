@@ -27,6 +27,10 @@
                                 <rect key="frame" x="0.0" y="67" width="375" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYY-s4-wdx">
+                                <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-Hf-mG9" userLabel="titleView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="47"/>
                                 <subviews>
@@ -63,8 +67,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="PYY-s4-wdx" firstAttribute="top" secondItem="0qI-Hf-mG9" secondAttribute="bottom" id="4fc-om-3ls"/>
+                            <constraint firstItem="PYY-s4-wdx" firstAttribute="bottom" secondItem="rAh-T8-ESk" secondAttribute="bottom" id="8BM-dH-hsv"/>
                             <constraint firstItem="HRj-kQ-YYn" firstAttribute="trailing" secondItem="rAh-T8-ESk" secondAttribute="trailing" id="8Iw-eT-oZQ"/>
+                            <constraint firstItem="PYY-s4-wdx" firstAttribute="trailing" secondItem="rAh-T8-ESk" secondAttribute="trailing" id="Ciu-9V-Geb"/>
                             <constraint firstItem="HRj-kQ-YYn" firstAttribute="top" secondItem="0qI-Hf-mG9" secondAttribute="bottom" id="Fgw-1g-H8B"/>
+                            <constraint firstItem="PYY-s4-wdx" firstAttribute="leading" secondItem="rAh-T8-ESk" secondAttribute="leading" id="Pui-86-fu8"/>
                             <constraint firstItem="xVD-UY-MoG" firstAttribute="top" secondItem="0qI-Hf-mG9" secondAttribute="bottom" id="cea-yP-j9a"/>
                             <constraint firstItem="0qI-Hf-mG9" firstAttribute="top" secondItem="rAh-T8-ESk" secondAttribute="top" id="f9p-LH-N1Y"/>
                             <constraint firstItem="HRj-kQ-YYn" firstAttribute="leading" secondItem="rAh-T8-ESk" secondAttribute="leading" id="fxJ-wa-rau"/>

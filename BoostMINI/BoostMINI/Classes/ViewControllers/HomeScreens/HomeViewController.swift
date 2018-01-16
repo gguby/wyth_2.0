@@ -68,7 +68,7 @@ class HomeViewController: UIViewController {
         self.prepareViewDidLoad()
     }
     
-    
+    /// ViewController 로딩 시, 프로퍼티 초기화
     private func initProperties() {
         SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
         
@@ -76,7 +76,7 @@ class HomeViewController: UIViewController {
         SideMenuManager.default.menuFadeStatusBar = false
     }
     
-    
+    /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
 		if #available(iOS 10.0, *) {
 			layout()

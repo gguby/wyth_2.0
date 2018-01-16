@@ -67,12 +67,12 @@ class NotificationViewController: UIViewController, NotificationView {
         self.prepareViewDidLoad()
     }
 
-
+    /// ViewController 로딩 시, 프로퍼티 초기화
     private func initProperties() {
         self.presenter = NotificationPresenter(view: self)
     }
 
-
+    /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
 
     }

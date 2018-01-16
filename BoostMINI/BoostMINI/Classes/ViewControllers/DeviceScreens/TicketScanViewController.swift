@@ -62,9 +62,9 @@ class TicketScanViewController: UIViewController {
         
         Permission.camera.rx.permission.subscribe(onNext: { (status: PermissionStatus) in
             switch status {
-            case .authorized:
+            case .authorized:   //권한 승인 시
                 self.prepareScan()
-            case .denied, .disabled:
+            case .denied, .disabled: //권한 없을 경우,
                 PermissionError.disableCamera.cook()
             default:
                 break
@@ -77,7 +77,7 @@ class TicketScanViewController: UIViewController {
         
     }
 
-
+    /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
 
     }
