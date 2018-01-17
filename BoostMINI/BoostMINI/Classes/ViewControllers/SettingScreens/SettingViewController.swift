@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AlamofireImage
 
 class SettingViewController: UIViewController {
 
@@ -21,12 +22,10 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var withdrawButton: UIButton!
     
     // MARK: - * properties --------------------
-    var selectedIndexPath: IndexPath = [] {
-        didSet {
-            skinCollectionView.reloadData()
-        }
-    }
-
+    
+    var skinDatas : [Skin]? = []
+    
+    
     // MARK: - * Initialize --------------------
 
     override func viewDidLoad() {
@@ -47,6 +46,7 @@ class SettingViewController: UIViewController {
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
         updateSettingInformation()
+        updateVersionInfo()
     }
 
 
@@ -56,22 +56,22 @@ class SettingViewController: UIViewController {
 
     // MARK: - * Main Logic --------------------
     func updateSettingInformation() {
-        DefaultAPI.getSettingsUsingGET { (response, error) in
+        DefaultAPI.getSettingsUsingGET { (response, _) in
             guard let data = response else {
                 return
             }
-            for skin in data.skins! {
-                if skin.select == true {
-                    self.skinCollectionView.selectItem(at: IndexPath(item: skin.id as! Int, section: 0), animated: true, scrollPosition: .bottom)
-                }
+            if let skins = data.skins {
+                self.skinDatas = skins
             }
             self.userNameLabel.text = data.userName
             self.notificationSwitch.setOn(data.alarm!, animated: false)
+            
+            self.skinCollectionView.reloadData()
         }
     }
     
-    func updateVersionInfo(){
-        DefaultAPI.getVersionUsingGET { (response, error) in
+    func updateVersionInfo() {
+        DefaultAPI.getVersionUsingGET { (response, _) in
             guard let data = response else {
                 return
             }
@@ -87,14 +87,14 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: UIButton) {
-        DefaultAPI.signoutUsingDELETE { (error) in
-            SessionHandler.shared.logout()
+        DefaultAPI.signoutUsingDELETE { _ in
+			SessionHandler.shared.logout()
         }
     }
     
     @IBAction func withdrawAccount(_ sender: UIButton) {
-        DefaultAPI.withdrawUsingDELETE { (error) in
-            SessionHandler.shared.logout()
+        DefaultAPI.withdrawUsingDELETE { _ in
+			SessionHandler.shared.logout()
         }
     }
     
@@ -124,7 +124,12 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        
+        guard let array = self.skinDatas else {
+            return 0
+        }
+        
+        return array.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -133,27 +138,38 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
         var borderColor: CGColor! = UIColor.clear.cgColor
         var borderWidth: CGFloat = 0
         
-        if indexPath == selectedIndexPath {
-            borderColor = R.clr.boostMini.commonBgPoint().cgColor
-            borderWidth = 2 //or whatever you please
-            cell.selectImageView.isHidden = false
-        } else {
-            borderColor = UIColor.clear.cgColor
-            borderWidth = 0
-            cell.selectImageView.isHidden = true
+        if let skins = self.skinDatas {
+            cell.imageView.af_setImage(withURL: URL.init(string: skins[indexPath.row].url!)!)
+            if skins[indexPath.row].select == true {
+                borderColor = R.clr.boostMini.commonBgPoint().cgColor
+                borderWidth = 2 //or whatever you please
+                cell.selectImageView.isHidden = false
+            } else {
+                borderColor = UIColor.clear.cgColor
+                borderWidth = 0
+                cell.selectImageView.isHidden = true
+            }
+            
         }
         
         cell.imageView.layer.borderWidth = borderWidth
         cell.imageView.layer.borderColor = borderColor
+        
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        selectedIndexPath = indexPath
+        if let skins = self.skinDatas {
+            DefaultAPI.postSkinsUsingPOST(select: Int32(indexPath.row), completion: { (response, error) in
+                guard let data = response else {
+                    return
+                }
+            })
+        }
         
-        DefaultAPI.postSkinsUsingPOST(select: Int32(selectedIndexPath.row))
+        
     }
 
 }
