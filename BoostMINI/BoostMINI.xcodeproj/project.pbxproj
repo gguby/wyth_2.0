@@ -335,6 +335,7 @@
 		2B77AFB72005E8CC004434D1 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB62005E8CC004434D1 /* Storyboard.swift */; };
 		2B77AFBA2005EA6B004434D1 /* TicketScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */; };
 		2B77AFBD20087E53004434D1 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFBC20087E53004434D1 /* PermissionManager.swift */; };
+		2BCCF08E200F24C5007AAD47 /* BSTClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCF08D200F24C5007AAD47 /* BSTClosure.swift */; };
 		2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF341651FFB7A3F00FDA12E /* Notification.storyboard */; };
 		8F391FFD1FFF415300A46996 /* HelpWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */; };
 		8F3920021FFF70AD00A46996 /* ConcertInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6290C21FFCADD600689B91 /* ConcertInformationView.swift */; };
@@ -525,6 +526,7 @@
 		2B77AFB62005E8CC004434D1 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScanViewController.swift; sourceTree = "<group>"; };
 		2B77AFBC20087E53004434D1 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		2BCCF08D200F24C5007AAD47 /* BSTClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTClosure.swift; sourceTree = "<group>"; };
 		2BF341651FFB7A3F00FDA12E /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		304041C0256C37C0B073056D /* Pods-BoostMINIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		48A5E026AA7FED66F3366494 /* Pods-BoostMINITests.product.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINITests.product.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINITests/Pods-BoostMINITests.product.xcconfig"; sourceTree = "<group>"; };
@@ -762,6 +764,7 @@
 				2B5AA0661FEA6178007441E1 /* UX */,
 				2B5AA0671FEA6178007441E1 /* ViewControllers */,
 				2B5AA06D1FEA6178007441E1 /* Debug */,
+				2BCCF08C200F2496007AAD47 /* BSTCommon */,
 				2B61F03C1FDFA49500581F06 /* AppDelegate.swift */,
 				2B5AA0781FEA6293007441E1 /* BSTFacade.swift */,
 				2B5AA07A1FEA6299007441E1 /* Common.swift */,
@@ -1014,6 +1017,14 @@
 				A63F1A3120059D3A0079046D /* ConcertInfoView.swift */,
 			);
 			path = DeviceScreens;
+			sourceTree = "<group>";
+		};
+		2BCCF08C200F2496007AAD47 /* BSTCommon */ = {
+			isa = PBXGroup;
+			children = (
+				2BCCF08D200F24C5007AAD47 /* BSTClosure.swift */,
+			);
+			path = BSTCommon;
 			sourceTree = "<group>";
 		};
 		2EE09B09515DCC1DC99E3DE7 /* Frameworks */ = {
@@ -1656,6 +1667,7 @@
 				2B77AFBD20087E53004434D1 /* PermissionManager.swift in Sources */,
 				8F9A7CD020035F0E003BABB1 /* TextViewWithInsets.swift in Sources */,
 				0483853620035641007DE69B /* AlamofireImplementations.swift in Sources */,
+				2BCCF08E200F24C5007AAD47 /* BSTClosure.swift in Sources */,
 				0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
 				0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				A6F3507520035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
