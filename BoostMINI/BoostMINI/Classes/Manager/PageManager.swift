@@ -46,16 +46,13 @@ extension BST {
 		}
         
         func device(_ currentVC : UIViewController? = nil, type : ReactorViewType) {
-            guard let vc = R.storyboard.btDevice().instantiateInitialViewController() else {
-                BSTError.debugUI(.storyboard("btDevice.initialViewController"))
-                    .cookError()
+            guard let vc = BSTFacade.ux.instantiateViewController(typeof: BTDeviceViewController.self) else {
                 return
             }
-            var deviceVC = vc as! BTDeviceViewController
             let reactor = DeviceViewReactor.init(service: BTDeviceService.init())
             reactor.viewType = type
-            deviceVC.reactor = reactor
-            currentVC?.navigationController?.pushViewController(deviceVC, animated: true)
+            vc.reactor = reactor
+            currentVC?.navigationController?.pushViewController(vc, animated: true)
         }
 		
 		
