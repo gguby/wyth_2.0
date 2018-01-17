@@ -18,21 +18,7 @@ class BSTUXHanlder {
     
     // MARK: - * properties --------------------
 	fileprivate let toast = ToastManager()
-
-
-	/// 공용 액션(클로져)
-	open class Actions: NSObject {
-		public typealias emptyAction = () -> Void
-		
-		public typealias boolAction = (Bool) -> Void
-		public typealias intAction  = (Int) -> Void
-		public typealias anyAction  = (Any) -> Void
-		
-		public typealias boolOptionalAction = (Bool?) -> Void
-		public typealias intOptionalAction  = (Int?) -> Void
-		public typealias anyOptionalAction  = (Any?) -> Void
-
-	}
+    
     // MARK: - * IBOutlets --------------------
 
     // MARK: - * Initialize --------------------
@@ -92,7 +78,7 @@ class BSTUXHanlder {
 	///   - message: 메시지
 	///   - completion: 알럿창을 닫으면 호출됨.
 	///
-	open func showAlert(_ message: String, _ completion: @escaping Actions.emptyAction = { }) {
+	open func showAlert(_ message: String, _ completion: @escaping BSTClosure.emptyAction = { }) {
 		SystemAlert.show(nil, message: message, buttons: [AlertButtons.ok]) { fin in
 			completion()
 		}
@@ -103,7 +89,7 @@ class BSTUXHanlder {
 	/// - Parameters:
 	///   - message: 메시지
 	///   - completion: 알럿창을 닫으면 호출될 클로져 블록. (true = ok, cancel = false 가 반환되고, 기타 알 수 없는 상황에서는 nil이 반환될 수 있음.
-	open func showConfirm(_ message: String, _ completion: @escaping Actions.boolOptionalAction = { _ in }) {
+	open func showConfirm(_ message: String, _ completion: @escaping BSTClosure.boolOptionalAction = { _ in }) {
 		SystemAlert.show(nil, message: message, buttons: [.ok, .cancel]) { index in
 			switch(index) {
 			case 0:
@@ -129,7 +115,7 @@ class BSTUXHanlder {
 	open func showAlert(_ message: String,
 						title: String? = nil,
 						buttons: AlertButtonSet = [.ok],
-						_ completion: @escaping Actions.intAction = { _ in }) {
+						_ completion: @escaping BSTClosure.intAction = { _ in }) {
 		SystemAlert
 			.show(title, message: message, buttons: buttons, completion: { index in
 				completion(index)
@@ -141,7 +127,7 @@ class BSTUXHanlder {
 	open func showAlert(_ message: String? = nil,
 						title: String? = nil,
 						buttons: AlertButtonSet,
-						completions: [Actions.emptyAction]) {
+						completions: [BSTClosure.emptyAction]) {
 		SystemAlert
 			.show(title, message: message, buttons: buttons, completion: { index in
 				
