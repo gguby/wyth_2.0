@@ -10,11 +10,11 @@ import UIKit
 import Permission
 
 extension Permission {
-	static var base: [Permission] {
+	static var defaultSet: [Permission] {
 
 		if BSTDeviceType.isSimulator {
-			// 시뮬은 블루투스, 푸쉬를 지원안함
-			return [.camera, .photos]
+			// 시뮬은 블루투스, 푸쉬를 지원안함, 카메라도 안할텐데요?
+			return [.photos]
 		}
 
 		return [.camera, .bluetooth, .notifications, .photos]
