@@ -88,13 +88,13 @@ class SettingViewController: UIViewController {
     
     @IBAction func logout(_ sender: UIButton) {
         DefaultAPI.signoutUsingDELETE { (error) in
-            
+            SessionHandler.shared.logout()
         }
     }
     
     @IBAction func withdrawAccount(_ sender: UIButton) {
         DefaultAPI.withdrawUsingDELETE { (error) in
-            
+            SessionHandler.shared.logout()
         }
     }
     
