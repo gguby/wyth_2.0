@@ -193,7 +193,7 @@
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uuu-Xb-FDc" kind="show" identifier="deviceSegue" id="We4-h8-Xfl"/>
+                                    <action selector="goDevice:" destination="KFb-Aw-ybA" eventType="touchUpInside" id="TTU-DE-nmB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tla-l2-1UC">
@@ -675,14 +675,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUB-5G-269" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2152.8000000000002" y="-374.66266866566718"/>
-        </scene>
-        <!--BTDevice-->
-        <scene sceneID="RZ3-L0-q8E">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BTDevice" id="uuu-Xb-FDc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dyz-bD-MQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2828" y="-503"/>
         </scene>
         <!--Concert Information View Controller-->
         <scene sceneID="UWh-KX-Hy3">

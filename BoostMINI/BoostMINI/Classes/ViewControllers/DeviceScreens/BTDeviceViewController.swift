@@ -68,7 +68,7 @@ class BTDeviceViewController : UIViewController, StoryboardView {
     }
     
     func initViewManagement(reactor: DeviceViewReactor) -> Bool {
-        if reactor.viewType == .Login { return false }
+        if reactor.viewType == .initialize { return false }
         
         self.rx.viewDidAppear
             .map { _ in Reactor.Action.manageMentInit }
