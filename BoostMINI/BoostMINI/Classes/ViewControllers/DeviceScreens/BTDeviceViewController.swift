@@ -75,12 +75,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        self.backBtn.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
-        
         self.resetBtn.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else { return }
