@@ -50,7 +50,7 @@ extension BSTUXHanlder {
 
 	
 	internal class SystemAlertViewController: UIViewController {
-		var presentedStatusBarStyle = UIStatusBarStyle.default
+		var presentedStatusBarStyle = UIStatusBarStyle.lightContent
 		// 현재스타일로 함께 사용.
 		var isStatusBarHidden = false
 

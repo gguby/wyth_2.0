@@ -19,8 +19,6 @@ class TicketScanViewController: UIViewController {
     var captureSession = AVCaptureSession()
     
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var qrCodeFrameView: UIView?
-    
     var disposeBag = DisposeBag()
     
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
@@ -39,7 +37,11 @@ class TicketScanViewController: UIViewController {
 
     // MARK: - * IBOutlets --------------------
 
+    @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var dimView: UIView!
+    @IBOutlet weak var holeView: UIView!
+    
     @IBOutlet weak var btnBack: UIButton! {
         willSet(v) {
             v.rx.tap.bind { [weak self] in
@@ -79,7 +81,9 @@ class TicketScanViewController: UIViewController {
 
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
-
+        var frame = holeView.frame
+//        frame.origin.y += titleView.frame.height
+        self.setMask(with: frame, in: dimView)
     }
 
 
@@ -88,12 +92,29 @@ class TicketScanViewController: UIViewController {
     }
 
     // MARK: - * Main Logic --------------------
+    func setMask(with hole: CGRect, in view: UIView) {
+        
+        // Create a mutable path and add a rectangle that will be h
+        let mutablePath = CGMutablePath()
+        mutablePath.addRect(view.bounds)
+        mutablePath.addRect(hole)
+        
+        // Create a shape layer and cut out the intersection
+        let mask = CAShapeLayer()
+        mask.path = mutablePath
+        mask.fillRule = kCAFillRuleEvenOdd
+        
+        // Add the mask to the view
+        view.layer.mask = mask
+    }
+    
     func prepareScan() {
         guard BSTDeviceType.isSimulator == false else {
             BSTFacade.ux.showToast("this is only for device.")
 			DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 //goto next view.
-                
+                BSTFacade.ux.showToast("1초후에 다음 화면으로 넘어갑니다. 시뮬레이터라서,,")
+                self.finishScan(code: "isSimulator")
             }
             return
         }
@@ -141,27 +162,16 @@ class TicketScanViewController: UIViewController {
         
         // Start video capture.
         captureSession.startRunning()
-        
-        // Move the message label and top bar to the front
-//        view.bringSubview(toFront: messageLabel)
-//        view.bringSubview(toFront: topbar)
-        
-        // Initialize QR Code Frame to highlight the QR code
-        qrCodeFrameView = UIView()
-        
-        if let qrCodeFrameView = qrCodeFrameView {
-            qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-            qrCodeFrameView.layer.borderWidth = 2
-            view.addSubview(qrCodeFrameView)
-            view.bringSubview(toFront: qrCodeFrameView)
-        }
     }
     
     private func finishScan(code: String) {
         //1. verify barcode to server
         
-        //2. if ok, present ticketViewController
-        
+        //2. if ok, present ticketConfirmViewController
+        guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketConfirmViewController.self) else {
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     // MARK: - * UI Events --------------------
@@ -182,22 +192,23 @@ extension TicketScanViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRect.zero
-//            messageLabel.text = "No QR code is detected"
+            BSTError.ticket(.scanFailed).cookError()
             return
         }
         
         // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
-        if supportedCodeTypes.contains(metadataObj.type) {
-            // If the found metadata is equal to the QR code metadata (or barcode) then update the status label's text and set the bounds
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
+        if let metadataObj = metadataObjects[0] as? AVMetadataMachineReadableCodeObject {
+            #if DEBUG
+                BSTFacade.ux.showToast("found some codes.")
+            #endif
             
-            if let code = metadataObj.stringValue {
-                self.finishScan(code: code)
+            if supportedCodeTypes.contains(metadataObj.type) {
+                // If the found metadata is equal to the QR code metadata (or barcode) then update the status label's text and set the bounds
+                if let code = metadataObj.stringValue {
+                    self.finishScan(code: code)
+                }
             }
         }
+        
     }
 }

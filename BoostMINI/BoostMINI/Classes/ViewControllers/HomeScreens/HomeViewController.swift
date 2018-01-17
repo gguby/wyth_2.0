@@ -170,7 +170,7 @@ class HomeViewController: UIViewController {
             
             UIView.animate(withDuration: 0.70, animations: { () -> Void in
                 UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                self.navigationController?.pushViewController(vc, animated: false)
+                self.navigationController?.pushViewController(vc, animated: true)
             })
         }
     }
@@ -229,6 +229,12 @@ class HomeViewController: UIViewController {
         }
         transitionAnimator.startAnimation()
 
+    }
+    
+    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
+        if unwindSegue.identifier == "TicketConfirmViewControllerExit" {
+            
+        }
     }
     
     

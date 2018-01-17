@@ -11,7 +11,6 @@ import UIKit
 
 class ConcertInformationView: UIView {
     @IBOutlet weak var concertInfoView: UIView!
-    @IBOutlet weak var backgroundView: UIView!
     
     @IBOutlet weak var ddayLabel: UILabel!
     @IBOutlet weak var concertNameLabel: UILabel!
@@ -86,7 +85,7 @@ class ConcertInformationView: UIView {
     }
     
     func updateSmallConcertInfoview() {
-        self.backgroundView.isHidden = false
+        self.concertInfoView.alpha = 0.7
         
         self.ddayLabel.font =  self.ddayLabel.font.withSize(12)
         self.ddayLabelWidthConstant.constant = 50
@@ -103,7 +102,7 @@ class ConcertInformationView: UIView {
      }
     
     func updateDefaultConcertInforView() {
-         self.backgroundView.isHidden = true
+        self.concertInfoView.alpha = 1
         
         self.ddayLabel.font =  self.ddayLabel.font.withSize(15)
         self.ddayLabelWidthConstant.constant = 60
