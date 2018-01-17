@@ -109,8 +109,8 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: UIButton) {
-        DefaultAPI.signoutUsingDELETE { (_) in
-            BSTFacade.go.login()
+        DefaultAPI.signoutUsingDELETE { _ in
+			SessionHandler.shared.logout()
         }
     }
     
@@ -119,10 +119,11 @@ class SettingViewController: UIViewController {
             .showConfirm("Boost for TVXQ!를 정말 탈퇴 하시겠습니까?") { (bool) in
                 if bool == true {
                     DefaultAPI.withdrawUsingDELETE { (_) in
-                         BSTFacade.go.login()
+                         SessionHandler.shared.logout()
                     }
                 }
             }
+
     }
     
     @IBAction func updateApp(_ sender: UIButton) {
