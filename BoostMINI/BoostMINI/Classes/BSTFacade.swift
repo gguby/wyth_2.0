@@ -10,21 +10,24 @@ import Foundation
 import UIKit
 
 class BSTFacade {
+    // MARK: - * typedef --------------------
+    
+    
+    // MARK: - * properties --------------------
     static let ux = BSTUXHanlder()
     
     static let device = DeviceManager()
-	
-	typealias theme = BST.Theme
-	typealias localizable = BST.Localizable
+    
+    typealias theme = BST.Theme
+    typealias localizable = BST.Localizable
 
-	typealias common = CommonUtil
-	static let go = BST.PageManager.shared
+    typealias common = CommonUtil
+    static let go = BST.PageManager.shared
 
-    // MARK: * properties --------------------
 
-    // MARK: * IBOutlets --------------------
+    // MARK: - * IBOutlets --------------------
 
-    // MARK: * Initialize --------------------
+    // MARK: - * Initialize --------------------
 
     private init() {
 
