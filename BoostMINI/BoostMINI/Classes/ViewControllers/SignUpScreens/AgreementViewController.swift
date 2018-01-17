@@ -149,23 +149,12 @@ class AgreementController: UIViewController {
 	}
 	
 	
-	var registerCount: Int = 0
-	var registerAuthorizedCount: Int = 0
 	func register() {
 		
 		// intro에 있던 것.
-		
-		let permissionSet = PermissionSet(Permission.base)
-		registerCount = permissionSet.permissions.count
-		registerAuthorizedCount = registerCount
-		
-		
-		permissionSet.delegate = self
-		permissionSet.permissions.forEach { (permission) in
-			permission.request({ (status) in
-				print(status)
-			})
-		}
+        PermissionManager.requestDeterminingPermission {
+            
+        }
 	}
 	
 	func registerPart2() {
@@ -191,30 +180,3 @@ class AgreementController: UIViewController {
 }
 
 
-
-extension AgreementController: PermissionSetDelegate {
-	
-	func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
-		print("Will request \(permission)")
-	}
-	
-	func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
-		
-		registerCount -= 1
-		switch permissionSet.status {
-		case .authorized:
-			registerAuthorizedCount -= 1
-			if registerAuthorizedCount == 0 {
-				// TODO: 모두 다 허용한 상태에 한 번만 들어오는 코드여야 한다. 이 방법이 맞는가?
-				registerPart2()
-			}
-			
-		case .denied:
-			break
-		case .disabled:
-			break
-		case .notDetermined:
-			break
-		}
-	}
-}
