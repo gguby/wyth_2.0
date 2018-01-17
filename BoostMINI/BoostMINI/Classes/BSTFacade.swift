@@ -13,7 +13,7 @@ class BSTFacade {
     static let ux = BSTUXHanlder()
     
     static let device = DeviceManager()
-	
+    
 	typealias theme = BST.Theme
 	typealias localizable = BST.Localizable
 
