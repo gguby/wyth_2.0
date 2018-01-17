@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TermsViewController: UIViewController {
+class TermsViewController: WebViewController {
 
     // MARK: - * properties --------------------
 
@@ -30,6 +30,8 @@ class TermsViewController: UIViewController {
         self.initProperties()
         self.initUI()
         self.prepareViewDidLoad()
+        
+        loadWebUrl("http://boostdev.lysn.com:8181/viewTerms?userId=1")
     }
 
     /// ViewController 로딩 시, 프로퍼티 초기화
@@ -54,14 +56,10 @@ class TermsViewController: UIViewController {
     }
 
     // MARK: - * Main Logic --------------------
-    func pop() {
-        self.navigationController?.popViewController(animated: true)
-    }
+ 
     
     // MARK: - * UI Events --------------------
-    @IBAction func back(_ sender: UIButton) {
-        pop()
-    }
+    
     
 
     // MARK: - * Memory Manage --------------------
@@ -84,5 +82,7 @@ extension TermsViewController : UITabBarDelegate {
             self.leftMotiveImageView.isHidden = true
             self.rightMotiveImageView.isHidden = false
         }
+        
+        loadWebUrl("http://boostdev.lysn.com:8181/viewTerms?userId=1")
     }
 }
