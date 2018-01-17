@@ -149,10 +149,17 @@ class AgreementController: UIViewController {
 	}
 	
 	
+	var registerCount: Int = 0
+	var registerAuthorizedCount: Int = 0
 	func register() {
 		
 		// intro에 있던 것.
+		
 		let permissionSet = PermissionSet(Permission.base)
+		registerCount = permissionSet.permissions.count
+		registerAuthorizedCount = registerCount
+		
+		
 		permissionSet.delegate = self
 		permissionSet.permissions.forEach { (permission) in
 			permission.request({ (status) in
@@ -168,10 +175,13 @@ class AgreementController: UIViewController {
 			back()
 			return
 		}
-		
+
+		// TODO: 퍼미션 체크가 전부 올바르게 되었고 통과를 하였는가?...1번만 호출되어야 한다.
+
 		BoostProfile
 			.register(token,
 					  registered: { profile in
+						
 						BSTFacade.go.home()
 		}) { error in
 			// TODO : error
@@ -189,9 +199,15 @@ extension AgreementController: PermissionSetDelegate {
 	}
 	
 	func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
+		
+		registerCount -= 1
 		switch permissionSet.status {
 		case .authorized:
-			registerPart2()
+			registerAuthorizedCount -= 1
+			if registerAuthorizedCount == 0 {
+				// TODO: 모두 다 허용한 상태에 한 번만 들어오는 코드여야 한다. 이 방법이 맞는가?
+				registerPart2()
+			}
 			
 		case .denied:
 			break
