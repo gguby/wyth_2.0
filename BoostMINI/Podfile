@@ -31,6 +31,7 @@ def open_sources
   #
   
   pod 'Alamofire', '~> 4.6'
+  pod 'AlamofireImage'
   #pod 'CodableAlamofire', '~> 1.1.0'	#// 내장 사용
   
   #
