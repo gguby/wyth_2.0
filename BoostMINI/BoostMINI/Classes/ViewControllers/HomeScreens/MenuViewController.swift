@@ -8,16 +8,21 @@
 
 import Foundation
 import UIKit
+import RxOptional
+import FLEX
 
 class MenuViewController: UIViewController {
 
     // MARK: - * properties --------------------
-
+    let disposeBag = DisposeBag()
 
     // MARK: - * IBOutlets --------------------
 
     @IBOutlet weak var diagonalImageView: UIImageView!
     
+    //for debugging
+    @IBOutlet weak var btnScan: UIButton!
+    @IBOutlet weak var btnDebug: UIButton!
     
     // MARK: - * Initialize --------------------
 
@@ -37,6 +42,18 @@ class MenuViewController: UIViewController {
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
         diagonalImageView.transform = diagonalImageView.transform.rotated(by: CGFloat.init(M_PI))
+        
+    #if DEBUG
+        btnScan.isHidden = false
+        btnScan.rx.tap.bind {
+            
+            }.disposed(by: disposeBag)
+        
+        btnDebug.isHidden = false
+        btnDebug.rx.tap.bind {
+            FLEXManager.shared().showExplorer()
+            }.disposed(by: disposeBag)
+    #endif
     }
 
 
