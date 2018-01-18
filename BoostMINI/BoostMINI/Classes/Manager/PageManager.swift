@@ -44,6 +44,16 @@ extension BST {
 			}
 			processTopPresent(currentVC, to: vc, animated: animated)
 		}
+        
+        func device(_ currentVC : UIViewController? = nil, type : ReactorViewType) {
+            guard let vc = BSTFacade.ux.instantiateViewController(typeof: BTDeviceViewController.self) else {
+                return
+            }
+            let reactor = DeviceViewReactor.init(service: BTDeviceService.init())
+            reactor.viewType = type
+            vc.reactor = reactor
+            currentVC?.navigationController?.pushViewController(vc, animated: true)
+        }
 		
 		
 		// alertview 따위를 모두 제거하..려는 목적으로 만듦.
@@ -109,3 +119,4 @@ extension BST {
 	}
 	
 }
+

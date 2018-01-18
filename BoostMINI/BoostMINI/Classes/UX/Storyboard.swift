@@ -15,6 +15,7 @@ enum Storyboard: String {
     case SignUp
     case Device
     case Notfication
+    case BTDevice
 
     
     /// 해당 ViewController Type을 스토리보드에서 인스턴스로 만들어 반환함.
@@ -67,6 +68,7 @@ enum BSTScreens {
 //    case home(Home)
 //    case signUp(SignUp)
     case device(Device)
+    case btDevice(BTDevice)
 //    case notfication(Notfication)
 //    case common(Common)
     
@@ -82,6 +84,14 @@ enum BSTScreens {
     enum Device: String, BSTUXProtocol {
         case ticketScan = "TicketScanViewController"
         case ticketConfirm = "TicketConfirmViewController"
+        
+        func find(className: String) -> Bool {
+            return self.rawValue == className
+        }
+    }
+    
+    enum BTDevice: String, BSTUXProtocol {
+        case btDeviceScan = "BTDeviceViewController"
         
         func find(className: String) -> Bool {
             return self.rawValue == className
@@ -107,6 +117,8 @@ enum BSTScreens {
             screen = BSTScreens.main(main)
         } else if let device = Device.init(rawValue: className) {
             screen = BSTScreens.device(device)
+        } else if let btDevice = BTDevice.init(rawValue: className) {
+            screen = BSTScreens.btDevice(btDevice)
         }
         
         return screen?.instantiate()
@@ -120,6 +132,8 @@ enum BSTScreens {
             vc = Storyboard.Main.instantiate(identifier.rawValue)
         case let .device(identifier):
             vc = Storyboard.Device.instantiate(identifier.rawValue)
+        case let .btDevice(identifier):
+            vc = Storyboard.BTDevice.instantiate(identifier.rawValue)
 //        case let .common(identifier):
 //            vc = Storyboard.Common.instantiate(identifier.rawValue)
         }

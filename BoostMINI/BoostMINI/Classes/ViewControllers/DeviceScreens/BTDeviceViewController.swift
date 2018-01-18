@@ -60,6 +60,8 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         self.stickImage.startAnimating()
         
         self.stickImage.alpha = 1.0
+        
+        self.registerBtn.backgroundColor = R.clr.boostMini.commonBgPoint()
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,18 +70,12 @@ class BTDeviceViewController : UIViewController, StoryboardView {
     }
     
     func initViewManagement(reactor: DeviceViewReactor) -> Bool {
-        if reactor.viewType == .Login { return false }
+        if reactor.viewType == .initialize { return false }
         
         self.rx.viewDidAppear
             .map { _ in Reactor.Action.manageMentInit }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
-        
-        self.backBtn.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
         
         self.resetBtn.rx.tap
             .subscribe(onNext: { [weak self] _ in
@@ -109,7 +105,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         
         self.cancelBtn.isHidden = true
         self.confirmBtn.isHidden = true
-        self.registerBtn.backgroundColor = R.clr.boostMini.commonBgPoint()
         
         return true
     }
@@ -136,24 +131,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
                 .bind(to: self.confirmBtn.rx.isHidden)
                 .disposed(by: self.disposeBag)
         }
-        
-        self.cancelBtn.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        self.confirmBtn.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        reactor.state.map { $0.contentMsg.content }
-            .subscribe(onNext: { text in
-                print(text)
-            })
-            .disposed(by: disposeBag)
         
         reactor.state.map { $0.contentMsg.content }
             .bind(to: self.contentLbl.rx.text)

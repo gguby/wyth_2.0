@@ -19,11 +19,6 @@ import RxBluetoothKit
 
 final class DeviceViewReactor : Reactor {
     
-    enum ReactorViewType {
-        case Login
-        case Management
-    }
-    
     typealias RDevice = R.string.device
     typealias RCommon = R.string.common
     
@@ -69,7 +64,7 @@ final class DeviceViewReactor : Reactor {
     
     fileprivate let device = BSTFacade.device
     
-    var viewType = ReactorViewType.Login
+    var viewType = ReactorViewType.initialize
     
     init(service : BTDeviceService) {
         self.service = service
@@ -168,4 +163,9 @@ enum ContentMessage {
             return RDevice.btContentNotRegistered()
         }
     }
+}
+
+enum ReactorViewType {
+    case initialize
+    case Management
 }

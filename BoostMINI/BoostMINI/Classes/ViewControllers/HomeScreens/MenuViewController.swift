@@ -54,14 +54,9 @@ class MenuViewController: UIViewController {
     
     // MARK: - * UI Events --------------------
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "deviceSegue" {
-            if let vc  = segue.destination as? BTDeviceViewController {
-                let reactor = DeviceViewReactor.init(service: BTDeviceService.init())
-                reactor.viewType = .Management
-                vc.reactor = reactor
-            }
-        }
+
+    @IBAction func goDevice(_ sender: Any) {
+        BSTFacade.go.device(self, type: ReactorViewType.Management)
     }
     
     @IBAction func goToYoutubeSite(_ sender: UIButton) {

@@ -114,6 +114,7 @@ class BTDeviceService {
         let array = UserDefaults.standard.array(forKey: DeviceKey) as? [String]
         guard let arr = array else { return nil }
         let localDevice = BSTLocalDevice.init(array: arr)
+    
         return localDevice
     }
 }

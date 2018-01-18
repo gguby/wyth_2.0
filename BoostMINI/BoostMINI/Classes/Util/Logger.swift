@@ -37,6 +37,7 @@ public func log(_ items: Any...,
 	Logger.push(level: level, message: Logger.join(items), context: nil, file: file, function: function, line: line)
 }
 
+/// for only debug scheme, any verbose
 public func logVerbose(_ items: Any...,
 	context: Any? = nil,
 	file: String = #file,
@@ -45,6 +46,7 @@ public func logVerbose(_ items: Any...,
 	Logger.push(level: .verbose, message: Logger.join(items), context: context, file: file, function: function, line: line)
 }
 
+/// for only debug scheme
 public func logDebug(_ items: Any...,
 	context: Any? = nil,
 	file: String = #file,
