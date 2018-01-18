@@ -13,7 +13,7 @@ import RxCocoa
 import RxSwift
 
 protocol NotificationView: class {
-    func setNotifications(notifications: [NotificationModel])
+    func setNotifications(notifications: [Notice])
 }
 
 //protocol NotificationViewPresenter {
@@ -24,18 +24,26 @@ protocol NotificationView: class {
 class NotificationPresenter {
 
     unowned let view: NotificationView
-    var notifications: [NotificationModel]?
+    var notices: [Notice]?
 //    let notification: NotificationModel?
     
     required init(view: NotificationView) {
         self.view = view
     }
     
-    func updateNotifications() {
+    func updateNotifications(lastId: Int, size: Int) {
         //reqeust api
 //        notifications = NotificationModel.getList() { results in
 //            self.view.setNotifications(notifications: notifications!)
 //        }
+        
+        DefaultAPI.getNoticesUsingGET(lastId: lastId.i64, size: size.i32) { [weak self] response, error in
+            guard let pageNotice = response, let list = pageNotice.list else {
+                return
+            }
+            
+//            self?.view.setNotifications(notifications: list.content)
+        }
     }
 }
 
@@ -43,7 +51,8 @@ class NotificationPresenter {
 class NotificationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var btnExpand: UIButton!
+    @IBOutlet weak var lblContent: UILabel!
+    @IBOutlet weak var imgvExpand: UIImageView!
 }
 
 
@@ -79,13 +88,13 @@ class NotificationViewController: UIViewController, NotificationView {
 
 
     func prepareViewDidLoad() {
-        self.presenter?.updateNotifications()
+        self.presenter?.updateNotifications(lastId: 0, size: BSTConstants.main.pageSize)
     }
 
     // MARK: * Main Logic --------------------
-    func setNotifications(notifications: [NotificationModel]) {
+    func setNotifications(notifications: [Notice]) {
         
-        let data = Observable<[NotificationModel]>.just(notifications)
+        let data = Observable<[Notice]>.just(notifications)
         data.bind(to: tableView.rx.items(cellIdentifier: "NotificationTableViewCell", cellType: NotificationTableViewCell.self)) { indexPath, notification, cell in
             cell.lblTitle.text = notification.title
         }.disposed(by: disposeBag)
