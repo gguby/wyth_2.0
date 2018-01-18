@@ -38,8 +38,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-Gr-f7c">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="imgTvxqIntro" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-Gr-f7c">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogoTvxq" translatesAutoresizingMaskIntoConstraints="NO" id="xwx-1G-eNj">
+                                <rect key="frame" x="20" y="46" width="193" height="139"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="FcA-IH-ix4"/>
+                                    <constraint firstAttribute="width" constant="193" id="x5T-g7-ez4"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2f-b3-VOc" customClass="TransitionButton" customModule="TransitionButton">
                                 <rect key="frame" x="42" y="529" width="291" height="47"/>
@@ -130,7 +139,9 @@
                         <constraints>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="trailing" secondItem="zy3-7H-KCJ" secondAttribute="trailing" id="1OM-Mx-RDU"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="width" secondItem="IyU-Jf-RZo" secondAttribute="width" id="A4d-PT-Mo7"/>
+                            <constraint firstItem="xwx-1G-eNj" firstAttribute="leading" secondItem="pct-yq-kql" secondAttribute="leading" constant="20" id="AFX-OZ-K8q"/>
                             <constraint firstItem="kxo-tm-e7t" firstAttribute="width" secondItem="I2f-b3-VOc" secondAttribute="width" id="AYQ-3w-rJB"/>
+                            <constraint firstItem="xwx-1G-eNj" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" constant="46" id="Fcg-YA-UML"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" id="FwM-zQ-coa"/>
                             <constraint firstAttribute="bottom" secondItem="Ypa-mP-mgc" secondAttribute="bottom" id="Heg-6e-U9H"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="top" secondItem="kxo-tm-e7t" secondAttribute="bottom" constant="40" id="Ktn-Yq-yDD"/>
@@ -209,7 +220,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-wx-dzS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="imgTvxqIntro" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-wx-dzS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Um8-Tf-HZ6">
@@ -405,13 +416,13 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                             <constraint firstItem="Um8-Tf-HZ6" firstAttribute="height" secondItem="SOI-wx-dzS" secondAttribute="height" id="7p4-L9-BRH"/>
                             <constraint firstItem="WdM-Z1-rCa" firstAttribute="top" secondItem="D9b-fA-00y" secondAttribute="top" constant="1" id="8dt-NN-FUT"/>
                             <constraint firstItem="D9b-fA-00y" firstAttribute="trailing" secondItem="WdM-Z1-rCa" secondAttribute="trailing" constant="13" id="D8M-KB-NOF"/>
-                            <constraint firstItem="a8K-1U-efo" firstAttribute="leading" secondItem="SOI-wx-dzS" secondAttribute="leading" constant="20" id="ESZ-IM-rkS"/>
+                            <constraint firstItem="a8K-1U-efo" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" constant="20" id="ESZ-IM-rkS"/>
                             <constraint firstItem="Um8-Tf-HZ6" firstAttribute="centerX" secondItem="SOI-wx-dzS" secondAttribute="centerX" id="HuV-ob-aTv"/>
                             <constraint firstItem="Nhq-Zi-uOP" firstAttribute="bottom" secondItem="0SZ-WZ-yrR" secondAttribute="bottom" id="RFj-ez-b7D"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="bottom" secondItem="0SZ-WZ-yrR" secondAttribute="bottom" id="Tc6-Ui-850"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="trailing" secondItem="0SZ-WZ-yrR" secondAttribute="trailing" id="ccd-bM-HL4"/>
                             <constraint firstItem="Um8-Tf-HZ6" firstAttribute="width" secondItem="SOI-wx-dzS" secondAttribute="width" id="lII-rw-VYv"/>
-                            <constraint firstItem="a8K-1U-efo" firstAttribute="top" secondItem="SOI-wx-dzS" secondAttribute="top" constant="46" id="mQu-Xc-ShS"/>
+                            <constraint firstItem="a8K-1U-efo" firstAttribute="top" secondItem="0SZ-WZ-yrR" secondAttribute="top" constant="46" id="mQu-Xc-ShS"/>
                             <constraint firstItem="Um8-Tf-HZ6" firstAttribute="centerY" secondItem="SOI-wx-dzS" secondAttribute="centerY" id="mys-1j-doy"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" id="u9d-Rh-QpS"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="top" secondItem="0SZ-WZ-yrR" secondAttribute="top" id="ubU-93-asX"/>
@@ -445,6 +456,6 @@ MUSIC NATION SMTOWN에서 제공받습니다.
         <image name="imgMotiveSplash" width="286" height="21"/>
         <image name="imgSmLogo" width="31" height="31"/>
         <image name="imgSplashLogoTvxq" width="193" height="139"/>
-        <image name="intro" width="295" height="525"/>
+        <image name="imgTvxqIntro" width="375" height="667"/>
     </resources>
 </document>
