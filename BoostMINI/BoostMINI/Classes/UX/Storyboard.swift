@@ -58,13 +58,17 @@ protocol BSTUXProtocol {
     func find(className: String) -> Bool
 }
 
-extension BSTUXProtocol {
-}
+//extension BSTUXProtocol where Self == BSTScreens.Main {
+//
+//    func find(className: String) -> Bool {
+//        return self.rawValue == className
+//    }
+//}
 
 enum BSTScreens {
     
     case main(Main)
-//    case home(Home)
+    case home(Home)
 //    case signUp(SignUp)
     case device(Device)
 //    case notfication(Notfication)
@@ -73,6 +77,14 @@ enum BSTScreens {
     
     enum Main: String, BSTUXProtocol {
         case intro = "IntroViewController"
+        
+        func find(className: String) -> Bool {
+            return self.rawValue == className
+        }
+    }
+    
+    enum Home: String, BSTUXProtocol {
+       case help = "HelpWebViewController"
         
         func find(className: String) -> Bool {
             return self.rawValue == className
@@ -120,6 +132,8 @@ enum BSTScreens {
             vc = Storyboard.Main.instantiate(identifier.rawValue)
         case let .device(identifier):
             vc = Storyboard.Device.instantiate(identifier.rawValue)
+        case let .home(identifier):
+            vc = Storyboard.Home.instantiate(identifier.rawValue)
 //        case let .common(identifier):
 //            vc = Storyboard.Common.instantiate(identifier.rawValue)
         }
