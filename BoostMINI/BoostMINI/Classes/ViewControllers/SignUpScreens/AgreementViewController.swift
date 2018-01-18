@@ -151,12 +151,13 @@ class AgreementController: UIViewController {
 	
 	func register() {
 		
-		// intro에 있던 것.
-        PermissionManager.requestDeterminingPermission {
-            
+		// 아이폰 - 카메라, 블루투스, notification 권한 요청
+        PermissionManager.requestDeterminingPermission { [weak self] in
+            self?.registerPart2()
         }
 	}
 	
+    ///회원가입 요청
 	func registerPart2() {
 		
 		guard let token = SessionHandler.shared.token else {
