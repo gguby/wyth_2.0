@@ -42,13 +42,7 @@ class TicketScanViewController: UIViewController {
     @IBOutlet weak var dimView: UIView!
     @IBOutlet weak var holeView: UIView!
     
-    @IBOutlet weak var btnBack: UIButton! {
-        willSet(v) {
-            v.rx.tap.bind { [weak self] in
-                self?.navigationController?.popViewController(animated: true)
-            }.disposed(by: disposeBag)
-        }
-    }
+    @IBOutlet weak var btnBack: UIButton!
     
     // MARK: - * Initialize --------------------
 
@@ -81,9 +75,7 @@ class TicketScanViewController: UIViewController {
 
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
-        var frame = holeView.frame
-//        frame.origin.y += titleView.frame.height
-        self.setMask(with: frame, in: dimView)
+        self.setMask(with: holeView.frame, in: dimView)
     }
 
 
@@ -171,7 +163,7 @@ class TicketScanViewController: UIViewController {
         guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketConfirmViewController.self) else {
             return
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
 
     // MARK: - * UI Events --------------------

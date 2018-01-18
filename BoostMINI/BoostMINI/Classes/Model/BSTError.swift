@@ -201,6 +201,7 @@ enum APIError: Int, Error, BSTErrorProtocol {
 enum TicketError: Error, BSTErrorProtocol {
     case scanFailed
     case noPermissionForCamera
+    case alreadyRegistred
     
     var description: String {
         var desc = ""
@@ -209,6 +210,8 @@ enum TicketError: Error, BSTErrorProtocol {
             desc = BSTFacade.localizable.error.ticketScanFailed()    //Resources/Strings/Error.strings에 정의함
         case .noPermissionForCamera:
             desc = BSTFacade.localizable.error.ticketNoPermissionForCamera()
+        case .alreadyRegistred:
+            desc = BSTFacade.localizable.error.ticketAlreadyRegistred()
         }
         return desc
     }
@@ -221,6 +224,18 @@ enum TicketError: Error, BSTErrorProtocol {
         case .noPermissionForCamera:
             BSTFacade.ux.showConfirm(self.description, { (_ ok: Bool?) in
                 //카메라 설정으로 이동함.
+                if ok ?? false {
+                    PermissionManager.openAppPermissionSettings()
+                }
+                
+            })
+        case .alreadyRegistred:
+            let title = BSTFacade.localizable.error.ticketAlreadyRegistredTitle()
+            BSTFacade.ux.showConfirm(self.description, title: title, { (_ ok: Bool?) in
+                //도움말 화면으로 이동함.
+                if ok ?? false {
+//                    BSTFacade.ux.
+                }
             })
         }
     }

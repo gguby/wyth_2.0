@@ -33,6 +33,9 @@
                                             <constraint firstAttribute="width" constant="47" id="tTR-LA-pcE"/>
                                         </constraints>
                                         <state key="normal" image="btnCommonBack"/>
+                                        <connections>
+                                            <segue destination="j3h-Dr-VyT" kind="unwind" identifier="TicketScanViewControllerExit" unwindAction="unwindFor:" id="nfQ-Vf-fYe"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바코드 스캔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na0-PF-Xai">
                                         <rect key="frame" x="137.66666666666666" y="10.666666666666663" width="101" height="26.333333333333329"/>
@@ -47,6 +50,13 @@
                                     <constraint firstItem="bZr-1x-p3H" firstAttribute="leading" secondItem="0qI-Hf-mG9" secondAttribute="leading" id="ZfG-B3-lQs"/>
                                     <constraint firstItem="Na0-PF-Xai" firstAttribute="centerY" secondItem="0qI-Hf-mG9" secondAttribute="centerY" id="bkJ-a5-54B"/>
                                     <constraint firstItem="Na0-PF-Xai" firstAttribute="centerX" secondItem="0qI-Hf-mG9" secondAttribute="centerX" id="iuc-YC-WFp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVD-UY-MoG" userLabel="line">
+                                <rect key="frame" x="0.0" y="91" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="7eS-fm-Flo"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRj-kQ-YYn">
@@ -117,15 +127,8 @@
                                     <constraint firstAttribute="bottom" secondItem="odq-AU-88e" secondAttribute="bottom" id="pdy-Rg-fkc"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVD-UY-MoG" userLabel="line">
-                                <rect key="frame" x="0.0" y="91" width="375" height="1"/>
-                                <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="7eS-fm-Flo"/>
-                                </constraints>
-                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="PYY-s4-wdx" firstAttribute="top" secondItem="0qI-Hf-mG9" secondAttribute="bottom" id="4fc-om-3ls"/>
                             <constraint firstItem="PYY-s4-wdx" firstAttribute="bottom" secondItem="rAh-T8-ESk" secondAttribute="bottom" id="8BM-dH-hsv"/>
@@ -151,10 +154,10 @@
                         <outlet property="dimView" destination="odq-AU-88e" id="6hK-04-yk5"/>
                         <outlet property="holeView" destination="ZQt-7w-W07" id="Pmv-9V-WHe"/>
                         <outlet property="titleView" destination="0qI-Hf-mG9" id="Pzm-7L-dRO"/>
-                        <segue destination="S0v-FX-Kof" kind="presentation" id="38k-3l-AhJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1Q-2h-2m1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="j3h-Dr-VyT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2912.8000000000002" y="360.2698650674663"/>
         </scene>
@@ -280,9 +283,9 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="7qE-Jk-VL3" secondAttribute="bottom" id="0Cy-hX-bzf"/>
                                     <constraint firstAttribute="trailing" secondItem="7qE-Jk-VL3" secondAttribute="trailing" id="4Mx-Ut-a2D"/>
-                                    <constraint firstItem="7qE-Jk-VL3" firstAttribute="width" secondItem="PnH-Rh-glW" secondAttribute="width" priority="1" placeholder="YES" id="CRv-zy-54q"/>
+                                    <constraint firstItem="7qE-Jk-VL3" firstAttribute="width" secondItem="PnH-Rh-glW" secondAttribute="width" priority="1" id="CRv-zy-54q"/>
                                     <constraint firstItem="7qE-Jk-VL3" firstAttribute="top" secondItem="PnH-Rh-glW" secondAttribute="top" id="cgL-Nq-Dr6"/>
-                                    <constraint firstItem="7qE-Jk-VL3" firstAttribute="height" secondItem="PnH-Rh-glW" secondAttribute="height" priority="1" placeholder="YES" id="eZZ-9O-db3"/>
+                                    <constraint firstItem="7qE-Jk-VL3" firstAttribute="height" secondItem="PnH-Rh-glW" secondAttribute="height" priority="1" id="eZZ-9O-db3"/>
                                     <constraint firstItem="7qE-Jk-VL3" firstAttribute="leading" secondItem="PnH-Rh-glW" secondAttribute="leading" id="q3I-83-mqF"/>
                                 </constraints>
                             </scrollView>
@@ -304,6 +307,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="scrollView" destination="PnH-Rh-glW" id="fN1-u9-Fxg"/>
                         <outlet property="ticketView" destination="4XP-Sj-vZa" id="H1K-q9-TgS"/>
                     </connections>
                 </viewController>

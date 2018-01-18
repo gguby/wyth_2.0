@@ -15,6 +15,7 @@ class TicketConfirmViewController: UIViewController {
     let disposeBag = DisposeBag()
 
     // MARK: - * IBOutlets --------------------
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var ticketView: ConcertInfoView!
     @IBOutlet weak var btnConnect: UIButton! {
         didSet {
@@ -43,7 +44,7 @@ class TicketConfirmViewController: UIViewController {
 
 
     private func initUI() {
-
+        scrollView.contentSize = self.view.bounds.size
     }
 
 
