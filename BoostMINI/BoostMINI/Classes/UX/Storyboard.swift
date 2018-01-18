@@ -131,6 +131,8 @@ enum BSTScreens {
             screen = BSTScreens.device(device)
         } else if let btDevice = BTDevice.init(rawValue: className) {
             screen = BSTScreens.btDevice(btDevice)
+        } else if let home = Home.init(rawValue: className) {
+            screen = BSTScreens.home(home)
         }
         
         return screen?.instantiate()
