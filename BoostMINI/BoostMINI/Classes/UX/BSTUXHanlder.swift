@@ -40,6 +40,17 @@ class BSTUXHanlder {
         return viewController as? T
     }
     
+    /// HelpWebViewController로 go
+    ///
+    /// - Parameter currentVC: 현재 ViewController
+    func goHelpWebViewController(currentViewController currentVC: UIViewController?) {
+        guard let vc = self.instantiateViewController(typeof: HelpWebViewController.self) else {
+            return
+        }
+        
+        currentVC?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 	
 	/// 토스트를 띄운다.
 	///

@@ -704,7 +704,7 @@
         <!--Help Web View Controller-->
         <scene sceneID="14J-er-94j">
             <objects>
-                <viewController id="0IN-aH-j1k" customClass="HelpWebViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpWebViewController" id="0IN-aH-j1k" customClass="HelpWebViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cAD-k6-2SB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
