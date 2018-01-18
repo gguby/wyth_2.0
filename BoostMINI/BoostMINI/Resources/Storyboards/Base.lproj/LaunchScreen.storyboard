@@ -18,14 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="qYM-d9-Rlw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="imgTvxqIntro" translatesAutoresizingMaskIntoConstraints="NO" id="qYM-d9-Rlw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogoTvxq" translatesAutoresizingMaskIntoConstraints="NO" id="9iG-0F-ZrI">
+                                <rect key="frame" x="20" y="46" width="193" height="139"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="har-nX-thO"/>
+                                    <constraint firstAttribute="width" constant="193" id="zhV-wT-314"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="9iG-0F-ZrI" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="46" id="P5n-0N-mc1"/>
                             <constraint firstItem="qYM-d9-Rlw" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="SR7-GJ-UdU"/>
+                            <constraint firstItem="9iG-0F-ZrI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="YFV-XK-5uU"/>
                             <constraint firstItem="qYM-d9-Rlw" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ces-Ov-sEt"/>
                             <constraint firstItem="qYM-d9-Rlw" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="iC3-SV-Jmm"/>
                             <constraint firstItem="qYM-d9-Rlw" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="kIE-bq-x5G"/>
@@ -39,6 +50,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="intro" width="295" height="525"/>
+        <image name="imgSplashLogoTvxq" width="193" height="139"/>
+        <image name="imgTvxqIntro" width="375" height="667"/>
     </resources>
 </document>

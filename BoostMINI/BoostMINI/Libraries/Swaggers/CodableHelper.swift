@@ -17,11 +17,10 @@ open class CodableHelper {
         var returnedError: Error? = nil
 
         let decoder = JSONDecoder()
-		decoder.dateDecodingStrategy = .formatted(DateFormatter.jsonDate)	 // It is necessary for correct decoding. Timestamp -> Date.
-		//	decoder.dataDecodingStrategy = .base64
-		//	if #available(iOS 10.0, *) {
-		//		decoder.dateDecodingStrategy = .iso8601
-		//	}
+        //decoder.dataDecodingStrategy = .base64
+        if #available(iOS 10.0, *) {
+            decoder.dateDecodingStrategy = .formatted(DateFormatter.jsonDate)	// .iso8601
+        }
 
         do {
             returnedDecodable = try decoder.decode(type, from: data)
@@ -38,11 +37,10 @@ open class CodableHelper {
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
-		encoder.dateEncodingStrategy = .formatted(DateFormatter.jsonDate)	 // It is necessary for correct decoding. Timestamp -> Date.
-//        encoder.dataEncodingStrategy = .base64
-//        if #available(iOS 10.0, *) {
-//            encoder.dateEncodingStrategy = .iso8601
-//        }
+        //encoder.dataEncodingStrategy = .base64
+        if #available(iOS 10.0, *) {
+            encoder.dateEncodingStrategy = .formatted(DateFormatter.jsonDate)	// .iso8601
+        }
 
         do {
             returnedData = try encoder.encode(value)

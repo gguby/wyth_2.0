@@ -126,14 +126,14 @@ class SMLoginViewController: WebViewController {
 extension SMLoginViewController {
 
 	func initNoti() {
-		for (kk, vv) in [
+		for (key, value) in [
 			BoostNotificationLogin.needRegister.name : #selector(self.receivedWelcome(notification:)),
 			BoostNotificationLogin.login.name : #selector(self.receivedLogin(notification:)),
 			BoostNotificationLogin.failed.name : #selector(self.receivedLoginFailed(notification:))
 			] {
 				NotificationCenter.default.addObserver(self,
-													   selector: vv,
-													   name:kk,
+													   selector: value,
+													   name:key,
 													   object: nil)
 		}
 	}
@@ -143,8 +143,8 @@ extension SMLoginViewController {
 		
 		// remove cookie
 		if let cookies = HTTPCookieStorage.shared.cookies {
-			cookies.forEach({cc in
-				HTTPCookieStorage.shared.deleteCookie(cc)
+			cookies.forEach({cookie in
+				HTTPCookieStorage.shared.deleteCookie(cookie)
 			})
 		}
 		

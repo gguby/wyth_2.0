@@ -34,7 +34,7 @@ extension BoostProfile {
 									   loginned: ((BoostProfile?) -> Void),
 									   welcome: (() -> Void),
 									   failed: ((Error?) -> Void)) {
-		// smtown 가족이지만, boost 회원이 아니면 906이 뜨더라. Invalid Token
+		// smtown 가족이지만, boost 회원이 아니면 960
 		logVerbose("\(#function) - \(error)")
 		if let code = BSTErrorTester.checkWhiteCode(error) {
 			//	201 : Created			-> 방금 회원가입한 것??
@@ -47,8 +47,8 @@ extension BoostProfile {
 				welcome()
 				
 			case 906:
-				// 존재하지않는 토큰... (404 나왔었던것같은데...)
-				failed(error)	// APIError에 906 없음...
+				// 토큰 만료.			// 존재하지않는 토큰... (404 나왔었던것같은데...)
+				failed(error)		// APIError에 906 없음...
 			case 960:
 				// smtown 가족이지만 가입 안된 케이스
 				welcome()

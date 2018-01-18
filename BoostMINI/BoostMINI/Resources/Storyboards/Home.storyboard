@@ -32,9 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-xi-nih">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTvxqMain" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-xi-nih">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="0.45098039220000002" green="0.24313725489999999" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yga-6p-3zX">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
@@ -204,11 +203,11 @@
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uuu-Xb-FDc" kind="show" identifier="deviceSegue" id="We4-h8-Xfl"/>
+                                    <action selector="goDevice:" destination="KFb-Aw-ybA" eventType="touchUpInside" id="TTU-DE-nmB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tla-l2-1UC">
-                                <rect key="frame" x="0.0" y="478" width="240" height="52"/>
+                                <rect key="frame" x="0.0" y="556" width="240" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="nd0-ts-jLo"/>
                                 </constraints>
@@ -221,14 +220,13 @@
                                     <action selector="goToYoutubeSite:" destination="KFb-Aw-ybA" eventType="touchUpInside" id="a0H-X3-f1i"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfj-35-mID">
-                                <rect key="frame" x="0.0" y="530" width="240" height="137"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfj-35-mID">
+                                <rect key="frame" x="0.0" y="608" width="240" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="137" id="T98-6C-Ls0"/>
+                                    <constraint firstAttribute="height" constant="59" id="T98-6C-Ls0"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="2ON-c6-XJR"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                <state key="normal" title="Image Button"/>
+                                <state key="normal" image="youtube"/>
                                 <connections>
                                     <action selector="goToYoutubeSite:" destination="KFb-Aw-ybA" eventType="touchUpInside" id="qtq-OO-gAT"/>
                                 </connections>
@@ -688,14 +686,6 @@
             </objects>
             <point key="canvasLocation" x="2152.8000000000002" y="-374.66266866566718"/>
         </scene>
-        <!--BTDevice-->
-        <scene sceneID="RZ3-L0-q8E">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BTDevice" id="uuu-Xb-FDc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dyz-bD-MQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2828" y="-503"/>
-        </scene>
         <!--Concert Information View Controller-->
         <scene sceneID="UWh-KX-Hy3">
             <objects>
@@ -811,8 +801,8 @@
                                         </constraints>
                                         <state key="normal" image="btnCommonBack"/>
                                         <connections>
-                                            <action selector="back:" destination="gjc-Th-eDM" eventType="touchUpInside" id="24B-o7-E60"/>
                                             <action selector="back:" destination="UuI-wl-XUt" eventType="touchUpInside" id="Jlp-Xr-dnv"/>
+                                            <action selector="back:" destination="gjc-Th-eDM" eventType="touchUpInside" id="RWo-4U-251"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용 약관 및 정책" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xe-YE-fE9">
@@ -831,74 +821,40 @@
                                     <constraint firstItem="IfQ-c2-vyS" firstAttribute="centerY" secondItem="EJx-TL-e1p" secondAttribute="centerY" id="uX5-wU-aJI"/>
                                 </constraints>
                             </view>
-                            <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="koD-7o-6AH">
-                                <rect key="frame" x="0.0" y="67" width="375" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMM-xY-49V" userLabel="line">
+                                <rect key="frame" x="0.0" y="67" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="HOU-Wb-UQq"/>
+                                    <constraint firstAttribute="height" constant="1" id="FtC-uz-pFQ"/>
                                 </constraints>
-                                <items>
-                                    <tabBarItem title="회원 이용 약관" id="DfV-Fz-eeB">
-                                        <color key="badgeColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
-                                    </tabBarItem>
-                                    <tabBarItem tag="1" title="개인정보 처리방침" id="6se-1C-BWf">
-                                        <color key="badgeColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
-                                    </tabBarItem>
-                                </items>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="delegate" destination="gjc-Th-eDM" id="Mtb-IA-fQC"/>
-                                </connections>
-                            </tabBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_common_motive_tab_l" translatesAutoresizingMaskIntoConstraints="NO" id="J4k-RP-sWl">
-                                <rect key="frame" x="0.0" y="108" width="187.5" height="9"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="ihB-gX-ebW"/>
-                                </constraints>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_common_motive_tab_r" translatesAutoresizingMaskIntoConstraints="NO" id="mCd-9T-ZWG">
-                                <rect key="frame" x="187.5" y="108" width="187.5" height="9"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="wFY-Q1-WWl"/>
-                                </constraints>
-                            </imageView>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Op7-VL-9Hy">
+                                <rect key="frame" x="0.0" y="68" width="375" height="555"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mCd-9T-ZWG" firstAttribute="top" secondItem="koD-7o-6AH" secondAttribute="bottom" constant="-9" id="2dk-T5-BW0"/>
-                            <constraint firstItem="koD-7o-6AH" firstAttribute="top" secondItem="EJx-TL-e1p" secondAttribute="bottom" id="2kB-x8-uFV"/>
+                            <constraint firstItem="7ds-XX-IXv" firstAttribute="bottom" secondItem="Op7-VL-9Hy" secondAttribute="bottom" id="79j-TM-nGE"/>
                             <constraint firstAttribute="trailing" secondItem="EJx-TL-e1p" secondAttribute="trailing" id="7mS-Ij-vkZ"/>
-                            <constraint firstItem="koD-7o-6AH" firstAttribute="trailing" secondItem="7ds-XX-IXv" secondAttribute="trailing" id="8Bk-fU-ane"/>
-                            <constraint firstItem="koD-7o-6AH" firstAttribute="leading" secondItem="7ds-XX-IXv" secondAttribute="leading" id="SJF-zf-rOs"/>
-                            <constraint firstItem="mCd-9T-ZWG" firstAttribute="width" secondItem="J4k-RP-sWl" secondAttribute="width" id="emt-9b-ra9"/>
-                            <constraint firstItem="J4k-RP-sWl" firstAttribute="top" secondItem="koD-7o-6AH" secondAttribute="bottom" constant="-9" id="r8m-Hm-Xoi"/>
-                            <constraint firstItem="J4k-RP-sWl" firstAttribute="leading" secondItem="7ds-XX-IXv" secondAttribute="leading" id="tuM-fv-RbV"/>
-                            <constraint firstItem="mCd-9T-ZWG" firstAttribute="trailing" secondItem="7ds-XX-IXv" secondAttribute="trailing" id="u4a-yy-vyA"/>
+                            <constraint firstItem="Op7-VL-9Hy" firstAttribute="trailing" secondItem="7ds-XX-IXv" secondAttribute="trailing" id="ASL-kQ-Ger"/>
+                            <constraint firstAttribute="trailing" secondItem="CMM-xY-49V" secondAttribute="trailing" id="AzM-id-re1"/>
+                            <constraint firstItem="Op7-VL-9Hy" firstAttribute="top" secondItem="CMM-xY-49V" secondAttribute="bottom" id="Gvi-UD-UjG"/>
+                            <constraint firstItem="CMM-xY-49V" firstAttribute="leading" secondItem="6YI-zB-O7Y" secondAttribute="leading" id="UDp-Hs-601"/>
+                            <constraint firstItem="Op7-VL-9Hy" firstAttribute="leading" secondItem="7ds-XX-IXv" secondAttribute="leading" id="Zuc-fL-Uls"/>
                             <constraint firstItem="EJx-TL-e1p" firstAttribute="leading" secondItem="7ds-XX-IXv" secondAttribute="leading" id="xiL-F2-ecj"/>
-                            <constraint firstItem="mCd-9T-ZWG" firstAttribute="leading" secondItem="J4k-RP-sWl" secondAttribute="trailing" id="z8p-SP-8zJ"/>
                             <constraint firstItem="EJx-TL-e1p" firstAttribute="top" secondItem="7ds-XX-IXv" secondAttribute="top" id="zOb-eJ-JfJ"/>
+                            <constraint firstItem="CMM-xY-49V" firstAttribute="top" secondItem="EJx-TL-e1p" secondAttribute="bottom" id="zhN-Jh-K5P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ds-XX-IXv"/>
                     </view>
                     <connections>
-                        <outlet property="leftMotiveImageView" destination="J4k-RP-sWl" id="dXC-AJ-ddj"/>
-                        <outlet property="privacyTabBarItem" destination="6se-1C-BWf" id="7gW-zR-cZR"/>
-                        <outlet property="rightMotiveImageView" destination="mCd-9T-ZWG" id="6s4-iD-1Iz"/>
-                        <outlet property="tabBar" destination="koD-7o-6AH" id="2Jn-12-jPG"/>
-                        <outlet property="termsTabBarItem" destination="DfV-Fz-eeB" id="Np1-5C-YQp"/>
+                        <outlet property="webViewContainer" destination="Op7-VL-9Hy" id="eLO-qV-VEp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rp8-uF-jGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2106" y="361"/>
+            <point key="canvasLocation" x="2104.8000000000002" y="360.2698650674663"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O7G-gi-qkH">
@@ -1001,9 +957,9 @@
         <image name="icon_menu_info" width="18" height="18"/>
         <image name="icon_menu_stick" width="18" height="18"/>
         <image name="icon_menu_youtube" width="18" height="18"/>
-        <image name="img_common_motive_tab_l" width="148" height="9"/>
-        <image name="img_common_motive_tab_r" width="148" height="9"/>
+        <image name="imgTvxqMain" width="375" height="667"/>
         <image name="img_common_motive_title" width="148" height="10"/>
         <image name="img_menu_logo_tvxq" width="130" height="93"/>
+        <image name="youtube" width="240" height="59"/>
     </resources>
 </document>

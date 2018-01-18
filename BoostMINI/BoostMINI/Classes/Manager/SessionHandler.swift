@@ -24,14 +24,14 @@ class SessionHandler {
 
 	
 	/// profile은 없지만 유저이름이 있을 수 있다. token만 있는...( 약관동의 웰컴화면에서 쓸...)
-	var userName: String? { return profile?.name ?? "카시오페아" }
-	// TODO : profile
+	var welcomeName: String? = nil
 
 	/// 사용자 이름
-	var name: String? { return profile?.name ?? "카시오페아" }
+	var name: String? { return profile?.name ?? welcomeName }
+
 	/// 사용자 이메일
-	var email: String? { return profile?.email }
-	
+	var email: String? { return profile?.email ?? "-" }
+
 	
 	
 	// TODO : 로그인여부.

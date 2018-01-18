@@ -161,7 +161,9 @@ extension IntroViewController {
 				return
 			}
 			
-			if let vv = data.version, vv > BSTApplication.shortVersion ?? "" {
+			if let version = data.version,
+				let shortVersion = BSTApplication.shortVersion,
+				version > shortVersion {
 				self?.showUpdateAlert(forceUpdate: data.forceUpdate ?? false)
 				return
 			}

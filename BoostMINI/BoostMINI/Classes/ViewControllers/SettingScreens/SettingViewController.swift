@@ -47,6 +47,28 @@ class SettingViewController: UIViewController {
     private func initUI() {
         updateSettingInformation()
         updateVersionInfo()
+        
+        self.skinCollectionView.backgroundColor = UIColor.clear
+        
+        var attrs : [NSAttributedStringKey : Any] = [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12),
+            NSAttributedStringKey.foregroundColor : R.clr.boostMini.commonTextBg(),
+            NSAttributedStringKey.underlineStyle : 1]
+        
+       
+        let logoutString = NSMutableAttributedString.init(string: "로그아웃", attributes: attrs)
+        self.logoutButton.setAttributedTitle(logoutString, for: .normal)
+        
+        let updateString =  NSMutableAttributedString.init(string: "업데이트", attributes: attrs)
+        self.updateButton.setAttributedTitle(updateString, for: .normal)
+        
+        attrs = [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12),
+            NSAttributedStringKey.foregroundColor : R.clr.boostMini.textSubtitle(),
+            NSAttributedStringKey.underlineStyle : 1]
+        
+        let withdrawString = NSMutableAttributedString.init(string: "회원탈퇴", attributes: attrs)
+        self.withdrawButton.setAttributedTitle(withdrawString, for: .normal)
     }
 
 
@@ -93,9 +115,15 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func withdrawAccount(_ sender: UIButton) {
-        DefaultAPI.withdrawUsingDELETE { _ in
-			SessionHandler.shared.logout()
-        }
+        BSTFacade.ux
+            .showConfirm("Boost for TVXQ!를 정말 탈퇴 하시겠습니까?") { (bool) in
+                if bool == true {
+                    DefaultAPI.withdrawUsingDELETE { (_) in
+                         SessionHandler.shared.logout()
+                    }
+                }
+            }
+
     }
     
     @IBAction func updateApp(_ sender: UIButton) {
@@ -166,6 +194,9 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
                 guard let data = response else {
                     return
                 }
+                
+                BSTFacade.ux.showToast("설정 되었습니다.")
+                
             })
         }
         

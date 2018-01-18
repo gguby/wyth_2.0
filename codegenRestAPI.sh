@@ -88,9 +88,28 @@ mkdir BoostMINI/BoostMINI/Classes/Model/Generated 2>>/dev/null
 # Sort 등으로 Type변경된 아이들도 제거해준다.
 #echo "Part 1"
 for X in BoostMINI/BoostMINI/Classes/Swaggers/*.swift; do _sedReplace $X; done;
+
+
+for X in BoostMINI/BoostMINI/Classes/Swaggers/CodableHelper.swift; do
+# 파일 1개다. 이미 위에서 _sedReplace 는 된 녀석이다.
+#head -n 20 $X
+
+# data, date ...
+# Decoding, Encoding ...
+
+sed -i '' -E $'s|\.(date[De|En]*codingStrategy) =|.\\1 = .formatted(DateFormatter.jsonDate)	//|g' $X;
+
+# data 는 그냥 주석처리만
+sed -i '' -e $'s|decoder.dataDecodingStrategy|//decoder.dataDecodingStrategy|g' $X;
+sed -i '' -e $'s|encoder.dataEncodingStrategy|//encoder.dataEncodingStrategy|g' $X;
+
+done;
+
+
+
 #echo "Part 2"
 for X in BoostMINI/BoostMINI/Classes/Swaggers/APIs/*.swift; do _sedReplace $X;
-echo "[$X] GO"
+#echo "[$X] GO"
 #head -n 20 $X
 sed -i '' -E $'s|open class ([a-zA-Z0-9]*API) {|open class \\1 {\\\n  private static var xAPPVersion: String = BSTApplication.shortVersion ?? "unknown"\\\n  private static var xDevice: String     = "ios"\\\n  private static var acceptLanguage: String = "ko-KR"|g' $X;
 sed -i '' -e $'s|completion(response?.body, error);|completion(response?.body, BSTErrorBaker.errorFilter(error, response))|g' $X;

@@ -18,10 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="3wJ-4c-Efd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="imgTvxqIntro" translatesAutoresizingMaskIntoConstraints="NO" id="3wJ-4c-Efd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogoTvxq" translatesAutoresizingMaskIntoConstraints="NO" id="VvB-WG-pL3">
+                                <rect key="frame" x="20" y="46" width="193" height="139"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="193" id="Br7-Ul-jPb"/>
+                                    <constraint firstAttribute="height" constant="139" id="ira-Kg-KQt"/>
+                                </constraints>
                             </imageView>
                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="9S1-lf-TOE">
                                 <rect key="frame" x="0.0" y="643" width="75" height="24"/>
@@ -57,12 +66,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VvB-WG-pL3" firstAttribute="top" secondItem="5z4-NT-tR6" secondAttribute="top" constant="46" id="00L-BA-GIL"/>
                             <constraint firstAttribute="bottom" secondItem="9S1-lf-TOE" secondAttribute="bottom" id="7jd-Nv-jv7"/>
                             <constraint firstItem="3wJ-4c-Efd" firstAttribute="top" secondItem="5z4-NT-tR6" secondAttribute="top" id="8M7-5D-CNZ"/>
                             <constraint firstItem="9S1-lf-TOE" firstAttribute="leading" secondItem="5z4-NT-tR6" secondAttribute="leading" id="EJe-GK-f2A"/>
                             <constraint firstItem="GKz-Ag-1Ms" firstAttribute="width" secondItem="5z4-NT-tR6" secondAttribute="width" id="JPd-SP-8Oo"/>
                             <constraint firstItem="3wJ-4c-Efd" firstAttribute="leading" secondItem="5z4-NT-tR6" secondAttribute="leading" id="atu-nb-fKx"/>
                             <constraint firstItem="3wJ-4c-Efd" firstAttribute="bottom" secondItem="5z4-NT-tR6" secondAttribute="bottom" id="hzy-gU-hnk"/>
+                            <constraint firstItem="VvB-WG-pL3" firstAttribute="leading" secondItem="5z4-NT-tR6" secondAttribute="leading" constant="20" id="kzP-Ch-rMU"/>
                             <constraint firstItem="3wJ-4c-Efd" firstAttribute="trailing" secondItem="5z4-NT-tR6" secondAttribute="trailing" id="qNj-5Z-tWn"/>
                             <constraint firstItem="b1K-4t-8JB" firstAttribute="trailing" secondItem="9S1-lf-TOE" secondAttribute="trailing" constant="300" id="xEm-if-iWH"/>
                         </constraints>
@@ -83,6 +94,7 @@
     </scenes>
     <resources>
         <image name="imgMotiveSplash" width="286" height="21"/>
-        <image name="intro" width="295" height="525"/>
+        <image name="imgSplashLogoTvxq" width="193" height="139"/>
+        <image name="imgTvxqIntro" width="375" height="667"/>
     </resources>
 </document>
