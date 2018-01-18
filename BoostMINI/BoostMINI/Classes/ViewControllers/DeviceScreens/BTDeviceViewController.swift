@@ -131,24 +131,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
                 .disposed(by: self.disposeBag)
         }
         
-        self.cancelBtn.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        self.confirmBtn.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        reactor.state.map { $0.contentMsg.content }
-            .subscribe(onNext: { text in
-                print(text)
-            })
-            .disposed(by: disposeBag)
-        
         reactor.state.map { $0.contentMsg.content }
             .bind(to: self.contentLbl.rx.text)
             .disposed(by: disposeBag)
