@@ -46,7 +46,7 @@ class MenuViewController: UIViewController {
     #if DEBUG
         btnScan.isHidden = false
         btnScan.rx.tap.bind {
-            
+            BSTFacade.ux.goTicketScan(currentViewController: self)
             }.disposed(by: disposeBag)
         
         btnDebug.isHidden = false

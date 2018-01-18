@@ -45,16 +45,14 @@ extension CommonUtil {
     class func getTopWindow() -> UIWindow? {//BSTUXHandler, BSTUXManager
         var topWindow: UIWindow?
         for window: UIWindow in UIApplication.shared.windows.reversed() {
+            
             let windowClassName: String = getTypeName(window) // NSStringFromClass(window)
-            #if !PRODUCT
-                if "FLEXWindow" == windowClassName {
-                    continue
-                }
-            #endif
-            if let transitionView = window.subviews.last,
-                transitionView.frame.origin.y < SCREEN_HEIGHT,
-                windowClassName.contains("UITextEffectsWindow") {
-
+            
+            if "ToastWindow" == windowClassName || "FLEXWindow" == windowClassName || window.windowLevel == kAlertWindowLevel {
+                continue
+            }
+//            if let transitionView = window.subviews.last, transitionView.frame.origin.y < SCREEN_HEIGHT, !windowClassName.contains("UITextEffectsWindow") {
+            if windowClassName.contains("UITextEffectsWindow") == false {
                 topWindow = window
                 break
             }
@@ -81,21 +79,19 @@ extension CommonUtil {
 	///
 	/// - Parameter viewController:
 	/// - Returns:
-	func topVisibleViewController(_ viewController: UIViewController) -> UIViewController? {
-		let viewController = viewController ?? UIApplication.shared.keyWindow?.rootViewController
+	class func getTopVisibleViewController(_ viewController: UIViewController?) -> UIViewController? {
+		let viewController = viewController ?? self.getTopWindow()?.rootViewController
 		
-		if let navigationController = viewController as? UINavigationController,
-			let last = navigationController.viewControllers.last  {
-			return topVisibleViewController(last)
-		}
-		else if let tabBarController = viewController as? UITabBarController,
-			let selectedController = tabBarController.selectedViewController {
-			return topVisibleViewController(selectedController)
-		}
-		else if let presentedController = viewController?.presentedViewController {
-			return topVisibleViewController(presentedController)
-		}
-		
+        if let alertController = viewController as? BSTUXHanlder.SystemAlertViewController, let selectedController = alertController.presentingViewController {
+            return getTopVisibleViewController(selectedController)
+        } else if let navigationController = viewController as? UINavigationController, let last = navigationController.viewControllers.last {
+            return getTopVisibleViewController(last)
+        } else if let tabBarController = viewController as? UITabBarController, let selectedController = tabBarController.selectedViewController {
+            return getTopVisibleViewController(selectedController)
+        } else if let presentedController = viewController?.presentedViewController {
+            return getTopVisibleViewController(presentedController)
+        }
+        
 		return viewController
 	}
 }

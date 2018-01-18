@@ -79,15 +79,13 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         
         self.resetBtn.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else { return }
-                self?.navigationController?.pushViewController(vc, animated: true)
+                BSTFacade.ux.goTicketScan(currentViewController: self)
             })
             .disposed(by: disposeBag)
         
         self.registerBtn.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else { return }
-                self?.navigationController?.pushViewController(vc, animated: true)
+                BSTFacade.ux.goTicketScan(currentViewController: self)
             })
             .disposed(by: disposeBag)
         

@@ -106,7 +106,8 @@ class TicketScanViewController: UIViewController {
 			DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 //goto next view.
                 BSTFacade.ux.showToast("1초후에 다음 화면으로 넘어갑니다. 시뮬레이터라서,,")
-                self.finishScan(code: "isSimulator")
+                BSTError.ticket(TicketError.alreadyRegistred).cookError()
+//                self.finishScan(code: "isSimulator")
             }
             return
         }
