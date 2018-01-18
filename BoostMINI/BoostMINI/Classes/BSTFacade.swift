@@ -24,7 +24,7 @@ class BSTFacade {
     typealias common = CommonUtil
     static let go = BST.PageManager.shared
 
-
+    static let session = SessionHandler.shared
     // MARK: - * IBOutlets --------------------
 
     // MARK: - * Initialize --------------------

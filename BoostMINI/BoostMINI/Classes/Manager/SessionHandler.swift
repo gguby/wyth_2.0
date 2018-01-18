@@ -14,6 +14,7 @@ class SessionHandler {
     static let shared = SessionHandler()
     //let baseURL = Definitions.api.base
 
+    var seat: ConcertsSeatGetResponse?
 	var cookie: String? 
 	var token: String?
 	

@@ -48,6 +48,8 @@ class ConcertInfoView : UIView {
             self?.region.text = response.area
             self?.column.text = response.row
             self?.number.text = response.seat
+            
+            BSTFacade.session.seat = response
         }
     }
 
