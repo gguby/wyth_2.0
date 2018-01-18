@@ -60,6 +60,8 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         self.stickImage.startAnimating()
         
         self.stickImage.alpha = 1.0
+        
+        self.registerBtn.backgroundColor = R.clr.boostMini.commonBgPoint()
     }
     
     override func didReceiveMemoryWarning() {
@@ -103,7 +105,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         
         self.cancelBtn.isHidden = true
         self.confirmBtn.isHidden = true
-        self.registerBtn.backgroundColor = R.clr.boostMini.commonBgPoint()
         
         return true
     }
