@@ -884,7 +884,7 @@ open class DefaultAPI {
     }
 
     /**
-     알림 리스트 가져오기
+     회원 가입
      
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
@@ -902,7 +902,7 @@ open class DefaultAPI {
     }
 
     /**
-     알림 리스트 가져오기
+     회원 가입
      
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
@@ -928,7 +928,7 @@ open class DefaultAPI {
     }
 
     /**
-     알림 리스트 가져오기
+     회원 가입
      - POST /accounts/signup
      - examples: [{output=none}]
      

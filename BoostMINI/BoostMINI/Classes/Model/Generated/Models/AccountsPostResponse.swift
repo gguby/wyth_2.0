@@ -18,23 +18,11 @@ open class AccountsPostResponse: BaseModel {
         case general = "GENERAL"
         case admin = "ADMIN"
     }
-    public enum SocialType: String, Codable { 
-        case smtown = "SMTOWN"
-        case facebook = "FACEBOOK"
-        case twitter = "TWITTER"
-        case google = "GOOGLE"
-    }
     public var accountType: AccountType?
     public var createdAt: Date?
     public var email: String?
     public var id: Int64?
     public var name: String?
-    public var nationality: String?
-    public var profilepicture: String?
-    public var regdate: String?
-    public var sex: String?
-    public var socialId: String?
-    public var socialType: SocialType?
 
     public init() {}
 
