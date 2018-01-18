@@ -16,6 +16,14 @@
         </array>
     </customFonts>
     <scenes>
+        <!--NotificationViewController-->
+        <scene sceneID="Fdo-OY-7Zj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notification" referencedIdentifier="NotificationViewController" id="OFP-hX-rWF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zAf-xf-RNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="197"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="JA5-Cx-50O">
             <objects>
@@ -54,6 +62,9 @@
                                             <constraint firstAttribute="height" constant="47" id="TOQ-SO-S3x"/>
                                         </constraints>
                                         <state key="normal" image="btn_common_alarm"/>
+                                        <connections>
+                                            <segue destination="OFP-hX-rWF" kind="show" id="XMh-nx-Sdb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
