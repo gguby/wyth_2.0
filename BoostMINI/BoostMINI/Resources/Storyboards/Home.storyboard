@@ -231,12 +231,33 @@
                                     <action selector="goToYoutubeSite:" destination="KFb-Aw-ybA" eventType="touchUpInside" id="qtq-OO-gAT"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtk-bh-IzU">
+                                <rect key="frame" x="16" y="518" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="lLE-6H-PBs"/>
+                                    <constraint firstAttribute="width" constant="80" id="tmC-BF-1fW"/>
+                                </constraints>
+                                <state key="normal" title="UI Debug">
+                                    <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihy-23-gFP">
+                                <rect key="frame" x="16" y="475" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Beh-Jo-iP2"/>
+                                    <constraint firstAttribute="height" constant="30" id="jO0-Xf-VKw"/>
+                                </constraints>
+                                <state key="normal" title="응원봉 연동">
+                                    <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bgj-Xi-j5Z" firstAttribute="top" secondItem="STy-jk-l5M" secondAttribute="bottom" constant="19" id="1IB-ao-hyf"/>
                             <constraint firstItem="w6j-P6-rVD" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="1Qb-dc-PMB"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="tla-l2-1UC" secondAttribute="trailing" id="3MG-J4-22I"/>
+                            <constraint firstItem="jtk-bh-IzU" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" constant="16" id="7UQ-O6-NNf"/>
                             <constraint firstItem="bgj-Xi-j5Z" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="AP6-aP-5sd"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="h9S-1k-fuF" secondAttribute="trailing" id="Bmm-Q6-LOZ"/>
                             <constraint firstItem="OhZ-TS-HhW" firstAttribute="trailing" secondItem="jTv-Bz-bQc" secondAttribute="trailing" id="FEr-s9-fxH"/>
@@ -248,6 +269,9 @@
                             <constraint firstItem="STy-jk-l5M" firstAttribute="top" secondItem="jTv-Bz-bQc" secondAttribute="top" id="Td6-qC-wAh"/>
                             <constraint firstItem="STy-jk-l5M" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="VWK-YG-H43"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="tSi-YQ-eW8" secondAttribute="trailing" id="YZj-bQ-OBp"/>
+                            <constraint firstItem="ihy-23-gFP" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" constant="16" id="ZAI-Rr-18r"/>
+                            <constraint firstItem="jtk-bh-IzU" firstAttribute="top" secondItem="ihy-23-gFP" secondAttribute="bottom" constant="13" id="b9d-1x-Wp8"/>
+                            <constraint firstItem="tla-l2-1UC" firstAttribute="top" secondItem="jtk-bh-IzU" secondAttribute="bottom" constant="8" id="bRP-GL-iXe"/>
                             <constraint firstItem="Yfj-35-mID" firstAttribute="top" secondItem="tla-l2-1UC" secondAttribute="bottom" id="btd-j0-iBU"/>
                             <constraint firstItem="OhZ-TS-HhW" firstAttribute="top" secondItem="w6j-P6-rVD" secondAttribute="bottom" id="dkV-tD-SYK"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="w6j-P6-rVD" secondAttribute="trailing" id="lXP-0S-NCU"/>
@@ -265,6 +289,8 @@
                     <navigationItem key="navigationItem" id="ljy-f5-PId"/>
                     <size key="freeformSize" width="240" height="667"/>
                     <connections>
+                        <outlet property="btnDebug" destination="jtk-bh-IzU" id="qMi-Ug-hOc"/>
+                        <outlet property="btnScan" destination="ihy-23-gFP" id="Oam-FD-4AJ"/>
                         <outlet property="diagonalImageView" destination="STy-jk-l5M" id="TQc-fd-PgO"/>
                     </connections>
                 </viewController>
