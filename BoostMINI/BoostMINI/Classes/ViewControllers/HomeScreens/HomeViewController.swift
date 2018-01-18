@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 import SideMenu
 
-import Permission
-import JuseongJee_RxPermission
-
-
-
 private enum State {
     case closed
     case open
@@ -89,7 +84,8 @@ class HomeViewController: UIViewController {
     }
     
     func prepareViewDidLoad() {
-
+        // 아이폰 - 카메라, 블루투스, notification 권한 요청
+        PermissionManager.requestDeterminingPermission(completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -234,26 +230,7 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 }
-
-
-extension HomeViewController: PermissionSetDelegate {
-	
-	func permissionSet(permissionSet: PermissionSet, willRequestPermission permission: Permission) {
-		print("Will request \(permission)")
-	}
-	
-	func permissionSet(permissionSet: PermissionSet, didRequestPermission permission: Permission) {
-		switch permissionSet.status {
-		case .authorized:    print("all the permissions are granted")
-		case .denied:        print("at least one permission is denied")
-		case .disabled:      print("at least one permission is disabled")
-		case .notDetermined: print("at least one permission is not determined")
-		}
-	}
-}
-
 
 extension HomeViewController : UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
