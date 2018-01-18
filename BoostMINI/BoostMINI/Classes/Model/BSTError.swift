@@ -460,16 +460,16 @@ class BSTErrorBaker<T> {
 
 		switch(errorResponse) {
 		case .Error(let code, let data, let error):
-			guard let dddd = data, code == 960 else {
+			guard let dataNonOptional = data, code == 960 else {
 				throw BSTError.white(WhiteError.statusCode(code))
 			}
 			
-			var dic: [String: Any] = [:]
+			var jsonDictionary: [String: Any] = [:]
 			var userName = ""
 			
 			do {
-				dic = try JSONSerialization.jsonObject(with: dddd, options: []) as? [String: Any]  ?? [:]
-				userName = (dic["message"] as? String) ?? ""
+				jsonDictionary = try JSONSerialization.jsonObject(with: dataNonOptional, options: []) as? [String: Any]  ?? [:]
+				userName = (jsonDictionary["message"] as? String) ?? ""
 				
 			} catch let jsonError {
 				logError("906 processing erorr : \(error.localizedDescription)")
