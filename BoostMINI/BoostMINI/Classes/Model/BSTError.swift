@@ -140,6 +140,7 @@ enum LoginError: Error, BSTErrorProtocol {
 
 enum APIError: Int, Error, BSTErrorProtocol {
     
+    
     case none = -1
 //    case succeed = 200
 //    case succeedOK
@@ -164,6 +165,7 @@ enum APIError: Int, Error, BSTErrorProtocol {
     case invalidException
     case accessTokenCouldNotBeDecrypted
     case saveFailed
+//    case notRegistered(String) = 960
 	
 	
     var description: String {
@@ -420,9 +422,9 @@ class BSTErrorBaker<T> {
 			case .Error(let code, let data, let error):
 				logVerbose("\(code), \(data), \(error)")
 				
-				if code == 960 {
-					try processErrorResponse960(errorResponse, response)
-				}
+                if code == 960 {
+                    try processErrorResponse960(errorResponse, response)
+                }
 				if let api = APIError(rawValue: code) {
 					throw BSTError.api(api)
 					// 906이었나? APIError에 없는게 나오니 무한에러
