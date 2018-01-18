@@ -36,16 +36,19 @@ extension BSTErrorProtocol {
 /// 이 경우, 오류는 아니지만 특수 케이스에 대한 처리를 해줘야 한다. ( WhiteError.code 로 Response의 statusCode를 직접 받을 수 있다. )
 enum WhiteError: Error, BSTErrorProtocol {
 	case statusCode(Int)
+	case codeWithMessage(Int, String)
 
 	// 암세포가 자라나고 있어요~
 	var description: String {
 		switch self {
 		case .statusCode(let code):
 			return BSTFacade.localizable.error.statusCode(code)
-		default:
-			return ""
+		case .codeWithMessage(let code, let message):
+			return BSTFacade.localizable.error.statusCoddWithMessage(code, message)
 		}
 	}
+
+
 	
 	func cook(_ object: Any? = nil) {
 		// do nothing
@@ -55,11 +58,19 @@ enum WhiteError: Error, BSTErrorProtocol {
 		switch self {
 		case .statusCode(let code):
 			return code
-		default:
-			return nil
+		case .codeWithMessage(let code, _):
+			return code
 		}
 	}
 
+	var message: String? {
+		switch self {
+		case .statusCode(_):
+			return nil
+		case .codeWithMessage(_, let message):
+			return message
+		}
+	}
 }
 
 enum UIError: Error, BSTErrorProtocol {
@@ -385,14 +396,18 @@ class BSTErrorBaker<T> {
 		}
 		return err
 	}
-	
+
 	class func errorPitcher(_ err: Error?, _ response: Response<T>?) throws {
 	
 		// Alamofire 4 부터는 비정상 호출일 경우, statusCode가 안넘어온다. AFError로 핸들링됨.
-		if let error = err as? ErrorResponse {
-			switch(error) {
+		if let errorResponse = err as? ErrorResponse {
+			switch(errorResponse) {
 			case .Error(let code, let data, let error):
 				logVerbose("\(code), \(data), \(error)")
+				
+				if code == 960 {
+					try processErrorResponse960(errorResponse, response)
+				}
 				if let api = APIError(rawValue: code) {
 					throw BSTError.api(api)
 					// 906이었나? APIError에 없는게 나오니 무한에러
@@ -401,14 +416,14 @@ class BSTErrorBaker<T> {
 				}
 				
 				
-			default:
-				break	// unknown
+//			default:
+//				break	// unknown
 			}
 		}
 		
 		if let error = err as? AFError,
 			let code = error.responseCode {
-				throw BSTError.api(APIError(rawValue: code)!)
+			throw BSTError.api(APIError(rawValue: code)!)
 		}
 		
 		guard let resp = response else {
@@ -430,10 +445,47 @@ class BSTErrorBaker<T> {
 			throw BSTError.api(APIError(rawValue: resp.statusCode)!)
 		}
 		
-		if let error = err {
+//		if let error = err {
+//		}
+	}
+	
+	
+	
+	
+		class func processErrorResponse960(_ errorResponse: ErrorResponse, _ response: Response<T>?) throws {
+		// 하아. 얘는 특별히 message에 이름이 들어온다고 하니... 이 뭐 api가 이모양인지...
+		// 여튼 여기는 수동으로 작업한다.
+		
+		// 비표준 처리 하나 때문에 코드가 지저분해고있다.
+
+		switch(errorResponse) {
+		case .Error(let code, let data, let error):
+			guard let dddd = data, code == 960 else {
+				throw BSTError.white(WhiteError.statusCode(code))
+			}
+			
+			var dic: [String: Any] = [:]
+			var userName = ""
+			
+			do {
+				dic = try JSONSerialization.jsonObject(with: dddd, options: []) as? [String: Any]  ?? [:]
+				userName = (dic["message"] as? String) ?? ""
+				
+			} catch let jsonError {
+				logError("906 processing erorr : \(error.localizedDescription)")
+				throw jsonError
+			}
+			
+			if !userName.isEmpty {
+				SessionHandler.shared.welcomeName = userName
+			}
+			throw BSTError.white(WhiteError.codeWithMessage(code, userName))
+		
+//		default:
+//			// 여기 안탐.
+//			return
+			
 		}
 	}
-
+		
 }
-
-
