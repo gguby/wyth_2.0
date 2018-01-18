@@ -89,8 +89,8 @@ class BSTUXHanlder {
 	/// - Parameters:
 	///   - message: 메시지
 	///   - completion: 알럿창을 닫으면 호출될 클로져 블록. (true = ok, cancel = false 가 반환되고, 기타 알 수 없는 상황에서는 nil이 반환될 수 있음.
-	open func showConfirm(_ message: String, _ completion: @escaping BSTClosure.boolOptionalAction = { _ in }) {
-		SystemAlert.show(nil, message: message, buttons: [.ok, .cancel]) { index in
+    open func showConfirm(_ message: String, title: String? = nil, _ completion: @escaping BSTClosure.boolOptionalAction = { _ in }) {
+		SystemAlert.show(title, message: message, buttons: [.ok, .cancel]) { index in
 			switch(index) {
 			case 0:
 				completion(true)
