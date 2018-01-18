@@ -79,6 +79,10 @@ extension NumberConvertible {
     public var d: Double { return convert() }
 
     public var i: Int { return convert() }
+    
+    public var i32: Int32 { return convert() }
+    
+    public var i64: Int64 { return convert() }
 
     public var u: UInt { return convert() }
 
