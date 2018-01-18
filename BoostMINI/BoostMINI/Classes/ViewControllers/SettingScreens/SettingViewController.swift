@@ -194,6 +194,9 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
                 guard let data = response else {
                     return
                 }
+                
+                BSTFacade.ux.showToast("설정 되었습니다.")
+                
             })
         }
         
