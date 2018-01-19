@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class ProfileGetResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = ProfileGetResponse.buildApiRequests()
@@ -30,6 +31,52 @@ open class ProfileGetResponse: BaseModel {
     public var sex: String?
     public var socialType: SocialType?
 
-    public init() {}
 
+    
+    public init(createdAt: Date?, email: String?, id: Int64?, name: String?, nationality: String?, profilePicture: String?, regDate: String?, sex: String?, socialType: SocialType?) {
+        self.createdAt = createdAt
+        self.email = email
+        self.id = id
+        self.name = name
+        self.nationality = nationality
+        self.profilePicture = profilePicture
+        self.regDate = regDate
+        self.sex = sex
+        self.socialType = socialType
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(createdAt, forKey: "createdAt")
+        try container.encodeIfPresent(email, forKey: "email")
+        try container.encodeIfPresent(id, forKey: "id")
+        try container.encodeIfPresent(name, forKey: "name")
+        try container.encodeIfPresent(nationality, forKey: "nationality")
+        try container.encodeIfPresent(profilePicture, forKey: "profilePicture")
+        try container.encodeIfPresent(regDate, forKey: "regDate")
+        try container.encodeIfPresent(sex, forKey: "sex")
+        try container.encodeIfPresent(socialType, forKey: "socialType")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        createdAt = try container.decodeIfPresent(Date.self, forKey: "createdAt")
+        email = try container.decodeIfPresent(String.self, forKey: "email")
+        id = try container.decodeIfPresent(Int64.self, forKey: "id")
+        name = try container.decodeIfPresent(String.self, forKey: "name")
+        nationality = try container.decodeIfPresent(String.self, forKey: "nationality")
+        profilePicture = try container.decodeIfPresent(String.self, forKey: "profilePicture")
+        regDate = try container.decodeIfPresent(String.self, forKey: "regDate")
+        sex = try container.decodeIfPresent(String.self, forKey: "sex")
+        socialType = try container.decodeIfPresent(SocialType.self, forKey: "socialType")
+    }
 }
+

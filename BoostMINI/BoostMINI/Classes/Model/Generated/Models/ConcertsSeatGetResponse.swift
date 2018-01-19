@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class ConcertsSeatGetResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = ConcertsSeatGetResponse.buildApiRequests()
@@ -20,6 +21,40 @@ open class ConcertsSeatGetResponse: BaseModel {
     public var row: String?
     public var seat: String?
 
-    public init() {}
 
+    
+    public init(area: String?, concertDate: String?, floor: String?, row: String?, seat: String?) {
+        self.area = area
+        self.concertDate = concertDate
+        self.floor = floor
+        self.row = row
+        self.seat = seat
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(area, forKey: "area")
+        try container.encodeIfPresent(concertDate, forKey: "concertDate")
+        try container.encodeIfPresent(floor, forKey: "floor")
+        try container.encodeIfPresent(row, forKey: "row")
+        try container.encodeIfPresent(seat, forKey: "seat")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        area = try container.decodeIfPresent(String.self, forKey: "area")
+        concertDate = try container.decodeIfPresent(String.self, forKey: "concertDate")
+        floor = try container.decodeIfPresent(String.self, forKey: "floor")
+        row = try container.decodeIfPresent(String.self, forKey: "row")
+        seat = try container.decodeIfPresent(String.self, forKey: "seat")
+    }
 }
+

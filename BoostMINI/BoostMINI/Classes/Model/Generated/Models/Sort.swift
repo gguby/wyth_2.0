@@ -9,4 +9,29 @@
 import Foundation
 
 
-// public typealias Sort = Any
+
+open class Sort: BaseModel {
+	// autogen apiList protocol
+	static var apiList: [String: APIRequest] = Sort.buildApiRequests()
+
+
+
+
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+    }
+}
+

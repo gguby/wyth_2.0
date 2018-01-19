@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class AccountsPostResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = AccountsPostResponse.buildApiRequests()
@@ -24,6 +25,40 @@ open class AccountsPostResponse: BaseModel {
     public var id: Int64?
     public var name: String?
 
-    public init() {}
 
+    
+    public init(accountType: AccountType?, createdAt: Date?, email: String?, id: Int64?, name: String?) {
+        self.accountType = accountType
+        self.createdAt = createdAt
+        self.email = email
+        self.id = id
+        self.name = name
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(accountType, forKey: "accountType")
+        try container.encodeIfPresent(createdAt, forKey: "createdAt")
+        try container.encodeIfPresent(email, forKey: "email")
+        try container.encodeIfPresent(id, forKey: "id")
+        try container.encodeIfPresent(name, forKey: "name")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        accountType = try container.decodeIfPresent(AccountType.self, forKey: "accountType")
+        createdAt = try container.decodeIfPresent(Date.self, forKey: "createdAt")
+        email = try container.decodeIfPresent(String.self, forKey: "email")
+        id = try container.decodeIfPresent(Int64.self, forKey: "id")
+        name = try container.decodeIfPresent(String.self, forKey: "name")
+    }
 }
+

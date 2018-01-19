@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class HelpGetResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = HelpGetResponse.buildApiRequests()
@@ -16,6 +17,28 @@ open class HelpGetResponse: BaseModel {
 
     public var list: PageHelp?
 
-    public init() {}
 
+    
+    public init(list: PageHelp?) {
+        self.list = list
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(list, forKey: "list")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        list = try container.decodeIfPresent(PageHelp.self, forKey: "list")
+    }
 }
+

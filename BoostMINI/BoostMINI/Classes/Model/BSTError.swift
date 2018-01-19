@@ -422,7 +422,7 @@ class BSTErrorBaker<T> {
 		// Alamofire 4 부터는 비정상 호출일 경우, statusCode가 안넘어온다. AFError로 핸들링됨.
 		if let errorResponse = err as? ErrorResponse {
 			switch(errorResponse) {
-			case .Error(let code, let data, let error):
+			case .error(let code, let data, let error):
 				logVerbose("\(code), \(data), \(error)")
 				
                 if code == 960 {
@@ -479,7 +479,7 @@ class BSTErrorBaker<T> {
 		// 비표준 처리 하나 때문에 코드가 지저분해고있다.
 
 		switch(errorResponse) {
-		case .Error(let code, let data, let error):
+		case .error(let code, let data, let error):
 			guard let dataNonOptional = data, code == 960 else {
 				throw BSTError.white(WhiteError.statusCode(code))
 			}

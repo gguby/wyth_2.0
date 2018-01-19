@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class AppsGetResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = AppsGetResponse.buildApiRequests()
@@ -18,6 +19,34 @@ open class AppsGetResponse: BaseModel {
     public var id: Int64?
     public var version: String?
 
-    public init() {}
 
+    
+    public init(forceUpdate: Bool?, id: Int64?, version: String?) {
+        self.forceUpdate = forceUpdate
+        self.id = id
+        self.version = version
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(forceUpdate, forKey: "forceUpdate")
+        try container.encodeIfPresent(id, forKey: "id")
+        try container.encodeIfPresent(version, forKey: "version")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        forceUpdate = try container.decodeIfPresent(Bool.self, forKey: "forceUpdate")
+        id = try container.decodeIfPresent(Int64.self, forKey: "id")
+        version = try container.decodeIfPresent(String.self, forKey: "version")
+    }
 }
+

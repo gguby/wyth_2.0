@@ -190,7 +190,7 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if let skins = self.skinDatas {
-            DefaultAPI.postSkinsUsingPOST(select: Int32(indexPath.row), completion: { (response, error) in
+            DefaultAPI.postSkinsUsingPOST(select: indexPath.row, completion: { (response, error) in
                 guard let data = response else {
                     return
                 }

@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class NoticesGetResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = NoticesGetResponse.buildApiRequests()
@@ -16,6 +17,28 @@ open class NoticesGetResponse: BaseModel {
 
     public var list: PageNotice?
 
-    public init() {}
 
+    
+    public init(list: PageNotice?) {
+        self.list = list
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(list, forKey: "list")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        list = try container.decodeIfPresent(PageNotice.self, forKey: "list")
+    }
 }
+

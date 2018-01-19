@@ -506,7 +506,7 @@ open class DefaultAPI {
     open class func postSkinsUsingPOSTWithRequestBuilder(select: Int) -> RequestBuilder<CommonNumberGetResponse> {
         let path = "/settings/skin"
         let URLString = BoostMINIAPI.basePath + path
-		let parameters: Parameters? = ["select": select]
+        let parameters: Parameters? = ["select": select]
 
         let url = NSURLComponents(string: URLString)
 

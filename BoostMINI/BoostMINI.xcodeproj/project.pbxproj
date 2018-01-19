@@ -52,6 +52,13 @@
 		0417348D2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */; };
 		0417348E2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */; };
 		0417348F2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */; };
+		041734912011C4460075D507 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734902011C4460075D507 /* NoticeViewModel.swift */; };
+		041734922011C4460075D507 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734902011C4460075D507 /* NoticeViewModel.swift */; };
+		041734932011C4460075D507 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734902011C4460075D507 /* NoticeViewModel.swift */; };
+		041734952011C49B0075D507 /* ModelChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* ModelChanger.swift */; };
+		041734962011C49B0075D507 /* ModelChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* ModelChanger.swift */; };
+		041734972011C49B0075D507 /* ModelChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* ModelChanger.swift */; };
+		0420EABB2011D62C00E9820F /* DefaultAPI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABA2011D62C00E9820F /* DefaultAPI2.swift */; };
 		044236AF2005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
 		044236B02005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
 		044236B12005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
@@ -425,6 +432,9 @@
 		0417348420118BF40075D507 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-LoadingIndicator.swift"; sourceTree = "<group>"; };
 		0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+AlamofireRequest.swift"; sourceTree = "<group>"; };
+		041734902011C4460075D507 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
+		041734942011C49B0075D507 /* ModelChanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelChanger.swift; sourceTree = "<group>"; };
+		0420EABA2011D62C00E9820F /* DefaultAPI2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI2.swift; sourceTree = "<group>"; };
 		044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderUIExtension.swift"; sourceTree = "<group>"; };
 		044236B22005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+multiplierSetter.swift"; sourceTree = "<group>"; };
 		045D14831FF4A9B400A67AA0 /* Optional+logError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+logError.swift"; sourceTree = "<group>"; };
@@ -710,6 +720,7 @@
 			children = (
 				0480BCDE200C3A7000B79DB8 /* Extension */,
 				04B2190E20074C13002A1742 /* BoostProfile.swift */,
+				041734902011C4460075D507 /* NoticeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -727,6 +738,7 @@
 			isa = PBXGroup;
 			children = (
 				04E223D82003766E00A2B388 /* DefaultAPI.swift */,
+				0420EABA2011D62C00E9820F /* DefaultAPI2.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -894,6 +906,7 @@
 				0480BCEF200C9CA500B79DB8 /* DateFormatter+jsonDate.swift */,
 				04122A601FEC92DE00896EE0 /* Dictionary+Easy.swift */,
 				04122A641FEC941F00896EE0 /* Collection+SafeRange.swift */,
+				041734942011C49B0075D507 /* ModelChanger.swift */,
 				0480BCE3200C3B1B00B79DB8 /* Extension+StoredProperties.swift */,
 				0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */,
 				045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */,
@@ -1699,11 +1712,13 @@
 				0483853620035641007DE69B /* AlamofireImplementations.swift in Sources */,
 				2BCCF08E200F24C5007AAD47 /* BSTClosure.swift in Sources */,
 				0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
+				041734952011C49B0075D507 /* ModelChanger.swift in Sources */,
 				0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				A6F3507520035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
 				2B77AFBA2005EA6B004434D1 /* TicketScanViewController.swift in Sources */,
 				04E2241B2003766E00A2B388 /* Sort.swift in Sources */,
 				04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */,
+				041734912011C4460075D507 /* NoticeViewModel.swift in Sources */,
 				04E224212003766E00A2B388 /* Skin.swift in Sources */,
 				2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */,
 				049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */,
@@ -1771,6 +1786,7 @@
 				045D14841FF4A9B400A67AA0 /* Optional+logError.swift in Sources */,
 				A623523A1FF390690007949C /* Gitup.swift in Sources */,
 				8F6D3B311FFB498500F29B8D /* ConcertInformationViewController.swift in Sources */,
+				0420EABB2011D62C00E9820F /* DefaultAPI2.swift in Sources */,
 				8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */,
 				04E2240F2003766E00A2B388 /* Help.swift in Sources */,
 				2B5AA08B1FEB5568007441E1 /* IntroViewController.swift in Sources */,
@@ -1879,8 +1895,10 @@
 				04E223F82003766E00A2B388 /* ConcertsGetResponse.swift in Sources */,
 				0462CDA81FFCA410002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
 				0462CD9D1FFCA407002B6E11 /* ViewController.swift in Sources */,
+				041734922011C4460075D507 /* NoticeViewModel.swift in Sources */,
 				04122A7A1FECE9A200896EE0 /* NumberConvertible.swift in Sources */,
 				0483854620035641007DE69B /* JSONEncodingHelper.swift in Sources */,
+				041734962011C49B0075D507 /* ModelChanger.swift in Sources */,
 				04B219152007603C002A1742 /* TextViewWithInsets.swift in Sources */,
 				04B2191A20076054002A1742 /* HelpWebViewController.swift in Sources */,
 				04E224402004867700A2B388 /* String+Alert.swift in Sources */,
@@ -2000,8 +2018,10 @@
 				04E224382003766E00A2B388 /* AccountsPostResponse.swift in Sources */,
 				0462CDD11FFCA431002B6E11 /* DebugHSLee.swift in Sources */,
 				04122A7D1FECE9A300896EE0 /* BSTButton.swift in Sources */,
+				041734932011C4460075D507 /* NoticeViewModel.swift in Sources */,
 				04B219162007603C002A1742 /* TextViewWithInsets.swift in Sources */,
 				04B2192020076054002A1742 /* HelpWebViewController.swift in Sources */,
+				041734972011C49B0075D507 /* ModelChanger.swift in Sources */,
 				A63F1A3420059D3A0079046D /* ConcertInfoView.swift in Sources */,
 				04E224352003766E00A2B388 /* PageNotice.swift in Sources */,
 				04122A7F1FECE9A300896EE0 /* NumberConvertible.swift in Sources */,

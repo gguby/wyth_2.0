@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class SettingsGetResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = SettingsGetResponse.buildApiRequests()
@@ -18,6 +19,34 @@ open class SettingsGetResponse: BaseModel {
     public var skins: [Skin]?
     public var userName: String?
 
-    public init() {}
 
+    
+    public init(alarm: Bool?, skins: [Skin]?, userName: String?) {
+        self.alarm = alarm
+        self.skins = skins
+        self.userName = userName
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(alarm, forKey: "alarm")
+        try container.encodeIfPresent(skins, forKey: "skins")
+        try container.encodeIfPresent(userName, forKey: "userName")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        alarm = try container.decodeIfPresent(Bool.self, forKey: "alarm")
+        skins = try container.decodeIfPresent([Skin].self, forKey: "skins")
+        userName = try container.decodeIfPresent(String.self, forKey: "userName")
+    }
 }
+

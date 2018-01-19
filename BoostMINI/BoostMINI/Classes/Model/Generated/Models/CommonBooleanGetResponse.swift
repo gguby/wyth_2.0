@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class CommonBooleanGetResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = CommonBooleanGetResponse.buildApiRequests()
@@ -16,6 +17,28 @@ open class CommonBooleanGetResponse: BaseModel {
 
     public var alarm: Bool?
 
-    public init() {}
 
+    
+    public init(alarm: Bool?) {
+        self.alarm = alarm
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(alarm, forKey: "alarm")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        alarm = try container.decodeIfPresent(Bool.self, forKey: "alarm")
+    }
 }
+

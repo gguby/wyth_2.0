@@ -9,13 +9,36 @@
 import Foundation
 
 
+
 open class CommonNumberGetResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = CommonNumberGetResponse.buildApiRequests()
 
 
-    public var selected: Int32?
+    public var selected: Int?
 
-    public init() {}
 
+    
+    public init(selected: Int?) {
+        self.selected = selected
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(selected, forKey: "selected")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        selected = try container.decodeIfPresent(Int.self, forKey: "selected")
+    }
 }
+

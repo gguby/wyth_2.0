@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class Skin: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = Skin.buildApiRequests()
@@ -18,6 +19,34 @@ open class Skin: BaseModel {
     public var select: Bool?
     public var url: String?
 
-    public init() {}
 
+    
+    public init(id: Int64?, select: Bool?, url: String?) {
+        self.id = id
+        self.select = select
+        self.url = url
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(id, forKey: "id")
+        try container.encodeIfPresent(select, forKey: "select")
+        try container.encodeIfPresent(url, forKey: "url")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        id = try container.decodeIfPresent(Int64.self, forKey: "id")
+        select = try container.decodeIfPresent(Bool.self, forKey: "select")
+        url = try container.decodeIfPresent(String.self, forKey: "url")
+    }
 }
+

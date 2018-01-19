@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 open class ConcertsGetResponse: BaseModel {
 	// autogen apiList protocol
 	static var apiList: [String: APIRequest] = ConcertsGetResponse.buildApiRequests()
@@ -21,6 +22,43 @@ open class ConcertsGetResponse: BaseModel {
     public var dday: String?
     public var end: Bool?
 
-    public init() {}
 
+    
+    public init(concertDate: String?, concertId: Int64?, concertNm: String?, concertPlace: String?, dday: String?, end: Bool?) {
+        self.concertDate = concertDate
+        self.concertId = concertId
+        self.concertNm = concertNm
+        self.concertPlace = concertPlace
+        self.dday = dday
+        self.end = end
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(concertDate, forKey: "concertDate")
+        try container.encodeIfPresent(concertId, forKey: "concertId")
+        try container.encodeIfPresent(concertNm, forKey: "concertNm")
+        try container.encodeIfPresent(concertPlace, forKey: "concertPlace")
+        try container.encodeIfPresent(dday, forKey: "dday")
+        try container.encodeIfPresent(end, forKey: "end")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        concertDate = try container.decodeIfPresent(String.self, forKey: "concertDate")
+        concertId = try container.decodeIfPresent(Int64.self, forKey: "concertId")
+        concertNm = try container.decodeIfPresent(String.self, forKey: "concertNm")
+        concertPlace = try container.decodeIfPresent(String.self, forKey: "concertPlace")
+        dday = try container.decodeIfPresent(String.self, forKey: "dday")
+        end = try container.decodeIfPresent(Bool.self, forKey: "end")
+    }
 }
+
