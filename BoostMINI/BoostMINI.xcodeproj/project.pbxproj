@@ -43,6 +43,12 @@
 		0412CB7B1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */; };
 		0412CB7C1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */; };
 		0412CB7D1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */; };
+		0417348520118BF40075D507 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348420118BF40075D507 /* LoadingViewController.swift */; };
+		0417348620118BF40075D507 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348420118BF40075D507 /* LoadingViewController.swift */; };
+		0417348720118BF40075D507 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348420118BF40075D507 /* LoadingViewController.swift */; };
+		041734892011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */; };
+		0417348A2011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */; };
+		0417348B2011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */; };
 		044236AF2005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
 		044236B02005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
 		044236B12005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
@@ -413,6 +419,8 @@
 		04122A681FEC962600896EE0 /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
 		0412CB761FFF7FD00059C5A4 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusCode.swift"; sourceTree = "<group>"; };
+		0417348420118BF40075D507 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-LoadingIndicator.swift"; sourceTree = "<group>"; };
 		044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderUIExtension.swift"; sourceTree = "<group>"; };
 		044236B22005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+multiplierSetter.swift"; sourceTree = "<group>"; };
 		045D14831FF4A9B400A67AA0 /* Optional+logError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+logError.swift"; sourceTree = "<group>"; };
@@ -604,6 +612,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0417348320118BCE0075D507 /* CommonScreens */ = {
+			isa = PBXGroup;
+			children = (
+				0417348420118BF40075D507 /* LoadingViewController.swift */,
+			);
+			path = CommonScreens;
+			sourceTree = "<group>";
+		};
 		045D14881FF4DD1400A67AA0 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -816,6 +832,7 @@
 				2B77AFB62005E8CC004434D1 /* Storyboard.swift */,
 				2B5AA08C1FEB55BA007441E1 /* BSTUXHanlder.swift */,
 				04122A541FEBAEE400896EE0 /* BSTUXHandler-Toast.swift */,
+				041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */,
 				04AD73FE1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift */,
 			);
 			path = UX;
@@ -824,6 +841,7 @@
 		2B5AA0671FEA6178007441E1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0417348320118BCE0075D507 /* CommonScreens */,
 				2B77AFB82005EA52004434D1 /* DeviceScreens */,
 				8F391FF91FFF3F6D00A46996 /* SettingScreens */,
 				2B5AA0681FEA6178007441E1 /* IntroScreens */,
@@ -1649,6 +1667,7 @@
 				04C22BA91FEB9597007E2BED /* Logger.swift in Sources */,
 				0480BCE0200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */,
 				2B5AA08D1FEB55BA007441E1 /* BSTUXHanlder.swift in Sources */,
+				0417348520118BF40075D507 /* LoadingViewController.swift in Sources */,
 				0483854520035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				0480BCF4200C9FD500B79DB8 /* UserDefault+CustomClass.swift in Sources */,
 				0483853C20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
@@ -1714,6 +1733,7 @@
 				04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
 				04AD73FF1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift in Sources */,
 				0480BCEC200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */,
+				041734892011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */,
 				0483854220035641007DE69B /* Extensions.swift in Sources */,
 				2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */,
 				045D148A1FF4DD2200A67AA0 /* RequestBlock.swift in Sources */,
@@ -1758,6 +1778,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0417348A2011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */,
 				0462CDB81FFCA426002B6E11 /* DeviceManager.swift in Sources */,
 				04E2243C200481B500A2B388 /* GeneratedModelExtension.swift in Sources */,
 				0462CDB31FFCA426002B6E11 /* RequestBlock.swift in Sources */,
@@ -1793,6 +1814,7 @@
 				04E2241C2003766E00A2B388 /* Sort.swift in Sources */,
 				04122A821FECE9AE00896EE0 /* Common.swift in Sources */,
 				04B2191820076046002A1742 /* Storyboard.swift in Sources */,
+				0417348620118BF40075D507 /* LoadingViewController.swift in Sources */,
 				0480BCF1200C9CA500B79DB8 /* DateFormatter+jsonDate.swift in Sources */,
 				0483853D20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
 				04B2191020074C13002A1742 /* BoostProfile.swift in Sources */,
@@ -1876,6 +1898,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0417348B2011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */,
 				04E224412004867700A2B388 /* String+Alert.swift in Sources */,
 				04AD73FD1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
 				04AD74211FF36269005F4BF0 /* Protocols.swift in Sources */,
@@ -1911,6 +1934,7 @@
 				04B2191720076046002A1742 /* Storyboard.swift in Sources */,
 				0483853820035641007DE69B /* AlamofireImplementations.swift in Sources */,
 				0462CDA31FFCA408002B6E11 /* ViewControllerReactor.swift in Sources */,
+				0417348720118BF40075D507 /* LoadingViewController.swift in Sources */,
 				0480BCF2200C9CA500B79DB8 /* DateFormatter+jsonDate.swift in Sources */,
 				0462CDCF1FFCA431002B6E11 /* ConcertInformationViewController.swift in Sources */,
 				04E2241D2003766E00A2B388 /* Sort.swift in Sources */,

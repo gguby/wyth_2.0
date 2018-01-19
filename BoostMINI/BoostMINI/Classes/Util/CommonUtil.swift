@@ -47,11 +47,11 @@ extension CommonUtil {
         for window: UIWindow in UIApplication.shared.windows.reversed() {
             
             let windowClassName: String = getTypeName(window) // NSStringFromClass(window)
-            
-            if "ToastWindow" == windowClassName || "FLEXWindow" == windowClassName || window.windowLevel == kAlertWindowLevel {
+			
+			// UIWindowLevelAlert = 2000, UIWindowLevelStatusBar = 1000
+            if ["ToastWindow", "FLEXWindow"].contains(windowClassName) || window.windowLevel >= UIWindowLevelStatusBar {
                 continue
             }
-//            if let transitionView = window.subviews.last, transitionView.frame.origin.y < SCREEN_HEIGHT, !windowClassName.contains("UITextEffectsWindow") {
             if windowClassName.contains("UITextEffectsWindow") == false {
                 topWindow = window
                 break

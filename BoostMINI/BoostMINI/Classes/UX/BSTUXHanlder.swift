@@ -157,6 +157,29 @@ class BSTUXHanlder {
 				block?()
 			})
 	}
+	
+	
+	
+	
+	
+	/// 인디게이터를 보여준다.
+	///
+	/// - Parameter info: 인디게이터를 띄운 쪽의 정보. 보통은 생략하면 된다.
+	///                   특별히 codegenRestAPI.sh 에서 만들어진 코드에서는 "codegenRestAPI" 가 들어오게 된다.
+	open func showIndicator(_ info: String? = nil) {
+		LoadingIndicator.show(message: info)
+		
+	}
+	
+	/// 인디게이터를 숨긴다.
+	///
+	/// - Parameter info: 인디게이터를 띄운 쪽의 정보. 보통은 생략하면 된다.
+	open func hideIndicator(_ info: String? = nil) {
+		LoadingIndicator.hide(animate: true, message: info)
+
+	}
+	
+
 }
 
 extension BSTUXHanlder {

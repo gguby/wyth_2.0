@@ -73,34 +73,45 @@ extension BSTUXHanlder {
 
 	
 	
-	internal class SystemAlert: NSObject {
+	internal class SystemAlert {
 
 		private static var stackVC: [UIAlertController] = []
 		
+		private static let privateInstance = SystemAlert()
+		private init() { }
+		private var window: UIWindow?
+		
 		class func show(_ sender: UIViewController?,
-						title: String?,
-						message: String?,
+						title titleTemp: String?,
+						message messageTemp: String?,
 						buttonTexts: [String] = [AlertButtons.ok.text],
 						completion: ((_ buttonIndex: Int) -> Void)? = nil) {
 			
 			// INFO: 비디오 플레이어처럼 상태표시줄이 없어야 되는 경우는, 상태표시줄이 없는 알럿으로 띄워줘야함..
-			var viewController: UIViewController?
+			var viewController: UIViewController? = sender
 			if sender == nil {
-				let window = UIWindow(frame: UIScreen.main.bounds)
+				
+				if SystemAlert.privateInstance.window == nil {
+					SystemAlert.privateInstance.window = UIWindow(frame: UIScreen.main.bounds)
+				}
+				let window = SystemAlert.privateInstance.window!
+				window.frame = UIScreen.main.bounds
+				
+
 				window.rootViewController = SystemAlertViewController(statusBarStyle: UIApplication.shared.statusBarStyle)
 
 				window.windowLevel = kAlertWindowLevel
 				window.makeKeyAndVisible()
 				viewController = window.rootViewController ?? UIViewController()
 			}
-			let tt: String = title ?? ""
-			var mm: String = message ?? ""
-			if tt.isEmpty && mm.isEmpty {
+			let title: String = titleTemp ?? "" // _title
+			var message: String = messageTemp ?? ""
+			if title.isEmpty && message.isEmpty {
 				// title, message 가 전부 없어서 버튼만 있고 메시지 부가 아예 없는 메시지 창을 막기 위해 처리.
 				// title만 사용하는 경우, 메시지의 @" " 때문에 빈 줄이 생기던 기존 소스의 이슈를 재수정하였음.
-				mm = " "
+				message = " "
 			}
-			let alertView = UIAlertController(title: tt, message: mm, preferredStyle: .alert)
+			let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
 			var idx: Int = buttonTexts.count - 1	// zero based.
 
 			// 역순으로 표시. (우측부터)
@@ -108,8 +119,9 @@ extension BSTUXHanlder {
 				let index = idx
 				alertView.addAction(UIAlertAction(title: text, style: .default, handler: { (_: UIAlertAction) -> Void in
 					logVerbose("button \(text) -> \(index)")
-					if stackVC.last == alertView {
-					}
+					stackVC.first(where: { object -> Bool in
+						return object == alertView
+					})
 					completion?(index)
 				}))
 				idx -= 1
