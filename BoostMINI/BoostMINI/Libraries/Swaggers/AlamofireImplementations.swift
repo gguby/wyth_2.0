@@ -120,6 +120,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
             _ = managerStore.removeValue(forKey: managerId)
         }
 
+        logRequest(request)	// logging curl prompt
         let validatedRequest = request.validate()
 
         switch T.self {
@@ -212,6 +213,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
             _ = managerStore.removeValue(forKey: managerId)
         }
 
+        logRequest(request)	// logging curl prompt
         let validatedRequest = request.validate()
 
         switch T.self {

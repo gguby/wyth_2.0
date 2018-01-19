@@ -106,6 +106,12 @@ sed -i '' -e $'s|encoder.dataEncodingStrategy|//encoder.dataEncodingStrategy|g' 
 done;
 
 
+for X in BoostMINI/BoostMINI/Classes/Swaggers/AlamofireImp*.swift; do
+# AlamofireImplementations.swift 하나
+sed -i '' -E $'s|let validatedRequest = request\\.validate\\(\\)|logRequest(request)	// logging curl prompt\\\n        let validatedRequest = request.validate()|g' $X;
+done;
+
+
 
 #echo "Part 2"
 for X in BoostMINI/BoostMINI/Classes/Swaggers/APIs/*.swift; do _sedReplace $X;

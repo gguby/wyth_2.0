@@ -49,6 +49,9 @@
 		041734892011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */; };
 		0417348A2011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */; };
 		0417348B2011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */; };
+		0417348D2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */; };
+		0417348E2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */; };
+		0417348F2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */; };
 		044236AF2005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
 		044236B02005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
 		044236B12005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
@@ -421,6 +424,7 @@
 		0412CB7A1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusCode.swift"; sourceTree = "<group>"; };
 		0417348420118BF40075D507 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-LoadingIndicator.swift"; sourceTree = "<group>"; };
+		0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+AlamofireRequest.swift"; sourceTree = "<group>"; };
 		044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderUIExtension.swift"; sourceTree = "<group>"; };
 		044236B22005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+multiplierSetter.swift"; sourceTree = "<group>"; };
 		045D14831FF4A9B400A67AA0 /* Optional+logError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+logError.swift"; sourceTree = "<group>"; };
@@ -822,6 +826,7 @@
 			children = (
 				2B5AA08E1FEB55C8007441E1 /* CommonUtil.swift */,
 				04C22BA81FEB9597007E2BED /* Logger.swift */,
+				0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1752,6 +1757,7 @@
 				04E224332003766E00A2B388 /* PageNotice.swift in Sources */,
 				8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */,
 				04E224032003766E00A2B388 /* NoticesGetResponse.swift in Sources */,
+				0417348D2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */,
 				04AD73F91FF21E23005F4BF0 /* LogInViewController.swift in Sources */,
 				045D148C1FF4DF3D00A67AA0 /* JSONDecoder+base.swift in Sources */,
 				2B61F03D1FDFA49500581F06 /* AppDelegate.swift in Sources */,
@@ -1842,6 +1848,7 @@
 				0480BCF5200C9FD500B79DB8 /* UserDefault+CustomClass.swift in Sources */,
 				0462CDE21FFDF964002B6E11 /* R.generated.swift in Sources */,
 				04E2242B2003766E00A2B388 /* CommonNumberGetResponse.swift in Sources */,
+				0417348E2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */,
 				0480BCF7200CAB1F00B79DB8 /* TicketScanViewController.swift in Sources */,
 				04B2191B20076054002A1742 /* TermsViewController.swift in Sources */,
 				0483854320035641007DE69B /* Extensions.swift in Sources */,
@@ -1962,6 +1969,7 @@
 				04B2192120076054002A1742 /* TermsViewController.swift in Sources */,
 				04E224322003766E00A2B388 /* CommonBooleanGetResponse.swift in Sources */,
 				0412CB791FFF7FD00059C5A4 /* APIRequest.swift in Sources */,
+				0417348F2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */,
 				0480BCF8200CAB2000B79DB8 /* TicketScanViewController.swift in Sources */,
 				0462CDE11FFDF961002B6E11 /* R.generated.swift in Sources */,
 				0462CDCD1FFCA431002B6E11 /* IntroViewController.swift in Sources */,
