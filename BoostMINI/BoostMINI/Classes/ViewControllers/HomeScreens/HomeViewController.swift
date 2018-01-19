@@ -68,6 +68,16 @@ class HomeViewController: UIViewController {
         self.prepareViewDidLoad()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if currentState == .open {
+            if #available(iOS 10.0, *) {
+                toggleViewingInformation()
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    
     /// ViewController 로딩 시, 프로퍼티 초기화
     private func initProperties() {
         SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
@@ -136,7 +146,7 @@ class HomeViewController: UIViewController {
        
     }
     
-    @objc func showDetailConcertInformation(recognizer: UITapGestureRecognizer){
+    @objc func showDetailConcertInformation(recognizer: UITapGestureRecognizer) {
         let storyboard = UIStoryboard(name:"Home", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DetailConcertInformationViewController")
         controller.hidesBottomBarWhenPushed = true
@@ -154,8 +164,6 @@ class HomeViewController: UIViewController {
         
      }
     
-    
-	
 	@available(iOS 10.0, *)
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
         //티켓 정보가 없을 경우,
@@ -166,16 +174,7 @@ class HomeViewController: UIViewController {
             } else {
                 BSTFacade.go.device(self, type: ReactorViewType.Management)
             }
-            
-            
         }
-//        else {
-//            guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else {
-//                return
-//            }
-//
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
     }
     
     @available(iOS 10.0, *)
@@ -234,7 +233,6 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController : UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
-        print(#function)
         if currentState == .open {
             if #available(iOS 10.0, *) {
                 toggleViewingInformation()
