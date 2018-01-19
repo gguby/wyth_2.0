@@ -111,9 +111,16 @@ done;
 for X in BoostMINI/BoostMINI/Classes/Swaggers/APIs/*.swift; do _sedReplace $X;
 #echo "[$X] GO"
 #head -n 20 $X
-sed -i '' -E $'s|open class ([a-zA-Z0-9]*API) {|open class \\1 {\\\n  private static var xAPPVersion: String = BSTApplication.shortVersion ?? "unknown"\\\n  private static var xDevice: String     = "ios"\\\n  private static var acceptLanguage: String = "ko-KR"|g' $X;
+sed -i '' -E $'s|open class ([a-zA-Z0-9]*API) {|open class \\1 {\\\n	private static var xAPPVersion: String = BSTApplication.shortVersion ?? "unknown"\\\n	private static var xDevice: String        = "ios"\\\n	private static var acceptLanguage: String = "ko-KR"\\\n	internal static let uniqueIndicatorKey    = "codegenDK-\\1"\\\n|g' $X;
+
 sed -i '' -e $'s|completion(response?.body, error);|completion(response?.body, BSTErrorBaker.errorFilter(error, response))|g' $X;
 sed -i '' -e $'s|observer.on(.error(error as Error))|observer.on(.error(BSTErrorBaker<Any>.errorFilter(error)!))|g' $X;
+
+	
+sed -i '' -E $'s|_ error: Error\\?) -> Void)) \\{|_ error: Error?) -> Void)) {\\\n		BSTFacade.ux.showIndicator(uniqueIndicatorKey)|g' $X;
+sed -i '' -E $'s|execute \\{ \\(response, error\\) -> Void in|execute { (response, error) -> Void in\\\n		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)|g' $X;
+
+
 
 done;
 #echo "Part 3"
@@ -123,7 +130,7 @@ for X in BoostMINI/BoostMINI/Classes/Swaggers/Models/*.swift; do _sedReplace $X;
 mv BoostMINI/BoostMINI/Classes/Swaggers/*.swift BoostMINI/BoostMINI/Libraries/Swaggers
 cp -R BoostMINI/BoostMINI/Classes/Swaggers/* BoostMINI/BoostMINI/Classes/Model/Generated/
 
-#rm -rf BoostMINI/BoostMINI/Classes/Swaggers
+rm -rf BoostMINI/BoostMINI/Classes/Swaggers
 
 
 

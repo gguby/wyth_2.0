@@ -121,7 +121,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         }
 
         let validatedRequest = request.validate()
-        logDebug(request.debugDescription)
+
         switch T.self {
         case is String.Type:
             validatedRequest.responseString(completionHandler: { (stringResponse) in
@@ -213,8 +213,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
         }
 
         let validatedRequest = request.validate()
-        logDebug(request.debugDescription)
-        
+
         switch T.self {
         case is String.Type:
             validatedRequest.responseString(completionHandler: { (stringResponse) in

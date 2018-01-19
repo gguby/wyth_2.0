@@ -21,11 +21,13 @@ extension BSTUXHanlder {
 						blockUI: Bool = true,
 						animate: Bool = true,
 						customBackgroundColor: UIColor = UIColor.clear) {
+			
 			if privateInstance.window == nil {
 				privateInstance.window = UIWindow(frame: UIScreen.main.bounds)
 			} else {
 				if privateInstance.window!.isHidden == false {
-					hide()
+					//logVerbose("indicator already shown")
+					//hide()
 					return
 				}
 			}
@@ -44,6 +46,7 @@ extension BSTUXHanlder {
 			loadingVC?.view.isUserInteractionEnabled = blockUI
 			
 			window.alpha = 0
+			window.isHidden = false
 			UIView.animate(withDuration: (animate ? privateInstance.duration : 0)) {
 				window.alpha = 1.0
 			}
@@ -60,7 +63,7 @@ extension BSTUXHanlder {
 			UIView.animate(withDuration: (animate ? privateInstance.duration : 0), animations: {
 				window.alpha = 0
 			}) { fin in
-				window.removeFromSuperview()
+				window.isHidden = true
 			}
 		}
 	}

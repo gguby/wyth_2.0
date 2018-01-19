@@ -13,9 +13,11 @@ import RxSwift
 
 
 open class DefaultAPI {
-  private static var xAPPVersion: String = BSTApplication.shortVersion ?? "unknown"
-  private static var xDevice: String     = "ios"
-  private static var acceptLanguage: String = "ko-KR"
+	private static var xAPPVersion: String = BSTApplication.shortVersion ?? "unknown"
+	private static var xDevice: String        = "ios"
+	private static var acceptLanguage: String = "ko-KR"
+	internal static let uniqueIndicatorKey    = "codegenDK-DefaultAPI"
+
     /**
      콘서트 정보 가져오기
      
@@ -25,7 +27,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getConcertsUsingGET(completion: @escaping ((_ data: ConcertsGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         getConcertsUsingGETWithRequestBuilder().execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -93,7 +97,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getHelplistUsingGET(lastId: Int64? = nil, size: Int32? = nil, completion: @escaping ((_ data: HelpGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         getHelplistUsingGETWithRequestBuilder(lastId: lastId, size: size).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -169,7 +175,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getNoticesUsingGET(lastId: Int64? = nil, size: Int32? = nil, completion: @escaping ((_ data: NoticesGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         getNoticesUsingGETWithRequestBuilder(lastId: lastId, size: size).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -243,7 +251,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getProfileUsingGET(completion: @escaping ((_ data: ProfileGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         getProfileUsingGETWithRequestBuilder().execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -318,7 +328,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getSeatsUsingGET(type: ModelType_getSeatsUsingGET, completion: @escaping ((_ data: ConcertsSeatGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         getSeatsUsingGETWithRequestBuilder(type: type).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -387,7 +399,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getSettingsUsingGET(completion: @escaping ((_ data: SettingsGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         getSettingsUsingGETWithRequestBuilder().execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -453,7 +467,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getVersionUsingGET(completion: @escaping ((_ data: AppsGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         getVersionUsingGETWithRequestBuilder().execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -520,7 +536,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func postAlarmsUsingPOST(alarm: Bool, completion: @escaping ((_ data: CommonBooleanGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         postAlarmsUsingPOSTWithRequestBuilder(alarm: alarm).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -589,7 +607,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func postSkinsUsingPOST(select: Int32, completion: @escaping ((_ data: CommonNumberGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         postSkinsUsingPOSTWithRequestBuilder(select: select).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -657,7 +677,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func showResponseCodeUsingHEAD(completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         showResponseCodeUsingHEADWithRequestBuilder().execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -737,7 +759,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func signinUsingPOST(accessToken: String, socialType: SocialType_signinUsingPOST, pushToken: String, osVersion: String, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         signinUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -817,7 +841,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func signoutUsingDELETE(completion: @escaping ((_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         signoutUsingDELETEWithRequestBuilder().execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(error);
         }
     }
@@ -896,7 +922,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func signupUsingPOST(accessToken: String, socialType: SocialType_signupUsingPOST, pushToken: String, osVersion: String, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         signupUsingPOSTWithRequestBuilder(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
     }
@@ -976,7 +1004,9 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func withdrawUsingDELETE(completion: @escaping ((_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
         withdrawUsingDELETEWithRequestBuilder().execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(error);
         }
     }

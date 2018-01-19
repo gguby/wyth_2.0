@@ -167,6 +167,10 @@ class BSTUXHanlder {
 	/// - Parameter info: 인디게이터를 띄운 쪽의 정보. 보통은 생략하면 된다.
 	///                   특별히 codegenRestAPI.sh 에서 만들어진 코드에서는 "codegenRestAPI" 가 들어오게 된다.
 	open func showIndicator(_ info: String? = nil) {
+//		logVerbose("\(#function) \(info)")
+//		if info == "codegenDK-DefaultAPI" {
+//			return
+//		}
 		LoadingIndicator.show(message: info)
 		
 	}
@@ -175,6 +179,10 @@ class BSTUXHanlder {
 	///
 	/// - Parameter info: 인디게이터를 띄운 쪽의 정보. 보통은 생략하면 된다.
 	open func hideIndicator(_ info: String? = nil) {
+//		logVerbose("\(#function) \(info)")
+//		if info == "codegenDK-DefaultAPI" {
+//			return
+//		}
 		LoadingIndicator.hide(animate: true, message: info)
 
 	}

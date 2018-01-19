@@ -18,8 +18,6 @@ extension BoostProfile {
 	///   - welcome: 부스트 가입이 안된 사용자. 환영한다는 웰컴이 아니다...웰컴페이지에 있는 약관동의가 필요하다는 의미이다. Notifications 또는 클로져 블록으로 이벤트를 받음.
 	///   - failed: 완전 실패. 왜? 무엇때문에 왜때문에 와츠더메러윗유?!  대밋 클로이! Notifications 또는 클로져 블록으로 에러정보를 받고, 이는 이미 SessionHandler에 저장됨.
 	static func login(_ token: String, loginned: ((BoostProfile?) -> Void)? = nil, welcome: (() -> Void)? = nil, failed: ((Error?) -> Void)? = nil) {
-//		BoostProfile.login(token)
-//		SessionHandler.shared.login(token)
 		
 		// check 1
 		SessionHandler.shared.token = token
