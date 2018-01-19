@@ -38,17 +38,20 @@ class NotificationPresenter {
 //        }
         
         DefaultAPI.getNoticesUsingGET(lastId: lastId.i64, size: Int.max) { [weak self] response, error in
-            guard let pageNotice = response, let list = pageNotice.list else {
+            guard let pageNotice = response, let notices = pageNotice.notices else {
                 return
             }
 			
+			
+			//TODO: check
+			
 			var converted: [NoticeViewModel] = []
-			for notice in list.content ?? [] {
+			for notice in notices {
 				if let noticeVM = NoticeViewModel.from(notice) {
-					converted.append(noticeVM as! NoticeViewModel)
+					converted.append(noticeVM)
 				}
 			}
-//            self?.view.setNotifications(notifications: list.content)
+            self?.view.setNotifications(notifications: converted)
         }
     }
 }

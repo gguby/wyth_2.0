@@ -119,6 +119,16 @@ sed -i '' -E $'s|let validatedRequest = request\\.validate\\(\\)|logRequest(requ
 done;
 
 
+for X in BoostMINI/BoostMINI/Classes/Swaggers/JSONEncodable*.swift; do
+# JSONEncodableEncoding.swift 하나
+# 코드내에 2줄이 있기때문에 2개가 다 바뀐다.사실 guard let else { ... } 내부의 것만 치환하면 된다.
+sed -i '' -e 's|return urlRequest|return urlRequest.asURLRequestWithParams(parameters)|g' $X;
+sed -i '' -e 's|private static let jsonDataKey = "jsonData"|static let jsonDataKey = "jsonData"|g' $X;
+
+done;
+
+
+
 
 #echo "Part 2"
 for X in BoostMINI/BoostMINI/Classes/Swaggers/APIs/*.swift; do _sedReplace $X;
@@ -152,7 +162,7 @@ for X in BoostMINI/BoostMINI/Classes/Swaggers/Models/*.swift; do _sedReplace $X;
 mv BoostMINI/BoostMINI/Classes/Swaggers/*.swift BoostMINI/BoostMINI/Libraries/Swaggers
 cp -R BoostMINI/BoostMINI/Classes/Swaggers/* BoostMINI/BoostMINI/Classes/Model/Generated/
 
-#rm -rf BoostMINI/BoostMINI/Classes/Swaggers
+rm -rf BoostMINI/BoostMINI/Classes/Swaggers
 
 
 

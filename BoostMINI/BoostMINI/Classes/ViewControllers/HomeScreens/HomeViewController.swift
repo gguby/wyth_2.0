@@ -53,7 +53,8 @@ class HomeViewController: UIViewController {
 	
     private var bottomConstraint = NSLayoutConstraint()
     private var currentState: State = .closed
-    
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 	
     // MARK: - * IBOutlets --------------------
     
@@ -62,7 +63,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+		
         self.initProperties()
         self.initUI()
         self.prepareViewDidLoad()
@@ -82,7 +83,7 @@ class HomeViewController: UIViewController {
 			layout()
 		}
     }
-    
+
     func prepareViewDidLoad() {
         // 아이폰 - 카메라, 블루투스, notification 권한 요청
         PermissionManager.requestDeterminingPermission(completion: nil)

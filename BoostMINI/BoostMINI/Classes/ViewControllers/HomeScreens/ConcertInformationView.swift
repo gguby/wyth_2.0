@@ -42,10 +42,12 @@ class ConcertInformationView: UIView {
     
     func updateConcertInfo() {
         DefaultAPI.getConcertsUsingGET { [weak self] body, err in
-            guard let data = body else {
+            guard let dataList = body,
+				let data = dataList.concertlist?.last else {
                 return
             }
-            
+			
+			
             self?.ddayLabel.text = "D-\(data.dday!)"
             self?.concertNameLabel.text = data.concertNm
             self?.concertDateLabel.text = data.concertDate

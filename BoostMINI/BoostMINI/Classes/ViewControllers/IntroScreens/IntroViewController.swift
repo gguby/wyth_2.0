@@ -15,6 +15,8 @@ class IntroViewController: UIViewController {
 	@IBOutlet weak var loadingMarkFrame: UIView!
 	@IBOutlet weak var loadingMark: UIView!
 
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+
 	
 	var progressCompleted: Bool = false
 	var progressAnimationWaiting: Bool = true

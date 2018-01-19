@@ -31,6 +31,8 @@ class LogInViewController: UIViewController {
 
 	var cacheLoginButtonBottomConstraint: CGFloat!
 
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+
 
 	// 최초 1회 이후의 로그인 접근은 애니메이션 없음.
 	private static var isFirst = true

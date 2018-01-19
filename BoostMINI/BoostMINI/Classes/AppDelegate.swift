@@ -17,10 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         //		Logger.destination = [.console, .file]
-        		Logger.setMinLogLevel(.verbose)
+		Logger.setMinLogLevel(.verbose)
 
 		
-
+		CodableHelper.dateformatter = DateFormatter.jsonDate
+		
+		
 
         return true
     }
