@@ -15,12 +15,12 @@ open class CommonNumberGetResponse: BaseModel {
 	static var apiList: [String: APIRequest] = CommonNumberGetResponse.buildApiRequests()
 
 
-    public var selected: Int?
+    public var skin: Skin?
 
 
     
-    public init(selected: Int?) {
-        self.selected = selected
+    public init(skin: Skin?) {
+        self.skin = skin
     }
     
 
@@ -30,7 +30,7 @@ open class CommonNumberGetResponse: BaseModel {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(selected, forKey: "selected")
+        try container.encodeIfPresent(skin, forKey: "skin")
     }
 
     // Decodable protocol methods
@@ -38,7 +38,7 @@ open class CommonNumberGetResponse: BaseModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        selected = try container.decodeIfPresent(Int.self, forKey: "selected")
+        skin = try container.decodeIfPresent(Skin.self, forKey: "skin")
     }
 }
 

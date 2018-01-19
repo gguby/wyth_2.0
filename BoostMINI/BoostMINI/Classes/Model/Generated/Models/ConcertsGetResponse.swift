@@ -15,22 +15,12 @@ open class ConcertsGetResponse: BaseModel {
 	static var apiList: [String: APIRequest] = ConcertsGetResponse.buildApiRequests()
 
 
-    public var concertDate: String?
-    public var concertId: Int64?
-    public var concertNm: String?
-    public var concertPlace: String?
-    public var dday: String?
-    public var end: Bool?
+    public var concertlist: [ConcertResponse]?
 
 
     
-    public init(concertDate: String?, concertId: Int64?, concertNm: String?, concertPlace: String?, dday: String?, end: Bool?) {
-        self.concertDate = concertDate
-        self.concertId = concertId
-        self.concertNm = concertNm
-        self.concertPlace = concertPlace
-        self.dday = dday
-        self.end = end
+    public init(concertlist: [ConcertResponse]?) {
+        self.concertlist = concertlist
     }
     
 
@@ -40,12 +30,7 @@ open class ConcertsGetResponse: BaseModel {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(concertDate, forKey: "concertDate")
-        try container.encodeIfPresent(concertId, forKey: "concertId")
-        try container.encodeIfPresent(concertNm, forKey: "concertNm")
-        try container.encodeIfPresent(concertPlace, forKey: "concertPlace")
-        try container.encodeIfPresent(dday, forKey: "dday")
-        try container.encodeIfPresent(end, forKey: "end")
+        try container.encodeIfPresent(concertlist, forKey: "concertlist")
     }
 
     // Decodable protocol methods
@@ -53,12 +38,7 @@ open class ConcertsGetResponse: BaseModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        concertDate = try container.decodeIfPresent(String.self, forKey: "concertDate")
-        concertId = try container.decodeIfPresent(Int64.self, forKey: "concertId")
-        concertNm = try container.decodeIfPresent(String.self, forKey: "concertNm")
-        concertPlace = try container.decodeIfPresent(String.self, forKey: "concertPlace")
-        dday = try container.decodeIfPresent(String.self, forKey: "dday")
-        end = try container.decodeIfPresent(Bool.self, forKey: "end")
+        concertlist = try container.decodeIfPresent([ConcertResponse].self, forKey: "concertlist")
     }
 }
 

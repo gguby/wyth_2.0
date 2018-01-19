@@ -13,7 +13,7 @@ import RxCocoa
 import RxSwift
 
 protocol NotificationView: class {
-    func setNotifications(notifications: [Notice])
+    func setNotifications(notifications: [NoticeViewModel])
 }
 
 //protocol NotificationViewPresenter {
@@ -24,7 +24,7 @@ protocol NotificationView: class {
 class NotificationPresenter {
 
     unowned let view: NotificationView
-    var notices: [Notice]?
+    var notices: [NoticeViewModel]?
 //    let notification: NotificationModel?
     
     required init(view: NotificationView) {
@@ -37,11 +37,17 @@ class NotificationPresenter {
 //            self.view.setNotifications(notifications: notifications!)
 //        }
         
-        DefaultAPI.getNoticesUsingGET(lastId: lastId.i64, size: size.i32) { [weak self] response, error in
+        DefaultAPI.getNoticesUsingGET(lastId: lastId.i64, size: Int.max) { [weak self] response, error in
             guard let pageNotice = response, let list = pageNotice.list else {
                 return
             }
-            
+			
+			var converted: [NoticeViewModel] = []
+			for notice in list.content ?? [] {
+				if let noticeVM = NoticeViewModel.from(notice) {
+					converted.append(noticeVM as! NoticeViewModel)
+				}
+			}
 //            self?.view.setNotifications(notifications: list.content)
         }
     }
@@ -92,9 +98,9 @@ class NotificationViewController: UIViewController, NotificationView {
     }
 
     // MARK: * Main Logic --------------------
-    func setNotifications(notifications: [Notice]) {
+    func setNotifications(notifications: [NoticeViewModel]) {
         
-        let data = Observable<[Notice]>.just(notifications)
+        let data = Observable<[NoticeViewModel]>.just(notifications)
         data.bind(to: tableView.rx.items(cellIdentifier: "NotificationTableViewCell", cellType: NotificationTableViewCell.self)) { indexPath, notification, cell in
             cell.lblTitle.text = notification.title
         }.disposed(by: disposeBag)

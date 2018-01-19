@@ -87,84 +87,6 @@ open class DefaultAPI {
     }
 
     /**
-     도움말 목록 가져오기
-     
-     - parameter xAPPVersion: (header) app version 
-     - parameter xDevice: (header) device/os information (informal) 
-     - parameter acceptLanguage: (header) language-locale 
-     - parameter lastId: (query)  (optional)
-     - parameter size: (query)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getHelplistUsingGET(lastId: Int64? = nil, size: Int? = nil, completion: @escaping ((_ data: HelpGetResponse?,_ error: Error?) -> Void)) {
-		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
-        getHelplistUsingGETWithRequestBuilder(lastId: lastId, size: size).execute { (response, error) -> Void in
-		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
-            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
-        }
-    }
-
-    /**
-     도움말 목록 가져오기
-     
-     - parameter xAPPVersion: (header) app version 
-     - parameter xDevice: (header) device/os information (informal) 
-     - parameter acceptLanguage: (header) language-locale 
-     - parameter lastId: (query)  (optional)
-     - parameter size: (query)  (optional)
-     - returns: Observable<HelpGetResponse>
-     */
-    open class func getHelplistUsingGET(lastId: Int64? = nil, size: Int? = nil) -> Observable<HelpGetResponse> {
-        return Observable.create { observer -> Disposable in
-            getHelplistUsingGET(lastId: lastId, size: size) { data, error in
-                if let error = error {
-                    observer.on(.error(error))
-                } else {
-                    observer.on(.next(data!))
-                }
-                observer.on(.completed)
-            }
-            return Disposables.create()
-        }
-    }
-
-    /**
-     도움말 목록 가져오기
-     - GET /menus/help
-     - examples: [{output=none}]
-     
-     - parameter xAPPVersion: (header) app version 
-     - parameter xDevice: (header) device/os information (informal) 
-     - parameter acceptLanguage: (header) language-locale 
-     - parameter lastId: (query)  (optional)
-     - parameter size: (query)  (optional)
-
-     - returns: RequestBuilder<HelpGetResponse> 
-     */
-    open class func getHelplistUsingGETWithRequestBuilder(lastId: Int64? = nil, size: Int? = nil) -> RequestBuilder<HelpGetResponse> {
-        let path = "/menus/help"
-        let URLString = BoostMINIAPI.basePath + path
-        let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "lastId": lastId?.encodeToJSON(), 
-            "size": size?.encodeToJSON()
-        ])
-        
-        let nillableHeaders: [String: Any?] = [
-            "X-APP-Version": xAPPVersion,
-            "X-Device": xDevice,
-            "Accept-Language": acceptLanguage
-        ]
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
-
-        let requestBuilder: RequestBuilder<HelpGetResponse>.Type = BoostMINIAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
-    }
-
-    /**
      회원 정보
      
      - parameter xAPPVersion: (header) app version 
@@ -381,6 +303,74 @@ open class DefaultAPI {
     }
 
     /**
+     스킨 선택 가져오기
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getSkinsUsingGET(completion: @escaping ((_ data: CommonNumberGetResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
+        getSkinsUsingGETWithRequestBuilder().execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
+        }
+    }
+
+    /**
+     스킨 선택 가져오기
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - returns: Observable<CommonNumberGetResponse>
+     */
+    open class func getSkinsUsingGET() -> Observable<CommonNumberGetResponse> {
+        return Observable.create { observer -> Disposable in
+            getSkinsUsingGET() { data, error in
+                if let error = error {
+                    observer.on(.error(error))
+                } else {
+                    observer.on(.next(data!))
+                }
+                observer.on(.completed)
+            }
+            return Disposables.create()
+        }
+    }
+
+    /**
+     스킨 선택 가져오기
+     - GET /settings/skin
+     - examples: [{output=none}]
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+
+     - returns: RequestBuilder<CommonNumberGetResponse> 
+     */
+    open class func getSkinsUsingGETWithRequestBuilder() -> RequestBuilder<CommonNumberGetResponse> {
+        let path = "/settings/skin"
+        let URLString = BoostMINIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+
+        let url = NSURLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            "X-APP-Version": xAPPVersion,
+            "X-Device": xDevice,
+            "Accept-Language": acceptLanguage
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<CommonNumberGetResponse>.Type = BoostMINIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
      알림 설정
      
      - parameter xAPPVersion: (header) app version 
@@ -506,7 +496,7 @@ open class DefaultAPI {
     open class func postSkinsUsingPOSTWithRequestBuilder(select: Int) -> RequestBuilder<CommonNumberGetResponse> {
         let path = "/settings/skin"
         let URLString = BoostMINIAPI.basePath + path
-		let parameters: Parameters? = ["select": select]
+        let parameters: Parameters? = ["select": select]
 
         let url = NSURLComponents(string: URLString)
 
@@ -779,6 +769,186 @@ open class DefaultAPI {
         let requestBuilder: RequestBuilder<AccountsPostResponse>.Type = BoostMINIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
+     * enum for parameter socialType
+     */
+    public enum SocialType_signupUsingPOST1: String { 
+        case smtown = "SMTOWN"
+        case facebook = "FACEBOOK"
+        case twitter = "TWITTER"
+        case google = "GOOGLE"
+    }
+
+    /**
+     간편 회원 가입
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter accessToken: (query)  
+     - parameter socialType: (query)  
+     - parameter pushToken: (query)  
+     - parameter osVersion: (query)  
+     - parameter socialId: (query)  
+     - parameter name: (query)  
+     - parameter email: (query)  
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func signupUsingPOST1(accessToken: String, socialType: SocialType_signupUsingPOST1, pushToken: String, osVersion: String, socialId: String, name: String, email: String, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
+        signupUsingPOST1WithRequestBuilder(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion, socialId: socialId, name: name, email: email).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
+        }
+    }
+
+    /**
+     간편 회원 가입
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter accessToken: (query)  
+     - parameter socialType: (query)  
+     - parameter pushToken: (query)  
+     - parameter osVersion: (query)  
+     - parameter socialId: (query)  
+     - parameter name: (query)  
+     - parameter email: (query)  
+     - returns: Observable<AccountsPostResponse>
+     */
+    open class func signupUsingPOST1(accessToken: String, socialType: SocialType_signupUsingPOST1, pushToken: String, osVersion: String, socialId: String, name: String, email: String) -> Observable<AccountsPostResponse> {
+        return Observable.create { observer -> Disposable in
+            signupUsingPOST1(accessToken: accessToken, socialType: socialType, pushToken: pushToken, osVersion: osVersion, socialId: socialId, name: name, email: email) { data, error in
+                if let error = error {
+                    observer.on(.error(error))
+                } else {
+                    observer.on(.next(data!))
+                }
+                observer.on(.completed)
+            }
+            return Disposables.create()
+        }
+    }
+
+    /**
+     간편 회원 가입
+     - POST /simples/signup
+     - examples: [{output=none}]
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter accessToken: (query)  
+     - parameter socialType: (query)  
+     - parameter pushToken: (query)  
+     - parameter osVersion: (query)  
+     - parameter socialId: (query)  
+     - parameter name: (query)  
+     - parameter email: (query)  
+
+     - returns: RequestBuilder<AccountsPostResponse> 
+     */
+    open class func signupUsingPOST1WithRequestBuilder(accessToken: String, socialType: SocialType_signupUsingPOST1, pushToken: String, osVersion: String, socialId: String, name: String, email: String) -> RequestBuilder<AccountsPostResponse> {
+        let path = "/simples/signup"
+        let URLString = BoostMINIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+
+        let url = NSURLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "accessToken": accessToken, 
+            "socialType": socialType.rawValue, 
+            "pushToken": pushToken, 
+            "osVersion": osVersion, 
+            "socialId": socialId, 
+            "name": name, 
+            "email": email
+        ])
+        
+        let nillableHeaders: [String: Any?] = [
+            "X-APP-Version": xAPPVersion,
+            "X-Device": xDevice,
+            "Accept-Language": acceptLanguage
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<AccountsPostResponse>.Type = BoostMINIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
+     간편 로그인
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter userId: (path) userId 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func simplesigninUsingGET(userId: Int64, completion: @escaping ((_ data: AccountsPostResponse?,_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
+        simplesigninUsingGETWithRequestBuilder(userId: userId).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
+            completion(response?.body, BSTErrorBaker.errorFilter(error, response))
+        }
+    }
+
+    /**
+     간편 로그인
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter userId: (path) userId 
+     - returns: Observable<AccountsPostResponse>
+     */
+    open class func simplesigninUsingGET(userId: Int64) -> Observable<AccountsPostResponse> {
+        return Observable.create { observer -> Disposable in
+            simplesigninUsingGET(userId: userId) { data, error in
+                if let error = error {
+                    observer.on(.error(error))
+                } else {
+                    observer.on(.next(data!))
+                }
+                observer.on(.completed)
+            }
+            return Disposables.create()
+        }
+    }
+
+    /**
+     간편 로그인
+     - GET /simples/signin/{userId}
+     - examples: [{output=none}]
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter userId: (path) userId 
+
+     - returns: RequestBuilder<AccountsPostResponse> 
+     */
+    open class func simplesigninUsingGETWithRequestBuilder(userId: Int64) -> RequestBuilder<AccountsPostResponse> {
+        var path = "/simples/signin/{userId}"
+        path = path.replacingOccurrences(of: "{userId}", with: "\(userId)", options: .literal, range: nil)
+        let URLString = BoostMINIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+
+        let url = NSURLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            "X-APP-Version": xAPPVersion,
+            "X-Device": xDevice,
+            "Accept-Language": acceptLanguage
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<AccountsPostResponse>.Type = BoostMINIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
 
     /**

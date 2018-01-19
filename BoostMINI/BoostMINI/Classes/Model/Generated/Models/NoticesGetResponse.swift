@@ -15,12 +15,12 @@ open class NoticesGetResponse: BaseModel {
 	static var apiList: [String: APIRequest] = NoticesGetResponse.buildApiRequests()
 
 
-    public var list: PageNotice?
+    public var notices: [Notice]?
 
 
     
-    public init(list: PageNotice?) {
-        self.list = list
+    public init(notices: [Notice]?) {
+        self.notices = notices
     }
     
 
@@ -30,7 +30,7 @@ open class NoticesGetResponse: BaseModel {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(list, forKey: "list")
+        try container.encodeIfPresent(notices, forKey: "notices")
     }
 
     // Decodable protocol methods
@@ -38,7 +38,7 @@ open class NoticesGetResponse: BaseModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        list = try container.decodeIfPresent(PageNotice.self, forKey: "list")
+        notices = try container.decodeIfPresent([Notice].self, forKey: "notices")
     }
 }
 

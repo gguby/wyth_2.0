@@ -20,6 +20,7 @@ open class AccountsPostResponse: BaseModel {
         case admin = "ADMIN"
     }
     public var accountType: AccountType?
+    public var alarm: Bool?
     public var createdAt: Date?
     public var email: String?
     public var id: Int64?
@@ -27,8 +28,9 @@ open class AccountsPostResponse: BaseModel {
 
 
     
-    public init(accountType: AccountType?, createdAt: Date?, email: String?, id: Int64?, name: String?) {
+    public init(accountType: AccountType?, alarm: Bool?, createdAt: Date?, email: String?, id: Int64?, name: String?) {
         self.accountType = accountType
+        self.alarm = alarm
         self.createdAt = createdAt
         self.email = email
         self.id = id
@@ -43,6 +45,7 @@ open class AccountsPostResponse: BaseModel {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(accountType, forKey: "accountType")
+        try container.encodeIfPresent(alarm, forKey: "alarm")
         try container.encodeIfPresent(createdAt, forKey: "createdAt")
         try container.encodeIfPresent(email, forKey: "email")
         try container.encodeIfPresent(id, forKey: "id")
@@ -55,6 +58,7 @@ open class AccountsPostResponse: BaseModel {
         let container = try decoder.container(keyedBy: String.self)
 
         accountType = try container.decodeIfPresent(AccountType.self, forKey: "accountType")
+        alarm = try container.decodeIfPresent(Bool.self, forKey: "alarm")
         createdAt = try container.decodeIfPresent(Date.self, forKey: "createdAt")
         email = try container.decodeIfPresent(String.self, forKey: "email")
         id = try container.decodeIfPresent(Int64.self, forKey: "id")

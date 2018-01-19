@@ -16,14 +16,12 @@ open class Skin: BaseModel {
 
 
     public var id: Int64?
-    public var select: Bool?
     public var url: String?
 
 
     
-    public init(id: Int64?, select: Bool?, url: String?) {
+    public init(id: Int64?, url: String?) {
         self.id = id
-        self.select = select
         self.url = url
     }
     
@@ -35,7 +33,6 @@ open class Skin: BaseModel {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(id, forKey: "id")
-        try container.encodeIfPresent(select, forKey: "select")
         try container.encodeIfPresent(url, forKey: "url")
     }
 
@@ -45,7 +42,6 @@ open class Skin: BaseModel {
         let container = try decoder.container(keyedBy: String.self)
 
         id = try container.decodeIfPresent(Int64.self, forKey: "id")
-        select = try container.decodeIfPresent(Bool.self, forKey: "select")
         url = try container.decodeIfPresent(String.self, forKey: "url")
     }
 }
