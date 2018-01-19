@@ -104,9 +104,9 @@
 		0420EAF92011E58C00E9820F /* ConcertsSeatGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EACB2011E58B00E9820F /* ConcertsSeatGetResponse.swift */; };
 		0420EAFA2011E58C00E9820F /* ConcertsSeatGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EACB2011E58B00E9820F /* ConcertsSeatGetResponse.swift */; };
 		0420EAFB2011E58C00E9820F /* ConcertsSeatGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EACB2011E58B00E9820F /* ConcertsSeatGetResponse.swift */; };
-		0420EAFD2011E65F00E9820F /* BaseModel+Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAFC2011E65F00E9820F /* BaseModel+Select.swift */; };
-		0420EAFE2011E65F00E9820F /* BaseModel+Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAFC2011E65F00E9820F /* BaseModel+Select.swift */; };
-		0420EAFF2011E65F00E9820F /* BaseModel+Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAFC2011E65F00E9820F /* BaseModel+Select.swift */; };
+		0420EAFD2011E65F00E9820F /* BaseModel+Expand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAFC2011E65F00E9820F /* BaseModel+Expand.swift */; };
+		0420EAFE2011E65F00E9820F /* BaseModel+Expand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAFC2011E65F00E9820F /* BaseModel+Expand.swift */; };
+		0420EAFF2011E65F00E9820F /* BaseModel+Expand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAFC2011E65F00E9820F /* BaseModel+Expand.swift */; };
 		0420EB012011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EB002011EFD300E9820F /* URLRequest+CodegenExtension.swift */; };
 		0420EB022011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EB002011EFD300E9820F /* URLRequest+CodegenExtension.swift */; };
 		0420EB032011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EB002011EFD300E9820F /* URLRequest+CodegenExtension.swift */; };
@@ -456,7 +456,7 @@
 		0420EAC92011E58B00E9820F /* ConcertResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertResponse.swift; sourceTree = "<group>"; };
 		0420EACA2011E58B00E9820F /* ConcertsGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertsGetResponse.swift; sourceTree = "<group>"; };
 		0420EACB2011E58B00E9820F /* ConcertsSeatGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertsSeatGetResponse.swift; sourceTree = "<group>"; };
-		0420EAFC2011E65F00E9820F /* BaseModel+Select.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseModel+Select.swift"; sourceTree = "<group>"; };
+		0420EAFC2011E65F00E9820F /* BaseModel+Expand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseModel+Expand.swift"; sourceTree = "<group>"; };
 		0420EB002011EFD300E9820F /* URLRequest+CodegenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+CodegenExtension.swift"; sourceTree = "<group>"; };
 		044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderUIExtension.swift"; sourceTree = "<group>"; };
 		044236B22005DC9B007E9369 /* NSLayoutConstraint+multiplierSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+multiplierSetter.swift"; sourceTree = "<group>"; };
@@ -646,7 +646,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5AA0921FEB55D9007441E1 /* BaseModel.swift */,
-				0420EAFC2011E65F00E9820F /* BaseModel+Select.swift */,
+				0420EAFC2011E65F00E9820F /* BaseModel+Expand.swift */,
 				045D14891FF4DD2200A67AA0 /* RequestBlock.swift */,
 				0412CB761FFF7FD00059C5A4 /* APIRequest.swift */,
 				0480BCE7200C437000B79DB8 /* BoostNotifications.swift */,
@@ -1761,7 +1761,7 @@
 				0420EADE2011E58C00E9820F /* CommonNumberGetResponse.swift in Sources */,
 				04E223F12003766E00A2B388 /* DefaultAPI.swift in Sources */,
 				8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */,
-				0420EAFD2011E65F00E9820F /* BaseModel+Select.swift in Sources */,
+				0420EAFD2011E65F00E9820F /* BaseModel+Expand.swift in Sources */,
 				2B5AA07B1FEA6299007441E1 /* Common.swift in Sources */,
 				2B5AA0931FEB55D9007441E1 /* BaseModel.swift in Sources */,
 				04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
@@ -1836,7 +1836,7 @@
 				0462CDB41FFCA426002B6E11 /* BaseModel.swift in Sources */,
 				0462CDCB1FFCA430002B6E11 /* NotificationViewController.swift in Sources */,
 				045D148D1FF4DF4000A67AA0 /* JSONDecoder+base.swift in Sources */,
-				0420EAFE2011E65F00E9820F /* BaseModel+Select.swift in Sources */,
+				0420EAFE2011E65F00E9820F /* BaseModel+Expand.swift in Sources */,
 				045D148E1FF4DF4400A67AA0 /* Optional+logError.swift in Sources */,
 				04B2190720073617002A1742 /* TiltingView.swift in Sources */,
 				0483853720035641007DE69B /* AlamofireImplementations.swift in Sources */,
@@ -1961,7 +1961,7 @@
 				0462CDAA1FFCA410002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				0462CDD31FFCA431002B6E11 /* Common.swift in Sources */,
 				0462CDE91FFDFBE5002B6E11 /* Localizable.swift in Sources */,
-				0420EAFF2011E65F00E9820F /* BaseModel+Select.swift in Sources */,
+				0420EAFF2011E65F00E9820F /* BaseModel+Expand.swift in Sources */,
 				0462CDAC1FFCA410002B6E11 /* UIViewController+Storyboard.swift in Sources */,
 				04122A7C1FECE9A300896EE0 /* ExceptionHandler.swift in Sources */,
 				0462CDD91FFDBC35002B6E11 /* UIView+HideAndShow.swift in Sources */,

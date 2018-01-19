@@ -1,5 +1,5 @@
 //
-//  BaseModel+Select.swift
+//  BaseModel+Expand.swift
 //  BoostMINI
 //
 //  Created by jack on 2018. 1. 19..
