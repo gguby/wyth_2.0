@@ -59,14 +59,14 @@ extension BSTUXHanlder {
 			var duration = _duration ?? Toaster.Delay.long
 			duration += TimeInterval((message.length() / 48) * 2)
 			
-			let bread = Toaster.Toast(text: message,
+			let bread = Toaster.Toast(text: "\n\(message)\n",
 									  delay: delay,
 									  duration: duration)
 			let view = bread.view
-			view.backgroundColor = UIColor.init("#ac0000")
-			view.textColor = UIColor.init("#ffffbc")
+			view.backgroundColor = UIColor.init("#691818")
+			view.textColor = UIColor.init("#ffffc8")
 			view.borderColor = UIColor.init("#ec9fac")
-			view.font = BSTFacade.theme.font.smtownotfBold(size: 17.0)
+			view.font = BSTFacade.theme.font.smtownotfBold(size: 14.0)
 
 			bread.show()
 		}

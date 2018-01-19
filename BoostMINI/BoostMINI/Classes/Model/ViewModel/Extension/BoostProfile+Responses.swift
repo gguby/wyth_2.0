@@ -8,24 +8,6 @@
 
 import Foundation
 
-//extension BoostProfile: PropertyStoring {
-//	typealias T = String
-//	struct CustomObjcProperties {
-//		static var sample = "abc"
-//	}
-//
-//	static var sample: Bool {
-//		get {
-//			return getAssociatedObject(&CustomObjcProperties.sample, defaultValue: CustomObjcProperties.sample)
-//		}
-//		set {
-//			return objc_setAssociatedObject(self, &CustomObjcProperties.sample, newValue, .OBJC_ASSOCIATION_RETAIN)
-//		}
-//	}
-//}
-
-
-
 extension BoostProfile {
 	
 	/// 헷깔린다. 서버 api 설명으로는 부족하고, 계정 3개 만들어서 여러가지 케이스를 체크해보고있는데 헷깔린다... 그림이나 설명을 좀 제대로 해줬으면 좋겠는데...
@@ -34,14 +16,8 @@ extension BoostProfile {
 									   loginned: ((BoostProfile?) -> Void),
 									   welcome: (() -> Void),
 									   failed: ((Error?) -> Void)) {
-		// smtown 가족이지만, boost 회원이 아니면 960
 		logVerbose("\(#function) - \(error)")
 		if let code = BSTErrorTester.checkWhiteCode(error) {
-			//	201 : Created			-> 방금 회원가입한 것??
-			//	401 : Unauthorized		-> smtown 회원이지만, boost에 가입되지 않은 것?
-			//	403 : Forbidden			-> 탈퇴한것???
-			//	404 : Not Found			-> 뭔가 잘못되어 회원가입이 되지 않은 것??
-			
 			switch(code) {
 			case 201:
 				welcome()
@@ -49,6 +25,7 @@ extension BoostProfile {
 			case 906:
 				// 토큰 만료.			// 존재하지않는 토큰... (404 나왔었던것같은데...)
 				failed(error)		// APIError에 906 없음...
+				
 			case 960:
 				// smtown 가족이지만 가입 안된 케이스
 				welcome()

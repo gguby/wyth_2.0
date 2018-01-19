@@ -427,7 +427,10 @@ class BSTErrorBaker<T> {
 				
                 if code == 960 {
                     try processErrorResponse960(errorResponse, response)
+					return
                 }
+				
+				BSTFacade.ux.showToastError("\(error.localizedDescription)")
 				if let api = APIError(rawValue: code) {
 					throw BSTError.api(api)
 					// 906이었나? APIError에 없는게 나오니 무한에러
