@@ -34,7 +34,11 @@ extension CGFloat {
     public init(_ value: CGFloat) {
         self.init(Double(value))
     }
+    
+    var toRadians: CGFloat { return self * .pi / 180 }
+    var toDegrees: CGFloat { return self * 180 / .pi }
 }
+
 
 extension NumberConvertible {
 
