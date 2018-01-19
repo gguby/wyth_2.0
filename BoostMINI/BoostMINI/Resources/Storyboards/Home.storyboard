@@ -74,6 +74,30 @@
                                     <constraint firstItem="tU8-YR-t99" firstAttribute="centerY" secondItem="drg-M4-Pkp" secondAttribute="centerY" id="xOq-Xi-JFg"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" tag="941301" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6x-Ct-hdE">
+                                <rect key="frame" x="40" y="60" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.027450980390000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="TEST 1"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" tag="941302" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="We2-ac-Krp">
+                                <rect key="frame" x="40" y="110" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.027450980390000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="TEST 2"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" tag="941303" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnv-Oc-Zgk">
+                                <rect key="frame" x="40" y="160" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.027450980390000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="TEST 3"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" tag="941304" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vo4-3w-xnB">
+                                <rect key="frame" x="40" y="210" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.027450980390000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="TEST 4"/>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="tMJ-xi-nih" firstAttribute="leading" secondItem="bzi-qn-Q4b" secondAttribute="leading" id="5C6-aR-pDd"/>

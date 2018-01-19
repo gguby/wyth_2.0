@@ -319,6 +319,9 @@
 		04C22BA91FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
+		04CD1CB520120D60003F48FE /* TestPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD1CB420120D60003F48FE /* TestPlayground.swift */; };
+		04CD1CB620120D60003F48FE /* TestPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD1CB420120D60003F48FE /* TestPlayground.swift */; };
+		04CD1CB720120D60003F48FE /* TestPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD1CB420120D60003F48FE /* TestPlayground.swift */; };
 		04E223F12003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
 		04E223F22003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
 		04E223F32003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
@@ -512,6 +515,7 @@
 		04B21925200874FB002A1742 /* UIButton+UpdateAttributeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UpdateAttributeString.swift"; sourceTree = "<group>"; };
 		04B219292008A448002A1742 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		04C22BA81FEB9597007E2BED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		04CD1CB420120D60003F48FE /* TestPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPlayground.swift; sourceTree = "<group>"; };
 		04E223D82003766E00A2B388 /* DefaultAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI.swift; sourceTree = "<group>"; };
 		04E2243A200481B500A2B388 /* GeneratedModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedModelExtension.swift; sourceTree = "<group>"; };
 		04E2243E2004867700A2B388 /* String+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Alert.swift"; sourceTree = "<group>"; };
@@ -805,6 +809,7 @@
 				2B5AA0651FEA6178007441E1 /* Util */,
 				2B5AA0661FEA6178007441E1 /* UX */,
 				2B5AA0671FEA6178007441E1 /* ViewControllers */,
+				04CD1CB420120D60003F48FE /* TestPlayground.swift */,
 				2B5AA06D1FEA6178007441E1 /* Debug */,
 				2BCCF08C200F2496007AAD47 /* BSTCommon */,
 				2B61F03C1FDFA49500581F06 /* AppDelegate.swift */,
@@ -1754,6 +1759,7 @@
 				0462CDE01FFDF961002B6E11 /* R.generated.swift in Sources */,
 				0420EAD82011E58C00E9820F /* CommonBooleanGetResponse.swift in Sources */,
 				04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */,
+				04CD1CB520120D60003F48FE /* TestPlayground.swift in Sources */,
 				0420EB012011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */,
 				8F7BDC4220048EAF00DD2150 /* SettingViewController.swift in Sources */,
 				0483853320035641007DE69B /* APIHelper.swift in Sources */,
@@ -1822,6 +1828,7 @@
 				04122A831FECE9AE00896EE0 /* Constants.swift in Sources */,
 				A63F1A3320059D3A0079046D /* ConcertInfoView.swift in Sources */,
 				04B2191E20076054002A1742 /* DetailConcertInformationViewController.swift in Sources */,
+				04CD1CB620120D60003F48FE /* TestPlayground.swift in Sources */,
 				0480BCE9200C437000B79DB8 /* BoostNotifications.swift in Sources */,
 				04AD74201FF36269005F4BF0 /* Protocols.swift in Sources */,
 				0462CD9C1FFCA407002B6E11 /* Gitup.swift in Sources */,
@@ -1947,6 +1954,7 @@
 				04B2192420076054002A1742 /* DetailConcertInformationViewController.swift in Sources */,
 				04AD74041FF33934005F4BF0 /* SessionHandler.swift in Sources */,
 				0480BCEA200C437000B79DB8 /* BoostNotifications.swift in Sources */,
+				04CD1CB720120D60003F48FE /* TestPlayground.swift in Sources */,
 				0462CD9A1FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
 				04AD74181FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04B2192220076054002A1742 /* SettingViewController.swift in Sources */,
