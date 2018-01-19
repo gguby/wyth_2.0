@@ -52,9 +52,6 @@
 		0417348D2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */; };
 		0417348E2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */; };
 		0417348F2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */; };
-		041734912011C4460075D507 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734902011C4460075D507 /* NoticeViewModel.swift */; };
-		041734922011C4460075D507 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734902011C4460075D507 /* NoticeViewModel.swift */; };
-		041734932011C4460075D507 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734902011C4460075D507 /* NoticeViewModel.swift */; };
 		041734952011C49B0075D507 /* ModelChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* ModelChanger.swift */; };
 		041734962011C49B0075D507 /* ModelChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* ModelChanger.swift */; };
 		041734972011C49B0075D507 /* ModelChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* ModelChanger.swift */; };
@@ -441,7 +438,6 @@
 		0417348420118BF40075D507 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-LoadingIndicator.swift"; sourceTree = "<group>"; };
 		0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+AlamofireRequest.swift"; sourceTree = "<group>"; };
-		041734902011C4460075D507 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		041734942011C49B0075D507 /* ModelChanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelChanger.swift; sourceTree = "<group>"; };
 		0420EABA2011D62C00E9820F /* DefaultAPI2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI2.swift; sourceTree = "<group>"; };
 		0420EABC2011E58900E9820F /* AccountsPostResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsPostResponse.swift; sourceTree = "<group>"; };
@@ -733,7 +729,6 @@
 			children = (
 				0480BCDE200C3A7000B79DB8 /* Extension */,
 				04B2190E20074C13002A1742 /* BoostProfile.swift */,
-				041734902011C4460075D507 /* NoticeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1735,7 +1730,6 @@
 				2B77AFBA2005EA6B004434D1 /* TicketScanViewController.swift in Sources */,
 				04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				0420EAEA2011E58C00E9820F /* Help.swift in Sources */,
-				041734912011C4460075D507 /* NoticeViewModel.swift in Sources */,
 				0420EAF02011E58C00E9820F /* ProfileGetResponse.swift in Sources */,
 				2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */,
 				049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */,
@@ -1914,7 +1908,6 @@
 				0420EAD92011E58C00E9820F /* CommonBooleanGetResponse.swift in Sources */,
 				0462CDA81FFCA410002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
 				0462CD9D1FFCA407002B6E11 /* ViewController.swift in Sources */,
-				041734922011C4460075D507 /* NoticeViewModel.swift in Sources */,
 				04122A7A1FECE9A200896EE0 /* NumberConvertible.swift in Sources */,
 				0483854620035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				041734962011C49B0075D507 /* ModelChanger.swift in Sources */,
@@ -2041,7 +2034,6 @@
 				04AD741C1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				0462CDD11FFCA431002B6E11 /* DebugHSLee.swift in Sources */,
 				04122A7D1FECE9A300896EE0 /* BSTButton.swift in Sources */,
-				041734932011C4460075D507 /* NoticeViewModel.swift in Sources */,
 				04B219162007603C002A1742 /* TextViewWithInsets.swift in Sources */,
 				04B2192020076054002A1742 /* HelpWebViewController.swift in Sources */,
 				0420EAE02011E58C00E9820F /* CommonNumberGetResponse.swift in Sources */,
