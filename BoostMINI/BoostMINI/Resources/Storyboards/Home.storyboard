@@ -725,7 +725,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDb-fj-gcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="795" y="317"/>
+            <point key="canvasLocation" x="790" y="349"/>
         </scene>
         <!--Help Web View Controller-->
         <scene sceneID="14J-er-94j">
@@ -746,7 +746,7 @@
                                         </constraints>
                                         <state key="normal" image="btnCommonBack"/>
                                         <connections>
-                                            <action selector="back:" destination="0IN-aH-j1k" eventType="touchUpInside" id="YpR-Xl-77K"/>
+                                            <segue destination="YzB-4h-vED" kind="unwind" identifier="helpWebViewControllerExit" unwindAction="unwindFor:" id="2Pv-Ve-dHU"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도움말" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwS-7j-otd">
@@ -805,8 +805,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hue-hr-oCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YzB-4h-vED" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1448.8" y="361.16941529235385"/>
+            <point key="canvasLocation" x="1449" y="329"/>
         </scene>
         <!--Terms View Controller-->
         <scene sceneID="Noy-Ip-IQj">
@@ -919,7 +920,7 @@
                                         </constraints>
                                         <state key="normal" image="btnCommonBack"/>
                                         <connections>
-                                            <action selector="back:" destination="pOb-gL-bmW" eventType="touchUpInside" id="yrM-kb-8Vu"/>
+                                            <segue destination="GVZ-ZQ-SMn" kind="unwind" unwindAction="unwindFor:" id="mNo-Sl-W8n"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TVXQ! Comeback Live Concert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oum-kx-XOZ">
@@ -969,6 +970,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ET1-cF-ikC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GVZ-ZQ-SMn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2912.8000000000002" y="360.2698650674663"/>
         </scene>

@@ -146,28 +146,28 @@ class HomeViewController: UIViewController {
     @available(iOS 10.0, *)
     @objc private func arrowButtonTapped(recognizer: UITapGestureRecognizer) {
         //티켓 정보가 없을 경우,
-        let hasTicketInfo = true
-        if  hasTicketInfo && BSTFacade.device.isConnected {
+        if  BSTFacade.device.isConnected {
             toggleViewingInformation()
         } else {
-            guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else {
-                return
-            }
-            
-            UIView.animate(withDuration: 0.70, animations: { () -> Void in
-                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
+            BSTFacade.go.device(self, type: ReactorViewType.Management)
         }
-    }
+        
+     }
+    
     
 	
 	@available(iOS 10.0, *)
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
         //티켓 정보가 없을 경우,
-        let hasTicketInfo = true
-        if  currentState == .closed && hasTicketInfo && BSTFacade.device.isConnected{
-            toggleViewingInformation()
+        if  currentState == .closed {
+            
+            if BSTFacade.device.isConnected {
+                toggleViewingInformation()
+            } else {
+                BSTFacade.go.device(self, type: ReactorViewType.Management)
+            }
+            
+            
         }
 //        else {
 //            guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketScanViewController.self) else {
