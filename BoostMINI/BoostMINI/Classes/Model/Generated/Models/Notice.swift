@@ -18,6 +18,8 @@ open class Notice: BaseModel {
     public var id: Int64?
     public var title: String?
     public var url: String?
+    
+    var expand: Bool = false
 
     public init() {}
 
