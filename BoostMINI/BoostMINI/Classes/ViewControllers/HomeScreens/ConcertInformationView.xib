@@ -24,11 +24,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="fzc-9S-21v" customClass="ConcertInformationView" customModule="BoostMINI" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="661"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="666"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5l-Bn-B1D">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="313.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="318"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-93" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ec-6k-h8P">
                             <rect key="frame" x="30" y="89" width="60" height="30"/>
@@ -42,18 +42,18 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7y-CH-Vqp">
-                            <rect key="frame" x="30" y="133" width="354" height="58"/>
+                            <rect key="frame" x="30" y="133" width="354" height="63"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="58" id="JQP-9m-LAu"/>
+                                <constraint firstAttribute="height" constant="63" id="JQP-9m-LAu"/>
                             </constraints>
                             <string key="text">TVXQ! Comeback Live
 Concert</string>
-                            <fontDescription key="fontDescription" name="SMTOWNOTF-Medium" family="SMTOWN(OTF)" pointSize="24"/>
+                            <fontDescription key="fontDescription" name="SMTOWNOTF-Medium" family="SMTOWN(OTF)" pointSize="26"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018.02.23 FRI 19:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GD3-uB-r0v">
-                            <rect key="frame" x="30" y="205" width="353.5" height="21"/>
+                            <rect key="frame" x="30" y="210" width="353.5" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="ZD1-PO-we5"/>
                             </constraints>
@@ -62,7 +62,7 @@ Concert</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@Jamsil_Stadium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u62-Uc-WSE">
-                            <rect key="frame" x="30.5" y="227.5" width="353.5" height="21"/>
+                            <rect key="frame" x="30.5" y="232.5" width="353.5" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="OnX-wI-WAm"/>
                             </constraints>
@@ -71,7 +71,7 @@ Concert</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk0-dT-VWK">
-                            <rect key="frame" x="30.5" y="270.5" width="78" height="17"/>
+                            <rect key="frame" x="30.5" y="275.5" width="78" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="9XJ-nC-3IZ"/>
                             </constraints>
@@ -80,7 +80,7 @@ Concert</string>
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHJ-Uf-mkJ">
-                            <rect key="frame" x="108.5" y="269" width="21" height="21"/>
+                            <rect key="frame" x="108.5" y="274" width="21" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="21" id="kJL-3u-xg4"/>
                                 <constraint firstAttribute="height" constant="21" id="rR9-Pf-GpX"/>
@@ -94,7 +94,7 @@ Concert</string>
                         <constraint firstAttribute="trailing" secondItem="u62-Uc-WSE" secondAttribute="trailing" constant="30" id="9fu-wh-JpA"/>
                         <constraint firstItem="GD3-uB-r0v" firstAttribute="leading" secondItem="Q7y-CH-Vqp" secondAttribute="leading" id="FrK-DK-qhr"/>
                         <constraint firstItem="GD3-uB-r0v" firstAttribute="top" secondItem="Q7y-CH-Vqp" secondAttribute="bottom" constant="14" id="MEn-bZ-uDf"/>
-                        <constraint firstAttribute="height" constant="313" id="NDX-YS-chW"/>
+                        <constraint firstAttribute="height" constant="318" id="NDX-YS-chW"/>
                         <constraint firstItem="4ec-6k-h8P" firstAttribute="top" secondItem="i5l-Bn-B1D" secondAttribute="top" constant="89" id="OtJ-Vc-Wyh"/>
                         <constraint firstAttribute="trailing" secondItem="Q7y-CH-Vqp" secondAttribute="trailing" constant="30" id="Q0o-GN-dS9"/>
                         <constraint firstItem="4ec-6k-h8P" firstAttribute="leading" secondItem="i5l-Bn-B1D" secondAttribute="leading" constant="30" id="SXW-hN-qIA"/>
@@ -109,7 +109,7 @@ Concert</string>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgf-xs-tBy" customClass="TopTiltingView" customModule="BoostMINI" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="313.5" width="414" height="348"/>
+                    <rect key="frame" x="0.0" y="318" width="414" height="348"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="응원도구가 연동되었습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scs-Hf-1ig">
                             <rect key="frame" x="30" y="45" width="160" height="21"/>

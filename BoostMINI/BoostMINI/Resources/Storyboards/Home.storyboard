@@ -134,21 +134,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_common_motive_title" translatesAutoresizingMaskIntoConstraints="NO" id="STy-jk-l5M">
-                                <rect key="frame" x="0.0" y="20" width="208" height="12"/>
+                                <rect key="frame" x="0.0" y="0.0" width="208" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="BnE-BW-m59"/>
                                     <constraint firstAttribute="width" constant="208" id="eDL-YQ-Xng"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_menu_logo_tvxq" translatesAutoresizingMaskIntoConstraints="NO" id="bgj-Xi-j5Z">
-                                <rect key="frame" x="0.0" y="51" width="135" height="97"/>
+                                <rect key="frame" x="0.0" y="31" width="135" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="97" id="822-T2-Oal"/>
                                     <constraint firstAttribute="width" constant="135" id="KbX-uN-Tcb"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lw-NI-sJf">
-                                <rect key="frame" x="0.0" y="219" width="240" height="52"/>
+                                <rect key="frame" x="0.0" y="199" width="240" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="lXW-WW-rs0"/>
                                 </constraints>
@@ -163,14 +163,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-TS-HhW" userLabel="line">
-                                <rect key="frame" x="0.0" y="218" width="240" height="1"/>
+                                <rect key="frame" x="0.0" y="198" width="240" height="1"/>
                                 <color key="backgroundColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="GXW-E2-bjm"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSi-YQ-eW8">
-                                <rect key="frame" x="0.0" y="272" width="240" height="52"/>
+                                <rect key="frame" x="0.0" y="252" width="240" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="1V9-hn-Y6a"/>
                                 </constraints>
@@ -185,14 +185,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9S-1k-fuF" userLabel="line">
-                                <rect key="frame" x="0.0" y="271" width="240" height="1"/>
+                                <rect key="frame" x="0.0" y="251" width="240" height="1"/>
                                 <color key="backgroundColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="bSA-J8-lxG"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6j-P6-rVD">
-                                <rect key="frame" x="0.0" y="166" width="240" height="52"/>
+                                <rect key="frame" x="0.0" y="146" width="240" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="rEz-lu-EVW"/>
                                 </constraints>
@@ -266,7 +266,7 @@
                             <constraint firstItem="h9S-1k-fuF" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="O3F-qC-b75"/>
                             <constraint firstItem="w6j-P6-rVD" firstAttribute="top" secondItem="bgj-Xi-j5Z" secondAttribute="bottom" constant="18" id="Pno-s6-0xu"/>
                             <constraint firstItem="6lw-NI-sJf" firstAttribute="top" secondItem="OhZ-TS-HhW" secondAttribute="bottom" id="Q9R-zF-C6T"/>
-                            <constraint firstItem="STy-jk-l5M" firstAttribute="top" secondItem="jTv-Bz-bQc" secondAttribute="top" id="Td6-qC-wAh"/>
+                            <constraint firstItem="STy-jk-l5M" firstAttribute="top" secondItem="gff-vu-hI0" secondAttribute="top" id="Td6-qC-wAh"/>
                             <constraint firstItem="STy-jk-l5M" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="VWK-YG-H43"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="tSi-YQ-eW8" secondAttribute="trailing" id="YZj-bQ-OBp"/>
                             <constraint firstItem="ihy-23-gFP" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" constant="16" id="ZAI-Rr-18r"/>
@@ -725,7 +725,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDb-fj-gcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="795" y="317"/>
+            <point key="canvasLocation" x="790" y="349"/>
         </scene>
         <!--Help Web View Controller-->
         <scene sceneID="14J-er-94j">
@@ -746,7 +746,7 @@
                                         </constraints>
                                         <state key="normal" image="btnCommonBack"/>
                                         <connections>
-                                            <action selector="back:" destination="0IN-aH-j1k" eventType="touchUpInside" id="YpR-Xl-77K"/>
+                                            <segue destination="YzB-4h-vED" kind="unwind" identifier="helpWebViewControllerExit" unwindAction="unwindFor:" id="2Pv-Ve-dHU"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도움말" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwS-7j-otd">
@@ -805,8 +805,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hue-hr-oCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YzB-4h-vED" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1448.8" y="361.16941529235385"/>
+            <point key="canvasLocation" x="1449" y="329"/>
         </scene>
         <!--Terms View Controller-->
         <scene sceneID="Noy-Ip-IQj">
@@ -919,7 +920,7 @@
                                         </constraints>
                                         <state key="normal" image="btnCommonBack"/>
                                         <connections>
-                                            <action selector="back:" destination="pOb-gL-bmW" eventType="touchUpInside" id="yrM-kb-8Vu"/>
+                                            <segue destination="GVZ-ZQ-SMn" kind="unwind" unwindAction="unwindFor:" id="mNo-Sl-W8n"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TVXQ! Comeback Live Concert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oum-kx-XOZ">
@@ -969,6 +970,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ET1-cF-ikC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GVZ-ZQ-SMn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2912.8000000000002" y="360.2698650674663"/>
         </scene>
