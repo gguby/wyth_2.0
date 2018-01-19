@@ -60,9 +60,9 @@ class NotificationTableViewCell: UITableViewCell {
             }
             
             self.lblTitle.text = notice.title
-            self.lblContent.text = notice.select ? notice.content : ""
+            self.lblContent.text = notice.expand ? notice.content : ""
             
-			let angle = (notice.select ? 0 : 180).c.toRadians
+			let angle = (notice.expand ? 0 : 180).c.toRadians
             UIView.animate(withDuration: 0.3) {
                 self.imgvExpand.transform = CGAffineTransform(rotationAngle: angle)
             }
@@ -116,9 +116,8 @@ class NotificationViewController: UIViewController, NotificationView {
             }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
-            if let notice = notifications?[indexPath.row] {
-                notice.expand = !notice.expand
-            }
+            var notice = notifications[indexPath.row]
+			notice.reverseExpand()
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)
     }

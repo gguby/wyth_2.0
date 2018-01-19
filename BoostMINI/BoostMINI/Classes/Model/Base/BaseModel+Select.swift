@@ -9,13 +9,16 @@
 import UIKit
 
 extension BaseModel {
-	var select: Bool {
+	var expand: Bool {
 		get {
 			return objc_getAssociatedObject(self, "objc_select") as? Bool ?? false
 		}
 		set {
 			objc_setAssociatedObject(self, "objc_select", newValue, .OBJC_ASSOCIATION_RETAIN)
 		}
+	}
+	mutating func reverseExpand() {
+		expand = !expand
 	}
 }
 
