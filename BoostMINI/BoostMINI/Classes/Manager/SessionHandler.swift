@@ -7,17 +7,16 @@
 
 import Foundation
 import Alamofire
-
+import WebKit
 
 class SessionHandler {
 
     static let shared = SessionHandler()
     //let baseURL = Definitions.api.base
 
+    var token: String?
+    
     var seat: ConcertsSeatGetResponse?
-	var cookie: String? 
-	var token: String?
-	
 	var profile: BoostProfile?
 
 	var pushToken: String = "test- TODO:"	// TODO:
@@ -45,7 +44,6 @@ class SessionHandler {
 	
 	// TODO: Define쪽으로 빼려면 이것을
 	fileprivate enum userPlistKey: String {
-		case cookie		= "BSTuserCookie"
 		case token		= "BSTuserToken"
 		case profile	= "BSTuserProfile"
 		case savedEmail	= "BSTuserSavedEmail"
@@ -53,11 +51,8 @@ class SessionHandler {
 	
 	private init() {
 		
-
-		
 		// TODO: 암호화 필요?
 		// TODO: 스트링 define으로 뺴려면 고고
-		self.cookie = UserDefaults.standard.string(forKey: userPlistKey.cookie.rawValue)
 		self.token = UserDefaults.standard.string(forKey: userPlistKey.token.rawValue)
 		self.profile = UserDefaults.standard.objectCodable(forKey: userPlistKey.profile.rawValue)
 
@@ -77,12 +72,30 @@ class SessionHandler {
 		self.login(token: token, profile: info)
 	}
 	
+    ///SM, Boost의 모든 쿠키를 삭제한다.
+    func resetCookies() {
+        // remove cookie
+        if let cookies = HTTPCookieStorage.shared.cookies {
+            cookies.forEach({cookie in
+                HTTPCookieStorage.shared.deleteCookie(cookie)
+            })
+        }
+        
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                print("[WebCacheCleaner] Record \(record) deleted")
+            }
+        }
+    }
+    
 	func logout() {
-		self.cookie = nil
+        //TODO: remove cookie
+        self.resetCookies()
+        
 		self.token = nil
 		self.profile = nil
 
-		UserDefaults.standard.removeObject(forKey: userPlistKey.cookie.rawValue)
 		UserDefaults.standard.removeObject(forKey: userPlistKey.token.rawValue)
 		UserDefaults.standard.removeObject(forKey: userPlistKey.profile.rawValue)
 
@@ -90,16 +103,48 @@ class SessionHandler {
 	}
 
 	func login(token: String, profile: BoostProfile) {
-		self.cookie = ""
 		self.token = token
 		self.profile = profile
 		
-		UserDefaults.standard.set(self.cookie, forKey: userPlistKey.cookie.rawValue)
 		UserDefaults.standard.set(self.token, forKey: userPlistKey.token.rawValue)
 		UserDefaults.standard.setCodable(self.profile, forKey: userPlistKey.profile.rawValue)
 
 		UserDefaults.standard.synchronize()
 	}
+    
+    
+    func tryLoginToBoost() {
+        guard let token = self.token else {
+            BSTError.api(.invalidToken).cook()
+            return
+        }
+        
+        BoostProfile.login(token, loginned: { (profile) in
+            self.profile = profile
+        }, welcome: {
+            BSTError.api(.invalidToken).cook()
+        }) { (error) in
+            if let error = error as? BSTError {
+                error.cook(nil)
+                return
+            }
+            if let error = error as? Error {
+                BSTFacade.ux.showAlert(error.localizedDescription)
+                return
+            }
+        }
+        //signin
+        DefaultAPI.signinUsingPOST(accessToken: token, socialType: .smtown, pushToken: "", osVersion: "")
+        
+        //token, local
+        
+        //cookie 만료 - 904: Session aleady has been disconnected
+        
+        //token -> boost, boost -> sm 토큰 유효
+        //로그인
+        
+        //smlogin -> 906: Invalid Token
+    }
 
 	
 	var savedEmail: String? {

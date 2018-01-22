@@ -5,6 +5,7 @@
 //  Created by jack on 2017. 12. 26..
 //  Copyright © 2017년 IRIVER LIMITED. All rights reserved.
 //
+// TODO: 이메일 저장 체크박스를 우리가 구현해야 한다는 jack의 의견
 
 import UIKit
 import WebKit
@@ -19,10 +20,9 @@ class SMLoginViewController: WebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		initNoti()
-
+        
+		initNotifications()
 		initData()
-
 		loadWebUrl(Definitions.externURLs.authUri, preload: preload, forceRefresh: false)
 		preload = nil
 
@@ -114,7 +114,7 @@ class SMLoginViewController: WebViewController {
 			return
 		}
 		if let error = notification.object as? Error {
-			BSTFacade.ux.showToastError(error.localizedDescription)
+			BSTFacade.ux.showAlert(error.localizedDescription)
 			return
 		}
 	}
@@ -125,7 +125,7 @@ class SMLoginViewController: WebViewController {
 
 extension SMLoginViewController {
 
-	func initNoti() {
+	func initNotifications() {
 		for (key, value) in [
 			BoostNotificationLogin.needRegister.name : #selector(self.receivedWelcome(notification:)),
 			BoostNotificationLogin.login.name : #selector(self.receivedLogin(notification:)),
@@ -140,22 +140,8 @@ extension SMLoginViewController {
 	
 	
 	func initData() {
-		
-		// remove cookie
-		if let cookies = HTTPCookieStorage.shared.cookies {
-			cookies.forEach({cookie in
-				HTTPCookieStorage.shared.deleteCookie(cookie)
-			})
-		}
-		
-		
-		WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-			records.forEach { record in
-				WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-				print("[WebCacheCleaner] Record \(record) deleted")
-			}
-		}
-		
+        //SM로그인 웹에 들어오면 무조건 기존의 SM, Boost 쿠키를 삭제해야함. 안그러면 페이지가 안뜬다는 jack의 의견
+        BSTFacade.session.resetCookies()
 	}
 
 	

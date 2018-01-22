@@ -20,6 +20,8 @@ class BTDeviceService {
     
     let DeviceKey = "boostDevice"
     
+    let disposeBag = DisposeBag()
+    
     init() {}
     
 //    func retrieve() {
@@ -70,18 +72,14 @@ class BTDeviceService {
                 logVerbose("Discovered ScannedPeripheral: \(ScannedPeripheral)")
             })
             .flatMap { $0.peripheral.connect() }
-//            .do(onNext: { Peripheral in
-//                logVerbose("Discovered Peripheral: \(Peripheral)")
-//            }
-//            .debug()
-//            .flatMap { $0.discoverServices([self.boostServiceUUID])}
-//            .flatMap { Observable.from($0) }
-//            .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
-//            .flatMap { Observable.from($0) }
-//            .do(onNext: { characteristic in
-//                logVerbose("Discovered characteristic: \(characteristic)")
-//            })
-//            .subscribeOn(MainScheduler.instance)
+    }
+    
+    func chrateristic(observable : Observable<Peripheral>) -> Observable<Characteristic> {
+        return observable
+            .flatMap { $0.discoverServices([self.boostServiceUUID])}
+            .flatMap { Observable.from($0) }
+            .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
+            .flatMap { Observable.from($0) }
     }
     
     func register(observable : Observable<Peripheral>) -> Observable<Bool> {
@@ -93,7 +91,9 @@ class BTDeviceService {
     func disconnectDevice(scannedPeripheral : ScannedPeripheral) -> Observable<Peripheral> {
         return self.manager.monitorDisconnection(for: scannedPeripheral.peripheral)
     }
-    
+}
+
+extension BTDeviceService {
     private func saveDevice(device : Peripheral?) -> Observable<Bool> {
         
         guard let device = device else { return .just(false) }
@@ -114,8 +114,27 @@ class BTDeviceService {
         let array = UserDefaults.standard.array(forKey: DeviceKey) as? [String]
         guard let arr = array else { return nil }
         let localDevice = BSTLocalDevice.init(array: arr)
-    
+        
         return localDevice
+    }
+}
+
+extension BTDeviceService {
+    
+    func writeValueForCharacteristic(hexadecimalString: String, characteristic: Characteristic) {
+        let hexadecimalData: Data = Data.fromHexString(string: hexadecimalString)
+        let type: CBCharacteristicWriteType = characteristic.properties.contains(.write) ? .withResponse : .withoutResponse
+        characteristic.writeValue(hexadecimalData as Data, type: type)
+            .subscribe(onNext: { _ in
+                
+            }).disposed(by: disposeBag)
+    }
+    
+    func triggerValueRead(for characteristic: Characteristic) {
+        characteristic.readValue()
+            .subscribe(onNext: { _ in
+                
+            }).disposed(by: disposeBag)
     }
 }
 
@@ -126,5 +145,40 @@ struct BSTLocalDevice {
     init(array : [String]) {
         self.name = array[0]
         self.uuid = UUID.init(uuidString: array[1])
+    }
+}
+
+extension Data {
+    
+    /// Return hexadecimal string representation of NSData bytes
+    var hexadecimalString: String {
+        var bytes = [UInt8](repeating: 0, count: count)
+        copyBytes(to: &bytes, count: count)
+        
+        let hexString = NSMutableString()
+        for byte in bytes {
+            hexString.appendFormat("%02x", UInt(byte))
+        }
+        return NSString(string: hexString) as String
+    }
+    
+    // Return Data represented by this hexadecimal string
+    static func fromHexString(string: String) -> Data {
+        var data = Data(capacity: string.count / 2)
+        
+        do {
+            let regex = try NSRegularExpression(pattern: "[0-9a-f]{1,2}", options: .caseInsensitive)
+            regex.enumerateMatches(in: string, options: [], range: NSMakeRange(0, string.count)) { match, _, _ in
+                if let _match = match {
+                    let byteString = (string as NSString).substring(with: _match.range)
+                    if var num = UInt8(byteString, radix: 16) {
+                        data.append(&num, count: 1)
+                    }
+                }
+            }
+        } catch {
+        }
+        
+        return data
     }
 }

@@ -54,9 +54,6 @@
                                         <state key="normal">
                                             <color key="titleColor" red="0.43921568630000002" green="0.45098039220000002" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="viZ-AM-DTD" kind="unwind" identifier="BTDeviceViewControllerCancel" unwindAction="unwindFor:" id="oOk-zH-93Y"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5j-h8-hIK">
                                         <rect key="frame" x="295" y="34" width="65" height="21"/>

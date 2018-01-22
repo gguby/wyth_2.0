@@ -91,7 +91,7 @@ class LogInViewController: UIViewController {
 		
 		
 		loginButton.rx.tap.bind {
-			self.openSmLogin()
+            self.openSmLogin()
 			}.disposed(by: disposeBag)
 		
 		
@@ -106,8 +106,6 @@ class LogInViewController: UIViewController {
 				}.disposed(by: disposeBag)
 		}
 	}
-	
-	
 }
 
 extension LogInViewController {
@@ -149,16 +147,6 @@ extension LogInViewController {
 	func openSmLogin() {
 		
 		logVerbose("sm login")
-		
-		guard let button = self.loginButton else {
-            let error = BSTError.login(LoginError.failedCode(-2))
-			error.cook(nil)
-//            BSTFacade.ux.showToastError(BSTFacade.localizable.error.loginFailedCode(-2))
-			return
-		}
-
-		
-		
 		
 		loginButtonView.hide()
 //		button.startAnimation()
