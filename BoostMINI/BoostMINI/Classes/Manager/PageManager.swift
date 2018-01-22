@@ -42,6 +42,10 @@ extension BST {
 					.cookError()
 				return
 			}
+			if animated {
+				// 애니메이션 재 활성화. AgreementViewController에서 호출시에는 animated가 false 이므로, 이 경우만 무시.
+				LogInViewController.isFirst = true
+			}
 			processTopPresent(currentVC, to: vc, animated: animated)
 		}
         
@@ -78,6 +82,7 @@ extension BST {
 		
 		private func processTopPresent(_ current: UIViewController?, to target: UIViewController, animated: Bool) {
 			
+			BSTFacade.ux.hideIndicator()
 			
 			guard let currentVC = current ?? BSTFacade.common.getTopViewController() else {
 				BSTError.debugUI(.viewController("getCurrentTopVC"))

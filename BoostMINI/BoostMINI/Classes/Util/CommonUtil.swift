@@ -69,6 +69,10 @@ extension CommonUtil {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
             }
+			
+			if topController is LoadingViewController {
+				return getTopVisibleViewController(nil)
+			}
 
             return topController
         }

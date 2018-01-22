@@ -35,7 +35,7 @@ class LogInViewController: UIViewController {
 
 
 	// 최초 1회 이후의 로그인 접근은 애니메이션 없음.
-	private static var isFirst = true
+	public static var isFirst = true
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
