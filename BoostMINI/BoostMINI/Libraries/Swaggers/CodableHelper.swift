@@ -31,9 +31,27 @@ open class CodableHelper {
             decoder.dateDecodingStrategy = .formatted(formatter)
         }
 
+		
         do {
             returnedDecodable = try decoder.decode(type, from: data)
         } catch {
+			logVerbose("ERROR : data = \(String.init(data: data, encoding: .utf8))")
+			
+			if let decodingError = error as? DecodingError {
+				switch(decodingError) {
+				case .dataCorrupted(let _):
+					let decoder2 = JSONDecoder()
+					decoder.dateDecodingStrategy = .formatted(DateFormatter.jsonDate2)
+					let returnedDecodable = try? decoder2.decode(type, from: data)
+					if returnedDecodable != nil {
+						returnedError = nil
+					}
+					// TODO: 에러는 나지 않으나 변환이 제대로 안된다.....
+					return (returnedDecodable, returnedError)
+				default:
+					break
+				}
+			}
             returnedError = error
         }
 
