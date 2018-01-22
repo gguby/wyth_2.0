@@ -212,22 +212,38 @@ extension IntroViewController {
 		// 버전이 옳다면 여기로 와준다.
 		// 그렇다면 로그인 여부를 확인한다.
 		logVerbose("Loginned? = \(SessionHandler.shared.isLoginned)")
+	
 		
-		
-		// TODO : 로그인이 유효한지의 여부를 서버로부터 확인해야 하면 여기에 추가한다.
 
-		if SessionHandler.shared.isLoginned {
-			// 로그인 유저
-			self.startLoadingMarkAnimation(self.progressStep4, duration: 0.2, animated: true, completed: { _ in
-				self.presentHome()
+		if let token = SessionHandler.shared.token {
+			let pushToken = SessionHandler.shared.pushToken
+			let osVersion = UIDevice.current.systemVersion
+			// TODO : 로그인이 유효한지의 여부를 서버로부터 확인해야 하면 여기에 추가한다.
+			DefaultAPI.signinUsingPOST(accessToken: token,
+									   socialType: .smtown,
+									   pushToken: pushToken,
+				osVersion: osVersion,
+				completion: { [weak self] resp, err in
+					self?.sessionConfirmed(err == nil)
 			})
-		} else {
-			// 비로그인 유저
 			
-			self.startLoadingMarkAnimation(self.progressStep4, duration: 0.8, animated: true, completed: { _ in
-				self.presentLogin()
-			})
+			return
 		}
+		sessionConfirmed(false)
+	}
+	
+	func sessionConfirmed(_ isLoginned:Bool) {
+		logVerbose("isLoginned : \(isLoginned)")
+		
+	
+		self.startLoadingMarkAnimation(self.progressStep4, duration: 0.8, animated: true, completed: { _ in
+			if isLoginned {
+				self.presentHome()
+			} else {
+				self.presentLogin()
+			}
+			
+		})
 	}
 	
 
