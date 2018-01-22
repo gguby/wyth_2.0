@@ -58,7 +58,7 @@ sed -i '' -e $'s|(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: ac
 sed -i '' -e $'s|(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage)|()|g' $1
                  
 
-	
+
 #sed -i '' -e $'s|required public init(method: String, URLString: String, parameters: [String:Any]?,|required public init(method: String, URLString: String, parameters: [String:String]?,|g' $1
 
 
@@ -109,6 +109,38 @@ for X in BoostMINI/BoostMINI/Classes/Swaggers/CodableHelper.swift; do
 # data 는 그냥 주석처리만
 sed -i '' -e $'s|decoder.dataDecodingStrategy|//decoder.dataDecodingStrategy|g' $X;
 sed -i '' -e $'s|encoder.dataEncodingStrategy|//encoder.dataEncodingStrategy|g' $X;
+
+
+# sed로 엄두도 안나고 해서 얘는 perl로 변환.
+REPLACE_CODABLE_HELPER='returnedDecodable = try decoder.decode(type, from: data) \
+        } catch { \
+			let json = String.init(data: data, encoding: .utf8) ?? "" \
+			logVerbose("ERROR : data = \\(json)") \
+			 \
+			if let decodingError = error as? DecodingError { \
+				switch(decodingError) { \
+				case .dataCorrupted(_): \
+					let decoder2 = JSONDecoder() \
+					decoder2.dateDecodingStrategy = .formatted(DateFormatter.jsonDate2) \
+					var returnedDecodable = try? decoder2.decode(type, from: data) \
+ \
+					if returnedDecodable == nil { \
+						let decoder3 = JSONDecoder() \
+						decoder3.dateDecodingStrategy = .formatted(DateFormatter.jsonDate3) \
+						returnedDecodable = try? decoder3.decode(type, from: data) \
+					} \
+ \
+					if returnedDecodable != nil { \
+						returnedError = nil \
+					} \
+					// TODO: 에러는 나지 않으나 변환이 제대로 안된다..... \
+					return (returnedDecodable, returnedError) \
+				default: \
+					break \
+				} \
+			}'
+
+perl -i -p0e "s|returnedDecodable = try decoder\.decode\(type, from: data\)[^\}]*\} catch \{|$REPLACE_CODABLE_HELPER|s" "$X";
 
 done;
 

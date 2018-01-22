@@ -21,7 +21,7 @@ open class ProfileGetResponse: BaseModel {
         case twitter = "TWITTER"
         case google = "GOOGLE"
     }
-    public var createdAt: Date?
+    public var createdAt: String?
     public var email: String?
     public var id: Int64?
     public var name: String?
@@ -29,7 +29,7 @@ open class ProfileGetResponse: BaseModel {
 
 
     
-    public init(createdAt: Date?, email: String?, id: Int64?, name: String?, socialType: SocialType?) {
+    public init(createdAt: String?, email: String?, id: Int64?, name: String?, socialType: SocialType?) {
         self.createdAt = createdAt
         self.email = email
         self.id = id
@@ -56,7 +56,7 @@ open class ProfileGetResponse: BaseModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        createdAt = try container.decodeIfPresent(Date.self, forKey: "createdAt")
+        createdAt = try container.decodeIfPresent(String.self, forKey: "createdAt")
         email = try container.decodeIfPresent(String.self, forKey: "email")
         id = try container.decodeIfPresent(Int64.self, forKey: "id")
         name = try container.decodeIfPresent(String.self, forKey: "name")
