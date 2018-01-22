@@ -50,7 +50,6 @@
                                         </constraints>
                                         <state key="normal" image="btn_common_menu"/>
                                         <connections>
-                                            <action selector="menuButtonTapped:" destination="gNb-Mc-anA" eventType="touchUpInside" id="jYX-uE-brV"/>
                                             <segue destination="Q9p-jB-30q" kind="presentation" id="gvM-Yd-Vkc"/>
                                         </connections>
                                     </button>
@@ -122,6 +121,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundView" destination="Yga-6p-3zX" id="hBz-Jf-HMz"/>
+                        <outlet property="skinImageView" destination="tMJ-xi-nih" id="4yz-Hy-cPU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqI-88-UCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -749,7 +749,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDb-fj-gcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="790" y="349"/>
+            <point key="canvasLocation" x="790" y="360"/>
         </scene>
         <!--Help Web View Controller-->
         <scene sceneID="14J-er-94j">
@@ -831,7 +831,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hue-hr-oCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YzB-4h-vED" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="329"/>
+            <point key="canvasLocation" x="1449" y="360"/>
         </scene>
         <!--Terms View Controller-->
         <scene sceneID="Noy-Ip-IQj">
@@ -996,7 +996,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ET1-cF-ikC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GVZ-ZQ-SMn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2912.8000000000002" y="360.2698650674663"/>
+            <point key="canvasLocation" x="2754" y="360"/>
         </scene>
     </scenes>
     <resources>

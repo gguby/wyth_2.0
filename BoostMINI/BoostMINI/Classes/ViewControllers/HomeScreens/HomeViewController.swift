@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
     // MARK: - * properties --------------------
 
     @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var skinImageView: UIImageView!
     
     @available(iOS 10.0, *)
     private lazy var tapRecognizer: UITapGestureRecognizer = {
@@ -154,20 +155,16 @@ class HomeViewController: UIViewController {
         popupView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-  
-    
-    // MARK: - * UI Events --------------------
-    
-    //    @IBAction func gotoInformationViewController(_ sender: UIButton) {
-    //        let vc = ConcertInformationViewController()
-    //        vc.modalPresentationStyle = .custom
-    //        present(vc, animated: true, completion: nil)
-    //    }
-    
-    @IBAction func menuButtonTapped(_ sender: UIButton) {
-       
+    func updateSkinImageView() {
+        DefaultAPI.getSkinsUsingGET { (response, error) in
+            guard let data = response else {
+                return
+            }
+            
+            self.skinImageView.af_setImage(withURL: URL.init(string: (data.skin?.url)!)!)
+        }
     }
-    
+
     @objc func showDetailConcertInformation(recognizer: UITapGestureRecognizer) {
         let storyboard = UIStoryboard(name:"Home", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DetailConcertInformationViewController")
