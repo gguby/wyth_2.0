@@ -60,8 +60,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         self.stickImage.startAnimating()
         
         self.stickImage.alpha = 1.0
-        
-        self.registerBtn.backgroundColor = R.clr.boostMini.commonBgPoint()
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,19 +88,29 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         reactor.state.map { $0.isRegister }
+            .filterNil()
+            .distinctUntilChanged()            
             .bind(to: self.registerBtn.rx.isHidden)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { !$0.isRegister }
+        reactor.state.map { $0.isRegister }
+            .filterNil()
+            .distinctUntilChanged()
+            .filter { !$0 }
             .bind(to: self.imageTicketView.rx.isHidden)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { !$0.isRegister }
+        reactor.state.map { $0.isRegister }
+            .filterNil()
+            .distinctUntilChanged()
+            .filter { !$0 }
             .bind(to: self.resetBtn.rx.isHidden)
             .disposed(by: self.disposeBag)
         
         self.cancelBtn.isHidden = true
         self.confirmBtn.isHidden = true
+        
+        self.registerBtn.backgroundColor = R.clr.boostMini.commonBgPoint()
         
         return true
     }
