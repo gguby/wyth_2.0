@@ -308,6 +308,7 @@ Concert</string>
                 <outlet property="concertNameLabelHeightConstant" destination="JQP-9m-LAu" id="DyR-kA-lCf"/>
                 <outlet property="concertPlaceLabel" destination="u62-Uc-WSE" id="YaB-3C-uTl"/>
                 <outlet property="concertPlaceLabelHeightConstant" destination="OnX-wI-WAm" id="VNS-vm-NoD"/>
+                <outlet property="connectStatusLabel" destination="scs-Hf-1ig" id="mDJ-Yz-SXa"/>
                 <outlet property="ddayLabel" destination="4ec-6k-h8P" id="2fe-yk-mJj"/>
                 <outlet property="ddayLabelHeightConstant" destination="aku-BO-LJD" id="Jyw-Af-lLA"/>
                 <outlet property="ddayLabelWidthConstant" destination="0tR-XH-hWq" id="Vxy-hG-MUk"/>

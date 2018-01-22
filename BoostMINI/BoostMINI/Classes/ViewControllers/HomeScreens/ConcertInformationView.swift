@@ -21,6 +21,7 @@ class ConcertInformationView: UIView {
     @IBOutlet weak var topTiltingView: TopTiltingView!
     @IBOutlet weak var detailConcertInformationButton: UIButton!
     
+    @IBOutlet weak var connectStatusLabel: UILabel!
     @IBOutlet weak var viewingDateLabel: UILabel!
     @IBOutlet weak var floorLabel: UILabel!
     @IBOutlet weak var areaLabel: UILabel!
@@ -52,6 +53,13 @@ class ConcertInformationView: UIView {
             self?.concertNameLabel.text = data.concertNm
             self?.concertDateLabel.text = data.concertDate
             self?.concertPlaceLabel.text = "@\(data.concertPlace!)"
+            
+            if data.concertStatus == .end {
+                self?.ddayLabel.text = "END"
+                self?.ddayLabel.backgroundColor = R.clr.boostMini.commonBgDefault()
+                self?.detailConcertInformationButton.backgroundColor = R.clr.boostMini.commonBgDefault()
+                self?.closeConcertSeatInfo()
+            }
         }
     }
     
@@ -84,6 +92,12 @@ class ConcertInformationView: UIView {
             seatNumberString.addAttributes((self?.smtownFontAttribute)!, range: range)
             self?.seatNumberLabel.attributedText = seatNumberString
         }
+    }
+    
+    func closeConcertSeatInfo() {
+        self.topTiltingView.backgroundColor = R.clr.boostMini.commonBgDefault()
+        self.connectStatusLabel.text = "공연이 종료되었습니다"
+        self.arrowButton.isHidden = true
     }
     
     func updateSmallConcertInfoview() {
