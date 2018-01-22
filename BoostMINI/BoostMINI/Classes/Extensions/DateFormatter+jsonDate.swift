@@ -13,8 +13,8 @@ import UIKit
 extension DateFormatter {
 	static let jsonDate: DateFormatter = {
 		let formatter = DateFormatter()
-		//formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+		//formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 		formatter.calendar = Calendar(identifier: .iso8601)
 		formatter.timeZone = TimeZone(identifier: "KST")
 		//formatter.timeZone = TimeZone(secondsFromGMT: 0)
