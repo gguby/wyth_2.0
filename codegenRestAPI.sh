@@ -119,7 +119,7 @@ REPLACE_CODABLE_HELPER='returnedDecodable = try decoder.decode(type, from: data)
 			 \
 			if let decodingError = error as? DecodingError { \
 				switch(decodingError) { \
-				case .dataCorrupted(_): \
+				case .dataCorrupted: // (let err) \
 					let decoder2 = JSONDecoder() \
 					decoder2.dateDecodingStrategy = .formatted(DateFormatter.jsonDate2) \
 					var returnedDecodable = try? decoder2.decode(type, from: data) \
