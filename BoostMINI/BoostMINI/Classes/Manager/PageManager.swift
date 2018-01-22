@@ -52,7 +52,14 @@ extension BST {
             let reactor = DeviceViewReactor.init(service: BTDeviceService.init())
             reactor.viewType = type
             vc.reactor = reactor
-            currentVC?.navigationController?.pushViewController(vc, animated: true)
+            
+            guard let currentVC = currentVC ?? BSTFacade.common.getTopViewController() else {
+                BSTError.debugUI(.viewController("getCurrentTopVC"))
+                    .cookError()
+                return
+            }
+            
+            currentVC.navigationController?.pushViewController(vc, animated: true)
         }
 		
 		

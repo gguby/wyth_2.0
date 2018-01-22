@@ -34,6 +34,11 @@ class ConcertInformationView: UIView {
     @IBOutlet weak var concertDateLabelHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var concertPlaceLabelHeightConstant: NSLayoutConstraint!
     
+    var homeViewController : HomeViewController?
+    
+    @IBAction func goDevice(_ sender: Any) {
+        BSTFacade.go.device(self.homeViewController, type: ReactorViewType.Management)
+    }
     
     let smtownFontAttribute = [ NSAttributedStringKey.font: UIFont(name: "SMTOWNOTF-Medium", size: 16.0)! ]
     

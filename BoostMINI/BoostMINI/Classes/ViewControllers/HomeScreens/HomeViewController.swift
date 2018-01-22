@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
         view.detailConcertInformationButton.addTarget(self, action: #selector(self.showDetailConcertInformation(recognizer:)), for: .touchUpInside)
         view.updateConcertInfo()
         view.updateConcerSeatInfo()
+        view.homeViewController = self
         return view
     }()
 	
