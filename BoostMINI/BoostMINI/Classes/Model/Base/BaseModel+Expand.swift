@@ -6,15 +6,18 @@
 //  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
 //
 
-import UIKit
+import ObjectiveC
+
+private var AssociationExpandKey: String = "expandKey"
 
 extension BaseModel {
+    
 	var expand: Bool {
 		get {
-			return objc_getAssociatedObject(self, "objc_select") as? Bool ?? false
+			return objc_getAssociatedObject(self, &AssociationExpandKey) as? Bool ?? false
 		}
 		set {
-			objc_setAssociatedObject(self, "objc_select", newValue, .OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &AssociationExpandKey, newValue, .OBJC_ASSOCIATION_RETAIN)
 		}
 	}
 	mutating func reverseExpand() {

@@ -62,11 +62,17 @@ class NotificationTableViewCell: UITableViewCell {
             self.lblTitle.text = notice.title
             self.lblContent.text = notice.expand ? notice.content : ""
             
-			let angle = (notice.expand ? 0 : 180).c.toRadians
+			let angle = (notice.expand ? 180 : 0).c.toRadians
             UIView.animate(withDuration: 0.3) {
                 self.imgvExpand.transform = CGAffineTransform(rotationAngle: angle)
             }
         }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.selectionStyle = .none
     }
 }
 
@@ -79,7 +85,13 @@ class NotificationViewController: UIViewController, NotificationView {
     
     // MARK: * IBOutlets --------------------
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.estimatedRowHeight = 52
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.separatorStyle = .none
+        }
+    }
     
     // MARK: * Initialize --------------------
 
@@ -97,7 +109,14 @@ class NotificationViewController: UIViewController, NotificationView {
 
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
-
+        
+        let refreshView = KRPullLoadView()
+//        refreshView.delegate = self
+        tableView.addPullLoadableView(refreshView, type: .loadMore)
+        
+        refreshView.didChangeState(KRPullLoaderState.loading(completionHandler: {
+            self.presenter?.updateNotifications(lastId: self.notifications.reversed().first?.id?.i, size: BSTConstants.main.pageSize)
+        }), viewType: KRPullLoaderType.loadMore)
     }
 
 
@@ -106,10 +125,12 @@ class NotificationViewController: UIViewController, NotificationView {
 //        self.presenter?.updateNotifications(lastId: 0, size: BSTConstants.main.pageSize)
     }
 
+    var notifications: [Notice] = []
     // MARK: * Main Logic --------------------
     func setNotifications(notifications: [Notice]) {
+        self.notifications.append(contentsOf: notifications)
         
-        Observable<[Notice]?>.of(notifications)
+        Observable<[Notice]?>.of(self.notifications)
         .replaceNilWith([])
         .bind(to: tableView.rx.items(cellIdentifier: "NotificationTableViewCell", cellType: NotificationTableViewCell.self)) { indexPath, notice, cell in
             cell.notice = notice
@@ -117,7 +138,7 @@ class NotificationViewController: UIViewController, NotificationView {
         
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             var notice = notifications[indexPath.row]
-			notice.reverseExpand()
+            notice.reverseExpand()
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)
     }
@@ -132,6 +153,7 @@ class NotificationViewController: UIViewController, NotificationView {
         // Dispose of any resources that can be recreated.
     }
 }
+
 
 
 
