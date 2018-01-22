@@ -35,14 +35,22 @@ open class CodableHelper {
         do {
             returnedDecodable = try decoder.decode(type, from: data)
         } catch {
-			logVerbose("ERROR : data = \(String.init(data: data, encoding: .utf8))")
+			let json = String.init(data: data, encoding: .utf8) ?? ""
+			logVerbose("ERROR : data = \(json)")
 			
 			if let decodingError = error as? DecodingError {
 				switch(decodingError) {
-				case .dataCorrupted(let _):
+				case .dataCorrupted(_):
 					let decoder2 = JSONDecoder()
-					decoder.dateDecodingStrategy = .formatted(DateFormatter.jsonDate2)
-					let returnedDecodable = try? decoder2.decode(type, from: data)
+					decoder2.dateDecodingStrategy = .formatted(DateFormatter.jsonDate2)
+					var returnedDecodable = try? decoder2.decode(type, from: data)
+
+					if returnedDecodable == nil {
+						let decoder3 = JSONDecoder()
+						decoder3.dateDecodingStrategy = .formatted(DateFormatter.jsonDate3)
+						returnedDecodable = try? decoder3.decode(type, from: data)
+					}
+
 					if returnedDecodable != nil {
 						returnedError = nil
 					}
