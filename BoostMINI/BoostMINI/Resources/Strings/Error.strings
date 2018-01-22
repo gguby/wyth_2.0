@@ -51,9 +51,10 @@
 
 "apiUserExists" = "userExists";
 "apiUserNotExists" = "userNotExists";
-"apiAleadyHasBeenDisconnected" = "sessionAleadyHasBeenDisconnected";
+"apiAlreadyInUse" = "Already In Use";
+"apiAlreadyHasBeenDisconnected" = "sessionAleadyHasBeenDisconnected";
 "apiInvalidException" = "invalidException";
-"apiAccessTokenCouldNotBeDecrypted" = "accessTokenCouldNotBeDecrypted";
+"apiInvalidToken" = "invalid token";
 "apiSaveFailed" = "saveFailed";
 
 

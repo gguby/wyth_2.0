@@ -30,7 +30,7 @@ class BSTFacade {
     // MARK: - * Initialize --------------------
 
     private init() {
-
+        
     }
 
     // MARK: * Main Logic --------------------

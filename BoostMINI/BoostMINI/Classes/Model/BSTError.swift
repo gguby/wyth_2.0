@@ -102,45 +102,8 @@ enum UIError: Error, BSTErrorProtocol {
 	}
 }
 
-
-enum LoginError: Error, BSTErrorProtocol {
-    case failed
-    case failedCode(Int)
-    
-    var description: String {
-        var desc = ""
-        switch self {
-        case .failed:
-            desc = BSTFacade.localizable.error.loginFailed()    //Resources/Strings/Error.strings에 정의함
-        case .failedCode(let code):
-            desc = BSTFacade.localizable.error.loginFailedCode(code)
-        default:
-            break
-        }
-        return desc
-    }
-    
-    func cook(_ object: Any? = nil) {
-        switch self {
-        case .failed:
-            BSTFacade.ux.showAlert(self.description) //alert 출력
-        case .failedCode(let code):
-            if code == -1 {
-                BSTFacade.ux.showAlert(self.description, {
-//                    BSTFacade.ux.gotoIntro()
-                })
-            } else if code == 2 {
-//                BSTFacade.ux.gotoIntro()
-            }
-        default:
-            break
-        }
-    }
-}
-
 enum APIError: Int, Error, BSTErrorProtocol {
-    
-    
+
     case none = -1
 //    case succeed = 200
 //    case succeedOK
@@ -158,13 +121,15 @@ enum APIError: Int, Error, BSTErrorProtocol {
     case serviceUnavailable
     case gatewayTimeout
 	
-	// TODO: 에러코드가 바뀌었음. 이거 안맞음.
+	//cutom error
     case userExists = 901
     case userNotExists
-    case sessionAleadyHasBeenDisconnected
+    case alreadyInUse
+    case sessionAlreadyHasBeenDisconnected
     case invalidException
-    case accessTokenCouldNotBeDecrypted
+    case invalidToken
     case saveFailed
+//    case accessTokenCouldNotBeDecrypted
 //    case notRegistered(String) = 960
 	
 	
@@ -193,21 +158,36 @@ enum APIError: Int, Error, BSTErrorProtocol {
             desc = BSTFacade.localizable.error.apiGatewayTimeout()
         case .userExists: //901
             desc = BSTFacade.localizable.error.apiUserExists()
-        case .userNotExists:
+        case .userNotExists: //902
             desc = BSTFacade.localizable.error.apiUserNotExists()
-        case .sessionAleadyHasBeenDisconnected:
-            desc = BSTFacade.localizable.error.apiPaymentRequired()
-        case .invalidException:
+        case .alreadyInUse: // 903
+            desc = BSTFacade.localizable.error.apiAlreadyInUse()
+        case .sessionAlreadyHasBeenDisconnected: //904
+            desc = BSTFacade.localizable.error.apiAlreadyHasBeenDisconnected()
+        case .invalidException: //905
             desc = BSTFacade.localizable.error.apiInvalidException()
-        case .accessTokenCouldNotBeDecrypted:
-            desc = BSTFacade.localizable.error.apiAccessTokenCouldNotBeDecrypted()
-        case .saveFailed:
+        case .invalidToken: //906
+            desc = BSTFacade.localizable.error.apiInvalidToken()
+        case .saveFailed: //907
             desc = BSTFacade.localizable.error.apiSaveFailed()
 			
         default:
             break
         }
         return desc
+    }
+    
+    func cook(_ object: Any? = nil) {
+        switch self {
+        case .userExists, .userNotExists, .invalidToken:
+            BSTFacade.ux.showAlert(self.description, {
+                BSTFacade.go.login()
+            })
+        case .sessionAlreadyHasBeenDisconnected:
+            BSTFacade.session.tryLoginToBoost()
+        default:
+            cook()
+        }
     }
 }
 
@@ -299,7 +279,6 @@ enum BSTError: Error, BSTErrorProtocol {
     //    case permission(PermissionErrorType)
     case device(DeviceError)
     case ticket(TicketError)
-    case login(LoginError)
 	case debugUI(UIError)
 
 	
@@ -309,7 +288,7 @@ enum BSTError: Error, BSTErrorProtocol {
         switch self {
         case .isEmpty:
             description = BSTFacade.localizable.error.isEmpty()
-		case .convertError:
+        case .convertError:
 			description = "convert error"			
         case .argumentError:
             description = BSTFacade.localizable.error.argumentError()
@@ -317,16 +296,13 @@ enum BSTError: Error, BSTErrorProtocol {
             description = BSTFacade.localizable.error.nilError()
         case .unknown:
             description = BSTFacade.localizable.error.unknown()
-		case .typeDismatching:
+        case .typeDismatching:
 			description = "type mismatching error"
         case .api(let error):
             description = error.description
         case .device(let error):
             description = error.description
-        case .login(let error):
-            description = error.description
-			
-		case .debugUI(let error):
+        case .debugUI(let error):
 			description = error.description
 			
         default:
@@ -338,19 +314,14 @@ enum BSTError: Error, BSTErrorProtocol {
     func cookError(_ object: Any? = nil) {
 
         switch self {
+        case .api(let error):
+            error.cook(error)
         case .device(let error):
             error.cook(object)
         case .ticket(let error):
             error.cook(object)
-        case .login(let error):
+        case .debugUI(let error):
             error.cook(error)
-//            BSTFacade.runInBackground {
-//                error.cook(error)
-//            }
-//            fallthrough
-			
-		case .debugUI(let error):
-			error.cook(error)
         default:
             self.cook(object)
         }
