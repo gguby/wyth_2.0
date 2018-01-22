@@ -21,14 +21,14 @@ open class AccountsPostResponse: BaseModel {
     }
     public var accountType: AccountType?
     public var alarm: Bool?
-    public var createdAt: String?
+    public var createdAt: Date?
     public var email: String?
     public var id: Int64?
     public var name: String?
 
 
     
-    public init(accountType: AccountType?, alarm: Bool?, createdAt: String?, email: String?, id: Int64?, name: String?) {
+    public init(accountType: AccountType?, alarm: Bool?, createdAt: Date?, email: String?, id: Int64?, name: String?) {
         self.accountType = accountType
         self.alarm = alarm
         self.createdAt = createdAt
@@ -59,7 +59,7 @@ open class AccountsPostResponse: BaseModel {
 
         accountType = try container.decodeIfPresent(AccountType.self, forKey: "accountType")
         alarm = try container.decodeIfPresent(Bool.self, forKey: "alarm")
-        createdAt = try container.decodeIfPresent(String.self, forKey: "createdAt")
+        createdAt = try container.decodeIfPresent(Date.self, forKey: "createdAt")
         email = try container.decodeIfPresent(String.self, forKey: "email")
         id = try container.decodeIfPresent(Int64.self, forKey: "id")
         name = try container.decodeIfPresent(String.self, forKey: "name")

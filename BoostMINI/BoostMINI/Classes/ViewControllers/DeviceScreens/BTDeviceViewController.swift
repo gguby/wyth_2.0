@@ -79,31 +79,23 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .subscribe(onNext: { [weak self] _ in
                 BSTFacade.ux.goTicketScan(currentViewController: self)
             })
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
         
         self.registerBtn.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 BSTFacade.ux.goTicketScan(currentViewController: self)
             })
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.isRegister }
-            .filterNil()
-            .distinctUntilChanged()            
             .bind(to: self.registerBtn.rx.isHidden)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.isRegister }
-            .filterNil()
-            .distinctUntilChanged()
-            .filter { !$0 }
+        reactor.state.map { !$0.isRegister }
             .bind(to: self.imageTicketView.rx.isHidden)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.isRegister }
-            .filterNil()
-            .distinctUntilChanged()
-            .filter { !$0 }
+        reactor.state.map { !$0.isRegister }
             .bind(to: self.resetBtn.rx.isHidden)
             .disposed(by: self.disposeBag)
         
@@ -136,11 +128,16 @@ class BTDeviceViewController : UIViewController, StoryboardView {
                 .distinctUntilChanged()
                 .bind(to: self.confirmBtn.rx.isHidden)
                 .disposed(by: self.disposeBag)
+            
+            self.cancelBtn.rx.tap.bind {
+                self.navigationController?.popViewController(animated: true)
+                self.disposeBag = DisposeBag()
+            }.disposed(by: self.disposeBag)
         }
         
         reactor.state.map { $0.contentMsg.content }
             .bind(to: self.contentLbl.rx.text)
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.titleMsg }
             .distinctUntilChanged()
@@ -153,13 +150,14 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .subscribe(onNext: { _ in
                 self.blinkImage()
             })
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.deviceError }
             .filterNilKeepOptional()
             .subscribe(onNext: { error in
-                error?.cookError()
+                print(error?.description)
+//                error?.cookError()
             })
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
     }
 }

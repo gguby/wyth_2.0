@@ -71,6 +71,7 @@ extension CommonUtil {
             }
 			
 			if topController is LoadingViewController {
+				
 				return getTopVisibleViewController(nil)
 			}
 

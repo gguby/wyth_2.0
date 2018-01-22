@@ -153,8 +153,9 @@ class BSTUXHanlder {
 		SystemAlert
 			.show(title, message: message, buttons: buttons, completion: { index in
 				
-				let block = completions[safe: index]
-				block?()
+				if let block = completions[safe: index] {
+					block()
+				}
 			})
 	}
 	

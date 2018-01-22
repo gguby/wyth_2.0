@@ -115,30 +115,29 @@ sed -i '' -e $'s|encoder.dataEncodingStrategy|//encoder.dataEncodingStrategy|g' 
 REPLACE_CODABLE_HELPER='returnedDecodable = try decoder.decode(type, from: data) \
         } catch { \
 			let json = String.init(data: data, encoding: .utf8) ?? "" \
-			logVerbose("ERROR : data = \\(json)") \
-			 \
-			if let decodingError = error as? DecodingError { \
-				switch(decodingError) { \
+ \
+ \
+			if let decodingError = error as? DecodingError {  \
+				switch(decodingError) {  \
 				case .dataCorrupted: // (let err) \
-					let decoder2 = JSONDecoder() \
-					decoder2.dateDecodingStrategy = .formatted(DateFormatter.jsonDate2) \
-					var returnedDecodable = try? decoder2.decode(type, from: data) \
- \
-					if returnedDecodable == nil { \
-						let decoder3 = JSONDecoder() \
-						decoder3.dateDecodingStrategy = .formatted(DateFormatter.jsonDate3) \
-						returnedDecodable = try? decoder3.decode(type, from: data) \
+					for format in [DateFormatter.jsonDate2, DateFormatter.jsonDate3, DateFormatter.jsonDate4] { \
+						let decoder = JSONDecoder() \
+						decoder.dateDecodingStrategy = .formatted(format) \
+						if let obj = try? decoder.decode(type, from: data) { \
+							returnedDecodable = obj \
+							returnedError = nil \
+							break \
+						} \
 					} \
- \
-					if returnedDecodable != nil { \
-						returnedError = nil \
-					} \
-					// TODO: 에러는 나지 않으나 변환이 제대로 안된다..... \
+					// TODO: 에러는 나지 않으나 변환이 제대로 안된다..... \ 
 					return (returnedDecodable, returnedError) \
-				default: \
-					break \
-				} \
-			}'
+				default:  \
+					break  \
+				}  \
+			} \
+			logVerbose("ERROR : data = \\(json)") \
+			logVerbose("ERROR : \\(error)") \
+			'
 
 perl -i -p0e "s|returnedDecodable = try decoder\.decode\(type, from: data\)[^\}]*\} catch \{|$REPLACE_CODABLE_HELPER|s" "$X";
 

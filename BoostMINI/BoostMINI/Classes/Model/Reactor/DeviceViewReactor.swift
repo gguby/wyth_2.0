@@ -50,7 +50,7 @@ final class DeviceViewReactor : Reactor {
         var characteristic : Characteristic?
         var writeCode : String?
         var isBlink : Bool = false
-        var isRegister : Bool?
+        var isRegister : Bool = false
         var registeredDevice : BSTLocalDevice?
         var deviceError : BSTError?
         var contentMsg : ContentMessage = ContentMessage.notScanning
@@ -79,7 +79,8 @@ final class DeviceViewReactor : Reactor {
             let connect = self.service.connect(observable: scanner)
             let connectedDevice = connect.map { Mutation.setActiveDevice($0) }
             let register = self.service.register(observable: connect).map(Mutation.registerDevice)
-            return .concat([scanDevice, paring, connectedDevice, register])
+            let characteristic = self.service.chrateristic(observable: connect).map { Mutation.setCharacteristic($0) }
+            return .concat([scanDevice, paring, connectedDevice, characteristic, register])
         case .manageMentInit:
             let localDevice = self.service.loadDevice()
             let deviceLoad = Observable.just(Mutation.loadRegisterDevice(localDevice))

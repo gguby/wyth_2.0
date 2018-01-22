@@ -59,6 +59,7 @@ extension BSTUXHanlder {
 			guard let window = privateInstance.window else {
 				return
 			}
+			window.isUserInteractionEnabled = false
 
 			UIView.animate(withDuration: (animate ? privateInstance.duration : 0), animations: {
 				window.alpha = 0
