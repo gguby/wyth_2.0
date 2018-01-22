@@ -185,6 +185,9 @@ Concert</string>
                             <state key="normal" title="응원도구 관리하기">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="goDevice:" destination="fzc-9S-21v" eventType="touchUpInside" id="tiD-9E-kkR"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4층" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhq-Ks-Iyp">
                             <rect key="frame" x="80.5" y="108" width="23" height="22"/>
@@ -308,6 +311,7 @@ Concert</string>
                 <outlet property="concertNameLabelHeightConstant" destination="JQP-9m-LAu" id="DyR-kA-lCf"/>
                 <outlet property="concertPlaceLabel" destination="u62-Uc-WSE" id="YaB-3C-uTl"/>
                 <outlet property="concertPlaceLabelHeightConstant" destination="OnX-wI-WAm" id="VNS-vm-NoD"/>
+                <outlet property="connectStatusLabel" destination="scs-Hf-1ig" id="mDJ-Yz-SXa"/>
                 <outlet property="ddayLabel" destination="4ec-6k-h8P" id="2fe-yk-mJj"/>
                 <outlet property="ddayLabelHeightConstant" destination="aku-BO-LJD" id="Jyw-Af-lLA"/>
                 <outlet property="ddayLabelWidthConstant" destination="0tR-XH-hWq" id="Vxy-hG-MUk"/>

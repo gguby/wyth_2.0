@@ -36,7 +36,9 @@ class ConcertInfoView : UIView {
         self.seatLbl.text = R.string.common.concertInfoSeat()
         self.dateLbl.text = "2018.02.01.FRI 19:00"
         
-        self.getConcertData()
+        DispatchQueue.main.async {
+            self.getConcertData()
+        }
     }
     
     func getConcertData() {

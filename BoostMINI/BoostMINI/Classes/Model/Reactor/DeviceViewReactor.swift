@@ -50,7 +50,7 @@ final class DeviceViewReactor : Reactor {
         var characteristic : Characteristic?
         var writeCode : String?
         var isBlink : Bool = false
-        var isRegister : Bool = false
+        var isRegister : Bool?
         var registeredDevice : BSTLocalDevice?
         var deviceError : BSTError?
         var contentMsg : ContentMessage = ContentMessage.notScanning
@@ -118,6 +118,9 @@ final class DeviceViewReactor : Reactor {
             
             if let device = device {
                 self.device.registeredDeviceObserver.onNext(device)
+                newState.isRegister = true
+            } else {
+                newState.isRegister = false
             }
             
         case .deviceError(let error):
@@ -128,10 +131,8 @@ final class DeviceViewReactor : Reactor {
             newState.titleMsg = RDevice.btTitleManage()
             if let device = self.currentState.registeredDevice {
                 newState.contentMsg = ContentMessage.showUser(device.name)
-                newState.isRegister = true
             } else {
                 newState.contentMsg = ContentMessage.notRegistered
-                newState.isRegister = false
             }
         }
         return newState
