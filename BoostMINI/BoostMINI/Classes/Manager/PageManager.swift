@@ -69,6 +69,10 @@ extension BST {
 		
 		// alertview 따위를 모두 제거하..려는 목적으로 만듦.
 		func removeAllUx() {
+			
+			BSTFacade.ux.hideIndicator()
+			
+
 			// 동작안함.
 //			//UIApplication.shared.keyWindow?.subviews.forEach({view in
 //			if let subviews = UIApplication.shared.keyWindow?.subviews {
@@ -89,7 +93,6 @@ extension BST {
 		
 		private func processTopPresent(_ current: UIViewController?, to target: UIViewController, animated: Bool) {
 			
-			BSTFacade.ux.hideIndicator()
 			
 			guard let currentVC = current ?? BSTFacade.common.getTopViewController() else {
 				BSTError.debugUI(.viewController("getCurrentTopVC"))

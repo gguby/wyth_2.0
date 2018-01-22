@@ -93,15 +93,23 @@ extension BSTUXHanlder {
 				
 				if SystemAlert.privateInstance.window == nil {
 					SystemAlert.privateInstance.window = UIWindow(frame: UIScreen.main.bounds)
+					//SystemAlert.privateInstance.window?.backgroundColor = UIColor("#cccccccc")
 				}
-				let window = SystemAlert.privateInstance.window!
-				window.frame = UIScreen.main.bounds
+				guard let window = SystemAlert.privateInstance.window else {
+					logError("alert window error - \(titleTemp ?? "")")
+					return
+				}
 				
+				window.frame = UIScreen.main.bounds
 
 				window.rootViewController = SystemAlertViewController(statusBarStyle: UIApplication.shared.statusBarStyle)
 
 				window.windowLevel = kAlertWindowLevel
 				window.makeKeyAndVisible()
+				window.isUserInteractionEnabled = true
+				window.isHidden = false
+
+				
 				viewController = window.rootViewController ?? UIViewController()
 			}
 			let title: String = titleTemp ?? "" // _title
@@ -122,6 +130,11 @@ extension BSTUXHanlder {
 					stackVC.first(where: { object -> Bool in
 						return object == alertView
 					})
+					if let win = SystemAlert.privateInstance.window {
+						win.isUserInteractionEnabled = false
+						win.isHidden = true
+					}
+					
 					completion?(index)
 				}))
 				idx -= 1
