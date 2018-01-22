@@ -185,6 +185,9 @@ Concert</string>
                             <state key="normal" title="응원도구 관리하기">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="goDevice:" destination="fzc-9S-21v" eventType="touchUpInside" id="tiD-9E-kkR"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4층" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhq-Ks-Iyp">
                             <rect key="frame" x="80.5" y="108" width="23" height="22"/>
