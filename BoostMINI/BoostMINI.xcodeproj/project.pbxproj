@@ -355,9 +355,6 @@
 		2B77AFB72005E8CC004434D1 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB62005E8CC004434D1 /* Storyboard.swift */; };
 		2B77AFBA2005EA6B004434D1 /* TicketScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */; };
 		2B77AFBD20087E53004434D1 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFBC20087E53004434D1 /* PermissionManager.swift */; };
-		2BAD40FA2015E8E2001E6D24 /* KRPullLoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAD40F72015E8E1001E6D24 /* KRPullLoadView.swift */; };
-		2BAD40FB2015E8E2001E6D24 /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAD40F82015E8E1001E6D24 /* UIScrollViewExtensions.swift */; };
-		2BAD40FC2015E8E2001E6D24 /* KRPullLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAD40F92015E8E1001E6D24 /* KRPullLoader.swift */; };
 		2BCCF08E200F24C5007AAD47 /* BSTClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCF08D200F24C5007AAD47 /* BSTClosure.swift */; };
 		2BF341661FFB7A3F00FDA12E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF341651FFB7A3F00FDA12E /* Notification.storyboard */; };
 		8F391FFD1FFF415300A46996 /* HelpWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F391FFC1FFF415300A46996 /* HelpWebViewController.swift */; };
@@ -556,9 +553,6 @@
 		2B77AFB62005E8CC004434D1 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScanViewController.swift; sourceTree = "<group>"; };
 		2B77AFBC20087E53004434D1 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
-		2BAD40F72015E8E1001E6D24 /* KRPullLoadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRPullLoadView.swift; sourceTree = "<group>"; };
-		2BAD40F82015E8E1001E6D24 /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
-		2BAD40F92015E8E1001E6D24 /* KRPullLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRPullLoader.swift; sourceTree = "<group>"; };
 		2BCCF08D200F24C5007AAD47 /* BSTClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTClosure.swift; sourceTree = "<group>"; };
 		2BF341651FFB7A3F00FDA12E /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		304041C0256C37C0B073056D /* Pods-BoostMINIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -954,7 +948,6 @@
 				2B5AA09A1FEB5646007441E1 /* LibrarySample.swift */,
 				0483852920035641007DE69B /* Swaggers */,
 				04838471200331BC007DE69B /* SwiftyBeaverDestinations */,
-				2BAD40F62015E8E1001E6D24 /* KRPullLoader */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -1066,16 +1059,6 @@
 				A63F1A3120059D3A0079046D /* ConcertInfoView.swift */,
 			);
 			path = DeviceScreens;
-			sourceTree = "<group>";
-		};
-		2BAD40F62015E8E1001E6D24 /* KRPullLoader */ = {
-			isa = PBXGroup;
-			children = (
-				2BAD40F72015E8E1001E6D24 /* KRPullLoadView.swift */,
-				2BAD40F82015E8E1001E6D24 /* UIScrollViewExtensions.swift */,
-				2BAD40F92015E8E1001E6D24 /* KRPullLoader.swift */,
-			);
-			path = KRPullLoader;
 			sourceTree = "<group>";
 		};
 		2BCCF08C200F2496007AAD47 /* BSTCommon */ = {
@@ -1751,9 +1734,7 @@
 				0483854B20035641007DE69B /* Configuration.swift in Sources */,
 				0462CDE51FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A691FEC962600896EE0 /* String+Format.swift in Sources */,
-				2BAD40FB2015E8E2001E6D24 /* UIScrollViewExtensions.swift in Sources */,
 				04122A611FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
-				2BAD40FC2015E8E2001E6D24 /* KRPullLoader.swift in Sources */,
 				2B5AA09B1FEB5646007441E1 /* LibrarySample.swift in Sources */,
 				04B2190620073617002A1742 /* TiltingView.swift in Sources */,
 				0420EADB2011E58C00E9820F /* Notice.swift in Sources */,
@@ -1783,7 +1764,6 @@
 				0480BCEC200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */,
 				041734892011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */,
 				0483854220035641007DE69B /* Extensions.swift in Sources */,
-				2BAD40FA2015E8E2001E6D24 /* KRPullLoadView.swift in Sources */,
 				2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */,
 				045D148A1FF4DD2200A67AA0 /* RequestBlock.swift in Sources */,
 				8F9A7CC12003465D003BABB1 /* MenuViewController.swift in Sources */,

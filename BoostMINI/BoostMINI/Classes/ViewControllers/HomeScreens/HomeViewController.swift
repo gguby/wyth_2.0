@@ -105,6 +105,7 @@ class HomeViewController: UIViewController {
 
 		
 		#if DEBUG
+            //TOOD: 확인해보고 
 			for index in 0...5 {
 				let tag = 941301 + index
 				guard let button = view.viewWithTag(tag) as? UIButton else {

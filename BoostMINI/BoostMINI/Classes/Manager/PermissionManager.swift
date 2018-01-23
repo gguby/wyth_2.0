@@ -18,25 +18,28 @@ class PermissionManager {
         let permissionSet = PermissionSet(Permission.defaultSet)
         
         let queue = DispatchQueue.global(qos: .default)
-        let dispatchGroup = DispatchGroup()
+        var dispatchGroup: DispatchGroup?
         
         for (_, permission) in permissionSet.permissions.enumerated() {
-            dispatchGroup.enter()  //  Enter the dispatch group
             
             queue.async(group: dispatchGroup, execute: {
                 if permission.status == .notDetermined {//권한 체크 이력 확인,
+                    if dispatchGroup == nil {//check instance
+                         dispatchGroup = DispatchGroup()
+                    }
+                    
+                    dispatchGroup?.enter()  //  Enter the dispatch group
                     permission.request({ (status) in  //각 권한별 요청
                         logDebug(status)
-                        dispatchGroup.leave() // Exit dispatch group
+                        dispatchGroup?.leave() // Exit dispatch group
                     })
-                } else {
-                    dispatchGroup.leave() // Exit dispatch group
+    
+                    dispatchGroup?.notify(queue: DispatchQueue.main, execute: {
+                        completion?()
+                    })
                 }
             })
             
-            dispatchGroup.notify(queue: DispatchQueue.main, execute: {
-                completion?()
-            })
         }
     }
     
