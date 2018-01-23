@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class ProfileGetResponse: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = ProfileGetResponse.buildApiRequests()
+open class ProfileGetResponse: EasyCodable {
 
 
     public enum SocialType: String, Codable { 

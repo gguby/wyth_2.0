@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class ConcertsGetResponse: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = ConcertsGetResponse.buildApiRequests()
+open class ConcertsGetResponse: EasyCodable {
 
 
     public var concertlist: [ConcertResponse]?

@@ -5,8 +5,6 @@
 //  Created by jack on 2017. 12. 26..
 //  Copyright © 2017년 IRIVER LIMITED. All rights reserved.
 //
-// TODO: 이메일 저장 체크박스를 우리가 구현해야 한다는 jack의 의견
-
 import UIKit
 import WebKit
 
@@ -46,7 +44,6 @@ class SMLoginViewController: WebViewController {
 	
 	
 	func back() {
-		// 웹뷰 이전의 인트로인것같은 페이지로 이동
 		self.navigationController?.popViewController(animated: true)
 	}
 	
@@ -54,8 +51,6 @@ class SMLoginViewController: WebViewController {
 	override func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		super.webView(webView, didFinish: navigation)
 
-		// DEBUG
-		
 		if let savedEmail = SessionHandler.shared.savedEmail {
 			let val = savedEmail
 			let script = """
@@ -102,8 +97,6 @@ class SMLoginViewController: WebViewController {
 	}
 	
 	@objc func receivedLogin(notification: Notification) {
-		// goHome()
-		
 		BSTFacade.go.home()
 
 	}
@@ -118,9 +111,6 @@ class SMLoginViewController: WebViewController {
 			return
 		}
 	}
-
-	
-	
 }
 
 extension SMLoginViewController {
@@ -140,15 +130,6 @@ extension SMLoginViewController {
 	
 	
 	func initData() {
-        //SM로그인 웹에 들어오면 무조건 기존의 SM, Boost 쿠키를 삭제해야함. 안그러면 페이지가 안뜬다는 jack의 의견
         BSTFacade.session.resetCookies()
 	}
-
-	
-//	func goIntro() {	// back()과 동일하다 현재는
-//		// 인트로인것같은 페이지로 이동 (인트로 끝나고 로그인 버튼 있는 페이지 = 네비게이션 최초 페이지)
-//		self.navigationController?.popViewController(animated: true)
-//
-//	}
-//
 }

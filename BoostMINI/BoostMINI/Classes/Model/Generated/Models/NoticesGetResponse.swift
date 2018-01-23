@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class NoticesGetResponse: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = NoticesGetResponse.buildApiRequests()
+open class NoticesGetResponse: EasyCodable {
 
 
     public var notices: [Notice]?

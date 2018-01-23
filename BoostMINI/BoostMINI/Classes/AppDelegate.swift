@@ -102,10 +102,12 @@ extension AppDelegate {
     
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            print("Notification settings: \(settings)")
-            
-            guard settings.authorizationStatus == .authorized else { return }
-            UIApplication.shared.registerForRemoteNotifications()
+			DispatchQueue.main.async {
+				print("Notification settings: \(settings)")
+				
+				guard settings.authorizationStatus == .authorized else { return }
+				UIApplication.shared.registerForRemoteNotifications()	// main thread only
+			}
         }
     }
     

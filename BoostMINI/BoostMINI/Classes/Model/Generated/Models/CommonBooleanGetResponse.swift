@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class CommonBooleanGetResponse: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = CommonBooleanGetResponse.buildApiRequests()
+open class CommonBooleanGetResponse: EasyCodable {
 
 
     public var alarm: Bool?

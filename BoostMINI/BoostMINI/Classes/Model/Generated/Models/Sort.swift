@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class Sort: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = Sort.buildApiRequests()
+open class Sort: EasyCodable {
 
 
 

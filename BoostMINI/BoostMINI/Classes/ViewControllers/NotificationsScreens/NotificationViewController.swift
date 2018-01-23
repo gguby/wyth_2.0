@@ -110,13 +110,7 @@ class NotificationViewController: UIViewController, NotificationView {
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
         
-        let refreshView = KRPullLoadView()
-//        refreshView.delegate = self
-        tableView.addPullLoadableView(refreshView, type: .loadMore)
-        
-        refreshView.didChangeState(KRPullLoaderState.loading(completionHandler: {
-            self.presenter?.updateNotifications(lastId: self.notifications.reversed().first?.id?.i, size: BSTConstants.main.pageSize)
-        }), viewType: KRPullLoaderType.loadMore)
+
     }
 
 
@@ -153,7 +147,5 @@ class NotificationViewController: UIViewController, NotificationView {
         // Dispose of any resources that can be recreated.
     }
 }
-
-
 
 

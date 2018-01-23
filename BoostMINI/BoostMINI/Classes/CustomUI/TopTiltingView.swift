@@ -11,21 +11,12 @@ import UIColor_Hex_Swift
 
 
 class TopTiltingView: UIView {
-
-//	public func updateDisplayTiltMask(_ heightCCW: CGFloat,
-//									  animation: Bool = false,
-//									  duration: TimeInterval = 0.75) {
-//
-//	}
-//
-	
 	/// 0일때 상단에 꽉차는지(y=0) 중간에 오는지(y=height/2)의 여부.
 	public var useCenter: Bool = true
 	
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
-		// self.updateDisplayTiltMask(0, 0)
 	}
 	
 	/// 기울기에 의한 마스크 반환
@@ -134,10 +125,6 @@ class TopTiltingView: UIView {
 		shapeLayer.lineWidth = 3.0
 		
 		shapeLayer.contentsScale = UIScreen.main.scale
-		
-		
-//		shapeLayer.fillRule = kCAFillRuleNonZero
-
 		return shapeLayer
 	}
 	
@@ -166,7 +153,6 @@ class TopTiltingView: UIView {
 	
 	/// getTileMask의 내부. CGPath를 반환한다.
 	internal func getTiltPath(_ heightCCW: CGFloat) -> CGPath {
-		let size = self.frame.size
 		let viewHeight = self.frame.height
 		let tiltHeight = min(max( -viewHeight, heightCCW), viewHeight)
 		
@@ -211,7 +197,6 @@ class TopTiltingView: UIView {
 			CGPoint(x: size.width, y: rightTop),
 			CGPoint(x: size.width, y: size.height)
 			])
-		//path.closeSubpath()
 		return path as CGPath
 	}
 	

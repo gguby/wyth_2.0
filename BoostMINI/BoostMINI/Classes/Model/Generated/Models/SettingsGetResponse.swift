@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class SettingsGetResponse: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = SettingsGetResponse.buildApiRequests()
+open class SettingsGetResponse: EasyCodable {
 
 
     public var alarm: Bool?
