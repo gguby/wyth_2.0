@@ -106,6 +106,8 @@ enum APIError: Int, Error, BSTErrorProtocol {
 	//    case succeed = 200
 	//    case succeedOK
 	
+    case redirection
+    
 	case badRequest = 400
 	case unauthorized = 401
 	case forbidden = 403
@@ -129,11 +131,22 @@ enum APIError: Int, Error, BSTErrorProtocol {
 	case saveFailed
 	//    case accessTokenCouldNotBeDecrypted
 	//    case notRegistered(String) = 960
+    
+    var range: CountableClosedRange<Int> {
+        switch self {
+        case .redirection:    return 300...399
+        default:
+            return 0...0
+        }
+    }
+
 	
 	
 	var description: String {
 		var desc = ""
 		switch self {
+        case .redirection:
+            desc = BSTFacade.localizable.error.networkFailed()
 		case .badRequest://400
 			desc = BSTFacade.localizable.error.apiBadRequest()
 		case .unauthorized:
@@ -184,7 +197,7 @@ enum APIError: Int, Error, BSTErrorProtocol {
 		case .sessionAlreadyHasBeenDisconnected:
 			BSTFacade.session.tryLoginToBoost()
 		default:
-			cook()
+			BSTFacade.ux.showAlert(self.description) //alert 출력
 		}
 	}
 }
@@ -379,6 +392,10 @@ class BSTErrorBaker<T> {
 		do {
 			try BSTErrorBaker<T>.errorPitcher(err, response)
 		} catch let error {
+            if let apiError = error as? APIError, !(response?.isBizError ?? false) {
+                apiError.cook()
+                return nil
+            }
 			return error
 		}
 		return err
@@ -397,9 +414,9 @@ class BSTErrorBaker<T> {
 					return
 				}
 				
-				BSTFacade.ux.showToastError("\(error.localizedDescription)")
+//                BSTFacade.ux.showToastError("\(error.localizedDescription)")
 				if let api = APIError(rawValue: code) {
-					throw BSTError.api(api)
+//                    throw api
 					// 906이었나? APIError에 없는게 나오니 무한에러
 				} else {
 					throw BSTError.white(WhiteError.statusCode(code))
