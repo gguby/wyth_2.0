@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class PageHelp: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = PageHelp.buildApiRequests()
+open class PageHelp: EasyCodable {
 
 
     public var content: [Help]?

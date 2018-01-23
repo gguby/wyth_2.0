@@ -61,8 +61,6 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 
 	func loadWebHtml(_ html: String, _ url: URL?) {
 		self.webView.loadHTMLString(html, baseURL: url)
-		
-		// 인디게이터가 처음에 강제로 돌므로, 이를 꺼준다.
 		self.hideActivityIndicator()
 		self.showActivity(inStatusBar: false)
 	}
@@ -75,7 +73,6 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 		if let html = preload {
 		self.webView.loadHTMLString(html, baseURL: urlString.asUrl)
 			if !forceRefresh {
-				// 인디게이터가 처음에 강제로 돌므로, 이를 꺼준다.
 				self.showActivity(inStatusBar: false)
 				self.hideActivityIndicator()
 				return
@@ -330,7 +327,6 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 			//  other "http://api.dev2nd.vyrl.com/#/authSignIn"
 			// formSubmitted 일 경우에 가져옴
 			
-			
 			// queryParameters 부분구현부가 조금 달라보인다.
 			// 처리해야할 주소 : http://api.dev2nd.vyrl.com/#/access_token=GukNHQQufLmTWSmtdhes2x1...
 			// 기존 코드가 변환하는 주소 : /access_token=GukNHQQufLmTWSmtdhes2x1...
@@ -339,26 +335,18 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 			
 			// .query가 아닌 URLComponents.queryItems 을 사용중이나, 원하는대로 변환되지 않는듯.
 			// [URL]/#/[PARAM] 형식을 인지하게 기능 확장.
-			
-			
-			
 			if let command = navigationAction.request.url?.absoluteString.decodeURL()
 				.replacingOccurrences(of: "#", with: "?")
 				.replacingOccurrences(of: "/?/", with: "/?") {
 
 				let params = command.queryParameters
 				
-				if let token = params["access_token"] { //, not(token.isEmpty) {
+				if let token = params["access_token"] {
 					
-					// 로그인이라면 그 이후의 페이지들을 보여줄이유는없다. 뷰 자체를 종료하도록한다.
 					if token.isEmpty {
-						// BoostProfile.logout()
 						logVerbose("access_token lost.")
 						
 					} else {
-						// TODO : 기존코드의 문제. 일단 로그인되어있으면, 토큰이 붙는데... 로그인 화면을 보여주고싶을 뿐인거다 난. 구분을 하든가 로그아웃을 하든가.
-						// TODO : 만약 로그인을 한 후, 약관동의화면에서 앱을 종료하면... 다음번 앱 실행 후 로그인을 눌렀을 때 이리로 온다. 이미 smtown은 로그인이 되어있어서 그렇다. 이 경우, 약관동의화면으로 가지 않게 하려면 smtown 로그인을 해제할 수 있어야 한다.
-						
 						logVerbose("access_token got.")
 						BoostProfile.login(token)
 					}
@@ -427,29 +415,9 @@ class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, W
 		logVerbose("webView - %@".format(#function))
 		completionHandler(.useCredential, nil)
 	}
-	
-	/*
-	#pragma mark - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	// Get the new view controller using [segue destinationViewController].
-	// Pass the selected object to the new view controller.
-	}
-	*/
-//	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//		if scrollView == webView?.scrollView {
-//			view.bringSubview(toFront: viewNavigationLine ?? UIView())
-//			viewNavigationLine?.setHidden((scrollView.contentOffset.y < 2.0), animation: true)
-//		}
-//	}
-	
-	
+
 	func presentNetworkError(_ error: Error) {
 		logVerbose("webView - %@".format(#function))
-		//		SMAPIClient.api.presentNetworkError(error, retryBlock: {[weak self] (_ dismissed: Bool, _ isConnected: Bool) -> Void in
-		//			self?.loadWebUrl(self?.urlString ?? "")
-		//			}, needCheckServerMaintenance: true)
 	}
 
 	

@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class AppsGetResponse: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = AppsGetResponse.buildApiRequests()
+open class AppsGetResponse: EasyCodable {
 
 
     public var forceUpdate: Bool?

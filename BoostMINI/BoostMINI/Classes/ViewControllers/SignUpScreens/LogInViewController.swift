@@ -22,7 +22,6 @@ class LogInViewController: UIViewController {
 	
 	@IBOutlet weak var loginButtonView: UIView!
 	@IBOutlet weak var loginButtonBottomConstraint: NSLayoutConstraint!
-	//@IBOutlet weak var tiltingView: TopTiltingView!
 	@IBOutlet weak var loadingMarkFrameWidthConstraint: NSLayoutConstraint!
 	@IBOutlet weak var loadingMarkFrame: UIView!
 	@IBOutlet weak var loadingMark: UIView!
@@ -30,7 +29,6 @@ class LogInViewController: UIViewController {
 	@IBOutlet weak var loginLabel: UILabel!
 
 	var cacheLoginButtonBottomConstraint: CGFloat!
-
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 
@@ -71,7 +69,6 @@ class LogInViewController: UIViewController {
 	
 	
 	var disposeBag = DisposeBag()
-    /// ViewController 로딩 시, UIControl 초기화
 	private func initUI() {
 		loginLabel.text = BSTFacade.localizable.login.smLoginText()
 		cacheLoginButtonBottomConstraint = loginButtonBottomConstraint.constant
@@ -88,7 +85,6 @@ class LogInViewController: UIViewController {
 				bt.tintColor = dummy
 				}.disposed(by: disposeBag)
 		}
-		
 		
 		loginButton.rx.tap.bind {
             self.openSmLogin()
@@ -149,33 +145,16 @@ extension LogInViewController {
 		logVerbose("sm login")
 		
 		loginButtonView.hide()
-//		button.startAnimation()
 		let qualityOfServiceClass = DispatchQoS.QoSClass.background
 		let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
 		backgroundQueue.async(execute: {
 
 			var isFailed = false
-			var html: String = ""
-			//var isFailed = false
-			// web preload
-			do {
-//				let pathLogout = Definitions.externURLs.authLogout
-//				let aa = try String(contentsOf: pathLogout.asUrl!, encoding: String.Encoding.utf8)
-//
-//				logVerbose(aa)
-			} catch {
-				BSTFacade.ux.showToastError(BSTFacade.localizable.error.loginFailedCode(-1))
-				isFailed = true
-			}
-			
 			DispatchQueue.main.async {
-//				button.stopAnimation(animationStyle: .expand, completion: {
 					self.loginButtonView.show()
 					if isFailed {
 						return
 					}
-					
-					//let newVC = SMLoginViewController.create("SignUp")
 					let newVC = R.storyboard.signUp.smLoginViewController()!
 					self.navigationController?.pushViewController(newVC, animated: true)
 //				})

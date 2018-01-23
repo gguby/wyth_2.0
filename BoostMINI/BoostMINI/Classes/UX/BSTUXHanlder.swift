@@ -49,6 +49,14 @@ class BSTUXHanlder {
         currentVC?.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func goDetailConcertInfoViewController(currentViewController currentVC: UIViewController?) {
+        guard let vc = self.instantiateViewController(typeof: DetailConcertInformationViewController.self) else {
+            return
+        }
+        
+        currentVC?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     // MARK: - * Common 함수 --------------------
     
     /// ViewController 타입으로 사전(Storyboard)에 정의된 ViewController를 반환

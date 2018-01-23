@@ -17,13 +17,6 @@ import Foundation
 import SwiftyBeaver
 import Crashlytics
 
-// INFO: beaverCloud 사용할거면 .beaverCloud쪽과 요녀석의 주석을 해제할 것. defines로 옮겨도 되고.
-//fileprivate struct SBPlatformConst {
-//    static let appID = "Enter App ID Here - o8QXpN"
-//    static let appSecret = "Enter App Secret Here - zofadrcs8pbmknanqjaAkzepf1sljkfc"
-//    static let encryptionKey = "Enter Encryption Key Here - vLhboSulLqpulpq5gvufnmpfyvgKgwse"
-//}
-
 public typealias LogLevel = SwiftyBeaver.Level
 public typealias LogDestination = Logger.LogDestination
 
@@ -152,15 +145,7 @@ public class Logger {
 }
 
 
-
-
-
-// MARK: - file private
-// Logger 내부 실구현 부분입니다. Logger를 사용하는 다른 파일들에서는 보실 필요 없음.
 extension Logger {
-
-	
-	
 	/// 로그 대상 목록.
 	public struct LogDestination: OptionSet, Hashable {
 		public let rawValue: Int
@@ -177,7 +162,6 @@ extension Logger {
 		public static let console = LogDestination(rawValue: 1 << 1)
 		public static let file = LogDestination(rawValue: 1 << 2)
 		public static let crashlytics = LogDestination(rawValue: 1 << 3)
-		//public static let beaverCloud = LogDestination(rawValue: 1 << 4)
 		
 		public init(rawValue: Int) {
 			self.rawValue = rawValue
@@ -188,7 +172,6 @@ extension Logger {
     ///
     /// - Parameter force: true이면 강제 초기화.
     fileprivate static func touch(_ force: Bool = false) {
-        // lazy init once. 반드시 한 번 호출해줘야하는 초기화이고, 그 후에는 호출해도 초기화하지 않는 그런 친구여야 함.
         let dests = SwiftyBeaver.self.destinations // beaver 호출하면 무한루프되므로 호출금지.
         if dests.count > 0 {
             // destination이 있으면 초기화된 것으로 간주.
@@ -197,8 +180,6 @@ extension Logger {
                 return
             }
         }
-		
-		// TODO : remove하지않는다. 일단 다 선언하여 대상별로 로그를 쓸 수 있게 수정해야함.
 
         var arrayNewDefaultHashValues: [Int] = []
         for tmp in destination.elements() {
@@ -234,12 +215,12 @@ extension Logger {
         }
 
         // 제거
-        for x in removes {
-            SwiftyBeaver.removeDestination(x)
+        for item in removes {
+            SwiftyBeaver.removeDestination(item)
         }
         // 추가
-        for x in adds {
-            SwiftyBeaver.addDestination(x)
+        for item in adds {
+            SwiftyBeaver.addDestination(item)
         }
     }
 
@@ -305,15 +286,9 @@ extension Logger {
 
         case .crashlytics:
             manager = CrashlyticsDestination()
-
-//        case .beaverCloud:
-//            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
-//                                            appSecret: SBPlatformConst.appSecret,
-//                                            encryptionKey: SBPlatformConst.encryptionKey)
+			
         default:
-            // ERROR
             print("makeDestination Error!")
-            //break
         }
         // 공통 초기화
         manager.format = format
@@ -353,19 +328,12 @@ extension Logger {
                 let fileURL = url.appendingPathComponent("app_log.log")
                 file.logFileURL = fileURL
             }
-//            manager = file
 
         case .crashlytics:
             manager = CrashlyticsDestination()
 
-//        case .beaverCloud:
-//            manager = SBPlatformDestination(appID: SBPlatformConst.appID,
-//                                            appSecret: SBPlatformConst.appSecret,
-//                                            encryptionKey: SBPlatformConst.encryptionKey)
-        default:
-            // ERROR
+		default:
             print("makeDestination Error!")
-            //break
         }
 
         manager.format = format
@@ -376,8 +344,6 @@ extension Logger {
 	
 
 	// MARK: - SwiftyBeaver's internal 
-	
-	
 	class func stringFind(_ string:String, _ char: Character) -> String.Index? {
 		#if swift(>=3.2)
 			return string.index(of: char)
@@ -400,14 +366,9 @@ extension Logger {
 	}
 
 	
-	/// SwityBeaver의 코드.
-	/// returns the current thread name
 	class func threadName() -> String {
 		
 		#if os(Linux)
-			// on 9/30/2016 not yet implemented in server-side Swift:
-			// > import Foundation
-			// > Thread.isMainThread
 			return ""
 		#else
 			if Thread.isMainThread {

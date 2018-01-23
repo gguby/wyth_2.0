@@ -9,7 +9,6 @@
 import UIKit
 
 
-/// 음..사실 TopTiltingView와 유사하지만, 스토리보드에서 바로볼 수 있도록 구현.
 @IBDesignable
 class TiltingView: UIView {
 

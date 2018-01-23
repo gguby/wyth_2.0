@@ -37,7 +37,9 @@ class HomeViewController: UIViewController {
     @available(iOS 10.0, *)
     private lazy var tapRecognizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(popupViewTapped(recognizer:)))
+        recognizer.rx.event.bind(onNext: { (recognize) in
+            self.popupViewTapped()
+        }).disposed(by: disposeBag)
         return recognizer
     }()
     
@@ -45,8 +47,19 @@ class HomeViewController: UIViewController {
     private lazy var popupView: ConcertInformationView = {
         let view = ConcertInformationView.instanceFromNib()
         view.topTiltingView.addGestureRecognizer(tapRecognizer)
-        view.arrowButton.addTarget(self, action: #selector(self.arrowButtonTapped(recognizer:)), for: .touchUpInside)
-        view.detailConcertInformationButton.addTarget(self, action: #selector(self.showDetailConcertInformation(recognizer:)), for: .touchUpInside)
+        
+        view.arrowButton.rx.tap.bind {
+            if  BSTFacade.device.isConnected {
+                self.toggleViewingInformation()
+            } else {
+                BSTFacade.go.device(self, type: ReactorViewType.Management)
+            }
+        }.disposed(by: disposeBag)
+        
+        view.detailConcertInformationButton.rx.tap.bind {
+            BSTFacade.ux.goDetailConcertInfoViewController(currentViewController: self)
+        }.disposed(by: disposeBag)
+        
         view.updateConcertInfo()
         view.updateConcerSeatInfo()
         view.homeViewController = self
@@ -102,24 +115,6 @@ class HomeViewController: UIViewController {
     func prepareViewDidLoad() {
         // 아이폰 - 카메라, 블루투스, notification 권한 요청
         PermissionManager.requestDeterminingPermission(completion: nil)
-
-		
-		#if DEBUG
-            //TOOD: 확인해보고 
-			for index in 0...5 {
-				let tag = 941301 + index
-				guard let button = view.viewWithTag(tag) as? UIButton else {
-					continue
-				}
-				button.isHidden = false
-				button.rx
-					.tap
-					.bind {
-						let enjoy = TestPlayground(self, button)
-						enjoy.enjoy(index)	// zero based
-					}.disposed(by: disposeBag)
-			}
-			#endif
 	}
 	
 
@@ -166,27 +161,8 @@ class HomeViewController: UIViewController {
             self.skinImageView.af_setImage(withURL: URL.init(string: (data.skin?.url)!)!)
         }
     }
-
-    @objc func showDetailConcertInformation(recognizer: UITapGestureRecognizer) {
-        let storyboard = UIStoryboard(name:"Home", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "DetailConcertInformationViewController")
-        controller.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
     
-    @available(iOS 10.0, *)
-    @objc private func arrowButtonTapped(recognizer: UITapGestureRecognizer) {
-        //티켓 정보가 없을 경우,
-        if  BSTFacade.device.isConnected {
-            toggleViewingInformation()
-        } else {
-            BSTFacade.go.device(self, type: ReactorViewType.Management)
-        }
-        
-     }
-    
-	@available(iOS 10.0, *)
-    @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
+	func popupViewTapped() {
         //티켓 정보가 없을 경우,
         if  currentState == .closed {
             

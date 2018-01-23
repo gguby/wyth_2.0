@@ -16,7 +16,7 @@ extension UIButton {
 		}
 		
 		set {
-			var lst: [UIControlState] = [.normal, .highlighted, .disabled, .selected]
+			let lst: [UIControlState] = [.normal, .highlighted, .disabled, .selected]
 			// @available(iOS 9.0, *//)
 			// lst += [.focused, .application, .reserved]
 
@@ -33,7 +33,7 @@ extension UIButton {
 				var range = NSRange()
 				attrTxt.attributes(at: 0, effectiveRange: &range)
 
-				var isAttributed: Bool = normal.length() == range.length
+				let isAttributed: Bool = normal.length() == range.length
 				
 				if isAttributed && range.length > 0 {
 					let attr = attrTxt.attributes(at: 0, effectiveRange: nil)

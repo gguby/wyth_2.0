@@ -10,9 +10,6 @@ import UIKit
 
 extension UserDefaults {
 	
-	
-	//self.profile = UserDefaults.standard.objectArchived(forKey: userPlistKey.profile.rawValue) as? BoostProfile
-	
 	open func setCodable<T: Codable>(_ value: T?, forKey defaultName: String) {
 		guard let val = value else {
 			//logError("setCodable value is nil. (\(value))")

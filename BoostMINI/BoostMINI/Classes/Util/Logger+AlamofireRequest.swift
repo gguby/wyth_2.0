@@ -16,11 +16,6 @@ import Alamofire
 /// - Parameter request: DataRequest
 func logRequest(_ request: DataRequest) {
 	let text = request.debugDescription
-
 	print("\n\(text)")
-	//logVerbose(text)
 }
 
-extension Logger {
-
-}

@@ -10,23 +10,23 @@ import Foundation
 import Alamofire
 
 protocol BSTErrorProtocol: LocalizedError {
-    /// 해당 오류에 대한 사용자 메시지(alert, toast) 또는 Console 출력용 - //TODO: debug와 분리될 필요가 있을수 있음
+	/// 해당 오류에 대한 사용자 메시지(alert, toast) 또는 Console 출력용
 	var description: String { get }
-    
-    /// 에러 캐치 이후, 액션 처리를 위한 함수
-    ///
-    /// - Parameter object: 에러 처리 시 넘겨받기 위한 object
-    func cook(_ object: Any?)
+	
+	/// 에러 캐치 이후, 액션 처리를 위한 함수
+	///
+	/// - Parameter object: 에러 처리 시 넘겨받기 위한 object
+	func cook(_ object: Any?)
 }
 
 extension BSTErrorProtocol {
-    func cook(_ object: Any? = nil) {
-        if let obj = object {
+	func cook(_ object: Any? = nil) {
+		if let obj = object {
 			logError("BSTERROR : \(self.description)", obj)
-        } else {
+		} else {
 			logError("BSTERROR : \(self.description)")
-        }
-    }
+		}
+	}
 }
 
 
@@ -37,7 +37,7 @@ extension BSTErrorProtocol {
 enum WhiteError: Error, BSTErrorProtocol {
 	case statusCode(Int)
 	case codeWithMessage(Int, String)
-
+	
 	// 암세포가 자라나고 있어요~
 	var description: String {
 		switch self {
@@ -47,8 +47,8 @@ enum WhiteError: Error, BSTErrorProtocol {
 			return BSTFacade.localizable.error.statusCoddWithMessage(code, message)
 		}
 	}
-
-
+	
+	
 	
 	func cook(_ object: Any? = nil) {
 		// do nothing
@@ -62,7 +62,7 @@ enum WhiteError: Error, BSTErrorProtocol {
 			return code
 		}
 	}
-
+	
 	var message: String? {
 		switch self {
 		case .statusCode(_):
@@ -78,7 +78,7 @@ enum UIError: Error, BSTErrorProtocol {
 	case viewController(String)
 	case nib(String)
 	case cell(String)
-
+	
 	var description: String {
 		var desc = ""
 		switch self {
@@ -90,6 +90,85 @@ enum UIError: Error, BSTErrorProtocol {
 			desc = BSTFacade.localizable.errorDebug.nib(name)
 		case .cell(let name):
 			desc = BSTFacade.localizable.errorDebug.cell(name)
+		}
+		return desc
+	}
+	
+	func cook(_ object: Any? = nil) {
+		BSTFacade.ux.showToastError(self.description)
+		
+	}
+}
+
+enum APIError: Int, Error, BSTErrorProtocol {
+	
+	case none = -1
+	//    case succeed = 200
+	//    case succeedOK
+	
+	case badRequest = 400
+	case unauthorized = 401
+	case forbidden = 403
+	case notFound = 404
+	case upgradeRequired = 426
+	
+	//server error
+	case internalServerError = 500
+	case notImplemented
+	case badGateway
+	case serviceUnavailable
+	case gatewayTimeout
+	
+	//cutom error
+	case userExists = 901
+	case userNotExists
+	case alreadyInUse
+	case sessionAlreadyHasBeenDisconnected
+	case invalidException
+	case invalidToken
+	case saveFailed
+	//    case accessTokenCouldNotBeDecrypted
+	//    case notRegistered(String) = 960
+	
+	
+	var description: String {
+		var desc = ""
+		switch self {
+		case .badRequest://400
+			desc = BSTFacade.localizable.error.apiBadRequest()
+		case .unauthorized:
+			desc = BSTFacade.localizable.error.apiUnauthorized()
+		case .forbidden:
+			desc = BSTFacade.localizable.error.apiForbidden()
+		case .notFound:
+			desc = BSTFacade.localizable.error.apiNotFound()
+		case .upgradeRequired:
+			desc = BSTFacade.localizable.error.apiUpgradeRequired()
+		case .internalServerError: //500
+			desc = BSTFacade.localizable.error.apiInternalServerError()
+		case .notImplemented:
+			desc = BSTFacade.localizable.error.apiNotImplemented()
+		case .badGateway:
+			desc = BSTFacade.localizable.error.apiBadGateway()
+		case .serviceUnavailable:
+			desc = BSTFacade.localizable.error.apiServiceUnavailable()
+		case .gatewayTimeout:
+			desc = BSTFacade.localizable.error.apiGatewayTimeout()
+		case .userExists: //901
+			desc = BSTFacade.localizable.error.apiUserExists()
+		case .userNotExists: //902
+			desc = BSTFacade.localizable.error.apiUserNotExists()
+		case .alreadyInUse: // 903
+			desc = BSTFacade.localizable.error.apiAlreadyInUse()
+		case .sessionAlreadyHasBeenDisconnected: //904
+			desc = BSTFacade.localizable.error.apiAlreadyHasBeenDisconnected()
+		case .invalidException: //905
+			desc = BSTFacade.localizable.error.apiInvalidException()
+		case .invalidToken: //906
+			desc = BSTFacade.localizable.error.apiInvalidToken()
+		case .saveFailed: //907
+			desc = BSTFacade.localizable.error.apiSaveFailed()
+			
 		default:
 			break
 		}
@@ -97,235 +176,152 @@ enum UIError: Error, BSTErrorProtocol {
 	}
 	
 	func cook(_ object: Any? = nil) {
-		BSTFacade.ux.showToastError(self.description)
-
+		switch self {
+		case .userExists, .userNotExists, .invalidToken:
+			BSTFacade.ux.showAlert(self.description, {
+				BSTFacade.go.login()
+			})
+		case .sessionAlreadyHasBeenDisconnected:
+			BSTFacade.session.tryLoginToBoost()
+		default:
+			cook()
+		}
 	}
 }
 
-enum APIError: Int, Error, BSTErrorProtocol {
-
-    case none = -1
-//    case succeed = 200
-//    case succeedOK
-    
-    case badRequest = 400
-    case unauthorized = 401
-    case forbidden = 403
-    case notFound = 404
-    case upgradeRequired = 426
-    
-    //server error
-    case internalServerError = 500
-    case notImplemented
-    case badGateway
-    case serviceUnavailable
-    case gatewayTimeout
-	
-	//cutom error
-    case userExists = 901
-    case userNotExists
-    case alreadyInUse
-    case sessionAlreadyHasBeenDisconnected
-    case invalidException
-    case invalidToken
-    case saveFailed
-//    case accessTokenCouldNotBeDecrypted
-//    case notRegistered(String) = 960
-	
-	
-    var description: String {
-        var desc = ""
-        switch self {
-        case .badRequest://400
-            desc = BSTFacade.localizable.error.apiBadRequest()
-        case .unauthorized:
-            desc = BSTFacade.localizable.error.apiUnauthorized()
-        case .forbidden:
-            desc = BSTFacade.localizable.error.apiForbidden()
-        case .notFound:
-            desc = BSTFacade.localizable.error.apiNotFound()
-        case .upgradeRequired:
-            desc = BSTFacade.localizable.error.apiUpgradeRequired()
-        case .internalServerError: //500
-            desc = BSTFacade.localizable.error.apiInternalServerError()
-        case .notImplemented:
-            desc = BSTFacade.localizable.error.apiNotImplemented()
-        case .badGateway:
-            desc = BSTFacade.localizable.error.apiBadGateway()
-        case .serviceUnavailable:
-            desc = BSTFacade.localizable.error.apiServiceUnavailable()
-        case .gatewayTimeout:
-            desc = BSTFacade.localizable.error.apiGatewayTimeout()
-        case .userExists: //901
-            desc = BSTFacade.localizable.error.apiUserExists()
-        case .userNotExists: //902
-            desc = BSTFacade.localizable.error.apiUserNotExists()
-        case .alreadyInUse: // 903
-            desc = BSTFacade.localizable.error.apiAlreadyInUse()
-        case .sessionAlreadyHasBeenDisconnected: //904
-            desc = BSTFacade.localizable.error.apiAlreadyHasBeenDisconnected()
-        case .invalidException: //905
-            desc = BSTFacade.localizable.error.apiInvalidException()
-        case .invalidToken: //906
-            desc = BSTFacade.localizable.error.apiInvalidToken()
-        case .saveFailed: //907
-            desc = BSTFacade.localizable.error.apiSaveFailed()
-			
-        default:
-            break
-        }
-        return desc
-    }
-    
-    func cook(_ object: Any? = nil) {
-        switch self {
-        case .userExists, .userNotExists, .invalidToken:
-            BSTFacade.ux.showAlert(self.description, {
-                BSTFacade.go.login()
-            })
-        case .sessionAlreadyHasBeenDisconnected:
-            BSTFacade.session.tryLoginToBoost()
-        default:
-            cook()
-        }
-    }
-}
-
 enum TicketError: Error, BSTErrorProtocol {
-    case scanFailed
-    case noPermissionForCamera
-    case alreadyRegistred
-    
-    var description: String {
-        var desc = ""
-        switch self {
-        case .scanFailed:
-            desc = BSTFacade.localizable.error.ticketScanFailed()    //Resources/Strings/Error.strings에 정의함
-        case .noPermissionForCamera:
-            desc = BSTFacade.localizable.error.ticketNoPermissionForCamera()
-        case .alreadyRegistred:
-            desc = BSTFacade.localizable.error.ticketAlreadyRegistred()
-        }
-        return desc
-    }
-    
-    func cook(_ object: Any? = nil) {
-        switch self {
-        case .scanFailed:
-            let title = BSTFacade.localizable.error.ticketScanFailedTitle()
-            BSTFacade.ux.showAlert(self.description, title: title) //alert 출력
-        case .noPermissionForCamera:
-            BSTFacade.ux.showConfirm(self.description, { (_ ok: Bool?) in
-                //카메라 설정으로 이동함.
-                if ok ?? false {
-                    PermissionManager.openAppPermissionSettings()
-                }
-                
-            })
-        case .alreadyRegistred:
-            let title = BSTFacade.localizable.error.ticketAlreadyRegistredTitle()
-            BSTFacade.ux.showConfirm(self.description, title: title, { (_ ok: Bool?) in
-                //도움말 화면으로 이동함.
-                if ok ?? false {
-                    guard let topViewController = CommonUtil.getTopVisibleViewController(nil) else {
-                        return
-                    }
-                    BSTFacade.ux.goHelpWebViewController(currentViewController: topViewController)
-                }
-            })
-        }
-    }
+	case scanFailed
+	case noPermissionForCamera
+	case alreadyRegistred
+	
+	var description: String {
+		var desc = ""
+		switch self {
+		case .scanFailed:
+			desc = BSTFacade.localizable.error.ticketScanFailed()    //Resources/Strings/Error.strings에 정의함
+		case .noPermissionForCamera:
+			desc = BSTFacade.localizable.error.ticketNoPermissionForCamera()
+		case .alreadyRegistred:
+			desc = BSTFacade.localizable.error.ticketAlreadyRegistred()
+		}
+		return desc
+	}
+	
+	func cook(_ object: Any? = nil) {
+		switch self {
+		case .scanFailed:
+			let title = BSTFacade.localizable.error.ticketScanFailedTitle()
+			BSTFacade.ux.showAlert(self.description, title: title) //alert 출력
+		case .noPermissionForCamera:
+			BSTFacade.ux.showConfirm(self.description, { (_ ok: Bool?) in
+				//카메라 설정으로 이동함.
+				if ok ?? false {
+					PermissionManager.openAppPermissionSettings()
+				}
+				
+			})
+		case .alreadyRegistred:
+			let title = BSTFacade.localizable.error.ticketAlreadyRegistredTitle()
+			BSTFacade.ux.showConfirm(self.description, title: title, { (_ ok: Bool?) in
+				//도움말 화면으로 이동함.
+				if ok ?? false {
+					guard let topViewController = CommonUtil.getTopVisibleViewController(nil) else {
+						return
+					}
+					BSTFacade.ux.goHelpWebViewController(currentViewController: topViewController)
+				}
+			})
+		}
+	}
 }
 
 enum PermissionError: Error, BSTErrorProtocol {
-    case disableCamera
-    case disableBluetooth
-    case disablePhotos
-    
-    var description: String {
-        var desc = ""
-        switch self {
-        case .disableCamera:
-            desc = BSTFacade.localizable.error.permissionDisableCamera()    //Resources/Strings/Error.strings에 정의함
-        case .disableBluetooth:
-            desc = BSTFacade.localizable.error.permissionDisableBluetooth()
-        case .disablePhotos:
-            desc = BSTFacade.localizable.error.permissionDisablePhotos()
-        }
-        return desc
-    }
-    
-    func cook(_ object: Any? = nil) {
-        switch self {
-        default:
-            BSTFacade.ux.showAlert(self.description) //alert 출력
-        }
-    }
+	case disableCamera
+	case disableBluetooth
+	case disablePhotos
+	
+	var description: String {
+		var desc = ""
+		switch self {
+		case .disableCamera:
+			desc = BSTFacade.localizable.error.permissionDisableCamera()    //Resources/Strings/Error.strings에 정의함
+		case .disableBluetooth:
+			desc = BSTFacade.localizable.error.permissionDisableBluetooth()
+		case .disablePhotos:
+			desc = BSTFacade.localizable.error.permissionDisablePhotos()
+		}
+		return desc
+	}
+	
+	func cook(_ object: Any? = nil) {
+		switch self {
+		default:
+			BSTFacade.ux.showAlert(self.description) //alert 출력
+		}
+	}
 }
 
 
 enum BSTError: Error, BSTErrorProtocol {
-    case none
-    case isEmpty
+	case none
+	case isEmpty
 	case convertError
-    case argumentError
-    case nilError
+	case argumentError
+	case nilError
 	case unknown
 	case typeDismatching
 	case api(APIError)
 	case white(WhiteError)
 	
-    //    case api(code)
-    //    case permission(PermissionErrorType)
-    case device(DeviceError)
-    case ticket(TicketError)
+	case device(DeviceError)
+	case ticket(TicketError)
 	case debugUI(UIError)
-
 	
-
-    var description: String {
-        var description = ""
-        switch self {
-        case .isEmpty:
-            description = BSTFacade.localizable.error.isEmpty()
-        case .convertError:
+	
+	
+	var description: String {
+		var description = ""
+		switch self {
+		case .isEmpty:
+			description = BSTFacade.localizable.error.isEmpty()
+		case .convertError:
 			description = "convert error"			
-        case .argumentError:
-            description = BSTFacade.localizable.error.argumentError()
-        case .nilError:
-            description = BSTFacade.localizable.error.nilError()
-        case .unknown:
-            description = BSTFacade.localizable.error.unknown()
-        case .typeDismatching:
+		case .argumentError:
+			description = BSTFacade.localizable.error.argumentError()
+		case .nilError:
+			description = BSTFacade.localizable.error.nilError()
+		case .unknown:
+			description = BSTFacade.localizable.error.unknown()
+		case .typeDismatching:
 			description = "type mismatching error"
-        case .api(let error):
-            description = error.description
-        case .device(let error):
-            description = error.description
-        case .debugUI(let error):
+		case .api(let error):
+			description = error.description
+		case .device(let error):
+			description = error.description
+		case .debugUI(let error):
 			description = error.description
 			
-        default:
-            break
-        }
-        return description
-    }
-    
-    func cookError(_ object: Any? = nil) {
-
-        switch self {
-        case .api(let error):
-            error.cook(error)
-        case .device(let error):
-            error.cook(object)
-        case .ticket(let error):
-            error.cook(object)
-        case .debugUI(let error):
-            error.cook(error)
-        default:
-            self.cook(object)
-        }
-    }
+		default:
+			break
+		}
+		return description
+	}
+	
+	func cookError(_ object: Any? = nil) {
+		
+		switch self {
+		case .api(let error):
+			error.cook(error)
+		case .device(let error):
+			error.cook(object)
+		case .ticket(let error):
+			error.cook(object)
+		case .debugUI(let error):
+			error.cook(error)
+		default:
+			self.cook(object)
+		}
+	}
 }
 
 
@@ -353,7 +349,7 @@ class BSTErrorTester {
 		}
 		return nil
 	}
-
+	
 	/// 간편하게 현재 에러를 체크하여 cook하고 에러여부를 반환
 	@discardableResult
 	class func isFailure(_ err: Error?) -> Bool {
@@ -387,19 +383,19 @@ class BSTErrorBaker<T> {
 		}
 		return err
 	}
-
-	class func errorPitcher(_ err: Error?, _ response: Response<T>?) throws {
 	
+	class func errorPitcher(_ err: Error?, _ response: Response<T>?) throws {
+		
 		// Alamofire 4 부터는 비정상 호출일 경우, statusCode가 안넘어온다. AFError로 핸들링됨.
 		if let errorResponse = err as? ErrorResponse {
 			switch(errorResponse) {
 			case .error(let code, let data, let error):
-				logVerbose("\(code), \(data), \(error)")
+				logVerbose("\(code), \(String(describing: data)), \(error)")
 				
-                if code == 960 {
-                    try processErrorResponse960(errorResponse, response)
+				if code == 960 {
+					try processErrorResponse960(errorResponse, response)
 					return
-                }
+				}
 				
 				BSTFacade.ux.showToastError("\(error.localizedDescription)")
 				if let api = APIError(rawValue: code) {
@@ -410,14 +406,15 @@ class BSTErrorBaker<T> {
 				}
 				
 				
-//			default:
-//				break	// unknown
+				//			default:
+				//				break	// unknown
 			}
 		}
 		
 		if let error = err as? AFError,
-			let code = error.responseCode {
-			throw BSTError.api(APIError(rawValue: code)!)
+			let code = error.responseCode,
+			let apiError = APIError(rawValue: code) {
+			throw BSTError.api(apiError)
 		}
 		
 		guard let resp = response else {
@@ -426,32 +423,15 @@ class BSTErrorBaker<T> {
 			throw err ?? BSTError.nilError
 		}
 		
-		if response?.statusCode == 201 {
-			// BAD SAMPLE: 오류는 아니지만 뭔가 처리가 필요하다면... 여기를호출하기 전에 하세요! 여기에서는 오류에 해당하는 것들만 처리해줄것입니다.
-		}
-		
-		if let account = response as? AccountsPostResponse {
-			// TODO: 특정 응답에 대한 오류 처리를 해야 하는 경우
-		}
-		
 		if resp.isNotOk {
-			// 이거 안탐..
 			throw BSTError.api(APIError(rawValue: resp.statusCode)!)
 		}
-		
-//		if let error = err {
-//		}
 	}
 	
 	
-	
-	
-		class func processErrorResponse960(_ errorResponse: ErrorResponse, _ response: Response<T>?) throws {
-		// 하아. 얘는 특별히 message에 이름이 들어온다고 하니... 이 뭐 api가 이모양인지...
-		// 여튼 여기는 수동으로 작업한다.
-		
-		// 비표준 처리 하나 때문에 코드가 지저분해고있다.
 
+	/// 960 status code 특별 처리
+	class func processErrorResponse960(_ errorResponse: ErrorResponse, _ response: Response<T>?) throws {
 		switch(errorResponse) {
 		case .error(let code, let data, let error):
 			guard let dataNonOptional = data, code == 960 else {
@@ -474,12 +454,7 @@ class BSTErrorBaker<T> {
 				SessionHandler.shared.welcomeName = userName
 			}
 			throw BSTError.white(WhiteError.codeWithMessage(code, userName))
-		
-//		default:
-//			// 여기 안탐.
-//			return
-			
 		}
 	}
-		
+	
 }

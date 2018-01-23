@@ -63,7 +63,9 @@ sed -i '' -e $'s|(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: ac
 
 
 # sed -i '' -e $'s|import Foundation|import Foundation\\\nimport Alamofire|g' $1
-sed -i '' -E $'s|([a-zA-Z0-9]*): Codable {|\\1: BaseModel {\\\n	// autogen apiList protocol\\\n	static var apiList: [String: APIRequest] = \\1.buildApiRequests()\\\n|g' $X
+#sed -i '' -E $'s|([a-zA-Z0-9]*): Codable {|\\1: BaseModel {\\\n	// autogen apiList protocol\\\n	static var apiList: [String: APIRequest] = \\1.buildApiRequests()\\\n|g' $X
+
+sed -i '' -E $'s|([a-zA-Z0-9]*): Codable {|\\1: EasyCodable {\\\n|g' $X
 
 #echo "check file : $1"
 }
