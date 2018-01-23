@@ -87,6 +87,7 @@ enum BSTScreens {
     
     enum Home: String, BSTUXProtocol {
        case help = "HelpWebViewController"
+       case DetailConcert = "DetailConcertInformationViewController"
         
         func find(className: String) -> Bool {
             return self.rawValue == className
