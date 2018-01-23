@@ -36,10 +36,6 @@ extension BSTUXHanlder {
 			let bread = Toaster.Toast(text: message,
 									  delay: delay ?? ToastManager.delay,
 									  duration: duration ?? ToastManager.duration)
-			// if let current = Toaster.ToastCenter.default.currentToast {
-			//	current.cancel()
-			// }
-			
 			bread.show()
 		}
 		
@@ -70,7 +66,6 @@ extension BSTUXHanlder {
 
 			bread.show()
 		}
-		
 		
 		
 		/// 화면에 떠있는 토스트를 모두 제거.

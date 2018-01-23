@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class ConcertResponse: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = ConcertResponse.buildApiRequests()
+open class ConcertResponse: EasyCodable {
 
 
     public enum ConcertStatus: String, Codable { 

@@ -26,7 +26,7 @@ extension String {
     /// 문자열 길이... count의 타입을 Int로 처리하여 반환.
     ///
     /// - Returns: 문자열 길이.
-    func length() -> Int { // 귀찮아서
+    func length() -> Int {
         return count as Int
     }
 }

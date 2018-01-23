@@ -2,10 +2,8 @@
 //  PageManager.swift
 //  BoostMINI
 //
-//  미완성.
 //  호출하는 뷰컨트롤러의 위치 또는 인트로의 구조 등등에 의해 동작이 잘 안되거나 이상할 수 있으니 진행하면서 수정 요망.
 //  현재는 IntroVC가 항상 있고 거기에 임의의 뷰가 present 되는 구조.
-//  
 //
 //  Created by jack on 2018. 1. 11..
 //  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
@@ -16,10 +14,8 @@ import UIKit
 extension BST {
 	class PageManager {
 		// Window - Intro - present something...
-
 		static let shared = PageManager()
-		
-		
+	
 		/// 홈 화면으로 이동
 		///
 		/// - Parameters:
@@ -67,33 +63,12 @@ extension BST {
         }
 		
 		
-		// alertview 따위를 모두 제거하..려는 목적으로 만듦.
 		func removeAllUx() {
-			
 			BSTFacade.ux.hideIndicator()
 			
-
-			// 동작안함.
-//			//UIApplication.shared.keyWindow?.subviews.forEach({view in
-//			if let subviews = UIApplication.shared.keyWindow?.subviews {
-//				for view in subviews {
-//
-//
-//
-//					if let av = view as? UIAlertController {
-//						logVerbose("remove uialertcontroller : \(av.message)")
-//						av.dismiss(animated: false)
-//					} else {
-//						logVerbose("subview : \(view)")
-//
-//					}
-//				}
-//			}
 		}
 		
 		private func processTopPresent(_ current: UIViewController?, to target: UIViewController, animated: Bool) {
-			
-			
 			guard let currentVC = current ?? BSTFacade.common.getTopViewController() else {
 				BSTError.debugUI(.viewController("getCurrentTopVC"))
 					.cookError()
@@ -106,32 +81,24 @@ extension BST {
 				return
 			}
 			
-			if let nav = currentVC.navigationController {
-				// TODO : navigation things...
-				
-			}
 
 			top.blur()
 			let block = {
 				self.removeAllUx()
 				top.present(target, animated: false, completion: {
-					// TODO: target viewcontroller
 				})
 			}
-			
 			removeAllUx()
 
 			if currentVC == top {
 				block()
 				return
 			}
+			
 			currentVC.dismiss(animated: animated) {
 				block()
 			}
 		}
-
-		
 	}
-	
 }
 

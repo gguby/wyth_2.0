@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class AccountsPostResponse: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = AccountsPostResponse.buildApiRequests()
+open class AccountsPostResponse: EasyCodable {
 
 
     public enum AccountType: String, Codable { 

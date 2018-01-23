@@ -6,16 +6,15 @@
 //  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
 //
 
-import UIKit
+import ObjectiveC
 
-///  NoticeViewModel의 삭제와 관련해서 얘도 철거 위기에 놓임. 이미 파일명과 클래스명이 다른데 방치중.
-class NoticeViewModel : EasyCodable {
-	//static var apiList: [String : APIRequest]
-	}
-open class EasyCodable: Codable {
+protocol EasyCodable: Codable {
+}
+
+extension EasyCodable {
 	
 	/// 다른 모델에서 현재 모델로 변경
-	open class func from<SRC: Encodable>(_ src: SRC) -> Self? {
+	static func from<SRC: Encodable>(_ src: SRC) -> Self? {
 		let enc = CodableHelper.encode(src)
 		guard let data = enc.data else {
 			return nil
@@ -33,6 +32,22 @@ open class EasyCodable: Codable {
 		let dec = CodableHelper.decode(DESC.self, from: data)
 		return dec.decodableObj
 	}
-
-	public init() {}
 }
+
+
+private var AssociationExpandKey: String = "expandKey"
+extension EasyCodable {
+	
+	var expand: Bool {
+		get {
+			return objc_getAssociatedObject(self, &AssociationExpandKey) as? Bool ?? false
+		}
+		set {
+			objc_setAssociatedObject(self, &AssociationExpandKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+		}
+	}
+	mutating func reverseExpand() {
+		expand = !expand
+	}
+}
+

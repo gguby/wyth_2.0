@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class Skin: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = Skin.buildApiRequests()
+open class Skin: EasyCodable {
 
 
     public var id: Int64?

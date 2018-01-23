@@ -22,14 +22,12 @@ extension BSTUXHanlder {
 						animate: Bool = true,
 						customBackgroundColor: UIColor = UIColor.clear) {
 			
-			if privateInstance.window == nil {
-				privateInstance.window = UIWindow(frame: UIScreen.main.bounds)
-			} else {
-				if privateInstance.window!.isHidden == false {
-					//logVerbose("indicator already shown")
-					//hide()
+			if let window = privateInstance.window  {
+				if window.isHidden == false {
 					return
 				}
+			} else {
+				privateInstance.window = UIWindow(frame: UIScreen.main.bounds)
 			}
 			let window = privateInstance.window!
 
@@ -63,7 +61,7 @@ extension BSTUXHanlder {
 
 			UIView.animate(withDuration: (animate ? privateInstance.duration : 0), animations: {
 				window.alpha = 0
-			}) { fin in
+			}) { _ in
 				window.isHidden = true
 			}
 		}

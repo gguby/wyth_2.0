@@ -10,7 +10,7 @@
 import Foundation
 
 /// 사용자 정보 관련.
-open class BoostProfile: Codable {
+open class BoostProfile: EasyCodable {
 	
 	public var createdAt: Date?
 	public var email: String = ""
@@ -34,17 +34,3 @@ public enum BoostSocialType: String, Codable {
 }
 
 
-extension BoostProfile {
-	class func from<T: Encodable>(_ model: T?) -> BoostProfile? {
-		if model == nil {
-			return nil
-		}
-		// 조금만 손보면 자동으로도 될텐데
-
-		let enc = CodableHelper.encode(model)
-		let dec = CodableHelper.decode(BoostProfile.self, from: enc.data!)
-		return dec.decodableObj as? BoostProfile
-	}
-	
-
-}

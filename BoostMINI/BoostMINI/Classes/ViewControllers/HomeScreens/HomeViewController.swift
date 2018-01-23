@@ -102,23 +102,6 @@ class HomeViewController: UIViewController {
     func prepareViewDidLoad() {
         // 아이폰 - 카메라, 블루투스, notification 권한 요청
         PermissionManager.requestDeterminingPermission(completion: nil)
-
-		
-		#if DEBUG
-			for index in 0...5 {
-				let tag = 941301 + index
-				guard let button = view.viewWithTag(tag) as? UIButton else {
-					continue
-				}
-				button.isHidden = false
-				button.rx
-					.tap
-					.bind {
-						let enjoy = TestPlayground(self, button)
-						enjoy.enjoy(index)	// zero based
-					}.disposed(by: disposeBag)
-			}
-			#endif
 	}
 	
 

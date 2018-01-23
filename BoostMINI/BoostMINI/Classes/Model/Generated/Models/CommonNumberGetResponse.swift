@@ -10,9 +10,7 @@ import Foundation
 
 
 
-open class CommonNumberGetResponse: BaseModel {
-	// autogen apiList protocol
-	static var apiList: [String: APIRequest] = CommonNumberGetResponse.buildApiRequests()
+open class CommonNumberGetResponse: EasyCodable {
 
 
     public var skin: Skin?
