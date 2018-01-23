@@ -77,11 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     
     func registerForPushNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-            (granted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             print("Permission granted: \(granted)")
-            
-            guard granted else { return }
+            guard granted else {
+                return
+            }
             
             // 1
 //            let viewAction = UNNotificationAction(identifier: viewActionIdentifier,

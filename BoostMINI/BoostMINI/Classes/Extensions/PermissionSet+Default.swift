@@ -14,7 +14,7 @@ extension Permission {
 
 		if BSTDeviceType.isSimulator {
 			// 시뮬은 블루투스, 푸쉬를 지원안함, 카메라도 안할텐데요?, 디버그용으로 앨범만 추가함요
-			return [.photos]
+			return [.photos, .camera, .bluetooth]
 		}
 
 		return [.camera, .bluetooth]
