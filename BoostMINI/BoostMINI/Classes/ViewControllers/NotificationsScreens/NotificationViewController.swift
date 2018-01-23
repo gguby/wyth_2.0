@@ -50,6 +50,7 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblContent: UILabel!
     @IBOutlet weak var imgvExpand: UIImageView!
+    @IBOutlet weak var imgvNew: UIImageView!
     
     var notice: Notice? {
         didSet {
@@ -59,9 +60,14 @@ class NotificationTableViewCell: UITableViewCell {
             
             self.lblTitle.text = notice.title
             self.lblContent.text = notice.expand ? notice.content : ""
+            let textColor = notice.expand ? BSTFacade.theme.color.commonTextBg() : BSTFacade.theme.color.textSubtext1()
+            imgvNew.isHidden = notice.expand
             
 			let angle = (notice.expand ? 180 : 0).c.toRadians
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.25) {
+                self.lblTitle.textColor = textColor
+                self.lblContent.textColor = textColor
+                
                 self.imgvExpand.transform = CGAffineTransform(rotationAngle: angle)
             }
         }
@@ -85,6 +91,9 @@ class NotificationViewController: UIViewController, NotificationView {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            
             tableView.estimatedRowHeight = 52
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.separatorStyle = .none
@@ -92,7 +101,7 @@ class NotificationViewController: UIViewController, NotificationView {
     }
     
     // MARK: * Initialize --------------------
-
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     override func viewDidLoad() {
 
         self.initProperties()
@@ -111,16 +120,12 @@ class NotificationViewController: UIViewController, NotificationView {
         let footer = DefaultRefreshFooter.footer()
         footer.spinner.activityIndicatorViewStyle = .white
         footer.setText("", mode: .pullToRefresh)
+        footer.setText("", mode: .refreshing)
         
         self.tableView.configRefreshFooter(with: footer) {
+            footer.spinner.center = CGPoint(x: self.view.bounds.width / 2.c, y: self.tableView.estimatedRowHeight / 2.c)
             self.presenter?.updateNotifications(lastId: self.notifications.reversed().first?.id?.i, size: BSTConstants.main.pageSize)
         }
-        
-        Observable<[Notice]?>.of(self.notifications)
-            .replaceNilWith([])
-            .bind(to: tableView.rx.items(cellIdentifier: "NotificationTableViewCell", cellType: NotificationTableViewCell.self)) { indexPath, notice, cell in
-                cell.notice = notice
-            }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             var notice = self?.notifications[indexPath.row]
@@ -132,20 +137,17 @@ class NotificationViewController: UIViewController, NotificationView {
 
     func prepareViewDidLoad() {
         self.presenter?.updateNotifications(lastId: nil, size: BSTConstants.main.pageSize)
-//        self.presenter?.updateNotifications(lastId: 0, size: BSTConstants.main.pageSize)
     }
 
     var notifications: [Notice] = []
     // MARK: * Main Logic --------------------
     func setNotifications(notifications: [Notice]) {
         self.notifications.append(contentsOf: notifications)
+        self.tableView.reloadData()
         
         if self.notifications.count % BSTConstants.main.pageSize > 0 {
             self.tableView.switchRefreshFooter(to: .removed)
-            return
         }
-        
-        self.tableView.reloadData()
     }
 
     // MARK: * UI Events --------------------
@@ -156,6 +158,26 @@ class NotificationViewController: UIViewController, NotificationView {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension NotificationViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.notifications.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell?
+        if let tcell = tableView.dequeueReusableCell(withIdentifier: "NotificationTableViewCell") as? NotificationTableViewCell {
+            tcell.notice = self.notifications[indexPath.row]
+            cell = tcell
+        }
+        
+        return cell ?? UITableViewCell()
     }
 }
 

@@ -1223,6 +1223,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 2B61F0301FDFA49500581F06;
 			productRefGroup = 2B61F03A1FDFA49500581F06 /* Products */;
@@ -1816,8 +1817,6 @@
 				04B218FF20070879002A1742 /* PageManager.swift in Sources */,
 				04122A5E1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
 				0462CDAE1FFCA419002B6E11 /* BTDeviceNetwork.swift in Sources */,
-				0462CDA91FFCA410002B6E11 /* UIViewController+Storyboard.swift in Sources */,
-				0462CD9F1FFCA407002B6E11 /* LibrarySample.swift in Sources */,
 				A6F3506E20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				04AD74101FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
 				04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */,
