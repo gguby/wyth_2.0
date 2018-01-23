@@ -8,10 +8,8 @@
 
 import Foundation
 import UIKit
-import ReactorKit
-import RxCocoa
-import RxSwift
 import RxOptional
+import PullToRefreshKit
 
 protocol NotificationView: class {
     func setNotifications(notifications: [Notice])
@@ -110,7 +108,25 @@ class NotificationViewController: UIViewController, NotificationView {
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
         
-
+        let footer = DefaultRefreshFooter.footer()
+        footer.spinner.activityIndicatorViewStyle = .white
+        footer.setText("", mode: .pullToRefresh)
+        
+        self.tableView.configRefreshFooter(with: footer) {
+            self.presenter?.updateNotifications(lastId: self.notifications.reversed().first?.id?.i, size: BSTConstants.main.pageSize)
+        }
+        
+        Observable<[Notice]?>.of(self.notifications)
+            .replaceNilWith([])
+            .bind(to: tableView.rx.items(cellIdentifier: "NotificationTableViewCell", cellType: NotificationTableViewCell.self)) { indexPath, notice, cell in
+                cell.notice = notice
+            }.disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+            var notice = self?.notifications[indexPath.row]
+            notice?.reverseExpand()
+            self?.tableView.reloadData()
+        }).disposed(by: disposeBag)
     }
 
 
@@ -124,17 +140,12 @@ class NotificationViewController: UIViewController, NotificationView {
     func setNotifications(notifications: [Notice]) {
         self.notifications.append(contentsOf: notifications)
         
-        Observable<[Notice]?>.of(self.notifications)
-        .replaceNilWith([])
-        .bind(to: tableView.rx.items(cellIdentifier: "NotificationTableViewCell", cellType: NotificationTableViewCell.self)) { indexPath, notice, cell in
-            cell.notice = notice
-            }.disposed(by: disposeBag)
+        if self.notifications.count % BSTConstants.main.pageSize > 0 {
+            self.tableView.switchRefreshFooter(to: .removed)
+            return
+        }
         
-        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
-            var notice = notifications[indexPath.row]
-            notice.reverseExpand()
-            self?.tableView.reloadData()
-        }).disposed(by: disposeBag)
+        self.tableView.reloadData()
     }
 
     // MARK: * UI Events --------------------

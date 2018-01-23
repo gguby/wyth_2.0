@@ -134,12 +134,10 @@
 		0462CD9C1FFCA407002B6E11 /* Gitup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352361FF390680007949C /* Gitup.swift */; };
 		0462CD9D1FFCA407002B6E11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352371FF390680007949C /* ViewController.swift */; };
 		0462CD9E1FFCA407002B6E11 /* ViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352351FF390680007949C /* ViewControllerReactor.swift */; };
-		0462CD9F1FFCA407002B6E11 /* LibrarySample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA09A1FEB5646007441E1 /* LibrarySample.swift */; };
 		0462CDA01FFCA408002B6E11 /* GithupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352341FF390680007949C /* GithupService.swift */; };
 		0462CDA11FFCA408002B6E11 /* Gitup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352361FF390680007949C /* Gitup.swift */; };
 		0462CDA21FFCA408002B6E11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352371FF390680007949C /* ViewController.swift */; };
 		0462CDA31FFCA408002B6E11 /* ViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352351FF390680007949C /* ViewControllerReactor.swift */; };
-		0462CDA41FFCA408002B6E11 /* LibrarySample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA09A1FEB5646007441E1 /* LibrarySample.swift */; };
 		0462CDA51FFCA40B002B6E11 /* OpenSourceSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0981FEB5639007441E1 /* OpenSourceSample.swift */; };
 		0462CDA61FFCA40C002B6E11 /* OpenSourceSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0981FEB5639007441E1 /* OpenSourceSample.swift */; };
 		0462CDA71FFCA410002B6E11 /* String+SplitByUppercase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CD941FFB9BD7002B6E11 /* String+SplitByUppercase.swift */; };
@@ -342,7 +340,6 @@
 		2B5AA0931FEB55D9007441E1 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0921FEB55D9007441E1 /* BaseModel.swift */; };
 		2B5AA0951FEB55E4007441E1 /* ExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0941FEB55E4007441E1 /* ExceptionHandler.swift */; };
 		2B5AA0991FEB5639007441E1 /* OpenSourceSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0981FEB5639007441E1 /* OpenSourceSample.swift */; };
-		2B5AA09B1FEB5646007441E1 /* LibrarySample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA09A1FEB5646007441E1 /* LibrarySample.swift */; };
 		2B5AA09D1FEB566C007441E1 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B5AA09C1FEB566C007441E1 /* Common.strings */; };
 		2B61F03D1FDFA49500581F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F03C1FDFA49500581F06 /* AppDelegate.swift */; };
 		2B61F0421FDFA49500581F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B61F0401FDFA49500581F06 /* Main.storyboard */; };
@@ -533,7 +530,6 @@
 		2B5AA0921FEB55D9007441E1 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		2B5AA0941FEB55E4007441E1 /* ExceptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionHandler.swift; sourceTree = "<group>"; };
 		2B5AA0981FEB5639007441E1 /* OpenSourceSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceSample.swift; sourceTree = "<group>"; };
-		2B5AA09A1FEB5646007441E1 /* LibrarySample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySample.swift; sourceTree = "<group>"; };
 		2B5AA09C1FEB566C007441E1 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
 		2B61F0391FDFA49500581F06 /* BoostMINI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoostMINI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B61F03C1FDFA49500581F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -945,7 +941,6 @@
 			isa = PBXGroup;
 			children = (
 				A62352331FF390270007949C /* ReactorKitSample */,
-				2B5AA09A1FEB5646007441E1 /* LibrarySample.swift */,
 				0483852920035641007DE69B /* Swaggers */,
 				04838471200331BC007DE69B /* SwiftyBeaverDestinations */,
 			);
@@ -1421,6 +1416,7 @@
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PullToRefreshKit/PullToRefreshKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -1447,6 +1443,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -1483,6 +1480,7 @@
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PullToRefreshKit/PullToRefreshKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -1509,6 +1507,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -1608,6 +1607,7 @@
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PullToRefreshKit/PullToRefreshKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -1634,6 +1634,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -1735,7 +1736,6 @@
 				0462CDE51FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A691FEC962600896EE0 /* String+Format.swift in Sources */,
 				04122A611FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
-				2B5AA09B1FEB5646007441E1 /* LibrarySample.swift in Sources */,
 				04B2190620073617002A1742 /* TiltingView.swift in Sources */,
 				0420EADB2011E58C00E9820F /* Notice.swift in Sources */,
 				04036111200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */,
@@ -1887,7 +1887,6 @@
 				04122A5E1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
 				0462CDAE1FFCA419002B6E11 /* BTDeviceNetwork.swift in Sources */,
 				0462CDA91FFCA410002B6E11 /* UIViewController+Storyboard.swift in Sources */,
-				0462CD9F1FFCA407002B6E11 /* LibrarySample.swift in Sources */,
 				A6F3506E20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				04AD74101FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
 				04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */,
@@ -2035,7 +2034,6 @@
 				04122A7F1FECE9A300896EE0 /* NumberConvertible.swift in Sources */,
 				0420EAF22011E58C00E9820F /* ProfileGetResponse.swift in Sources */,
 				0462CDD01FFCA431002B6E11 /* NotificationViewController.swift in Sources */,
-				0462CDA41FFCA408002B6E11 /* LibrarySample.swift in Sources */,
 				2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */,
 				0483854A20035641007DE69B /* Models.swift in Sources */,
 				045D148F1FF4DF4500A67AA0 /* JSONDecoder+base.swift in Sources */,
