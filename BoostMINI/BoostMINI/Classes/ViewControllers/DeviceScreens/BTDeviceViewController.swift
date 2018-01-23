@@ -155,8 +155,7 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         reactor.state.map { $0.deviceError }
             .filterNilKeepOptional()
             .subscribe(onNext: { error in
-                print(error?.description)
-//                error?.cookError()
+                error?.cookError()
             })
             .disposed(by: self.disposeBag)
     }

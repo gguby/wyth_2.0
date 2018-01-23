@@ -33,8 +33,6 @@ final class DeviceViewReactor : Reactor {
         case paringDevice(Bool)
         case setActiveDevice(Peripheral)
         case setCharacteristic(Characteristic)
-        case setWriteCode(String)
-        case blinkLight(Bool)
         case registerDevice(Bool)
         case loadRegisterDevice(BSTLocalDevice?)
         case deviceError(BSTError)
@@ -48,8 +46,6 @@ final class DeviceViewReactor : Reactor {
         var discoverPeripherals : [ScannedPeripheral] = []
         var activePeripheral : Peripheral?
         var characteristic : Characteristic?
-        var writeCode : String?
-        var isBlink : Bool = false
         var isRegister : Bool = false
         var registeredDevice : BSTLocalDevice?
         var deviceError : BSTError?
@@ -80,6 +76,7 @@ final class DeviceViewReactor : Reactor {
             let connectedDevice = connect.map { Mutation.setActiveDevice($0) }
             let register = self.service.register(observable: connect).map(Mutation.registerDevice)
             let characteristic = self.service.chrateristic(observable: connect).map { Mutation.setCharacteristic($0) }
+            
             return .concat([scanDevice, paring, connectedDevice, characteristic, register])
         case .manageMentInit:
             let localDevice = self.service.loadDevice()
@@ -108,10 +105,8 @@ final class DeviceViewReactor : Reactor {
             newState.contentMsg = ContentMessage.connectedDevice
         case let .setCharacteristic(characteristic):
             newState.characteristic = characteristic
-        case let .blinkLight(blink):
-            newState.isBlink = blink
-        case let .setWriteCode(code):
-            newState.writeCode = code
+//            self.service.triggerValueRead(for: characteristic)
+//            self.service.writeValueForCharacteristic(hexadecimalString: "gg", characteristic: characteristic)
         case let .registerDevice(isRegister):
             newState.isRegister = isRegister
         case let .loadRegisterDevice(device):
@@ -131,7 +126,7 @@ final class DeviceViewReactor : Reactor {
         case .managementViewInit:
             newState.titleMsg = RDevice.btTitleManage()
             if let device = self.currentState.registeredDevice {
-                newState.contentMsg = ContentMessage.showUser(device.name)
+                newState.contentMsg = ContentMessage.showUser(device.userName)
             } else {
                 newState.contentMsg = ContentMessage.notRegistered
             }
