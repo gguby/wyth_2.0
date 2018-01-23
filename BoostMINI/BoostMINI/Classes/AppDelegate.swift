@@ -116,8 +116,9 @@ extension AppDelegate {
             return String(format: "%02.2hhx", data)
         }
         
-        let token = tokenParts.joined()
-        print("Device Token: \(token)")
+        let pushToken = tokenParts.joined()
+        BSTFacade.session.pushToken = pushToken
+        print("Device Token: \(pushToken)")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
