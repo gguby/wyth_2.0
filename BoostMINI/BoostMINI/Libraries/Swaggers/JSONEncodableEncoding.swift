@@ -29,15 +29,39 @@ public struct JSONDataEncoding: ParameterEncoding {
     public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
         var urlRequest = try urlRequest.asURLRequest()
 
-        guard let jsonData = parameters?[JSONDataEncoding.jsonDataKey] as? Data, !jsonData.isEmpty else {
-            return urlRequest.asURLRequestWithParams(parameters)
-        }
-
         if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
+        
+//        guard let jsonData = parameters?[JSONDataEncoding.jsonDataKey] as? Data, !jsonData.isEmpty else {
+//            return urlRequest.asURLRequestWithParams(parameters)
+//        }
+        
+//        guard let jsonData = parameters?[JSONDataEncoding.jsonDataKey] as? Data, !jsonData.isEmpty else {
+//            return urlRequest
+//        }
+        
+//        guard let jsonData = parameters?[JSONDataEncoding.jsonDataKey] as? Data, !jsonData.isEmpty else {
+//        let jsonParam = JSONDataEncoding.encodingParameters(jsonData:)
+//        guard  else {
+//            return urlRequest.asURLRequestWithParams(parameters)
+//        }
+        
+//        let jsonParam = JSONEncodingHelper.encodingParameters(forEncodableObject: parameters)
+//        guard let jsonData = jsonParam?[JSONDataEncoding.jsonDataKey] as? Data, !jsonData.isEmpty else {
+//            return urlRequest.asURLRequestWithParams(parameters)
+//        }
+        
+//        guard let jsonData = jsonParam?[JSONDataEncoding.jsonDataKey] as? Data else {
+//        }
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: "1", options: .prettyPrinted)
+            urlRequest.httpBody = jsonData
 
-        urlRequest.httpBody = jsonData
+        } catch {
+            BSTError.convertError.cookError()
+        }
+
 
         return urlRequest.asURLRequestWithParams(parameters)
     }
