@@ -21,8 +21,8 @@ class TicketConfirmViewController: UIViewController {
         didSet {
             self.btnConnect.rx.tap
                 .subscribe(onNext: { [weak self] _ in
-                    self?.navigationController?.popViewController(animated: true)
-//                    BSTFacade.go.device(self, type: ReactorViewType.initialize)
+//                    self?.navigationController?.popViewController(animated: true)
+                    BSTFacade.go.device(self, type: ReactorViewType.initialize)
                 })
                 .disposed(by: disposeBag)
         }

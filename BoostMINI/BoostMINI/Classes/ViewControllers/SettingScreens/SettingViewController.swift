@@ -26,6 +26,7 @@ class SettingViewController: UIViewController {
     var skinDatas : [Skin]? = []
     var selectedSkin : Int?
     
+    let disposeBag = DisposeBag()
     
     // MARK: - * Initialize --------------------
 
@@ -42,13 +43,6 @@ class SettingViewController: UIViewController {
     /// ViewController 로딩 시, 프로퍼티 초기화
     private func initProperties() {
         skinCollectionView.allowsMultipleSelection = false
-    }
-
-    /// ViewController 로딩 시, UIControl 초기화
-    private func initUI() {
-        updateSettingInformation()
-        updateVersionInfo()
-        
         self.skinCollectionView.backgroundColor = UIColor.clear
         
         var attrs : [NSAttributedStringKey : Any] = [
@@ -56,7 +50,7 @@ class SettingViewController: UIViewController {
             NSAttributedStringKey.foregroundColor : R.clr.boostMini.commonTextBg(),
             NSAttributedStringKey.underlineStyle : 1]
         
-       
+        
         let logoutString = NSMutableAttributedString.init(string: "로그아웃", attributes: attrs)
         self.logoutButton.setAttributedTitle(logoutString, for: .normal)
         
@@ -70,6 +64,43 @@ class SettingViewController: UIViewController {
         
         let withdrawString = NSMutableAttributedString.init(string: "회원탈퇴", attributes: attrs)
         self.withdrawButton.setAttributedTitle(withdrawString, for: .normal)
+    }
+
+    /// ViewController 로딩 시, UIControl 초기화
+    private func initUI() {
+        updateSettingInformation()
+        updateVersionInfo()
+        
+        self.logoutButton.rx.tap.bind {
+            DefaultAPI.signoutUsingDELETE { _ in
+                SessionHandler.shared.logout()
+                BSTFacade.go.login()
+            }
+        }.disposed(by: disposeBag)
+        
+        self.updateButton.rx.tap.bind {
+            UIApplication.shared.openURL(URL(string: Definitions.externURLs.appstore)!)
+        }.disposed(by: disposeBag)
+        
+        self.withdrawButton.rx.tap.bind {
+            BSTFacade.ux
+                .showConfirm("Boost for TVXQ!를 정말 탈퇴 하시겠습니까?") { (bool) in
+                    if bool == true {
+                        DefaultAPI.withdrawUsingDELETE { (_) in
+                            SessionHandler.shared.logout()
+                            BSTFacade.go.login()
+                        }
+                    }
+            }
+        }.disposed(by: disposeBag)
+        
+        self.notificationSwitch.rx.isOn.bind {(isOn) in
+            DefaultAPI.postAlarmsUsingPOST(alarm: isOn) { (response, error) in
+                guard let data = response else {
+                    return
+                }
+            }
+        }.disposed(by: disposeBag)
     }
 
 
@@ -102,44 +133,21 @@ class SettingViewController: UIViewController {
             }
             
             self.versionLabel.text = data.version
+            
+            if let version = data.version,
+                let shortVersion = BSTApplication.shortVersion,
+                version > shortVersion {
+                
+                self.updateButton.isHidden = false
+            } else {
+                self.updateButton.isHidden = true
+            }
+            
         
         }
     }
     
-    
-    @IBAction func setAlram(_ sender: UISwitch) {
-        DefaultAPI.postAlarmsUsingPOST(alarm: sender.isOn) { (response, error) in
-            guard let data = response else {
-                return
-            }
-        }
-    }
-    
-    @IBAction func logout(_ sender: UIButton) {
-        DefaultAPI.signoutUsingDELETE { _ in
-			SessionHandler.shared.logout()
-            BSTFacade.go.login()
-        }
-    }
-    
-    @IBAction func withdrawAccount(_ sender: UIButton) {
-        BSTFacade.ux
-            .showConfirm("Boost for TVXQ!를 정말 탈퇴 하시겠습니까?") { (bool) in
-                if bool == true {
-                    DefaultAPI.withdrawUsingDELETE { (_) in
-                        SessionHandler.shared.logout()
-                        BSTFacade.go.login()
-                    }
-                }
-            }
-
-    }
-    
-    @IBAction func updateApp(_ sender: UIButton) {
-       
-    }
-
-    // MARK: - * UI Events --------------------
+     // MARK: - * UI Events --------------------
     
     
     // MARK: - * Memory Manage --------------------

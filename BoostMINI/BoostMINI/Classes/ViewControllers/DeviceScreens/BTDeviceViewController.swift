@@ -130,7 +130,11 @@ class BTDeviceViewController : UIViewController, StoryboardView {
                 .disposed(by: self.disposeBag)
             
             self.cancelBtn.rx.tap.bind {
-                self.navigationController?.popViewController(animated: true)
+                if let navi = self.navigationController {
+                    navi.popViewController(animated: true)
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }                
                 self.disposeBag = DisposeBag()
             }.disposed(by: self.disposeBag)
         }
