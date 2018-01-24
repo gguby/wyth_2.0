@@ -24,6 +24,7 @@ class SettingViewController: UIViewController {
     // MARK: - * properties --------------------
     
     var skinDatas : [Skin]? = []
+    var selectedSkin : Int?
     
     
     // MARK: - * Initialize --------------------
@@ -85,6 +86,8 @@ class SettingViewController: UIViewController {
             if let skins = data.skins {
                 self.skinDatas = skins
             }
+            self.selectedSkin = data.selectedSkin! - 1
+            
             self.userNameLabel.text = data.userName
             self.notificationSwitch.setOn(data.alarm!, animated: false)
             
@@ -105,7 +108,11 @@ class SettingViewController: UIViewController {
     
     
     @IBAction func setAlram(_ sender: UISwitch) {
-        DefaultAPI.postAlarmsUsingPOST(alarm: sender.isOn)
+        DefaultAPI.postAlarmsUsingPOST(alarm: sender.isOn) { (response, error) in
+            guard let data = response else {
+                return
+            }
+        }
     }
     
     @IBAction func logout(_ sender: UIButton) {
@@ -131,16 +138,9 @@ class SettingViewController: UIViewController {
     @IBAction func updateApp(_ sender: UIButton) {
        
     }
-    
-    
-    func pop() {
-        self.navigationController?.popViewController(animated: true)
-    }
 
     // MARK: - * UI Events --------------------
-    @IBAction func back(_ sender: UIButton) {
-        pop()
-    }
+    
     
     // MARK: - * Memory Manage --------------------
 
@@ -170,7 +170,7 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
         
         if let skins = self.skinDatas {
             cell.imageView.af_setImage(withURL: URL.init(string: skins[indexPath.row].url!)!)
-            if skins[indexPath.row].expand {
+            if  indexPath.row == self.selectedSkin {
                 borderColor = R.clr.boostMini.commonBgPoint().cgColor
                 borderWidth = 2 //or whatever you please
                 cell.selectImageView.isHidden = false
@@ -196,8 +196,6 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
                 guard let data = response else {
                     return
                 }
-				
-                
                 BSTFacade.ux.showToast("설정 되었습니다.")
 				
 				// TODO : expand(select) 처리하면서 상상으로 날코딩했습니다. 올바르게 고쳐주세요!
@@ -208,9 +206,9 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
 				
 				for var skin in skinList {
 					skin.expand = (skinId == skin.id)
-					
 				}
                 
+                self?.skinCollectionView.reloadData()
             })
         }
         
