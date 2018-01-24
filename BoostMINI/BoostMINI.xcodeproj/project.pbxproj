@@ -321,6 +321,7 @@
 		2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F0511FDFA49500581F06 /* BoostMINITests.swift */; };
 		2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61F05C1FDFA49500581F06 /* BoostMINIUITests.swift */; };
 		2B764F9A200DCD8A00F9BDBD /* TicketConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B764F99200DCD8A00F9BDBD /* TicketConfirmViewController.swift */; };
+		2B771EA9201886230080392E /* FuncHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B771EA8201886230080392E /* FuncHouse.swift */; };
 		2B77AFB52005E84B004434D1 /* Device.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B77AFB32005E84B004434D1 /* Device.storyboard */; };
 		2B77AFB72005E8CC004434D1 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB62005E8CC004434D1 /* Storyboard.swift */; };
 		2B77AFBA2005EA6B004434D1 /* TicketScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */; };
@@ -509,6 +510,7 @@
 		2B61F05E1FDFA49500581F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B61F06A1FDFA4C400581F06 /* BoostMINI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoostMINI.entitlements; sourceTree = "<group>"; };
 		2B764F99200DCD8A00F9BDBD /* TicketConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketConfirmViewController.swift; sourceTree = "<group>"; };
+		2B771EA8201886230080392E /* FuncHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncHouse.swift; sourceTree = "<group>"; };
 		2B77AFB42005E84B004434D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Device.storyboard; sourceTree = "<group>"; };
 		2B77AFB62005E8CC004434D1 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		2B77AFB92005EA6B004434D1 /* TicketScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScanViewController.swift; sourceTree = "<group>"; };
@@ -791,6 +793,7 @@
 				2B5AA08E1FEB55C8007441E1 /* CommonUtil.swift */,
 				04C22BA81FEB9597007E2BED /* Logger.swift */,
 				0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */,
+				2B771EA8201886230080392E /* FuncHouse.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1714,6 +1717,7 @@
 				0480BCF0200C9CA500B79DB8 /* DateFormatter+jsonDate.swift in Sources */,
 				0420EAF62011E58C00E9820F /* ConcertsGetResponse.swift in Sources */,
 				0462CD981FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
+				2B771EA9201886230080392E /* FuncHouse.swift in Sources */,
 				2B764F9A200DCD8A00F9BDBD /* TicketConfirmViewController.swift in Sources */,
 				0420EAE72011E58C00E9820F /* Skin.swift in Sources */,
 				0480BCE8200C437000B79DB8 /* BoostNotifications.swift in Sources */,

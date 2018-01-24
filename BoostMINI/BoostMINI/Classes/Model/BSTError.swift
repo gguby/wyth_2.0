@@ -238,7 +238,7 @@ enum TicketError: Error, BSTErrorProtocol {
 			BSTFacade.ux.showConfirm(self.description, title: title, { (_ ok: Bool?) in
 				//도움말 화면으로 이동함.
 				if ok ?? false {
-					guard let topViewController = CommonUtil.getTopVisibleViewController(nil) else {
+					guard let topViewController = CommonUtil.getTopVisibleViewController() else {
 						return
 					}
 					BSTFacade.ux.goHelpWebViewController(currentViewController: topViewController)
