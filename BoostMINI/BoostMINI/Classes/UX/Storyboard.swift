@@ -73,7 +73,7 @@ enum BSTScreens {
 //    case signUp(SignUp)
     case device(Device)
     case btDevice(BTDevice)
-//    case notfication(Notfication)
+    case notification(Notification)
 //    case common(Common)
     
     
@@ -105,6 +105,14 @@ enum BSTScreens {
     
     enum BTDevice: String, BSTUXProtocol {
         case btDeviceScan = "BTDeviceViewController"
+        
+        func find(className: String) -> Bool {
+            return self.rawValue == className
+        }
+    }
+    
+    enum Notification: String, BSTUXProtocol {
+        case main = "NotificationViewController"
         
         func find(className: String) -> Bool {
             return self.rawValue == className
@@ -151,6 +159,9 @@ enum BSTScreens {
             vc = Storyboard.Home.instantiate(identifier.rawValue)
         case let .btDevice(identifier):
             vc = Storyboard.BTDevice.instantiate(identifier.rawValue)
+        case let .notification(identifier):
+            vc = Storyboard.Notfication.instantiate(identifier.rawValue)
+            
 //        case let .common(identifier):
 //            vc = Storyboard.Common.instantiate(identifier.rawValue)
         }

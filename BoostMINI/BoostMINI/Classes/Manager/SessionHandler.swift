@@ -20,6 +20,7 @@ class SessionHandler {
 	var profile: BoostProfile?
 
 	var pushToken: String = "test- TODO:"	// TODO:
+    var deepLink: URL?
 	var osVersion: String = UIDevice.current.systemVersion
 
 	

@@ -86,7 +86,7 @@ class NotificationViewController: UIViewController, NotificationView {
     // MARK: * properties --------------------
     var presenter: NotificationPresenter?
     var disposeBag = DisposeBag()
-    
+    var isFirstLoading = true
     // MARK: * IBOutlets --------------------
 
     @IBOutlet weak var tableView: UITableView! {
@@ -173,7 +173,14 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         if let tcell = tableView.dequeueReusableCell(withIdentifier: "NotificationTableViewCell") as? NotificationTableViewCell {
-            tcell.notice = self.notifications[indexPath.row]
+            
+            var notice = self.notifications[indexPath.row]
+            tcell.notice = notice
+            
+            if let deepLink = BSTFacade.session.deepLink, deepLink.query == notice.id?.s, isFirstLoading {
+                notice.reverseExpand()
+            }
+            
             cell = tcell
         }
         

@@ -84,6 +84,12 @@ extension AppDelegate {
             }
             
             // 1
+            let noticeAction = UNNotificationAction(identifier: "Notice", title: "Notice", options: [UNNotificationActionOptions.authenticationRequired, UNNotificationActionOptions.foreground])
+            
+            let noticeCategory = UNNotificationCategory(identifier: "NoticeCategory",
+                                                        actions: [noticeAction], intentIdentifiers: [], options: [])
+            
+            
 //            let viewAction = UNNotificationAction(identifier: viewActionIdentifier,
 //                                                  title: "View",
 //                                                  options: [.foreground])
@@ -94,7 +100,7 @@ extension AppDelegate {
 //                                                      intentIdentifiers: [],
 //                                                      options: [])
             // 3
-//            UNUserNotificationCenter.current().setNotificationCategories([newsCategory])
+            UNUserNotificationCenter.current().setNotificationCategories([noticeCategory])
             
             self.getNotificationSettings()
         }
@@ -118,7 +124,7 @@ extension AppDelegate {
         
         let pushToken = tokenParts.joined()
         BSTFacade.session.pushToken = pushToken
-        print("Device Token: \(pushToken)")
+        print("PushToken: \(pushToken)")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -140,7 +146,8 @@ extension AppDelegate {
 //            podcastStore.refreshItems { didLoadNewItems in
 //                completionHandler(didLoadNewItems ? .newData : .noData)
 //            }
-        } else  {
+        } else if let link = aps["link_url"] as? String  {
+            logDebug(link)
 //            _ = NewsItem.makeNewsItem(aps)
 //            completionHandler(.newData)
         }
@@ -169,6 +176,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let aps = userInfo["aps"] as! [String: AnyObject]
         
         // 2
+        if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+            if let linkURL = aps["link_url"] as? String, let deepLink = URL(string: linkURL) {
+                BSTFacade.session.deepLink = deepLink
+                if BSTFacade.session.isLoginned {
+                    BSTFacade.ux.goNotification()
+                }
+            }
+        }
 //        if let newsItem = NewsItem.makeNewsItem(aps) {
 //            (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
 //
