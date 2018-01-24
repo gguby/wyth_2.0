@@ -79,7 +79,7 @@ class SettingViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         self.updateButton.rx.tap.bind {
-            
+            UIApplication.shared.openURL(URL(string: Definitions.externURLs.appstore)!)
         }.disposed(by: disposeBag)
         
         self.withdrawButton.rx.tap.bind {
@@ -133,9 +133,20 @@ class SettingViewController: UIViewController {
             }
             
             self.versionLabel.text = data.version
+            
+            if let version = data.version,
+                let shortVersion = BSTApplication.shortVersion,
+                version > shortVersion {
+                
+                self.updateButton.isHidden = false
+            } else {
+                self.updateButton.isHidden = true
+            }
+            
         
         }
     }
+    
      // MARK: - * UI Events --------------------
     
     
