@@ -14,7 +14,7 @@ enum Storyboard: String {
     case Home
     case SignUp
     case Device
-    case Notfication
+    case Notification
     case BTDevice
 
     
@@ -136,12 +136,14 @@ enum BSTScreens {
         var screen: BSTScreens?
         if let main = Main.init(rawValue: className) {
             screen = BSTScreens.main(main)
+        } else if let home = Home.init(rawValue: className) {
+            screen = BSTScreens.home(home)
         } else if let device = Device.init(rawValue: className) {
             screen = BSTScreens.device(device)
         } else if let btDevice = BTDevice.init(rawValue: className) {
             screen = BSTScreens.btDevice(btDevice)
-        } else if let home = Home.init(rawValue: className) {
-            screen = BSTScreens.home(home)
+        } else if let notification = Notification.init(rawValue: className) {
+            screen = BSTScreens.notification(notification)
         }
         
         return screen?.instantiate()
@@ -160,7 +162,7 @@ enum BSTScreens {
         case let .btDevice(identifier):
             vc = Storyboard.BTDevice.instantiate(identifier.rawValue)
         case let .notification(identifier):
-            vc = Storyboard.Notfication.instantiate(identifier.rawValue)
+            vc = Storyboard.Notification.instantiate(identifier.rawValue)
             
 //        case let .common(identifier):
 //            vc = Storyboard.Common.instantiate(identifier.rawValue)

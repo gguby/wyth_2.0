@@ -175,11 +175,18 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
         if let tcell = tableView.dequeueReusableCell(withIdentifier: "NotificationTableViewCell") as? NotificationTableViewCell {
             
             var notice = self.notifications[indexPath.row]
-            tcell.notice = notice
             
-            if let deepLink = BSTFacade.session.deepLink, deepLink.query == notice.id?.s, isFirstLoading {
-                notice.reverseExpand()
+            if let deepLink = BSTFacade.session.deepLink, let comp = deepLink.query?.components(separatedBy: "=").last,
+                let pushId = Int(comp), isFirstLoading, pushId == notice.id?.i {
+                    notice.reverseExpand()
+                    
+                    BSTFacade.session.deepLink = nil
+                    isFirstLoading = false
+                
+                //TODO: post update new state,
             }
+            
+            tcell.notice = notice
             
             cell = tcell
         }

@@ -63,8 +63,10 @@ class BSTUXHanlder {
             return
         }
         
-        if let topVC = CommonUtil.getTopViewController() {
-            topVC.navigationController?.pushViewController(vc, animated: true)
+        if let topVC = CommonUtil.getTopVisibleViewController() {
+            FuncHouse.dispatchAfter(duration: 1.0, fn: {
+                topVC.navigationController?.pushViewController(vc, animated: true)
+            })
         }
     }
     

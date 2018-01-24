@@ -33,17 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func initializeApp(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications()
-        
-        // Check if launched from notification
-        // 1
-        if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
-            // 2
-            let aps = notification["aps"] as! [String: AnyObject]
-            //TODO: 1.define action 2.move notifications
-//            _ = NewsItem.makeNewsItem(aps)
-            // 3
-//            (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
-        }
     }
     
     ///앱 관련 써드파티, 오픈소스 초기화 설정
@@ -136,36 +125,6 @@ extension AppDelegate {
             BSTFacade.session.pushToken = "TOKEN_ERROR"
         }
     }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
-        let aps = userInfo["aps"] as! [String: AnyObject]
-        if aps["content-available"] as? Int == 1 {
-//            let podcastStore = PodcastStore.sharedStore
-//            podcastStore.refreshItems { didLoadNewItems in
-//                completionHandler(didLoadNewItems ? .newData : .noData)
-//            }
-        } else if let link = aps["link_url"] as? String  {
-            logDebug(link)
-//            _ = NewsItem.makeNewsItem(aps)
-//            completionHandler(.newData)
-        }
-        
-        completionHandler(UIBackgroundFetchResult.newData)
-    }
-    
-    /** handle push nontification */
-    func handlePushNotification(pushInfo: [NSObject: AnyObject]) {
-        logDebug("UIApplication.sharedApplication().applicationState = \(UIApplication.shared.applicationState)")
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        
-        
-        if UIApplication.shared.applicationState == UIApplicationState.active {//포어그라운드 일 경우, 보여줌
-            //BSTFacade.session.push
-            //JDFacade.facade.pushInfo = pushInfo
-        }
-    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
@@ -173,13 +132,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         // 1
         let userInfo = response.notification.request.content.userInfo
-        let aps = userInfo["aps"] as! [String: AnyObject]
+        guard let aps = userInfo["aps"] as? [String: AnyObject] else {
+            logDebug("No payload!!")
+            completionHandler()
+            return
+        }
         
         // 2
         if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
             if let linkURL = aps["link_url"] as? String, let deepLink = URL(string: linkURL) {
                 BSTFacade.session.deepLink = deepLink
-                if BSTFacade.session.isLoginned {
+                if BSTFacade.session.isLoginned {//로그인이 아직 안된 경우에는 추후, 로그인 하고 나서 이동해야함.
                     BSTFacade.ux.goNotification()
                 }
             }
