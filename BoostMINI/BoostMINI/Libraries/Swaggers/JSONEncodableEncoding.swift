@@ -55,7 +55,7 @@ public struct JSONDataEncoding: ParameterEncoding {
 //        guard let jsonData = jsonParam?[JSONDataEncoding.jsonDataKey] as? Data else {
 //        }
         do {
-            let jsonData = try JSONSerialization.data(withJSONObject: "1", options: .prettyPrinted)
+            let jsonData = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
             urlRequest.httpBody = jsonData
 
         } catch {
