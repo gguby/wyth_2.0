@@ -1,0 +1,17 @@
+/* 
+  Home.strings
+  BoostMINI
+
+  Created by  KoMyeongbu on 2018. 1. 25..
+  Copyright © 2018년 IRIVER LIMITED. All rights reserved.
+*/
+
+
+"connectSuccessDevice" = "응원도구가 연동되었습니다.";
+"viewMore" = "자세히 보기";
+"theTimeOfViewing" = "관람일시";
+"seatInformation" = "좌석정보";
+"manageCheeringTools" = "응원도구 관리하기";
+"interlinkSupportTools" = "응원도구 연동하기";
+"thePerformanceIsOver" = "공연이 종료되었습니다.";
+

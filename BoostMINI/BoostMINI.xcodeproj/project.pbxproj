@@ -338,6 +338,7 @@
 		8F9A7CCD20035B42003BABB1 /* SMTOWN(OTF)-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC720035B42003BABB1 /* SMTOWN(OTF)-Bold.otf */; };
 		8F9A7CCE20035B42003BABB1 /* SMTOWN(OTF)-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A7CC820035B42003BABB1 /* SMTOWN(OTF)-Medium.otf */; };
 		8F9A7CD020035F0E003BABB1 /* TextViewWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7CCF20035F0E003BABB1 /* TextViewWithInsets.swift */; };
+		8FAD0F512019A0BE0009EE16 /* Home.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FAD0F502019A0BE0009EE16 /* Home.strings */; };
 		A2D896F567E23F4060F7E849 /* Pods_BoostMINI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE278FD296F77407907664D /* Pods_BoostMINI.framework */; };
 		A62352381FF390690007949C /* GithupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352341FF390680007949C /* GithupService.swift */; };
 		A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62352351FF390680007949C /* ViewControllerReactor.swift */; };
@@ -529,6 +530,7 @@
 		8F9A7CC720035B42003BABB1 /* SMTOWN(OTF)-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SMTOWN(OTF)-Bold.otf"; sourceTree = "<group>"; };
 		8F9A7CC820035B42003BABB1 /* SMTOWN(OTF)-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SMTOWN(OTF)-Medium.otf"; sourceTree = "<group>"; };
 		8F9A7CCF20035F0E003BABB1 /* TextViewWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithInsets.swift; sourceTree = "<group>"; };
+		8FAD0F502019A0BE0009EE16 /* Home.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Home.strings; sourceTree = "<group>"; };
 		A623522F1FF35ED60007949C /* Moya File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Moya File.xctemplate"; sourceTree = "<group>"; };
 		A62352301FF35ED60007949C /* Reactor File.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Reactor File.xctemplate"; sourceTree = "<group>"; };
 		A62352341FF390680007949C /* GithupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithupService.swift; sourceTree = "<group>"; };
@@ -899,6 +901,7 @@
 				0462CDED1FFE287D002B6E11 /* Alert.strings */,
 				A6F35070200349AB00949BB2 /* Device.strings */,
 				04E224422004884100A2B388 /* Network.strings */,
+				8FAD0F502019A0BE0009EE16 /* Home.strings */,
 			);
 			path = Strings;
 			sourceTree = "<group>";
@@ -1239,6 +1242,7 @@
 				A63F1A2E20059D180079046D /* ConcertInfoView.xib in Resources */,
 				8F9A7CCE20035B42003BABB1 /* SMTOWN(OTF)-Medium.otf in Resources */,
 				0462CDEB1FFE2799002B6E11 /* Login.strings in Resources */,
+				8FAD0F512019A0BE0009EE16 /* Home.strings in Resources */,
 				0462CD8D1FFB798D002B6E11 /* Theme.xcassets in Resources */,
 				04AD73EF1FF20B39005F4BF0 /* SignUp.storyboard in Resources */,
 				04B2192A2008A448002A1742 /* Common.storyboard in Resources */,
