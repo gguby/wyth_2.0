@@ -69,33 +69,36 @@ class ConcertInformationView: UIView {
     }
     
     func updateConcerSeatInfo() {
-        DefaultAPI.getSeatsUsingGET(type: .yes24) { [weak self] body, err in
+		//TODO : type이 삭제되고, concertId가 추가되었습니다..
+		let concertId = "??"
+		DefaultAPI.getSeatsUsingGET(concertId: concertId) { [weak self] body, err in
             guard let data = body else {
                 return
             }
             var range = NSRange()
-            
-            self?.viewingDateLabel.text = data.concertDate
-            
-            range = NSRange.init(location: 0, length: (data.floor?.length())!)
-            let floorString = NSMutableAttributedString(string:"\(data.floor!)층")
-            floorString.addAttributes((self?.smtownFontAttribute)!, range: range)
-            self?.floorLabel.attributedText = floorString
-            
-            range = NSRange.init(location: 0, length: (data.area?.length())!)
-            let areaString = NSMutableAttributedString(string:"\(data.area!)구역")
-            areaString.addAttributes((self?.smtownFontAttribute)!, range: range)
-            self?.areaLabel.attributedText = areaString
-            
-            range = NSRange.init(location: 0, length: (data.row?.length())!)
-            let rowString = NSMutableAttributedString(string:"\(data.row!)열")
-            rowString.addAttributes((self?.smtownFontAttribute)!, range: range)
-            self?.rowLabel.attributedText = rowString
-            
-            range = NSRange.init(location: 0, length: (data.seat?.length())!)
-            let seatNumberString = NSMutableAttributedString(string:"\(data.seat!)번")
-            seatNumberString.addAttributes((self?.smtownFontAttribute)!, range: range)
-            self?.seatNumberLabel.attributedText = seatNumberString
+			
+			// data가 다 바뀌었습니다. 확인 부탁드립니다. (아래 주석 제거후 확인)
+//            self?.viewingDateLabel.text = data.concertDate
+//
+//            range = NSRange.init(location: 0, length: (data.floor?.length())!)
+//            let floorString = NSMutableAttributedString(string:"\(data.floor!)층")
+//            floorString.addAttributes((self?.smtownFontAttribute)!, range: range)
+//            self?.floorLabel.attributedText = floorString
+//
+//            range = NSRange.init(location: 0, length: (data.area?.length())!)
+//            let areaString = NSMutableAttributedString(string:"\(data.area!)구역")
+//            areaString.addAttributes((self?.smtownFontAttribute)!, range: range)
+//            self?.areaLabel.attributedText = areaString
+//
+//            range = NSRange.init(location: 0, length: (data.row?.length())!)
+//            let rowString = NSMutableAttributedString(string:"\(data.row!)열")
+//            rowString.addAttributes((self?.smtownFontAttribute)!, range: range)
+//            self?.rowLabel.attributedText = rowString
+//
+//            range = NSRange.init(location: 0, length: (data.seat?.length())!)
+//            let seatNumberString = NSMutableAttributedString(string:"\(data.seat!)번")
+//            seatNumberString.addAttributes((self?.smtownFontAttribute)!, range: range)
+//            self?.seatNumberLabel.attributedText = seatNumberString
         }
     }
     

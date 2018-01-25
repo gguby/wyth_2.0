@@ -16,6 +16,15 @@ extension URLRequest {
 			return self
 		}
 		
+		
+//		do {
+//			let jsonData = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+//			urlRequest.httpBody = jsonData
+//
+//		} catch {
+//			BSTError.convertError.cookError()
+//		}
+//		
 		// 이미 뭔가가 들어있으므로 패스
 		if self.httpBody != nil {
 			return self

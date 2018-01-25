@@ -42,14 +42,18 @@ class ConcertInfoView : UIView {
     }
     
     func getConcertData() {
-        DefaultAPI.getSeatsUsingGET(type: .yes24) { [weak self] response, _ in
+		//TODO : type이 삭제되고, concertId가 추가되었습니다..
+		let concertId = "??"
+		DefaultAPI.getSeatsUsingGET(concertId: concertId) { [weak self] response, _ in
             guard let response = response else { return }
-            
-            self?.dateLbl.text = response.concertDate
+
+			//TODO: response 값들이 변경되었습니다.
+			
+            //self?.dateLbl.text = response.concertDate
             self?.floor.text = response.floor
-            self?.region.text = response.area
+            //self?.region.text = response.area
             self?.column.text = response.row
-            self?.number.text = response.seat
+            //self?.number.text = response.seat
             
             BSTFacade.session.seat = response
         }
