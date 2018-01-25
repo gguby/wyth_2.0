@@ -49,6 +49,27 @@ class BSTUXHanlder {
         currentVC?.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func goDetailConcertInfoViewController(currentViewController currentVC: UIViewController?) {
+        guard let vc = self.instantiateViewController(typeof: DetailConcertInformationViewController.self) else {
+            return
+        }
+        
+        currentVC?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    ///알림 목록 화면을 로딩함.
+    func goNotification() {
+        guard let vc = self.instantiateViewController(typeof: NotificationViewController.self) else {
+            return
+        }
+        
+        if let topVC = CommonUtil.getTopVisibleViewController() {
+            FuncHouse.dispatchAfter(duration: 1.0, fn: {
+                topVC.navigationController?.pushViewController(vc, animated: true)
+            })
+        }
+    }
+    
     // MARK: - * Common 함수 --------------------
     
     /// ViewController 타입으로 사전(Storyboard)에 정의된 ViewController를 반환

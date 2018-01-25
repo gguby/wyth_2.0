@@ -72,6 +72,17 @@ public func logError(_ items: Any...,
 	Logger.push(level: .error, message: Logger.join(items), context: context, file: file, function: function, line: line)
 }
 
+public func logAlert(_ items: Any...,
+    context: Any? = nil,
+    file: String = #file,
+    function: String = #function,
+    line: Int = #line) {
+    #if !DEBUG
+        return
+    #endif
+    
+    BSTFacade.ux.showAlert(Logger.join(items))
+}
 
 // Logger 구현 부분입니다. 로거 사용과 관련된 부분들이 있습니다.
 public class Logger {

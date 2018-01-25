@@ -260,9 +260,6 @@
                                                 <state key="normal" title="응원도구 연동하기">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="dR5-DN-jRr" kind="presentation" id="bJu-Ms-DDw"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -307,6 +304,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnConnect" destination="BWT-UQ-CCh" id="JHZ-Cd-DCM"/>
                         <outlet property="scrollView" destination="PnH-Rh-glW" id="fN1-u9-Fxg"/>
                         <outlet property="ticketView" destination="4XP-Sj-vZa" id="H1K-q9-TgS"/>
                     </connections>
@@ -315,14 +313,6 @@
                 <exit id="66Q-bW-Rwl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3744.8000000000002" y="359.85221674876851"/>
-        </scene>
-        <!--BTDeviceViewController-->
-        <scene sceneID="YZd-QQ-mvs">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BTDevice" referencedIdentifier="BTDeviceViewController" id="dR5-DN-jRr" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hhl-rb-yuz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4377" y="516"/>
         </scene>
     </scenes>
     <resources>

@@ -39,4 +39,8 @@ extension Response {
 	var isNotOk: Bool {
 		return !isOk
 	}
+    
+    var isBizError: Bool {
+        return self.isNotOk && (statusCode / 100) == 9
+    }
 }

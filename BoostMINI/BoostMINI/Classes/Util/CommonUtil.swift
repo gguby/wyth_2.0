@@ -71,8 +71,7 @@ extension CommonUtil {
             }
 			
 			if topController is LoadingViewController {
-				
-				return getTopVisibleViewController(nil)
+				return getTopVisibleViewController()
 			}
 
             return topController
@@ -80,11 +79,12 @@ extension CommonUtil {
         return nil
     }
 	
-	/// 최상위 뷰컨트롤러 반환.
-	///
+	/// 최상위 뷰컨트롤러 반환. only ViewController
+    /// exclude: SystemAlertViewController, UINavigationController, UITabBarController
+    ///
 	/// - Parameter viewController:
 	/// - Returns:
-	class func getTopVisibleViewController(_ viewController: UIViewController?) -> UIViewController? {
+	class func getTopVisibleViewController(_ viewController: UIViewController? = nil) -> UIViewController? {
 		let viewController = viewController ?? self.getTopWindow()?.rootViewController
 		
         if let alertController = viewController as? BSTUXHanlder.SystemAlertViewController, let selectedController = alertController.presentingViewController {

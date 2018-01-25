@@ -20,6 +20,7 @@ class SessionHandler {
 	var profile: BoostProfile?
 
 	var pushToken: String = "test- TODO:"	// TODO:
+    var deepLink: URL?
 	var osVersion: String = UIDevice.current.systemVersion
 
 	
@@ -69,7 +70,7 @@ class SessionHandler {
 			self.logout()
 			return
 		}
-		self.login(token: token, profile: info)
+		self.storeSessionInfoAfterSignIn(token: token, profile: info)
 	}
 	
     ///SM, Boost의 모든 쿠키를 삭제한다.
@@ -102,7 +103,7 @@ class SessionHandler {
 		UserDefaults.standard.synchronize()
 	}
 
-	func login(token: String, profile: BoostProfile) {
+	func storeSessionInfoAfterSignIn(token: String, profile: BoostProfile) {
 		self.token = token
 		self.profile = profile
 		

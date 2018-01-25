@@ -39,7 +39,7 @@ class BTDeviceService {
             .timeout(4.0, scheduler: MainScheduler.instance)
             .take(1)
             .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
-            .take(3.0, scheduler: MainScheduler.instance)
+            .take(1.0, scheduler: MainScheduler.instance)
             .toArray()
     }
     
@@ -78,8 +78,14 @@ class BTDeviceService {
         return observable
             .flatMap { $0.discoverServices([self.boostServiceUUID])}
             .flatMap { Observable.from($0) }
+            .do(onNext: { Service in
+                logVerbose("Discovered Service: \(Service)")
+            })
             .flatMap { $0.discoverCharacteristics([self.boostCharacteristicUUID])}
             .flatMap { Observable.from($0) }
+            .do(onNext: { Characteristic in
+                logVerbose("Discovered Characteristic: \(Characteristic)")
+            })
     }
     
     func register(observable : Observable<Peripheral>) -> Observable<Bool> {
@@ -100,7 +106,8 @@ extension BTDeviceService {
         
         let name = device.name
         let uuid = device.identifier.uuidString
-        let dict = [name, uuid]
+        let userName = BSTFacade.session.name
+        let dict = [userName, name, uuid]
         
         print("Save Device")
         print(dict)
@@ -139,12 +146,14 @@ extension BTDeviceService {
 }
 
 struct BSTLocalDevice {
-    let name : String!
+    let deviceName : String!
+    let userName : String!
     let uuid : UUID!
     
     init(array : [String]) {
-        self.name = array[0]
-        self.uuid = UUID.init(uuidString: array[1])
+        self.userName = array[0]
+        self.deviceName = array[1]
+        self.uuid = UUID.init(uuidString: array[2])
     }
 }
 

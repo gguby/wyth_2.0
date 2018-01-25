@@ -59,7 +59,12 @@ extension BST {
                 return
             }
             
-            currentVC.navigationController?.pushViewController(vc, animated: true)
+            guard let navi = currentVC.navigationController else {
+                currentVC.present(vc, animated: true, completion: nil)
+                return
+            }
+            
+            navi.pushViewController(vc, animated: true)
         }
 		
 		
