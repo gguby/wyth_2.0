@@ -53,60 +53,54 @@
 		041734962011C49B0075D507 /* EasyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* EasyCodable.swift */; };
 		041734972011C49B0075D507 /* EasyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* EasyCodable.swift */; };
 		0420EABB2011D62C00E9820F /* DefaultAPI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABA2011D62C00E9820F /* DefaultAPI2.swift */; };
-		0420EACC2011E58C00E9820F /* AccountsPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABC2011E58900E9820F /* AccountsPostResponse.swift */; };
-		0420EACD2011E58C00E9820F /* AccountsPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABC2011E58900E9820F /* AccountsPostResponse.swift */; };
-		0420EACE2011E58C00E9820F /* AccountsPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABC2011E58900E9820F /* AccountsPostResponse.swift */; };
-		0420EACF2011E58C00E9820F /* AppsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABD2011E58A00E9820F /* AppsGetResponse.swift */; };
-		0420EAD02011E58C00E9820F /* AppsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABD2011E58A00E9820F /* AppsGetResponse.swift */; };
-		0420EAD12011E58C00E9820F /* AppsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABD2011E58A00E9820F /* AppsGetResponse.swift */; };
-		0420EAD22011E58C00E9820F /* PageHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABE2011E58A00E9820F /* PageHelp.swift */; };
-		0420EAD32011E58C00E9820F /* PageHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABE2011E58A00E9820F /* PageHelp.swift */; };
-		0420EAD42011E58C00E9820F /* PageHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABE2011E58A00E9820F /* PageHelp.swift */; };
-		0420EAD52011E58C00E9820F /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABF2011E58A00E9820F /* Sort.swift */; };
-		0420EAD62011E58C00E9820F /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABF2011E58A00E9820F /* Sort.swift */; };
-		0420EAD72011E58C00E9820F /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABF2011E58A00E9820F /* Sort.swift */; };
-		0420EAD82011E58C00E9820F /* CommonBooleanGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC02011E58A00E9820F /* CommonBooleanGetResponse.swift */; };
-		0420EAD92011E58C00E9820F /* CommonBooleanGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC02011E58A00E9820F /* CommonBooleanGetResponse.swift */; };
-		0420EADA2011E58C00E9820F /* CommonBooleanGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC02011E58A00E9820F /* CommonBooleanGetResponse.swift */; };
-		0420EADB2011E58C00E9820F /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC12011E58A00E9820F /* Notice.swift */; };
-		0420EADC2011E58C00E9820F /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC12011E58A00E9820F /* Notice.swift */; };
-		0420EADD2011E58C00E9820F /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC12011E58A00E9820F /* Notice.swift */; };
-		0420EADE2011E58C00E9820F /* CommonNumberGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC22011E58A00E9820F /* CommonNumberGetResponse.swift */; };
-		0420EADF2011E58C00E9820F /* CommonNumberGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC22011E58A00E9820F /* CommonNumberGetResponse.swift */; };
-		0420EAE02011E58C00E9820F /* CommonNumberGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC22011E58A00E9820F /* CommonNumberGetResponse.swift */; };
-		0420EAE12011E58C00E9820F /* SettingsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC32011E58A00E9820F /* SettingsGetResponse.swift */; };
-		0420EAE22011E58C00E9820F /* SettingsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC32011E58A00E9820F /* SettingsGetResponse.swift */; };
-		0420EAE32011E58C00E9820F /* SettingsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC32011E58A00E9820F /* SettingsGetResponse.swift */; };
-		0420EAE42011E58C00E9820F /* HelpGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC42011E58A00E9820F /* HelpGetResponse.swift */; };
-		0420EAE52011E58C00E9820F /* HelpGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC42011E58A00E9820F /* HelpGetResponse.swift */; };
-		0420EAE62011E58C00E9820F /* HelpGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC42011E58A00E9820F /* HelpGetResponse.swift */; };
-		0420EAE72011E58C00E9820F /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC52011E58B00E9820F /* Skin.swift */; };
-		0420EAE82011E58C00E9820F /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC52011E58B00E9820F /* Skin.swift */; };
-		0420EAE92011E58C00E9820F /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC52011E58B00E9820F /* Skin.swift */; };
-		0420EAEA2011E58C00E9820F /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC62011E58B00E9820F /* Help.swift */; };
-		0420EAEB2011E58C00E9820F /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC62011E58B00E9820F /* Help.swift */; };
-		0420EAEC2011E58C00E9820F /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC62011E58B00E9820F /* Help.swift */; };
-		0420EAED2011E58C00E9820F /* NoticesGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC72011E58B00E9820F /* NoticesGetResponse.swift */; };
-		0420EAEE2011E58C00E9820F /* NoticesGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC72011E58B00E9820F /* NoticesGetResponse.swift */; };
-		0420EAEF2011E58C00E9820F /* NoticesGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC72011E58B00E9820F /* NoticesGetResponse.swift */; };
-		0420EAF02011E58C00E9820F /* ProfileGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC82011E58B00E9820F /* ProfileGetResponse.swift */; };
-		0420EAF12011E58C00E9820F /* ProfileGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC82011E58B00E9820F /* ProfileGetResponse.swift */; };
-		0420EAF22011E58C00E9820F /* ProfileGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC82011E58B00E9820F /* ProfileGetResponse.swift */; };
-		0420EAF32011E58C00E9820F /* ConcertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC92011E58B00E9820F /* ConcertResponse.swift */; };
-		0420EAF42011E58C00E9820F /* ConcertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC92011E58B00E9820F /* ConcertResponse.swift */; };
-		0420EAF52011E58C00E9820F /* ConcertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EAC92011E58B00E9820F /* ConcertResponse.swift */; };
-		0420EAF62011E58C00E9820F /* ConcertsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EACA2011E58B00E9820F /* ConcertsGetResponse.swift */; };
-		0420EAF72011E58C00E9820F /* ConcertsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EACA2011E58B00E9820F /* ConcertsGetResponse.swift */; };
-		0420EAF82011E58C00E9820F /* ConcertsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EACA2011E58B00E9820F /* ConcertsGetResponse.swift */; };
-		0420EAF92011E58C00E9820F /* ConcertsSeatGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EACB2011E58B00E9820F /* ConcertsSeatGetResponse.swift */; };
-		0420EAFA2011E58C00E9820F /* ConcertsSeatGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EACB2011E58B00E9820F /* ConcertsSeatGetResponse.swift */; };
-		0420EAFB2011E58C00E9820F /* ConcertsSeatGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EACB2011E58B00E9820F /* ConcertsSeatGetResponse.swift */; };
 		0420EB012011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EB002011EFD300E9820F /* URLRequest+CodegenExtension.swift */; };
 		0420EB022011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EB002011EFD300E9820F /* URLRequest+CodegenExtension.swift */; };
 		0420EB032011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EB002011EFD300E9820F /* URLRequest+CodegenExtension.swift */; };
 		044236AF2005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
 		044236B02005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
 		044236B12005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
+		0442D9BC2019926A00A239DE /* AccountsPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9AE2019926900A239DE /* AccountsPostResponse.swift */; };
+		0442D9BD2019926A00A239DE /* AccountsPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9AE2019926900A239DE /* AccountsPostResponse.swift */; };
+		0442D9BE2019926A00A239DE /* AccountsPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9AE2019926900A239DE /* AccountsPostResponse.swift */; };
+		0442D9BF2019926A00A239DE /* AppsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9AF2019926900A239DE /* AppsGetResponse.swift */; };
+		0442D9C02019926A00A239DE /* AppsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9AF2019926900A239DE /* AppsGetResponse.swift */; };
+		0442D9C12019926A00A239DE /* AppsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9AF2019926900A239DE /* AppsGetResponse.swift */; };
+		0442D9C22019926A00A239DE /* SkinPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B02019926900A239DE /* SkinPostRequest.swift */; };
+		0442D9C32019926A00A239DE /* SkinPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B02019926900A239DE /* SkinPostRequest.swift */; };
+		0442D9C42019926A00A239DE /* SkinPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B02019926900A239DE /* SkinPostRequest.swift */; };
+		0442D9C52019926A00A239DE /* CommonBooleanGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B12019926900A239DE /* CommonBooleanGetResponse.swift */; };
+		0442D9C62019926A00A239DE /* CommonBooleanGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B12019926900A239DE /* CommonBooleanGetResponse.swift */; };
+		0442D9C72019926A00A239DE /* CommonBooleanGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B12019926900A239DE /* CommonBooleanGetResponse.swift */; };
+		0442D9C82019926A00A239DE /* NoticeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B22019926900A239DE /* NoticeList.swift */; };
+		0442D9C92019926A00A239DE /* NoticeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B22019926900A239DE /* NoticeList.swift */; };
+		0442D9CA2019926A00A239DE /* NoticeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B22019926900A239DE /* NoticeList.swift */; };
+		0442D9CB2019926A00A239DE /* CommonNumberGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B32019926900A239DE /* CommonNumberGetResponse.swift */; };
+		0442D9CC2019926A00A239DE /* CommonNumberGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B32019926900A239DE /* CommonNumberGetResponse.swift */; };
+		0442D9CD2019926A00A239DE /* CommonNumberGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B32019926900A239DE /* CommonNumberGetResponse.swift */; };
+		0442D9CE2019926A00A239DE /* SettingsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B42019926900A239DE /* SettingsGetResponse.swift */; };
+		0442D9CF2019926A00A239DE /* SettingsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B42019926900A239DE /* SettingsGetResponse.swift */; };
+		0442D9D02019926A00A239DE /* SettingsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B42019926900A239DE /* SettingsGetResponse.swift */; };
+		0442D9D12019926A00A239DE /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B52019926900A239DE /* Skin.swift */; };
+		0442D9D22019926A00A239DE /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B52019926900A239DE /* Skin.swift */; };
+		0442D9D32019926A00A239DE /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B52019926900A239DE /* Skin.swift */; };
+		0442D9D42019926A00A239DE /* AlarmPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B62019926A00A239DE /* AlarmPostRequest.swift */; };
+		0442D9D52019926A00A239DE /* AlarmPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B62019926A00A239DE /* AlarmPostRequest.swift */; };
+		0442D9D62019926A00A239DE /* AlarmPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B62019926A00A239DE /* AlarmPostRequest.swift */; };
+		0442D9D72019926A00A239DE /* NoticesGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B72019926A00A239DE /* NoticesGetResponse.swift */; };
+		0442D9D82019926A00A239DE /* NoticesGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B72019926A00A239DE /* NoticesGetResponse.swift */; };
+		0442D9D92019926A00A239DE /* NoticesGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B72019926A00A239DE /* NoticesGetResponse.swift */; };
+		0442D9DA2019926A00A239DE /* ProfileGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B82019926A00A239DE /* ProfileGetResponse.swift */; };
+		0442D9DB2019926A00A239DE /* ProfileGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B82019926A00A239DE /* ProfileGetResponse.swift */; };
+		0442D9DC2019926A00A239DE /* ProfileGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B82019926A00A239DE /* ProfileGetResponse.swift */; };
+		0442D9DD2019926A00A239DE /* ConcertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B92019926A00A239DE /* ConcertResponse.swift */; };
+		0442D9DE2019926A00A239DE /* ConcertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B92019926A00A239DE /* ConcertResponse.swift */; };
+		0442D9DF2019926A00A239DE /* ConcertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9B92019926A00A239DE /* ConcertResponse.swift */; };
+		0442D9E02019926A00A239DE /* ConcertsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9BA2019926A00A239DE /* ConcertsGetResponse.swift */; };
+		0442D9E12019926A00A239DE /* ConcertsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9BA2019926A00A239DE /* ConcertsGetResponse.swift */; };
+		0442D9E22019926A00A239DE /* ConcertsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9BA2019926A00A239DE /* ConcertsGetResponse.swift */; };
+		0442D9E32019926A00A239DE /* ConcertsSeatGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9BB2019926A00A239DE /* ConcertsSeatGetResponse.swift */; };
+		0442D9E42019926A00A239DE /* ConcertsSeatGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9BB2019926A00A239DE /* ConcertsSeatGetResponse.swift */; };
+		0442D9E52019926A00A239DE /* ConcertsSeatGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442D9BB2019926A00A239DE /* ConcertsSeatGetResponse.swift */; };
 		045D148C1FF4DF3D00A67AA0 /* JSONDecoder+base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */; };
 		045D148D1FF4DF4000A67AA0 /* JSONDecoder+base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */; };
 		045D148F1FF4DF4500A67AA0 /* JSONDecoder+base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */; };
@@ -407,24 +401,22 @@
 		0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+AlamofireRequest.swift"; sourceTree = "<group>"; };
 		041734942011C49B0075D507 /* EasyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyCodable.swift; sourceTree = "<group>"; };
 		0420EABA2011D62C00E9820F /* DefaultAPI2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI2.swift; sourceTree = "<group>"; };
-		0420EABC2011E58900E9820F /* AccountsPostResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsPostResponse.swift; sourceTree = "<group>"; };
-		0420EABD2011E58A00E9820F /* AppsGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsGetResponse.swift; sourceTree = "<group>"; };
-		0420EABE2011E58A00E9820F /* PageHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageHelp.swift; sourceTree = "<group>"; };
-		0420EABF2011E58A00E9820F /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
-		0420EAC02011E58A00E9820F /* CommonBooleanGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonBooleanGetResponse.swift; sourceTree = "<group>"; };
-		0420EAC12011E58A00E9820F /* Notice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
-		0420EAC22011E58A00E9820F /* CommonNumberGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonNumberGetResponse.swift; sourceTree = "<group>"; };
-		0420EAC32011E58A00E9820F /* SettingsGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsGetResponse.swift; sourceTree = "<group>"; };
-		0420EAC42011E58A00E9820F /* HelpGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpGetResponse.swift; sourceTree = "<group>"; };
-		0420EAC52011E58B00E9820F /* Skin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
-		0420EAC62011E58B00E9820F /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
-		0420EAC72011E58B00E9820F /* NoticesGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticesGetResponse.swift; sourceTree = "<group>"; };
-		0420EAC82011E58B00E9820F /* ProfileGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileGetResponse.swift; sourceTree = "<group>"; };
-		0420EAC92011E58B00E9820F /* ConcertResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertResponse.swift; sourceTree = "<group>"; };
-		0420EACA2011E58B00E9820F /* ConcertsGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertsGetResponse.swift; sourceTree = "<group>"; };
-		0420EACB2011E58B00E9820F /* ConcertsSeatGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertsSeatGetResponse.swift; sourceTree = "<group>"; };
 		0420EB002011EFD300E9820F /* URLRequest+CodegenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+CodegenExtension.swift"; sourceTree = "<group>"; };
 		044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderUIExtension.swift"; sourceTree = "<group>"; };
+		0442D9AE2019926900A239DE /* AccountsPostResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsPostResponse.swift; sourceTree = "<group>"; };
+		0442D9AF2019926900A239DE /* AppsGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsGetResponse.swift; sourceTree = "<group>"; };
+		0442D9B02019926900A239DE /* SkinPostRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkinPostRequest.swift; sourceTree = "<group>"; };
+		0442D9B12019926900A239DE /* CommonBooleanGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonBooleanGetResponse.swift; sourceTree = "<group>"; };
+		0442D9B22019926900A239DE /* NoticeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeList.swift; sourceTree = "<group>"; };
+		0442D9B32019926900A239DE /* CommonNumberGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonNumberGetResponse.swift; sourceTree = "<group>"; };
+		0442D9B42019926900A239DE /* SettingsGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsGetResponse.swift; sourceTree = "<group>"; };
+		0442D9B52019926900A239DE /* Skin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
+		0442D9B62019926A00A239DE /* AlarmPostRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmPostRequest.swift; sourceTree = "<group>"; };
+		0442D9B72019926A00A239DE /* NoticesGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticesGetResponse.swift; sourceTree = "<group>"; };
+		0442D9B82019926A00A239DE /* ProfileGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileGetResponse.swift; sourceTree = "<group>"; };
+		0442D9B92019926A00A239DE /* ConcertResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertResponse.swift; sourceTree = "<group>"; };
+		0442D9BA2019926A00A239DE /* ConcertsGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertsGetResponse.swift; sourceTree = "<group>"; };
+		0442D9BB2019926A00A239DE /* ConcertsSeatGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertsSeatGetResponse.swift; sourceTree = "<group>"; };
 		045D148B1FF4DF3D00A67AA0 /* JSONDecoder+base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+base.swift"; sourceTree = "<group>"; };
 		0462CD8C1FFB798D002B6E11 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameToString.swift"; sourceTree = "<group>"; };
@@ -701,22 +693,20 @@
 		04E223DA2003766E00A2B388 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0420EABC2011E58900E9820F /* AccountsPostResponse.swift */,
-				0420EABD2011E58A00E9820F /* AppsGetResponse.swift */,
-				0420EAC02011E58A00E9820F /* CommonBooleanGetResponse.swift */,
-				0420EAC22011E58A00E9820F /* CommonNumberGetResponse.swift */,
-				0420EAC92011E58B00E9820F /* ConcertResponse.swift */,
-				0420EACA2011E58B00E9820F /* ConcertsGetResponse.swift */,
-				0420EACB2011E58B00E9820F /* ConcertsSeatGetResponse.swift */,
-				0420EAC62011E58B00E9820F /* Help.swift */,
-				0420EAC42011E58A00E9820F /* HelpGetResponse.swift */,
-				0420EAC12011E58A00E9820F /* Notice.swift */,
-				0420EAC72011E58B00E9820F /* NoticesGetResponse.swift */,
-				0420EABE2011E58A00E9820F /* PageHelp.swift */,
-				0420EAC82011E58B00E9820F /* ProfileGetResponse.swift */,
-				0420EAC32011E58A00E9820F /* SettingsGetResponse.swift */,
-				0420EAC52011E58B00E9820F /* Skin.swift */,
-				0420EABF2011E58A00E9820F /* Sort.swift */,
+				0442D9AE2019926900A239DE /* AccountsPostResponse.swift */,
+				0442D9B62019926A00A239DE /* AlarmPostRequest.swift */,
+				0442D9AF2019926900A239DE /* AppsGetResponse.swift */,
+				0442D9B12019926900A239DE /* CommonBooleanGetResponse.swift */,
+				0442D9B32019926900A239DE /* CommonNumberGetResponse.swift */,
+				0442D9B92019926A00A239DE /* ConcertResponse.swift */,
+				0442D9BA2019926A00A239DE /* ConcertsGetResponse.swift */,
+				0442D9BB2019926A00A239DE /* ConcertsSeatGetResponse.swift */,
+				0442D9B22019926900A239DE /* NoticeList.swift */,
+				0442D9B72019926A00A239DE /* NoticesGetResponse.swift */,
+				0442D9B82019926A00A239DE /* ProfileGetResponse.swift */,
+				0442D9B42019926900A239DE /* SettingsGetResponse.swift */,
+				0442D9B52019926900A239DE /* Skin.swift */,
+				0442D9B02019926900A239DE /* SkinPostRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1632,51 +1622,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E2243F2004867700A2B388 /* String+Alert.swift in Sources */,
-				0420EAD52011E58C00E9820F /* Sort.swift in Sources */,
 				04AD74091FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */,
 				04122A5D1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
-				0420EAD22011E58C00E9820F /* PageHelp.swift in Sources */,
 				04AD740F1FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
+				0442D9CE2019926A00A239DE /* SettingsGetResponse.swift in Sources */,
 				A696AE8F1FF5E98F009B8FEF /* BTDeviceService.swift in Sources */,
 				A696AE8B1FF5E8EB009B8FEF /* DeviceManager.swift in Sources */,
 				04C22BA91FEB9597007E2BED /* Logger.swift in Sources */,
 				0480BCE0200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */,
 				2B5AA08D1FEB55BA007441E1 /* BSTUXHanlder.swift in Sources */,
 				0417348520118BF40075D507 /* LoadingViewController.swift in Sources */,
-				0420EACC2011E58C00E9820F /* AccountsPostResponse.swift in Sources */,
 				0483854520035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				0480BCF4200C9FD500B79DB8 /* UserDefault+CustomClass.swift in Sources */,
 				0483853C20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
 				8F7CBF2C2005EE5600DBDE67 /* DetailConcertInformationViewController.swift in Sources */,
 				04E224452004937200A2B388 /* DeviceViewReactor.swift in Sources */,
 				04AD74021FF33934005F4BF0 /* SessionHandler.swift in Sources */,
+				0442D9C52019926A00A239DE /* CommonBooleanGetResponse.swift in Sources */,
 				04B21926200874FB002A1742 /* UIButton+UpdateAttributeString.swift in Sources */,
 				A696AE911FF5E9B4009B8FEF /* BTDeviceNetwork.swift in Sources */,
 				2B5AA0911FEB55D2007441E1 /* BSTButton.swift in Sources */,
 				0480BCE4200C3B1B00B79DB8 /* Extension+StoredProperties.swift in Sources */,
 				0462CDE81FFDFBE5002B6E11 /* Localizable.swift in Sources */,
+				0442D9BF2019926A00A239DE /* AppsGetResponse.swift in Sources */,
 				04AD741F1FF36269005F4BF0 /* Protocols.swift in Sources */,
 				2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */,
 				0462CDD71FFDBC32002B6E11 /* UIView+HideAndShow.swift in Sources */,
-				0420EAED2011E58C00E9820F /* NoticesGetResponse.swift in Sources */,
 				04AD741A1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				2B5AA0991FEB5639007441E1 /* OpenSourceSample.swift in Sources */,
-				0420EACF2011E58C00E9820F /* AppsGetResponse.swift in Sources */,
 				2B5AA07D1FEA62A0007441E1 /* Constants.swift in Sources */,
 				2B77AFBD20087E53004434D1 /* PermissionManager.swift in Sources */,
 				8F9A7CD020035F0E003BABB1 /* TextViewWithInsets.swift in Sources */,
+				0442D9D72019926A00A239DE /* NoticesGetResponse.swift in Sources */,
 				0483853620035641007DE69B /* AlamofireImplementations.swift in Sources */,
 				2BCCF08E200F24C5007AAD47 /* BSTClosure.swift in Sources */,
+				0442D9E32019926A00A239DE /* ConcertsSeatGetResponse.swift in Sources */,
 				0462CD931FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
-				0420EAE12011E58C00E9820F /* SettingsGetResponse.swift in Sources */,
 				041734952011C49B0075D507 /* EasyCodable.swift in Sources */,
 				0462CD951FFB9BD7002B6E11 /* String+SplitByUppercase.swift in Sources */,
-				0420EAE42011E58C00E9820F /* HelpGetResponse.swift in Sources */,
 				A6F3507520035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
 				2B77AFBA2005EA6B004434D1 /* TicketScanViewController.swift in Sources */,
 				04AD74161FF35E6E005F4BF0 /* String+URL.swift in Sources */,
-				0420EAEA2011E58C00E9820F /* Help.swift in Sources */,
-				0420EAF02011E58C00E9820F /* ProfileGetResponse.swift in Sources */,
 				2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */,
 				049A76891FEBA58D00B98935 /* NumberConvertible.swift in Sources */,
 				8F391FFD1FFF415300A46996 /* HelpWebViewController.swift in Sources */,
@@ -1687,26 +1673,24 @@
 				04122A691FEC962600896EE0 /* String+Format.swift in Sources */,
 				04122A611FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				04B2190620073617002A1742 /* TiltingView.swift in Sources */,
-				0420EADB2011E58C00E9820F /* Notice.swift in Sources */,
 				04036111200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */,
-				0420EAF92011E58C00E9820F /* ConcertsSeatGetResponse.swift in Sources */,
 				2B5AA0891FEB554B007441E1 /* DebugHSLee.swift in Sources */,
 				04838477200331BC007DE69B /* NilDestination.swift in Sources */,
 				A63F1A3220059D3A0079046D /* ConcertInfoView.swift in Sources */,
 				0462CDE01FFDF961002B6E11 /* R.generated.swift in Sources */,
-				0420EAD82011E58C00E9820F /* CommonBooleanGetResponse.swift in Sources */,
 				04122A551FEBAEE400896EE0 /* BSTUXHandler-Toast.swift in Sources */,
 				0420EB012011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */,
 				8F7BDC4220048EAF00DD2150 /* SettingViewController.swift in Sources */,
 				0483853320035641007DE69B /* APIHelper.swift in Sources */,
 				A623523B1FF390690007949C /* ViewController.swift in Sources */,
-				0420EADE2011E58C00E9820F /* CommonNumberGetResponse.swift in Sources */,
 				04E223F12003766E00A2B388 /* DefaultAPI.swift in Sources */,
 				8F6290C31FFCADD600689B91 /* ConcertInformationView.swift in Sources */,
+				0442D9C22019926A00A239DE /* SkinPostRequest.swift in Sources */,
 				2B5AA07B1FEA6299007441E1 /* Common.swift in Sources */,
 				04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
 				04AD73FF1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift in Sources */,
 				0480BCEC200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */,
+				0442D9DD2019926A00A239DE /* ConcertResponse.swift in Sources */,
 				041734892011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */,
 				0483854220035641007DE69B /* Extensions.swift in Sources */,
 				2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */,
@@ -1715,14 +1699,14 @@
 				04122A651FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				A62352391FF390690007949C /* ViewControllerReactor.swift in Sources */,
 				0480BCF0200C9CA500B79DB8 /* DateFormatter+jsonDate.swift in Sources */,
-				0420EAF62011E58C00E9820F /* ConcertsGetResponse.swift in Sources */,
 				0462CD981FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
 				2B771EA9201886230080392E /* FuncHouse.swift in Sources */,
 				2B764F9A200DCD8A00F9BDBD /* TicketConfirmViewController.swift in Sources */,
-				0420EAE72011E58C00E9820F /* Skin.swift in Sources */,
+				0442D9BC2019926A00A239DE /* AccountsPostResponse.swift in Sources */,
 				0480BCE8200C437000B79DB8 /* BoostNotifications.swift in Sources */,
 				04B2190F20074C13002A1742 /* BoostProfile.swift in Sources */,
 				2B5AA07F1FEA62A7007441E1 /* Definitions.swift in Sources */,
+				0442D9C82019926A00A239DE /* NoticeList.swift in Sources */,
 				8F82C1731FF38EC30031D030 /* HomeViewController.swift in Sources */,
 				0417348D2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */,
 				04AD73F91FF21E23005F4BF0 /* LogInViewController.swift in Sources */,
@@ -1734,14 +1718,18 @@
 				044236AF2005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */,
 				04B218FE20070879002A1742 /* PageManager.swift in Sources */,
 				A62352381FF390690007949C /* GithupService.swift in Sources */,
+				0442D9E02019926A00A239DE /* ConcertsGetResponse.swift in Sources */,
 				A623523A1FF390690007949C /* Gitup.swift in Sources */,
 				0420EABB2011D62C00E9820F /* DefaultAPI2.swift in Sources */,
 				8F9A7CBF200331F0003BABB1 /* TermsViewController.swift in Sources */,
 				2B5AA08B1FEB5568007441E1 /* IntroViewController.swift in Sources */,
 				0483853920035641007DE69B /* CodableHelper.swift in Sources */,
 				0483853F20035641007DE69B /* APIs.swift in Sources */,
-				0420EAF32011E58C00E9820F /* ConcertResponse.swift in Sources */,
 				04838474200331BC007DE69B /* CrashlyticsDestination.swift in Sources */,
+				0442D9D42019926A00A239DE /* AlarmPostRequest.swift in Sources */,
+				0442D9DA2019926A00A239DE /* ProfileGetResponse.swift in Sources */,
+				0442D9D12019926A00A239DE /* Skin.swift in Sources */,
+				0442D9CB2019926A00A239DE /* CommonNumberGetResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1752,18 +1740,18 @@
 				0417348A2011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */,
 				0462CDB81FFCA426002B6E11 /* DeviceManager.swift in Sources */,
 				0420EB022011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */,
-				0420EAD32011E58C00E9820F /* PageHelp.swift in Sources */,
 				0462CDBB1FFCA426002B6E11 /* BSTUXHandler-Toast.swift in Sources */,
 				04122A831FECE9AE00896EE0 /* Constants.swift in Sources */,
 				A63F1A3320059D3A0079046D /* ConcertInfoView.swift in Sources */,
 				04B2191E20076054002A1742 /* DetailConcertInformationViewController.swift in Sources */,
 				0480BCE9200C437000B79DB8 /* BoostNotifications.swift in Sources */,
 				04AD74201FF36269005F4BF0 /* Protocols.swift in Sources */,
+				0442D9D52019926A00A239DE /* AlarmPostRequest.swift in Sources */,
 				0462CD9C1FFCA407002B6E11 /* Gitup.swift in Sources */,
 				04AD74031FF33934005F4BF0 /* SessionHandler.swift in Sources */,
+				0442D9E42019926A00A239DE /* ConcertsSeatGetResponse.swift in Sources */,
 				04B2191C20076054002A1742 /* SettingViewController.swift in Sources */,
 				A6F3507620035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
-				0420EAE22011E58C00E9820F /* SettingsGetResponse.swift in Sources */,
 				04AD74171FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04122A771FECE9A200896EE0 /* ExceptionHandler.swift in Sources */,
 				0462CDCB1FFCA430002B6E11 /* NotificationViewController.swift in Sources */,
@@ -1775,31 +1763,26 @@
 				0462CDB91FFCA426002B6E11 /* WebViewController.swift in Sources */,
 				0480BCED200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */,
 				0462CDD81FFDBC35002B6E11 /* UIView+HideAndShow.swift in Sources */,
-				0420EAF42011E58C00E9820F /* ConcertResponse.swift in Sources */,
 				0462CDBA1FFCA426002B6E11 /* BSTUXHanlder.swift in Sources */,
 				04122A821FECE9AE00896EE0 /* Common.swift in Sources */,
 				04B2191820076046002A1742 /* Storyboard.swift in Sources */,
-				0420EADC2011E58C00E9820F /* Notice.swift in Sources */,
 				0417348620118BF40075D507 /* LoadingViewController.swift in Sources */,
 				0480BCF1200C9CA500B79DB8 /* DateFormatter+jsonDate.swift in Sources */,
 				0483853D20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
 				04B2191020074C13002A1742 /* BoostProfile.swift in Sources */,
-				0420EAEE2011E58C00E9820F /* NoticesGetResponse.swift in Sources */,
 				04B2191220076000002A1742 /* Theme.swift in Sources */,
 				04122A6A1FEC962600896EE0 /* String+Format.swift in Sources */,
 				04122A621FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
-				0420EAE52011E58C00E9820F /* HelpGetResponse.swift in Sources */,
-				0420EAFA2011E58C00E9820F /* ConcertsSeatGetResponse.swift in Sources */,
 				8F3920021FFF70AD00A46996 /* ConcertInformationView.swift in Sources */,
-				0420EAE82011E58C00E9820F /* Skin.swift in Sources */,
 				0462CDCA1FFCA430002B6E11 /* LogInViewController.swift in Sources */,
 				04838478200331BC007DE69B /* NilDestination.swift in Sources */,
 				0462CDA51FFCA40B002B6E11 /* OpenSourceSample.swift in Sources */,
 				04838475200331BC007DE69B /* CrashlyticsDestination.swift in Sources */,
-				0420EAF72011E58C00E9820F /* ConcertsGetResponse.swift in Sources */,
 				0462CDCC1FFCA430002B6E11 /* DebugHSLee.swift in Sources */,
 				04E223F22003766E00A2B388 /* DefaultAPI.swift in Sources */,
+				0442D9DE2019926A00A239DE /* ConcertResponse.swift in Sources */,
 				04B21927200874FB002A1742 /* UIButton+UpdateAttributeString.swift in Sources */,
+				0442D9BD2019926A00A239DE /* AccountsPostResponse.swift in Sources */,
 				04122A841FECE9AE00896EE0 /* Definitions.swift in Sources */,
 				04036112200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */,
 				0462CDAD1FFCA419002B6E11 /* BTDeviceService.swift in Sources */,
@@ -1809,6 +1792,7 @@
 				0462CDAF1FFCA419002B6E11 /* DeviceViewReactor.swift in Sources */,
 				0480BCF5200C9FD500B79DB8 /* UserDefault+CustomClass.swift in Sources */,
 				0462CDE21FFDF964002B6E11 /* R.generated.swift in Sources */,
+				0442D9C32019926A00A239DE /* SkinPostRequest.swift in Sources */,
 				0417348E2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */,
 				0480BCF7200CAB1F00B79DB8 /* TicketScanViewController.swift in Sources */,
 				04B2191B20076054002A1742 /* TermsViewController.swift in Sources */,
@@ -1816,33 +1800,37 @@
 				0462CDA71FFCA410002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				044236B02005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */,
 				0480BCE5200C3B1B00B79DB8 /* Extension+StoredProperties.swift in Sources */,
+				0442D9D82019926A00A239DE /* NoticesGetResponse.swift in Sources */,
 				04122A801FECE9AE00896EE0 /* AppDelegate.swift in Sources */,
 				04122A661FEC941F00896EE0 /* Collection+SafeRange.swift in Sources */,
 				04B218FF20070879002A1742 /* PageManager.swift in Sources */,
 				04122A5E1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
+				0442D9CC2019926A00A239DE /* CommonNumberGetResponse.swift in Sources */,
 				0462CDAE1FFCA419002B6E11 /* BTDeviceNetwork.swift in Sources */,
 				A6F3506E20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				04AD74101FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
 				04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */,
 				04122A781FECE9A200896EE0 /* BSTButton.swift in Sources */,
 				0462CDC71FFCA430002B6E11 /* HomeViewController.swift in Sources */,
-				0420EAD62011E58C00E9820F /* Sort.swift in Sources */,
 				04B2191D20076054002A1742 /* MenuViewController.swift in Sources */,
 				04AD741B1FF360D4005F4BF0 /* BSTError.swift in Sources */,
 				0480BCE1200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */,
+				0442D9C92019926A00A239DE /* NoticeList.swift in Sources */,
 				0462CD9E1FFCA407002B6E11 /* ViewControllerReactor.swift in Sources */,
-				0420EAD92011E58C00E9820F /* CommonBooleanGetResponse.swift in Sources */,
 				0462CDA81FFCA410002B6E11 /* NSObject+ClassNameToString.swift in Sources */,
+				0442D9D22019926A00A239DE /* Skin.swift in Sources */,
 				0462CD9D1FFCA407002B6E11 /* ViewController.swift in Sources */,
 				04122A7A1FECE9A200896EE0 /* NumberConvertible.swift in Sources */,
+				0442D9C62019926A00A239DE /* CommonBooleanGetResponse.swift in Sources */,
+				0442D9CF2019926A00A239DE /* SettingsGetResponse.swift in Sources */,
 				0483854620035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				041734962011C49B0075D507 /* EasyCodable.swift in Sources */,
-				0420EADF2011E58C00E9820F /* CommonNumberGetResponse.swift in Sources */,
 				04B219152007603C002A1742 /* TextViewWithInsets.swift in Sources */,
-				0420EAEB2011E58C00E9820F /* Help.swift in Sources */,
+				0442D9C02019926A00A239DE /* AppsGetResponse.swift in Sources */,
 				04B2191A20076054002A1742 /* HelpWebViewController.swift in Sources */,
+				0442D9DB2019926A00A239DE /* ProfileGetResponse.swift in Sources */,
 				04E224402004867700A2B388 /* String+Alert.swift in Sources */,
-				0420EAF12011E58C00E9820F /* ProfileGetResponse.swift in Sources */,
+				0442D9E12019926A00A239DE /* ConcertsGetResponse.swift in Sources */,
 				0483854920035641007DE69B /* Models.swift in Sources */,
 				0462CDC61FFCA430002B6E11 /* IntroViewController.swift in Sources */,
 				04B2191320076006002A1742 /* Localizable.swift in Sources */,
@@ -1850,8 +1838,6 @@
 				0483853A20035641007DE69B /* CodableHelper.swift in Sources */,
 				2B61F0521FDFA49500581F06 /* BoostMINITests.swift in Sources */,
 				0462CDB71FFCA426002B6E11 /* NotificationModel.swift in Sources */,
-				0420EACD2011E58C00E9820F /* AccountsPostResponse.swift in Sources */,
-				0420EAD02011E58C00E9820F /* AppsGetResponse.swift in Sources */,
 				0462CD991FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
 				04AD740A1FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */,
 				0412CB7C1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */,
@@ -1868,18 +1854,18 @@
 				04AD73FD1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
 				0420EB032011EFD300E9820F /* URLRequest+CodegenExtension.swift in Sources */,
 				04AD74211FF36269005F4BF0 /* Protocols.swift in Sources */,
-				0420EAD42011E58C00E9820F /* PageHelp.swift in Sources */,
 				04B2192420076054002A1742 /* DetailConcertInformationViewController.swift in Sources */,
 				04AD74041FF33934005F4BF0 /* SessionHandler.swift in Sources */,
 				0480BCEA200C437000B79DB8 /* BoostNotifications.swift in Sources */,
 				0462CD9A1FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
+				0442D9D62019926A00A239DE /* AlarmPostRequest.swift in Sources */,
 				04AD74181FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04B2192220076054002A1742 /* SettingViewController.swift in Sources */,
+				0442D9E52019926A00A239DE /* ConcertsSeatGetResponse.swift in Sources */,
 				0462CDA61FFCA40C002B6E11 /* OpenSourceSample.swift in Sources */,
 				0483854720035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				0483853E20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
 				04B21928200874FB002A1742 /* UIButton+UpdateAttributeString.swift in Sources */,
-				0420EAE32011E58C00E9820F /* SettingsGetResponse.swift in Sources */,
 				04AD73FA1FF21E23005F4BF0 /* LogInViewController.swift in Sources */,
 				0462CDAA1FFCA410002B6E11 /* String+SplitByUppercase.swift in Sources */,
 				0462CDD31FFCA431002B6E11 /* Common.swift in Sources */,
@@ -1892,28 +1878,23 @@
 				04122A6B1FEC962600896EE0 /* String+Format.swift in Sources */,
 				0462CDD41FFCA431002B6E11 /* Constants.swift in Sources */,
 				04B2191720076046002A1742 /* Storyboard.swift in Sources */,
-				0420EAF52011E58C00E9820F /* ConcertResponse.swift in Sources */,
 				0483853820035641007DE69B /* AlamofireImplementations.swift in Sources */,
 				0462CDA31FFCA408002B6E11 /* ViewControllerReactor.swift in Sources */,
 				0417348720118BF40075D507 /* LoadingViewController.swift in Sources */,
-				0420EADD2011E58C00E9820F /* Notice.swift in Sources */,
 				0480BCF2200C9CA500B79DB8 /* DateFormatter+jsonDate.swift in Sources */,
 				04B2190020070879002A1742 /* PageManager.swift in Sources */,
 				04B219142007602A002A1742 /* DeviceViewReactor.swift in Sources */,
-				0420EAEF2011E58C00E9820F /* NoticesGetResponse.swift in Sources */,
 				04122A631FEC92DE00896EE0 /* Dictionary+Easy.swift in Sources */,
 				0462CDE61FFDFBDC002B6E11 /* Theme.swift in Sources */,
 				04122A7E1FECE9A300896EE0 /* CommonUtil.swift in Sources */,
-				0420EAE62011E58C00E9820F /* HelpGetResponse.swift in Sources */,
-				0420EAFB2011E58C00E9820F /* ConcertsSeatGetResponse.swift in Sources */,
 				0412CB7D1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */,
-				0420EAE92011E58C00E9820F /* Skin.swift in Sources */,
 				A6F3506F20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				0483854D20035641007DE69B /* Configuration.swift in Sources */,
 				0462CDA21FFCA408002B6E11 /* ViewController.swift in Sources */,
 				0462CDD51FFCA431002B6E11 /* Definitions.swift in Sources */,
-				0420EAF82011E58C00E9820F /* ConcertsGetResponse.swift in Sources */,
+				0442D9DF2019926A00A239DE /* ConcertResponse.swift in Sources */,
 				0462CDC11FFCA426002B6E11 /* NotificationModel.swift in Sources */,
+				0442D9BE2019926A00A239DE /* AccountsPostResponse.swift in Sources */,
 				044236B12005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */,
 				04B2191120074C13002A1742 /* BoostProfile.swift in Sources */,
 				0462CDC51FFCA426002B6E11 /* BSTUXHandler-Alert.swift in Sources */,
@@ -1923,6 +1904,7 @@
 				0480BCF6200C9FD500B79DB8 /* UserDefault+CustomClass.swift in Sources */,
 				04B2192120076054002A1742 /* TermsViewController.swift in Sources */,
 				0417348F2011BAB20075D507 /* Logger+AlamofireRequest.swift in Sources */,
+				0442D9C42019926A00A239DE /* SkinPostRequest.swift in Sources */,
 				0480BCF8200CAB2000B79DB8 /* TicketScanViewController.swift in Sources */,
 				0462CDE11FFDF961002B6E11 /* R.generated.swift in Sources */,
 				0462CDCD1FFCA431002B6E11 /* IntroViewController.swift in Sources */,
@@ -1930,10 +1912,12 @@
 				0483853520035641007DE69B /* APIHelper.swift in Sources */,
 				0462CDB11FFCA41A002B6E11 /* BTDeviceNetwork.swift in Sources */,
 				0462CDC41FFCA426002B6E11 /* BSTUXHandler-Toast.swift in Sources */,
+				0442D9D92019926A00A239DE /* NoticesGetResponse.swift in Sources */,
 				04B2190820073617002A1742 /* TiltingView.swift in Sources */,
 				04E223F32003766E00A2B388 /* DefaultAPI.swift in Sources */,
 				8F3920031FFF70AE00A46996 /* ConcertInformationView.swift in Sources */,
 				0462CDA11FFCA408002B6E11 /* Gitup.swift in Sources */,
+				0442D9CD2019926A00A239DE /* CommonNumberGetResponse.swift in Sources */,
 				04122A851FECE9BC00896EE0 /* AppDelegate.swift in Sources */,
 				8F61AF8120083BD000862443 /* HomeViewController.swift in Sources */,
 				0462CDB01FFCA41A002B6E11 /* BTDeviceService.swift in Sources */,
@@ -1943,30 +1927,30 @@
 				0462CDD21FFCA431002B6E11 /* BSTFacade.swift in Sources */,
 				04AD74111FF339EC005F4BF0 /* AgreementViewController.swift in Sources */,
 				04B2192320076054002A1742 /* MenuViewController.swift in Sources */,
-				0420EAD72011E58C00E9820F /* Sort.swift in Sources */,
+				0442D9CA2019926A00A239DE /* NoticeList.swift in Sources */,
 				04122A5F1FEBBD0200896EE0 /* OptionSet+Sequence.swift in Sources */,
 				0480BCE2200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */,
+				0442D9D32019926A00A239DE /* Skin.swift in Sources */,
 				04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */,
-				0420EADA2011E58C00E9820F /* CommonBooleanGetResponse.swift in Sources */,
 				04AD741C1FF360D4005F4BF0 /* BSTError.swift in Sources */,
+				0442D9C72019926A00A239DE /* CommonBooleanGetResponse.swift in Sources */,
+				0442D9D02019926A00A239DE /* SettingsGetResponse.swift in Sources */,
 				0462CDD11FFCA431002B6E11 /* DebugHSLee.swift in Sources */,
 				04122A7D1FECE9A300896EE0 /* BSTButton.swift in Sources */,
 				04B219162007603C002A1742 /* TextViewWithInsets.swift in Sources */,
+				0442D9C12019926A00A239DE /* AppsGetResponse.swift in Sources */,
 				04B2192020076054002A1742 /* HelpWebViewController.swift in Sources */,
-				0420EAE02011E58C00E9820F /* CommonNumberGetResponse.swift in Sources */,
+				0442D9DC2019926A00A239DE /* ProfileGetResponse.swift in Sources */,
 				041734972011C49B0075D507 /* EasyCodable.swift in Sources */,
-				0420EAEC2011E58C00E9820F /* Help.swift in Sources */,
+				0442D9E22019926A00A239DE /* ConcertsGetResponse.swift in Sources */,
 				A63F1A3420059D3A0079046D /* ConcertInfoView.swift in Sources */,
 				04122A7F1FECE9A300896EE0 /* NumberConvertible.swift in Sources */,
-				0420EAF22011E58C00E9820F /* ProfileGetResponse.swift in Sources */,
 				0462CDD01FFCA431002B6E11 /* NotificationViewController.swift in Sources */,
 				2B61F05D1FDFA49500581F06 /* BoostMINIUITests.swift in Sources */,
 				0483854A20035641007DE69B /* Models.swift in Sources */,
 				045D148F1FF4DF4500A67AA0 /* JSONDecoder+base.swift in Sources */,
 				04AD740B1FF339EC005F4BF0 /* SMLoginViewController.swift in Sources */,
 				0462CDA01FFCA408002B6E11 /* GithupService.swift in Sources */,
-				0420EACE2011E58C00E9820F /* AccountsPostResponse.swift in Sources */,
-				0420EAD12011E58C00E9820F /* AppsGetResponse.swift in Sources */,
 				0483853B20035641007DE69B /* CodableHelper.swift in Sources */,
 				0483854120035641007DE69B /* APIs.swift in Sources */,
 				04838476200331BC007DE69B /* CrashlyticsDestination.swift in Sources */,
