@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
             if  BSTFacade.device.isConnected {
                 self.toggleViewingInformation()
             } else {
-                BSTFacade.go.device(self, type: ReactorViewType.Management)
+                BSTFacade.ux.goDevice(self, type: ReactorViewType.Management)
             }
         }.disposed(by: disposeBag)
         
@@ -172,7 +172,7 @@ class HomeViewController: UIViewController {
             if BSTFacade.device.isConnected {
                 toggleViewingInformation()
             } else {
-                BSTFacade.go.device(self, type: ReactorViewType.Management)
+                BSTFacade.ux.goDevice(self, type: ReactorViewType.Management)
             }
         }
     }
