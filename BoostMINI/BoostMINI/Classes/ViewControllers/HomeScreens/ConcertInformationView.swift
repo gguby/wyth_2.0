@@ -37,7 +37,7 @@ class ConcertInformationView: UIView {
     var homeViewController : HomeViewController?
     
     @IBAction func goDevice(_ sender: Any) {
-        BSTFacade.go.device(self.homeViewController, type: ReactorViewType.Management)
+        BSTFacade.ux.goDevice(self.homeViewController, type: ReactorViewType.Management)
     }
     
     let smtownFontAttribute = [ NSAttributedStringKey.font: UIFont(name: "SMTOWNOTF-Medium", size: 16.0)! ]

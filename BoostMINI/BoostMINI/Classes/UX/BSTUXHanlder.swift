@@ -70,6 +70,28 @@ class BSTUXHanlder {
         }
     }
     
+    func goDevice(_ currentVC : UIViewController? = nil, type : ReactorViewType) {
+        guard let vc = self.instantiateViewController(typeof: BTDeviceViewController.self) else {
+            return
+        }
+        let reactor = DeviceViewReactor.init(service: BTDeviceService.init())
+        reactor.viewType = type
+        vc.reactor = reactor
+        
+        guard let currentVC = currentVC else {
+            BSTError.debugUI(.viewController("getCurrentTopVC"))
+                .cookError()
+            return
+        }
+        
+        guard let navi = currentVC.navigationController else {
+            currentVC.present(vc, animated: true, completion: nil)
+            return
+        }
+        
+        navi.pushViewController(vc, animated: true)
+    }
+    
     // MARK: - * Common 함수 --------------------
     
     /// ViewController 타입으로 사전(Storyboard)에 정의된 ViewController를 반환

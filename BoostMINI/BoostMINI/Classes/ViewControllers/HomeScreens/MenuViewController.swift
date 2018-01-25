@@ -73,7 +73,7 @@ class MenuViewController: UIViewController {
     
 
     @IBAction func goDevice(_ sender: Any) {
-        BSTFacade.go.device(self, type: ReactorViewType.Management)
+        BSTFacade.ux.goDevice(self, type: ReactorViewType.Management)        
     }
     
     @IBAction func goToYoutubeSite(_ sender: UIButton) {

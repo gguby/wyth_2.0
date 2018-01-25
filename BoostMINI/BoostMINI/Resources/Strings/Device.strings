@@ -18,3 +18,4 @@
 "BTContentNotRegistered" = "연동된 응원도구가 없습니다";
 "BTContentUserInfo" = "%@ 님의 응원도구 및 좌석정보";
 "BTErrorAlertTitle" = "응원도구 인식오류";
+"BTConfirmReset" = "연동된 응원된 도구를 재설정 하시겠습니까? 좌석번호와 응원도구를 재설정합니다";
