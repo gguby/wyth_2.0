@@ -119,11 +119,13 @@ class HomeViewController: UIViewController {
 	
 
     override func viewWillAppear(_ animated: Bool) {
-        let hasTicketInfo = true
-        if hasTicketInfo && BSTFacade.device.isConnected {
+       
+        if BSTFacade.device.isConnected {
             //응원도구가 연동되었습니다
+            popupView.connectStatusLabel.text = "응원도구가 연동되었습니다."
         } else {
             //응원도구가 연동되어 있지 않습니다.
+            popupView.connectStatusLabel.text = "응원도구가 연동되어 있지 않습니다"
         }
         
         
@@ -140,7 +142,7 @@ class HomeViewController: UIViewController {
             popupView.heightAnchor.constraint(equalToConstant: 661).isActive = true
             
             popupView.topTiltingView.useCenter = false
-            popupView.topTiltingView.updateDisplayTiltMask(-28, animation:false)
+            popupView.topTiltingView.updateDisplayTiltMask(28, animation:false)
         } else {
             // Fallback on earlier versions
         }
