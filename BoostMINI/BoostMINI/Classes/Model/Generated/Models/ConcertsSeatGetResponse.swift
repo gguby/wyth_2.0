@@ -13,20 +13,26 @@ import Foundation
 open class ConcertsSeatGetResponse: EasyCodable {
 
 
-    public var area: String?
-    public var concertDate: String?
+    public var code: String?
+    public var column: String?
+    public var concertId: String?
     public var floor: String?
+    public var id: Int64?
     public var row: String?
-    public var seat: String?
+    public var timesId: Int?
+    public var zone: String?
 
 
     
-    public init(area: String?, concertDate: String?, floor: String?, row: String?, seat: String?) {
-        self.area = area
-        self.concertDate = concertDate
+    public init(code: String?, column: String?, concertId: String?, floor: String?, id: Int64?, row: String?, timesId: Int?, zone: String?) {
+        self.code = code
+        self.column = column
+        self.concertId = concertId
         self.floor = floor
+        self.id = id
         self.row = row
-        self.seat = seat
+        self.timesId = timesId
+        self.zone = zone
     }
     
 
@@ -36,11 +42,14 @@ open class ConcertsSeatGetResponse: EasyCodable {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(area, forKey: "area")
-        try container.encodeIfPresent(concertDate, forKey: "concertDate")
+        try container.encodeIfPresent(code, forKey: "code")
+        try container.encodeIfPresent(column, forKey: "column")
+        try container.encodeIfPresent(concertId, forKey: "concertId")
         try container.encodeIfPresent(floor, forKey: "floor")
+        try container.encodeIfPresent(id, forKey: "id")
         try container.encodeIfPresent(row, forKey: "row")
-        try container.encodeIfPresent(seat, forKey: "seat")
+        try container.encodeIfPresent(timesId, forKey: "timesId")
+        try container.encodeIfPresent(zone, forKey: "zone")
     }
 
     // Decodable protocol methods
@@ -48,11 +57,14 @@ open class ConcertsSeatGetResponse: EasyCodable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        area = try container.decodeIfPresent(String.self, forKey: "area")
-        concertDate = try container.decodeIfPresent(String.self, forKey: "concertDate")
+        code = try container.decodeIfPresent(String.self, forKey: "code")
+        column = try container.decodeIfPresent(String.self, forKey: "column")
+        concertId = try container.decodeIfPresent(String.self, forKey: "concertId")
         floor = try container.decodeIfPresent(String.self, forKey: "floor")
+        id = try container.decodeIfPresent(Int64.self, forKey: "id")
         row = try container.decodeIfPresent(String.self, forKey: "row")
-        seat = try container.decodeIfPresent(String.self, forKey: "seat")
+        timesId = try container.decodeIfPresent(Int.self, forKey: "timesId")
+        zone = try container.decodeIfPresent(String.self, forKey: "zone")
     }
 }
 
