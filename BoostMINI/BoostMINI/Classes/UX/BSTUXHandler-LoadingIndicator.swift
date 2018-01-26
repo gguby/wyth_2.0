@@ -30,6 +30,7 @@ extension BSTUXHanlder {
 				privateInstance.window = UIWindow(frame: UIScreen.main.bounds)
 			}
 			let window = privateInstance.window!
+			
 
 			let loadingVC = R.storyboard.common.loadingViewController()
 

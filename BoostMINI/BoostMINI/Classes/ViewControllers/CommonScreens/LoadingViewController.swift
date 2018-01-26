@@ -15,6 +15,7 @@ class LoadingViewController: UIViewController {
 
 	let dateCreated = Date()
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 	
 	@IBAction func backgroundTouchDown(_ sender: Any) {
 		BSTFacade.ux.hideIndicator()

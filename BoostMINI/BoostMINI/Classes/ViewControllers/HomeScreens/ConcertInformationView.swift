@@ -58,8 +58,10 @@ class ConcertInformationView: UIView {
             self?.concertNameLabel.text = data.concertNm
             self?.concertDateLabel.text = data.concertDate
             self?.concertPlaceLabel.text = "@\(data.concertPlace!)"
-            
-            if data.concertStatus == .end {
+			
+			//TODO : API 변경 대응...
+			if data.end == true {
+            //if data.concertStatus == .end {
                 self?.ddayLabel.text = "END"
                 self?.ddayLabel.backgroundColor = R.clr.boostMini.commonBgDefault()
                 self?.detailConcertInformationButton.backgroundColor = R.clr.boostMini.commonBgDefault()
