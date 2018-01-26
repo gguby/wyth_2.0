@@ -25,10 +25,13 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var btnScan: UIButton!
     @IBOutlet weak var btnDebug: UIButton!
 	
-	@IBOutlet weak var btnHelp: UIButton!
-	@IBOutlet weak var btnSetup: UIButton!
-	
+    @IBOutlet weak var deviceButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var settingButton: UIButton!
+    
+    
     // MARK: - * Initialize --------------------
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +62,13 @@ class MenuViewController: UIViewController {
             FLEXManager.shared().showExplorer()
             }.disposed(by: disposeBag)
     #endif
+        
+        self.deviceButton.rx.tap.bind {
+			self.dismiss(animated: false, completion: {
+				BSTFacade.ux.goDevice(HomeViewController.current ?? self, type: ReactorViewType.Management)
+			})
+        }.disposed(by: disposeBag)
+        
     }
 	
 	override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -79,11 +89,6 @@ class MenuViewController: UIViewController {
     // MARK: - * Main Logic --------------------
     
     // MARK: - * UI Events --------------------
-    
-
-    @IBAction func goDevice(_ sender: Any) {
-        BSTFacade.ux.goDevice(self, type: ReactorViewType.Management)        
-    }
     
     @IBAction func goToYoutubeSite(_ sender: UIButton) {
         let appURL = NSURL(string: "youtube://www.youtube.com/user/SMTOWN")!

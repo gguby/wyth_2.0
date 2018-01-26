@@ -57,6 +57,14 @@ class BSTUXHanlder {
         currentVC?.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func goSettingViewController(currentViewController currentVC: UIViewController?) {
+        guard let vc = self.instantiateViewController(typeof: SettingViewController.self) else {
+            return
+        }
+        
+        currentVC?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     ///알림 목록 화면을 로딩함.
     func goNotification() {
         guard let vc = self.instantiateViewController(typeof: NotificationViewController.self) else {

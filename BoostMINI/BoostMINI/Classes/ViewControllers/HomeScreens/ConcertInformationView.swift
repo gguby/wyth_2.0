@@ -106,7 +106,7 @@ class ConcertInformationView: UIView {
     
     func closeConcertSeatInfo() {
         self.topTiltingView.backgroundColor = R.clr.boostMini.commonBgDefault()
-        self.connectStatusLabel.text = "공연이 종료되었습니다"
+        self.connectStatusLabel.text = BSTFacade.localizable.home.thePerformanceIsOver()
         self.arrowButton.isHidden = true
     }
     

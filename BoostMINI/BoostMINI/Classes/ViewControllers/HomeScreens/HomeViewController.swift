@@ -126,10 +126,10 @@ class HomeViewController: BoostUIViewController {
         
         if BSTFacade.device.isConnected {
             //응원도구가 연동되었습니다
-            popupView.connectStatusLabel.text = R.string.home.connectSuccessDevice()
+            popupView.connectStatusLabel.text = BSTFacade.localizable.home.connectSuccessDevice()
         } else {
             //응원도구가 연동되어 있지 않습니다.
-            popupView.connectStatusLabel.text = R.string.home.interlinkSupportTools()
+            popupView.connectStatusLabel.text = BSTFacade.localizable.home.interlinkSupportTools()
         }
         
         if #available(iOS 10.0, *) {
