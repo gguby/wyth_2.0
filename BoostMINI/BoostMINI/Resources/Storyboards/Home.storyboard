@@ -108,9 +108,13 @@
         <scene sceneID="07C-r8-nQL">
             <objects>
                 <navigationController storyboardIdentifier="LeftMenuNavigationController" navigationBarHidden="YES" id="Q9p-jB-30q" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c47-ww-6YG">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CGQ-Ki-plG">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="menuWidth">
@@ -158,9 +162,6 @@
                                 <state key="normal" title="도움말" image="icon_menu_info">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="0IN-aH-j1k" kind="show" id="ks6-mA-n35"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-TS-HhW" userLabel="line">
                                 <rect key="frame" x="0.0" y="198" width="240" height="1"/>
@@ -180,9 +181,6 @@
                                 <state key="normal" title="설정" image="icon_menu_edit">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="UuI-wl-XUt" kind="show" id="XpX-Q2-Sn5"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9S-1k-fuF" userLabel="line">
                                 <rect key="frame" x="0.0" y="251" width="240" height="1"/>
@@ -202,9 +200,6 @@
                                 <state key="normal" title="응원도구 관리" image="icon_menu_stick">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="goDevice:" destination="KFb-Aw-ybA" eventType="touchUpInside" id="TTU-DE-nmB"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tla-l2-1UC">
                                 <rect key="frame" x="0.0" y="556" width="240" height="52"/>
@@ -286,12 +281,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jTv-Bz-bQc"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="ljy-f5-PId"/>
                     <size key="freeformSize" width="240" height="667"/>
                     <connections>
                         <outlet property="btnDebug" destination="jtk-bh-IzU" id="qMi-Ug-hOc"/>
                         <outlet property="btnScan" destination="ihy-23-gFP" id="Oam-FD-4AJ"/>
+                        <outlet property="deviceButton" destination="w6j-P6-rVD" id="Dh1-IN-Iaq"/>
                         <outlet property="diagonalImageView" destination="STy-jk-l5M" id="TQc-fd-PgO"/>
+                        <outlet property="helpButton" destination="6lw-NI-sJf" id="tM1-gE-Mu9"/>
+                        <outlet property="settingButton" destination="tSi-YQ-eW8" id="W9h-kw-yyn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z8o-fJ-3bW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -301,7 +300,7 @@
         <!--Setting View Controller-->
         <scene sceneID="1nj-tF-DYu">
             <objects>
-                <viewController id="UuI-wl-XUt" customClass="SettingViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" id="UuI-wl-XUt" customClass="SettingViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6zL-Tt-grI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -700,21 +699,6 @@
                 <exit id="fCi-cT-zaB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2152.8000000000002" y="-374.66266866566718"/>
-        </scene>
-        <!--Concert Information View Controller-->
-        <scene sceneID="UWh-KX-Hy3">
-            <objects>
-                <viewController id="BvQ-cF-ZSj" customClass="ConcertInformationViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Md-ec-vMm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="7yI-Mo-HqW"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jDb-fj-gcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="790" y="360"/>
         </scene>
         <!--Help Web View Controller-->
         <scene sceneID="14J-er-94j">
