@@ -61,7 +61,7 @@ class NotificationTableViewCell: UITableViewCell {
             self.lblTitle.text = notice.title
             self.lblContent.text = notice.expand ? notice.content : ""
             let textColor = notice.expand ? BSTFacade.theme.color.commonTextBg() : BSTFacade.theme.color.textSubtext1()
-            imgvNew.isHidden = notice.expand
+            imgvNew.isHidden = notice.view ?? true
             
 			let angle = (notice.expand ? 180 : 0).c.toRadians
             UIView.animate(withDuration: 0.25) {
