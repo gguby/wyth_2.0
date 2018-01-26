@@ -35,18 +35,18 @@
 "statusCoddWithMessage" = "status code #%d : %@";
 
 //HTTP
-"apiBadRequest" = "badRequest";
-"apiUnauthorized" = "인증되지 않은 유저입니다.";
+"apiBadRequest" = "페이지를 찾을 수 없습니다.\n잠시 후 다시 시도해주세요.";
+"apiUnauthorized" = "로그인이 되어 있지 않아 로그인 페이지로 이동합니다.";
 "apiPaymentRequired" = "결제가 필요합니다.";
 "apiForbidden" = "forbidden";
-"apiNotFound" = "notFound";
-"apiUpgradeRequired" = "Upgrade Required";
+"apiNotFound" = "페이지를 찾을 수 없습니다. 잠시 후 다시 시도해주세요.";
+"apiUpgradeRequired" = "최신버전으로 업데이트 해주세요.";
 
-"apiInternalServerError" = "internalServerError";
-"apiNotImplemented" = "notImplemented";
-"apiBadGateway" = "badGateway";
-"apiServiceUnavailable" = "serviceUnavailable";
-"apiGatewayTimeout" = "gatewayTimeout";
+"apiInternalServerError" = "일시적인 오류입니다. 잠시 후 다시 시도해주세요.";
+"apiNotImplemented" = "일시적인 오류입니다. 잠시 후 다시 시도해주세요.";
+"apiBadGateway" = "일시적인 오류입니다. 잠시 후 다시 시도해주세요.";
+"apiServiceUnavailable" = "일시적인 오류입니다. 잠시 후 다시 시도해주세요.";
+"apiGatewayTimeout" = "일시적인 오류입니다. 잠시 후 다시 시도해주세요.";
 
 
 "apiUserExists" = "userExists";

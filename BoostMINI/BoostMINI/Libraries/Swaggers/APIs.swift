@@ -9,6 +9,7 @@ import Foundation
 
 open class BoostMINIAPI {
     open static var basePath = "https://boostdev.lysn.com"
+//    open static var basePath = "http://10.10.24.20"
     open static var credential: URLCredential?
     open static var customHeaders: [String:String] = [:]
     open static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()

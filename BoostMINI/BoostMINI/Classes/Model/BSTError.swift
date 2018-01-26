@@ -149,7 +149,7 @@ enum APIError: Int, Error, BSTErrorProtocol {
             desc = BSTFacade.localizable.error.networkFailed()
 		case .badRequest://400
 			desc = BSTFacade.localizable.error.apiBadRequest()
-		case .unauthorized:
+		case .unauthorized: //session expired
 			desc = BSTFacade.localizable.error.apiUnauthorized()
 		case .forbidden:
 			desc = BSTFacade.localizable.error.apiForbidden()
@@ -194,8 +194,8 @@ enum APIError: Int, Error, BSTErrorProtocol {
 			BSTFacade.ux.showAlert(self.description, {
 				BSTFacade.go.login()
 			})
-		case .sessionAlreadyHasBeenDisconnected:
-			BSTFacade.session.tryLoginToBoost()
+        case .unauthorized, .sessionAlreadyHasBeenDisconnected:
+            BSTFacade.session.tryLoginToBoost()
 		default:
 			BSTFacade.ux.showAlert(self.description) //alert 출력
 		}
@@ -416,7 +416,7 @@ class BSTErrorBaker<T> {
 				
 //                BSTFacade.ux.showToastError("\(error.localizedDescription)")
 				if let api = APIError(rawValue: code) {
-//                    throw api
+                    throw api
 					// 906이었나? APIError에 없는게 나오니 무한에러
 				} else {
 					throw BSTError.white(WhiteError.statusCode(code))
