@@ -15,7 +15,7 @@ import TransitionButton
 import UIColor_Hex_Swift
 
 /// 로그인 하기 전의 화면임.
-class LogInViewController: UIViewController {
+class LogInViewController: BoostUIViewController {
 
 	@IBOutlet weak var loginButton: TransitionButton!
 	@IBOutlet weak var testButton: TransitionButton?
@@ -29,7 +29,6 @@ class LogInViewController: UIViewController {
 	@IBOutlet weak var loginLabel: UILabel!
 
 	var cacheLoginButtonBottomConstraint: CGFloat!
-	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 
 	// 최초 1회 이후의 로그인 접근은 애니메이션 없음.

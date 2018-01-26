@@ -8,14 +8,12 @@
 
 import UIKit
 
-class IntroViewController: UIViewController {
+class IntroViewController: BoostUIViewController {
 	static var actual: IntroViewController? = nil
 
 	@IBOutlet weak var loadingMarkRightGapWidthConstraint: NSLayoutConstraint!
 	@IBOutlet weak var loadingMarkFrame: UIView!
 	@IBOutlet weak var loadingMark: UIView!
-
-	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 	
 	var progressCompleted: Bool = false

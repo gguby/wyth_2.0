@@ -14,11 +14,13 @@ open class ConcertsGetResponse: EasyCodable {
 
 
     public var concertlist: [ConcertResponse]?
+    public var totalAlarm: Int?
 
 
     
-    public init(concertlist: [ConcertResponse]?) {
+    public init(concertlist: [ConcertResponse]?, totalAlarm: Int?) {
         self.concertlist = concertlist
+        self.totalAlarm = totalAlarm
     }
     
 
@@ -29,6 +31,7 @@ open class ConcertsGetResponse: EasyCodable {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(concertlist, forKey: "concertlist")
+        try container.encodeIfPresent(totalAlarm, forKey: "totalAlarm")
     }
 
     // Decodable protocol methods
@@ -37,6 +40,7 @@ open class ConcertsGetResponse: EasyCodable {
         let container = try decoder.container(keyedBy: String.self)
 
         concertlist = try container.decodeIfPresent([ConcertResponse].self, forKey: "concertlist")
+        totalAlarm = try container.decodeIfPresent(Int.self, forKey: "totalAlarm")
     }
 }
 

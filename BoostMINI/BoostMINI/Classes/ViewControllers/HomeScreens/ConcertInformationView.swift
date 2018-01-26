@@ -58,8 +58,10 @@ class ConcertInformationView: UIView {
             self?.concertNameLabel.text = data.concertNm
             self?.concertDateLabel.text = data.concertDate
             self?.concertPlaceLabel.text = "@\(data.concertPlace!)"
-            
-            if data.concertStatus == .end {
+			
+			//TODO : API 변경 대응...
+			if data.end == true {
+            //if data.concertStatus == .end {
                 self?.ddayLabel.text = "END"
                 self?.ddayLabel.backgroundColor = R.clr.boostMini.commonBgDefault()
                 self?.detailConcertInformationButton.backgroundColor = R.clr.boostMini.commonBgDefault()
@@ -104,7 +106,7 @@ class ConcertInformationView: UIView {
     
     func closeConcertSeatInfo() {
         self.topTiltingView.backgroundColor = R.clr.boostMini.commonBgDefault()
-        self.connectStatusLabel.text = "공연이 종료되었습니다"
+        self.connectStatusLabel.text = BSTFacade.localizable.home.thePerformanceIsOver()
         self.arrowButton.isHidden = true
     }
     

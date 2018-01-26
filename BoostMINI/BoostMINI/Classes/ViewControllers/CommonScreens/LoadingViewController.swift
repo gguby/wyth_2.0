@@ -8,13 +8,12 @@
 
 import UIKit
 
-class LoadingViewController: UIViewController {
+class LoadingViewController: BoostUIViewController {
 
 	@IBOutlet weak var viewIndicator: UIView!
 	@IBOutlet weak var indicator: UIActivityIndicatorView!
 
 	let dateCreated = Date()
-	
 	
 	@IBAction func backgroundTouchDown(_ sender: Any) {
 		BSTFacade.ux.hideIndicator()

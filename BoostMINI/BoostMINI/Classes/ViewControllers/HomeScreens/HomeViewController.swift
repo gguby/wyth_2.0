@@ -27,9 +27,10 @@ extension State {
 }
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: BoostUIViewController {
     
     // MARK: - * properties --------------------
+	static weak var current: HomeViewController? = nil
 
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var skinImageView: UIImageView!
@@ -69,7 +70,6 @@ class HomeViewController: UIViewController {
     private var bottomConstraint = NSLayoutConstraint()
     private var currentState: State = .closed
 	
-	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 	
     // MARK: - * IBOutlets --------------------
     
@@ -82,6 +82,8 @@ class HomeViewController: UIViewController {
         self.initProperties()
         self.initUI()
         self.prepareViewDidLoad()
+		
+		HomeViewController.current = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -124,10 +126,10 @@ class HomeViewController: UIViewController {
         
         if BSTFacade.device.isConnected {
             //응원도구가 연동되었습니다
-            popupView.connectStatusLabel.text = R.string.home.connectSuccessDevice()
+            popupView.connectStatusLabel.text = BSTFacade.localizable.home.connectSuccessDevice()
         } else {
             //응원도구가 연동되어 있지 않습니다.
-            popupView.connectStatusLabel.text = R.string.home.interlinkSupportTools()
+            popupView.connectStatusLabel.text = BSTFacade.localizable.home.interlinkSupportTools()
         }
         
         if #available(iOS 10.0, *) {

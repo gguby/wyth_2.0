@@ -160,6 +160,81 @@ extension DefaultAPI {
     }
 
     /**
+     알림 읽기 여부 상태 변경
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter id: (path) id 
+     - parameter read: (path) read 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postNoticesReadUsingPOST(id: Int, read: Bool, completion: @escaping ((_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
+        postNoticesReadUsingPOSTWithRequestBuilder(id: id, read: read).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
+            completion(error);
+        }
+    }
+
+    /**
+     알림 읽기 여부 상태 변경
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter id: (path) id 
+     - parameter read: (path) read 
+     - returns: Observable<Void>
+     */
+    open class func postNoticesReadUsingPOST(id: Int, read: Bool) -> Observable<Void> {
+        return Observable.create { observer -> Disposable in
+            postNoticesReadUsingPOST(id: id, read: read) { error in
+                if let error = error {
+                    observer.on(.error(error))
+                } else {
+                    observer.on(.next(()))
+                }
+                observer.on(.completed)
+            }
+            return Disposables.create()
+        }
+    }
+
+    /**
+     알림 읽기 여부 상태 변경
+     - POST /notices/{id}/{read}
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter id: (path) id 
+     - parameter read: (path) read 
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func postNoticesReadUsingPOSTWithRequestBuilder(id: Int, read: Bool) -> RequestBuilder<Void> {
+        var path = "/notices/{id}/{read}"
+        path = path.replacingOccurrences(of: "{id}", with: "\(id)", options: .literal, range: nil)
+        path = path.replacingOccurrences(of: "{read}", with: "\(read)", options: .literal, range: nil)
+        let URLString = BoostMINIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+
+        let url = NSURLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            "X-APP-Version": xAPPVersion,
+            "X-Device": xDevice,
+            "Accept-Language": acceptLanguage
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = BoostMINIAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
      showResponseCode
      
      - parameter xAPPVersion: (header) app version 

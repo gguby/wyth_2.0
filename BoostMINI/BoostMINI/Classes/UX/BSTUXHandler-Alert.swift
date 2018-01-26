@@ -50,7 +50,8 @@ extension BSTUXHanlder {
 
 	
 	internal class SystemAlertViewController: UIViewController {
-		var presentedStatusBarStyle = UIStatusBarStyle.lightContent
+		override var preferredStatusBarStyle: UIStatusBarStyle { return presentedStatusBarStyle }
+		var presentedStatusBarStyle: UIStatusBarStyle = .lightContent
 		// 현재스타일로 함께 사용.
 		var isStatusBarHidden = false
 
@@ -103,7 +104,7 @@ extension BSTUXHanlder {
 				window.frame = UIScreen.main.bounds
 
 				window.rootViewController = SystemAlertViewController(statusBarStyle: UIApplication.shared.statusBarStyle)
-
+				
 				window.windowLevel = kAlertWindowLevel
 				window.makeKeyAndVisible()
 				window.isUserInteractionEnabled = true
