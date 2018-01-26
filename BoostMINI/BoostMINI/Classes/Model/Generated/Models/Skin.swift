@@ -13,12 +13,12 @@ import Foundation
 open class Skin: EasyCodable {
 
 
-    public var id: Int64?
+    public var id: Int?
     public var url: String?
 
 
     
-    public init(id: Int64?, url: String?) {
+    public init(id: Int?, url: String?) {
         self.id = id
         self.url = url
     }
@@ -39,7 +39,7 @@ open class Skin: EasyCodable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        id = try container.decodeIfPresent(Int64.self, forKey: "id")
+        id = try container.decodeIfPresent(Int.self, forKey: "id")
         url = try container.decodeIfPresent(String.self, forKey: "url")
     }
 }

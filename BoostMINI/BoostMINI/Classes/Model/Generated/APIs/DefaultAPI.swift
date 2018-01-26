@@ -155,25 +155,17 @@ open class DefaultAPI {
     }
 
     /**
-     * enum for parameter type
-     */
-    public enum ModelType_getSeatsUsingGET: String { 
-        case interpark = "INTERPARK"
-        case yes24 = "YES24"
-    }
-
-    /**
      콘서트 좌석 정보 조회
      
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
-     - parameter type: (path) type 
+     - parameter concertId: (path) concertId 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getSeatsUsingGET(type: ModelType_getSeatsUsingGET, completion: @escaping ((_ data: ConcertsSeatGetResponse?,_ error: Error?) -> Void)) {
+    open class func getSeatsUsingGET(concertId: String, completion: @escaping ((_ data: ConcertsSeatGetResponse?,_ error: Error?) -> Void)) {
 		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
-        getSeatsUsingGETWithRequestBuilder(type: type).execute { (response, error) -> Void in
+        getSeatsUsingGETWithRequestBuilder(concertId: concertId).execute { (response, error) -> Void in
 		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
@@ -185,12 +177,12 @@ open class DefaultAPI {
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
-     - parameter type: (path) type 
+     - parameter concertId: (path) concertId 
      - returns: Observable<ConcertsSeatGetResponse>
      */
-    open class func getSeatsUsingGET(type: ModelType_getSeatsUsingGET) -> Observable<ConcertsSeatGetResponse> {
+    open class func getSeatsUsingGET(concertId: String) -> Observable<ConcertsSeatGetResponse> {
         return Observable.create { observer -> Disposable in
-            getSeatsUsingGET(type: type) { data, error in
+            getSeatsUsingGET(concertId: concertId) { data, error in
                 if let error = error {
                     observer.on(.error(error))
                 } else {
@@ -204,19 +196,19 @@ open class DefaultAPI {
 
     /**
      콘서트 좌석 정보 조회
-     - GET /concerts/seat/{type}
+     - GET /concerts/seat/{concertId}
      - examples: [{output=none}]
      
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
-     - parameter type: (path) type 
+     - parameter concertId: (path) concertId 
 
      - returns: RequestBuilder<ConcertsSeatGetResponse> 
      */
-    open class func getSeatsUsingGETWithRequestBuilder(type: ModelType_getSeatsUsingGET) -> RequestBuilder<ConcertsSeatGetResponse> {
-        var path = "/concerts/seat/{type}"
-        path = path.replacingOccurrences(of: "{type}", with: "\(type.rawValue)", options: .literal, range: nil)
+    open class func getSeatsUsingGETWithRequestBuilder(concertId: String) -> RequestBuilder<ConcertsSeatGetResponse> {
+        var path = "/concerts/seat/{concertId}"
+        path = path.replacingOccurrences(of: "{concertId}", with: "\(concertId)", options: .literal, range: nil)
         let URLString = BoostMINIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
@@ -376,12 +368,12 @@ open class DefaultAPI {
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
-     - parameter alarm: (body) alarm 
+     - parameter request: (body) request 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postAlarmsUsingPOST(alarm: Bool, completion: @escaping ((_ data: CommonBooleanGetResponse?,_ error: Error?) -> Void)) {
+    open class func postAlarmsUsingPOST(request: AlarmPostRequest, completion: @escaping ((_ data: CommonBooleanGetResponse?,_ error: Error?) -> Void)) {
 		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
-        postAlarmsUsingPOSTWithRequestBuilder(alarm: alarm).execute { (response, error) -> Void in
+        postAlarmsUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
 		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
@@ -393,12 +385,12 @@ open class DefaultAPI {
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
-     - parameter alarm: (body) alarm 
+     - parameter request: (body) request 
      - returns: Observable<CommonBooleanGetResponse>
      */
-    open class func postAlarmsUsingPOST(alarm: Bool) -> Observable<CommonBooleanGetResponse> {
+    open class func postAlarmsUsingPOST(request: AlarmPostRequest) -> Observable<CommonBooleanGetResponse> {
         return Observable.create { observer -> Disposable in
-            postAlarmsUsingPOST(alarm: alarm) { data, error in
+            postAlarmsUsingPOST(request: request) { data, error in
                 if let error = error {
                     observer.on(.error(error))
                 } else {
@@ -418,14 +410,14 @@ open class DefaultAPI {
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
-     - parameter alarm: (body) alarm 
+     - parameter request: (body) request 
 
      - returns: RequestBuilder<CommonBooleanGetResponse> 
      */
-    open class func postAlarmsUsingPOSTWithRequestBuilder(alarm: Bool) -> RequestBuilder<CommonBooleanGetResponse> {
+    open class func postAlarmsUsingPOSTWithRequestBuilder(request: AlarmPostRequest) -> RequestBuilder<CommonBooleanGetResponse> {
         let path = "/settings/alarm"
         let URLString = BoostMINIAPI.basePath + path
-        let parameters: Parameters? = ["alarm": alarm]
+        let parameters: Parameters? = ["request": request]
 
         let url = NSURLComponents(string: URLString)
 
@@ -447,12 +439,12 @@ open class DefaultAPI {
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
-     - parameter select: (body) select 
+     - parameter request: (body) request 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postSkinsUsingPOST(select: Int, completion: @escaping ((_ data: CommonNumberGetResponse?,_ error: Error?) -> Void)) {
+    open class func postSkinsUsingPOST(request: SkinPostRequest, completion: @escaping ((_ data: CommonNumberGetResponse?,_ error: Error?) -> Void)) {
 		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
-        postSkinsUsingPOSTWithRequestBuilder(select: select).execute { (response, error) -> Void in
+        postSkinsUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
 		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
             completion(response?.body, BSTErrorBaker.errorFilter(error, response))
         }
@@ -464,12 +456,12 @@ open class DefaultAPI {
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
-     - parameter select: (body) select 
+     - parameter request: (body) request 
      - returns: Observable<CommonNumberGetResponse>
      */
-    open class func postSkinsUsingPOST(select: Int) -> Observable<CommonNumberGetResponse> {
+    open class func postSkinsUsingPOST(request: SkinPostRequest) -> Observable<CommonNumberGetResponse> {
         return Observable.create { observer -> Disposable in
-            postSkinsUsingPOST(select: select) { data, error in
+            postSkinsUsingPOST(request: request) { data, error in
                 if let error = error {
                     observer.on(.error(error))
                 } else {
@@ -489,14 +481,14 @@ open class DefaultAPI {
      - parameter xAPPVersion: (header) app version 
      - parameter xDevice: (header) device/os information (informal) 
      - parameter acceptLanguage: (header) language-locale 
-     - parameter select: (body) select 
+     - parameter request: (body) request 
 
      - returns: RequestBuilder<CommonNumberGetResponse> 
      */
-    open class func postSkinsUsingPOSTWithRequestBuilder(select: Int) -> RequestBuilder<CommonNumberGetResponse> {
+    open class func postSkinsUsingPOSTWithRequestBuilder(request: SkinPostRequest) -> RequestBuilder<CommonNumberGetResponse> {
         let path = "/settings/skin"
         let URLString = BoostMINIAPI.basePath + path
-        let parameters: Parameters? = ["select": select]
+        let parameters: Parameters? = ["request": request]
 
         let url = NSURLComponents(string: URLString)
 

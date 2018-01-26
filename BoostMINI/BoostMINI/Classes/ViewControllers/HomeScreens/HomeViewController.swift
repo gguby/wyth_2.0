@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
             if  BSTFacade.device.isConnected {
                 self.toggleViewingInformation()
             } else {
-                BSTFacade.go.device(self, type: ReactorViewType.Management)
+                BSTFacade.ux.goDevice(self, type: ReactorViewType.Management)
             }
         }.disposed(by: disposeBag)
         
@@ -106,6 +106,7 @@ class HomeViewController: UIViewController {
     private func initUI() {
 		if #available(iOS 10.0, *) {
 			layout()
+            
 		}
     }
 
@@ -117,15 +118,17 @@ class HomeViewController: UIViewController {
         PermissionManager.requestDeterminingPermission(completion: nil)
 	}
 	
-
+    
     override func viewWillAppear(_ animated: Bool) {
-        let hasTicketInfo = true
-        if hasTicketInfo && BSTFacade.device.isConnected {
+       updateSkinImageView()
+        
+        if BSTFacade.device.isConnected {
             //응원도구가 연동되었습니다
+            popupView.connectStatusLabel.text = R.string.home.connectSuccessDevice()
         } else {
             //응원도구가 연동되어 있지 않습니다.
+            popupView.connectStatusLabel.text = R.string.home.interlinkSupportTools()
         }
-        
         
         if #available(iOS 10.0, *) {
             view.addSubview(popupView)
@@ -140,7 +143,7 @@ class HomeViewController: UIViewController {
             popupView.heightAnchor.constraint(equalToConstant: 661).isActive = true
             
             popupView.topTiltingView.useCenter = false
-            popupView.topTiltingView.updateDisplayTiltMask(-28, animation:false)
+            popupView.topTiltingView.updateDisplayTiltMask(28, animation:false)
         } else {
             // Fallback on earlier versions
         }
@@ -169,7 +172,7 @@ class HomeViewController: UIViewController {
             if BSTFacade.device.isConnected {
                 toggleViewingInformation()
             } else {
-                BSTFacade.go.device(self, type: ReactorViewType.Management)
+                BSTFacade.ux.goDevice(self, type: ReactorViewType.Management)
             }
         }
     }
@@ -182,7 +185,7 @@ class HomeViewController: UIViewController {
             case .open:
                 self.bottomConstraint.constant = 0
                 self.backgroundView.alpha = 0.7
-                self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
+                self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
                 self.popupView.updateSmallConcertInfoview()
             case .closed:
                 self.bottomConstraint.constant = 270

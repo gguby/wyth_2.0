@@ -19,7 +19,7 @@ open class ConcertResponse: EasyCodable {
         case end = "END"
     }
     public var concertDate: String?
-    public var concertId: Int64?
+    public var concertId: String?
     public var concertNm: String?
     public var concertPlace: String?
     public var concertStatus: ConcertStatus?
@@ -27,7 +27,7 @@ open class ConcertResponse: EasyCodable {
 
 
     
-    public init(concertDate: String?, concertId: Int64?, concertNm: String?, concertPlace: String?, concertStatus: ConcertStatus?, dday: Int?) {
+    public init(concertDate: String?, concertId: String?, concertNm: String?, concertPlace: String?, concertStatus: ConcertStatus?, dday: Int?) {
         self.concertDate = concertDate
         self.concertId = concertId
         self.concertNm = concertNm
@@ -57,7 +57,7 @@ open class ConcertResponse: EasyCodable {
         let container = try decoder.container(keyedBy: String.self)
 
         concertDate = try container.decodeIfPresent(String.self, forKey: "concertDate")
-        concertId = try container.decodeIfPresent(Int64.self, forKey: "concertId")
+        concertId = try container.decodeIfPresent(String.self, forKey: "concertId")
         concertNm = try container.decodeIfPresent(String.self, forKey: "concertNm")
         concertPlace = try container.decodeIfPresent(String.self, forKey: "concertPlace")
         concertStatus = try container.decodeIfPresent(ConcertStatus.self, forKey: "concertStatus")

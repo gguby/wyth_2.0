@@ -13,11 +13,11 @@ import Foundation
 open class NoticesGetResponse: EasyCodable {
 
 
-    public var notices: [Notice]?
+    public var notices: [NoticeList]?
 
 
     
-    public init(notices: [Notice]?) {
+    public init(notices: [NoticeList]?) {
         self.notices = notices
     }
     
@@ -36,7 +36,7 @@ open class NoticesGetResponse: EasyCodable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        notices = try container.decodeIfPresent([Notice].self, forKey: "notices")
+        notices = try container.decodeIfPresent([NoticeList].self, forKey: "notices")
     }
 }
 

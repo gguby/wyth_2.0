@@ -122,7 +122,6 @@ Concert</string>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4E-YU-gan">
                             <rect key="frame" x="353" y="28" width="42" height="42"/>
-                            <color key="backgroundColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="OQN-bh-c1t"/>
                                 <constraint firstAttribute="width" constant="42" id="TG6-z9-G63"/>

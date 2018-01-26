@@ -12,7 +12,7 @@ import RxOptional
 import PullToRefreshKit
 
 protocol NotificationView: class {
-    func setNotifications(notifications: [Notice])
+    func setNotifications(notifications: [NoticeList])
 }
 
 //protocol NotificationViewPresenter {
@@ -23,7 +23,7 @@ protocol NotificationView: class {
 class NotificationPresenter {
 
     unowned let view: NotificationView
-    var notices: [Notice]?
+    var notices: [NoticeList]?
 //    let notification: NotificationModel?
     
     required init(view: NotificationView) {
@@ -52,7 +52,7 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var imgvExpand: UIImageView!
     @IBOutlet weak var imgvNew: UIImageView!
     
-    var notice: Notice? {
+    var notice: NoticeList? {
         didSet {
             guard let notice = notice else {
                 return
@@ -139,9 +139,9 @@ class NotificationViewController: UIViewController, NotificationView {
         self.presenter?.updateNotifications(lastId: nil, size: BSTConstants.main.pageSize)
     }
 
-    var notifications: [Notice] = []
+    var notifications: [NoticeList] = []
     // MARK: * Main Logic --------------------
-    func setNotifications(notifications: [Notice]) {
+    func setNotifications(notifications: [NoticeList]) {
         self.notifications.append(contentsOf: notifications)
         self.tableView.reloadData()
         

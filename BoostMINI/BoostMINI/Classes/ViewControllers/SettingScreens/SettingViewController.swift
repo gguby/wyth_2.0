@@ -95,7 +95,8 @@ class SettingViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         self.notificationSwitch.rx.isOn.bind {(isOn) in
-            DefaultAPI.postAlarmsUsingPOST(alarm: isOn) { (response, error) in
+			let alarm = AlarmPostRequest(alarm: isOn)
+			DefaultAPI.postAlarmsUsingPOST(request: alarm) { (response, error) in
                 guard let data = response else {
                     return
                 }
@@ -200,7 +201,9 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if let skins = self.skinDatas {
-            DefaultAPI.postSkinsUsingPOST(select: indexPath.row + 1, completion: { [weak self] (response, error) in
+			
+			let request = SkinPostRequest(select: (indexPath.row + 1))
+			DefaultAPI.postSkinsUsingPOST(request: request, completion: { [weak self] (response, error) in
                 guard let data = response else {
                     return
                 }

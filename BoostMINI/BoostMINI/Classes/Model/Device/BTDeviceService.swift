@@ -39,7 +39,7 @@ class BTDeviceService {
             .timeout(4.0, scheduler: MainScheduler.instance)
             .take(1)
             .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
-            .take(3.0, scheduler: MainScheduler.instance)
+            .take(1.0, scheduler: MainScheduler.instance)
             .toArray()
     }
     

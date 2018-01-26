@@ -77,7 +77,10 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         
         self.resetBtn.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                BSTFacade.ux.goTicketScan(currentViewController: self)
+                BSTFacade.ux.showConfirm(RDevice.btConfirmReset(), title: nil, { (isOk) in
+                    guard let isOk = isOk else { return }
+                    if isOk { BSTFacade.ux.goTicketScan(currentViewController: self) }
+                })
             })
             .disposed(by: self.disposeBag)
         
