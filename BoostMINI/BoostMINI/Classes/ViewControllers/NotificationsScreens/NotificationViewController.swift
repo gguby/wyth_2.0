@@ -19,6 +19,15 @@ protocol NotificationView: class {
 //    init(view: NotificationView, notifications: [NotificationModel])
 //    func updateNotifications()
 //}
+extension NoticeList {
+    func updateView() {
+        if self.view == false {
+            DefaultAPI.postNoticesReadUsingPOST(id: self.id?.i ?? 0, read: true, completion: { (error) in
+                self.view = error == nil
+            })
+        }
+    }
+}
 
 class NotificationPresenter {
 
@@ -61,7 +70,7 @@ class NotificationTableViewCell: UITableViewCell {
             self.lblTitle.text = notice.title
             self.lblContent.text = notice.expand ? notice.content : ""
             let textColor = notice.expand ? BSTFacade.theme.color.commonTextBg() : BSTFacade.theme.color.textSubtext1()
-            imgvNew.isHidden = notice.view ?? true
+            imgvNew.isHidden = (notice.view ?? true) || notice.expand
             
 			let angle = (notice.expand ? 180 : 0).c.toRadians
             UIView.animate(withDuration: 0.25) {
@@ -87,8 +96,9 @@ class NotificationViewController: BoostUIViewController, NotificationView {
     var presenter: NotificationPresenter?
     var disposeBag = DisposeBag()
     var isFirstLoading = true
+    var footer: DefaultRefreshFooter?
+    
     // MARK: * IBOutlets --------------------
-
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -113,10 +123,12 @@ class NotificationViewController: BoostUIViewController, NotificationView {
         self.presenter = NotificationPresenter(view: self)
     }
 
-    /// ViewController 로딩 시, UIControl 초기화
-    private func initUI() {
+    
+    fileprivate func initLoadmoreUI() {
+        footer = DefaultRefreshFooter.footer()
         
-        let footer = DefaultRefreshFooter.footer()
+        guard let footer = footer else { return }
+        
         footer.spinner.activityIndicatorViewStyle = .white
         footer.setText("", mode: .pullToRefresh)
         footer.setText("", mode: .refreshing)
@@ -125,10 +137,15 @@ class NotificationViewController: BoostUIViewController, NotificationView {
             footer.spinner.center = CGPoint(x: self.view.bounds.width / 2.c, y: self.tableView.estimatedRowHeight / 2.c)
             self.presenter?.updateNotifications(lastId: self.notifications.reversed().first?.id?.i, size: BSTConstants.main.pageSize)
         }
+    }
+    
+    /// ViewController 로딩 시, UIControl 초기화
+    private func initUI() {
         
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             var notice = self?.notifications[indexPath.row]
             notice?.reverseExpand()
+            notice?.updateView()
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)
     }
@@ -141,6 +158,11 @@ class NotificationViewController: BoostUIViewController, NotificationView {
     var notifications: [NoticeList] = []
     // MARK: * Main Logic --------------------
     func setNotifications(notifications: [NoticeList]) {
+        
+        if notifications.count > 0, footer == nil {//최초 실행 후, 알림이 있을 경우,
+            self.initLoadmoreUI()
+        }
+        
         self.notifications.append(contentsOf: notifications)
         self.tableView.reloadData()
         
