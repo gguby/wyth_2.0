@@ -47,15 +47,6 @@ class MenuViewController: UIViewController {
     private func initUI() {
         diagonalImageView.transform = diagonalImageView.transform.rotated(by: CGFloat.init(M_PI))
 		
-		btnHelp.rx.tap.asDriver().throttle(1)
-			.drive(onNext: { _ in
-				self.push(R.storyboard.home.helpWebViewController())
-			}).disposed(by: disposeBag)
-
-		btnSetup.rx.tap.asDriver().throttle(1)
-			.drive(onNext: { _ in
-				self.push(R.storyboard.home.settingViewController())
-			}).disposed(by: disposeBag)
 		
     #if DEBUG
         btnScan.isHidden = false
@@ -71,8 +62,8 @@ class MenuViewController: UIViewController {
     }
 	
 	override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-		// segue 모두 차단.
-		return false
+		dismiss(animated: false)
+		return true
 	}
 
 

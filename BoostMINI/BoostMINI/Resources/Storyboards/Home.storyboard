@@ -165,6 +165,9 @@
                                 <state key="normal" title="도움말" image="icon_menu_info">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="0IN-aH-j1k" kind="show" id="LLS-kE-dAc"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-TS-HhW" userLabel="line">
                                 <rect key="frame" x="0.0" y="198" width="240" height="1"/>
@@ -184,6 +187,9 @@
                                 <state key="normal" title="설정" image="icon_menu_edit">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="UuI-wl-XUt" kind="show" id="UNJ-1O-tqg"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9S-1k-fuF" userLabel="line">
                                 <rect key="frame" x="0.0" y="251" width="240" height="1"/>
