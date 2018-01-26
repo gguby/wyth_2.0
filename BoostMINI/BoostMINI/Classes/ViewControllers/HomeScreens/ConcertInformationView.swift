@@ -78,27 +78,27 @@ class ConcertInformationView: UIView {
             var range = NSRange()
 			
 			// data가 다 바뀌었습니다. 확인 부탁드립니다. (아래 주석 제거후 확인)
-//            self?.viewingDateLabel.text = data.concertDate
-//
-//            range = NSRange.init(location: 0, length: (data.floor?.length())!)
-//            let floorString = NSMutableAttributedString(string:"\(data.floor!)층")
-//            floorString.addAttributes((self?.smtownFontAttribute)!, range: range)
-//            self?.floorLabel.attributedText = floorString
-//
-//            range = NSRange.init(location: 0, length: (data.area?.length())!)
-//            let areaString = NSMutableAttributedString(string:"\(data.area!)구역")
-//            areaString.addAttributes((self?.smtownFontAttribute)!, range: range)
-//            self?.areaLabel.attributedText = areaString
-//
-//            range = NSRange.init(location: 0, length: (data.row?.length())!)
-//            let rowString = NSMutableAttributedString(string:"\(data.row!)열")
-//            rowString.addAttributes((self?.smtownFontAttribute)!, range: range)
-//            self?.rowLabel.attributedText = rowString
-//
-//            range = NSRange.init(location: 0, length: (data.seat?.length())!)
-//            let seatNumberString = NSMutableAttributedString(string:"\(data.seat!)번")
-//            seatNumberString.addAttributes((self?.smtownFontAttribute)!, range: range)
-//            self?.seatNumberLabel.attributedText = seatNumberString
+//            self?.viewingDateLabel.text = data.
+
+            range = NSRange.init(location: 0, length: (data.floor?.length())!)
+            let floorString = NSMutableAttributedString(string:"\(data.floor!)층")
+            floorString.addAttributes((self?.smtownFontAttribute)!, range: range)
+            self?.floorLabel.attributedText = floorString
+
+            range = NSRange.init(location: 0, length: (data.zone?.length())!)
+            let areaString = NSMutableAttributedString(string:"\(data.zone!)구역")
+            areaString.addAttributes((self?.smtownFontAttribute)!, range: range)
+            self?.areaLabel.attributedText = areaString
+
+            range = NSRange.init(location: 0, length: (data.row?.length())!)
+            let rowString = NSMutableAttributedString(string:"\(data.row!)열")
+            rowString.addAttributes((self?.smtownFontAttribute)!, range: range)
+            self?.rowLabel.attributedText = rowString
+
+            range = NSRange.init(location: 0, length: (data.column?.length())!)
+            let seatNumberString = NSMutableAttributedString(string:"\(data.column!)번")
+            seatNumberString.addAttributes((self?.smtownFontAttribute)!, range: range)
+            self?.seatNumberLabel.attributedText = seatNumberString
         }
     }
     
