@@ -27,9 +27,10 @@ extension State {
 }
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: BoostUIViewController {
     
     // MARK: - * properties --------------------
+	static weak var current: HomeViewController? = nil
 
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var skinImageView: UIImageView!
@@ -69,7 +70,6 @@ class HomeViewController: UIViewController {
     private var bottomConstraint = NSLayoutConstraint()
     private var currentState: State = .closed
 	
-	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 	
     // MARK: - * IBOutlets --------------------
     
@@ -82,6 +82,8 @@ class HomeViewController: UIViewController {
         self.initProperties()
         self.initUI()
         self.prepareViewDidLoad()
+		
+		HomeViewController.current = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {

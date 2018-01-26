@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AlamofireImage
 
-class SettingViewController: UIViewController {
+class SettingViewController: BoostUIViewController {
 
     // MARK: - * IBOutlets --------------------
     @IBOutlet weak var skinCollectionView: UICollectionView!

@@ -166,6 +166,9 @@
 		0462CDF11FFE289A002B6E11 /* Error.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDF01FFE289A002B6E11 /* Error.strings */; };
 		0462CDF21FFE289A002B6E11 /* Error.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDF01FFE289A002B6E11 /* Error.strings */; };
 		0462CE001FFE2C90002B6E11 /* BoostMini.clr in Resources */ = {isa = PBXBuildFile; fileRef = 0462CDF51FFE2B7B002B6E11 /* BoostMini.clr */; };
+		046C4D84201AE31A00FD7083 /* BoostUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C4D83201AE31A00FD7083 /* BoostUIViewController.swift */; };
+		046C4D85201AE31A00FD7083 /* BoostUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C4D83201AE31A00FD7083 /* BoostUIViewController.swift */; };
+		046C4D86201AE31A00FD7083 /* BoostUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C4D83201AE31A00FD7083 /* BoostUIViewController.swift */; };
 		0480BCE0200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCDF200C3A8600B79DB8 /* BoostProfile+Requests.swift */; };
 		0480BCE1200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCDF200C3A8600B79DB8 /* BoostProfile+Requests.swift */; };
 		0480BCE2200C3A8600B79DB8 /* BoostProfile+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480BCDF200C3A8600B79DB8 /* BoostProfile+Requests.swift */; };
@@ -427,6 +430,7 @@
 		0462CDED1FFE287D002B6E11 /* Alert.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Alert.strings; sourceTree = "<group>"; };
 		0462CDF01FFE289A002B6E11 /* Error.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Error.strings; sourceTree = "<group>"; };
 		0462CDF51FFE2B7B002B6E11 /* BoostMini.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = BoostMini.clr; sourceTree = "<group>"; };
+		046C4D83201AE31A00FD7083 /* BoostUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostUIViewController.swift; sourceTree = "<group>"; };
 		0480BCDF200C3A8600B79DB8 /* BoostProfile+Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoostProfile+Requests.swift"; sourceTree = "<group>"; };
 		0480BCE3200C3B1B00B79DB8 /* Extension+StoredProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+StoredProperties.swift"; sourceTree = "<group>"; };
 		0480BCE7200C437000B79DB8 /* BoostNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostNotifications.swift; sourceTree = "<group>"; };
@@ -854,6 +858,7 @@
 				0462CDD61FFDBC32002B6E11 /* UIView+HideAndShow.swift */,
 				A6F3507420035FAC00949BB2 /* UIImage+Alpha.swift */,
 				0480BCF3200C9FD500B79DB8 /* UserDefault+CustomClass.swift */,
+				046C4D83201AE31A00FD7083 /* BoostUIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1680,6 +1685,7 @@
 				04AD73FC1FF2283F005F4BF0 /* WebViewController.swift in Sources */,
 				04AD73FF1FF232A4005F4BF0 /* BSTUXHandler-Alert.swift in Sources */,
 				0480BCEC200C628700B79DB8 /* BoostProfile+Responses.swift in Sources */,
+				046C4D84201AE31A00FD7083 /* BoostUIViewController.swift in Sources */,
 				0442D9DD2019926A00A239DE /* ConcertResponse.swift in Sources */,
 				041734892011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift in Sources */,
 				0483854220035641007DE69B /* Extensions.swift in Sources */,
@@ -1741,6 +1747,7 @@
 				0442D9E42019926A00A239DE /* ConcertsSeatGetResponse.swift in Sources */,
 				04B2191C20076054002A1742 /* SettingViewController.swift in Sources */,
 				A6F3507620035FAC00949BB2 /* UIImage+Alpha.swift in Sources */,
+				046C4D85201AE31A00FD7083 /* BoostUIViewController.swift in Sources */,
 				04AD74171FF35E6E005F4BF0 /* String+URL.swift in Sources */,
 				04122A771FECE9A200896EE0 /* ExceptionHandler.swift in Sources */,
 				0462CDCB1FFCA430002B6E11 /* NotificationViewController.swift in Sources */,
@@ -1852,6 +1859,7 @@
 				0442D9E52019926A00A239DE /* ConcertsSeatGetResponse.swift in Sources */,
 				0462CDA61FFCA40C002B6E11 /* OpenSourceSample.swift in Sources */,
 				0483854720035641007DE69B /* JSONEncodingHelper.swift in Sources */,
+				046C4D86201AE31A00FD7083 /* BoostUIViewController.swift in Sources */,
 				0483853E20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
 				04B21928200874FB002A1742 /* UIButton+UpdateAttributeString.swift in Sources */,
 				04AD73FA1FF21E23005F4BF0 /* LogInViewController.swift in Sources */,

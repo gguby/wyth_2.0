@@ -81,7 +81,7 @@ class NotificationTableViewCell: UITableViewCell {
 }
 
 
-class NotificationViewController: UIViewController, NotificationView {
+class NotificationViewController: BoostUIViewController, NotificationView {
     
     // MARK: * properties --------------------
     var presenter: NotificationPresenter?
@@ -101,7 +101,6 @@ class NotificationViewController: UIViewController, NotificationView {
     }
     
     // MARK: * Initialize --------------------
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     override func viewDidLoad() {
 
         self.initProperties()

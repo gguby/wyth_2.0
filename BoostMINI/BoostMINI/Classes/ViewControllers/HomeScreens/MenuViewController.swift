@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import RxOptional
 import FLEX
+import SideMenu
 
 class MenuViewController: UIViewController {
 
@@ -23,7 +24,10 @@ class MenuViewController: UIViewController {
     //for debugging
     @IBOutlet weak var btnScan: UIButton!
     @IBOutlet weak var btnDebug: UIButton!
-    
+	
+	@IBOutlet weak var btnHelp: UIButton!
+	@IBOutlet weak var btnSetup: UIButton!
+	
     // MARK: - * Initialize --------------------
 
     override func viewDidLoad() {
@@ -42,7 +46,17 @@ class MenuViewController: UIViewController {
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
         diagonalImageView.transform = diagonalImageView.transform.rotated(by: CGFloat.init(M_PI))
-        
+		
+		btnHelp.rx.tap.asDriver().throttle(1)
+			.drive(onNext: { _ in
+				self.push(R.storyboard.home.helpWebViewController())
+			}).disposed(by: disposeBag)
+
+		btnSetup.rx.tap.asDriver().throttle(1)
+			.drive(onNext: { _ in
+				self.push(R.storyboard.home.settingViewController())
+			}).disposed(by: disposeBag)
+		
     #if DEBUG
         btnScan.isHidden = false
         btnScan.rx.tap.bind {
@@ -55,6 +69,11 @@ class MenuViewController: UIViewController {
             }.disposed(by: disposeBag)
     #endif
     }
+	
+	override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+		// segue 모두 차단.
+		return false
+	}
 
 
     func prepareViewDidLoad() {
@@ -63,9 +82,8 @@ class MenuViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
     }
+	
 
     // MARK: - * Main Logic --------------------
     
@@ -88,16 +106,17 @@ class MenuViewController: UIViewController {
             application.open(webURL as URL)
         }
     }
-    
-    
 
-    // MARK: - * Memory Manage --------------------
+	func push(_ newViewController: UIViewController?) {
+		self.dismiss(animated: false) {
+			guard let newVC = newViewController, let navigationController = HomeViewController.current?.navigationController else {
+				return
+			}
+			navigationController.pushViewController(newVC, animated: true)
+		}
+	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+	
 }
 
 

@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController, UIScrollViewDelegate, WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler, UIGestureRecognizerDelegate {
+class WebViewController: BoostUIViewController, UIScrollViewDelegate, WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler, UIGestureRecognizerDelegate {
 	@IBOutlet weak var webViewContainer: UIScrollView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView?
 	@IBOutlet weak var titleLabel: UILabel?
