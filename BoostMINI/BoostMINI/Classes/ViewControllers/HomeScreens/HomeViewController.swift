@@ -35,6 +35,8 @@ class HomeViewController: BoostUIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var skinImageView: UIImageView!
     
+    var selectSkinUrl : String?
+    
     @available(iOS 10.0, *)
     private lazy var tapRecognizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
@@ -62,7 +64,6 @@ class HomeViewController: BoostUIViewController {
         }.disposed(by: disposeBag)
         
         view.updateConcertInfo()
-        view.updateConcerSeatInfo()
         view.homeViewController = self
         return view
     }()
@@ -158,12 +159,16 @@ class HomeViewController: BoostUIViewController {
     }
     
     func updateSkinImageView() {
-        DefaultAPI.getSkinsUsingGET { (response, error) in
-            guard let data = response else {
-                return
-            }
+        if selectSkinUrl != BSTFacade.session.skinURL {
+            selectSkinUrl = BSTFacade.session.skinURL
             
-            self.skinImageView.af_setImage(withURL: URL.init(string: (data.skin?.url)!)!)
+            DefaultAPI.getSkinsUsingGET { (response, error) in
+                guard let data = response else {
+                    return
+                }
+                
+                self.skinImageView.af_setImage(withURL: URL.init(string: (data.skin?.url)!)!)
+            }
         }
     }
     

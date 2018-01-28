@@ -52,7 +52,7 @@ class ConcertInformationView: UIView {
 				let data = dataList.concertlist?.last else {
                 return
             }
-			
+			BSTFacade.session.currentConcertInfo = data
 			
             self?.ddayLabel.text = "D-\(data.dday!)"
             self?.concertNameLabel.text = data.concertNm
@@ -67,13 +67,15 @@ class ConcertInformationView: UIView {
                 self?.detailConcertInformationButton.backgroundColor = R.clr.boostMini.commonBgDefault()
                 self?.closeConcertSeatInfo()
             }
+            
+            self?.updateConcertInfo()
         }
     }
     
     func updateConcerSeatInfo() {
 		//TODO : type이 삭제되고, concertId가 추가되었습니다..
-		let concertId = "??"
-		DefaultAPI.getSeatsUsingGET(concertId: concertId) { [weak self] body, err in
+		let concertId = BSTFacade.session.currentConcertInfo?.concertId
+        DefaultAPI.getSeatsUsingGET(concertId: concertId!) { [weak self] body, err in
             guard let data = body else {
                 return
             }

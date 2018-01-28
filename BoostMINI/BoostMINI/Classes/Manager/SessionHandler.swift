@@ -15,14 +15,14 @@ class SessionHandler {
     //let baseURL = Definitions.api.base
 
     var token: String?
-    
+    var currentConcertInfo: ConcertResponse?
     var seat: ConcertsSeatGetResponse?
 	var profile: BoostProfile?
 
 	var pushToken: String = "test- TODO:"	// TODO:
     var deepLink: URL?
 	var osVersion: String = UIDevice.current.systemVersion
-
+    var skinURL : String?
 	
 	/// profile은 없지만 유저이름이 있을 수 있다. token만 있는...( 약관동의 웰컴화면에서 쓸...)
 	var welcomeName: String? = nil

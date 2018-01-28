@@ -208,16 +208,7 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
                     return
                 }
                 BSTFacade.ux.showToast("설정 되었습니다.")
-				
-				// TODO : expand(select) 처리하면서 상상으로 날코딩했습니다. 올바르게 고쳐주세요!
-				guard let skinId = data.skin?.id,
-					let skinList = self?.skinDatas else {
-					return
-				}
-				
-				for var skin in skinList {
-					skin.expand = (skinId == skin.id)
-				}
+				BSTFacade.session.skinURL = skins[indexPath.row].url
                 
                 self?.selectedSkin = indexPath.row
                 self?.skinCollectionView.reloadData()
