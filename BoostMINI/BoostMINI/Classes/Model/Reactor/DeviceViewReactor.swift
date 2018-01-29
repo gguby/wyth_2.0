@@ -25,6 +25,7 @@ final class DeviceViewReactor : Reactor {
     enum Action {
         case connectAll
         case manageMentInit
+        case clearDevice
     }
     
     enum Mutation {
@@ -38,6 +39,7 @@ final class DeviceViewReactor : Reactor {
         case deviceError(BSTError)
         case contentMsg(ContentMessage)
         case managementViewInit
+        case clearDevice(Bool)
     }
     
     struct State {
@@ -83,6 +85,9 @@ final class DeviceViewReactor : Reactor {
             let deviceLoad = Observable.just(Mutation.loadRegisterDevice(localDevice))
             let initView = Observable.just(Mutation.managementViewInit)
             return .concat([deviceLoad, initView])
+        case .clearDevice:
+            let isClear = self.service.clearDevice().map(Mutation.clearDevice)
+            return isClear
         }
     }
     
@@ -109,6 +114,8 @@ final class DeviceViewReactor : Reactor {
 //            self.service.writeValueForCharacteristic(hexadecimalString: "gg", characteristic: characteristic)
         case let .registerDevice(isRegister):
             newState.isRegister = isRegister
+            let localDevice = self.service.loadDevice()
+            self.device.registeredDeviceObserver.onNext(localDevice)
         case let .loadRegisterDevice(device):
             newState.registeredDevice = device
             
@@ -130,6 +137,12 @@ final class DeviceViewReactor : Reactor {
             } else {
                 newState.contentMsg = ContentMessage.notRegistered
             }
+        case .clearDevice:
+            self.device.registeredDeviceObserver.onNext(nil)
+            newState.activePeripheral = nil
+            newState.characteristic = nil
+            newState.isRegister = false
+            newState.registeredDevice = nil            
         }
         return newState
     }

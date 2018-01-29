@@ -160,6 +160,12 @@ extension BTDeviceService {
         
         return localDevice
     }
+    
+    func clearDevice() -> Observable<Bool> {
+        UserDefaults.standard.removeObject(forKey: DeviceKey)
+        let isOk = UserDefaults.standard.synchronize()
+        return .just(isOk)
+    }
 }
 
 extension BTDeviceService {

@@ -79,7 +79,10 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .subscribe(onNext: { [weak self] _ in
                 BSTFacade.ux.showConfirm(RDevice.btConfirmReset(), title: nil, { (isOk) in
                     guard let isOk = isOk else { return }
-                    if isOk { BSTFacade.ux.goTicketScan(currentViewController: self) }
+                    if isOk {
+                        BSTFacade.ux.goTicketScan(currentViewController: self)
+                        reactor.action.onNext(.clearDevice)
+                    }
                 })
             })
             .disposed(by: self.disposeBag)
@@ -91,15 +94,12 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.isRegister }
-            .bind(to: self.registerBtn.rx.isHidden)
-            .disposed(by: self.disposeBag)
-        
-        reactor.state.map { !$0.isRegister }
-            .bind(to: self.imageTicketView.rx.isHidden)
-            .disposed(by: self.disposeBag)
-        
-        reactor.state.map { !$0.isRegister }
-            .bind(to: self.resetBtn.rx.isHidden)
+            .subscribe(onNext: { (isRegister) in
+                self.stickImage.alpha = isRegister ? 1.0 : 0.3
+                self.registerBtn.isHidden = isRegister
+                self.imageTicketView.isHidden = !isRegister
+                self.resetBtn.isHidden = !isRegister
+            })
             .disposed(by: self.disposeBag)
         
         self.cancelBtn.isHidden = true

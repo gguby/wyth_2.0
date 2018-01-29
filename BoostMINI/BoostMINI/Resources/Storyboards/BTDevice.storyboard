@@ -124,7 +124,7 @@
                                     <constraint firstAttribute="width" constant="155" id="Lc2-C5-iKT"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OE-2r-A4A">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OE-2r-A4A">
                                 <rect key="frame" x="58" y="589" width="259" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="dSs-5M-3Bi"/>

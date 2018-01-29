@@ -13,7 +13,7 @@ import CoreBluetooth
 
 final class DeviceManager {
     
-    var registeredDeviceObserver = PublishSubject<BSTLocalDevice>()
+    var registeredDeviceObserver = PublishSubject<BSTLocalDevice?>()
     
     var error = PublishSubject<DeviceError>()
     
@@ -38,6 +38,8 @@ final class DeviceManager {
             if let device = self.registeredDevice {
                 logVerbose(device)
                 self.isConnected = true
+            } else {
+                self.isConnected = false
             }
             
         }).disposed(by: disposeBag)
