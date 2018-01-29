@@ -21,6 +21,8 @@ class ConcertInfoView : UIView {
     @IBOutlet weak var column: UILabel!
     @IBOutlet weak var number: UILabel!
     
+    var disposeBag = DisposeBag()
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInitialization()
@@ -36,25 +38,18 @@ class ConcertInfoView : UIView {
         self.seatLbl.text = R.string.common.concertInfoSeat()
         self.dateLbl.text = "2018.02.01.FRI 19:00"
         
-        DispatchQueue.main.async {
-            self.getConcertData()
-        }
+        self.getConcertData()
     }
     
     func getConcertData() {
-		guard let concertId = BSTFacade.session.currentConcertInfo?.concertId else { return }
+        guard let concertId = BSTFacade.session.currentConcertInfo?.concertId else { return }
         
-		DefaultAPI.getSeatsUsingGET(concertId: concertId) { [weak self] response, _ in
-            guard let response = response else { return }
-
-		    //self?.dateLbl.text = response.concertDate
-            self?.floor.text = response.floor
-            self?.region.text = response.zone
-            self?.column.text = response.row
-            self?.number.text = response.column
-            
-            BSTFacade.session.seat = response
-        }
+        let observable = DefaultAPI.getSeatsUsingGET(concertId: concertId)
+        
+        observable.map { $0.floor }.bind(to: self.floor.rx.text).disposed(by: self.disposeBag)
+        observable.map { $0.zone }.bind(to: self.region.rx.text).disposed(by: self.disposeBag)
+        observable.map { $0.row }.bind(to: self.column.rx.text).disposed(by: self.disposeBag)
+        observable.map { $0.column }.bind(to: self.number.rx.text).disposed(by: self.disposeBag)
     }
 
 }
