@@ -93,6 +93,15 @@ class SettingViewController: BoostUIViewController {
                     }
             }
         }.disposed(by: disposeBag)
+        
+        self.notificationSwitch.rx.controlEvent(UIControlEvents.valueChanged).bind { [weak self] in
+            let alarm = AlarmPostRequest(alarm: self?.notificationSwitch.isOn)
+            DefaultAPI.postAlarmsUsingPOST(request: alarm) { (response, error) in
+                guard let data = response else {
+                    return
+                }
+            }
+        }.disposed(by: disposeBag)
     }
 
 
@@ -139,6 +148,7 @@ class SettingViewController: BoostUIViewController {
     
      // MARK: - * UI Events --------------------
     @IBAction func setOnAlram(_ sender: UISwitch) {
+        return
         let alarm = AlarmPostRequest(alarm: sender.isOn)
         DefaultAPI.postAlarmsUsingPOST(request: alarm) { (response, error) in
             guard let data = response else {
