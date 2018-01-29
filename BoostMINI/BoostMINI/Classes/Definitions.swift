@@ -14,7 +14,9 @@ import UIKit
 struct Definitions {
 	// API 서버
 
-	static let api = BSTAPIServer()
+	static private let isReal: Bool = true
+	
+	static let api: BSTAPIServerProtocol = isReal ? BSTAPIServer() : BSTAPIServerTest()
     static let device = BSTDevice()
     
     // 기타 경로
@@ -26,17 +28,26 @@ struct Definitions {
 
 
 
-public struct BSTAPIServer {
-	
+protocol BSTAPIServerProtocol {
 	/// api server base url
-	let base = "http://boostdev.lysn.com/"
-	let baseJson = "http://boostdev.lysn.com/v2/api-docs?group=API"
+	var base: String { get }
+	var baseJson: String { get }
+	var path: BSTPath { get }
+}
+public struct BSTAPIServer: BSTAPIServerProtocol {
+	let base = "https://boostdev.lysn.com"
+	let baseJson = "https://boostdev.lysn.com/v2/api-docs?group=API"
+	let path = BSTPath()
+}
+
+public struct BSTAPIServerTest: BSTAPIServerProtocol {
+	let base = "http://10.10.24.20"
+	let baseJson = "http://10.10.24.20/v2/api-docs?group=API"
 	let path = BSTPath()
 }
 
 internal struct BSTPath {
 	let notifications = BSTNotificationsPath()
-	//let login = BSTLoginPath()
 }
 
 internal struct BSTExternalURL {
@@ -53,28 +64,28 @@ internal struct BSTExternalURL {
 	
 //	let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=https://api.smtown.com/&state=nonce&scope=profile&response_type=token"
 	
-	// TODO: 이용약관 보기
+	// 이용약관 보기
 	let terms = "https://membership.smtown.com/Policy/Terms"
-	// TODO: 개인정보 처리 방침
+	// 개인정보 처리 방침
 	let privacy = "https://membership.smtown.com/Policy/Privacy"
 	
 }
 
-
-enum BSTNotificationsPath2 {
-    case getList(String, Int)
-    case get(Int)
-    
-    var path: String {
-		switch self {
-		case let .getList(lastPushId, count):
-			return "/push/list/\(lastPushId)/\(count)"
-		case let .get(lastPushId):
-			return "/push/\(lastPushId)"
-		}
-	}
-}
-
+//
+//enum BSTNotificationsPath2 {
+//    case getList(String, Int)
+//    case get(Int)
+//
+//    var path: String {
+//		switch self {
+//		case let .getList(lastPushId, count):
+//			return "/push/list/\(lastPushId)/\(count)"
+//		case let .get(lastPushId):
+//			return "/push/\(lastPushId)"
+//		}
+//	}
+//}
+//
 internal struct BSTNotificationsPath {
     ///push/list/lastPushId/count 3안
     let getList2 = "/push/list/%@/%d"

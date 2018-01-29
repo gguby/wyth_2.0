@@ -45,10 +45,14 @@ open class DefaultAPI {
     open class func getConcertsUsingGET() -> Observable<ConcertsGetResponse> {
         return Observable.create { observer -> Disposable in
             getConcertsUsingGET() { data, error in
-                if let error = error {
-                    observer.on(.error(error))
-                } else {
-                    observer.on(.next(data!))
+                guard let data = data else { 
+                    observer.on(.error(BSTError.isEmpty)) 
+                    return 
+                } 
+                if let error = error { 
+                    observer.on(.error(error)) 
+                } else { 
+                    observer.on(.next(data)) 
                 }
                 observer.on(.completed)
             }
@@ -183,11 +187,10 @@ open class DefaultAPI {
     open class func getSeatsUsingGET(concertId: String) -> Observable<ConcertsSeatGetResponse> {
         return Observable.create { observer -> Disposable in
             getSeatsUsingGET(concertId: concertId) { data, error in
-                guard let data = data else { return }
                 if let error = error {
                     observer.on(.error(error))
                 } else {
-                    observer.on(.next(data))
+                    observer.on(.next(data!))
                 }
                 observer.on(.completed)
             }

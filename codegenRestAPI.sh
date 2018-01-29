@@ -58,6 +58,9 @@ sed -i '' -e $'s|(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: ac
 sed -i '' -e $'s|(xAPPVersion: xAPPVersion, xDevice: xDevice, acceptLanguage: acceptLanguage)|()|g' $1
                  
 
+sed -i '' -e $'s|"https://boostdev.lysn.com"|Definitions.api.base|g' $1
+
+
 
 #sed -i '' -e $'s|required public init(method: String, URLString: String, parameters: [String:Any]?,|required public init(method: String, URLString: String, parameters: [String:String]?,|g' $1
 
@@ -181,6 +184,19 @@ sed -i '' -E $'s|_ error: Error\\?) -> Void)) \\{|_ error: Error?) -> Void)) {\\
 sed -i '' -E $'s|execute \\{ \\(response, error\\) -> Void in|execute { (response, error) -> Void in\\\n		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)|g' $X;
 
 sed -i '' -E $'s|let parameters = JSONEncodingHelper\\.encodingParameters\\(forEncodableObject: (.*)\\)|let parameters: Parameters? = ["\\1": \\1]|g' $X;
+
+
+
+REPLACE_SAFE_OBSERVER='guard let data = data else { \
+                    observer.on(.error(BSTError.isEmpty)) \
+                    return 
+                } \
+                if let error = error { \
+                    observer.on(.error(error)) \
+                } else { \
+                    observer.on(.next(data)) '
+
+perl -i -p0e "s|if let error = error \{[^o]*observer\.on\(\.error\(error\)\)[^\}]*\} else \{[^o]*observer\.on\(\.next\(data!\)\)|$REPLACE_SAFE_OBSERVER|s" "$X";
 
 
 done;

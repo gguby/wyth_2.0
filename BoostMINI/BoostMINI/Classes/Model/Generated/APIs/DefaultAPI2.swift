@@ -44,10 +44,14 @@ extension DefaultAPI {
     open class func getNoticesUsingGET(lastId: Int64? = nil, size: Int? = nil) -> Observable<NoticesGetResponse> {
         return Observable.create { observer -> Disposable in
             getNoticesUsingGET(lastId: lastId, size: size) { data, error in
-                if let error = error {
-                    observer.on(.error(error))
-                } else {
-                    observer.on(.next(data!))
+                guard let data = data else { 
+                    observer.on(.error(BSTError.isEmpty)) 
+                    return 
+                } 
+                if let error = error { 
+                    observer.on(.error(error)) 
+                } else { 
+                    observer.on(.next(data)) 
                 }
                 observer.on(.completed)
             }
