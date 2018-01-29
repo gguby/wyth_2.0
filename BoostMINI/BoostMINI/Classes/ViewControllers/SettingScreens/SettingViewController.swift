@@ -147,17 +147,7 @@ class SettingViewController: BoostUIViewController {
     }
     
      // MARK: - * UI Events --------------------
-    @IBAction func setOnAlram(_ sender: UISwitch) {
-        return
-        let alarm = AlarmPostRequest(alarm: sender.isOn)
-        DefaultAPI.postAlarmsUsingPOST(request: alarm) { (response, error) in
-            guard let data = response else {
-                return
-            }
-        }
-    }
-    
-    
+
     // MARK: - * Memory Manage --------------------
 
     override func didReceiveMemoryWarning() {
