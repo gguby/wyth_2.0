@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 import AVFoundation
 import Permission
 import JuseongJee_RxPermission
@@ -44,6 +43,20 @@ class TicketScanViewController: UIViewController {
     
     @IBOutlet weak var btnBack: UIButton!
     
+    @IBOutlet weak var btnDebugFail: UIButton! {
+        didSet {
+            let _ = btnDebugFail.rx.controlEvent(UIControlEvents.touchUpInside).bind {
+                BSTError.ticket(.scanFailed).cookError()
+            }
+        }
+    }
+    @IBOutlet weak var btnDebugAlready: UIButton! {
+        didSet {
+            let _ = btnDebugAlready.rx.controlEvent(UIControlEvents.touchUpInside).bind {
+                BSTError.ticket(TicketError.alreadyRegistred).cookError()   //이미 등록된 티켓 - 도움말 화면 이동 (debug)
+            }
+        }
+    }
     // MARK: - * Initialize --------------------
 
     override func viewDidLoad() {
@@ -76,6 +89,11 @@ class TicketScanViewController: UIViewController {
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
         self.setMask(with: holeView.frame, in: dimView)
+        
+        #if DEBUG
+            btnDebugFail.isHidden = false
+            btnDebugAlready.isHidden = false
+        #endif
     }
 
 
@@ -105,9 +123,9 @@ class TicketScanViewController: UIViewController {
             BSTFacade.ux.showToast("this is only for device.")
 			DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 //goto next view.
-                BSTFacade.ux.showToast("1초후에 다음 화면으로 넘어갑니다. 시뮬레이터라서,,")
+//                BSTFacade.ux.showToast("1초후에 다음 화면으로 넘어갑니다. 시뮬레이터라서,,")
 //                BSTError.ticket(TicketError.alreadyRegistred).cookError()   //이미 등록된 티켓 - 도움말 화면 이동 (debug)
-                self.finishScan(code: "isSimulator")
+//                self.finishScan(code: "isSimulator")
             }
             return
         }
