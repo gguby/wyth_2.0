@@ -74,8 +74,10 @@ class ConcertInformationView: UIView {
     
     func updateConcerSeatInfo() {
 		//TODO : type이 삭제되고, concertId가 추가되었습니다..
-		let concertId = BSTFacade.session.currentConcertInfo?.concertId
-        DefaultAPI.getSeatsUsingGET(concertId: concertId!) { [weak self] body, err in
+		guard let concertId = BSTFacade.session.currentConcertInfo?.concertId else {
+			return
+		}
+        DefaultAPI.getSeatsUsingGET(concertId: concertId) { [weak self] body, err in
             guard let data = body else {
                 return
             }
