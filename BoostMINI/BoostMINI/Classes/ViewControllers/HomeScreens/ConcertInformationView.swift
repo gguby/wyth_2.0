@@ -20,6 +20,7 @@ class ConcertInformationView: UIView {
     @IBOutlet weak var arrowButton: UIButton!
     @IBOutlet weak var topTiltingView: TopTiltingView!
     @IBOutlet weak var detailConcertInformationButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     @IBOutlet weak var connectStatusLabel: UILabel!
     @IBOutlet weak var viewingDateLabel: UILabel!
@@ -116,6 +117,8 @@ class ConcertInformationView: UIView {
     
     func updateSmallConcertInfoview() {
         self.concertInfoView.alpha = 0.7
+        self.detailConcertInformationButton.isHidden = true
+        self.nextButton.isHidden = true
         
         self.ddayLabel.font =  self.ddayLabel.font.withSize(12)
         self.ddayLabelWidthConstant.constant = 50
@@ -133,6 +136,8 @@ class ConcertInformationView: UIView {
     
     func updateDefaultConcertInforView() {
         self.concertInfoView.alpha = 1
+        self.detailConcertInformationButton.isHidden = false
+        self.nextButton.isHidden = false
         
         self.ddayLabel.font =  self.ddayLabel.font.withSize(15)
         self.ddayLabelWidthConstant.constant = 60

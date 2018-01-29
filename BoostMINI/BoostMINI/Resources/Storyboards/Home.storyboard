@@ -32,8 +32,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTvxqIntro" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-xi-nih">
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTvxqIntro" translatesAutoresizingMaskIntoConstraints="NO" id="Qgu-Oy-TeX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-xi-nih">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yga-6p-3zX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -75,14 +82,17 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tMJ-xi-nih" firstAttribute="leading" secondItem="zDX-D1-lhA" secondAttribute="leading" id="5C6-aR-pDd"/>
+                            <constraint firstItem="Qgu-Oy-TeX" firstAttribute="top" secondItem="zDX-D1-lhA" secondAttribute="top" id="7N3-iJ-pvb"/>
                             <constraint firstItem="drg-M4-Pkp" firstAttribute="trailing" secondItem="bzi-qn-Q4b" secondAttribute="trailing" id="7ZW-Ae-MgB"/>
+                            <constraint firstItem="Qgu-Oy-TeX" firstAttribute="bottom" secondItem="zDX-D1-lhA" secondAttribute="bottom" id="9r1-TB-wZ8"/>
+                            <constraint firstItem="Qgu-Oy-TeX" firstAttribute="trailing" secondItem="zDX-D1-lhA" secondAttribute="trailing" id="NDZ-7F-ZGA"/>
                             <constraint firstItem="tMJ-xi-nih" firstAttribute="bottom" secondItem="zDX-D1-lhA" secondAttribute="bottom" id="O54-NF-tjQ"/>
                             <constraint firstItem="Yga-6p-3zX" firstAttribute="trailing" secondItem="bzi-qn-Q4b" secondAttribute="trailing" id="Qhb-M0-rrO"/>
                             <constraint firstItem="drg-M4-Pkp" firstAttribute="top" secondItem="bzi-qn-Q4b" secondAttribute="top" id="SMi-Bf-3yz"/>
                             <constraint firstItem="Yga-6p-3zX" firstAttribute="bottom" secondItem="bzi-qn-Q4b" secondAttribute="bottom" id="Tjc-EL-fhH"/>
+                            <constraint firstItem="Qgu-Oy-TeX" firstAttribute="leading" secondItem="zDX-D1-lhA" secondAttribute="leading" id="V1H-hu-POl"/>
                             <constraint firstItem="Yga-6p-3zX" firstAttribute="leading" secondItem="bzi-qn-Q4b" secondAttribute="leading" id="hG5-ce-32f"/>
                             <constraint firstItem="tMJ-xi-nih" firstAttribute="top" secondItem="zDX-D1-lhA" secondAttribute="top" id="jNr-K8-bVf"/>
                             <constraint firstItem="Yga-6p-3zX" firstAttribute="top" secondItem="zDX-D1-lhA" secondAttribute="top" id="lsn-aX-eRE"/>

@@ -46,7 +46,7 @@ class BSTUXHanlder {
             return
         }
         
-        currentVC?.navigationController?.pushViewController(vc, animated: true)
+        currentVC?.present(vc, animated: true, completion: nil)
     }
     
     func goDetailConcertInfoViewController(currentViewController currentVC: UIViewController?) {

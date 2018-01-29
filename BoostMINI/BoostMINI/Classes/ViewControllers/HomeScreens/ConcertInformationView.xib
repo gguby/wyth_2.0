@@ -316,6 +316,7 @@ Concert</string>
                 <outlet property="ddayLabelWidthConstant" destination="0tR-XH-hWq" id="Vxy-hG-MUk"/>
                 <outlet property="detailConcertInformationButton" destination="jk0-dT-VWK" id="aeN-eq-8QJ"/>
                 <outlet property="floorLabel" destination="Fhq-Ks-Iyp" id="HB1-wM-b9D"/>
+                <outlet property="nextButton" destination="yHJ-Uf-mkJ" id="JxO-Sw-kt4"/>
                 <outlet property="rowLabel" destination="tBd-VO-uig" id="lcr-BU-9EI"/>
                 <outlet property="seatNumberLabel" destination="N4N-Q4-nwQ" id="oT0-Ml-hlh"/>
                 <outlet property="topTiltingView" destination="bgf-xs-tBy" id="8Ko-dO-Ujk"/>
