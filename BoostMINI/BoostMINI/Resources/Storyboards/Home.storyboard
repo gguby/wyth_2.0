@@ -763,15 +763,24 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-Kr-6Za">
                                 <rect key="frame" x="0.0" y="68" width="375" height="599"/>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nZM-0C-WKd">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="jkA-js-JQU"/>
+                                    <constraint firstAttribute="height" constant="37" id="wX9-wi-Sz8"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="nZM-0C-WKd" firstAttribute="centerY" secondItem="cAD-k6-2SB" secondAttribute="centerY" id="5ex-OK-rHX"/>
                             <constraint firstItem="KCC-3J-JlQ" firstAttribute="trailing" secondItem="QMV-M0-m2K" secondAttribute="trailing" id="DHc-e2-nee"/>
                             <constraint firstAttribute="trailing" secondItem="CM2-86-TCx" secondAttribute="trailing" id="Dus-9v-JMt"/>
                             <constraint firstItem="bhx-Kr-6Za" firstAttribute="leading" secondItem="QMV-M0-m2K" secondAttribute="leading" id="PJp-Hj-HN0"/>
                             <constraint firstItem="CM2-86-TCx" firstAttribute="top" secondItem="KCC-3J-JlQ" secondAttribute="bottom" id="Qw1-zn-AAm"/>
                             <constraint firstItem="KCC-3J-JlQ" firstAttribute="top" secondItem="QMV-M0-m2K" secondAttribute="top" id="SRV-Os-JNu"/>
                             <constraint firstItem="KCC-3J-JlQ" firstAttribute="leading" secondItem="QMV-M0-m2K" secondAttribute="leading" id="bcp-YF-Icz"/>
+                            <constraint firstItem="nZM-0C-WKd" firstAttribute="centerX" secondItem="cAD-k6-2SB" secondAttribute="centerX" id="jhC-Bf-TYy"/>
                             <constraint firstItem="bhx-Kr-6Za" firstAttribute="trailing" secondItem="QMV-M0-m2K" secondAttribute="trailing" id="mhm-Rv-WeU"/>
                             <constraint firstItem="bhx-Kr-6Za" firstAttribute="top" secondItem="CM2-86-TCx" secondAttribute="bottom" id="stq-fD-34e"/>
                             <constraint firstItem="bhx-Kr-6Za" firstAttribute="bottom" secondItem="QMV-M0-m2K" secondAttribute="bottom" id="szJ-u7-6Gz"/>
@@ -782,6 +791,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="nZM-0C-WKd" id="YmO-d3-B0r"/>
                         <outlet property="webViewContainer" destination="bhx-Kr-6Za" id="tCQ-Q3-4K8"/>
                     </connections>
                 </viewController>
@@ -839,6 +849,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Op7-VL-9Hy">
                                 <rect key="frame" x="0.0" y="68" width="375" height="599"/>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jDY-Tj-g7D">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="Ibi-H7-dSD"/>
+                                    <constraint firstAttribute="height" constant="37" id="kdn-Fe-sB1"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -850,6 +867,8 @@
                             <constraint firstItem="Op7-VL-9Hy" firstAttribute="top" secondItem="CMM-xY-49V" secondAttribute="bottom" id="Gvi-UD-UjG"/>
                             <constraint firstItem="CMM-xY-49V" firstAttribute="leading" secondItem="6YI-zB-O7Y" secondAttribute="leading" id="UDp-Hs-601"/>
                             <constraint firstItem="Op7-VL-9Hy" firstAttribute="leading" secondItem="7ds-XX-IXv" secondAttribute="leading" id="Zuc-fL-Uls"/>
+                            <constraint firstItem="jDY-Tj-g7D" firstAttribute="centerY" secondItem="6YI-zB-O7Y" secondAttribute="centerY" id="lsG-0N-N81"/>
+                            <constraint firstItem="jDY-Tj-g7D" firstAttribute="centerX" secondItem="6YI-zB-O7Y" secondAttribute="centerX" id="v3u-fy-zzC"/>
                             <constraint firstItem="EJx-TL-e1p" firstAttribute="leading" secondItem="7ds-XX-IXv" secondAttribute="leading" id="xiL-F2-ecj"/>
                             <constraint firstItem="EJx-TL-e1p" firstAttribute="top" secondItem="7ds-XX-IXv" secondAttribute="top" id="zOb-eJ-JfJ"/>
                             <constraint firstItem="CMM-xY-49V" firstAttribute="top" secondItem="EJx-TL-e1p" secondAttribute="bottom" id="zhN-Jh-K5P"/>
@@ -857,6 +876,7 @@
                         <viewLayoutGuide key="safeArea" id="7ds-XX-IXv"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="jDY-Tj-g7D" id="mXl-ms-xhz"/>
                         <outlet property="webViewContainer" destination="Op7-VL-9Hy" id="eLO-qV-VEp"/>
                     </connections>
                 </viewController>
@@ -929,14 +949,23 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqh-jO-0Ae">
                                 <rect key="frame" x="0.0" y="68" width="375" height="599"/>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8Xc-Ge-Yuz">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="8EH-aq-3OB"/>
+                                    <constraint firstAttribute="height" constant="37" id="efo-Sz-6H0"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wqh-jO-0Ae" firstAttribute="leading" secondItem="lry-aY-ddR" secondAttribute="leading" id="1Fe-3m-X7p"/>
                             <constraint firstItem="wqh-jO-0Ae" firstAttribute="trailing" secondItem="lry-aY-ddR" secondAttribute="trailing" id="IQd-c6-rtX"/>
+                            <constraint firstItem="8Xc-Ge-Yuz" firstAttribute="centerX" secondItem="5jZ-Wt-LzA" secondAttribute="centerX" id="Ixx-uK-y4K"/>
                             <constraint firstItem="L0Y-wk-vfz" firstAttribute="leading" secondItem="5jZ-Wt-LzA" secondAttribute="leading" id="LOc-Sg-f8C"/>
                             <constraint firstItem="lFQ-o6-90z" firstAttribute="leading" secondItem="lry-aY-ddR" secondAttribute="leading" id="Tfp-bU-cnC"/>
                             <constraint firstItem="L0Y-wk-vfz" firstAttribute="top" secondItem="lFQ-o6-90z" secondAttribute="bottom" id="YBl-xv-zNe"/>
+                            <constraint firstItem="8Xc-Ge-Yuz" firstAttribute="centerY" secondItem="5jZ-Wt-LzA" secondAttribute="centerY" id="e04-4Z-xEH"/>
                             <constraint firstAttribute="trailing" secondItem="L0Y-wk-vfz" secondAttribute="trailing" id="i8C-SM-HhE"/>
                             <constraint firstItem="lFQ-o6-90z" firstAttribute="trailing" secondItem="lry-aY-ddR" secondAttribute="trailing" id="k8c-pW-9Lx"/>
                             <constraint firstAttribute="bottom" secondItem="wqh-jO-0Ae" secondAttribute="bottom" id="wS1-oP-Y2v"/>
