@@ -65,9 +65,16 @@ internal struct BSTExternalURL {
 //	let authUri = "https://api.smtown.com/OAuth/Authorize?client_id=8ecafcf23f6d42cf94806ab807bd2023&redirect_uri=https://api.smtown.com/&state=nonce&scope=profile&response_type=token"
 	
 	// 이용약관 보기
-	let terms = "https://membership.smtown.com/Policy/Terms"
+	var terms: String { return getPolicy("T") }
 	// 개인정보 처리 방침
-	let privacy = "https://membership.smtown.com/Policy/Privacy"
+	var privacy: String { return getPolicy("P") }
+	
+	func getPolicy(_ firstType: String) -> String {
+		let userId = (SessionHandler.shared.profile == nil) ? "" : SessionHandler.shared.profile!.id.s
+		let lang = DefaultAPI.acceptLanguage	// "ko-KR"	// TODO : 디바이스에 맞게 변경 필요
+		return "http://boostdev.lysn.com:8181/viewTerms?userId=\(userId)&device=IOS&language=\(lang)&type=\(firstType)"
+	}
+
 	
 }
 

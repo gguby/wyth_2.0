@@ -13,9 +13,12 @@ class SMLoginViewController: WebViewController {
 
 	// var clientId = Definitions.path.clientId
 
+	
+	
 	var token: String? { return SessionHandler.shared.token }
 	var preload: String?
 
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,21 +34,12 @@ class SMLoginViewController: WebViewController {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		navigationController?.isNavigationBarHidden = false
-		navigationController?.hidesBarsOnTap = true
-
-		navigationController?.title = BSTFacade.localizable.login.title()
-		
 		super.viewWillAppear(animated)
 	}
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 	}
 	
-	
-	func back() {
-		self.navigationController?.popViewController(animated: true)
-	}
 	
 	
 	override func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
