@@ -68,7 +68,7 @@ class ConcertInformationView: UIView {
                 self?.closeConcertSeatInfo()
             }
             
-            self?.updateConcertInfo()
+            self?.updateConcerSeatInfo()
         }
     }
     
