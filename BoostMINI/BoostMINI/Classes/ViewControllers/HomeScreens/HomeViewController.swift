@@ -55,8 +55,9 @@ class HomeViewController: BoostUIViewController {
             if  BSTFacade.device.isConnected {
                 self.toggleViewingInformation()
             } else {
-                BSTFacade.ux.goDevice(self, type: ReactorViewType.Management)
+                 BSTFacade.ux.goTicketScan(currentViewController: self)
             }
+            
         }.disposed(by: disposeBag)
         
         view.detailConcertInformationButton.rx.tap.bind {
@@ -110,6 +111,7 @@ class HomeViewController: BoostUIViewController {
 		if #available(iOS 10.0, *) {
 			layout()
             
+            
 		}
     }
 
@@ -132,29 +134,24 @@ class HomeViewController: BoostUIViewController {
             //응원도구가 연동되어 있지 않습니다.
             popupView.connectStatusLabel.text = BSTFacade.localizable.home.interlinkSupportTools()
         }
-        
-        if #available(iOS 10.0, *) {
-            view.addSubview(popupView)
-            popupView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            popupView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            
-            popupView.topTiltingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            popupView.topTiltingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            
-            bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 270)
-            bottomConstraint.isActive = true
-            popupView.heightAnchor.constraint(equalToConstant: 661).isActive = true
-            
-            popupView.topTiltingView.useCenter = false
-            popupView.topTiltingView.updateDisplayTiltMask(28, animation:false)
-        } else {
-            // Fallback on earlier versions
-        }
     }
     
     // MARK: - * Main Logic --------------------
 	@available(iOS 10.0, *)
     private func layout() {
+        view.addSubview(popupView)
+        popupView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        popupView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        popupView.topTiltingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        popupView.topTiltingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 270)
+        bottomConstraint.isActive = true
+        popupView.heightAnchor.constraint(equalToConstant: 661).isActive = true
+        
+        popupView.topTiltingView.useCenter = false
+        popupView.topTiltingView.updateDisplayTiltMask(28, animation:false)
         popupView.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -179,7 +176,7 @@ class HomeViewController: BoostUIViewController {
             if BSTFacade.device.isConnected {
                 toggleViewingInformation()
             } else {
-                BSTFacade.ux.goDevice(self, type: ReactorViewType.Management)
+                BSTFacade.ux.goTicketScan(currentViewController: self)
             }
         }
     }
@@ -194,11 +191,13 @@ class HomeViewController: BoostUIViewController {
                 self.backgroundView.alpha = 0.7
                 self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
                 self.popupView.updateSmallConcertInfoview()
+                self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideDown(), for: .normal)
             case .closed:
                 self.bottomConstraint.constant = 270
                 self.backgroundView.alpha = 0
-                self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
+                self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
                 self.popupView.updateDefaultConcertInforView()
+                self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideUp(), for: .normal)
             }
             self.view.layoutIfNeeded()
         })
