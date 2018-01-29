@@ -158,17 +158,66 @@ class HomeViewController: BoostUIViewController {
         popupView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func updateSkinImageView() {
-        if selectSkinUrl != BSTFacade.session.skinURL {
-            selectSkinUrl = BSTFacade.session.skinURL
-            
-            DefaultAPI.getSkinsUsingGET { (response, error) in
-                guard let data = response else {
-                    return
-                }
-                
-                self.skinImageView.af_setImage(withURL: URL.init(string: (data.skin?.url)!)!)
-            }
+
+	/// 스킨을 불러와 뿌려준다.
+	///
+	/// - Parameter useApi: true = 무조건 서버로부터 스킨URL을 로드한다.
+	///                     false = 이미 스킨URL을 안다면 그걸로 뿌려준다. (fast)
+	///                     nil = 상황에 따라 처리한다.
+	func updateSkinImageView() {
+		guard let skinUrl = BSTFacade.session.skinURL,
+			let skinURL = URL(string: skinUrl) else {
+				// 스킨 URL이 없고, 주소조차 잘못되었다면 재요청을 해야 맞다.
+				self.selectSkinUrl = ""	// 이미지 로드시 스킨 리로드를 방지하기 위해 empty 값을 넣는다.
+				logVerbose("updateSkinImageView 1")
+				updateSkinImageUrl()
+				return
+		}
+
+
+		logVerbose("updateSkinImageView 2")
+		self.skinImageView
+			.af_setImage(withURL: skinURL,
+						 placeholderImage: nil,
+						 filter: nil,
+						 progress: nil,
+						 progressQueue: DispatchQueue.global(qos: .background),
+						 imageTransition: .noTransition,
+						 runImageTransitionIfCached: true,
+						 completion: { [weak self] image in
+							
+							guard let this = self else { return }
+							this.skinImageView.show()
+							
+							let isFirstAccess = (this.selectSkinUrl == nil)
+							this.selectSkinUrl = skinUrl
+							if isFirstAccess {
+								// selectSkinUrl이 nil이라면 최초 접근이다.
+								// 다른 디바이스 등에서 스킨이 바뀌었는지 확인이 필요한 것이라면, 스킨을 리로드해보자.
+								logVerbose("updateSkinImageView 3")
+								this.updateSkinImageUrl()
+							}
+			})
+		return
+		
+	}
+	
+	/// 서버로부터 스킨 이미지 주소를 가져온다.
+	func updateSkinImageUrl() {
+		logVerbose("updateSkinImageUrl")
+		DefaultAPI.getSkinsUsingGET { [weak self] response, error in
+			guard let data = response,
+				let skinUrl = data.skin?.url else {
+					// 스킨을 제대로 못가져왔다면 어떻게 해야 옳을까?
+					
+					// 네트워크가 비정상이라면 기본 이미지를 뿌려준다.옳은동작일지는 다시 생각해보자.
+					self?.skinImageView.image = R.image.imgTvxqMain()
+					self?.skinImageView.show()
+					return
+			}
+			
+			BSTFacade.session.skinURL = skinUrl	// skinUrl은 nil이 아니다.
+			self?.updateSkinImageView()
         }
     }
     

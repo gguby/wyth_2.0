@@ -22,8 +22,27 @@ class SessionHandler {
 	var pushToken: String = "test- TODO:"	// TODO:
     var deepLink: URL?
 	var osVersion: String = UIDevice.current.systemVersion
-    var skinURL : String?
-	
+	private var _skinURL : String?
+
+	var skinURL : String? {
+		get {
+			return _skinURL
+		}
+		set {
+			if let val = newValue {
+				if _skinURL == val {
+					// 이미 같다.
+					return
+				}
+				_skinURL = val
+				UserDefaults.standard.set(val, forKey: userPlistKey.skinURL.rawValue)
+			} else {
+				UserDefaults.standard.removeObject(forKey: userPlistKey.skinURL.rawValue)
+			}
+			UserDefaults.standard.synchronize()
+		}
+	}
+
 	/// profile은 없지만 유저이름이 있을 수 있다. token만 있는...( 약관동의 웰컴화면에서 쓸...)
 	var welcomeName: String? = nil
 
@@ -51,6 +70,7 @@ class SessionHandler {
 		case token		= "BSTuserToken"
 		case profile	= "BSTuserProfile"
 		case savedEmail	= "BSTuserSavedEmail"
+		case skinURL    = "BSTuserSkinURL"
 	}
 	
 	private init() {
@@ -59,7 +79,7 @@ class SessionHandler {
 		// TODO: 스트링 define으로 뺴려면 고고
 		self.token = UserDefaults.standard.string(forKey: userPlistKey.token.rawValue)
 		self.profile = UserDefaults.standard.objectCodable(forKey: userPlistKey.profile.rawValue)
-
+		self._skinURL = UserDefaults.standard.string(forKey: userPlistKey.skinURL.rawValue)	//  set private val
 	}
 
 	
@@ -85,6 +105,7 @@ class SessionHandler {
     ///SM, Boost의 모든 쿠키를 삭제한다.
     func resetCookies() {
         // remove cookie
+		
         if let cookies = HTTPCookieStorage.shared.cookies {
             cookies.forEach({cookie in
                 HTTPCookieStorage.shared.deleteCookie(cookie)
@@ -105,9 +126,12 @@ class SessionHandler {
         
 		self.token = nil
 		self.profile = nil
+		self.skinURL = nil
 
 		UserDefaults.standard.removeObject(forKey: userPlistKey.token.rawValue)
 		UserDefaults.standard.removeObject(forKey: userPlistKey.profile.rawValue)
+		UserDefaults.standard.removeObject(forKey: userPlistKey.skinURL.rawValue)
+
 
 		UserDefaults.standard.synchronize()
 	}
@@ -115,6 +139,7 @@ class SessionHandler {
 	func storeSessionInfoAfterSignIn(token: String, profile: BoostProfile) {
 		self.token = token
 		self.profile = profile
+		//self.skinURL = skinUrl
 		
 		UserDefaults.standard.set(self.token, forKey: userPlistKey.token.rawValue)
 		UserDefaults.standard.setCodable(self.profile, forKey: userPlistKey.profile.rawValue)

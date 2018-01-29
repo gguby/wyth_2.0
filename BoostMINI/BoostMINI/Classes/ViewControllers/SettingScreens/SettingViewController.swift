@@ -204,9 +204,10 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
                 guard let data = response else {
                     return
                 }
-                BSTFacade.ux.showToast("설정 되었습니다.")
 				BSTFacade.session.skinURL = skins[indexPath.row].url
-                
+				//Alamofire.request("https://httpbin.org/image/png").responseImage { response in ... }
+                BSTFacade.ux.showToast("설정 되었습니다.")
+				
                 self?.selectedSkin = indexPath.row
                 self?.skinCollectionView.reloadData()
             })
