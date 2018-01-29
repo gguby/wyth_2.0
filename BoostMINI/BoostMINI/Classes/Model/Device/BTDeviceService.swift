@@ -13,6 +13,8 @@ import CoreBluetooth
 
 class BTDeviceService {
     
+    private var freePass = true
+    
     private let manager = BluetoothManager.init(queue: .main, options: nil)
     
     private let boostServiceUUID = CBUUID(string: Definitions.device.service_UUID)
@@ -32,49 +34,68 @@ class BTDeviceService {
 //    }
     
     func scanner() -> Observable<[ScannedPeripheral]> {
-        return self.manager
-            .rx_state
-            .debug()
-            .filter { $0 == .poweredOn }
-            .timeout(4.0, scheduler: MainScheduler.instance)
-            .take(1)
-            .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
-            .take(1.0, scheduler: MainScheduler.instance)
-            .toArray()
+        if self.freePass {
+            return .just([])
+        } else {
+            return self.manager
+                .rx_state
+                .debug()
+                .filter { $0 == .poweredOn }
+                .timeout(4.0, scheduler: MainScheduler.instance)
+                .take(1)
+                .flatMap { _ in self.manager.scanForPeripherals( withServices: [self.boostServiceUUID]) }
+                .take(1.0, scheduler: MainScheduler.instance)
+                .toArray()            
+        }
     }
     
     func scan(observable : Observable<[ScannedPeripheral]>) -> Observable<Bool> {
-        return observable
-            .flatMap({ (scannedPeripherals) -> Observable<Bool> in
-                return scannedPeripherals.isEmpty ? .just(false) : .just(true)
-            })
+        if self.freePass {
+            return .just(true)
+        } else {
+            return observable
+                .flatMap({ (scannedPeripherals) -> Observable<Bool> in
+                    return scannedPeripherals.isEmpty ? .just(false) : .just(true)
+                })
+        }
     }
     
     func paring(observable : Observable<[ScannedPeripheral]>) -> Observable<Bool> {
-        return self.connect(observable: observable)
-            .flatMap ({ (peripheral) -> Observable<Bool> in
-                peripheral.isConnected ? .just(true) :  .just(false)
-            })
+        if self.freePass {
+            return .just(true)
+        } else {
+            return self.connect(observable: observable)
+                .flatMap ({ (peripheral) -> Observable<Bool> in
+                    peripheral.isConnected ? .just(true) :  .just(false)
+                })
+        }
     }
     
     func connect(observable : Observable<[ScannedPeripheral]>) -> Observable<Peripheral> {
-         return observable
-            .map {
-                return $0.sorted(by: { (lhs, rhs) -> Bool in
-                    return lhs.rssi.doubleValue > rhs.rssi.doubleValue
+        if self.freePass {
+            return Observable.empty()
+        } else {
+             return observable
+                .map {
+                    return $0.sorted(by: { (lhs, rhs) -> Bool in
+                        return lhs.rssi.doubleValue > rhs.rssi.doubleValue
+                    })
+                }
+                .flatMap {
+                    Observable.from($0)
+                }
+                .take(1)
+                .do(onNext: { ScannedPeripheral in
+                    logVerbose("Discovered ScannedPeripheral: \(ScannedPeripheral)")
                 })
-            }
-            .flatMap {
-                Observable.from($0)
-            }
-            .take(1)
-            .do(onNext: { ScannedPeripheral in
-                logVerbose("Discovered ScannedPeripheral: \(ScannedPeripheral)")
-            })
-            .flatMap { $0.peripheral.connect() }
+                .flatMap { $0.peripheral.connect() }
+        }
     }
     
     func chrateristic(observable : Observable<Peripheral>) -> Observable<Characteristic> {
+        if self.freePass {
+            return Observable.empty()
+        } else {
         return observable
             .flatMap { $0.discoverServices([self.boostServiceUUID])}
             .flatMap { Observable.from($0) }
@@ -86,11 +107,16 @@ class BTDeviceService {
             .do(onNext: { Characteristic in
                 logVerbose("Discovered Characteristic: \(Characteristic)")
             })
+        }
     }
     
     func register(observable : Observable<Peripheral>) -> Observable<Bool> {
+        if self.freePass {
+            return self.saveDevice(device: nil)
+        } else {
         return observable.flatMap { peripheral in
             return self.saveDevice(device: peripheral)
+        }
         }
     }
 
@@ -101,6 +127,16 @@ class BTDeviceService {
 
 extension BTDeviceService {
     private func saveDevice(device : Peripheral?) -> Observable<Bool> {
+        
+        if self.freePass {
+            let dict = [BSTFacade.session.name, "Simulator", "10AA"]
+            
+            print(dict)
+            
+            UserDefaults.standard.set(dict, forKey: DeviceKey)
+            UserDefaults.standard.synchronize()
+            return .just(true)
+        }
         
         guard let device = device else { return .just(false) }
         
