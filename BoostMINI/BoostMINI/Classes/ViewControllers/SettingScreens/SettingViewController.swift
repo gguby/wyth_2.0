@@ -94,9 +94,9 @@ class SettingViewController: BoostUIViewController {
             }
         }.disposed(by: disposeBag)
         
-        self.notificationSwitch.rx.isOn.bind {(isOn) in
-			let alarm = AlarmPostRequest(alarm: isOn)
-			DefaultAPI.postAlarmsUsingPOST(request: alarm) { (response, error) in
+        self.notificationSwitch.rx.controlEvent(UIControlEvents.valueChanged).bind { [weak self] in
+            let alarm = AlarmPostRequest(alarm: self?.notificationSwitch.isOn)
+            DefaultAPI.postAlarmsUsingPOST(request: alarm) { (response, error) in
                 guard let data = response else {
                     return
                 }
@@ -143,14 +143,11 @@ class SettingViewController: BoostUIViewController {
             } else {
                 self.updateButton.isHidden = true
             }
-            
-        
-        }
+         }
     }
     
      // MARK: - * UI Events --------------------
-    
-    
+
     // MARK: - * Memory Manage --------------------
 
     override func didReceiveMemoryWarning() {
