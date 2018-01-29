@@ -86,11 +86,13 @@ class SettingViewController: BoostUIViewController {
             BSTFacade.ux
                 .showConfirm("Boost for TVXQ!를 정말 탈퇴 하시겠습니까?") { (bool) in
                     if bool == true {
-                        DefaultAPI.withdrawUsingDELETE { (_) in
-                            SessionHandler.shared.logout()
-                            BSTFacade.go.login()
+                        BSTFacade.ux.showAlert("탈퇴 되었습니다.") {
+                            DefaultAPI.withdrawUsingDELETE { (_) in
+                                SessionHandler.shared.logout()
+                                BSTFacade.go.login()
+                            }
                         }
-                    }
+                     }
             }
         }.disposed(by: disposeBag)
         
