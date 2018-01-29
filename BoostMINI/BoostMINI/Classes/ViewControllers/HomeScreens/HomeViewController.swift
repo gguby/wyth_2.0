@@ -34,6 +34,7 @@ class HomeViewController: BoostUIViewController {
 
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var skinImageView: UIImageView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     
     var selectSkinUrl : String?
     
@@ -238,12 +239,14 @@ class HomeViewController: BoostUIViewController {
             case .open:
                 self.bottomConstraint.constant = 0
                 self.backgroundView.alpha = 0.7
+                self.blurView.isHidden = false
                 self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
                 self.popupView.updateSmallConcertInfoview()
                 self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideDown(), for: .normal)
             case .closed:
                 self.bottomConstraint.constant = 270
                 self.backgroundView.alpha = 0
+                 self.blurView.isHidden = true
                 self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
                 self.popupView.updateDefaultConcertInforView()
                 self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideUp(), for: .normal)
@@ -288,13 +291,19 @@ class HomeViewController: BoostUIViewController {
 
 extension HomeViewController : UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
+        self.backgroundView.alpha = 0.7
+        self.popupView.dimConcertInforView()
         if currentState == .open {
             if #available(iOS 10.0, *) {
                 toggleViewingInformation()
-            } else {
-                // Fallback on earlier versions
+             } else {
             }
         }
+    }
+    
+    func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+        self.backgroundView.alpha = 0
+        self.popupView.defaultConcertInfoView()
     }
 }
 
