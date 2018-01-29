@@ -136,6 +136,7 @@ extension IntroViewController {
 	private func checkVersion() {
 		DefaultAPI.getVersionUsingGET { [weak self] body, err in
 			
+			logVerbose("getVersionUsingGET : \(err), \(body)")
 			if BSTErrorTester.isFailure(err) == true {
 				self?.startLoadingMarkAnimation(0.0)
 				return
@@ -216,7 +217,6 @@ extension IntroViewController {
 		if let token = SessionHandler.shared.token {
 			let pushToken = SessionHandler.shared.pushToken
 			let osVersion = UIDevice.current.systemVersion
-			// TODO : 로그인이 유효한지의 여부를 서버로부터 확인해야 하면 여기에 추가한다.
 			DefaultAPI.signinUsingPOST(accessToken: token,
 									   socialType: .smtown,
 									   pushToken: pushToken,
@@ -235,6 +235,7 @@ extension IntroViewController {
 		
 	
 		self.startLoadingMarkAnimation(self.progressStep4, duration: 0.8, animated: true, completed: { _ in
+			
 			if isLoginned {
 				self.presentHome()
 			} else {
@@ -247,10 +248,12 @@ extension IntroViewController {
 
 	
 	func presentHome() {
+		
 		BSTFacade.go.home(self, animated: false)
 	}
 	
 	func presentLogin() {
+		
 		BSTFacade.go.login(self, animated: false)
 	}
 }

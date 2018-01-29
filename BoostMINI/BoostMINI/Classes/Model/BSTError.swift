@@ -190,7 +190,11 @@ enum APIError: Int, Error, BSTErrorProtocol {
 	
 	func cook(_ object: Any? = nil) {
 		switch self {
-		case .userExists, .userNotExists, .invalidToken:
+		case .invalidToken:
+			BSTFacade.ux.showAlert(BSTFacade.localizable.login.sessionExpired(), {
+				BSTFacade.go.login()
+			})
+		case .userExists, .userNotExists:
 			BSTFacade.ux.showAlert(self.description, {
 				BSTFacade.go.login()
 			})
@@ -392,7 +396,11 @@ class BSTErrorBaker<T> {
 		do {
 			try BSTErrorBaker<T>.errorPitcher(err, response)
 		} catch let error {
-            if let apiError = error as? APIError, !(response?.isBizError ?? false) {
+			// !(response?.isBizError ?? false)  === response?.isBizError != true
+			// true  -> !(true) == false === false
+			// nil   -> !(false) == true === true
+			// false -> !(false) == true === true
+			if let apiError = error as? APIError, response?.isBizError != true {
                 apiError.cook()
                 return nil
             }
@@ -403,12 +411,30 @@ class BSTErrorBaker<T> {
 	
 	class func errorPitcher(_ err: Error?, _ response: Response<T>?) throws {
 		
+		
+		
+		
 		// Alamofire 4 부터는 비정상 호출일 경우, statusCode가 안넘어온다. AFError로 핸들링됨.
 		if let errorResponse = err as? ErrorResponse {
 			switch(errorResponse) {
 			case .error(let code, let data, let error):
 				logVerbose("\(code), \(String(describing: data)), \(error)")
 				
+				if code == 906 {
+					// 세션 만료.
+
+					// TODO: 위 errorFilter에서의 isBizError의 범주를 모르겠으나, 900번대중에서도 에러를 처리해야하는경우가 있음. 대표적으로 906. return nil을 해버리면 오류가 없는것으로 간주되어 로그인이 되어버림. 그런 이유로 에러를 그대로 리턴하여 코드레벨에서 처리할 수 있도록 처리.
+					SessionHandler.shared.setTokenExpired(true)
+		
+					if IntroViewController.actual != nil {
+						// 인트로 화면에서의 처리.
+					} else {
+						// 인트로가 아닌 곳에서의 처리. 일단 리턴하여 cook이 알아서 되도록 넘겨준다.
+						throw error
+					}
+					return
+					
+				}
 				if code == 960 {
 					try processErrorResponse960(errorResponse, response)
 					return
@@ -463,7 +489,7 @@ class BSTErrorBaker<T> {
 				userName = (jsonDictionary["message"] as? String) ?? ""
 				
 			} catch let jsonError {
-				logError("906 processing erorr : \(error.localizedDescription)")
+				logError("960 processing erorr : \(error.localizedDescription)")
 				throw jsonError
 			}
 			

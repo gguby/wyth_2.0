@@ -14,7 +14,7 @@ class SessionHandler {
     static let shared = SessionHandler()
     //let baseURL = Definitions.api.base
 
-    var token: String?
+	var token: String?
     var currentConcertInfo: ConcertResponse?
     var seat: ConcertsSeatGetResponse?
 	var profile: BoostProfile?
@@ -32,6 +32,9 @@ class SessionHandler {
 
 	/// 사용자 이메일
 	var email: String? { return profile?.email ?? "-" }
+
+	// 로그인 실패시 임시 저장되는 옛날 토큰.
+	var invalidToken: String?
 
 	
 	
@@ -71,6 +74,12 @@ class SessionHandler {
 			return
 		}
 		self.storeSessionInfoAfterSignIn(token: token, profile: info)
+	}
+	
+	func setTokenExpired(_ isExpired: Bool) {
+		if false == isExpired { return }
+		invalidToken = token
+		token = nil
 	}
 	
     ///SM, Boost의 모든 쿠키를 삭제한다.
@@ -136,15 +145,6 @@ class SessionHandler {
         }
         //signin
         DefaultAPI.signinUsingPOST(accessToken: token, socialType: .smtown, pushToken: "", osVersion: "")
-        
-        //token, local
-        
-        //cookie 만료 - 904: Session aleady has been disconnected
-        
-        //token -> boost, boost -> sm 토큰 유효
-        //로그인
-        
-        //smlogin -> 906: Invalid Token
     }
 
 	

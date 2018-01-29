@@ -20,3 +20,5 @@
 "agreeCheck" = "정보제공 동의하기";
 "startButton" = "Boost for TVXQ! 시작하기";
 "cancelButton" = "가입취소";
+
+"sessionExpired" = "세션이 만료되었습니다.\n다시 로그인 해 주세요";

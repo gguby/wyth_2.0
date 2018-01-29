@@ -26,6 +26,29 @@ extension BoostProfile {
 		let osVersion = SessionHandler.shared.osVersion
 		
 		let block = {(data: AccountsPostResponse?, error: Error?) in
+			
+			guard let cookies = HTTPCookieStorage.shared.cookies else {
+				return
+			}
+			
+			// 쿠키 유지
+			var deserts: [HTTPCookie] = []
+			for cookie in cookies {
+				if let properties = cookie.properties {
+					var newProperties = properties
+					newProperties[HTTPCookiePropertyKey.discard] = false
+					//newProperties[HTTPCookiePropertyKey.expires] = nil	// Date(timeIntervalSinceNow: 60*60*24*365*50)
+					if let chocoCoockie = HTTPCookie(properties: newProperties) {
+						deserts.append(chocoCoockie)
+					}
+				}
+			}
+			for cookie in deserts {
+				HTTPCookieStorage.shared.setCookie(cookie)
+			}
+			HTTPCookieStorage.shared.cookieAcceptPolicy = HTTPCookie.AcceptPolicy.always
+
+			
 			BoostProfile
 				.responseSignIn(data, error, loginned: { info in
 					loginned?(info)
