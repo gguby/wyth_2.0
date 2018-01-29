@@ -32,6 +32,20 @@ extension EasyCodable {
 		let dec = CodableHelper.decode(DESC.self, from: data)
 		return dec.decodableObj
 	}
+	
+
+	func toJson() -> String {
+		do {
+			let jsonData = try JSONEncoder.base.encode(self)
+			let jsonString = String(data: jsonData, encoding: .utf8)
+			return jsonString ?? ""
+		} catch {
+		}
+		
+		return ""
+	}
+
+	
 }
 
 

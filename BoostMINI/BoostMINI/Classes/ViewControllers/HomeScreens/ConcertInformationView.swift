@@ -68,7 +68,7 @@ class ConcertInformationView: UIView {
                 self?.closeConcertSeatInfo()
             }
             
-            self?.updateConcertInfo()
+            //self?.updateConcertInfo()	// 무한 재귀 호출
         }
     }
     

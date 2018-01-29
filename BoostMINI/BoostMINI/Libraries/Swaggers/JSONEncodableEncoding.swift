@@ -30,7 +30,7 @@ public struct JSONDataEncoding: ParameterEncoding {
         var urlRequest = try urlRequest.asURLRequest()
 
         guard let jsonData = parameters?[JSONDataEncoding.jsonDataKey] as? Data, !jsonData.isEmpty else {
-            return urlRequest
+            return urlRequest.asURLRequestWithParams(parameters)
         }
 
         if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
@@ -39,7 +39,7 @@ public struct JSONDataEncoding: ParameterEncoding {
 
         urlRequest.httpBody = jsonData
 
-        return urlRequest
+        return urlRequest.asURLRequestWithParams(parameters)
     }
 
     public static func encodingParameters(jsonData: Data?) -> Parameters? {

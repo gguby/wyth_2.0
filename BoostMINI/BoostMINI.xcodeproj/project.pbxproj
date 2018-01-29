@@ -52,6 +52,9 @@
 		041734952011C49B0075D507 /* EasyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* EasyCodable.swift */; };
 		041734962011C49B0075D507 /* EasyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* EasyCodable.swift */; };
 		041734972011C49B0075D507 /* EasyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041734942011C49B0075D507 /* EasyCodable.swift */; };
+		04204518201ED9850012F814 /* URLRequest+CodegenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04204517201ED9850012F814 /* URLRequest+CodegenExtension.swift */; };
+		04204519201ED9850012F814 /* URLRequest+CodegenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04204517201ED9850012F814 /* URLRequest+CodegenExtension.swift */; };
+		0420451A201ED9850012F814 /* URLRequest+CodegenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04204517201ED9850012F814 /* URLRequest+CodegenExtension.swift */; };
 		0420EABB2011D62C00E9820F /* DefaultAPI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420EABA2011D62C00E9820F /* DefaultAPI2.swift */; };
 		044236AF2005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
 		044236B02005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */; };
@@ -401,6 +404,7 @@
 		041734882011903E0075D507 /* BSTUXHandler-LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSTUXHandler-LoadingIndicator.swift"; sourceTree = "<group>"; };
 		0417348C2011BAB20075D507 /* Logger+AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+AlamofireRequest.swift"; sourceTree = "<group>"; };
 		041734942011C49B0075D507 /* EasyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyCodable.swift; sourceTree = "<group>"; };
+		04204517201ED9850012F814 /* URLRequest+CodegenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+CodegenExtension.swift"; sourceTree = "<group>"; };
 		0420EABA2011D62C00E9820F /* DefaultAPI2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI2.swift; sourceTree = "<group>"; };
 		044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderUIExtension.swift"; sourceTree = "<group>"; };
 		0442D9AE2019926900A239DE /* AccountsPostResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsPostResponse.swift; sourceTree = "<group>"; };
@@ -592,6 +596,14 @@
 				0417348420118BF40075D507 /* LoadingViewController.swift */,
 			);
 			path = CommonScreens;
+			sourceTree = "<group>";
+		};
+		04204516201ED96D0012F814 /* ModelExtension */ = {
+			isa = PBXGroup;
+			children = (
+				04204517201ED9850012F814 /* URLRequest+CodegenExtension.swift */,
+			);
+			path = ModelExtension;
 			sourceTree = "<group>";
 		};
 		0462CDE31FFDFB6A002B6E11 /* Theme */ = {
@@ -827,6 +839,7 @@
 		2B5AA06B1FEA6178007441E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04204516201ED96D0012F814 /* ModelExtension */,
 				A6662A881FFB25A7007CB754 /* Device */,
 				A696AE891FF5E8B4009B8FEF /* Reactor */,
 				04E223D62003766E00A2B388 /* Generated */,
@@ -1630,6 +1643,7 @@
 				0417348520118BF40075D507 /* LoadingViewController.swift in Sources */,
 				0483854520035641007DE69B /* JSONEncodingHelper.swift in Sources */,
 				0480BCF4200C9FD500B79DB8 /* UserDefault+CustomClass.swift in Sources */,
+				04204518201ED9850012F814 /* URLRequest+CodegenExtension.swift in Sources */,
 				0483853C20035641007DE69B /* JSONEncodableEncoding.swift in Sources */,
 				8F7CBF2C2005EE5600DBDE67 /* DetailConcertInformationViewController.swift in Sources */,
 				04E224452004937200A2B388 /* DeviceViewReactor.swift in Sources */,
@@ -1740,6 +1754,7 @@
 				A63F1A3320059D3A0079046D /* ConcertInfoView.swift in Sources */,
 				04B2191E20076054002A1742 /* DetailConcertInformationViewController.swift in Sources */,
 				0480BCE9200C437000B79DB8 /* BoostNotifications.swift in Sources */,
+				04204519201ED9850012F814 /* URLRequest+CodegenExtension.swift in Sources */,
 				04AD74201FF36269005F4BF0 /* Protocols.swift in Sources */,
 				0442D9D52019926A00A239DE /* AlarmPostRequest.swift in Sources */,
 				0462CD9C1FFCA407002B6E11 /* Gitup.swift in Sources */,
@@ -1852,6 +1867,7 @@
 				04B2192420076054002A1742 /* DetailConcertInformationViewController.swift in Sources */,
 				04AD74041FF33934005F4BF0 /* SessionHandler.swift in Sources */,
 				0480BCEA200C437000B79DB8 /* BoostNotifications.swift in Sources */,
+				0420451A201ED9850012F814 /* URLRequest+CodegenExtension.swift in Sources */,
 				0462CD9A1FFCA3FA002B6E11 /* TopTiltingView.swift in Sources */,
 				0442D9D62019926A00A239DE /* AlarmPostRequest.swift in Sources */,
 				04AD74181FF35E6E005F4BF0 /* String+URL.swift in Sources */,

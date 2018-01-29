@@ -155,7 +155,7 @@ done;
 for X in BoostMINI/BoostMINI/Classes/Swaggers/JSONEncodable*.swift; do
 # JSONEncodableEncoding.swift 하나
 # 코드내에 2줄이 있기때문에 2개가 다 바뀐다.사실 guard let else { ... } 내부의 것만 치환하면 된다.
-#sed -i '' -e 's|return urlRequest|return urlRequest.asURLRequestWithParams(parameters)|g' $X;
+sed -i '' -e 's|return urlRequest|return urlRequest.asURLRequestWithParams(parameters)|g' $X;
 sed -i '' -e 's|private static let jsonDataKey = "jsonData"|static let jsonDataKey = "jsonData"|g' $X;
 
 done;
