@@ -151,7 +151,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PYY-s4-wdx" firstAttribute="top" secondItem="0qI-Hf-mG9" secondAttribute="bottom" id="4fc-om-3ls"/>
                             <constraint firstItem="PYY-s4-wdx" firstAttribute="bottom" secondItem="rAh-T8-ESk" secondAttribute="bottom" id="8BM-dH-hsv"/>

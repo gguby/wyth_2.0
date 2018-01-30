@@ -106,11 +106,6 @@ class TicketScanViewController: BoostUIViewController {
         #endif
     }
 
-
-    func prepareViewDidLoad() {
-        prepareScan()
-    }
-
     // MARK: - * Main Logic --------------------
     func setMask(with hole: CGRect, in view: UIView) {
         
@@ -129,6 +124,10 @@ class TicketScanViewController: BoostUIViewController {
     }
     
     func prepareScan() {
+        guard videoPreviewLayer == nil else { //중복 실행 방지
+            return
+        }
+        
         guard BSTDeviceType.isSimulator == false else {
             BSTFacade.ux.showToast("this is only for device.")
 			DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -187,6 +186,7 @@ class TicketScanViewController: BoostUIViewController {
     
     private func finishScan(code: String) {
         //1. verify barcode to server
+        captureSession.stopRunning()
         
         //2. if ok, present ticketConfirmViewController
         guard let vc = BSTFacade.ux.instantiateViewController(typeof: TicketConfirmViewController.self) else {
