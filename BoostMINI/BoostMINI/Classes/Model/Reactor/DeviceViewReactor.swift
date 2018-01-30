@@ -26,6 +26,8 @@ final class DeviceViewReactor : Reactor {
         case connectAll
         case manageMentInit
         case clearDevice
+        case errorScan
+        case errorConnetion
     }
     
     enum Mutation {
@@ -48,7 +50,7 @@ final class DeviceViewReactor : Reactor {
         var discoverPeripherals : [ScannedPeripheral] = []
         var activePeripheral : Peripheral?
         var characteristic : Characteristic?
-        var isRegister : Bool = false
+        var isRegister : Bool?
         var registeredDevice : BSTLocalDevice?
         var deviceError : BSTError?
         var contentMsg : ContentMessage = ContentMessage.notScanning
@@ -88,6 +90,12 @@ final class DeviceViewReactor : Reactor {
         case .clearDevice:
             let isClear = self.service.clearDevice().map(Mutation.clearDevice)
             return isClear
+        case .errorScan:
+            let error = Observable.just(Mutation.deviceError(BSTError.device(DeviceError.scanFailed)))
+            return error
+        case .errorConnetion:
+            let error = Observable.just(Mutation.deviceError(BSTError.device(DeviceError.paringFailed)))
+            return error
         }
     }
     
