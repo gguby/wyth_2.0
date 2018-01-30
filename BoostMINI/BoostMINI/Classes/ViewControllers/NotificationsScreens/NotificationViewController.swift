@@ -69,6 +69,8 @@ class NotificationTableViewCell: UITableViewCell {
             
             self.lblTitle.text = notice.title
             self.lblContent.text = notice.expand ? notice.content : ""
+            self.lblContent.getConstraint(attribute: .bottom)?.constant = notice.expand ? 16.c : 0.c
+            
             let textColor = notice.expand ? BSTFacade.theme.color.commonTextBg() : BSTFacade.theme.color.textSubtext1()
             imgvNew.isHidden = (notice.view ?? true) || notice.expand
             
@@ -104,7 +106,7 @@ class NotificationViewController: BoostUIViewController, NotificationView {
             tableView.delegate = self
             tableView.dataSource = self
             
-            tableView.estimatedRowHeight = 52
+            tableView.estimatedRowHeight = 50
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.separatorStyle = .none
         }

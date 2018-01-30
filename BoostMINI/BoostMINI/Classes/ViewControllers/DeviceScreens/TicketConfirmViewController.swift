@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TicketConfirmViewController: UIViewController {
+class TicketConfirmViewController: BoostUIViewController {
 
     // MARK: - * properties --------------------
     let disposeBag = DisposeBag()

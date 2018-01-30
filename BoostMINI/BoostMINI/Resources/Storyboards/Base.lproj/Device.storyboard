@@ -26,30 +26,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-Hf-mG9" userLabel="titleView">
                                 <rect key="frame" x="0.0" y="44" width="375" height="47"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZr-1x-p3H">
-                                        <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="dte-8c-37i"/>
-                                            <constraint firstAttribute="width" constant="47" id="tTR-LA-pcE"/>
-                                        </constraints>
-                                        <state key="normal" image="btnCommonBack"/>
-                                        <connections>
-                                            <segue destination="j3h-Dr-VyT" kind="unwind" identifier="TicketScanViewControllerExit" unwindAction="unwindFor:" id="nfQ-Vf-fYe"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바코드 스캔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na0-PF-Xai">
-                                        <rect key="frame" x="137.33333333333334" y="10.666666666666663" width="101" height="26.333333333333329"/>
+                                        <rect key="frame" x="137" y="9.9999999999999982" width="101" height="26.333333333333329"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="22"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAy-nf-3Nw">
+                                        <rect key="frame" x="295" y="1" width="65" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="LUR-SV-gcw"/>
+                                            <constraint firstAttribute="width" constant="65" id="jlY-Oa-J9v"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="취소">
+                                            <color key="titleColor" red="0.43921568630000002" green="0.45098039220000002" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="j3h-Dr-VyT" kind="unwind" unwindAction="unwindFor:" id="69l-nA-mdw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="0Vk-qp-NCD"/>
-                                    <constraint firstItem="bZr-1x-p3H" firstAttribute="centerY" secondItem="0qI-Hf-mG9" secondAttribute="centerY" id="DZB-FE-0aY"/>
-                                    <constraint firstItem="bZr-1x-p3H" firstAttribute="leading" secondItem="0qI-Hf-mG9" secondAttribute="leading" id="ZfG-B3-lQs"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZAy-nf-3Nw" secondAttribute="trailing" constant="15" id="D8b-fb-zSk"/>
                                     <constraint firstItem="Na0-PF-Xai" firstAttribute="centerY" secondItem="0qI-Hf-mG9" secondAttribute="centerY" id="bkJ-a5-54B"/>
                                     <constraint firstItem="Na0-PF-Xai" firstAttribute="centerX" secondItem="0qI-Hf-mG9" secondAttribute="centerX" id="iuc-YC-WFp"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZAy-nf-3Nw" secondAttribute="bottom" constant="2" id="jW2-s2-Ij0"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVD-UY-MoG" userLabel="line">
@@ -169,7 +172,6 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="btnBack" destination="bZr-1x-p3H" id="g7H-TZ-lA9"/>
                         <outlet property="btnDebugAlready" destination="xqe-F0-kxN" id="k0U-AY-8EX"/>
                         <outlet property="btnDebugFail" destination="irY-nV-4ep" id="000-qQ-cC9"/>
                         <outlet property="cameraView" destination="HRj-kQ-YYn" id="Nqc-78-pPj"/>
@@ -338,7 +340,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btnCommonBack" width="47" height="47"/>
         <image name="imgSubScanner1" width="32" height="32"/>
         <image name="imgSubScanner2" width="32" height="32"/>
         <image name="imgSubScanner3" width="32" height="32"/>
