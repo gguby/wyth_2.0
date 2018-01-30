@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 import RxOptional
-import FLEX
 import SideMenu
+#if DEBUG
+    import FLEX
+#endif
 
 class MenuViewController: UIViewController {
 

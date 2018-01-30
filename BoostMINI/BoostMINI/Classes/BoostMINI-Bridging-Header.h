@@ -5,6 +5,7 @@
 @import RxCocoa;
 
 //#import "Common.h"
+#if DEBUG
 #import <FLEX/FLEXManager.h>
-
+#endif
 

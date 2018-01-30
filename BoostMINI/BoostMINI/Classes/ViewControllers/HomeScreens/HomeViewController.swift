@@ -126,21 +126,28 @@ class HomeViewController: BoostUIViewController {
 	
     
     override func viewWillAppear(_ animated: Bool) {
-        updateSkinImageView()
-        self.popupView.updateConcertInfo { [weak self] totalAlarm in
-            if totalAlarm > 0 {
-                self?.alarmButton.setImage(BSTFacade.theme.image.btnCommonAlarmOn(), for: .normal)
-            } else {
-                self?.alarmButton.setImage(BSTFacade.theme.image.btnCommonAlarmOff(), for: .normal)
-            }
-        }
-        
         if BSTFacade.device.isConnected {
             //응원도구가 연동되었습니다
             popupView.connectStatusLabel.text = BSTFacade.localizable.home.connectSuccessDevice()
         } else {
             //응원도구가 연동되어 있지 않습니다.
             popupView.connectStatusLabel.text = BSTFacade.localizable.home.interlinkSupportTools()
+        }
+        
+        updateSkinImageView()
+        self.popupView.updateConcertInfo {[weak self] (totalAlarm, concertEnd) in
+            if totalAlarm > 0 {
+                self?.alarmButton.setImage(BSTFacade.theme.image.btnCommonAlarmOn(), for: .normal)
+            } else {
+                self?.alarmButton.setImage(BSTFacade.theme.image.btnCommonAlarmOff(), for: .normal)
+            }
+            
+            if concertEnd {
+                self?.popupView.topTiltingView.isUserInteractionEnabled = false
+                self?.popupView.connectStatusLabel.text = BSTFacade.localizable.home.thePerformanceIsOver()
+            } else {
+                self?.popupView.topTiltingView.isUserInteractionEnabled = true
+            }
         }
     }
     
