@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -249,8 +250,8 @@
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="f5M-N3-biT" firstAttribute="bottom" secondItem="ydL-Gz-nvc" secondAttribute="bottom" id="9HW-X3-d2L"/>
                             <constraint firstItem="KNU-YX-zik" firstAttribute="top" secondItem="bmN-u9-5Ub" secondAttribute="top" id="Ogk-8W-0dP"/>
@@ -422,7 +423,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                     <constraint firstItem="QL9-oe-W6M" firstAttribute="top" secondItem="RHh-b0-fxM" secondAttribute="bottom" constant="20" id="1jx-mL-1BA"/>
                                     <constraint firstItem="QL9-oe-W6M" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" constant="42" id="2Mb-Oy-jdH"/>
                                     <constraint firstItem="HYQ-ke-HGE" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" constant="42" id="82v-Pw-dkh"/>
-                                    <constraint firstAttribute="bottom" secondItem="HYQ-ke-HGE" secondAttribute="bottom" constant="32" id="TzQ-YZ-0q7"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="HYQ-ke-HGE" secondAttribute="bottom" constant="24" id="TzQ-YZ-0q7"/>
                                     <constraint firstItem="RHh-b0-fxM" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" id="YtP-Yr-bsA"/>
                                     <constraint firstAttribute="trailing" secondItem="HYQ-ke-HGE" secondAttribute="trailing" constant="42" id="hS8-VE-sdT"/>
                                     <constraint firstAttribute="trailing" secondItem="RHh-b0-fxM" secondAttribute="trailing" id="rUd-fE-I2H"/>

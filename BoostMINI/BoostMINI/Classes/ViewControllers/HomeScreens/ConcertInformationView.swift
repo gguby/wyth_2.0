@@ -79,6 +79,9 @@ class ConcertInformationView: UIView {
 			return
 		}
         DefaultAPI.getSeatsUsingGET(concertId: concertId) { [weak self] body, err in
+            
+            BSTFacade.session.seat = body
+            
             guard let data = body else {
                 return
             }

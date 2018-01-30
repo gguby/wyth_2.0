@@ -400,6 +400,9 @@ class BSTErrorBaker<T> {
 			// true  -> !(true) == false === false
 			// nil   -> !(false) == true === true
 			// false -> !(false) == true === true
+			
+			
+
 			if let apiError = error as? APIError, response?.isBizError != true {
                 apiError.cook()
                 return nil
@@ -418,7 +421,12 @@ class BSTErrorBaker<T> {
 		if let errorResponse = err as? ErrorResponse {
 			switch(errorResponse) {
 			case .error(let code, let data, let error):
-				logVerbose("\(code), \(String(describing: data)), \(error)")
+				let msg = (data == nil) ? "nil" : String(data: data!, encoding: .utf8) ?? "[unknown data]"
+				#if DEBUG
+				logError("\(code), \(msg), \(error)")
+				#else
+				logVerbose("\(code), \(msg), \(error)")
+				#endif
 				
 				if code == 906 {
 					// 세션 만료.
