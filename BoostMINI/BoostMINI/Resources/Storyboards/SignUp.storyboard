@@ -189,10 +189,10 @@
                                     <outlet property="delegate" destination="9z3-Qg-y4d" id="Hsb-U3-Ktd"/>
                                 </connections>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNU-YX-zik">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNU-YX-zik" userLabel="BoostNavigationView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyY-SS-jcu" userLabel="titleView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyY-SS-jcu" userLabel="realNavigationFrameView">
                                         <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5O-vc-Dqc">
