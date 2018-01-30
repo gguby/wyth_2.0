@@ -20,7 +20,9 @@ protocol NotificationView: class {
 //    func updateNotifications()
 //}
 extension NoticeList {
-    func updateView() {
+    
+    /// 읽음 처리
+    func updateReadStatus() {
         if self.view == false {
             DefaultAPI.postNoticesReadUsingPOST(id: self.id?.i ?? 0, read: true, completion: { (error) in
                 self.view = error == nil
@@ -147,7 +149,7 @@ class NotificationViewController: BoostUIViewController, NotificationView {
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             var notice = self?.notifications[indexPath.row]
             notice?.reverseExpand()
-            notice?.updateView()
+            notice?.updateReadStatus()
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)
     }
@@ -202,11 +204,10 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
             if let deepLink = BSTFacade.session.deepLink, let comp = deepLink.query?.components(separatedBy: "=").last,
                 let pushId = Int(comp), isFirstLoading, pushId == notice.pushId?.i {
                     notice.reverseExpand()
-                    
-                    BSTFacade.session.deepLink = nil
-                    isFirstLoading = false
+                    notice.updateReadStatus()
                 
-                //TODO: post update new state,
+                    BSTFacade.session.deepLink = nil    //푸시 링크 초기화
+                    isFirstLoading = false              //최초 로딩시 플래그 초기화,
             }
             
             tcell.notice = notice
