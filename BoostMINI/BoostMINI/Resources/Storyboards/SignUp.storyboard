@@ -265,7 +265,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Y0K-Uh-Gfr" id="2zs-QX-07f"/>
-                        <outlet property="titleLabel" destination="ujv-QD-CtL" id="q94-pp-rCV"/>
                         <outlet property="webViewContainer" destination="f5M-N3-biT" id="Ie7-hh-jil"/>
                     </connections>
                 </viewController>

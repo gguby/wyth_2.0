@@ -53,12 +53,13 @@ class AgreementController: UIViewController {
 		let userName = SessionHandler.shared.welcomeName ?? ""
 		
 		buttonCheck.isHidden = false
-		buttonCheck.isEnabled = false
+		buttonCheck.isEnabled = true
+		buttonCheck.isSelected = false
 		
 		buttonCancel.isHidden = false
 		buttonCancel.isEnabled = true
 		
-		buttonNext.isEnabled = buttonCheck.isEnabled
+		buttonNext.isEnabled = buttonCheck.isSelected
 		
 		labelHead.text = BSTFacade.localizable.login.welcome(userName)
 		labelComment.text = BSTFacade.localizable.login.welcomeDetail(userName)

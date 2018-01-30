@@ -13,7 +13,7 @@ class SMLoginViewController: WebViewController {
 
 	// var clientId = Definitions.path.clientId
 
-	
+	@IBOutlet weak var loginTitleLabel: UILabel!	// WebViewController는 웹페이지의 타이틀을 자동으로 뿌린다. 로그인 페이지의 타이틀이 OAUTH 더라..... 무시하기위해 추가
 	
 	var token: String? { return SessionHandler.shared.token }
 	var preload: String?
@@ -27,6 +27,7 @@ class SMLoginViewController: WebViewController {
 		loadWebUrl(Definitions.externURLs.authUri, preload: preload, forceRefresh: false)
 		preload = nil
 
+		// loginTitleLabel.text = "로그인"
 	}
 	
 	deinit {
