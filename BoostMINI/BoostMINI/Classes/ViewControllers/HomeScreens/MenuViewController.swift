@@ -22,9 +22,9 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var diagonalImageView: UIImageView!
     
     //for debugging
-    @IBOutlet weak var btnScan: UIButton!
-    @IBOutlet weak var btnDebug: UIButton!
-	
+	@IBOutlet weak var debugPanel: UIView?
+
+
     @IBOutlet weak var deviceButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
@@ -52,15 +52,27 @@ class MenuViewController: UIViewController {
 		self.navigationController?.view.backgroundColor = .clear
 		
     #if DEBUG
-        btnScan.isHidden = false
-        btnScan.rx.tap.bind {
-            BSTFacade.ux.goTicketScan(currentViewController: self)
-            }.disposed(by: disposeBag)
-        
-        btnDebug.isHidden = false
-        btnDebug.rx.tap.bind {
-            FLEXManager.shared().showExplorer()
-            }.disposed(by: disposeBag)
+		//TODO: 테스트 완료시 debugPanel만 Storyboard에서 제거하면 됨.
+		//TODO: 버튼 추가를 원하면 태그를 104, 105 ... 처럼 늘리면 됨.
+		
+		if let debugPanel = debugPanel {
+			debugPanel.isHidden = false
+			let eventFuncs = [
+				101 : { BSTFacade.ux.goTicketScan(currentViewController: self) },
+				102 : { FLEXManager.shared().showExplorer() },
+				103 : { let con = !BSTFacade.device.isConnected
+					BSTFacade.device.isConnected = con
+					BSTFacade.ux.showAlert("isConnected = \(con)") }
+			]
+			for i in 0..<eventFuncs.keys.count {
+				let buttonTag = 101 + i
+				if let btn = debugPanel.viewWithTag(buttonTag) as? UIButton,
+					let eFunc = eventFuncs[i] {
+					//btn.isHidden = false
+					btn.rx.tap.bind { eFunc() }.disposed(by: disposeBag)
+				}
+			}
+		}
     #endif
         
         self.deviceButton.rx.tap.bind {
