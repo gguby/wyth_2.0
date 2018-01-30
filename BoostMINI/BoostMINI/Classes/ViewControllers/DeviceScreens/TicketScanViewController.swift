@@ -34,6 +34,11 @@ class TicketScanViewController: UIViewController {
                                       AVMetadataObject.ObjectType.interleaved2of5,
                                       AVMetadataObject.ObjectType.qr]
 
+    lazy var initOnceForUI: Void = {
+        self.initUI()
+        return
+    }()
+    
     // MARK: - * IBOutlets --------------------
 
     @IBOutlet weak var titleView: UIView!
@@ -62,7 +67,7 @@ class TicketScanViewController: UIViewController {
     override func viewDidLoad() {
 
         self.initProperties()
-        self.initUI()
+//        self.initUI()
 //        self.prepareViewDidLoad()
     }
     
@@ -80,7 +85,13 @@ class TicketScanViewController: UIViewController {
             }
         }).disposed(by: self.disposeBag)
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        _ = initOnceForUI
+    }
+    
 
     private func initProperties() {
         
@@ -88,6 +99,7 @@ class TicketScanViewController: UIViewController {
 
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
+        self.view.layoutIfNeeded()
         self.setMask(with: holeView.frame, in: dimView)
         
         #if DEBUG

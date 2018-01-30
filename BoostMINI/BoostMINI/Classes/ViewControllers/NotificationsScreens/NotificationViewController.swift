@@ -198,7 +198,7 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
             var notice = self.notifications[indexPath.row]
             
             if let deepLink = BSTFacade.session.deepLink, let comp = deepLink.query?.components(separatedBy: "=").last,
-                let pushId = Int(comp), isFirstLoading, pushId == notice.id?.i {
+                let pushId = Int(comp), isFirstLoading, pushId == notice.pushId?.i {
                     notice.reverseExpand()
                     
                     BSTFacade.session.deepLink = nil

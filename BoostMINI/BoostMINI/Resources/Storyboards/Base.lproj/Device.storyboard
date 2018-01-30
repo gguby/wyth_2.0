@@ -141,12 +141,10 @@
                                     <constraint firstAttribute="trailing" secondItem="xqe-F0-kxN" secondAttribute="trailing" constant="28" id="Jnf-dY-Zen"/>
                                     <constraint firstItem="odq-AU-88e" firstAttribute="top" secondItem="PYY-s4-wdx" secondAttribute="top" id="MMF-Pl-UhN"/>
                                     <constraint firstItem="ZQt-7w-W07" firstAttribute="centerY" secondItem="PYY-s4-wdx" secondAttribute="centerY" id="O01-C5-dgT"/>
-                                    <constraint firstItem="odq-AU-88e" firstAttribute="width" secondItem="PYY-s4-wdx" secondAttribute="width" id="ci8-Ax-vF7"/>
                                     <constraint firstItem="irY-nV-4ep" firstAttribute="top" secondItem="xqe-F0-kxN" secondAttribute="bottom" constant="20" id="dd6-v3-iq3"/>
                                     <constraint firstAttribute="trailing" secondItem="irY-nV-4ep" secondAttribute="trailing" constant="27" id="edT-L7-uyg"/>
                                     <constraint firstItem="ZQt-7w-W07" firstAttribute="centerX" secondItem="PYY-s4-wdx" secondAttribute="centerX" id="jEr-jR-1Sf"/>
                                     <constraint firstAttribute="bottom" secondItem="odq-AU-88e" secondAttribute="bottom" id="pdy-Rg-fkc"/>
-                                    <constraint firstItem="odq-AU-88e" firstAttribute="height" secondItem="PYY-s4-wdx" secondAttribute="height" id="qxn-cl-4h3"/>
                                 </constraints>
                             </view>
                         </subviews>

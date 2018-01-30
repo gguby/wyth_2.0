@@ -38,7 +38,11 @@ class BSTUXHanlder {
             return
         }
         
-        currentVC?.navigationController?.pushViewController(vc, animated: true)
+        if let nc = currentVC?.navigationController {
+            currentVC?.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            currentVC?.present(vc, animated: true, completion: nil)
+        }
     }
     
     func goTicketScan(currentViewController currentVC: UIViewController?) {
