@@ -50,35 +50,18 @@ class AgreementController: UIViewController {
 	
 	/// ViewController 로딩 시, UIControl 초기화
 	func initUI() {
-		guard let userName = SessionHandler.shared.welcomeName else {
-		
-			labelHead.text = ""
-			labelComment.text = ""
-			
-			buttonCheck.isHidden = !false
-			buttonCheck.isEnabled = !true
-			
-			buttonCancel.isHidden = !false
-			buttonCancel.isEnabled = !true
-			
-			buttonNext.isEnabled = !true
-
-			return
-		}
+		let userName = SessionHandler.shared.welcomeName ?? ""
 		
 		buttonCheck.isHidden = false
-		buttonCheck.isEnabled = true
+		buttonCheck.isEnabled = false
 		
 		buttonCancel.isHidden = false
 		buttonCancel.isEnabled = true
 		
-		buttonNext.isEnabled = true
-		
-
+		buttonNext.isEnabled = buttonCheck.isEnabled
 		
 		labelHead.text = BSTFacade.localizable.login.welcome(userName)
 		labelComment.text = BSTFacade.localizable.login.welcomeDetail(userName)
-
 
 		//BSTFacade.localizable.login.privacy()
 
