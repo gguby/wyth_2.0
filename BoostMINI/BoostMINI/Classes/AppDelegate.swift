@@ -21,25 +21,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.initializeApp(launchOptions)
         self.initializeThridParties()
-        
-        //		Logger.destination = [.console, .file]
-		Logger.setMinLogLevel(.verbose)
 
-		
 		CodableHelper.dateformatter = DateFormatter.jsonDate
 		
         return true
     }
+
     
     ///앱 관련 초기화 설정
     private func initializeApp(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        
+        Fabric.with([Crashlytics.self])
+        
+        #if DEBUG
+            Logger.destination = [.console]
+            Logger.setMinLogLevel(.verbose)
+        #else
+            Logger.destination = [.console, .crashlytics]
+            Logger.setMinLogLevel(.verbose)
+        #endif
+        
         UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications()
     }
     
     ///앱 관련 써드파티, 오픈소스 초기화 설정
     private func initializeThridParties() {
-          Fabric.with([Crashlytics.self])
+        
     }
 
     func applicationWillResignActive(_: UIApplication) {
@@ -116,7 +124,7 @@ extension AppDelegate {
         
         let pushToken = tokenParts.joined()
         BSTFacade.session.pushToken = pushToken
-        print("PushToken: \(pushToken)")
+        logDebug("PushToken: \(pushToken)")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
