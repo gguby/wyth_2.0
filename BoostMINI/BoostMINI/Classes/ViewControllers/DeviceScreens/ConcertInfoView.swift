@@ -41,15 +41,31 @@ class ConcertInfoView : UIView {
         self.getConcertData()
     }
     
-    func getConcertData() {
+    func bind(response : ConcertsSeatGetResponse) {
+        self.floor.text = response.floor
+        self.region.text = response.zone
+        self.column.text = response.row
+        self.number.text = response.column
+    }
+    
+    func getSeatApi() {
         guard let concertId = BSTFacade.session.currentConcertInfo?.concertId else { return }
         
-        let observable = DefaultAPI.getSeatsUsingGET(concertId: concertId)
+        DefaultAPI.getSeatsUsingGET(concertId: concertId)
+            .subscribe(onNext: { [weak self] (response) in
+                self?.bind(response: response)
+            }, onError: { (error) in
+                logVerbose(error)
+            }).disposed(by: self.disposeBag)
+    }
+    
+    func getConcertData() {
+        guard let response = BSTFacade.session.seat else {
+            self.getSeatApi()
+            return
+        }
         
-        observable.map { $0.floor }.bind(to: self.floor.rx.text).disposed(by: self.disposeBag)
-        observable.map { $0.zone }.bind(to: self.region.rx.text).disposed(by: self.disposeBag)
-        observable.map { $0.row }.bind(to: self.column.rx.text).disposed(by: self.disposeBag)
-        observable.map { $0.column }.bind(to: self.number.rx.text).disposed(by: self.disposeBag)
+        self.bind(response: response)
     }
 
 }
