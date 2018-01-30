@@ -23,16 +23,18 @@ open class AccountsPostResponse: EasyCodable {
     public var email: String?
     public var id: Int64?
     public var name: String?
+    public var skin: Skin?
 
 
     
-    public init(accountType: AccountType?, alarm: Bool?, createdAt: Date?, email: String?, id: Int64?, name: String?) {
+    public init(accountType: AccountType?, alarm: Bool?, createdAt: Date?, email: String?, id: Int64?, name: String?, skin: Skin?) {
         self.accountType = accountType
         self.alarm = alarm
         self.createdAt = createdAt
         self.email = email
         self.id = id
         self.name = name
+        self.skin = skin
     }
     
 
@@ -48,6 +50,7 @@ open class AccountsPostResponse: EasyCodable {
         try container.encodeIfPresent(email, forKey: "email")
         try container.encodeIfPresent(id, forKey: "id")
         try container.encodeIfPresent(name, forKey: "name")
+        try container.encodeIfPresent(skin, forKey: "skin")
     }
 
     // Decodable protocol methods
@@ -61,6 +64,7 @@ open class AccountsPostResponse: EasyCodable {
         email = try container.decodeIfPresent(String.self, forKey: "email")
         id = try container.decodeIfPresent(Int64.self, forKey: "id")
         name = try container.decodeIfPresent(String.self, forKey: "name")
+        skin = try container.decodeIfPresent(Skin.self, forKey: "skin")
     }
 }
 

@@ -438,6 +438,77 @@ open class DefaultAPI {
     }
 
     /**
+     푸시 토큰 갱신
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter tokenId: (path) tokenId 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postPushTokenUsingPOST(tokenId: String, completion: @escaping ((_ error: Error?) -> Void)) {
+		BSTFacade.ux.showIndicator(uniqueIndicatorKey)
+        postPushTokenUsingPOSTWithRequestBuilder(tokenId: tokenId).execute { (response, error) -> Void in
+		BSTFacade.ux.hideIndicator(uniqueIndicatorKey)
+            completion(error);
+        }
+    }
+
+    /**
+     푸시 토큰 갱신
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter tokenId: (path) tokenId 
+     - returns: Observable<Void>
+     */
+    open class func postPushTokenUsingPOST(tokenId: String) -> Observable<Void> {
+        return Observable.create { observer -> Disposable in
+            postPushTokenUsingPOST(tokenId: tokenId) { error in
+                if let error = error {
+                    observer.on(.error(error))
+                } else {
+                    observer.on(.next(()))
+                }
+                observer.on(.completed)
+            }
+            return Disposables.create()
+        }
+    }
+
+    /**
+     푸시 토큰 갱신
+     - POST /accounts/push/{tokenId}
+     
+     - parameter xAPPVersion: (header) app version 
+     - parameter xDevice: (header) device/os information (informal) 
+     - parameter acceptLanguage: (header) language-locale 
+     - parameter tokenId: (path) tokenId 
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func postPushTokenUsingPOSTWithRequestBuilder(tokenId: String) -> RequestBuilder<Void> {
+        var path = "/accounts/push/{tokenId}"
+        path = path.replacingOccurrences(of: "{tokenId}", with: "\(tokenId)", options: .literal, range: nil)
+        let URLString = BoostMINIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+
+        let url = NSURLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            "X-APP-Version": xAPPVersion,
+            "X-Device": xDevice,
+            "Accept-Language": acceptLanguage
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = BoostMINIAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
      스킨 선택 설정
      
      - parameter xAPPVersion: (header) app version 

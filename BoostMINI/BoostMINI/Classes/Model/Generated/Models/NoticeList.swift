@@ -15,6 +15,7 @@ open class NoticeList: EasyCodable {
 
     public var content: String?
     public var id: Int64?
+    public var pushId: Int64?
     public var subTitle: String?
     public var title: String?
     public var url: String?
@@ -22,9 +23,10 @@ open class NoticeList: EasyCodable {
 
 
     
-    public init(content: String?, id: Int64?, subTitle: String?, title: String?, url: String?, view: Bool?) {
+    public init(content: String?, id: Int64?, pushId: Int64?, subTitle: String?, title: String?, url: String?, view: Bool?) {
         self.content = content
         self.id = id
+        self.pushId = pushId
         self.subTitle = subTitle
         self.title = title
         self.url = url
@@ -40,6 +42,7 @@ open class NoticeList: EasyCodable {
 
         try container.encodeIfPresent(content, forKey: "content")
         try container.encodeIfPresent(id, forKey: "id")
+        try container.encodeIfPresent(pushId, forKey: "pushId")
         try container.encodeIfPresent(subTitle, forKey: "subTitle")
         try container.encodeIfPresent(title, forKey: "title")
         try container.encodeIfPresent(url, forKey: "url")
@@ -53,6 +56,7 @@ open class NoticeList: EasyCodable {
 
         content = try container.decodeIfPresent(String.self, forKey: "content")
         id = try container.decodeIfPresent(Int64.self, forKey: "id")
+        pushId = try container.decodeIfPresent(Int64.self, forKey: "pushId")
         subTitle = try container.decodeIfPresent(String.self, forKey: "subTitle")
         title = try container.decodeIfPresent(String.self, forKey: "title")
         url = try container.decodeIfPresent(String.self, forKey: "url")
