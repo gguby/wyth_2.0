@@ -51,10 +51,10 @@ class SettingViewController: BoostUIViewController {
             NSAttributedStringKey.underlineStyle : 1]
         
         
-        let logoutString = NSMutableAttributedString.init(string: "로그아웃", attributes: attrs)
+        let logoutString = NSMutableAttributedString.init(string: BSTFacade.localizable.home.logout(), attributes: attrs)
         self.logoutButton.setAttributedTitle(logoutString, for: .normal)
         
-        let updateString =  NSMutableAttributedString.init(string: "업데이트", attributes: attrs)
+        let updateString =  NSMutableAttributedString.init(string: BSTFacade.localizable.home.update(), attributes: attrs)
         self.updateButton.setAttributedTitle(updateString, for: .normal)
         
         attrs = [
@@ -62,7 +62,7 @@ class SettingViewController: BoostUIViewController {
             NSAttributedStringKey.foregroundColor : R.clr.boostMini.textSubtitle(),
             NSAttributedStringKey.underlineStyle : 1]
         
-        let withdrawString = NSMutableAttributedString.init(string: "회원탈퇴", attributes: attrs)
+        let withdrawString = NSMutableAttributedString.init(string: BSTFacade.localizable.home.withdraw(), attributes: attrs)
         self.withdrawButton.setAttributedTitle(withdrawString, for: .normal)
     }
 
@@ -84,9 +84,9 @@ class SettingViewController: BoostUIViewController {
         
         self.withdrawButton.rx.tap.bind {
             BSTFacade.ux
-                .showConfirm("Boost for TVXQ!를 정말 탈퇴 하시겠습니까?") { (bool) in
+                .showConfirm(BSTFacade.localizable.home.leaveBoostForTVXQ()) { (bool) in
                     if bool == true {
-                        BSTFacade.ux.showAlert("탈퇴 되었습니다.") {
+                        BSTFacade.ux.showAlert(BSTFacade.localizable.home.outOfTVXQ()) {
                             DefaultAPI.withdrawUsingDELETE { (_) in
                                 SessionHandler.shared.logout()
                                 BSTFacade.go.login()
@@ -208,7 +208,7 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
                 }
 				BSTFacade.session.skinURL = skins[indexPath.row].url
 				//Alamofire.request("https://httpbin.org/image/png").responseImage { response in ... }
-                BSTFacade.ux.showToast("설정 되었습니다.")
+                BSTFacade.ux.showToast(BSTFacade.localizable.home.itsSet())
 				
                 self?.selectedSkin = indexPath.row
                 self?.skinCollectionView.reloadData()

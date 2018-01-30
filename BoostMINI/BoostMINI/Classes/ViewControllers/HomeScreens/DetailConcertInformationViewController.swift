@@ -13,7 +13,11 @@ class DetailConcertInformationViewController: WebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadWebUrl("http://boostdev.lysn.com:8181/viewConcert?userId=1&concertId=1")
+        let userId = (SessionHandler.shared.profile == nil) ? "" : SessionHandler.shared.profile!.id.s
+        let lang = DefaultAPI.acceptLanguage    // "ko-KR"    // TODO : 디바이스에 맞게 변경 필요
+        let concertId = BSTFacade.session.currentConcertInfo?.concertId
+        
+        loadWebUrl("http://boostdev.lysn.com:8181/viewConcert?userId=\(userId)&device=IOS&language=\(lang)&concertId=\(concertId)")
         
     }
     

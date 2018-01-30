@@ -15,7 +15,9 @@ class HelpWebViewController: WebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadWebUrl("http://boostdev.lysn.com:8181/viewHelpList?userId=1")
+         let userId = (SessionHandler.shared.profile == nil) ? "" : SessionHandler.shared.profile!.id.s
+        
+        loadWebUrl("http://boostdev.lysn.com:8181/viewHelpList?userId=\(userId)")
         
     }
 
