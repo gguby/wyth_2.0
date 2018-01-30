@@ -46,6 +46,9 @@ class AgreementController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		//labelTitle.text = BSTFacade.localizable.login.titleWelcome()
+		
+		navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+
 	}
 	
 	/// ViewController 로딩 시, UIControl 초기화
@@ -103,6 +106,9 @@ class AgreementController: UIViewController {
 
 	
 	func back() {
+		// 나가므로 복원
+		navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+		
 		BSTFacade.go.login(self, animated: false)
 	}
 	
@@ -128,9 +134,13 @@ class AgreementController: UIViewController {
 
 		BoostProfile
 			.register(token,
-					  registered: { profile in
-						
-						BSTFacade.go.home()
+					  registered: { [weak self] profile in
+					
+						// 나가므로 복원
+						if let this = self {
+							this.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+							BSTFacade.go.home()
+						}
 		}) { error in
 			// TODO : error
 			BSTFacade.ux.showToastError(error?.localizedDescription ?? "ERROR")

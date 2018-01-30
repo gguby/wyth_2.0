@@ -185,6 +185,8 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5M-N3-biT">
                                 <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="delegate" destination="9z3-Qg-y4d" id="Hsb-U3-Ktd"/>
                                 </connections>
@@ -247,7 +249,8 @@
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="f5M-N3-biT" firstAttribute="bottom" secondItem="ydL-Gz-nvc" secondAttribute="bottom" id="9HW-X3-d2L"/>
                             <constraint firstItem="KNU-YX-zik" firstAttribute="top" secondItem="bmN-u9-5Ub" secondAttribute="top" id="Ogk-8W-0dP"/>
@@ -257,7 +260,7 @@
                             <constraint firstItem="Y0K-Uh-Gfr" firstAttribute="centerX" secondItem="ydL-Gz-nvc" secondAttribute="centerX" id="TcQ-4P-Pq0"/>
                             <constraint firstItem="KNU-YX-zik" firstAttribute="trailing" secondItem="ydL-Gz-nvc" secondAttribute="trailing" id="YLI-4M-iPt"/>
                             <constraint firstItem="f5M-N3-biT" firstAttribute="leading" secondItem="ydL-Gz-nvc" secondAttribute="leading" id="oI5-QD-Pk3"/>
-                            <constraint firstItem="f5M-N3-biT" firstAttribute="top" secondItem="KNU-YX-zik" secondAttribute="bottom" id="oSz-EJ-nhu"/>
+                            <constraint firstItem="KNU-YX-zik" firstAttribute="bottom" secondItem="f5M-N3-biT" secondAttribute="top" id="oSz-EJ-nhu"/>
                             <constraint firstItem="KNU-YX-zik" firstAttribute="leading" secondItem="ydL-Gz-nvc" secondAttribute="leading" id="rFO-Rh-cGG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ydL-Gz-nvc"/>
@@ -467,7 +470,8 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Nhq-Zi-uOP" firstAttribute="trailing" secondItem="D9b-fA-00y" secondAttribute="trailing" id="5Dd-S2-GsH"/>
                             <constraint firstItem="Um8-Tf-HZ6" firstAttribute="height" secondItem="SOI-wx-dzS" secondAttribute="height" id="7p4-L9-BRH"/>

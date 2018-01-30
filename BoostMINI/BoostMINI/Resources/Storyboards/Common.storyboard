@@ -18,7 +18,7 @@
         <!--Web View Controller-->
         <scene sceneID="2W8-Cv-Av0">
             <objects>
-                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iIH-Fm-G8X" customClass="WebViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iIH-Fm-G8X" customClass="WebViewController" customModule="BoostMINI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JMl-9Q-60Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zRK-P8-UA2" firstAttribute="centerY" secondItem="JMl-9Q-60Z" secondAttribute="centerY" id="13O-BY-ODJ"/>
                             <constraint firstItem="4Un-TA-u3G" firstAttribute="trailing" secondItem="kEi-ES-ISS" secondAttribute="trailing" id="5EE-Qm-x1b"/>
@@ -97,13 +98,14 @@
                             <constraint firstItem="YVl-eE-dil" firstAttribute="leading" secondItem="4Un-TA-u3G" secondAttribute="leading" id="HnA-FE-725"/>
                             <constraint firstItem="4Un-TA-u3G" firstAttribute="top" secondItem="Paq-3O-D5a" secondAttribute="top" id="Jh2-1U-1dz"/>
                             <constraint firstItem="YVl-eE-dil" firstAttribute="trailing" secondItem="4Un-TA-u3G" secondAttribute="trailing" id="VJh-a1-S6l"/>
-                            <constraint firstItem="kEi-ES-ISS" firstAttribute="top" secondItem="JMl-9Q-60Z" secondAttribute="top" priority="999" id="acd-5T-Gdh"/>
-                            <constraint firstItem="YVl-eE-dil" firstAttribute="top" secondItem="JMl-9Q-60Z" secondAttribute="top" id="kxi-SQ-E7q"/>
+                            <constraint firstItem="kEi-ES-ISS" firstAttribute="top" secondItem="YVl-eE-dil" secondAttribute="bottom" id="acd-5T-Gdh"/>
+                            <constraint firstItem="YVl-eE-dil" firstAttribute="top" secondItem="JMl-9Q-60Z" secondAttribute="top" id="glz-kU-E8U"/>
                             <constraint firstItem="zRK-P8-UA2" firstAttribute="centerX" secondItem="4Un-TA-u3G" secondAttribute="centerX" id="tum-WG-LVV"/>
-                            <constraint firstItem="kEi-ES-ISS" firstAttribute="top" secondItem="YVl-eE-dil" secondAttribute="bottom" placeholder="YES" id="v5W-um-7bP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Un-TA-u3G"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="zRK-P8-UA2" id="KbO-Va-OZm"/>
                         <outlet property="cancelButton" destination="QxS-ZL-60X" id="H3t-cJ-1ZV"/>
