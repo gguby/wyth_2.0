@@ -47,14 +47,14 @@ class ConcertInformationView: UIView {
         return UINib(nibName: "ConcertInformationView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ConcertInformationView
     }
     
-    func updateConcertInfo(completion: @escaping (_ totalAlaram : Int) -> Void) {
+    func updateConcertInfo(completion: @escaping (_ totalAlaram : Int, _ concertEnd : Bool) -> Void) {
         DefaultAPI.getConcertsUsingGET { [weak self] body, err in
             guard let dataList = body,
 				let data = dataList.concertlist?.last else {
                 return
             }
 			BSTFacade.session.currentConcertInfo = data
-            completion(dataList.totalAlarm!)
+            completion(dataList.totalAlarm!, data.end!)
 			
             self?.ddayLabel.text = "D-\(data.dday!)"
             self?.concertNameLabel.text = data.concertNm
