@@ -111,6 +111,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="alarmButton" destination="dE3-1E-rhh" id="OLx-PX-fZD"/>
                         <outlet property="backgroundView" destination="Yga-6p-3zX" id="hBz-Jf-HMz"/>
                         <outlet property="blurView" destination="v3j-d3-ghw" id="zPs-th-aNm"/>
                         <outlet property="skinImageView" destination="tMJ-xi-nih" id="4yz-Hy-cPU"/>

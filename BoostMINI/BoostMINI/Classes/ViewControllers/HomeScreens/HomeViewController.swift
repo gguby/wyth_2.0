@@ -35,6 +35,7 @@ class HomeViewController: BoostUIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var skinImageView: UIImageView!
     @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var alarmButton: UIButton!
     
     var selectSkinUrl : String?
     
@@ -65,7 +66,6 @@ class HomeViewController: BoostUIViewController {
             BSTFacade.ux.goDetailConcertInfoViewController(currentViewController: self)
         }.disposed(by: disposeBag)
         
-        view.updateConcertInfo()
         view.homeViewController = self
         return view
     }()
@@ -126,7 +126,14 @@ class HomeViewController: BoostUIViewController {
 	
     
     override func viewWillAppear(_ animated: Bool) {
-       updateSkinImageView()
+        updateSkinImageView()
+        self.popupView.updateConcertInfo { [weak self] totalAlarm in
+            if totalAlarm > 0 {
+                self?.alarmButton.setImage(BSTFacade.theme.image.btnCommonAlarmOn(), for: .normal)
+            } else {
+                self?.alarmButton.setImage(BSTFacade.theme.image.btnCommonAlarmOff(), for: .normal)
+            }
+        }
         
         if BSTFacade.device.isConnected {
             //응원도구가 연동되었습니다
