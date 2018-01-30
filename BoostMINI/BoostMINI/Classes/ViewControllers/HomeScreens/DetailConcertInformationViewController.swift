@@ -14,8 +14,10 @@ class DetailConcertInformationViewController: WebViewController {
         super.viewDidLoad()
         
         let userId = (SessionHandler.shared.profile == nil) ? "" : SessionHandler.shared.profile!.id.s
-        let lang = DefaultAPI.acceptLanguage    // "ko-KR"    // TODO : 디바이스에 맞게 변경 필요
-        let concertId = BSTFacade.session.currentConcertInfo?.concertId
+        let lang = DefaultAPI.acceptLanguage
+        guard let concertId  = BSTFacade.session.currentConcertInfo?.concertId else {
+            return
+        }
         
         loadWebUrl("http://boostdev.lysn.com:8181/viewConcert?userId=\(userId)&device=IOS&language=\(lang)&concertId=\(concertId)")
         
