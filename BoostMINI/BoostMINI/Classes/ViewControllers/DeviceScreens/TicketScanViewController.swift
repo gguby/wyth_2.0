@@ -12,7 +12,7 @@ import AVFoundation
 import Permission
 import JuseongJee_RxPermission
 
-class TicketScanViewController: UIViewController {
+class TicketScanViewController: BoostUIViewController {
 
     // MARK: - * properties --------------------
     var captureSession = AVCaptureSession()
@@ -67,8 +67,6 @@ class TicketScanViewController: UIViewController {
     override func viewDidLoad() {
 
         self.initProperties()
-//        self.initUI()
-//        self.prepareViewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,9 +133,9 @@ class TicketScanViewController: UIViewController {
             BSTFacade.ux.showToast("this is only for device.")
 			DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 //goto next view.
-//                BSTFacade.ux.showToast("1초후에 다음 화면으로 넘어갑니다. 시뮬레이터라서,,")
+                BSTFacade.ux.showToast("1초후에 다음 화면으로 넘어갑니다. 시뮬레이터라서,,")
 //                BSTError.ticket(TicketError.alreadyRegistred).cookError()   //이미 등록된 티켓 - 도움말 화면 이동 (debug)
-//                self.finishScan(code: "isSimulator")
+                self.finishScan(code: "isSimulator")
             }
             return
         }

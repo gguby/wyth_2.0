@@ -297,6 +297,7 @@
 		04E224412004867700A2B388 /* String+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2243E2004867700A2B388 /* String+Alert.swift */; };
 		04E22444200490FC00A2B388 /* ThemeOld.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E22443200490FC00A2B388 /* ThemeOld.xcassets */; };
 		04E224452004937200A2B388 /* DeviceViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A696AE8C1FF5E91D009B8FEF /* DeviceViewReactor.swift */; };
+		2B231E9520205054009ED722 /* UIView+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B231E9420205054009ED722 /* UIView+Addition.swift */; };
 		2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */; };
 		2B55BC311FF37E580017D2B2 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55BC301FF37E580017D2B2 /* NotificationModel.swift */; };
 		2B5AA0791FEA6293007441E1 /* BSTFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AA0781FEA6293007441E1 /* BSTFacade.swift */; };
@@ -476,6 +477,7 @@
 		04E22443200490FC00A2B388 /* ThemeOld.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThemeOld.xcassets; sourceTree = "<group>"; };
 		06AB04EF378DC627351252C4 /* Pods-BoostMINI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINI/Pods-BoostMINI.release.xcconfig"; sourceTree = "<group>"; };
 		225B24F76464411F2957F5CF /* Pods-BoostMINIUITests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoostMINIUITests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-BoostMINIUITests/Pods-BoostMINIUITests.stage.xcconfig"; sourceTree = "<group>"; };
+		2B231E9420205054009ED722 /* UIView+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Addition.swift"; sourceTree = "<group>"; };
 		2B55BC2B1FF37CCE0017D2B2 /* SwiftClass.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftClass.xctemplate; sourceTree = "<group>"; };
 		2B55BC2C1FF37CCE0017D2B2 /* UIViewController.xctemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIViewController.xctemplate; sourceTree = "<group>"; };
 		2B55BC2E1FF37DD30017D2B2 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -869,6 +871,7 @@
 				0462CD921FFB9AB7002B6E11 /* NSObject+ClassNameToString.swift */,
 				04B21925200874FB002A1742 /* UIButton+UpdateAttributeString.swift */,
 				0462CDD61FFDBC32002B6E11 /* UIView+HideAndShow.swift */,
+				2B231E9420205054009ED722 /* UIView+Addition.swift */,
 				A6F3507420035FAC00949BB2 /* UIImage+Alpha.swift */,
 				0480BCF3200C9FD500B79DB8 /* UserDefault+CustomClass.swift */,
 				046C4D83201AE31A00FD7083 /* BoostUIViewController.swift */,
@@ -1722,6 +1725,7 @@
 				04AD73F91FF21E23005F4BF0 /* LogInViewController.swift in Sources */,
 				045D148C1FF4DF3D00A67AA0 /* JSONDecoder+base.swift in Sources */,
 				2B61F03D1FDFA49500581F06 /* AppDelegate.swift in Sources */,
+				2B231E9520205054009ED722 /* UIView+Addition.swift in Sources */,
 				2B77AFB72005E8CC004434D1 /* Storyboard.swift in Sources */,
 				0483854820035641007DE69B /* Models.swift in Sources */,
 				2B5AA08F1FEB55C8007441E1 /* CommonUtil.swift in Sources */,
