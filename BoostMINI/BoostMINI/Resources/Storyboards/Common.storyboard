@@ -25,7 +25,8 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEi-ES-ISS">
                                 <rect key="frame" x="0.0" y="68" width="375" height="599"/>
-                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="delegate" destination="iIH-Fm-G8X" id="b7t-0l-ZsT"/>
                                 </connections>
@@ -59,7 +60,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_common_motive_title" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-4B-3RP">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgCommonMotiveTitle" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-4B-3RP">
                                                 <rect key="frame" x="227" y="38" width="148" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="cBD-Kb-ZJg"/>
@@ -190,6 +191,6 @@
     </scenes>
     <resources>
         <image name="btnCommonBack" width="47" height="47"/>
-        <image name="img_common_motive_title" width="148" height="10"/>
+        <image name="imgCommonMotiveTitle" width="142" height="9"/>
     </resources>
 </document>

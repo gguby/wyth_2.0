@@ -162,14 +162,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="240" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_common_motive_title" translatesAutoresizingMaskIntoConstraints="NO" id="STy-jk-l5M">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgCommonMotiveMenu" translatesAutoresizingMaskIntoConstraints="NO" id="STy-jk-l5M">
                                 <rect key="frame" x="0.0" y="0.0" width="208" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="BnE-BW-m59"/>
                                     <constraint firstAttribute="width" constant="208" id="eDL-YQ-Xng"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_menu_logo_tvxq" translatesAutoresizingMaskIntoConstraints="NO" id="bgj-Xi-j5Z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMenuLogoTvxq" translatesAutoresizingMaskIntoConstraints="NO" id="bgj-Xi-j5Z">
                                 <rect key="frame" x="0.0" y="31" width="135" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="97" id="822-T2-Oal"/>
@@ -184,7 +184,7 @@
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="도움말" image="icon_menu_info">
+                                <state key="normal" title="도움말" image="iconMenuInfo">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -206,7 +206,7 @@
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="설정" image="icon_menu_edit">
+                                <state key="normal" title="설정" image="iconMenuEdit">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -228,7 +228,7 @@
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="응원도구 관리" image="icon_menu_stick">
+                                <state key="normal" title="응원도구 관리" image="iconMenuStick">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -239,7 +239,7 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="TVXQ! Youtube" image="icon_menu_youtube">
+                                <state key="normal" title="TVXQ! Youtube" image="iconMenuYoutube">
                                     <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -257,52 +257,80 @@
                                     <action selector="goToYoutubeSite:" destination="KFb-Aw-ybA" eventType="touchUpInside" id="qtq-OO-gAT"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtk-bh-IzU">
-                                <rect key="frame" x="16" y="518" width="80" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8i9-ef-mdw">
+                                <rect key="frame" x="0.0" y="436" width="240" height="120"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtk-bh-IzU">
+                                        <rect key="frame" x="16" y="82" width="80" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lLE-6H-PBs"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="tmC-BF-1fW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="UI Debug">
+                                            <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihy-23-gFP">
+                                        <rect key="frame" x="16" y="41" width="80" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Beh-Jo-iP2"/>
+                                            <constraint firstAttribute="height" constant="30" id="jO0-Xf-VKw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="응원봉 연동">
+                                            <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSw-iK-8YY">
+                                        <rect key="frame" x="16" y="0.0" width="117" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="XSu-Lo-abC"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="qyQ-Py-w0n"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="응원봉 연동상태 변경">
+                                            <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="lLE-6H-PBs"/>
-                                    <constraint firstAttribute="width" constant="80" id="tmC-BF-1fW"/>
+                                    <constraint firstItem="ihy-23-gFP" firstAttribute="top" secondItem="JSw-iK-8YY" secondAttribute="bottom" constant="11" id="5BQ-0w-HFa"/>
+                                    <constraint firstItem="JSw-iK-8YY" firstAttribute="leading" secondItem="8i9-ef-mdw" secondAttribute="leading" constant="16" id="Ju4-qr-5nC"/>
+                                    <constraint firstAttribute="bottom" secondItem="jtk-bh-IzU" secondAttribute="bottom" constant="8" id="Os3-3U-fVG"/>
+                                    <constraint firstItem="ihy-23-gFP" firstAttribute="leading" secondItem="8i9-ef-mdw" secondAttribute="leading" constant="16" id="tqr-nb-vPx"/>
+                                    <constraint firstAttribute="height" constant="120" id="u54-8e-K3N"/>
+                                    <constraint firstItem="jtk-bh-IzU" firstAttribute="top" secondItem="ihy-23-gFP" secondAttribute="bottom" constant="11" id="vb2-e1-izn"/>
+                                    <constraint firstItem="jtk-bh-IzU" firstAttribute="leading" secondItem="8i9-ef-mdw" secondAttribute="leading" constant="16" id="yHd-oq-Hwa"/>
                                 </constraints>
-                                <state key="normal" title="UI Debug">
-                                    <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihy-23-gFP">
-                                <rect key="frame" x="16" y="475" width="80" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Beh-Jo-iP2"/>
-                                    <constraint firstAttribute="height" constant="30" id="jO0-Xf-VKw"/>
-                                </constraints>
-                                <state key="normal" title="응원봉 연동">
-                                    <color key="titleColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bgj-Xi-j5Z" firstAttribute="top" secondItem="STy-jk-l5M" secondAttribute="bottom" constant="19" id="1IB-ao-hyf"/>
                             <constraint firstItem="w6j-P6-rVD" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="1Qb-dc-PMB"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="tla-l2-1UC" secondAttribute="trailing" id="3MG-J4-22I"/>
-                            <constraint firstItem="jtk-bh-IzU" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" constant="16" id="7UQ-O6-NNf"/>
                             <constraint firstItem="bgj-Xi-j5Z" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="AP6-aP-5sd"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="h9S-1k-fuF" secondAttribute="trailing" id="Bmm-Q6-LOZ"/>
                             <constraint firstItem="OhZ-TS-HhW" firstAttribute="trailing" secondItem="jTv-Bz-bQc" secondAttribute="trailing" id="FEr-s9-fxH"/>
                             <constraint firstItem="tSi-YQ-eW8" firstAttribute="top" secondItem="h9S-1k-fuF" secondAttribute="bottom" id="FzU-Su-5xE"/>
                             <constraint firstItem="tSi-YQ-eW8" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="ID3-mr-a3s"/>
+                            <constraint firstItem="8i9-ef-mdw" firstAttribute="trailing" secondItem="jTv-Bz-bQc" secondAttribute="trailing" id="NbA-ON-jOZ"/>
                             <constraint firstItem="h9S-1k-fuF" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="O3F-qC-b75"/>
                             <constraint firstItem="w6j-P6-rVD" firstAttribute="top" secondItem="bgj-Xi-j5Z" secondAttribute="bottom" constant="18" id="Pno-s6-0xu"/>
                             <constraint firstItem="6lw-NI-sJf" firstAttribute="top" secondItem="OhZ-TS-HhW" secondAttribute="bottom" id="Q9R-zF-C6T"/>
                             <constraint firstItem="STy-jk-l5M" firstAttribute="top" secondItem="gff-vu-hI0" secondAttribute="top" id="Td6-qC-wAh"/>
+                            <constraint firstItem="8i9-ef-mdw" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="UAU-2l-Al1"/>
                             <constraint firstItem="STy-jk-l5M" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="VWK-YG-H43"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="tSi-YQ-eW8" secondAttribute="trailing" id="YZj-bQ-OBp"/>
-                            <constraint firstItem="ihy-23-gFP" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" constant="16" id="ZAI-Rr-18r"/>
-                            <constraint firstItem="jtk-bh-IzU" firstAttribute="top" secondItem="ihy-23-gFP" secondAttribute="bottom" constant="13" id="b9d-1x-Wp8"/>
-                            <constraint firstItem="tla-l2-1UC" firstAttribute="top" secondItem="jtk-bh-IzU" secondAttribute="bottom" constant="8" id="bRP-GL-iXe"/>
                             <constraint firstItem="Yfj-35-mID" firstAttribute="top" secondItem="tla-l2-1UC" secondAttribute="bottom" id="btd-j0-iBU"/>
                             <constraint firstItem="OhZ-TS-HhW" firstAttribute="top" secondItem="w6j-P6-rVD" secondAttribute="bottom" id="dkV-tD-SYK"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="w6j-P6-rVD" secondAttribute="trailing" id="lXP-0S-NCU"/>
                             <constraint firstItem="OhZ-TS-HhW" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="mZ5-aq-sRs"/>
                             <constraint firstItem="h9S-1k-fuF" firstAttribute="top" secondItem="6lw-NI-sJf" secondAttribute="bottom" id="omr-Ed-2sw"/>
+                            <constraint firstItem="tla-l2-1UC" firstAttribute="top" secondItem="8i9-ef-mdw" secondAttribute="bottom" id="p4e-pv-Cdx"/>
                             <constraint firstItem="6lw-NI-sJf" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="pA8-GW-TmW"/>
                             <constraint firstItem="Yfj-35-mID" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="rRb-hM-mnn"/>
                             <constraint firstItem="tla-l2-1UC" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="uf4-TA-eUK"/>
@@ -409,6 +437,7 @@
                                             <constraint firstAttribute="width" constant="50" id="GJd-kE-aja"/>
                                             <constraint firstAttribute="height" constant="17" id="hXw-ul-452"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="로그아웃">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -1016,14 +1045,15 @@
         <image name="btnSplashCheckOn" width="17" height="17"/>
         <image name="btn_common_alarm" width="90" height="90"/>
         <image name="btn_common_menu" width="90" height="90"/>
+        <image name="iconMenuEdit" width="18" height="18"/>
+        <image name="iconMenuInfo" width="18" height="18"/>
+        <image name="iconMenuStick" width="18" height="18"/>
+        <image name="iconMenuYoutube" width="18" height="18"/>
         <image name="icon_common_more" width="40" height="40"/>
-        <image name="icon_menu_edit" width="18" height="18"/>
-        <image name="icon_menu_info" width="18" height="18"/>
-        <image name="icon_menu_stick" width="18" height="18"/>
-        <image name="icon_menu_youtube" width="18" height="18"/>
+        <image name="imgCommonMotiveMenu" width="208" height="12"/>
+        <image name="imgMenuLogoTvxq" width="130" height="93"/>
         <image name="imgTvxqMain" width="375" height="667"/>
         <image name="img_common_motive_title" width="148" height="10"/>
-        <image name="img_menu_logo_tvxq" width="130" height="93"/>
         <image name="youtube" width="240" height="59"/>
     </resources>
 </document>
