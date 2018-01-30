@@ -99,7 +99,7 @@ final class DeviceViewReactor : Reactor {
         }
     }
     
-// swiftlint:disable:next cyclomatic_complexity
+
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
@@ -135,7 +135,13 @@ final class DeviceViewReactor : Reactor {
             }
             
         case .deviceError(let error):
+            self.device.registeredDeviceObserver.onNext(nil)
             newState.deviceError = error
+            newState.contentMsg = ContentMessage.notScanning
+            newState.titleMsg = RDevice.btTitleLbl()
+            newState.isRegister = false
+            newState.isParingDevice = false
+            newState.registeredDevice = nil
         case .contentMsg(let msg):
             newState.contentMsg = msg
         case .managementViewInit:

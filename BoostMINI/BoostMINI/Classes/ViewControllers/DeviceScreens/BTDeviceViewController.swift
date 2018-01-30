@@ -134,15 +134,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
                 .distinctUntilChanged()
                 .bind(to: self.confirmBtn.rx.isHidden)
                 .disposed(by: self.disposeBag)
-            
-            self.cancelBtn.rx.tap.bind {
-                if let navi = self.navigationController {
-                    navi.popViewController(animated: true)
-                } else {
-                    self.dismiss(animated: true, completion: nil)
-                }                
-                self.disposeBag = DisposeBag()
-            }.disposed(by: self.disposeBag)
         }
         
         reactor.state.map { $0.contentMsg.content }
@@ -165,6 +156,7 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         reactor.state.map { $0.deviceError }
             .filterNilKeepOptional()
             .subscribe(onNext: { error in
+                self.stickImage.alpha = 0.3
                 error?.cookError()
             })
             .disposed(by: self.disposeBag)

@@ -58,8 +58,8 @@ class MenuViewController: UIViewController {
 		if let debugPanel = debugPanel {
 			debugPanel.isHidden = false
 			let eventFuncs = [
-				101 : { BSTFacade.ux.goTicketScan(currentViewController: self) },
-				102 : { FLEXManager.shared().showExplorer() },
+				101 : { FLEXManager.shared().showExplorer() },
+				102 : { BSTFacade.ux.goTicketScan(currentViewController: self) },
 				103 : { let con = !BSTFacade.device.isConnected
 					BSTFacade.device.isConnected = con
 					BSTFacade.ux.showAlert("isConnected = \(con)") }
@@ -67,8 +67,7 @@ class MenuViewController: UIViewController {
 			for i in 0..<eventFuncs.keys.count {
 				let buttonTag = 101 + i
 				if let btn = debugPanel.viewWithTag(buttonTag) as? UIButton,
-					let eFunc = eventFuncs[i] {
-					//btn.isHidden = false
+					let eFunc = eventFuncs[buttonTag] {
 					btn.rx.tap.bind { eFunc() }.disposed(by: disposeBag)
 				}
 			}
