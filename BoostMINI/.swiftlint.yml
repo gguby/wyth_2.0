@@ -2,6 +2,9 @@ disabled_rules: # 실행에서 제외할 룰 식별자들
   - colon
   - control_statement
   - block_based_kvo # swift 3.2
+  - cyclomatic_complexity
+  - legacy_constructor
+  - todo
   # - discarded_notification_center_observer  # When registering for a notification using a block, the opaque observer that is returned should be stored so it can be removed later.
   - file_length
   - function_body_length
