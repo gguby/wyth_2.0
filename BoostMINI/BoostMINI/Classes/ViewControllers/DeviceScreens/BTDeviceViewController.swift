@@ -96,15 +96,12 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             })
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.isRegister }
-            .filterNil()
-            .subscribe(onNext: { (isRegister) in
-                self.stickImage.alpha = isRegister ? 1.0 : 0.3
-                self.registerBtn.isHidden = isRegister
-                self.imageTicketView.isHidden = !isRegister
-                self.resetBtn.isHidden = !isRegister
-            })
-            .disposed(by: self.disposeBag)
+        let isConnected = BSTFacade.device.isConnected
+        
+        self.stickImage.alpha = isConnected ? 1.0 : 0.3
+        self.registerBtn.isHidden = isConnected
+        self.imageTicketView.isHidden = !isConnected
+        self.resetBtn.isHidden = !isConnected
         
         self.cancelBtn.isHidden = true
         self.confirmBtn.isHidden = true
