@@ -33,6 +33,9 @@ class BTDeviceViewController : UIViewController, StoryboardView {
     @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     
+    @IBOutlet weak var scanErrorBtn: UIButton!
+    @IBOutlet weak var connectionErrorBtn: UIButton!
+    
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -94,6 +97,7 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.isRegister }
+            .filterNil()
             .subscribe(onNext: { (isRegister) in
                 self.stickImage.alpha = isRegister ? 1.0 : 0.3
                 self.registerBtn.isHidden = isRegister
@@ -116,6 +120,8 @@ class BTDeviceViewController : UIViewController, StoryboardView {
             self.resetBtn.isHidden = true
             self.registerBtn.isHidden = true
             self.backBtn.isHidden = true
+            self.scanErrorBtn.isHidden = false
+            self.connectionErrorBtn.isHidden = false
             
             self.rx.viewDidAppear
                 .map { _ in Reactor.Action.connectAll }
@@ -165,5 +171,8 @@ class BTDeviceViewController : UIViewController, StoryboardView {
                 error?.cookError()
             })
             .disposed(by: self.disposeBag)
+        
+        self.scanErrorBtn.rx.tap.map { _ in Reactor.Action.errorScan }.bind(to: reactor.action).disposed(by: self.disposeBag)
+        self.connectionErrorBtn.rx.tap.map { _ in Reactor.Action.errorConnetion }.bind(to: reactor.action).disposed(by: self.disposeBag)
     }
 }
