@@ -8,6 +8,8 @@
 
 import UIKit
 import UserNotifications
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ///앱 관련 써드파티, 오픈소스 초기화 설정
     private func initializeThridParties() {
-        
+          Fabric.with([Crashlytics.self])
     }
 
     func applicationWillResignActive(_: UIApplication) {
