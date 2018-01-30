@@ -48,8 +48,8 @@ class MenuViewController: UIViewController {
 
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
-        diagonalImageView.transform = diagonalImageView.transform.rotated(by: CGFloat.init(M_PI))
-		
+
+		self.navigationController?.view.backgroundColor = .clear
 		
     #if DEBUG
         btnScan.isHidden = false

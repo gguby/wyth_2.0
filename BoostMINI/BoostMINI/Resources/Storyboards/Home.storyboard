@@ -98,15 +98,15 @@
                             <constraint firstItem="Qgu-Oy-TeX" firstAttribute="trailing" secondItem="zDX-D1-lhA" secondAttribute="trailing" id="NDZ-7F-ZGA"/>
                             <constraint firstItem="tMJ-xi-nih" firstAttribute="bottom" secondItem="zDX-D1-lhA" secondAttribute="bottom" id="O54-NF-tjQ"/>
                             <constraint firstItem="v3j-d3-ghw" firstAttribute="top" secondItem="zDX-D1-lhA" secondAttribute="top" id="Q2V-47-hwY"/>
-                            <constraint firstItem="Yga-6p-3zX" firstAttribute="trailing" secondItem="bzi-qn-Q4b" secondAttribute="trailing" id="Qhb-M0-rrO"/>
+                            <constraint firstItem="Yga-6p-3zX" firstAttribute="trailing" secondItem="zDX-D1-lhA" secondAttribute="trailing" id="Qhb-M0-rrO"/>
                             <constraint firstItem="drg-M4-Pkp" firstAttribute="top" secondItem="bzi-qn-Q4b" secondAttribute="top" id="SMi-Bf-3yz"/>
-                            <constraint firstItem="Yga-6p-3zX" firstAttribute="bottom" secondItem="bzi-qn-Q4b" secondAttribute="bottom" id="Tjc-EL-fhH"/>
-                            <constraint firstItem="v3j-d3-ghw" firstAttribute="trailing" secondItem="bzi-qn-Q4b" secondAttribute="trailing" id="V08-b9-qFN"/>
+                            <constraint firstItem="Yga-6p-3zX" firstAttribute="bottom" secondItem="zDX-D1-lhA" secondAttribute="bottom" id="Tjc-EL-fhH"/>
+                            <constraint firstItem="v3j-d3-ghw" firstAttribute="trailing" secondItem="zDX-D1-lhA" secondAttribute="trailing" id="V08-b9-qFN"/>
                             <constraint firstItem="Qgu-Oy-TeX" firstAttribute="leading" secondItem="zDX-D1-lhA" secondAttribute="leading" id="V1H-hu-POl"/>
-                            <constraint firstItem="v3j-d3-ghw" firstAttribute="leading" secondItem="bzi-qn-Q4b" secondAttribute="leading" id="dFs-Qc-CHJ"/>
-                            <constraint firstItem="Yga-6p-3zX" firstAttribute="leading" secondItem="bzi-qn-Q4b" secondAttribute="leading" id="hG5-ce-32f"/>
+                            <constraint firstItem="v3j-d3-ghw" firstAttribute="leading" secondItem="zDX-D1-lhA" secondAttribute="leading" id="dFs-Qc-CHJ"/>
+                            <constraint firstItem="Yga-6p-3zX" firstAttribute="leading" secondItem="zDX-D1-lhA" secondAttribute="leading" id="hG5-ce-32f"/>
                             <constraint firstItem="tMJ-xi-nih" firstAttribute="top" secondItem="zDX-D1-lhA" secondAttribute="top" id="jNr-K8-bVf"/>
-                            <constraint firstItem="v3j-d3-ghw" firstAttribute="bottom" secondItem="bzi-qn-Q4b" secondAttribute="bottom" id="jyK-gX-mjG"/>
+                            <constraint firstItem="v3j-d3-ghw" firstAttribute="bottom" secondItem="zDX-D1-lhA" secondAttribute="bottom" id="jyK-gX-mjG"/>
                             <constraint firstItem="Yga-6p-3zX" firstAttribute="top" secondItem="zDX-D1-lhA" secondAttribute="top" id="lsn-aX-eRE"/>
                             <constraint firstItem="drg-M4-Pkp" firstAttribute="leading" secondItem="bzi-qn-Q4b" secondAttribute="leading" id="nbw-Mw-8id"/>
                             <constraint firstItem="tMJ-xi-nih" firstAttribute="trailing" secondItem="zDX-D1-lhA" secondAttribute="trailing" id="ziq-Qt-ndx"/>
@@ -133,13 +133,13 @@
         <scene sceneID="07C-r8-nQL">
             <objects>
                 <navigationController storyboardIdentifier="LeftMenuNavigationController" navigationBarHidden="YES" id="Q9p-jB-30q" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c47-ww-6YG">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CGQ-Ki-plG">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="menuWidth">
@@ -162,6 +162,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="240" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-6l-rpg" userLabel="backgroundColor">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="667"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgCommonMotiveMenu" translatesAutoresizingMaskIntoConstraints="NO" id="STy-jk-l5M">
                                 <rect key="frame" x="0.0" y="0.0" width="208" height="12"/>
                                 <constraints>
@@ -308,7 +313,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="DZr-6l-rpg" firstAttribute="leading" secondItem="gff-vu-hI0" secondAttribute="leading" id="0ar-O3-rgc"/>
                             <constraint firstItem="bgj-Xi-j5Z" firstAttribute="top" secondItem="STy-jk-l5M" secondAttribute="bottom" constant="19" id="1IB-ao-hyf"/>
                             <constraint firstItem="w6j-P6-rVD" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="1Qb-dc-PMB"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="tla-l2-1UC" secondAttribute="trailing" id="3MG-J4-22I"/>
@@ -321,12 +328,15 @@
                             <constraint firstItem="h9S-1k-fuF" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="O3F-qC-b75"/>
                             <constraint firstItem="w6j-P6-rVD" firstAttribute="top" secondItem="bgj-Xi-j5Z" secondAttribute="bottom" constant="18" id="Pno-s6-0xu"/>
                             <constraint firstItem="6lw-NI-sJf" firstAttribute="top" secondItem="OhZ-TS-HhW" secondAttribute="bottom" id="Q9R-zF-C6T"/>
+                            <constraint firstItem="DZr-6l-rpg" firstAttribute="bottom" secondItem="jTv-Bz-bQc" secondAttribute="bottom" id="QnH-pR-KF6"/>
                             <constraint firstItem="STy-jk-l5M" firstAttribute="top" secondItem="gff-vu-hI0" secondAttribute="top" id="Td6-qC-wAh"/>
                             <constraint firstItem="8i9-ef-mdw" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="UAU-2l-Al1"/>
                             <constraint firstItem="STy-jk-l5M" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="VWK-YG-H43"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="tSi-YQ-eW8" secondAttribute="trailing" id="YZj-bQ-OBp"/>
+                            <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="DZr-6l-rpg" secondAttribute="trailing" id="aPJ-BS-ePH"/>
                             <constraint firstItem="Yfj-35-mID" firstAttribute="top" secondItem="tla-l2-1UC" secondAttribute="bottom" id="btd-j0-iBU"/>
                             <constraint firstItem="OhZ-TS-HhW" firstAttribute="top" secondItem="w6j-P6-rVD" secondAttribute="bottom" id="dkV-tD-SYK"/>
+                            <constraint firstItem="DZr-6l-rpg" firstAttribute="top" secondItem="gff-vu-hI0" secondAttribute="top" id="gAR-H9-cCp"/>
                             <constraint firstItem="jTv-Bz-bQc" firstAttribute="trailing" secondItem="w6j-P6-rVD" secondAttribute="trailing" id="lXP-0S-NCU"/>
                             <constraint firstItem="OhZ-TS-HhW" firstAttribute="leading" secondItem="jTv-Bz-bQc" secondAttribute="leading" id="mZ5-aq-sRs"/>
                             <constraint firstItem="h9S-1k-fuF" firstAttribute="top" secondItem="6lw-NI-sJf" secondAttribute="bottom" id="omr-Ed-2sw"/>
@@ -340,8 +350,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jTv-Bz-bQc"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="ljy-f5-PId"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="240" height="667"/>
                     <connections>
                         <outlet property="btnDebug" destination="jtk-bh-IzU" id="qMi-Ug-hOc"/>
