@@ -223,7 +223,9 @@ class BSTUXHanlder {
 //		if info == "codegenDK-DefaultAPI" {
 //			return
 //		}
-		LoadingIndicator.show(message: info)
+		DispatchQueue.main.async {
+			LoadingIndicator.show(message: info)
+		}
 		
 	}
 	
@@ -235,8 +237,9 @@ class BSTUXHanlder {
 //		if info == "codegenDK-DefaultAPI" {
 //			return
 //		}
-		LoadingIndicator.hide(animate: true, message: info)
-
+		DispatchQueue.main.async {
+			LoadingIndicator.hide(animate: true, message: info)
+		}
 	}
 	
 
