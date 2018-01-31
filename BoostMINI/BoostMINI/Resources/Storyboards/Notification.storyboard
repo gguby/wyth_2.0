@@ -32,7 +32,6 @@
                                             <constraint firstAttribute="height" constant="47" id="IaJ-r8-Yiq"/>
                                             <constraint firstAttribute="width" constant="47" id="QtA-fz-y6p"/>
                                         </constraints>
-                                        <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="btnCommonBack"/>
                                         <connections>
                                             <segue destination="kEE-Cl-wU3" kind="unwind" identifier="NotificationViewControllerExit" unwindAction="unwindFor:" id="Ewe-C2-sgn"/>
