@@ -37,9 +37,11 @@ class HomeViewController: BoostUIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var alarmButton: UIButton!
     
+    let leftTilting : CGFloat = 21
+    let rightTilting : CGFloat = -21
+    
     var selectSkinUrl : String?
     
-    @available(iOS 10.0, *)
     private lazy var tapRecognizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
         recognizer.rx.event.bind(onNext: { (recognize) in
@@ -48,7 +50,6 @@ class HomeViewController: BoostUIViewController {
         return recognizer
     }()
     
-    @available(iOS 10.0, *)
     private lazy var popupView: ConcertInformationView = {
         let view = ConcertInformationView.instanceFromNib()
         view.topTiltingView.addGestureRecognizer(tapRecognizer)
@@ -91,11 +92,7 @@ class HomeViewController: BoostUIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         if currentState == .open {
-            if #available(iOS 10.0, *) {
-                toggleViewingInformation()
-            } else {
-                // Fallback on earlier versions
-            }
+           toggleViewingInformation()
         }
     }
     
@@ -109,12 +106,8 @@ class HomeViewController: BoostUIViewController {
     
     /// ViewController 로딩 시, UIControl 초기화
     private func initUI() {
-		if #available(iOS 10.0, *) {
 			layout()
-            
-            
-		}
-    }
+     }
 
 	let disposeBag = DisposeBag()
 	
@@ -152,7 +145,6 @@ class HomeViewController: BoostUIViewController {
     }
     
     // MARK: - * Main Logic --------------------
-	@available(iOS 10.0, *)
     private func layout() {
         view.addSubview(popupView)
         popupView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -161,12 +153,12 @@ class HomeViewController: BoostUIViewController {
         popupView.topTiltingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         popupView.topTiltingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 270)
+        bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 264)
         bottomConstraint.isActive = true
         popupView.heightAnchor.constraint(equalToConstant: 661).isActive = true
         
         popupView.topTiltingView.useCenter = false
-        popupView.topTiltingView.updateDisplayTiltMask(28, animation:false)
+        popupView.topTiltingView.updateDisplayTiltMask(leftTilting, animation:false)
         popupView.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -245,7 +237,6 @@ class HomeViewController: BoostUIViewController {
         }
     }
     
-    @available(iOS 10.0, *)
     func toggleViewingInformation() {
         let state = currentState.opposite
         let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
@@ -254,14 +245,14 @@ class HomeViewController: BoostUIViewController {
                 self.bottomConstraint.constant = 0
                 self.backgroundView.alpha = 0.7
                 self.blurView.isHidden = false
-                self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
+                self.popupView.topTiltingView.updateDisplayTiltMask(self.rightTilting, animation:true)
                 self.popupView.updateSmallConcertInfoview()
                 self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideDown(), for: .normal)
             case .closed:
-                self.bottomConstraint.constant = 270
+                self.bottomConstraint.constant = 264
                 self.backgroundView.alpha = 0
                  self.blurView.isHidden = true
-                self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
+                self.popupView.topTiltingView.updateDisplayTiltMask(self.leftTilting, animation:true)
                 self.popupView.updateDefaultConcertInforView()
                 self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideUp(), for: .normal)
             }
@@ -280,7 +271,7 @@ class HomeViewController: BoostUIViewController {
             case .open:
                 self.bottomConstraint.constant = 0
             case .closed:
-                self.bottomConstraint.constant = 270
+                self.bottomConstraint.constant = 264
                 
             }
         }
@@ -308,10 +299,7 @@ extension HomeViewController : UISideMenuNavigationControllerDelegate {
         self.backgroundView.alpha = 0.7
         self.popupView.dimConcertInforView()
         if currentState == .open {
-            if #available(iOS 10.0, *) {
-                toggleViewingInformation()
-             } else {
-            }
+             toggleViewingInformation()
         }
     }
     
