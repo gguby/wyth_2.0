@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="47"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a32-EO-KeD">
-                                        <rect key="frame" x="0.0" y="0.3333333333333357" width="47" height="47"/>
+                                        <rect key="frame" x="2" y="0.3333333333333357" width="47" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="IaJ-r8-Yiq"/>
                                             <constraint firstAttribute="width" constant="47" id="QtA-fz-y6p"/>
@@ -38,8 +38,8 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejE-BU-snS">
-                                        <rect key="frame" x="169" y="10.999999999999998" width="38.333333333333343" height="26.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="22"/>
+                                        <rect key="frame" x="174" y="13.999999999999998" width="28" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -57,7 +57,7 @@
                                     <constraint firstAttribute="trailing" secondItem="7fE-K0-R4N" secondAttribute="trailing" id="JZX-7N-Ktr"/>
                                     <constraint firstItem="7fE-K0-R4N" firstAttribute="leading" secondItem="nFA-a9-o9t" secondAttribute="leading" id="O9F-YA-RDX"/>
                                     <constraint firstAttribute="bottom" secondItem="7fE-K0-R4N" secondAttribute="bottom" id="OqB-oT-4gY"/>
-                                    <constraint firstItem="a32-EO-KeD" firstAttribute="leading" secondItem="nFA-a9-o9t" secondAttribute="leading" id="duH-lV-bTH"/>
+                                    <constraint firstItem="a32-EO-KeD" firstAttribute="leading" secondItem="nFA-a9-o9t" secondAttribute="leading" constant="2" id="duH-lV-bTH"/>
                                     <constraint firstItem="a32-EO-KeD" firstAttribute="centerY" secondItem="nFA-a9-o9t" secondAttribute="centerY" id="eKg-if-rdK"/>
                                     <constraint firstItem="ejE-BU-snS" firstAttribute="centerY" secondItem="nFA-a9-o9t" secondAttribute="centerY" id="f9N-O0-kjP"/>
                                 </constraints>

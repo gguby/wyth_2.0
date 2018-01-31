@@ -100,10 +100,10 @@ class TicketScanViewController: BoostUIViewController {
         self.view.layoutIfNeeded()
         self.setMask(with: holeView.frame, in: dimView)
         
-        #if DEBUG
+//        #if DEBUG
             btnDebugFail.isHidden = false
             btnDebugAlready.isHidden = false
-        #endif
+//        #endif
     }
 
     // MARK: - * Main Logic --------------------
