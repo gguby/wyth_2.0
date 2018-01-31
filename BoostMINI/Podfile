@@ -19,6 +19,7 @@ def open_sources
 
   #	pod 'ImageViewer', '>= 5.0'
   pod 'Kingfisher', '~> 4.0'
+  pod 'VisualEffectView'		# Blur Filter
 
   pod 'UIColor_Hex_Swift', '~> 4.0.1'
   pod 'TransitionButton'
