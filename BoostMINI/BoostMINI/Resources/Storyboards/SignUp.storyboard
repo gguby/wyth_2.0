@@ -216,6 +216,7 @@
                                                     <constraint firstAttribute="width" constant="47" id="8e3-sv-tTB"/>
                                                     <constraint firstAttribute="height" constant="47" id="n12-Bv-Bvy"/>
                                                 </constraints>
+                                                <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" image="btnCommonBack"/>
                                                 <connections>
                                                     <action selector="back:" destination="9z3-Qg-y4d" eventType="touchUpInside" id="VC1-bw-UoY"/>

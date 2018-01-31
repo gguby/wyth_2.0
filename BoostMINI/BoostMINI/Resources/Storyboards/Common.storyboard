@@ -46,6 +46,7 @@
                                                     <constraint firstAttribute="height" constant="47" id="Lh7-3y-6Tf"/>
                                                     <constraint firstAttribute="width" constant="47" id="urn-Sm-Ixj"/>
                                                 </constraints>
+                                                <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" image="btnCommonBack"/>
                                                 <connections>
                                                     <action selector="back:" destination="iIH-Fm-G8X" eventType="touchUpInside" id="3KT-Hy-JNc"/>
