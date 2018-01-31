@@ -22,6 +22,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6P8-Pk-QuF" userLabel="50% Dim View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogoTvxq" translatesAutoresizingMaskIntoConstraints="NO" id="9iG-0F-ZrI">
                                 <rect key="frame" x="20" y="46" width="193" height="139"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,12 +39,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="top" secondItem="6P8-Pk-QuF" secondAttribute="top" id="461-3g-da2"/>
                             <constraint firstItem="9iG-0F-ZrI" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="46" id="P5n-0N-mc1"/>
+                            <constraint firstAttribute="bottom" secondItem="6P8-Pk-QuF" secondAttribute="bottom" id="QGq-Aa-p6P"/>
                             <constraint firstItem="qYM-d9-Rlw" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="SR7-GJ-UdU"/>
                             <constraint firstItem="9iG-0F-ZrI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="YFV-XK-5uU"/>
                             <constraint firstItem="qYM-d9-Rlw" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ces-Ov-sEt"/>
                             <constraint firstItem="qYM-d9-Rlw" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="iC3-SV-Jmm"/>
+                            <constraint firstAttribute="trailing" secondItem="6P8-Pk-QuF" secondAttribute="trailing" id="jOy-w8-MWj"/>
                             <constraint firstItem="qYM-d9-Rlw" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="kIE-bq-x5G"/>
+                            <constraint firstItem="6P8-Pk-QuF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="oRj-xk-4eX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

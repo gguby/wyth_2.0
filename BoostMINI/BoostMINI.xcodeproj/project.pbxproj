@@ -289,6 +289,9 @@
 		04C22BA91FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAA1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
 		04C22BAB1FEB9597007E2BED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C22BA81FEB9597007E2BED /* Logger.swift */; };
+		04C2CFBC2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2CFBB2021C70600CA3D50 /* BoostBlurEffectView.swift */; };
+		04C2CFBD2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2CFBB2021C70600CA3D50 /* BoostBlurEffectView.swift */; };
+		04C2CFBE2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2CFBB2021C70600CA3D50 /* BoostBlurEffectView.swift */; };
 		04E223F12003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
 		04E223F22003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
 		04E223F32003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
@@ -471,6 +474,7 @@
 		04B21925200874FB002A1742 /* UIButton+UpdateAttributeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UpdateAttributeString.swift"; sourceTree = "<group>"; };
 		04B219292008A448002A1742 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		04C22BA81FEB9597007E2BED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		04C2CFBB2021C70600CA3D50 /* BoostBlurEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostBlurEffectView.swift; sourceTree = "<group>"; };
 		04E223D82003766E00A2B388 /* DefaultAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI.swift; sourceTree = "<group>"; };
 		04E2243E2004867700A2B388 /* String+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Alert.swift"; sourceTree = "<group>"; };
 		04E224422004884100A2B388 /* Network.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Network.strings; sourceTree = "<group>"; };
@@ -781,6 +785,7 @@
 				04B2190520073617002A1742 /* TiltingView.swift */,
 				8F9A7CCF20035F0E003BABB1 /* TextViewWithInsets.swift */,
 				044236AE2005C413007E9369 /* UIView+BorderUIExtension.swift */,
+				04C2CFBB2021C70600CA3D50 /* BoostBlurEffectView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -1399,6 +1404,7 @@
 				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/VisualEffectView/VisualEffectView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1426,6 +1432,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_Hex_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisualEffectView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1463,6 +1470,7 @@
 				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/VisualEffectView/VisualEffectView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1490,6 +1498,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_Hex_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisualEffectView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1590,6 +1599,7 @@
 				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/VisualEffectView/VisualEffectView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1617,6 +1627,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_Hex_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisualEffectView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1672,6 +1683,7 @@
 				2B5AA0911FEB55D2007441E1 /* BSTButton.swift in Sources */,
 				0480BCE4200C3B1B00B79DB8 /* Extension+StoredProperties.swift in Sources */,
 				0462CDE81FFDFBE5002B6E11 /* Localizable.swift in Sources */,
+				04C2CFBC2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */,
 				0442D9BF2019926A00A239DE /* AppsGetResponse.swift in Sources */,
 				04AD741F1FF36269005F4BF0 /* Protocols.swift in Sources */,
 				2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */,
@@ -1813,6 +1825,7 @@
 				0442D9DE2019926A00A239DE /* ConcertResponse.swift in Sources */,
 				04B21927200874FB002A1742 /* UIButton+UpdateAttributeString.swift in Sources */,
 				0442D9BD2019926A00A239DE /* AccountsPostResponse.swift in Sources */,
+				04C2CFBD2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */,
 				04122A841FECE9AE00896EE0 /* Definitions.swift in Sources */,
 				04036112200DDCD200A19AF2 /* PermissionSet+Default.swift in Sources */,
 				0462CDAD1FFCA419002B6E11 /* BTDeviceService.swift in Sources */,
@@ -1926,6 +1939,7 @@
 				0442D9DF2019926A00A239DE /* ConcertResponse.swift in Sources */,
 				0462CDC11FFCA426002B6E11 /* NotificationModel.swift in Sources */,
 				0442D9BE2019926A00A239DE /* AccountsPostResponse.swift in Sources */,
+				04C2CFBE2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */,
 				044236B12005C413007E9369 /* UIView+BorderUIExtension.swift in Sources */,
 				04B2191120074C13002A1742 /* BoostProfile.swift in Sources */,
 				0462CDC51FFCA426002B6E11 /* BSTUXHandler-Alert.swift in Sources */,

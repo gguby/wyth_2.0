@@ -14,7 +14,7 @@ import JuseongJee_RxPermission
 
 
 
-class AgreementController: UIViewController {
+class AgreementController: BoostUIViewController {
 	
 	
 	
@@ -26,8 +26,6 @@ class AgreementController: UIViewController {
 	@IBOutlet weak var scrollTextArea: UIScrollView!
 	
 	
-	
-	@IBOutlet weak var tiltingView: TiltingView!
 	
 	
 	@IBOutlet weak var buttonDoc1: UIButton!
@@ -67,7 +65,6 @@ class AgreementController: UIViewController {
 		labelHead.text = BSTFacade.localizable.login.welcome(userName)
 		labelComment.text = BSTFacade.localizable.login.welcomeDetail(userName)
 
-		//BSTFacade.localizable.login.privacy()
 
 		buttonDoc1.text = BSTFacade.localizable.login.terms()
 		buttonDoc2.text = BSTFacade.localizable.login.privacy()

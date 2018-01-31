@@ -140,7 +140,6 @@ extension LogInViewController {
 
 	
 	func openSmLogin() {
-		
 		logVerbose("sm login")
 		
 		loginButtonView.hide()
@@ -150,13 +149,12 @@ extension LogInViewController {
 
 			var isFailed = false
 			DispatchQueue.main.async {
-					self.loginButtonView.show()
-					if isFailed {
-						return
-					}
-					let newVC = R.storyboard.signUp.smLoginViewController()!
-					self.navigationController?.pushViewController(newVC, animated: true)
-//				})
+				self.loginButtonView.show()
+				if isFailed {
+					return
+				}
+				let newVC = R.storyboard.signUp.smLoginViewController()!
+				self.navigationController?.pushViewController(newVC, animated: true)
 			}
 		})
 	}

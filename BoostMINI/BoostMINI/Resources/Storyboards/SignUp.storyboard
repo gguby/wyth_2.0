@@ -12,6 +12,7 @@
     <customFonts key="customFonts">
         <array key="AppleSDGothicNeo.ttc">
             <string>AppleSDGothicNeo-Medium</string>
+            <string>AppleSDGothicNeo-Regular</string>
         </array>
         <array key="SMTOWN(OTF)-Regular.otf">
             <string>SMTOWNOTF-Regular</string>
@@ -45,6 +46,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="imgTvxqIntro" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-Gr-f7c">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3e-1y-plz" userLabel="50% Dim View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogoTvxq" translatesAutoresizingMaskIntoConstraints="NO" id="xwx-1G-eNj">
                                 <rect key="frame" x="20" y="46" width="193" height="139"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,8 +61,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2f-b3-VOc" customClass="TransitionButton" customModule="TransitionButton">
-                                <rect key="frame" x="42" y="529" width="291" height="47"/>
+                                <rect key="frame" x="42" y="559" width="291" height="47"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="gle-GL-bmi"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
@@ -71,10 +80,10 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyU-Jf-RZo">
-                                <rect key="frame" x="42" y="529" width="291" height="47"/>
+                                <rect key="frame" x="42" y="558.5" width="291" height="48"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IBO-Ir-9Tf">
-                                        <rect key="frame" x="36" y="8" width="219.5" height="31"/>
+                                        <rect key="frame" x="36" y="8.5" width="219.5" height="31"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="imgSmLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Fvp-nf-A6e">
                                                 <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
@@ -99,7 +108,7 @@
                                     <constraint firstItem="IBO-Ir-9Tf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IyU-Jf-RZo" secondAttribute="leading" id="C4s-Dh-i8o"/>
                                     <constraint firstItem="IBO-Ir-9Tf" firstAttribute="centerY" secondItem="IyU-Jf-RZo" secondAttribute="centerY" id="XVK-3h-fPY"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IBO-Ir-9Tf" secondAttribute="trailing" id="bRG-9Q-CJ6"/>
-                                    <constraint firstAttribute="height" constant="47" id="evS-ox-TGn"/>
+                                    <constraint firstAttribute="height" constant="48" id="evS-ox-TGn"/>
                                     <constraint firstItem="IBO-Ir-9Tf" firstAttribute="centerX" secondItem="IyU-Jf-RZo" secondAttribute="centerX" id="rak-T9-dYC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -122,7 +131,7 @@
                                 </constraints>
                             </imageView>
                             <button hidden="YES" opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxo-tm-e7t" customClass="TransitionButton" customModule="TransitionButton">
-                                <rect key="frame" x="42" y="442" width="291" height="47"/>
+                                <rect key="frame" x="42" y="472" width="291" height="47"/>
                                 <color key="backgroundColor" red="0.56862745100000001" green="0.0" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Go Home..."/>
@@ -145,20 +154,23 @@
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="width" secondItem="IyU-Jf-RZo" secondAttribute="width" id="A4d-PT-Mo7"/>
                             <constraint firstItem="xwx-1G-eNj" firstAttribute="leading" secondItem="pct-yq-kql" secondAttribute="leading" constant="20" id="AFX-OZ-K8q"/>
                             <constraint firstItem="kxo-tm-e7t" firstAttribute="width" secondItem="I2f-b3-VOc" secondAttribute="width" id="AYQ-3w-rJB"/>
+                            <constraint firstItem="R3e-1y-plz" firstAttribute="bottom" secondItem="pct-yq-kql" secondAttribute="bottom" id="E67-gh-ZDJ"/>
                             <constraint firstItem="xwx-1G-eNj" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" constant="46" id="Fcg-YA-UML"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" id="FwM-zQ-coa"/>
                             <constraint firstAttribute="bottom" secondItem="Ypa-mP-mgc" secondAttribute="bottom" id="Heg-6e-U9H"/>
+                            <constraint firstItem="R3e-1y-plz" firstAttribute="leading" secondItem="pct-yq-kql" secondAttribute="leading" id="Ieb-mV-FGi"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="top" secondItem="kxo-tm-e7t" secondAttribute="bottom" constant="40" id="Ktn-Yq-yDD"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="bottom" secondItem="pct-yq-kql" secondAttribute="bottom" id="MAu-VR-1cU"/>
                             <constraint firstItem="IyU-Jf-RZo" firstAttribute="centerX" secondItem="zy3-7H-KCJ" secondAttribute="centerX" id="NsO-jF-QdZ"/>
                             <constraint firstItem="kxo-tm-e7t" firstAttribute="centerX" secondItem="I2f-b3-VOc" secondAttribute="centerX" id="eFH-HV-8UI"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="centerX" secondItem="IyU-Jf-RZo" secondAttribute="centerX" id="k23-8u-f7h"/>
-                            <constraint firstItem="zy3-7H-KCJ" firstAttribute="bottom" secondItem="I2f-b3-VOc" secondAttribute="bottom" constant="91" id="kzi-hy-3k2"/>
+                            <constraint firstItem="zy3-7H-KCJ" firstAttribute="bottom" secondItem="I2f-b3-VOc" secondAttribute="bottom" constant="61" id="kzi-hy-3k2"/>
                             <constraint firstItem="zy3-7H-KCJ" firstAttribute="trailing" secondItem="Ypa-mP-mgc" secondAttribute="trailing" id="pae-Sp-FSi"/>
-                            <constraint firstItem="I2f-b3-VOc" firstAttribute="height" secondItem="IyU-Jf-RZo" secondAttribute="height" id="pdV-YZ-BhJ"/>
                             <constraint firstItem="h2D-Gr-f7c" firstAttribute="leading" secondItem="zy3-7H-KCJ" secondAttribute="leading" id="qTm-uV-UO8"/>
+                            <constraint firstItem="R3e-1y-plz" firstAttribute="top" secondItem="pct-yq-kql" secondAttribute="top" id="tVa-lc-P8B"/>
                             <constraint firstItem="I2f-b3-VOc" firstAttribute="centerY" secondItem="IyU-Jf-RZo" secondAttribute="centerY" id="uoN-d1-dta"/>
                             <constraint firstItem="kxo-tm-e7t" firstAttribute="height" secondItem="I2f-b3-VOc" secondAttribute="height" id="xXK-FB-OmE"/>
+                            <constraint firstItem="R3e-1y-plz" firstAttribute="trailing" secondItem="pct-yq-kql" secondAttribute="trailing" id="zAh-tf-anf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zy3-7H-KCJ"/>
                     </view>
@@ -284,47 +296,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="imgTvxqIntro" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-wx-dzS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="imgTvxqIntro" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-wx-dzS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Um8-Tf-HZ6">
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlr-5h-Xy5" userLabel="50% Dim View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xVJ-mZ-eyX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
+                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOo-vR-ByF" customClass="BoostBlurEffectView" customModule="BoostMINI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhq-Zi-uOP" customClass="TiltingView" customModule="BoostMINI" customModuleProvider="target">
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhq-Zi-uOP">
                                 <rect key="frame" x="0.0" y="226" width="375" height="441"/>
                                 <subviews>
+                                    <view clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jgt-u9-781" customClass="TiltingView" customModule="BoostMINI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="441"/>
+                                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftTopGap">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rightTopGap">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHh-b0-fxM">
-                                        <rect key="frame" x="0.0" y="30" width="375" height="251"/>
+                                        <rect key="frame" x="0.0" y="30" width="375" height="248"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카시오페아님 환영합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-lA-Pxg">
-                                                <rect key="frame" x="42" y="37" width="278" height="24"/>
+                                                <rect key="frame" x="42" y="37" width="268" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pop-Wt-tbe">
-                                                <rect key="frame" x="42" y="85" width="278" height="62.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pop-Wt-tbe">
+                                                <rect key="frame" x="42" y="89" width="268" height="70"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <string key="text">Boost for TVXQ!는 카시오페아님의 이메일과 성명을
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">Boost for TVXQ!는 카시오페아님의 이메일과 성명을
 MUSIC NATION SMTOWN에서 제공받습니다.
 제공된 정보는 이용자 식별, 계정연동 등을 위해 
 서비스 이용 중 보관 됩니다.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <attributes>
+                                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2.5" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T9k-s9-bTG">
-                                                <rect key="frame" x="42" y="160.5" width="66" height="28"/>
+                                                <rect key="frame" x="42" y="175" width="71" height="28"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="T26-WQ-0Pt"/>
@@ -334,8 +366,8 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="이용약관 보기">
                                                             <attributes>
-                                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                                <color key="NSColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 <integer key="NSUnderline" value="1"/>
                                                             </attributes>
@@ -344,7 +376,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfY-Cx-IMT">
-                                                <rect key="frame" x="42" y="193" width="87" height="28"/>
+                                                <rect key="frame" x="42" y="207.5" width="94" height="28"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="Hpg-Fl-8mi"/>
@@ -354,8 +386,8 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="개인정보 처리방침">
                                                             <attributes>
-                                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                                <color key="NSColor" red="0.73725490199999999" green="0.74509803919999995" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 <integer key="NSUnderline" value="1"/>
                                                             </attributes>
@@ -367,7 +399,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="Pop-Wt-tbe" firstAttribute="top" secondItem="WuI-lA-Pxg" secondAttribute="bottom" constant="24" id="6I0-Pg-LT3"/>
+                                            <constraint firstItem="Pop-Wt-tbe" firstAttribute="top" secondItem="WuI-lA-Pxg" secondAttribute="bottom" constant="28" id="6I0-Pg-LT3"/>
                                             <constraint firstItem="WuI-lA-Pxg" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="9QJ-EV-wOc"/>
                                             <constraint firstItem="Pop-Wt-tbe" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="Bg0-Tm-MpU"/>
                                             <constraint firstItem="WuI-lA-Pxg" firstAttribute="top" secondItem="RHh-b0-fxM" secondAttribute="top" constant="37" id="DzN-nI-Zk8"/>
@@ -375,7 +407,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                             <constraint firstItem="T9k-s9-bTG" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="JLj-CG-ePc"/>
                                             <constraint firstAttribute="trailing" secondItem="Pop-Wt-tbe" secondAttribute="trailing" constant="42" id="UHM-Vq-z5D"/>
                                             <constraint firstItem="dfY-Cx-IMT" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="bwd-W4-ddc"/>
-                                            <constraint firstItem="T9k-s9-bTG" firstAttribute="top" secondItem="Pop-Wt-tbe" secondAttribute="bottom" constant="13" id="guK-aM-S1p"/>
+                                            <constraint firstItem="T9k-s9-bTG" firstAttribute="top" secondItem="Pop-Wt-tbe" secondAttribute="bottom" constant="16" id="guK-aM-S1p"/>
                                             <constraint firstAttribute="trailing" secondItem="WuI-lA-Pxg" secondAttribute="trailing" constant="42" id="ho7-hW-Jy5"/>
                                             <constraint firstItem="dfY-Cx-IMT" firstAttribute="top" secondItem="T9k-s9-bTG" secondAttribute="bottom" constant="4" id="tB4-Dg-IQw"/>
                                         </constraints>
@@ -386,6 +418,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="Irr-qD-h5w"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Boost for TVXQ! 시작하기">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -398,12 +431,12 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
-                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QL9-oe-W6M">
-                                        <rect key="frame" x="42" y="301" width="150" height="17"/>
+                                        <rect key="frame" x="42" y="298" width="150" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="wK0-dL-fJw"/>
@@ -417,27 +450,23 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                         <state key="selected" image="btnSplashCheckOn"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="QL9-oe-W6M" firstAttribute="top" secondItem="RHh-b0-fxM" secondAttribute="bottom" constant="20" id="1jx-mL-1BA"/>
                                     <constraint firstItem="QL9-oe-W6M" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" constant="42" id="2Mb-Oy-jdH"/>
+                                    <constraint firstItem="Jgt-u9-781" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" id="78y-wN-Cbh"/>
                                     <constraint firstItem="HYQ-ke-HGE" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" constant="42" id="82v-Pw-dkh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jgt-u9-781" secondAttribute="trailing" id="NDa-96-s1l"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="HYQ-ke-HGE" secondAttribute="bottom" constant="24" id="TzQ-YZ-0q7"/>
                                     <constraint firstItem="RHh-b0-fxM" firstAttribute="leading" secondItem="Nhq-Zi-uOP" secondAttribute="leading" id="YtP-Yr-bsA"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jgt-u9-781" secondAttribute="bottom" id="aVg-bW-E7g"/>
                                     <constraint firstAttribute="trailing" secondItem="HYQ-ke-HGE" secondAttribute="trailing" constant="42" id="hS8-VE-sdT"/>
+                                    <constraint firstItem="Jgt-u9-781" firstAttribute="top" secondItem="Nhq-Zi-uOP" secondAttribute="top" id="pOo-2V-9xi"/>
                                     <constraint firstAttribute="trailing" secondItem="RHh-b0-fxM" secondAttribute="trailing" id="rUd-fE-I2H"/>
                                     <constraint firstItem="RHh-b0-fxM" firstAttribute="top" secondItem="Nhq-Zi-uOP" secondAttribute="top" constant="30" id="yuG-cy-JRv"/>
-                                    <constraint firstItem="HYQ-ke-HGE" firstAttribute="top" secondItem="QL9-oe-W6M" secondAttribute="bottom" constant="44" id="zbA-ne-cv5"/>
+                                    <constraint firstItem="HYQ-ke-HGE" firstAttribute="top" secondItem="QL9-oe-W6M" secondAttribute="bottom" constant="47" id="zbA-ne-cv5"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftTopGap">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rightTopGap">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogoTvxq" translatesAutoresizingMaskIntoConstraints="NO" id="a8K-1U-efo">
                                 <rect key="frame" x="20" y="46" width="193" height="139"/>
@@ -449,7 +478,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdM-Z1-rCa">
-                                <rect key="frame" x="300" y="21" width="62" height="28"/>
+                                <rect key="frame" x="293" y="40" width="62" height="28"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="IJB-5V-nxU"/>
@@ -474,20 +503,24 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                         <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Wlr-5h-Xy5" firstAttribute="top" secondItem="0SZ-WZ-yrR" secondAttribute="top" id="2o4-4H-Riz"/>
                             <constraint firstItem="Nhq-Zi-uOP" firstAttribute="trailing" secondItem="D9b-fA-00y" secondAttribute="trailing" id="5Dd-S2-GsH"/>
-                            <constraint firstItem="Um8-Tf-HZ6" firstAttribute="height" secondItem="SOI-wx-dzS" secondAttribute="height" id="7p4-L9-BRH"/>
-                            <constraint firstItem="WdM-Z1-rCa" firstAttribute="top" secondItem="D9b-fA-00y" secondAttribute="top" constant="1" id="8dt-NN-FUT"/>
-                            <constraint firstItem="D9b-fA-00y" firstAttribute="trailing" secondItem="WdM-Z1-rCa" secondAttribute="trailing" constant="13" id="D8M-KB-NOF"/>
+                            <constraint firstItem="Wlr-5h-Xy5" firstAttribute="bottom" secondItem="0SZ-WZ-yrR" secondAttribute="bottom" id="6ND-4L-FcU"/>
+                            <constraint firstItem="WdM-Z1-rCa" firstAttribute="top" secondItem="D9b-fA-00y" secondAttribute="top" constant="20" id="8dt-NN-FUT"/>
+                            <constraint firstItem="D9b-fA-00y" firstAttribute="trailing" secondItem="WdM-Z1-rCa" secondAttribute="trailing" constant="20" id="D8M-KB-NOF"/>
                             <constraint firstItem="a8K-1U-efo" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" constant="20" id="ESZ-IM-rkS"/>
-                            <constraint firstItem="Um8-Tf-HZ6" firstAttribute="centerX" secondItem="SOI-wx-dzS" secondAttribute="centerX" id="HuV-ob-aTv"/>
+                            <constraint firstItem="Wlr-5h-Xy5" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" id="Gln-so-7lz"/>
+                            <constraint firstAttribute="trailing" secondItem="XOo-vR-ByF" secondAttribute="trailing" id="New-M0-ZOs"/>
                             <constraint firstItem="Nhq-Zi-uOP" firstAttribute="bottom" secondItem="0SZ-WZ-yrR" secondAttribute="bottom" id="RFj-ez-b7D"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="bottom" secondItem="0SZ-WZ-yrR" secondAttribute="bottom" id="Tc6-Ui-850"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="trailing" secondItem="0SZ-WZ-yrR" secondAttribute="trailing" id="ccd-bM-HL4"/>
-                            <constraint firstItem="Um8-Tf-HZ6" firstAttribute="width" secondItem="SOI-wx-dzS" secondAttribute="width" id="lII-rw-VYv"/>
+                            <constraint firstAttribute="bottom" secondItem="XOo-vR-ByF" secondAttribute="bottom" id="ea5-xD-pCo"/>
+                            <constraint firstItem="XOo-vR-ByF" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" id="krl-iM-Nu5"/>
                             <constraint firstItem="a8K-1U-efo" firstAttribute="top" secondItem="0SZ-WZ-yrR" secondAttribute="top" constant="46" id="mQu-Xc-ShS"/>
-                            <constraint firstItem="Um8-Tf-HZ6" firstAttribute="centerY" secondItem="SOI-wx-dzS" secondAttribute="centerY" id="mys-1j-doy"/>
+                            <constraint firstItem="Wlr-5h-Xy5" firstAttribute="trailing" secondItem="0SZ-WZ-yrR" secondAttribute="trailing" id="phP-FE-AoW"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" id="u9d-Rh-QpS"/>
                             <constraint firstItem="SOI-wx-dzS" firstAttribute="top" secondItem="0SZ-WZ-yrR" secondAttribute="top" id="ubU-93-asX"/>
+                            <constraint firstAttribute="top" secondItem="XOo-vR-ByF" secondAttribute="top" id="x6K-Kn-9qF"/>
                             <constraint firstItem="Nhq-Zi-uOP" firstAttribute="top" secondItem="D9b-fA-00y" secondAttribute="top" constant="206" id="xhz-hr-K9u"/>
                             <constraint firstItem="Nhq-Zi-uOP" firstAttribute="leading" secondItem="D9b-fA-00y" secondAttribute="leading" id="y1N-Gx-iYE"/>
                         </constraints>
@@ -495,7 +528,6 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
-                        <outlet property="blurEffectView" destination="Um8-Tf-HZ6" id="bgP-4k-Atg"/>
                         <outlet property="buttonCancel" destination="WdM-Z1-rCa" id="nqL-Fj-MYc"/>
                         <outlet property="buttonCheck" destination="QL9-oe-W6M" id="zhv-jH-PvP"/>
                         <outlet property="buttonDoc1" destination="T9k-s9-bTG" id="I5r-TC-r74"/>
@@ -504,7 +536,6 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                         <outlet property="labelComment" destination="Pop-Wt-tbe" id="EcL-Iv-ae8"/>
                         <outlet property="labelHead" destination="WuI-lA-Pxg" id="fef-Yy-w9t"/>
                         <outlet property="scrollTextArea" destination="RHh-b0-fxM" id="gKW-YN-z8C"/>
-                        <outlet property="tiltingView" destination="Nhq-Zi-uOP" id="vKi-cA-c5N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyE-kZ-Cm1" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -23,14 +23,20 @@ class TiltingView: UIView {
 		}
 	}
 
+	var isFirst = true
 	override func draw(_ rect: CGRect) {
 		logVerbose("TiltingView DRAW")
+		if isFirst {
+			isFirst = false
+//			let defaultAlpha: CGFloat = 0.8
+//			self.backgroundColor = BSTFacade.theme.color.commonBgPoint().withAlphaComponent(defaultAlpha)
+
+			self.layer.mask = toTiltLayer(getTiltPath(leftTopGap, rightTopGap))
+			self.clipsToBounds = true
+			//self.layer.allowsEdgeAntialiasing = true // 위쪽 선이 뭉게져서 이상하게 나오게 되어져 버린다..
+		}
 		super.draw(rect)
 
-		self.layer.mask = toTiltLayer(getTiltPath(leftTopGap, rightTopGap))
-		self.clipsToBounds = true
-		self.layer.allowsEdgeAntialiasing = true
-		
 	}
 	
 	
@@ -71,11 +77,7 @@ class TiltingView: UIView {
 	}
 	
 	fileprivate func toTiltLayer(_ path: CGPath) -> CALayer {
-		let defaultAlpha: CGFloat = 0.8 	// 80% alpha
-		if self.backgroundColor == UIColor.clear {
-			self.backgroundColor = BSTFacade.theme.color.commonBgPoint().withAlphaComponent(defaultAlpha)
-		}
-		
+
 		let fillColor: UIColor? = self.backgroundColor
 		let strokeColor: UIColor? = self.tintColor
 		
