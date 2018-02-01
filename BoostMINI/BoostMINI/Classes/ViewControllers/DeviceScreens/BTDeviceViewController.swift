@@ -157,7 +157,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         reactor.state.map { $0.deviceError }
             .filterNilKeepOptional()
             .subscribe(onNext: { error in
-                
                 self.stickImage.alpha = 0.3
                 error?.cookError()
             })
