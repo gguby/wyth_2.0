@@ -292,6 +292,9 @@
 		04C2CFBC2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2CFBB2021C70600CA3D50 /* BoostBlurEffectView.swift */; };
 		04C2CFBD2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2CFBB2021C70600CA3D50 /* BoostBlurEffectView.swift */; };
 		04C2CFBE2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2CFBB2021C70600CA3D50 /* BoostBlurEffectView.swift */; };
+		04C2CFC020229F6400CA3D50 /* AttributeText+Replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2CFBF20229F6400CA3D50 /* AttributeText+Replace.swift */; };
+		04C2CFC120229F6400CA3D50 /* AttributeText+Replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2CFBF20229F6400CA3D50 /* AttributeText+Replace.swift */; };
+		04C2CFC220229F6400CA3D50 /* AttributeText+Replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2CFBF20229F6400CA3D50 /* AttributeText+Replace.swift */; };
 		04E223F12003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
 		04E223F22003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
 		04E223F32003766E00A2B388 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E223D82003766E00A2B388 /* DefaultAPI.swift */; };
@@ -475,6 +478,7 @@
 		04B219292008A448002A1742 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		04C22BA81FEB9597007E2BED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		04C2CFBB2021C70600CA3D50 /* BoostBlurEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostBlurEffectView.swift; sourceTree = "<group>"; };
+		04C2CFBF20229F6400CA3D50 /* AttributeText+Replace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributeText+Replace.swift"; sourceTree = "<group>"; };
 		04E223D82003766E00A2B388 /* DefaultAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI.swift; sourceTree = "<group>"; };
 		04E2243E2004867700A2B388 /* String+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Alert.swift"; sourceTree = "<group>"; };
 		04E224422004884100A2B388 /* Network.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Network.strings; sourceTree = "<group>"; };
@@ -880,6 +884,7 @@
 				A6F3507420035FAC00949BB2 /* UIImage+Alpha.swift */,
 				0480BCF3200C9FD500B79DB8 /* UserDefault+CustomClass.swift */,
 				046C4D83201AE31A00FD7083 /* BoostUIViewController.swift */,
+				04C2CFBF20229F6400CA3D50 /* AttributeText+Replace.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1685,6 +1690,7 @@
 				0462CDE81FFDFBE5002B6E11 /* Localizable.swift in Sources */,
 				04C2CFBC2021C70600CA3D50 /* BoostBlurEffectView.swift in Sources */,
 				0442D9BF2019926A00A239DE /* AppsGetResponse.swift in Sources */,
+				04C2CFC020229F6400CA3D50 /* AttributeText+Replace.swift in Sources */,
 				04AD741F1FF36269005F4BF0 /* Protocols.swift in Sources */,
 				2B55BC2F1FF37DD30017D2B2 /* NotificationViewController.swift in Sources */,
 				0462CDD71FFDBC32002B6E11 /* UIView+HideAndShow.swift in Sources */,
@@ -1820,6 +1826,7 @@
 				04838478200331BC007DE69B /* NilDestination.swift in Sources */,
 				0462CDA51FFCA40B002B6E11 /* OpenSourceSample.swift in Sources */,
 				04838475200331BC007DE69B /* CrashlyticsDestination.swift in Sources */,
+				04C2CFC120229F6400CA3D50 /* AttributeText+Replace.swift in Sources */,
 				0462CDCC1FFCA430002B6E11 /* DebugHSLee.swift in Sources */,
 				04E223F22003766E00A2B388 /* DefaultAPI.swift in Sources */,
 				0442D9DE2019926A00A239DE /* ConcertResponse.swift in Sources */,
@@ -1934,6 +1941,7 @@
 				0412CB7D1FFF95CD0059C5A4 /* HTTPURLResponse+statusCode.swift in Sources */,
 				A6F3506F20033EB900949BB2 /* BTDeviceViewController.swift in Sources */,
 				0483854D20035641007DE69B /* Configuration.swift in Sources */,
+				04C2CFC220229F6400CA3D50 /* AttributeText+Replace.swift in Sources */,
 				0462CDA21FFCA408002B6E11 /* ViewController.swift in Sources */,
 				0462CDD51FFCA431002B6E11 /* Definitions.swift in Sources */,
 				0442D9DF2019926A00A239DE /* ConcertResponse.swift in Sources */,
