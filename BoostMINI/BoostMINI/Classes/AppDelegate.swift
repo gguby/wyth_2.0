@@ -132,8 +132,8 @@ extension AppDelegate {
         if BSTDeviceType.isSimulator {
             BSTFacade.session.pushToken = "773d7ed1992b20f035b5ca36b61225267737ba85620646db7491c76b4e530bc4"
         } else {
-            print("Failed to register: \(error)")
-            BSTFacade.session.pushToken = "TOKEN_ERROR"
+            logDebug("Failed to register: \(error.localizedDescription)")
+            BSTFacade.session.pushToken = "FAIL_TOKEN"
         }
     }
 }

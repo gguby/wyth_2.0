@@ -19,7 +19,7 @@ class SessionHandler {
     var seat: ConcertsSeatGetResponse?
 	var profile: BoostProfile?
 
-	var pushToken: String = "test- TODO:"	// TODO:
+	var pushToken: String = "NO_TOKEN"	// TODO:
     var deepLink: URL?
 	var osVersion: String = UIDevice.current.systemVersion
 	private var _skinURL : String?
