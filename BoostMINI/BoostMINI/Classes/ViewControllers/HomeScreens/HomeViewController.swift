@@ -37,8 +37,10 @@ class HomeViewController: BoostUIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var alarmButton: UIButton!
     
+    let popupViewHeight : Int = 667
     let leftTilting : CGFloat = 21
     let rightTilting : CGFloat = -21
+    let popupViewBottomConstant : CGFloat = 264
     
     var selectSkinUrl : String?
     
@@ -153,9 +155,9 @@ class HomeViewController: BoostUIViewController {
         popupView.topTiltingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         popupView.topTiltingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 264)
+        bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: popupViewBottomConstant)
         bottomConstraint.isActive = true
-        popupView.heightAnchor.constraint(equalToConstant: 661).isActive = true
+        popupView.heightAnchor.constraint(equalToConstant: CGFloat(popupViewHeight)).isActive = true
         
         popupView.topTiltingView.useCenter = false
         popupView.topTiltingView.updateDisplayTiltMask(leftTilting, animation:false)
@@ -249,9 +251,9 @@ class HomeViewController: BoostUIViewController {
                 self.popupView.updateSmallConcertInfoview()
                 self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideDown(), for: .normal)
             case .closed:
-                self.bottomConstraint.constant = 264
+                self.bottomConstraint.constant = self.popupViewBottomConstant
                 self.backgroundView.alpha = 0
-                 self.blurView.isHidden = true
+                self.blurView.isHidden = true
                 self.popupView.topTiltingView.updateDisplayTiltMask(self.leftTilting, animation:true)
                 self.popupView.updateDefaultConcertInforView()
                 self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideUp(), for: .normal)
@@ -271,8 +273,7 @@ class HomeViewController: BoostUIViewController {
             case .open:
                 self.bottomConstraint.constant = 0
             case .closed:
-                self.bottomConstraint.constant = 264
-                
+                self.bottomConstraint.constant = self.popupViewBottomConstant
             }
         }
         transitionAnimator.startAnimation()
@@ -299,8 +300,9 @@ extension HomeViewController : UISideMenuNavigationControllerDelegate {
         self.backgroundView.alpha = 0.7
         self.popupView.dimConcertInforView()
         if currentState == .open {
-             toggleViewingInformation()
-        }
+            toggleViewingInformation()
+         }
+
     }
     
     func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
