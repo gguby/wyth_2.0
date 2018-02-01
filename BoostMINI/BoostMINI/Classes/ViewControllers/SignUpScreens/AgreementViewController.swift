@@ -61,15 +61,14 @@ class AgreementController: BoostUIViewController {
 		buttonCancel.isEnabled = true
 		
 		buttonNext.isEnabled = buttonCheck.isSelected
-		
-		labelHead.text = BSTFacade.localizable.login.welcome(userName)
-		labelComment.text = BSTFacade.localizable.login.welcomeDetail(userName)
 
+		labelHead.textContent = BSTFacade.localizable.login.welcome(userName)
+		labelComment.textContent = BSTFacade.localizable.login.welcomeDetail(userName)
 
-		buttonDoc1.text = BSTFacade.localizable.login.terms()
-		buttonDoc2.text = BSTFacade.localizable.login.privacy()
-		buttonCancel.text = BSTFacade.localizable.login.cancelButton()
-		buttonNext.text = BSTFacade.localizable.login.startButton()
+		buttonDoc1.textContent = BSTFacade.localizable.login.terms()
+		buttonDoc2.textContent = BSTFacade.localizable.login.privacy()
+		buttonCancel.textContent = BSTFacade.localizable.login.cancelButton()
+		buttonNext.textContent = BSTFacade.localizable.login.startButton()
 	}
 
 	
