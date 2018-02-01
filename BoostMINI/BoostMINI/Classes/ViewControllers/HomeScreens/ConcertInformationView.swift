@@ -28,12 +28,14 @@ class ConcertInformationView: UIView {
     @IBOutlet weak var areaLabel: UILabel!
     @IBOutlet weak var rowLabel: UILabel!
     @IBOutlet weak var seatNumberLabel: UILabel!
+    @IBOutlet weak var manageDeviceButton: UIButton!
     
     @IBOutlet weak var ddayLabelWidthConstant: NSLayoutConstraint!
     @IBOutlet weak var ddayLabelHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var concertNameLabelHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var concertDateLabelHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var concertPlaceLabelHeightConstant: NSLayoutConstraint!
+    @IBOutlet weak var detailViewHeight: NSLayoutConstraint!
     
     var homeViewController : HomeViewController?
     
@@ -137,6 +139,8 @@ class ConcertInformationView: UIView {
         
         self.concertPlaceLabel.font =  self.concertPlaceLabel.font.withSize(12)
         self.concertPlaceLabelHeightConstant.constant = 18
+        
+        self.detailViewHeight.constant = 0
      }
     
     func updateDefaultConcertInforView() {
@@ -156,6 +160,9 @@ class ConcertInformationView: UIView {
         
         self.concertPlaceLabel.font =  self.concertPlaceLabel.font.withSize(15)
         self.concertPlaceLabelHeightConstant.constant = 21
+        
+        self.detailViewHeight.constant = 21
+        
     }
     
     func dimConcertInforView() {

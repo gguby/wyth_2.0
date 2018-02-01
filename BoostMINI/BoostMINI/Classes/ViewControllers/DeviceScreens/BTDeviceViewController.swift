@@ -38,6 +38,8 @@ class BTDeviceViewController : UIViewController, StoryboardView {
     
     var disposeBag = DisposeBag()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +49,6 @@ class BTDeviceViewController : UIViewController, StoryboardView {
         self.confirmBtn.setTitle(RCommon.ok(), for: .normal)
         self.resetBtn.setTitle(RDevice.btReSettingBtn(), for: .normal)
         self.registerBtn.setTitle(RDevice.btTitleLbl(), for: .normal)
-        self.stickImage.alpha = 0.3
     }
     
     func blinkImage() {
