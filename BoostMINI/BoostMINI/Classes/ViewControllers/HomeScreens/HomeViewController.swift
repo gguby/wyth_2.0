@@ -37,6 +37,12 @@ class HomeViewController: BoostUIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var alarmButton: UIButton!
     
+    let popupViewHeight : Int = 667
+    let leftTilting : CGFloat = 21
+    let rightTilting : CGFloat = -21
+    let popupViewBottomConstant : CGFloat = 264
+    
+    
     var selectSkinUrl : String?
     
     @available(iOS 10.0, *)
@@ -161,12 +167,12 @@ class HomeViewController: BoostUIViewController {
         popupView.topTiltingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         popupView.topTiltingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 270)
+        bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: popupViewBottomConstant)
         bottomConstraint.isActive = true
-        popupView.heightAnchor.constraint(equalToConstant: 661).isActive = true
+        popupView.heightAnchor.constraint(equalToConstant: CGFloat(popupViewHeight)).isActive = true
         
         popupView.topTiltingView.useCenter = false
-        popupView.topTiltingView.updateDisplayTiltMask(28, animation:false)
+        popupView.topTiltingView.updateDisplayTiltMask(leftTilting, animation:false)
         popupView.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -245,7 +251,6 @@ class HomeViewController: BoostUIViewController {
         }
     }
     
-    @available(iOS 10.0, *)
     func toggleViewingInformation() {
         let state = currentState.opposite
         let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
@@ -254,14 +259,14 @@ class HomeViewController: BoostUIViewController {
                 self.bottomConstraint.constant = 0
                 self.backgroundView.alpha = 0.7
                 self.blurView.isHidden = false
-                self.popupView.topTiltingView.updateDisplayTiltMask(-28, animation:true)
+                self.popupView.topTiltingView.updateDisplayTiltMask(self.rightTilting, animation:true)
                 self.popupView.updateSmallConcertInfoview()
                 self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideDown(), for: .normal)
             case .closed:
-                self.bottomConstraint.constant = 270
+                self.bottomConstraint.constant = self.popupViewBottomConstant
                 self.backgroundView.alpha = 0
                  self.blurView.isHidden = true
-                self.popupView.topTiltingView.updateDisplayTiltMask(28, animation:true)
+                self.popupView.topTiltingView.updateDisplayTiltMask(self.leftTilting, animation:true)
                 self.popupView.updateDefaultConcertInforView()
                 self.popupView.arrowButton.setImage(BSTFacade.theme.image.btnCommonSlideUp(), for: .normal)
             }
@@ -280,7 +285,7 @@ class HomeViewController: BoostUIViewController {
             case .open:
                 self.bottomConstraint.constant = 0
             case .closed:
-                self.bottomConstraint.constant = 270
+                self.bottomConstraint.constant = self.popupViewBottomConstant
                 
             }
         }
@@ -308,11 +313,8 @@ extension HomeViewController : UISideMenuNavigationControllerDelegate {
         self.backgroundView.alpha = 0.7
         self.popupView.dimConcertInforView()
         if currentState == .open {
-            if #available(iOS 10.0, *) {
-                toggleViewingInformation()
-             } else {
-            }
-        }
+           toggleViewingInformation()
+         }
     }
     
     func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
