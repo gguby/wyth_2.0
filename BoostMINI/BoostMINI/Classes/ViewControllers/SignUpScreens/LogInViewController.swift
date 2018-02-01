@@ -141,7 +141,7 @@ extension LogInViewController {
 	
 	func openSmLogin() {
 		logVerbose("sm login")
-		
+
 		loginButtonView.hide()
 		let qualityOfServiceClass = DispatchQoS.QoSClass.background
 		let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)

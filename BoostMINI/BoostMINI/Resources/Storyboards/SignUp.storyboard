@@ -327,7 +327,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHh-b0-fxM">
-                                        <rect key="frame" x="0.0" y="30" width="375" height="248"/>
+                                        <rect key="frame" x="0.0" y="30" width="375" height="247"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카시오페아님 환영합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-lA-Pxg">
                                                 <rect key="frame" x="42" y="37" width="268" height="24"/>
@@ -338,7 +338,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pop-Wt-tbe">
-                                                <rect key="frame" x="42" y="89" width="268" height="70"/>
+                                                <rect key="frame" x="42" y="86" width="268" height="72"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
@@ -350,14 +350,14 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                                         <attributes>
                                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2.5" tighteningFactorForTruncation="0.0"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T9k-s9-bTG">
-                                                <rect key="frame" x="42" y="175" width="71" height="28"/>
+                                                <rect key="frame" x="42" y="176" width="71" height="28"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="T26-WQ-0Pt"/>
@@ -377,7 +377,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfY-Cx-IMT">
-                                                <rect key="frame" x="42" y="207.5" width="94" height="28"/>
+                                                <rect key="frame" x="42" y="208" width="94" height="28"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="Hpg-Fl-8mi"/>
@@ -400,7 +400,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="Pop-Wt-tbe" firstAttribute="top" secondItem="WuI-lA-Pxg" secondAttribute="bottom" constant="28" id="6I0-Pg-LT3"/>
+                                            <constraint firstItem="Pop-Wt-tbe" firstAttribute="top" secondItem="WuI-lA-Pxg" secondAttribute="bottom" constant="25" id="6I0-Pg-LT3"/>
                                             <constraint firstItem="WuI-lA-Pxg" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="9QJ-EV-wOc"/>
                                             <constraint firstItem="Pop-Wt-tbe" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="Bg0-Tm-MpU"/>
                                             <constraint firstItem="WuI-lA-Pxg" firstAttribute="top" secondItem="RHh-b0-fxM" secondAttribute="top" constant="37" id="DzN-nI-Zk8"/>
@@ -408,7 +408,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                             <constraint firstItem="T9k-s9-bTG" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="JLj-CG-ePc"/>
                                             <constraint firstAttribute="trailing" secondItem="Pop-Wt-tbe" secondAttribute="trailing" constant="42" id="UHM-Vq-z5D"/>
                                             <constraint firstItem="dfY-Cx-IMT" firstAttribute="leading" secondItem="RHh-b0-fxM" secondAttribute="leading" constant="42" id="bwd-W4-ddc"/>
-                                            <constraint firstItem="T9k-s9-bTG" firstAttribute="top" secondItem="Pop-Wt-tbe" secondAttribute="bottom" constant="16" id="guK-aM-S1p"/>
+                                            <constraint firstItem="T9k-s9-bTG" firstAttribute="top" secondItem="Pop-Wt-tbe" secondAttribute="bottom" constant="18" id="guK-aM-S1p"/>
                                             <constraint firstAttribute="trailing" secondItem="WuI-lA-Pxg" secondAttribute="trailing" constant="42" id="ho7-hW-Jy5"/>
                                             <constraint firstItem="dfY-Cx-IMT" firstAttribute="top" secondItem="T9k-s9-bTG" secondAttribute="bottom" constant="4" id="tB4-Dg-IQw"/>
                                         </constraints>
@@ -436,8 +436,8 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QL9-oe-W6M">
-                                        <rect key="frame" x="42" y="298" width="150" height="17"/>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QL9-oe-W6M">
+                                        <rect key="frame" x="42" y="297" width="150" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="wK0-dL-fJw"/>
@@ -466,7 +466,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                     <constraint firstItem="Jgt-u9-781" firstAttribute="top" secondItem="Nhq-Zi-uOP" secondAttribute="top" id="pOo-2V-9xi"/>
                                     <constraint firstAttribute="trailing" secondItem="RHh-b0-fxM" secondAttribute="trailing" id="rUd-fE-I2H"/>
                                     <constraint firstItem="RHh-b0-fxM" firstAttribute="top" secondItem="Nhq-Zi-uOP" secondAttribute="top" constant="30" id="yuG-cy-JRv"/>
-                                    <constraint firstItem="HYQ-ke-HGE" firstAttribute="top" secondItem="QL9-oe-W6M" secondAttribute="bottom" constant="47" id="zbA-ne-cv5"/>
+                                    <constraint firstItem="HYQ-ke-HGE" firstAttribute="top" secondItem="QL9-oe-W6M" secondAttribute="bottom" constant="48" id="zbA-ne-cv5"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogoTvxq" translatesAutoresizingMaskIntoConstraints="NO" id="a8K-1U-efo">
@@ -479,7 +479,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdM-Z1-rCa">
-                                <rect key="frame" x="293" y="40" width="62" height="28"/>
+                                <rect key="frame" x="293" y="41" width="62" height="28"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="IJB-5V-nxU"/>
@@ -507,7 +507,7 @@ MUSIC NATION SMTOWN에서 제공받습니다.
                             <constraint firstItem="Wlr-5h-Xy5" firstAttribute="top" secondItem="0SZ-WZ-yrR" secondAttribute="top" id="2o4-4H-Riz"/>
                             <constraint firstItem="Nhq-Zi-uOP" firstAttribute="trailing" secondItem="D9b-fA-00y" secondAttribute="trailing" id="5Dd-S2-GsH"/>
                             <constraint firstItem="Wlr-5h-Xy5" firstAttribute="bottom" secondItem="0SZ-WZ-yrR" secondAttribute="bottom" id="6ND-4L-FcU"/>
-                            <constraint firstItem="WdM-Z1-rCa" firstAttribute="top" secondItem="D9b-fA-00y" secondAttribute="top" constant="20" id="8dt-NN-FUT"/>
+                            <constraint firstItem="WdM-Z1-rCa" firstAttribute="top" secondItem="D9b-fA-00y" secondAttribute="top" constant="21" id="8dt-NN-FUT"/>
                             <constraint firstItem="D9b-fA-00y" firstAttribute="trailing" secondItem="WdM-Z1-rCa" secondAttribute="trailing" constant="20" id="D8M-KB-NOF"/>
                             <constraint firstItem="a8K-1U-efo" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" constant="20" id="ESZ-IM-rkS"/>
                             <constraint firstItem="Wlr-5h-Xy5" firstAttribute="leading" secondItem="0SZ-WZ-yrR" secondAttribute="leading" id="Gln-so-7lz"/>
