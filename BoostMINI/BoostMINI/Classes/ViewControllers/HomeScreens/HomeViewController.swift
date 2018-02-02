@@ -26,7 +26,6 @@ extension State {
     }
 }
 
-
 class HomeViewController: BoostUIViewController {
     
     // MARK: - * properties --------------------
@@ -40,7 +39,7 @@ class HomeViewController: BoostUIViewController {
     let popupViewHeight : Int = 667
     let leftTilting : CGFloat = 21
     let rightTilting : CGFloat = -21
-    let popupViewBottomConstant : CGFloat = 264
+    let popupViewBottomConstant : CGFloat = 211
     
     var selectSkinUrl : String?
     

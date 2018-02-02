@@ -153,7 +153,7 @@ class ConcertInformationView: UIView {
         self.ddayLabelHeightConstant.constant = 30
         
         self.concertNameLabel.font =  self.concertNameLabel.font.withSize(26)
-        self.concertNameLabelHeightConstant.constant = 58
+        self.concertNameLabelHeightConstant.constant = 63
         
         self.concertDateLabel.font =  self.concertDateLabel.font.withSize(15)
         self.concertDateLabelHeightConstant.constant = 21
