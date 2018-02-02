@@ -60,6 +60,12 @@ final class DeviceManager {
         let localDevice = BSTLocalDevice.init(array: arr)
         return localDevice
     }
+    
+    func clearDevice() {
+        self.isConnected = false
+        UserDefaults.standard.removeObject(forKey: "boostDevice")
+        UserDefaults.standard.synchronize()        
+    }
 }
 
 enum DeviceError : Error, BSTErrorProtocol {

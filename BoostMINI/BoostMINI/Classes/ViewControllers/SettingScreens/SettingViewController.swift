@@ -73,6 +73,7 @@ class SettingViewController: BoostUIViewController {
         
         self.logoutButton.rx.tap.bind {
             DefaultAPI.signoutUsingDELETE { _ in
+                BSTFacade.device.clearDevice()
                 SessionHandler.shared.logout()
                 BSTFacade.go.login()
             }
@@ -88,6 +89,7 @@ class SettingViewController: BoostUIViewController {
                     if bool == true {
                         BSTFacade.ux.showAlert(BSTFacade.localizable.home.outOfTVXQ()) {
                             DefaultAPI.withdrawUsingDELETE { (_) in
+                                BSTFacade.device.clearDevice()
                                 SessionHandler.shared.logout()
                                 BSTFacade.go.login()
                             }
