@@ -164,17 +164,6 @@ class ConcertInformationView: UIView {
         self.detailViewHeight.constant = 21
         
     }
-    
-    func dimConcertInforView() {
-        self.concertInfoView.alpha = 0.7
-        self.topTiltingView.alpha = 0.7
-    }
-    
-    func defaultConcertInfoView() {
-        self.concertInfoView.alpha = 1
-        self.topTiltingView.alpha = 1
-    }
-    
 }
 
 

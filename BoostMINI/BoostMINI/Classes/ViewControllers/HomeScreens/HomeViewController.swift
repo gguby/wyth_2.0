@@ -36,10 +36,10 @@ class HomeViewController: BoostUIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var alarmButton: UIButton!
     
-    let popupViewHeight : Int = 667
+    let popupViewHeight : Int = 713
     let leftTilting : CGFloat = 21
     let rightTilting : CGFloat = -21
-    let popupViewBottomConstant : CGFloat = 211
+    let popupViewBottomConstant : CGFloat = 257
     
     var selectSkinUrl : String?
     
@@ -297,8 +297,7 @@ class HomeViewController: BoostUIViewController {
 extension HomeViewController : UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
         self.backgroundView.alpha = 0.7
-        self.popupView.dimConcertInforView()
-        if currentState == .open {
+         if currentState == .open {
             toggleViewingInformation()
          }
 
@@ -306,7 +305,6 @@ extension HomeViewController : UISideMenuNavigationControllerDelegate {
     
     func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
         self.backgroundView.alpha = 0
-        self.popupView.defaultConcertInfoView()
     }
 }
 
