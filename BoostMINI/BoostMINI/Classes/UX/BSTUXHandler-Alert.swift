@@ -89,6 +89,13 @@ extension BSTUXHanlder {
 						completion: ((_ buttonIndex: Int) -> Void)? = nil) {
 			
 			// INFO: 비디오 플레이어처럼 상태표시줄이 없어야 되는 경우는, 상태표시줄이 없는 알럿으로 띄워줘야함..
+            
+            guard let msg = messageTemp else {
+                return
+            }
+            
+            guard msg.length() > 0 else { return }
+            
 			var viewController: UIViewController? = sender
 			if sender == nil {
 				
