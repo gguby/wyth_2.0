@@ -34,6 +34,9 @@ class ConcertInformationView: UIView {
     @IBOutlet weak var ddayLabelHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var concertNameLabelHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var concertDateLabelHeightConstant: NSLayoutConstraint!
+    @IBOutlet weak var concertDateLabelTopSpace: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var concertPlaceLabelHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var detailViewHeight: NSLayoutConstraint!
     
@@ -132,10 +135,11 @@ class ConcertInformationView: UIView {
         self.ddayLabelHeightConstant.constant = 25
         
         self.concertNameLabel.font =  self.concertNameLabel.font.withSize(21)
-        self.concertNameLabelHeightConstant.constant = 46
+        self.concertNameLabelHeightConstant.constant = 51
         
         self.concertDateLabel.font =  self.concertDateLabel.font.withSize(12)
         self.concertDateLabelHeightConstant.constant = 18
+         self.concertDateLabelTopSpace.constant = 7
         
         self.concertPlaceLabel.font =  self.concertPlaceLabel.font.withSize(12)
         self.concertPlaceLabelHeightConstant.constant = 18
@@ -157,8 +161,9 @@ class ConcertInformationView: UIView {
         
         self.concertDateLabel.font =  self.concertDateLabel.font.withSize(15)
         self.concertDateLabelHeightConstant.constant = 21
+        self.concertDateLabelTopSpace.constant = 9
         
-        self.concertPlaceLabel.font =  self.concertPlaceLabel.font.withSize(15)
+        self.concertPlaceLabel.font = self.concertPlaceLabel.font.withSize(15)
         self.concertPlaceLabelHeightConstant.constant = 21
         
         self.detailViewHeight.constant = 21
